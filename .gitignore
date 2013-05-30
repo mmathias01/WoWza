@@ -1,2 +1,16 @@
 *.DS_Store
 */.DS_Store
+
+/.agent.db
+/Cache/
+/Data/
+/Launcher.db
+/SetupOSX.mpq
+/Updates/
+/World of Warcraft Launcher.app/
+/World of Warcraft-64.app/
+/World of Warcraft.app/
+/WoW.mfil
+/WoW.pfil
+/WoW.tfil
+/WTF/Config.wtf
