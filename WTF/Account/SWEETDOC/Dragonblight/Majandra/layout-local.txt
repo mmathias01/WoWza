@@ -50,9 +50,9 @@ W: 921
 H: 601
 Frame: PawnUIFrame
 FrameLevel: 21
-Anchor: TOP
+Anchor: CENTER
 X: 25
-Y: -136
+Y: 130
 W: 800
 H: 525
 Frame: VuhDoNewColorPicker

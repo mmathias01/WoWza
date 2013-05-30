@@ -6,8 +6,8 @@ TomTomDB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Jolobank - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -35,8 +35,8 @@ TomTomWaypointsMF = {
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 	},
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
@@ -49,9 +49,9 @@ TomTomWaypointsMF = {
 		},
 		["Cellestia - Terenas"] = {
 		},
-		["Jolobank - Dragonblight"] = {
-		},
 		["Majandra - Dragonblight"] = {
+		},
+		["Jolobank - Dragonblight"] = {
 		},
 	},
 }

@@ -4,8 +4,8 @@ Postal3DB = {
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 	},
 	["global"] = {
 		["BlackBook"] = {
@@ -37,8 +37,6 @@ Postal3DB = {
 				},
 			},
 		},
-		["Jolobank - Dragonblight"] = {
-		},
 		["Majandra - Dragonblight"] = {
 			["BlackBook"] = {
 				["recent"] = {
@@ -46,6 +44,8 @@ Postal3DB = {
 					"Aedaliora|Dragonblight|Alliance", -- [2]
 				},
 			},
+		},
+		["Jolobank - Dragonblight"] = {
 		},
 	},
 }

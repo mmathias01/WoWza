@@ -442,10 +442,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["b"] = 0,
 						},
-						["RAID_LEADER"] = {
+						["AFK"] = {
 							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
 						},
 						["BN_WHISPER"] = {
 							["r"] = 0,
@@ -472,10 +472,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.4980392456054688,
 							["b"] = 0,
 						},
-						["AFK"] = {
+						["RAID_LEADER"] = {
 							["r"] = 1,
-							["g"] = 0.501960813999176,
-							["b"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
 						},
 						["BN_WHISPER_INFORM"] = {
 							["r"] = 0,
@@ -916,10 +916,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["b"] = 0,
 						},
-						["RAID_LEADER"] = {
+						["AFK"] = {
 							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
 						},
 						["RESTRICTED"] = {
 							["r"] = 1,
@@ -951,10 +951,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 1,
 							["b"] = 0.9647059440612793,
 						},
-						["AFK"] = {
+						["RAID_LEADER"] = {
 							["r"] = 1,
-							["g"] = 0.501960813999176,
-							["b"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
 						},
 						["BN_INLINE_TOAST_CONVERSATION"] = {
 							["r"] = 0.5098039507865906,
@@ -1038,9 +1038,9 @@ ElvUI_ChatTweaksDB = {
 						["kirintoroffensive"] = false,
 						["pearlfinjinyu"] = false,
 						["silverwingsentinels"] = false,
-						["tinamudclaw"] = false,
-						["sho"] = false,
 						["thoriumbrotherhood"] = false,
+						["sho"] = false,
+						["tinamudclaw"] = false,
 						["thealdor"] = false,
 						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
@@ -1148,25 +1148,25 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["LootIcons"] = {
+		["Magic8-Ball"] = {
 		},
 		["MultipleInviteCommand"] = {
 		},
-		["AuctionMessageFiltering"] = {
+		["AutoDing"] = {
 		},
-		["Magic8-Ball"] = {
+		["LootIcons"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["AutoDing"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["AltNames"] = {
 		},
-		["KeywordSounds"] = {
-		},
-		["RerouteAuctionMessages"] = {
-		},
 		["ATestofValor"] = {
+		},
+		["AuctionMessageFiltering"] = {
+		},
+		["KeywordSounds"] = {
 		},
 		["XPLeftToLevel"] = {
 		},
@@ -1206,28 +1206,28 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/raid we can do it with this - but anyone is welcome obvs", -- [1]
-						"/cw Stabbzx we got people @ stone yet?", -- [2]
-						"/raid working on it - using the stone @ ToT", -- [3]
-						"/raid summons are going out so should get it soon ;)", -- [4]
-						"/raid oh yah and dont do that rofl", -- [5]
-						"/raid summon spit", -- [6]
-						"/raid so he can summon to boss ;)", -- [7]
-						"/raid anyone still need summon?", -- [8]
-						"/cw Dariar crafting mat for 496 gear", -- [9]
-						"/cw Dariar keep it they are valuable", -- [10]
-						"/raid thanks all", -- [11]
-						"/g lol not bad for only 3 healers", -- [12]
-						"/cw Dariar not bad for 3 healers lol", -- [13]
-						"/g thanks guys", -- [14]
-						"/friend Dariar", -- [15]
-						"/raid thanks all", -- [16]
-						"/g lol not bad for only 3 healers", -- [17]
-						"/cw Dariar not bad for 3 healers lol", -- [18]
-						"/g thanks guys", -- [19]
-						"/friend Dariar", -- [20]
-						"/g good evening all", -- [21]
-						"/s np", -- [22]
+						"/raid thanks all", -- [1]
+						"/g lol not bad for only 3 healers", -- [2]
+						"/cw Dariar not bad for 3 healers lol", -- [3]
+						"/g thanks guys", -- [4]
+						"/friend Dariar", -- [5]
+						"/raid thanks all", -- [6]
+						"/g lol not bad for only 3 healers", -- [7]
+						"/cw Dariar not bad for 3 healers lol", -- [8]
+						"/g thanks guys", -- [9]
+						"/friend Dariar", -- [10]
+						"/g good evening all", -- [11]
+						"/s np", -- [12]
+						"/p over here you dot have to deal w/them", -- [13]
+						"/p so what ya up to tonight?", -- [14]
+						"/p we melted the fuck out of those \"bosses\"", -- [15]
+						"/p me too pretty much", -- [16]
+						"/p cool  man well  have a good one then", -- [17]
+						"/p over here you dot have to deal w/them", -- [18]
+						"/p so what ya up to tonight?", -- [19]
+						"/p we melted the fuck out of those \"bosses\"", -- [20]
+						"/p me too pretty much", -- [21]
+						"/p cool  man well  have a good one then", -- [22]
 						"/p over here you dot have to deal w/them", -- [23]
 						"/p so what ya up to tonight?", -- [24]
 						"/p we melted the fuck out of those \"bosses\"", -- [25]

@@ -38,11 +38,6 @@ ARKINVDB = {
 				},
 			},
 		},
-		["Jolobank - Dragonblight"] = {
-			["option"] = {
-				["version"] = 30327,
-			},
-		},
 		["Majandra - Dragonblight"] = {
 			["option"] = {
 				["version"] = 30328,
@@ -67,6 +62,11 @@ ARKINVDB = {
 				},
 			},
 		},
+		["Jolobank - Dragonblight"] = {
+			["option"] = {
+				["version"] = 30327,
+			},
+		},
 	},
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Default",
@@ -74,8 +74,8 @@ ARKINVDB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Jolobank - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["realm"] = {
 		["Terenas"] = {
@@ -335,10 +335,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 1,
 											}, -- [21]
 											{
 												["q"] = 1,
@@ -509,16 +509,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 1,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 1,
 											}, -- [37]
 											{
 												["q"] = 2,
@@ -581,40 +581,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 1,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 1,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 1,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 1,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 1,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 1,
 											}, -- [48]
 											{
 												["q"] = 3,
@@ -629,34 +629,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 1,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 1,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 1,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 1,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 1,
 											}, -- [54]
 											{
 												["q"] = 2,
@@ -671,28 +671,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 1,
 											}, -- [56]
 											{
-												["display_id"] = 9,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 9,
 												["slot_id"] = 57,
+												["bag_id"] = 1,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 1,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 1,
 											}, -- [59]
 											{
 												["q"] = 1,
@@ -707,16 +707,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 1,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 1,
 											}, -- [62]
 											{
 												["q"] = 1,
@@ -731,10 +731,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 1,
 											}, -- [64]
 											{
 												["q"] = 2,
@@ -749,10 +749,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 1,
 											}, -- [66]
 											{
 												["q"] = 3,
@@ -779,10 +779,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 1,
 											}, -- [69]
 											{
 												["q"] = 1,
@@ -797,10 +797,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [70]
 											{
-												["display_id"] = 11,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 11,
 												["slot_id"] = 71,
+												["bag_id"] = 1,
 											}, -- [71]
 											{
 												["q"] = 1,
@@ -815,10 +815,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 1,
 											}, -- [73]
 											{
 												["q"] = 1,
@@ -857,10 +857,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 1,
 											}, -- [77]
 											{
 												["q"] = 1,
@@ -1007,16 +1007,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 1,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 1,
 											}, -- [91]
 											{
 												["q"] = 1,
@@ -1055,10 +1055,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 1,
 											}, -- [95]
 											{
 												["q"] = 1,
@@ -1983,64 +1983,64 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 2,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 2,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 2,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 2,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 2,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 2,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 2,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 2,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 2,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 2,
 											}, -- [83]
 											{
 												["q"] = 3,
@@ -2199,10 +2199,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 2,
 											}, -- [97]
 											{
 												["q"] = 3,
@@ -2338,76 +2338,76 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [9]
 											{
-												["display_id"] = 30,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 30,
 												["slot_id"] = 10,
+												["bag_id"] = 3,
 											}, -- [10]
 											{
-												["display_id"] = 44,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 44,
 												["slot_id"] = 11,
+												["bag_id"] = 3,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 3,
 											}, -- [12]
 											{
-												["display_id"] = 72,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 72,
 												["slot_id"] = 13,
+												["bag_id"] = 3,
 											}, -- [13]
 											{
-												["display_id"] = 86,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 86,
 												["slot_id"] = 14,
+												["bag_id"] = 3,
 											}, -- [14]
 											{
-												["display_id"] = 3,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 3,
 												["slot_id"] = 15,
+												["bag_id"] = 3,
 											}, -- [15]
 											{
-												["display_id"] = 17,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 17,
 												["slot_id"] = 16,
+												["bag_id"] = 3,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 3,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 3,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 3,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 3,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 3,
 											}, -- [21]
 											{
 												["q"] = 1,
@@ -2422,40 +2422,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [22]
 											{
-												["display_id"] = 18,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 18,
 												["slot_id"] = 23,
+												["bag_id"] = 3,
 											}, -- [23]
 											{
-												["display_id"] = 32,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 32,
 												["slot_id"] = 24,
+												["bag_id"] = 3,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 3,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 3,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 3,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 3,
 											}, -- [28]
 											{
 												["q"] = 1,
@@ -2482,34 +2482,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 3,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 3,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 3,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 3,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 3,
 											}, -- [35]
 											{
 												["q"] = 1,
@@ -2524,40 +2524,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 3,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 3,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 3,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 3,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 3,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 3,
 											}, -- [42]
 											{
 												["q"] = 1,
@@ -2572,40 +2572,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 3,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 3,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 3,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 3,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 3,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 3,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -2620,166 +2620,166 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 3,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 3,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 3,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 3,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 3,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 3,
 											}, -- [56]
 											{
-												["display_id"] = 9,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 9,
 												["slot_id"] = 57,
+												["bag_id"] = 3,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 3,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 3,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 3,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 3,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 3,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 3,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 3,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 3,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 3,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 3,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 3,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 3,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 3,
 											}, -- [70]
 											{
-												["display_id"] = 11,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 11,
 												["slot_id"] = 71,
+												["bag_id"] = 3,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 3,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 3,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 3,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 3,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 3,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 3,
 											}, -- [77]
 											{
 												["q"] = 1,
@@ -2806,34 +2806,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 3,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 3,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 3,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 3,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 3,
 											}, -- [84]
 											{
 												["q"] = 1,
@@ -2860,16 +2860,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 3,
 											}, -- [87]
 											{
-												["display_id"] = 55,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 55,
 												["slot_id"] = 88,
+												["bag_id"] = 3,
 											}, -- [88]
 											{
 												["q"] = 1,
@@ -2884,10 +2884,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 3,
 											}, -- [90]
 											{
 												["q"] = 1,
@@ -2926,28 +2926,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [93]
 											{
-												["display_id"] = 42,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 42,
 												["slot_id"] = 94,
+												["bag_id"] = 3,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 3,
 											}, -- [95]
 											{
-												["display_id"] = 70,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 70,
 												["slot_id"] = 96,
+												["bag_id"] = 3,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 3,
 											}, -- [97]
 											{
 												["q"] = 1,
@@ -3081,88 +3081,88 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [9]
 											{
-												["display_id"] = 30,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 30,
 												["slot_id"] = 10,
+												["bag_id"] = 4,
 											}, -- [10]
 											{
-												["display_id"] = 44,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 44,
 												["slot_id"] = 11,
+												["bag_id"] = 4,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 4,
 											}, -- [12]
 											{
-												["display_id"] = 72,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 72,
 												["slot_id"] = 13,
+												["bag_id"] = 4,
 											}, -- [13]
 											{
-												["display_id"] = 86,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 86,
 												["slot_id"] = 14,
+												["bag_id"] = 4,
 											}, -- [14]
 											{
-												["display_id"] = 3,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 3,
 												["slot_id"] = 15,
+												["bag_id"] = 4,
 											}, -- [15]
 											{
-												["display_id"] = 17,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 17,
 												["slot_id"] = 16,
+												["bag_id"] = 4,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 4,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 4,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 4,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 4,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 4,
 											}, -- [21]
 											{
-												["display_id"] = 4,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 4,
 												["slot_id"] = 22,
+												["bag_id"] = 4,
 											}, -- [22]
 											{
-												["display_id"] = 18,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 18,
 												["slot_id"] = 23,
+												["bag_id"] = 4,
 											}, -- [23]
 											{
 												["q"] = 3,
@@ -3177,28 +3177,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 4,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 4,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 4,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 4,
 											}, -- [28]
 											{
 												["q"] = 1,
@@ -3213,130 +3213,130 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [29]
 											{
-												["display_id"] = 19,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 19,
 												["slot_id"] = 30,
+												["bag_id"] = 4,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 4,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 4,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 4,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 4,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 4,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 4,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 4,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 4,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 4,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 4,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 4,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 4,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 4,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 4,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 4,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 4,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 4,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 4,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 4,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 4,
 											}, -- [50]
 											{
 												["q"] = 2,
@@ -3351,286 +3351,286 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 4,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 4,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 4,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 4,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 4,
 											}, -- [56]
 											{
-												["display_id"] = 9,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 9,
 												["slot_id"] = 57,
+												["bag_id"] = 4,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 4,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 4,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 4,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 4,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 4,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 4,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 4,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 4,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 4,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 4,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 4,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 4,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 4,
 											}, -- [70]
 											{
-												["display_id"] = 11,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 11,
 												["slot_id"] = 71,
+												["bag_id"] = 4,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 4,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 4,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 4,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 4,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 4,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 4,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 4,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 4,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 4,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 4,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 4,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 4,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 4,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 4,
 											}, -- [85]
 											{
-												["display_id"] = 27,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 27,
 												["slot_id"] = 86,
+												["bag_id"] = 4,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 4,
 											}, -- [87]
 											{
-												["display_id"] = 55,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 55,
 												["slot_id"] = 88,
+												["bag_id"] = 4,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 4,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 4,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 4,
 											}, -- [91]
 											{
-												["display_id"] = 14,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 14,
 												["slot_id"] = 92,
+												["bag_id"] = 4,
 											}, -- [92]
 											{
-												["display_id"] = 28,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 28,
 												["slot_id"] = 93,
+												["bag_id"] = 4,
 											}, -- [93]
 											{
-												["display_id"] = 42,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 42,
 												["slot_id"] = 94,
+												["bag_id"] = 4,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 4,
 											}, -- [95]
 											{
-												["display_id"] = 70,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 70,
 												["slot_id"] = 96,
+												["bag_id"] = 4,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 4,
 											}, -- [97]
 											{
-												["display_id"] = 98,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 98,
 												["slot_id"] = 98,
+												["bag_id"] = 4,
 											}, -- [98]
 										},
 										["status"] = -3,
@@ -3644,22 +3644,22 @@ ARKINVDB = {
 										["count"] = 98,
 										["slot"] = {
 											{
-												["display_id"] = 1,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 1,
 												["slot_id"] = 1,
+												["bag_id"] = 5,
 											}, -- [1]
 											{
-												["display_id"] = 15,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 15,
 												["slot_id"] = 2,
+												["bag_id"] = 5,
 											}, -- [2]
 											{
-												["display_id"] = 29,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 29,
 												["slot_id"] = 3,
+												["bag_id"] = 5,
 											}, -- [3]
 											{
 												["q"] = 1,
@@ -3706,10 +3706,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [7]
 											{
-												["display_id"] = 2,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 2,
 												["slot_id"] = 8,
+												["bag_id"] = 5,
 											}, -- [8]
 											{
 												["q"] = 1,
@@ -3782,22 +3782,22 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [14]
 											{
-												["display_id"] = 3,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 3,
 												["slot_id"] = 15,
+												["bag_id"] = 5,
 											}, -- [15]
 											{
-												["display_id"] = 17,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 17,
 												["slot_id"] = 16,
+												["bag_id"] = 5,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 5,
 											}, -- [17]
 											{
 												["q"] = 1,
@@ -3848,16 +3848,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [21]
 											{
-												["display_id"] = 4,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 4,
 												["slot_id"] = 22,
+												["bag_id"] = 5,
 											}, -- [22]
 											{
-												["display_id"] = 18,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 18,
 												["slot_id"] = 23,
+												["bag_id"] = 5,
 											}, -- [23]
 											{
 												["q"] = 1,
@@ -3944,10 +3944,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 5,
 											}, -- [31]
 											{
 												["q"] = 1,
@@ -4022,58 +4022,58 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 5,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 5,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 5,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 5,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 5,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 5,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 5,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 5,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 5,
 											}, -- [46]
 											{
 												["q"] = 1,
@@ -4112,22 +4112,22 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 5,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 5,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 5,
 											}, -- [52]
 											{
 												["q"] = 1,
@@ -4213,10 +4213,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 5,
 											}, -- [60]
 											{
 												["q"] = 1,
@@ -4231,10 +4231,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 5,
 											}, -- [62]
 											{
 												["q"] = 1,
@@ -4261,28 +4261,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 5,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 5,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 5,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 5,
 											}, -- [68]
 											{
 												["q"] = 1,
@@ -4333,22 +4333,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 5,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 5,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 5,
 											}, -- [75]
 											{
 												["q"] = 1,
@@ -4399,64 +4399,64 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 5,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 5,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 5,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 5,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 5,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 5,
 											}, -- [85]
 											{
-												["display_id"] = 27,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 27,
 												["slot_id"] = 86,
+												["bag_id"] = 5,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 5,
 											}, -- [87]
 											{
-												["display_id"] = 55,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 55,
 												["slot_id"] = 88,
+												["bag_id"] = 5,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 5,
 											}, -- [89]
 											{
 												["q"] = 1,
@@ -4578,424 +4578,424 @@ ARKINVDB = {
 										["name"] = "Tab 6",
 										["slot"] = {
 											{
-												["display_id"] = 1,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 1,
 												["slot_id"] = 1,
+												["bag_id"] = 6,
 											}, -- [1]
 											{
-												["display_id"] = 15,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 15,
 												["slot_id"] = 2,
+												["bag_id"] = 6,
 											}, -- [2]
 											{
-												["display_id"] = 29,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 29,
 												["slot_id"] = 3,
+												["bag_id"] = 6,
 											}, -- [3]
 											{
-												["display_id"] = 43,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 43,
 												["slot_id"] = 4,
+												["bag_id"] = 6,
 											}, -- [4]
 											{
-												["display_id"] = 57,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 57,
 												["slot_id"] = 5,
+												["bag_id"] = 6,
 											}, -- [5]
 											{
-												["display_id"] = 71,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 71,
 												["slot_id"] = 6,
+												["bag_id"] = 6,
 											}, -- [6]
 											{
-												["display_id"] = 85,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 85,
 												["slot_id"] = 7,
+												["bag_id"] = 6,
 											}, -- [7]
 											{
-												["display_id"] = 2,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 2,
 												["slot_id"] = 8,
+												["bag_id"] = 6,
 											}, -- [8]
 											{
-												["display_id"] = 16,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 16,
 												["slot_id"] = 9,
+												["bag_id"] = 6,
 											}, -- [9]
 											{
-												["display_id"] = 30,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 30,
 												["slot_id"] = 10,
+												["bag_id"] = 6,
 											}, -- [10]
 											{
-												["display_id"] = 44,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 44,
 												["slot_id"] = 11,
+												["bag_id"] = 6,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 6,
 											}, -- [12]
 											{
-												["display_id"] = 72,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 72,
 												["slot_id"] = 13,
+												["bag_id"] = 6,
 											}, -- [13]
 											{
-												["display_id"] = 86,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 86,
 												["slot_id"] = 14,
+												["bag_id"] = 6,
 											}, -- [14]
 											{
-												["display_id"] = 3,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 3,
 												["slot_id"] = 15,
+												["bag_id"] = 6,
 											}, -- [15]
 											{
-												["display_id"] = 17,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 17,
 												["slot_id"] = 16,
+												["bag_id"] = 6,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 6,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 6,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 6,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 6,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 6,
 											}, -- [21]
 											{
-												["display_id"] = 4,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 4,
 												["slot_id"] = 22,
+												["bag_id"] = 6,
 											}, -- [22]
 											{
-												["display_id"] = 18,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 18,
 												["slot_id"] = 23,
+												["bag_id"] = 6,
 											}, -- [23]
 											{
-												["display_id"] = 32,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 32,
 												["slot_id"] = 24,
+												["bag_id"] = 6,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 6,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 6,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 6,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 6,
 											}, -- [28]
 											{
-												["display_id"] = 5,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 5,
 												["slot_id"] = 29,
+												["bag_id"] = 6,
 											}, -- [29]
 											{
-												["display_id"] = 19,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 19,
 												["slot_id"] = 30,
+												["bag_id"] = 6,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 6,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 6,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 6,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 6,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 6,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 6,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 6,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 6,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 6,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 6,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 6,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 6,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 6,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 6,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 6,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 6,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 6,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 6,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 6,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 6,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 6,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 6,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 6,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 6,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 6,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 6,
 											}, -- [56]
 											{
-												["display_id"] = 9,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 9,
 												["slot_id"] = 57,
+												["bag_id"] = 6,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 6,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 6,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 6,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 6,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 6,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 6,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 6,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 6,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 6,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 6,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 6,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 6,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 6,
 											}, -- [70]
 											{
 												["q"] = 4,
@@ -5022,34 +5022,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 6,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 6,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 6,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 6,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 6,
 											}, -- [77]
 											{
 												["q"] = 4,
@@ -5076,118 +5076,118 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 6,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 6,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 6,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 6,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 6,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 6,
 											}, -- [85]
 											{
-												["display_id"] = 27,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 27,
 												["slot_id"] = 86,
+												["bag_id"] = 6,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 6,
 											}, -- [87]
 											{
-												["display_id"] = 55,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 55,
 												["slot_id"] = 88,
+												["bag_id"] = 6,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 6,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 6,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 6,
 											}, -- [91]
 											{
-												["display_id"] = 14,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 14,
 												["slot_id"] = 92,
+												["bag_id"] = 6,
 											}, -- [92]
 											{
-												["display_id"] = 28,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 28,
 												["slot_id"] = 93,
+												["bag_id"] = 6,
 											}, -- [93]
 											{
-												["display_id"] = 42,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 42,
 												["slot_id"] = 94,
+												["bag_id"] = 6,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 6,
 											}, -- [95]
 											{
-												["display_id"] = 70,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 70,
 												["slot_id"] = 96,
+												["bag_id"] = 6,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 6,
 											}, -- [97]
 											{
-												["display_id"] = 98,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 98,
 												["slot_id"] = 98,
+												["bag_id"] = 6,
 											}, -- [98]
 										},
 										["status"] = -3,
@@ -9829,6 +9829,14 @@ ARKINVDB = {
 								},
 								["slot_count"] = 160,
 							},
+							[5] = {
+								["bag"] = {
+									{
+										["status"] = -3,
+										["type"] = 15,
+									}, -- [1]
+								},
+							},
 							[9] = {
 								["slot_count"] = 7,
 								["bag"] = {
@@ -9920,14 +9928,6 @@ ARKINVDB = {
 										["status"] = -6,
 										["type"] = 19,
 									}, -- [2]
-								},
-							},
-							[5] = {
-								["bag"] = {
-									{
-										["status"] = -3,
-										["type"] = 15,
-									}, -- [1]
 								},
 							},
 							[10] = {
@@ -10210,13 +10210,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:75207|h[Abyssal Seahorse]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 1,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "u",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:75207|h[Abyssal Seahorse]|h|r",
 												["age"] = 22737880,
 												["texture"] = "INTERFACE\\ICONS\\ability_mount_seahorse",
 											}, -- [1]
@@ -10225,13 +10225,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:123992|h[Azure Cloud Serpent]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 2,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:123992|h[Azure Cloud Serpent]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\inv_pandarenserpentmount_blue",
 											}, -- [2]
@@ -10240,13 +10240,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:22723|h[Black War Tiger]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 3,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:22723|h[Black War Tiger]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_BlackPanther",
 											}, -- [3]
@@ -10255,13 +10255,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:32239|h[Ebon Gryphon]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 4,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:32239|h[Ebon Gryphon]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\ability_mount_ebongryphon",
 											}, -- [4]
@@ -10270,13 +10270,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:35714|h[Great Purple Elekk]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 5,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:35714|h[Great Purple Elekk]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingElekkElite_Purple",
 											}, -- [5]
@@ -10285,13 +10285,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:124659|h[Imperial Quilen]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 6,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:124659|h[Imperial Quilen]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\ability_mount_quilenflyingmount",
 											}, -- [6]
@@ -10300,13 +10300,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:41513|h[Onyx Netherwing Drake]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 7,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:41513|h[Onyx Netherwing Drake]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_NetherdrakePurple",
 											}, -- [7]
@@ -10315,13 +10315,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:472|h[Pinto]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 8,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:472|h[Pinto]|h|r",
 												["age"] = 22632754,
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingHorse",
 											}, -- [8]
@@ -10330,13 +10330,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:35711|h[Purple Elekk]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 9,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:35711|h[Purple Elekk]|h|r",
 												["age"] = 22632754,
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingElekk_Purple",
 											}, -- [9]
@@ -10345,13 +10345,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:32240|h[Snowy Gryphon]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 10,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:32240|h[Snowy Gryphon]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\ability_mount_snowygryphon",
 											}, -- [10]
@@ -10360,13 +10360,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:107516|h[Spectral Gryphon]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 11,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:107516|h[Spectral Gryphon]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\ability_mount_spectralgryphon",
 											}, -- [11]
@@ -10375,13 +10375,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:10789|h[Spotted Frostsaber]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 12,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:10789|h[Spotted Frostsaber]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_WhiteTiger",
 											}, -- [12]
@@ -10390,13 +10390,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:23510|h[Stormpike Battle Charger]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 13,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:23510|h[Stormpike Battle Charger]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_MountainRam",
 											}, -- [13]
@@ -10405,13 +10405,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:32242|h[Swift Blue Gryphon]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 14,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:32242|h[Swift Blue Gryphon]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 											}, -- [14]
@@ -10420,13 +10420,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:23221|h[Swift Frostsaber]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 15,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:23221|h[Swift Frostsaber]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_WhiteTiger",
 											}, -- [15]
@@ -10435,13 +10435,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:23227|h[Swift Palomino]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 16,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:23227|h[Swift Palomino]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingHorse",
 											}, -- [16]
@@ -10450,13 +10450,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:32292|h[Swift Purple Gryphon]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 17,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:32292|h[Swift Purple Gryphon]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 											}, -- [17]
@@ -10465,13 +10465,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:26055|h[Yellow Qiraji Battle Tank]|h|r",
-												["count"] = 1,
 												["loc_id"] = 8,
 												["slot_id"] = 18,
+												["ab"] = true,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:26055|h[Yellow Qiraji Battle Tank]|h|r",
 												["age"] = 22737880,
 												["texture"] = "Interface\\Icons\\INV_Misc_QirajiCrystal_01",
 											}, -- [18]
@@ -11095,10 +11095,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [12]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 13,
 												["display_id"] = 72,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [13]
 											{
 												["q"] = 1,
@@ -11139,442 +11139,442 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [16]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 17,
 												["display_id"] = 31,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [17]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 18,
 												["display_id"] = 45,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [18]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 19,
 												["display_id"] = 59,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [19]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 20,
 												["display_id"] = 73,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [20]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 21,
 												["display_id"] = 87,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [21]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 22,
 												["display_id"] = 4,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [22]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 23,
 												["display_id"] = 18,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [23]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 24,
 												["display_id"] = 32,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [24]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 25,
 												["display_id"] = 46,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [25]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 26,
 												["display_id"] = 60,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [26]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 27,
 												["display_id"] = 74,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [27]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 28,
 												["display_id"] = 88,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [28]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 29,
 												["display_id"] = 5,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [29]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 30,
 												["display_id"] = 19,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [30]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 31,
 												["display_id"] = 33,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [31]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 32,
 												["display_id"] = 47,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [32]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 33,
 												["display_id"] = 61,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [33]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 34,
 												["display_id"] = 75,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [34]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 35,
 												["display_id"] = 89,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [35]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 36,
 												["display_id"] = 6,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [36]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 37,
 												["display_id"] = 20,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [37]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 38,
 												["display_id"] = 34,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [38]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 39,
 												["display_id"] = 48,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [39]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 40,
 												["display_id"] = 62,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [40]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 41,
 												["display_id"] = 76,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [41]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 42,
 												["display_id"] = 90,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [42]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 43,
 												["display_id"] = 7,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [43]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 44,
 												["display_id"] = 21,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [44]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 45,
 												["display_id"] = 35,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [45]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 46,
 												["display_id"] = 49,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [46]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 47,
 												["display_id"] = 63,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [47]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 48,
 												["display_id"] = 77,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [48]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 49,
 												["display_id"] = 91,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [49]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 50,
 												["display_id"] = 8,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [50]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 51,
 												["display_id"] = 22,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [51]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 52,
 												["display_id"] = 36,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [52]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 53,
 												["display_id"] = 50,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [53]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 54,
 												["display_id"] = 64,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [54]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 55,
 												["display_id"] = 78,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [55]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 56,
 												["display_id"] = 92,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [56]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 57,
 												["display_id"] = 9,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [57]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 58,
 												["display_id"] = 23,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [58]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 59,
 												["display_id"] = 37,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [59]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 60,
 												["display_id"] = 51,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [60]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 61,
 												["display_id"] = 65,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [61]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 62,
 												["display_id"] = 79,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [62]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 63,
 												["display_id"] = 93,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [63]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 64,
 												["display_id"] = 10,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [64]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 65,
 												["display_id"] = 24,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [65]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 66,
 												["display_id"] = 38,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [66]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 67,
 												["display_id"] = 52,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [67]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 68,
 												["display_id"] = 66,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [68]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 69,
 												["display_id"] = 80,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [69]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 70,
 												["display_id"] = 94,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [70]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 71,
 												["display_id"] = 11,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [71]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 72,
 												["display_id"] = 25,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [72]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 73,
 												["display_id"] = 39,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [73]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 74,
 												["display_id"] = 53,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [74]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 75,
 												["display_id"] = 67,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [75]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 76,
 												["display_id"] = 81,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [76]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 77,
 												["display_id"] = 95,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [77]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 78,
 												["display_id"] = 12,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [78]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 79,
 												["display_id"] = 26,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [79]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 80,
 												["display_id"] = 40,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [80]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 81,
 												["display_id"] = 54,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [81]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 82,
 												["display_id"] = 68,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [82]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 83,
 												["display_id"] = 82,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [83]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 84,
 												["display_id"] = 96,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [84]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 85,
 												["display_id"] = 13,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [85]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 86,
 												["display_id"] = 27,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [86]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 87,
 												["display_id"] = 41,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [87]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 88,
 												["display_id"] = 55,
-											}, -- [88]
-											{
 												["bag_id"] = 1,
 												["loc_id"] = 4,
+											}, -- [88]
+											{
 												["slot_id"] = 89,
 												["display_id"] = 69,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [89]
 											{
 												["q"] = 3,
@@ -11603,22 +11603,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [91]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 92,
 												["display_id"] = 14,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [92]
 											{
-												["bag_id"] = 1,
-												["loc_id"] = 4,
 												["slot_id"] = 93,
 												["display_id"] = 28,
-											}, -- [93]
-											{
 												["bag_id"] = 1,
 												["loc_id"] = 4,
+											}, -- [93]
+											{
 												["slot_id"] = 94,
 												["display_id"] = 42,
+												["bag_id"] = 1,
+												["loc_id"] = 4,
 											}, -- [94]
 											{
 												["q"] = 1,
@@ -11979,10 +11979,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [24]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 25,
 												["display_id"] = 46,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [25]
 											{
 												["q"] = 1,
@@ -12018,10 +12018,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [28]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 29,
 												["display_id"] = 5,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [29]
 											{
 												["q"] = 1,
@@ -12046,10 +12046,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [31]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 32,
 												["display_id"] = 47,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [32]
 											{
 												["q"] = 1,
@@ -12112,34 +12112,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [37]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 38,
 												["display_id"] = 34,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [38]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 39,
 												["display_id"] = 48,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [39]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 40,
 												["display_id"] = 62,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [40]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 41,
 												["display_id"] = 76,
-											}, -- [41]
-											{
 												["bag_id"] = 2,
 												["loc_id"] = 4,
+											}, -- [41]
+											{
 												["slot_id"] = 42,
 												["display_id"] = 90,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [42]
 											{
 												["q"] = 2,
@@ -12168,10 +12168,10 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [44]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 45,
 												["display_id"] = 35,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [45]
 											{
 												["q"] = 2,
@@ -12199,16 +12199,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [47]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 48,
 												["display_id"] = 77,
-											}, -- [48]
-											{
 												["bag_id"] = 2,
 												["loc_id"] = 4,
+											}, -- [48]
+											{
 												["slot_id"] = 49,
 												["display_id"] = 91,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -12384,10 +12384,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [63]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 64,
 												["display_id"] = 10,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [64]
 											{
 												["q"] = 3,
@@ -12474,28 +12474,28 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [71]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 72,
 												["display_id"] = 25,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [72]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 73,
 												["display_id"] = 39,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [73]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 74,
 												["display_id"] = 53,
-											}, -- [74]
-											{
 												["bag_id"] = 2,
 												["loc_id"] = 4,
+											}, -- [74]
+											{
 												["slot_id"] = 75,
 												["display_id"] = 67,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [75]
 											{
 												["q"] = 3,
@@ -12535,34 +12535,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [78]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 79,
 												["display_id"] = 26,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [79]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 80,
 												["display_id"] = 40,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [80]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 81,
 												["display_id"] = 54,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [81]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 82,
 												["display_id"] = 68,
-											}, -- [82]
-											{
 												["bag_id"] = 2,
 												["loc_id"] = 4,
+											}, -- [82]
+											{
 												["slot_id"] = 83,
 												["display_id"] = 82,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [83]
 											{
 												["q"] = 1,
@@ -12587,16 +12587,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [85]
 											{
-												["bag_id"] = 2,
-												["loc_id"] = 4,
 												["slot_id"] = 86,
 												["display_id"] = 27,
-											}, -- [86]
-											{
 												["bag_id"] = 2,
 												["loc_id"] = 4,
+											}, -- [86]
+											{
 												["slot_id"] = 87,
 												["display_id"] = 41,
+												["bag_id"] = 2,
+												["loc_id"] = 4,
 											}, -- [87]
 											{
 												["q"] = 3,
@@ -12941,16 +12941,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [16]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 17,
 												["display_id"] = 31,
-											}, -- [17]
-											{
 												["bag_id"] = 3,
 												["loc_id"] = 4,
+											}, -- [17]
+											{
 												["slot_id"] = 18,
 												["display_id"] = 45,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [18]
 											{
 												["q"] = 1,
@@ -13000,22 +13000,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [22]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 23,
 												["display_id"] = 18,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [23]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 24,
 												["display_id"] = 32,
-											}, -- [24]
-											{
 												["bag_id"] = 3,
 												["loc_id"] = 4,
+											}, -- [24]
+											{
 												["slot_id"] = 25,
 												["display_id"] = 46,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [25]
 											{
 												["q"] = 1,
@@ -13066,22 +13066,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [29]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 30,
 												["display_id"] = 19,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [30]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 31,
 												["display_id"] = 33,
-											}, -- [31]
-											{
 												["bag_id"] = 3,
 												["loc_id"] = 4,
+											}, -- [31]
+											{
 												["slot_id"] = 32,
 												["display_id"] = 47,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [32]
 											{
 												["q"] = 1,
@@ -13133,16 +13133,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [36]
 											{
-												["bag_id"] = 3,
-												["loc_id"] = 4,
 												["slot_id"] = 37,
 												["display_id"] = 20,
-											}, -- [37]
-											{
 												["bag_id"] = 3,
 												["loc_id"] = 4,
+											}, -- [37]
+											{
 												["slot_id"] = 38,
 												["display_id"] = 34,
+												["bag_id"] = 3,
+												["loc_id"] = 4,
 											}, -- [38]
 											{
 												["q"] = 4,
@@ -15294,70 +15294,70 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [20]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 21,
 												["display_id"] = 87,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [21]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 22,
 												["display_id"] = 4,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [22]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 23,
 												["display_id"] = 18,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [23]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 24,
 												["display_id"] = 32,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [24]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 25,
 												["display_id"] = 46,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [25]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 26,
 												["display_id"] = 60,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [26]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 27,
 												["display_id"] = 74,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [27]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 28,
 												["display_id"] = 88,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [28]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 29,
 												["display_id"] = 5,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [29]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 30,
 												["display_id"] = 19,
-											}, -- [30]
-											{
 												["bag_id"] = 5,
 												["loc_id"] = 4,
+											}, -- [30]
+											{
 												["slot_id"] = 31,
 												["display_id"] = 33,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [31]
 											{
 												["q"] = 1,
@@ -15371,16 +15371,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [32]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 33,
 												["display_id"] = 61,
-											}, -- [33]
-											{
 												["bag_id"] = 5,
 												["loc_id"] = 4,
+											}, -- [33]
+											{
 												["slot_id"] = 34,
 												["display_id"] = 75,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [34]
 											{
 												["q"] = 1,
@@ -15482,10 +15482,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [43]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 44,
 												["display_id"] = 21,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [44]
 											{
 												["q"] = 1,
@@ -15521,10 +15521,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [47]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 48,
 												["display_id"] = 77,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [48]
 											{
 												["q"] = 1,
@@ -15549,10 +15549,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [50]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 51,
 												["display_id"] = 22,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [51]
 											{
 												["q"] = 1,
@@ -15588,10 +15588,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [54]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 55,
 												["display_id"] = 78,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [55]
 											{
 												["q"] = 1,
@@ -15605,16 +15605,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [56]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 57,
 												["display_id"] = 9,
-											}, -- [57]
-											{
 												["bag_id"] = 5,
 												["loc_id"] = 4,
+											}, -- [57]
+											{
 												["slot_id"] = 58,
 												["display_id"] = 23,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [58]
 											{
 												["q"] = 1,
@@ -15650,10 +15650,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [61]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 62,
 												["display_id"] = 79,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [62]
 											{
 												["q"] = 1,
@@ -15678,10 +15678,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [64]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 65,
 												["display_id"] = 24,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [65]
 											{
 												["q"] = 1,
@@ -15717,10 +15717,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [68]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 69,
 												["display_id"] = 80,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [69]
 											{
 												["q"] = 1,
@@ -15822,10 +15822,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [78]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 79,
 												["display_id"] = 26,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [79]
 											{
 												["q"] = 1,
@@ -15861,10 +15861,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [82]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 83,
 												["display_id"] = 82,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [83]
 											{
 												["q"] = 1,
@@ -15889,10 +15889,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [85]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 86,
 												["display_id"] = 27,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [86]
 											{
 												["q"] = 1,
@@ -15928,10 +15928,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [89]
 											{
-												["bag_id"] = 5,
-												["loc_id"] = 4,
 												["slot_id"] = 90,
 												["display_id"] = 83,
+												["bag_id"] = 5,
+												["loc_id"] = 4,
 											}, -- [90]
 											{
 												["q"] = 1,
@@ -19715,88 +19715,88 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [70]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 11,
-												["slot_id"] = 71,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 71,
 											}, -- [71]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 25,
-												["slot_id"] = 72,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 72,
 											}, -- [72]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 39,
-												["slot_id"] = 73,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 73,
 											}, -- [73]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 53,
-												["slot_id"] = 74,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 74,
 											}, -- [74]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 67,
-												["slot_id"] = 75,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 75,
 											}, -- [75]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 81,
-												["slot_id"] = 76,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 76,
 											}, -- [76]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 95,
-												["slot_id"] = 77,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 77,
 											}, -- [77]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 12,
-												["slot_id"] = 78,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 78,
 											}, -- [78]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 26,
-												["slot_id"] = 79,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 79,
 											}, -- [79]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 40,
-												["slot_id"] = 80,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 80,
 											}, -- [80]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 54,
-												["slot_id"] = 81,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 81,
 											}, -- [81]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 68,
-												["slot_id"] = 82,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 82,
 											}, -- [82]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 82,
-												["slot_id"] = 83,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 83,
 											}, -- [83]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 96,
-												["slot_id"] = 84,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 84,
 											}, -- [84]
 											{
 												["q"] = 1,
@@ -19812,82 +19812,82 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [85]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 27,
-												["slot_id"] = 86,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 86,
 											}, -- [86]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 41,
-												["slot_id"] = 87,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 87,
 											}, -- [87]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 55,
-												["slot_id"] = 88,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 88,
 											}, -- [88]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 69,
-												["slot_id"] = 89,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 89,
 											}, -- [89]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 83,
-												["slot_id"] = 90,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 90,
 											}, -- [90]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 97,
-												["slot_id"] = 91,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 91,
 											}, -- [91]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 14,
-												["slot_id"] = 92,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 92,
 											}, -- [92]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 28,
-												["slot_id"] = 93,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 93,
 											}, -- [93]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 42,
-												["slot_id"] = 94,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 94,
 											}, -- [94]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 56,
-												["slot_id"] = 95,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 95,
 											}, -- [95]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 70,
-												["slot_id"] = 96,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 96,
 											}, -- [96]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 84,
-												["slot_id"] = 97,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 97,
 											}, -- [97]
 											{
-												["loc_id"] = 4,
 												["display_id"] = 98,
-												["slot_id"] = 98,
+												["loc_id"] = 4,
 												["bag_id"] = 1,
+												["slot_id"] = 98,
 											}, -- [98]
 										},
 										["name"] = "Tab 1",
@@ -19953,7 +19953,7 @@ ARKINVDB = {
 					["+Holy Crit"] = {
 						["info"] = {
 							["guild"] = "Holy Crit",
-							["money"] = 945626316,
+							["money"] = 952909588,
 							["class"] = "GUILD",
 							["player_id"] = "+Holy Crit",
 							["faction_local"] = "Alliance",
@@ -19968,12 +19968,13 @@ ARKINVDB = {
 							[4] = {
 								["bag"] = {
 									false, -- [1]
-									false, -- [2]
+									nil, -- [2]
 									false, -- [3]
 									false, -- [4]
 									false, -- [5]
 									false, -- [6]
 									false, -- [7]
+									false, -- [8]
 								},
 							},
 						},
@@ -19985,7 +19986,6 @@ ARKINVDB = {
 								["slot_count"] = 784,
 								["bag"] = {
 									{
-										["count"] = 98,
 										["type"] = 1,
 										["access"] = "Full Access",
 										["slot"] = {
@@ -20226,16 +20226,16 @@ ARKINVDB = {
 												["display_id"] = 59,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 1,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 1,
 											}, -- [21]
 											{
 												["q"] = 2,
@@ -20433,34 +20433,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 1,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 1,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 1,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 1,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 1,
 											}, -- [42]
 											{
 												["q"] = 1,
@@ -20488,34 +20488,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 1,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 1,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 1,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 1,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 1,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -20663,14 +20663,14 @@ ARKINVDB = {
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 1,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 65,
 												["slot_id"] = 61,
 												["sb"] = false,
-												["count"] = 2,
+												["count"] = 1,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:42457:0:0:0:0:0:0:0:12:0:0|h[Glyph of Nightmares]|h|r",
-												["new"] = 1,
+												["h"] = "|cffffffff|Hitem:42457:0:0:0:0:0:0:0:90:0:0|h[Glyph of Nightmares]|h|r",
+												["new"] = 3,
 											}, -- [61]
 											{
 												["q"] = 1,
@@ -20686,10 +20686,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 1,
 											}, -- [63]
 											{
 												["q"] = 1,
@@ -20718,34 +20718,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 1,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 1,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 1,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 1,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 1,
 											}, -- [70]
 											{
 												["q"] = 1,
@@ -20774,76 +20774,88 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 1,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 1,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 1,
 											}, -- [75]
 											{
-												["display_id"] = 81,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 1,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 76,
+												["sb"] = false,
+												["count"] = 3,
+												["display_id"] = 81,
+												["h"] = "|cffffffff|Hitem:98111:0:0:0:0:0:0:0:90:0:0|h[K.R.E.]|h|r",
+												["new"] = 1,
 											}, -- [76]
 											{
-												["display_id"] = 95,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 1,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 77,
+												["sb"] = false,
+												["count"] = 4,
+												["display_id"] = 95,
+												["h"] = "|cffffffff|Hitem:98116:0:0:0:0:0:0:0:90:0:0|h[Freeze-Dried Hyena Jerky]|h|r",
+												["new"] = 1,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 1,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 1,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 1,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 1,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 1,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 1,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 1,
 											}, -- [84]
 											{
 												["q"] = 1,
@@ -20872,10 +20884,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 1,
 											}, -- [87]
 											{
 												["q"] = 2,
@@ -20943,10 +20955,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [92]
 											{
-												["display_id"] = 28,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 28,
 												["slot_id"] = 93,
+												["bag_id"] = 1,
 											}, -- [93]
 											{
 												["q"] = 0,
@@ -20962,22 +20974,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 1,
 											}, -- [95]
 											{
-												["display_id"] = 70,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 70,
 												["slot_id"] = 96,
+												["bag_id"] = 1,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 1,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 1,
 											}, -- [97]
 											{
 												["q"] = 1,
@@ -20993,39 +21005,39 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [98]
 										},
-										["status"] = -3,
-										["empty"] = 40,
 										["name"] = "Full Access",
+										["status"] = -3,
+										["empty"] = 38,
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\INV_Drink_15",
 									}, -- [1]
 									{
-										["name"] = "Beepbeepimajeep",
 										["type"] = 1,
 										["access"] = "Deposit Only",
 										["slot"] = {
 											{
-												["q"] = 2,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 1,
 												["slot_id"] = 1,
 												["sb"] = false,
-												["count"] = 8,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cff1eff00|Hitem:72238:0:0:0:0:0:0:0:90:0:0|h[Golden Lotus]|h|r",
+												["h"] = "|cffffffff|Hitem:76097:0:0:0:0:0:0:0:90:0:0|h[Master Healing Potion]|h|r",
 												["new"] = 1,
 											}, -- [1]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["h"] = "|cffffffff|Hitem:79010:0:0:0:0:0:0:0:90:0:0|h[Snow Lily]|h|r",
+												["h"] = "|cffffffff|Hitem:76097:0:0:0:0:0:0:0:90:0:0|h[Master Healing Potion]|h|r",
 												["display_id"] = 15,
 												["slot_id"] = 2,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 19,
+												["age"] = 22832473,
+												["count"] = 4,
 												["loc_id"] = 4,
 												["new"] = 1,
 											}, -- [2]
@@ -21033,43 +21045,44 @@ ARKINVDB = {
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 29,
 												["slot_id"] = 3,
 												["sb"] = false,
 												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
-												["new"] = 2,
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
+												["new"] = 1,
 											}, -- [3]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 43,
 												["slot_id"] = 4,
 												["sb"] = false,
-												["count"] = 17,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:76085:0:0:0:0:0:0:0:90:0:0|h[Flask of the Warm Sun]|h|r",
-												["new"] = 3,
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
+												["new"] = 1,
 											}, -- [4]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 57,
 												["slot_id"] = 5,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 18,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:74650:0:0:0:0:0:0:0:12:0:0|h[Mogu Fish Stew]|h|r",
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
 												["new"] = 1,
 											}, -- [5]
 											{
 												["q"] = 1,
+												["class"] = "item",
 												["bag_id"] = 2,
 												["age"] = 22758145,
 												["display_id"] = 71,
@@ -21084,60 +21097,65 @@ ARKINVDB = {
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 85,
 												["slot_id"] = 7,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 20,
 												["loc_id"] = 4,
 												["h"] = "|cffffffff|Hitem:74650:0:0:0:0:0:0:0:90:0:0|h[Mogu Fish Stew]|h|r",
-												["new"] = 1,
+												["new"] = 2,
 											}, -- [7]
 											{
-												["q"] = 2,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 2,
 												["slot_id"] = 8,
 												["sb"] = false,
-												["count"] = 8,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cff1eff00|Hitem:72095:0:0:0:0:0:0:0:90:0:0|h[Trillium Bar]|h|r",
+												["h"] = "|cffffffff|Hitem:76090:0:0:0:0:0:0:0:90:0:0|h[Potion of the Mountains]|h|r",
 												["new"] = 1,
 											}, -- [8]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["loc_id"] = 4,
 												["slot_id"] = 9,
 												["sb"] = false,
-												["count"] = 16,
+												["count"] = 20,
 												["display_id"] = 16,
-												["h"] = "|cffffffff|Hitem:72093:0:0:0:0:0:0:0:90:0:0|h[Kyparite]|h|r",
+												["h"] = "|cffffffff|Hitem:76090:0:0:0:0:0:0:0:90:0:0|h[Potion of the Mountains]|h|r",
 												["new"] = 1,
 											}, -- [9]
 											{
 												["q"] = 1,
-												["class"] = "item",
+												["class"] = "empty",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 30,
 												["slot_id"] = 10,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:76095:0:0:0:0:0:0:0:90:0:0|h[Potion of Mogu Power]|h|r",
-												["new"] = 1,
+												["new"] = false,
 											}, -- [10]
 											{
-												["loc_id"] = 4,
-												["slot_id"] = 11,
-												["class"] = "empty",
+												["q"] = 1,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
 												["display_id"] = 44,
+												["slot_id"] = 11,
+												["sb"] = false,
+												["count"] = 20,
+												["loc_id"] = 4,
+												["h"] = "|cffffffff|Hitem:74646:0:0:0:0:0:0:0:90:0:0|h[Black Pepper Ribs and Shrimp]|h|r",
+												["new"] = 1,
 											}, -- [11]
 											{
 												["q"] = 1,
@@ -21180,244 +21198,298 @@ ARKINVDB = {
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
 												["display_id"] = 3,
 												["slot_id"] = 15,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [15]
 											{
-												["display_id"] = 17,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 16,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 17,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
+												["new"] = 1,
 											}, -- [16]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
 												["display_id"] = 31,
 												["slot_id"] = 17,
 												["sb"] = false,
-												["age"] = 22776816,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [17]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
 												["display_id"] = 45,
 												["slot_id"] = 18,
 												["sb"] = false,
-												["age"] = 22776816,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [18]
 											{
-												["display_id"] = 59,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 19,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 59,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
+												["new"] = 1,
 											}, -- [19]
 											{
 												["q"] = 1,
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76093:0:0:0:0:0:0:0:90:0:0|h[Potion of the Jade Serpent]|h|r",
 												["loc_id"] = 4,
 												["slot_id"] = 20,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 10,
 												["display_id"] = 73,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [20]
 											{
 												["q"] = 1,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:74656:0:0:0:0:0:0:0:90:0:0|h[Chun Tian Spring Rolls]|h|r",
 												["loc_id"] = 4,
 												["slot_id"] = 21,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 18,
 												["display_id"] = 87,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [21]
 											{
-												["display_id"] = 4,
-												["loc_id"] = 4,
+												["q"] = 1,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 22,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 4,
+												["h"] = "|cffffffff|Hitem:76089:0:0:0:0:0:0:0:90:0:0|h[Virmen's Bite]|h|r",
+												["new"] = 1,
 											}, -- [22]
 											{
-												["display_id"] = 18,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 23,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 18,
+												["h"] = "|cffffffff|Hitem:76089:0:0:0:0:0:0:0:90:0:0|h[Virmen's Bite]|h|r",
+												["new"] = 1,
 											}, -- [23]
 											{
-												["display_id"] = 32,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 24,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 32,
+												["h"] = "|cffffffff|Hitem:76089:0:0:0:0:0:0:0:90:0:0|h[Virmen's Bite]|h|r",
+												["new"] = 1,
 											}, -- [24]
 											{
-												["display_id"] = 46,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 25,
+												["sb"] = false,
+												["count"] = 5,
+												["display_id"] = 46,
+												["h"] = "|cffffffff|Hitem:76089:0:0:0:0:0:0:0:90:0:0|h[Virmen's Bite]|h|r",
+												["new"] = 1,
 											}, -- [25]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 60,
 												["slot_id"] = 26,
 												["sb"] = false,
-												["count"] = 18,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:74656:0:0:0:0:0:0:0:90:0:0|h[Chun Tian Spring Rolls]|h|r",
-												["new"] = 1,
+												["new"] = false,
 											}, -- [26]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 74,
 												["slot_id"] = 27,
 												["sb"] = false,
-												["count"] = 4,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cffffffff|Hitem:74648:0:0:0:0:0:0:0:90:0:0|h[Sea Mist Rice Noodles]|h|r",
-												["new"] = 1,
+												["new"] = false,
 											}, -- [27]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:74648:0:0:0:0:0:0:0:90:0:0|h[Sea Mist Rice Noodles]|h|r",
 												["loc_id"] = 4,
 												["slot_id"] = 28,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 10,
 												["display_id"] = 88,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [28]
 											{
-												["q"] = 4,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 5,
 												["slot_id"] = 29,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cffa335ee|Hitem:74248:0:0:0:0:0:0:0:90:0:0|h[Sha Crystal]|h|r",
-												["new"] = 2,
+												["new"] = false,
 											}, -- [29]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 19,
 												["slot_id"] = 30,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 10,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:80433:0:0:0:0:0:0:0:90:0:0|h[Blood Spirit]|h|r",
+												["h"] = "|cffffffff|Hitem:76095:0:0:0:0:0:0:0:90:0:0|h[Potion of Mogu Power]|h|r",
 												["new"] = 1,
 											}, -- [30]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 33,
 												["slot_id"] = 31,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:80433:0:0:0:0:0:0:0:90:0:0|h[Blood Spirit]|h|r",
-												["new"] = 2,
+												["new"] = false,
 											}, -- [31]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["loc_id"] = 4,
 												["slot_id"] = 32,
 												["sb"] = false,
-												["count"] = 20,
+												["count"] = 0,
 												["display_id"] = 47,
-												["h"] = "|cff0070dd|Hitem:72163:0:0:0:0:0:0:0:90:0:0|h[Magnificent Hide]|h|r",
-												["new"] = 2,
+												["new"] = false,
 											}, -- [32]
 											{
-												["display_id"] = 61,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 33,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 61,
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
+												["new"] = 1,
 											}, -- [33]
 											{
-												["display_id"] = 75,
-												["loc_id"] = 4,
+												["q"] = 1,
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 34,
+												["sb"] = false,
+												["count"] = 20,
+												["display_id"] = 75,
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
+												["new"] = 1,
 											}, -- [34]
 											{
 												["q"] = 1,
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76098:0:0:0:0:0:0:0:90:0:0|h[Master Mana Potion]|h|r",
 												["loc_id"] = 4,
 												["slot_id"] = 35,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 20,
 												["display_id"] = 89,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [35]
 											{
 												["q"] = 4,
+												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 6,
 												["slot_id"] = 36,
 												["sb"] = false,
-												["count"] = 11,
+												["count"] = 5,
 												["loc_id"] = 4,
 												["h"] = "|cffa335ee|Hitem:74248:0:0:0:0:0:0:0:90:0:0|h[Sha Crystal]|h|r",
 												["new"] = 3,
 											}, -- [36]
 											{
-												["q"] = 3,
+												["q"] = 4,
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 20,
 												["slot_id"] = 37,
 												["sb"] = false,
 												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:80433:0:0:0:0:0:0:0:12:0:0|h[Blood Spirit]|h|r",
+												["h"] = "|cffa335ee|Hitem:74248:0:0:0:0:0:0:0:90:0:0|h[Sha Crystal]|h|r",
 												["new"] = 1,
 											}, -- [37]
 											{
 												["q"] = 3,
+												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 34,
 												["slot_id"] = 38,
 												["sb"] = false,
-												["count"] = 8,
+												["count"] = 20,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:80433:0:0:0:0:0:0:0:90:0:0|h[Blood Spirit]|h|r",
-												["new"] = 3,
+												["new"] = 2,
 											}, -- [38]
 											{
 												["q"] = 1,
@@ -21432,22 +21504,36 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 2,
 											}, -- [40]
 											{
-												["display_id"] = 76,
-												["loc_id"] = 4,
+												["q"] = 2,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 41,
+												["sb"] = false,
+												["count"] = 17,
+												["display_id"] = 76,
+												["h"] = "|cff1eff00|Hitem:72238:0:0:0:0:0:0:0:90:0:0|h[Golden Lotus]|h|r",
+												["new"] = 1,
 											}, -- [41]
 											{
-												["display_id"] = 90,
-												["loc_id"] = 4,
+												["q"] = 1,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 42,
+												["sb"] = false,
+												["count"] = 10,
+												["display_id"] = 90,
+												["h"] = "|cffffffff|Hitem:76086:0:0:0:0:0:0:0:90:0:0|h[Flask of Falling Leaves]|h|r",
+												["new"] = 1,
 											}, -- [42]
 											{
 												["q"] = 3,
@@ -21466,14 +21552,14 @@ ARKINVDB = {
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 21,
 												["slot_id"] = 44,
 												["sb"] = false,
-												["count"] = 5,
+												["count"] = 4,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:83763:0:0:0:0:0:0:0:12:0:0|h[Ironscale Leg Armor]|h|r",
-												["new"] = 1,
+												["h"] = "|cff0070dd|Hitem:83763:0:0:0:0:0:0:0:90:0:0|h[Ironscale Leg Armor]|h|r",
+												["new"] = 3,
 											}, -- [44]
 											{
 												["q"] = 3,
@@ -21489,39 +21575,42 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [45]
 											{
-												["q"] = 1,
+												["q"] = 3,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cff0070dd|Hitem:72163:0:0:0:0:0:0:0:90:0:0|h[Magnificent Hide]|h|r",
 												["display_id"] = 49,
 												["slot_id"] = 46,
 												["sb"] = false,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["loc_id"] = 4,
-												["count"] = 0,
-												["new"] = false,
+												["count"] = 13,
+												["new"] = 1,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 2,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 2,
 											}, -- [48]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76084:0:0:0:0:0:0:0:90:0:0|h[Flask of Spring Blossoms]|h|r",
 												["display_id"] = 91,
 												["slot_id"] = 49,
 												["sb"] = false,
-												["age"] = 22776816,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [49]
 											{
 												["q"] = 4,
@@ -21563,40 +21652,48 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [52]
 											{
-												["display_id"] = 50,
-												["loc_id"] = 4,
+												["q"] = 4,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 53,
+												["sb"] = false,
+												["count"] = 1,
+												["display_id"] = 50,
+												["h"] = "|cffa335ee|Hitem:83007:0:0:0:0:0:0:0:90:0:0|h[Greater Tiger Claw Inscription]|h|r",
+												["new"] = 1,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 2,
 											}, -- [54]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
+												["h"] = "|cffffffff|Hitem:76085:0:0:0:0:0:0:0:90:0:0|h[Flask of the Warm Sun]|h|r",
 												["loc_id"] = 4,
 												["slot_id"] = 55,
 												["sb"] = false,
-												["age"] = 22814360,
-												["count"] = 0,
+												["age"] = 22832473,
+												["count"] = 16,
 												["display_id"] = 78,
-												["new"] = false,
+												["new"] = 1,
 											}, -- [55]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 92,
 												["slot_id"] = 56,
 												["sb"] = false,
-												["count"] = 1,
+												["count"] = 20,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76661:0:0:0:0:0:0:0:12:0:0|h[Inscribed Vermilion Onyx]|h|r",
+												["h"] = "|cffffffff|Hitem:76085:0:0:0:0:0:0:0:90:0:0|h[Flask of the Warm Sun]|h|r",
 												["new"] = 1,
 											}, -- [56]
 											{
@@ -21616,195 +21713,199 @@ ARKINVDB = {
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 23,
 												["slot_id"] = 58,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 2,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:82444:0:0:0:0:0:0:0:90:0:0|h[Greater Pearlescent Spellthread]|h|r",
 												["new"] = 3,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 2,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 2,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 2,
 											}, -- [61]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 79,
 												["slot_id"] = 62,
 												["sb"] = false,
-												["count"] = 2,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76590:0:0:0:0:0:0:0:12:0:0|h[Perfect Puissant Alexandrite]|h|r",
-												["new"] = 1,
+												["new"] = false,
 											}, -- [62]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 93,
 												["slot_id"] = 63,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 14,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76670:0:0:0:0:0:0:0:12:0:0|h[Adept Vermilion Onyx]|h|r",
+												["h"] = "|cffffffff|Hitem:76088:0:0:0:0:0:0:0:90:0:0|h[Flask of Winter's Bite]|h|r",
 												["new"] = 1,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 2,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 2,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 2,
 											}, -- [66]
 											{
-												["display_id"] = 52,
-												["loc_id"] = 4,
-												["bag_id"] = 2,
-												["slot_id"] = 67,
-											}, -- [67]
-											{
-												["display_id"] = 66,
-												["loc_id"] = 4,
-												["bag_id"] = 2,
-												["slot_id"] = 68,
-											}, -- [68]
-											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
+												["loc_id"] = 4,
+												["slot_id"] = 67,
+												["sb"] = false,
+												["count"] = 19,
+												["display_id"] = 52,
+												["h"] = "|cffffffff|Hitem:62251:0:0:0:0:0:0:0:90:0:0|h[Runescroll of Fortitude II]|h|r",
+												["new"] = 1,
+											}, -- [67]
+											{
+												["loc_id"] = 4,
+												["display_id"] = 66,
+												["slot_id"] = 68,
+												["bag_id"] = 2,
+											}, -- [68]
+											{
+												["q"] = 1,
+												["class"] = "item",
+												["bag_id"] = 2,
+												["age"] = 22832473,
 												["display_id"] = 80,
 												["slot_id"] = 69,
 												["sb"] = false,
-												["count"] = 4,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76643:0:0:0:0:0:0:0:90:0:0|h[Sensei's Wild Jade]|h|r",
-												["new"] = 3,
+												["new"] = false,
 											}, -- [69]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 94,
 												["slot_id"] = 70,
 												["sb"] = false,
-												["count"] = 2,
+												["count"] = 1,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76674:0:0:0:0:0:0:0:12:0:0|h[Skillful Vermilion Onyx]|h|r",
+												["h"] = "|cff0070dd|Hitem:76661:0:0:0:0:0:0:0:90:0:0|h[Inscribed Vermilion Onyx]|h|r",
 												["new"] = 1,
 											}, -- [70]
 											{
-												["q"] = 3,
+												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 11,
 												["slot_id"] = 71,
 												["sb"] = false,
-												["count"] = 4,
+												["count"] = 0,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:87578:0:0:0:0:0:0:0:90:0:0|h[Crane Wing Inscription]|h|r",
-												["new"] = 1,
+												["new"] = false,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 2,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 2,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 2,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 2,
 											}, -- [75]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 81,
 												["slot_id"] = 76,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 2,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76656:0:0:0:0:0:0:0:90:0:0|h[Puissant Wild Jade]|h|r",
-												["new"] = 3,
+												["h"] = "|cff0070dd|Hitem:76590:0:0:0:0:0:0:0:90:0:0|h[Perfect Puissant Alexandrite]|h|r",
+												["new"] = 1,
 											}, -- [76]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 95,
 												["slot_id"] = 77,
 												["sb"] = false,
-												["count"] = 1,
+												["count"] = 3,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76595:0:0:0:0:0:0:0:90:0:0|h[Perfect Inscribed Tiger Opal]|h|r",
-												["new"] = 3,
+												["h"] = "|cff0070dd|Hitem:76670:0:0:0:0:0:0:0:90:0:0|h[Adept Vermilion Onyx]|h|r",
+												["new"] = 1,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 2,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 2,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 2,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 2,
 											}, -- [80]
 											{
 												["q"] = 1,
@@ -21845,46 +21946,53 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [83]
 											{
-												["display_id"] = 96,
-												["loc_id"] = 4,
+												["q"] = 3,
+												["class"] = "item",
 												["bag_id"] = 2,
+												["age"] = 22832473,
+												["loc_id"] = 4,
 												["slot_id"] = 84,
+												["sb"] = false,
+												["count"] = 1,
+												["display_id"] = 96,
+												["h"] = "|cff0070dd|Hitem:76595:0:0:0:0:0:0:0:90:0:0|h[Perfect Inscribed Tiger Opal]|h|r",
+												["new"] = 1,
 											}, -- [84]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 13,
 												["slot_id"] = 85,
 												["sb"] = false,
-												["count"] = 9,
+												["count"] = 5,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76132:0:0:0:0:0:0:0:90:0:0|h[Primal Diamond]|h|r",
-												["new"] = 2,
+												["new"] = 3,
 											}, -- [85]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22758145,
+												["age"] = 22832473,
 												["display_id"] = 27,
 												["slot_id"] = 86,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 2,
 												["loc_id"] = 4,
-												["h"] = "|cff0070dd|Hitem:76639:0:0:0:0:0:0:0:12:0:0|h[Solid River's Heart]|h|r",
-												["new"] = 1,
+												["h"] = "|cff0070dd|Hitem:76639:0:0:0:0:0:0:0:90:0:0|h[Solid River's Heart]|h|r",
+												["new"] = 3,
 											}, -- [86]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 41,
 												["slot_id"] = 87,
 												["sb"] = false,
-												["count"] = 3,
+												["count"] = 2,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76697:0:0:0:0:0:0:0:90:0:0|h[Smooth Sun's Radiance]|h|r",
 												["new"] = 3,
@@ -21957,27 +22065,27 @@ ARKINVDB = {
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 28,
 												["slot_id"] = 93,
 												["sb"] = false,
-												["count"] = 5,
+												["count"] = 11,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76138:0:0:0:0:0:0:0:90:0:0|h[River's Heart]|h|r",
-												["new"] = 3,
+												["new"] = 2,
 											}, -- [93]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22776816,
+												["age"] = 22832473,
 												["display_id"] = 42,
 												["slot_id"] = 94,
 												["sb"] = false,
-												["count"] = 2,
+												["count"] = 3,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76142:0:0:0:0:0:0:0:90:0:0|h[Sun's Radiance]|h|r",
-												["new"] = 3,
+												["new"] = 2,
 											}, -- [94]
 											{
 												["q"] = 3,
@@ -22009,36 +22117,37 @@ ARKINVDB = {
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 84,
 												["slot_id"] = 97,
 												["sb"] = false,
-												["count"] = 5,
+												["count"] = 6,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76139:0:0:0:0:0:0:0:90:0:0|h[Wild Jade]|h|r",
-												["new"] = 3,
+												["new"] = 2,
 											}, -- [97]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22814360,
+												["age"] = 22832473,
 												["display_id"] = 98,
 												["slot_id"] = 98,
 												["sb"] = false,
-												["count"] = 12,
+												["count"] = 13,
 												["loc_id"] = 4,
 												["h"] = "|cff0070dd|Hitem:76140:0:0:0:0:0:0:0:90:0:0|h[Vermilion Onyx]|h|r",
-												["new"] = 3,
+												["new"] = 2,
 											}, -- [98]
 										},
-										["status"] = -3,
-										["empty"] = 45,
 										["count"] = 98,
+										["withdraw"] = "None",
+										["status"] = -3,
+										["empty"] = 30,
+										["name"] = "Beepbeepimajeep",
 										["texture"] = "Interface\\Icons\\INV_Pet_Deathy",
 									}, -- [2]
 									{
-										["count"] = 98,
 										["type"] = 1,
 										["access"] = "Deposit Only",
 										["slot"] = {
@@ -22087,10 +22196,10 @@ ARKINVDB = {
 												["display_id"] = 43,
 											}, -- [4]
 											{
-												["display_id"] = 57,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 57,
 												["slot_id"] = 5,
+												["bag_id"] = 3,
 											}, -- [5]
 											{
 												["q"] = 1,
@@ -22143,22 +22252,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [9]
 											{
-												["display_id"] = 30,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 30,
 												["slot_id"] = 10,
+												["bag_id"] = 3,
 											}, -- [10]
 											{
-												["display_id"] = 44,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 44,
 												["slot_id"] = 11,
+												["bag_id"] = 3,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 3,
 											}, -- [12]
 											{
 												["q"] = 1,
@@ -22211,28 +22320,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 3,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 3,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 3,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 3,
 											}, -- [20]
 											{
 												["q"] = 1,
@@ -22297,10 +22406,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 3,
 											}, -- [26]
 											{
 												["q"] = 1,
@@ -22367,22 +22476,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 3,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 3,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 3,
 											}, -- [34]
 											{
 												["q"] = 1,
@@ -22448,10 +22557,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 3,
 											}, -- [40]
 											{
 												["q"] = 1,
@@ -22552,10 +22661,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 3,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -22622,10 +22731,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 3,
 											}, -- [55]
 											{
 												["q"] = 1,
@@ -22654,208 +22763,208 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 3,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 3,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 3,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 3,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 3,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 3,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 3,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 3,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 3,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 3,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 3,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 3,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 3,
 											}, -- [70]
 											{
-												["display_id"] = 11,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 11,
 												["slot_id"] = 71,
+												["bag_id"] = 3,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 3,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 3,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 3,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 3,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 3,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 3,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 3,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 3,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 3,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 3,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 3,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 3,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 3,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 3,
 											}, -- [85]
 											{
-												["display_id"] = 27,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 27,
 												["slot_id"] = 86,
+												["bag_id"] = 3,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 3,
 											}, -- [87]
 											{
-												["display_id"] = 55,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 55,
 												["slot_id"] = 88,
+												["bag_id"] = 3,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 3,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 3,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 3,
 											}, -- [91]
 											{
 												["q"] = 3,
@@ -22923,25 +23032,25 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [96]
 											{
-												["display_id"] = 84,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 84,
 												["slot_id"] = 97,
+												["bag_id"] = 3,
 											}, -- [97]
 											{
-												["display_id"] = 98,
 												["loc_id"] = 4,
-												["bag_id"] = 3,
+												["display_id"] = 98,
 												["slot_id"] = 98,
+												["bag_id"] = 3,
 											}, -- [98]
 										},
+										["name"] = "Piotrs Stash",
 										["status"] = -3,
 										["empty"] = 52,
-										["name"] = "Piotrs Stash",
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\INV_Weapon_Shortblade_85",
 									}, -- [3]
 									{
-										["count"] = 98,
 										["type"] = 1,
 										["access"] = "Locked",
 										["slot"] = {
@@ -23080,22 +23189,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 4,
 											}, -- [12]
 											{
-												["display_id"] = 72,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 72,
 												["slot_id"] = 13,
+												["bag_id"] = 4,
 											}, -- [13]
 											{
-												["display_id"] = 86,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 86,
 												["slot_id"] = 14,
+												["bag_id"] = 4,
 											}, -- [14]
 											{
 												["q"] = 2,
@@ -23123,34 +23232,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [16]
 											{
-												["display_id"] = 31,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 31,
 												["slot_id"] = 17,
+												["bag_id"] = 4,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 4,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 4,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 4,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 4,
 											}, -- [21]
 											{
 												["q"] = 2,
@@ -23179,28 +23288,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [23]
 											{
-												["display_id"] = 32,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 32,
 												["slot_id"] = 24,
+												["bag_id"] = 4,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 4,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 4,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 4,
 											}, -- [27]
 											{
 												["q"] = 1,
@@ -23216,34 +23325,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [28]
 											{
-												["display_id"] = 5,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 5,
 												["slot_id"] = 29,
+												["bag_id"] = 4,
 											}, -- [29]
 											{
-												["display_id"] = 19,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 19,
 												["slot_id"] = 30,
+												["bag_id"] = 4,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 4,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 4,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 4,
 											}, -- [33]
 											{
 												["q"] = 1,
@@ -23272,40 +23381,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 4,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 4,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 4,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 4,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 4,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 4,
 											}, -- [41]
 											{
 												["q"] = 2,
@@ -23346,76 +23455,76 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 4,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 4,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 4,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 4,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 4,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 4,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 4,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 4,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 4,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 4,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 4,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 4,
 											}, -- [56]
 											{
 												["q"] = 3,
@@ -23444,10 +23553,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 4,
 											}, -- [59]
 											{
 												["q"] = 1,
@@ -23501,22 +23610,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 4,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 4,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 4,
 											}, -- [66]
 											{
 												["q"] = 1,
@@ -23568,22 +23677,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [70]
 											{
-												["display_id"] = 11,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 11,
 												["slot_id"] = 71,
+												["bag_id"] = 4,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 4,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 4,
 											}, -- [73]
 											{
 												["q"] = 1,
@@ -23634,22 +23743,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 4,
 											}, -- [78]
 											{
-												["display_id"] = 26,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 26,
 												["slot_id"] = 79,
+												["bag_id"] = 4,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 4,
 											}, -- [80]
 											{
 												["q"] = 1,
@@ -23701,22 +23810,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 4,
 											}, -- [85]
 											{
-												["display_id"] = 27,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 27,
 												["slot_id"] = 86,
+												["bag_id"] = 4,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 4,
 											}, -- [87]
 											{
 												["q"] = 1,
@@ -23731,10 +23840,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 4,
 											}, -- [89]
 											{
 												["q"] = 1,
@@ -23788,10 +23897,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [93]
 											{
-												["display_id"] = 42,
 												["loc_id"] = 4,
-												["bag_id"] = 4,
+												["display_id"] = 42,
 												["slot_id"] = 94,
+												["bag_id"] = 4,
 											}, -- [94]
 											{
 												["q"] = 1,
@@ -23842,15 +23951,15 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [98]
 										},
+										["name"] = "Uths Goodie Bag",
 										["status"] = -3,
 										["empty"] = 51,
-										["name"] = "Uths Goodie Bag",
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\INV_Misc_Herb_04",
 									}, -- [4]
 									{
-										["count"] = 98,
 										["type"] = 1,
-										["access"] = "Deposit Only",
+										["access"] = "Full Access",
 										["slot"] = {
 											{
 												["q"] = 1,
@@ -24164,142 +24273,142 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 5,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 5,
 											}, -- [28]
 											{
-												["display_id"] = 5,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 5,
 												["slot_id"] = 29,
+												["bag_id"] = 5,
 											}, -- [29]
 											{
-												["display_id"] = 19,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 19,
 												["slot_id"] = 30,
+												["bag_id"] = 5,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 5,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 5,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 5,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 5,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 5,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 5,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 5,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 5,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 5,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 5,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 5,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 5,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 5,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 5,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 5,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 5,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 5,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 5,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 5,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -24328,34 +24437,34 @@ ARKINVDB = {
 												["new"] = 2,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 5,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 5,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 5,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 5,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 5,
 											}, -- [56]
 											{
 												["q"] = 3,
@@ -24384,34 +24493,34 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 5,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 5,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 5,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 5,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 5,
 											}, -- [63]
 											{
 												["q"] = 1,
@@ -24465,22 +24574,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 5,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 5,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 5,
 											}, -- [70]
 											{
 												["q"] = 1,
@@ -24509,10 +24618,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 5,
 											}, -- [73]
 											{
 												["q"] = 1,
@@ -24527,22 +24636,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 5,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 5,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 5,
 											}, -- [77]
 											{
 												["q"] = 1,
@@ -24595,22 +24704,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 5,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 5,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 5,
 											}, -- [84]
 											{
 												["q"] = 1,
@@ -24665,10 +24774,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 5,
 											}, -- [89]
 											{
 												["q"] = 2,
@@ -24684,10 +24793,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 5,
 											}, -- [91]
 											{
 												["q"] = 1,
@@ -24729,16 +24838,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [94]
 											{
-												["display_id"] = 56,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 56,
 												["slot_id"] = 95,
+												["bag_id"] = 5,
 											}, -- [95]
 											{
-												["display_id"] = 70,
 												["loc_id"] = 4,
-												["bag_id"] = 5,
+												["display_id"] = 70,
 												["slot_id"] = 96,
+												["bag_id"] = 5,
 											}, -- [96]
 											{
 												["q"] = 2,
@@ -24767,15 +24876,15 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [98]
 										},
+										["name"] = "Enchanting ",
 										["status"] = -3,
 										["empty"] = 55,
-										["name"] = "Enchanting ",
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\inv_misc_enchantedscroll",
 									}, -- [5]
 									{
-										["count"] = 98,
 										["type"] = 1,
-										["access"] = "Deposit Only",
+										["access"] = "Full Access",
 										["slot"] = {
 											{
 												["q"] = 2,
@@ -25159,34 +25268,34 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 6,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 6,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 6,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 6,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 6,
 											}, -- [35]
 											{
 												["q"] = 1,
@@ -25224,70 +25333,70 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 6,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 6,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 6,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 6,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 6,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 6,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 6,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 6,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 6,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 6,
 											}, -- [48]
 											{
-												["display_id"] = 91,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 91,
 												["slot_id"] = 49,
+												["bag_id"] = 6,
 											}, -- [49]
 											{
 												["q"] = 1,
@@ -25327,28 +25436,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 6,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 6,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 6,
 											}, -- [55]
 											{
-												["display_id"] = 92,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 92,
 												["slot_id"] = 56,
+												["bag_id"] = 6,
 											}, -- [56]
 											{
 												["q"] = 1,
@@ -25400,16 +25509,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 6,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 6,
 											}, -- [62]
 											{
 												["q"] = 1,
@@ -25486,16 +25595,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 6,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 6,
 											}, -- [70]
 											{
 												["q"] = 1,
@@ -25535,28 +25644,28 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [73]
 											{
-												["display_id"] = 53,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 53,
 												["slot_id"] = 74,
+												["bag_id"] = 6,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 6,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 6,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 6,
 											}, -- [77]
 											{
 												["q"] = 1,
@@ -25718,10 +25827,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 6,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 6,
 											}, -- [91]
 											{
 												["q"] = 1,
@@ -25809,15 +25918,15 @@ ARKINVDB = {
 												["new"] = 2,
 											}, -- [98]
 										},
+										["name"] = "Cloth n Leather",
 										["status"] = -3,
 										["empty"] = 34,
-										["name"] = "Cloth n Leather",
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\INV_CRATE_09",
 									}, -- [6]
 									{
-										["count"] = 98,
 										["type"] = 1,
-										["access"] = "Deposit Only",
+										["access"] = "Full Access",
 										["slot"] = {
 											{
 												["q"] = 2,
@@ -25975,10 +26084,10 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [13]
 											{
-												["display_id"] = 86,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 86,
 												["slot_id"] = 14,
+												["bag_id"] = 7,
 											}, -- [14]
 											{
 												["q"] = 2,
@@ -26027,10 +26136,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 7,
 											}, -- [19]
 											{
 												["q"] = 1,
@@ -26044,10 +26153,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 7,
 											}, -- [21]
 											{
 												["q"] = 2,
@@ -26085,16 +26194,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 7,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 7,
 											}, -- [26]
 											{
 												["q"] = 1,
@@ -26108,10 +26217,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 7,
 											}, -- [28]
 											{
 												["q"] = 1,
@@ -26136,10 +26245,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 7,
 											}, -- [31]
 											{
 												["q"] = 1,
@@ -26154,16 +26263,16 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 7,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 7,
 											}, -- [34]
 											{
 												["q"] = 3,
@@ -26201,10 +26310,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 7,
 											}, -- [38]
 											{
 												["q"] = 3,
@@ -26220,16 +26329,16 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 7,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 7,
 											}, -- [41]
 											{
 												["q"] = 3,
@@ -26245,22 +26354,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 7,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 7,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 7,
 											}, -- [45]
 											{
 												["q"] = 3,
@@ -26276,16 +26385,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 7,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 7,
 											}, -- [48]
 											{
 												["q"] = 3,
@@ -26301,22 +26410,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 7,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 7,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 7,
 											}, -- [52]
 											{
 												["q"] = 3,
@@ -26332,10 +26441,10 @@ ARKINVDB = {
 												["new"] = 3,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 7,
 											}, -- [54]
 											{
 												["q"] = 3,
@@ -26364,22 +26473,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [56]
 											{
-												["display_id"] = 9,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 9,
 												["slot_id"] = 57,
+												["bag_id"] = 7,
 											}, -- [57]
 											{
-												["display_id"] = 23,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 23,
 												["slot_id"] = 58,
+												["bag_id"] = 7,
 											}, -- [58]
 											{
-												["display_id"] = 37,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 37,
 												["slot_id"] = 59,
+												["bag_id"] = 7,
 											}, -- [59]
 											{
 												["q"] = 3,
@@ -26395,10 +26504,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 7,
 											}, -- [61]
 											{
 												["q"] = 3,
@@ -26440,16 +26549,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 7,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 7,
 											}, -- [66]
 											{
 												["q"] = 3,
@@ -26517,16 +26626,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [71]
 											{
-												["display_id"] = 25,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 25,
 												["slot_id"] = 72,
+												["bag_id"] = 7,
 											}, -- [72]
 											{
-												["display_id"] = 39,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 39,
 												["slot_id"] = 73,
+												["bag_id"] = 7,
 											}, -- [73]
 											{
 												["q"] = 3,
@@ -26581,10 +26690,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [77]
 											{
-												["display_id"] = 12,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 12,
 												["slot_id"] = 78,
+												["bag_id"] = 7,
 											}, -- [78]
 											{
 												["q"] = 1,
@@ -26599,10 +26708,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [79]
 											{
-												["display_id"] = 40,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 40,
 												["slot_id"] = 80,
+												["bag_id"] = 7,
 											}, -- [80]
 											{
 												["q"] = 3,
@@ -26657,10 +26766,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [84]
 											{
-												["display_id"] = 13,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 13,
 												["slot_id"] = 85,
+												["bag_id"] = 7,
 											}, -- [85]
 											{
 												["q"] = 1,
@@ -26675,10 +26784,10 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [86]
 											{
-												["display_id"] = 41,
 												["loc_id"] = 4,
-												["bag_id"] = 7,
+												["display_id"] = 41,
 												["slot_id"] = 87,
+												["bag_id"] = 7,
 											}, -- [87]
 											{
 												["q"] = 3,
@@ -26824,14 +26933,15 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [98]
 										},
+										["name"] = "Gems and Ores",
 										["status"] = -3,
 										["empty"] = 48,
-										["name"] = "Gems and Ores",
+										["count"] = 98,
 										["texture"] = "Interface\\Icons\\INV_JEWELCRAFTING_GEM_32",
 									}, -- [7]
 									{
 										["type"] = 1,
-										["access"] = "Deposit Only",
+										["access"] = "Full Access",
 										["slot"] = {
 											{
 												["q"] = 1,
@@ -26936,10 +27046,10 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [8]
 											{
-												["display_id"] = 16,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 16,
 												["slot_id"] = 9,
+												["bag_id"] = 8,
 											}, -- [9]
 											{
 												["q"] = 1,
@@ -26954,22 +27064,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [10]
 											{
-												["display_id"] = 44,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 44,
 												["slot_id"] = 11,
+												["bag_id"] = 8,
 											}, -- [11]
 											{
-												["display_id"] = 58,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 58,
 												["slot_id"] = 12,
+												["bag_id"] = 8,
 											}, -- [12]
 											{
-												["display_id"] = 72,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 72,
 												["slot_id"] = 13,
+												["bag_id"] = 8,
 											}, -- [13]
 											{
 												["q"] = 1,
@@ -27021,190 +27131,190 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [17]
 											{
-												["display_id"] = 45,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 45,
 												["slot_id"] = 18,
+												["bag_id"] = 8,
 											}, -- [18]
 											{
-												["display_id"] = 59,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 59,
 												["slot_id"] = 19,
+												["bag_id"] = 8,
 											}, -- [19]
 											{
-												["display_id"] = 73,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 73,
 												["slot_id"] = 20,
+												["bag_id"] = 8,
 											}, -- [20]
 											{
-												["display_id"] = 87,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 87,
 												["slot_id"] = 21,
+												["bag_id"] = 8,
 											}, -- [21]
 											{
-												["display_id"] = 4,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 4,
 												["slot_id"] = 22,
+												["bag_id"] = 8,
 											}, -- [22]
 											{
-												["display_id"] = 18,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 18,
 												["slot_id"] = 23,
+												["bag_id"] = 8,
 											}, -- [23]
 											{
-												["display_id"] = 32,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 32,
 												["slot_id"] = 24,
+												["bag_id"] = 8,
 											}, -- [24]
 											{
-												["display_id"] = 46,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 46,
 												["slot_id"] = 25,
+												["bag_id"] = 8,
 											}, -- [25]
 											{
-												["display_id"] = 60,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 60,
 												["slot_id"] = 26,
+												["bag_id"] = 8,
 											}, -- [26]
 											{
-												["display_id"] = 74,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 74,
 												["slot_id"] = 27,
+												["bag_id"] = 8,
 											}, -- [27]
 											{
-												["display_id"] = 88,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 88,
 												["slot_id"] = 28,
+												["bag_id"] = 8,
 											}, -- [28]
 											{
-												["display_id"] = 5,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 5,
 												["slot_id"] = 29,
+												["bag_id"] = 8,
 											}, -- [29]
 											{
-												["display_id"] = 19,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 19,
 												["slot_id"] = 30,
+												["bag_id"] = 8,
 											}, -- [30]
 											{
-												["display_id"] = 33,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 33,
 												["slot_id"] = 31,
+												["bag_id"] = 8,
 											}, -- [31]
 											{
-												["display_id"] = 47,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 47,
 												["slot_id"] = 32,
+												["bag_id"] = 8,
 											}, -- [32]
 											{
-												["display_id"] = 61,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 61,
 												["slot_id"] = 33,
+												["bag_id"] = 8,
 											}, -- [33]
 											{
-												["display_id"] = 75,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 75,
 												["slot_id"] = 34,
+												["bag_id"] = 8,
 											}, -- [34]
 											{
-												["display_id"] = 89,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 89,
 												["slot_id"] = 35,
+												["bag_id"] = 8,
 											}, -- [35]
 											{
-												["display_id"] = 6,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 6,
 												["slot_id"] = 36,
+												["bag_id"] = 8,
 											}, -- [36]
 											{
-												["display_id"] = 20,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 20,
 												["slot_id"] = 37,
+												["bag_id"] = 8,
 											}, -- [37]
 											{
-												["display_id"] = 34,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 34,
 												["slot_id"] = 38,
+												["bag_id"] = 8,
 											}, -- [38]
 											{
-												["display_id"] = 48,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 48,
 												["slot_id"] = 39,
+												["bag_id"] = 8,
 											}, -- [39]
 											{
-												["display_id"] = 62,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 62,
 												["slot_id"] = 40,
+												["bag_id"] = 8,
 											}, -- [40]
 											{
-												["display_id"] = 76,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 76,
 												["slot_id"] = 41,
+												["bag_id"] = 8,
 											}, -- [41]
 											{
-												["display_id"] = 90,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 90,
 												["slot_id"] = 42,
+												["bag_id"] = 8,
 											}, -- [42]
 											{
-												["display_id"] = 7,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 7,
 												["slot_id"] = 43,
+												["bag_id"] = 8,
 											}, -- [43]
 											{
-												["display_id"] = 21,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 21,
 												["slot_id"] = 44,
+												["bag_id"] = 8,
 											}, -- [44]
 											{
-												["display_id"] = 35,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 35,
 												["slot_id"] = 45,
+												["bag_id"] = 8,
 											}, -- [45]
 											{
-												["display_id"] = 49,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 49,
 												["slot_id"] = 46,
+												["bag_id"] = 8,
 											}, -- [46]
 											{
-												["display_id"] = 63,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 63,
 												["slot_id"] = 47,
+												["bag_id"] = 8,
 											}, -- [47]
 											{
-												["display_id"] = 77,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 77,
 												["slot_id"] = 48,
+												["bag_id"] = 8,
 											}, -- [48]
 											{
 												["q"] = 1,
@@ -27220,40 +27330,40 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [49]
 											{
-												["display_id"] = 8,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 8,
 												["slot_id"] = 50,
+												["bag_id"] = 8,
 											}, -- [50]
 											{
-												["display_id"] = 22,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 22,
 												["slot_id"] = 51,
+												["bag_id"] = 8,
 											}, -- [51]
 											{
-												["display_id"] = 36,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 36,
 												["slot_id"] = 52,
+												["bag_id"] = 8,
 											}, -- [52]
 											{
-												["display_id"] = 50,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 50,
 												["slot_id"] = 53,
+												["bag_id"] = 8,
 											}, -- [53]
 											{
-												["display_id"] = 64,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 64,
 												["slot_id"] = 54,
+												["bag_id"] = 8,
 											}, -- [54]
 											{
-												["display_id"] = 78,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 78,
 												["slot_id"] = 55,
+												["bag_id"] = 8,
 											}, -- [55]
 											{
 												["q"] = 1,
@@ -27306,70 +27416,70 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [59]
 											{
-												["display_id"] = 51,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 51,
 												["slot_id"] = 60,
+												["bag_id"] = 8,
 											}, -- [60]
 											{
-												["display_id"] = 65,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 65,
 												["slot_id"] = 61,
+												["bag_id"] = 8,
 											}, -- [61]
 											{
-												["display_id"] = 79,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 79,
 												["slot_id"] = 62,
+												["bag_id"] = 8,
 											}, -- [62]
 											{
-												["display_id"] = 93,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 93,
 												["slot_id"] = 63,
+												["bag_id"] = 8,
 											}, -- [63]
 											{
-												["display_id"] = 10,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 10,
 												["slot_id"] = 64,
+												["bag_id"] = 8,
 											}, -- [64]
 											{
-												["display_id"] = 24,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 24,
 												["slot_id"] = 65,
+												["bag_id"] = 8,
 											}, -- [65]
 											{
-												["display_id"] = 38,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 38,
 												["slot_id"] = 66,
+												["bag_id"] = 8,
 											}, -- [66]
 											{
-												["display_id"] = 52,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 52,
 												["slot_id"] = 67,
+												["bag_id"] = 8,
 											}, -- [67]
 											{
-												["display_id"] = 66,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 66,
 												["slot_id"] = 68,
+												["bag_id"] = 8,
 											}, -- [68]
 											{
-												["display_id"] = 80,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 80,
 												["slot_id"] = 69,
+												["bag_id"] = 8,
 											}, -- [69]
 											{
-												["display_id"] = 94,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 94,
 												["slot_id"] = 70,
+												["bag_id"] = 8,
 											}, -- [70]
 											{
 												["q"] = 1,
@@ -27420,22 +27530,22 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [74]
 											{
-												["display_id"] = 67,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 67,
 												["slot_id"] = 75,
+												["bag_id"] = 8,
 											}, -- [75]
 											{
-												["display_id"] = 81,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 81,
 												["slot_id"] = 76,
+												["bag_id"] = 8,
 											}, -- [76]
 											{
-												["display_id"] = 95,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 95,
 												["slot_id"] = 77,
+												["bag_id"] = 8,
 											}, -- [77]
 											{
 												["q"] = 1,
@@ -27475,28 +27585,28 @@ ARKINVDB = {
 												["new"] = 2,
 											}, -- [80]
 											{
-												["display_id"] = 54,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 54,
 												["slot_id"] = 81,
+												["bag_id"] = 8,
 											}, -- [81]
 											{
-												["display_id"] = 68,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 68,
 												["slot_id"] = 82,
+												["bag_id"] = 8,
 											}, -- [82]
 											{
-												["display_id"] = 82,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 82,
 												["slot_id"] = 83,
+												["bag_id"] = 8,
 											}, -- [83]
 											{
-												["display_id"] = 96,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 96,
 												["slot_id"] = 84,
+												["bag_id"] = 8,
 											}, -- [84]
 											{
 												["q"] = 1,
@@ -27549,22 +27659,22 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [88]
 											{
-												["display_id"] = 69,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 69,
 												["slot_id"] = 89,
+												["bag_id"] = 8,
 											}, -- [89]
 											{
-												["display_id"] = 83,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 83,
 												["slot_id"] = 90,
+												["bag_id"] = 8,
 											}, -- [90]
 											{
-												["display_id"] = 97,
 												["loc_id"] = 4,
-												["bag_id"] = 8,
+												["display_id"] = 97,
 												["slot_id"] = 91,
+												["bag_id"] = 8,
 											}, -- [91]
 											{
 												["q"] = 1,
@@ -27649,7 +27759,6 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [98]
 										},
-										["withdraw"] = "None",
 										["count"] = 98,
 										["status"] = -3,
 										["empty"] = 69,
@@ -27984,13 +28093,13 @@ ARKINVDB = {
 												["texture"] = "INTERFACE\\ICONS\\ability_mount_seahorse",
 												["bag_id"] = 1,
 												["age"] = 22821309,
-												["ab"] = true,
 												["h"] = "|cff71d5ff|Hspell:75207|h[Abyssal Seahorse]|h|r",
-												["count"] = 1,
+												["loc_id"] = 8,
+												["slot_id"] = 1,
 												["sb"] = true,
 												["mt"] = "u",
-												["slot_id"] = 1,
-												["loc_id"] = 8,
+												["count"] = 1,
+												["ab"] = true,
 												["new"] = 1,
 											}, -- [1]
 											{
@@ -27999,13 +28108,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\inv_pandarenserpentmount_blue",
 												["bag_id"] = 1,
 												["age"] = 22821309,
-												["ab"] = true,
 												["h"] = "|cff71d5ff|Hspell:123992|h[Azure Cloud Serpent]|h|r",
-												["count"] = 1,
+												["loc_id"] = 8,
+												["slot_id"] = 2,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 2,
-												["loc_id"] = 8,
+												["count"] = 1,
+												["ab"] = true,
 												["new"] = 1,
 											}, -- [2]
 											{
@@ -28014,13 +28123,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_raptor_black",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["ab"] = true,
 												["h"] = "|cff71d5ff|Hspell:138642|h[Black Primal Raptor]|h|r",
-												["count"] = 1,
+												["loc_id"] = 8,
+												["slot_id"] = 3,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 3,
-												["loc_id"] = 8,
+												["count"] = 1,
+												["ab"] = true,
 												["new"] = 1,
 											}, -- [3]
 											{
@@ -28029,13 +28138,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_BlackPanther",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["ab"] = true,
 												["h"] = "|cff71d5ff|Hspell:22723|h[Black War Tiger]|h|r",
-												["count"] = 1,
+												["loc_id"] = 8,
+												["slot_id"] = 4,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 4,
-												["loc_id"] = 8,
+												["count"] = 1,
+												["ab"] = true,
 												["new"] = 1,
 											}, -- [4]
 											{
@@ -28044,13 +28153,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_ebongryphon",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["ab"] = true,
 												["h"] = "|cff71d5ff|Hspell:32239|h[Ebon Gryphon]|h|r",
-												["count"] = 1,
+												["loc_id"] = 8,
+												["slot_id"] = 5,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 5,
-												["loc_id"] = 8,
+												["count"] = 1,
+												["ab"] = true,
 												["new"] = 1,
 											}, -- [5]
 											{
@@ -28059,13 +28168,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_goldengryphon",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:32235|h[Golden Gryphon]|h|r",
+												["slot_id"] = 6,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 6,
-												["h"] = "|cff71d5ff|Hspell:32235|h[Golden Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [6]
 											{
@@ -28074,13 +28183,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingElekkElite_Purple",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:35714|h[Great Purple Elekk]|h|r",
+												["slot_id"] = 7,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 7,
-												["h"] = "|cff71d5ff|Hspell:35714|h[Great Purple Elekk]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [7]
 											{
@@ -28089,13 +28198,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_quilenflyingmount",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:124659|h[Imperial Quilen]|h|r",
+												["slot_id"] = 8,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 8,
-												["h"] = "|cff71d5ff|Hspell:124659|h[Imperial Quilen]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [8]
 											{
@@ -28104,13 +28213,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_NetherdrakePurple",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:41513|h[Onyx Netherwing Drake]|h|r",
+												["slot_id"] = 9,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 9,
-												["h"] = "|cff71d5ff|Hspell:41513|h[Onyx Netherwing Drake]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [9]
 											{
@@ -28119,13 +28228,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingHorse",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:472|h[Pinto]|h|r",
+												["slot_id"] = 10,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 10,
-												["h"] = "|cff71d5ff|Hspell:472|h[Pinto]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [10]
 											{
@@ -28134,13 +28243,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingElekk_Purple",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:35711|h[Purple Elekk]|h|r",
+												["slot_id"] = 11,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 11,
-												["h"] = "|cff71d5ff|Hspell:35711|h[Purple Elekk]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [11]
 											{
@@ -28149,13 +28258,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_snowygryphon",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:32240|h[Snowy Gryphon]|h|r",
+												["slot_id"] = 12,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 12,
-												["h"] = "|cff71d5ff|Hspell:32240|h[Snowy Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [12]
 											{
@@ -28164,13 +28273,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\ability_mount_spectralgryphon",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:107516|h[Spectral Gryphon]|h|r",
+												["slot_id"] = 13,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 13,
-												["h"] = "|cff71d5ff|Hspell:107516|h[Spectral Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [13]
 											{
@@ -28179,13 +28288,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_WhiteTiger",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:10789|h[Spotted Frostsaber]|h|r",
+												["slot_id"] = 14,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 14,
-												["h"] = "|cff71d5ff|Hspell:10789|h[Spotted Frostsaber]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [14]
 											{
@@ -28194,13 +28303,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_MountainRam",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:23510|h[Stormpike Battle Charger]|h|r",
+												["slot_id"] = 15,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 15,
-												["h"] = "|cff71d5ff|Hspell:23510|h[Stormpike Battle Charger]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [15]
 											{
@@ -28209,13 +28318,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:32242|h[Swift Blue Gryphon]|h|r",
+												["slot_id"] = 16,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 16,
-												["h"] = "|cff71d5ff|Hspell:32242|h[Swift Blue Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [16]
 											{
@@ -28224,13 +28333,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_WhiteTiger",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:23221|h[Swift Frostsaber]|h|r",
+												["slot_id"] = 17,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 17,
-												["h"] = "|cff71d5ff|Hspell:23221|h[Swift Frostsaber]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [17]
 											{
@@ -28239,13 +28348,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:32290|h[Swift Green Gryphon]|h|r",
+												["slot_id"] = 18,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 18,
-												["h"] = "|cff71d5ff|Hspell:32290|h[Swift Green Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [18]
 											{
@@ -28254,13 +28363,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_RidingHorse",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:23227|h[Swift Palomino]|h|r",
+												["slot_id"] = 19,
 												["sb"] = true,
 												["mt"] = "l",
-												["slot_id"] = 19,
-												["h"] = "|cff71d5ff|Hspell:23227|h[Swift Palomino]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [19]
 											{
@@ -28269,13 +28378,13 @@ ARKINVDB = {
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 												["bag_id"] = 1,
 												["age"] = 22826814,
-												["loc_id"] = 8,
 												["ab"] = true,
-												["count"] = 1,
+												["h"] = "|cff71d5ff|Hspell:32292|h[Swift Purple Gryphon]|h|r",
+												["slot_id"] = 20,
 												["sb"] = true,
 												["mt"] = "a",
-												["slot_id"] = 20,
-												["h"] = "|cff71d5ff|Hspell:32292|h[Swift Purple Gryphon]|h|r",
+												["count"] = 1,
+												["loc_id"] = 8,
 												["new"] = 1,
 											}, -- [20]
 											{
@@ -28283,13 +28392,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["h"] = "|cff71d5ff|Hspell:32289|h[Swift Red Gryphon]|h|r",
-												["slot_id"] = 21,
 												["loc_id"] = 8,
 												["count"] = 1,
+												["ab"] = true,
+												["slot_id"] = 21,
 												["sb"] = true,
 												["mt"] = "a",
-												["ab"] = true,
+												["h"] = "|cff71d5ff|Hspell:32289|h[Swift Red Gryphon]|h|r",
 												["age"] = 22826814,
 												["texture"] = "Interface\\Icons\\Ability_Mount_Gryphon_01",
 											}, -- [21]
@@ -28298,13 +28407,13 @@ ARKINVDB = {
 												["type"] = "MOUNT",
 												["new"] = 1,
 												["bag_id"] = 1,
-												["ab"] = true,
-												["count"] = 1,
 												["h"] = "|cff71d5ff|Hspell:26055|h[Yellow Qiraji Battle Tank]|h|r",
 												["slot_id"] = 22,
+												["loc_id"] = 8,
+												["count"] = 1,
 												["sb"] = true,
 												["mt"] = "l",
-												["loc_id"] = 8,
+												["ab"] = true,
 												["age"] = 22826814,
 												["texture"] = "Interface\\Icons\\INV_Misc_QirajiCrystal_01",
 											}, -- [22]
@@ -28318,7 +28427,7 @@ ARKINVDB = {
 					["Majandra"] = {
 						["info"] = {
 							["realm"] = "Dragonblight",
-							["money"] = 34825346,
+							["money"] = 33845846,
 							["gender"] = 3,
 							["player_id"] = "Majandra",
 							["class"] = "PRIEST",
@@ -28415,21 +28524,21 @@ ARKINVDB = {
 											{
 												["q"] = 1,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832427,
 												["h"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:1831899648:90:0:0|h[Spirit Dust]|h|r",
 												["loc_id"] = 1,
 												["slot_id"] = 6,
 												["sb"] = false,
 												["bag_id"] = 1,
 												["ab"] = false,
-												["count"] = 14,
+												["count"] = 10,
 												["new"] = 3,
 											}, -- [6]
 											{
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 1,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["count"] = 1,
 												["sb"] = true,
@@ -28446,7 +28555,7 @@ ARKINVDB = {
 												["loc_id"] = 1,
 												["count"] = 1,
 												["sb"] = true,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["slot_id"] = 8,
 												["new"] = 1,
@@ -28493,7 +28602,7 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffa335ee|Hitem:94222:0:0:0:0:0:0:122725120:90:0:0|h[Key to the Palace of Lei Shen]|h|r",
 												["loc_id"] = 1,
 												["slot_id"] = 12,
@@ -28513,13 +28622,13 @@ ARKINVDB = {
 												["sb"] = true,
 												["loc_id"] = 1,
 												["count"] = 1,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["new"] = 1,
 											}, -- [13]
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["h"] = "|cffa335ee|Hitem:95926:0:4660:4591:0:0:0:0:90:166:465|h[Cowl of the Exorcist]|h|r",
 												["slot_id"] = 14,
@@ -28532,9 +28641,9 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["loc_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95928:0:0:0:0:0:0:0:90:0:465|h[Robes of the Exorcist]|h|r",
+												["h"] = "|cffa335ee|Hitem:95928:4418:4637:4591:4589:0:0:0:90:0:465|h[Robes of the Exorcist]|h|r",
 												["count"] = 1,
 												["sb"] = true,
 												["slot_id"] = 15,
@@ -28543,20 +28652,20 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [15]
 											{
-												["q"] = 1,
-												["class"] = "item",
-												["age"] = 22832257,
-												["h"] = "|cffffffff|Hitem:34498:0:0:0:0:0:0:560891008:90:0:0|h[Paper Zeppelin Kit]|h|r",
+												["q"] = 0,
+												["class"] = "empty",
+												["age"] = 22832473,
 												["loc_id"] = 1,
 												["count"] = 1,
 												["sb"] = false,
 												["slot_id"] = 16,
 												["bag_id"] = 1,
 												["ab"] = false,
-												["new"] = 1,
+												["new"] = false,
 											}, -- [16]
 										},
 										["status"] = -3,
+										["empty"] = 1,
 										["texture"] = "Interface\\Icons\\INV_Misc_Bag_07_Green",
 									}, -- [1]
 									{
@@ -28572,7 +28681,7 @@ ARKINVDB = {
 												["loc_id"] = 1,
 												["slot_id"] = 1,
 												["sb"] = true,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["count"] = 1,
 												["ab"] = false,
 												["new"] = 1,
@@ -28586,7 +28695,7 @@ ARKINVDB = {
 												["slot_id"] = 2,
 												["sb"] = true,
 												["count"] = 1,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["loc_id"] = 1,
 												["new"] = 1,
 											}, -- [2]
@@ -28600,13 +28709,13 @@ ARKINVDB = {
 												["sb"] = true,
 												["ab"] = false,
 												["slot_id"] = 3,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["new"] = 1,
 											}, -- [3]
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffa335ee|Hitem:86839:0:4660:4637:0:0:0:1727005568:90:162:445|h[Xaril's Hood of Intoxicating Vapors]|h|r",
 												["ab"] = false,
 												["slot_id"] = 4,
@@ -28626,14 +28735,14 @@ ARKINVDB = {
 												["sb"] = true,
 												["slot_id"] = 5,
 												["ab"] = false,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["new"] = 1,
 											}, -- [5]
 											{
 												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 2,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["loc_id"] = 1,
 												["count"] = 1,
 												["sb"] = true,
@@ -28643,17 +28752,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [6]
 											{
-												["q"] = 3,
-												["class"] = "item",
+												["q"] = 0,
+												["class"] = "empty",
 												["bag_id"] = 2,
 												["ab"] = false,
-												["h"] = "|cff0070dd|Hitem:76640:0:0:0:0:0:0:1306254976:90:0:0|h[Misty Wild Jade]|h|r",
 												["count"] = 1,
 												["sb"] = false,
+												["age"] = 22832473,
 												["slot_id"] = 7,
 												["loc_id"] = 1,
-												["age"] = 22832257,
-												["new"] = 1,
+												["new"] = false,
 											}, -- [7]
 											{
 												["q"] = 1,
@@ -28710,7 +28818,7 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["h"] = "|cffa335ee|Hitem:98320:0:0:0:0:0:-363:585237681:90:0:465|h[Immaculate Pandaren Wand of the Wavecrest]|h|r",
 												["slot_id"] = 12,
@@ -28729,14 +28837,14 @@ ARKINVDB = {
 												["count"] = 1,
 												["sb"] = true,
 												["slot_id"] = 13,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["new"] = 1,
 											}, -- [13]
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffa335ee|Hitem:86703:0:0:0:0:0:0:0:90:0:445|h[Guardian Serpent Handwraps]|h|r",
 												["loc_id"] = 1,
 												["slot_id"] = 14,
@@ -28747,17 +28855,16 @@ ARKINVDB = {
 												["new"] = 1,
 											}, -- [14]
 											{
-												["q"] = 3,
+												["q"] = 0,
 												["class"] = "item",
-												["age"] = 22832257,
-												["h"] = "|cff0070dd|Hitem:76686:0:0:0:0:0:0:1857710464:90:0:0|h[Purified Imperial Amethyst]|h|r",
+												["age"] = 22832473,
 												["ab"] = false,
 												["slot_id"] = 15,
 												["sb"] = false,
+												["loc_id"] = 1,
 												["bag_id"] = 2,
 												["count"] = 1,
-												["loc_id"] = 1,
-												["new"] = 1,
+												["new"] = false,
 											}, -- [15]
 											{
 												["q"] = 4,
@@ -28788,7 +28895,7 @@ ARKINVDB = {
 											{
 												["q"] = 3,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["h"] = "|cff0070dd|Hitem:63206:0:0:0:0:0:0:0:90:0:0|h[Wrap of Unity]|h|r",
 												["slot_id"] = 18,
@@ -28826,6 +28933,7 @@ ARKINVDB = {
 											}, -- [20]
 										},
 										["status"] = -3,
+										["empty"] = 2,
 										["h"] = "|cff1eff00|Hitem:41599:0:0:0:0:0:0:565990784:90:0:0|h[Frostweave Bag]|h|r",
 										["texture"] = "Interface\\Icons\\INV_Misc_Bag_EnchantedMageweave",
 									}, -- [2]
@@ -28850,7 +28958,7 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["h"] = "|cffa335ee|Hitem:94737:4430:4589:0:0:0:0:657627776:90:134:465|h[Lightningweaver Gauntlets]|h|r",
 												["slot_id"] = 2,
@@ -28862,8 +28970,8 @@ ARKINVDB = {
 											}, -- [2]
 											{
 												["q"] = 0,
-												["class"] = "empty",
-												["age"] = 22832257,
+												["class"] = "item",
+												["age"] = 22832473,
 												["ab"] = false,
 												["slot_id"] = 3,
 												["sb"] = false,
@@ -28873,27 +28981,28 @@ ARKINVDB = {
 												["new"] = false,
 											}, -- [3]
 											{
-												["q"] = 0,
+												["q"] = 3,
 												["class"] = "item",
 												["bag_id"] = 3,
 												["loc_id"] = 1,
+												["h"] = "|cff0070dd|Hitem:82447:0:0:0:0:0:0:985610880:90:0:0|h[Imperial Silk]|h|r",
 												["count"] = 1,
-												["sb"] = false,
-												["slot_id"] = 4,
+												["sb"] = true,
 												["ab"] = false,
-												["age"] = 22832257,
-												["new"] = false,
+												["age"] = 22832402,
+												["slot_id"] = 4,
+												["new"] = 1,
 											}, -- [4]
 											{
 												["q"] = 1,
 												["class"] = "item",
-												["age"] = 22828649,
+												["age"] = 22832402,
 												["h"] = "|cffffffff|Hitem:82441:0:0:0:0:0:0:70416384:90:0:0|h[Bolt of Windwool Cloth]|h|r",
 												["ab"] = false,
 												["slot_id"] = 5,
 												["sb"] = false,
 												["bag_id"] = 3,
-												["count"] = 19,
+												["count"] = 11,
 												["loc_id"] = 1,
 												["new"] = 3,
 											}, -- [5]
@@ -28926,7 +29035,7 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffa335ee|Hitem:86314:4430:4589:0:0:0:0:567838592:90:152:445|h[Touch of the Light]|h|r",
 												["ab"] = false,
 												["slot_id"] = 8,
@@ -28998,7 +29107,7 @@ ARKINVDB = {
 												["sb"] = true,
 												["count"] = 1,
 												["loc_id"] = 1,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["new"] = 1,
 											}, -- [13]
 											{
@@ -29009,15 +29118,15 @@ ARKINVDB = {
 												["ab"] = false,
 												["slot_id"] = 14,
 												["sb"] = true,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["loc_id"] = 1,
 												["count"] = 1,
 												["new"] = 1,
 											}, -- [14]
 											{
 												["q"] = 0,
-												["class"] = "item",
-												["age"] = 22828640,
+												["class"] = "empty",
+												["age"] = 22832473,
 												["loc_id"] = 1,
 												["count"] = 1,
 												["sb"] = false,
@@ -29033,7 +29142,7 @@ ARKINVDB = {
 												["ab"] = false,
 												["slot_id"] = 16,
 												["sb"] = false,
-												["age"] = 22832257,
+												["age"] = 22832473,
 												["count"] = 1,
 												["loc_id"] = 1,
 												["new"] = false,
@@ -29088,7 +29197,7 @@ ARKINVDB = {
 											}, -- [20]
 										},
 										["status"] = -3,
-										["empty"] = 8,
+										["empty"] = 7,
 										["h"] = "|cff1eff00|Hitem:41599:0:0:0:0:0:0:1377747840:90:0:0|h[Frostweave Bag]|h|r",
 										["texture"] = "Interface\\Icons\\INV_Misc_Bag_EnchantedMageweave",
 									}, -- [3]
@@ -29511,7 +29620,7 @@ ARKINVDB = {
 											{
 												["q"] = 1,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffffffff|Hitem:95567:0:0:0:0:0:0:319874048:90:0:0|h[Kirin Tor Beacon]|h|r",
 												["ab"] = false,
 												["count"] = 1,
@@ -29524,7 +29633,7 @@ ARKINVDB = {
 											{
 												["q"] = 4,
 												["class"] = "item",
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["h"] = "|cffa335ee|Hitem:64399:0:0:0:0:0:0:0:90:0:0|h[Battle Standard of Coordination]|h|r",
 												["ab"] = false,
 												["count"] = 1,
@@ -29586,7 +29695,7 @@ ARKINVDB = {
 												["q"] = 1,
 												["class"] = "item",
 												["bag_id"] = 5,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["ab"] = false,
 												["slot_id"] = 20,
 												["sb"] = true,
@@ -31699,7 +31808,7 @@ ARKINVDB = {
 										["slot"] = {
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94959:0:4660:4589:0:0:0:1955439872:90:0:465|h[Hood of the Crimson Wake]|h|r",
 												["count"] = 1,
@@ -31711,7 +31820,7 @@ ARKINVDB = {
 											}, -- [1]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:95145:0:0:0:0:0:0:0:90:0:465|h[Mender's Battletags]|h|r",
 												["count"] = 1,
@@ -31723,7 +31832,7 @@ ARKINVDB = {
 											}, -- [2]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:86699:4806:4589:0:0:0:0:0:90:0:445|h[Guardian Serpent Mantle]|h|r",
 												["count"] = 1,
@@ -31735,7 +31844,7 @@ ARKINVDB = {
 											}, -- [3]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94785:4892:0:0:0:0:0:104856960:90:162:465|h[Shimmershell Cape]|h|r",
 												["count"] = 1,
@@ -31747,7 +31856,7 @@ ARKINVDB = {
 											}, -- [4]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94731:4419:4591:4591:0:0:0:1057470080:90:166:465|h[Robes of Static Bursts]|h|r",
 												["count"] = 1,
@@ -31779,7 +31888,7 @@ ARKINVDB = {
 											}, -- [7]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94804:4414:4591:0:0:0:-340:1205929587:90:148:465|h[Frostborn Wristwraps]|h|r",
 												["count"] = 1,
@@ -31791,7 +31900,7 @@ ARKINVDB = {
 											}, -- [8]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94947:4430:4591:4591:0:0:0:653321856:90:0:465|h[Helix-Breaker Gloves]|h|r",
 												["count"] = 1,
@@ -31803,7 +31912,7 @@ ARKINVDB = {
 											}, -- [9]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:95526:0:4589:0:0:0:0:0:90:152:465|h[Shan'ze Scholar's Girdle]|h|r",
 												["count"] = 1,
@@ -31815,7 +31924,7 @@ ARKINVDB = {
 											}, -- [10]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94923:4896:4589:4589:0:0:0:1515685888:90:162:465|h[Leggings of Pulsing Blood]|h|r",
 												["count"] = 1,
@@ -31827,7 +31936,7 @@ ARKINVDB = {
 											}, -- [11]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94279:4429:4589:4589:0:0:0:1703867136:90:152:465|h[Falling Blossom Sandals]|h|r",
 												["count"] = 1,
@@ -31839,7 +31948,7 @@ ARKINVDB = {
 											}, -- [12]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:86767:4360:0:0:0:0:0:2074311168:90:0:445|h[Circuit of the Frail Soul]|h|r",
 												["count"] = 1,
@@ -31851,7 +31960,7 @@ ARKINVDB = {
 											}, -- [13]
 											{
 												["q"] = 3,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cff0070dd|Hitem:83801:4360:0:0:0:0:0:2031578240:90:152:0|h[Band of Blood]|h|r",
 												["count"] = 1,
@@ -31863,7 +31972,7 @@ ARKINVDB = {
 											}, -- [14]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:79330:0:0:0:0:0:0:197991424:90:0:445|h[Relic of Chi-Ji]|h|r",
 												["count"] = 1,
@@ -31875,7 +31984,7 @@ ARKINVDB = {
 											}, -- [15]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:94514:0:0:0:0:0:0:925183872:90:0:465|h[Horridon's Last Gasp]|h|r",
 												["count"] = 1,
@@ -31887,7 +31996,7 @@ ARKINVDB = {
 											}, -- [16]
 											{
 												["q"] = 4,
-												["age"] = 22832257,
+												["age"] = 22832400,
 												["bag_id"] = 1,
 												["h"] = "|cffa335ee|Hitem:96092:4442:4589:0:0:0:0:1890876160:90:152:467|h[Giorgio's Caduceus of Pure Moods]|h|r",
 												["count"] = 1,
@@ -34495,1043 +34604,6 @@ ARKINVDB = {
 									}, -- [5]
 								},
 							}, -- [1]
-							[6] = {
-								["slot_count"] = 18,
-								["bag"] = {
-									{
-										["type"] = 14,
-										["count"] = 18,
-										["slot"] = {
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:86691:0:4660:4589:0:0:0:0:90:166:445|h[Firebird's Faceguard]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 1,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [1]
-											{
-												["q"] = 4,
-												["age"] = 22778282,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95145:0:0:0:0:0:0:0:90:0:465|h[Mender's Battletags]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 2,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [2]
-											{
-												["q"] = 4,
-												["age"] = 22778378,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95695:4806:4637:0:0:0:0:347959808:90:152:465|h[Spaulders of Quaking Fear]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 3,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [3]
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:86748:4423:0:0:0:0:0:1593213312:90:0:445|h[Cape of Three Lanterns]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 4,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [4]
-											{
-												["q"] = 4,
-												["age"] = 22781030,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:86693:4419:4596:4596:0:0:0:0:90:119:445|h[Firebird's Tunic]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 5,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [5]
-											{
-												["q"] = 1,
-												["ab"] = false,
-												["slot_id"] = 6,
-												["sb"] = false,
-												["count"] = 1,
-												["bag_id"] = 1,
-												["age"] = 22759414,
-												["loc_id"] = 6,
-											}, -- [6]
-											{
-												["q"] = 1,
-												["ab"] = false,
-												["slot_id"] = 7,
-												["sb"] = false,
-												["count"] = 1,
-												["bag_id"] = 1,
-												["age"] = 22759414,
-												["loc_id"] = 6,
-											}, -- [7]
-											{
-												["q"] = 4,
-												["age"] = 22763753,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95673:4877:4596:0:0:0:-340:1653867866:90:0:465|h[Loa-Ridden Bracers]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 8,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [8]
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:85352:4433:0:0:0:0:0:0:90:152:445|h[Firebird's Handwraps]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 9,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [9]
-											{
-												["q"] = 4,
-												["age"] = 22778378,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95714:0:4637:4591:4522:0:0:2000455424:90:166:465|h[Links of the Bifurcated Tongue]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 10,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [10]
-											{
-												["q"] = 4,
-												["age"] = 22781030,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:86690:5004:4637:0:0:0:0:0:90:162:445|h[Firebird's Legwraps]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 11,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [11]
-											{
-												["q"] = 4,
-												["age"] = 22778378,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95643:4429:4536:0:0:0:0:1958733568:90:0:465|h[Ghostbinder Greatboots]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 12,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [12]
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:95514:0:0:0:0:0:0:1847806080:90:0:465|h[Petrified Eye of the Basilisk]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 13,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [13]
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:89073:0:0:0:0:0:0:0:90:0:445|h[Leven's Circle of Hope]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 14,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [14]
-											{
-												["q"] = 4,
-												["age"] = 22778378,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:94509:0:0:0:0:0:0:0:90:0:465|h[Soothing Talisman of the Shado-Pan Assault]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 15,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [15]
-											{
-												["q"] = 4,
-												["age"] = 22779728,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:94514:0:0:0:0:0:0:1764405632:90:0:465|h[Horridon's Last Gasp]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 16,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [16]
-											{
-												["q"] = 4,
-												["age"] = 22781015,
-												["bag_id"] = 1,
-												["h"] = "|cffa335ee|Hitem:86893:4442:4998:0:0:0:0:1211892224:90:148:445|h[Jin'ya, Orb of the Waterspeaker]|h|r",
-												["count"] = 1,
-												["sb"] = true,
-												["slot_id"] = 17,
-												["loc_id"] = 6,
-												["ab"] = false,
-												["new"] = 1,
-											}, -- [17]
-											{
-												["q"] = 1,
-												["age"] = 22778378,
-												["loc_id"] = 6,
-												["count"] = 1,
-												["sb"] = false,
-												["ab"] = false,
-												["bag_id"] = 1,
-												["slot_id"] = 18,
-												["new"] = false,
-											}, -- [18]
-										},
-										["status"] = -3,
-										["empty"] = 3,
-									}, -- [1]
-								},
-							},
-							[13] = {
-								["slot_count"] = 80,
-								["bag"] = {
-									{
-										["type"] = 24,
-										["count"] = 80,
-										["slot"] = {
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 1,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 1,
-											}, -- [1]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 11,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 2,
-											}, -- [2]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 21,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 3,
-											}, -- [3]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 31,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 4,
-											}, -- [4]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 41,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 5,
-											}, -- [5]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 51,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 6,
-											}, -- [6]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 61,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 7,
-											}, -- [7]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 71,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 8,
-											}, -- [8]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 2,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 9,
-											}, -- [9]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 12,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 10,
-											}, -- [10]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 22,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 11,
-											}, -- [11]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 32,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 12,
-											}, -- [12]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 42,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 13,
-											}, -- [13]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 52,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 14,
-											}, -- [14]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 62,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 15,
-											}, -- [15]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 72,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 16,
-											}, -- [16]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 3,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 17,
-											}, -- [17]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 13,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 18,
-											}, -- [18]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 23,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 19,
-											}, -- [19]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 33,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 20,
-											}, -- [20]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 43,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 21,
-											}, -- [21]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 53,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 22,
-											}, -- [22]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 63,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 23,
-											}, -- [23]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 73,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 24,
-											}, -- [24]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 4,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 25,
-											}, -- [25]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 14,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 26,
-											}, -- [26]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 24,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 27,
-											}, -- [27]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 34,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 28,
-											}, -- [28]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 44,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 29,
-											}, -- [29]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 54,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 30,
-											}, -- [30]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 64,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 31,
-											}, -- [31]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 74,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 32,
-											}, -- [32]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 5,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 33,
-											}, -- [33]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 15,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 34,
-											}, -- [34]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 25,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 35,
-											}, -- [35]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 35,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 36,
-											}, -- [36]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 45,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 37,
-											}, -- [37]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 55,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 38,
-											}, -- [38]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 65,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 39,
-											}, -- [39]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 75,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 40,
-											}, -- [40]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 6,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 41,
-											}, -- [41]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 16,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 42,
-											}, -- [42]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 26,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 43,
-											}, -- [43]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 36,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 44,
-											}, -- [44]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 46,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 45,
-											}, -- [45]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 56,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 46,
-											}, -- [46]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 66,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 47,
-											}, -- [47]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 76,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 48,
-											}, -- [48]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 7,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 49,
-											}, -- [49]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 17,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 50,
-											}, -- [50]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 27,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 51,
-											}, -- [51]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 37,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 52,
-											}, -- [52]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 47,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 53,
-											}, -- [53]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 57,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 54,
-											}, -- [54]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 67,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 55,
-											}, -- [55]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 77,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 56,
-											}, -- [56]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 8,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 57,
-											}, -- [57]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 18,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 58,
-											}, -- [58]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 28,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 59,
-											}, -- [59]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 38,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 60,
-											}, -- [60]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 48,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 61,
-											}, -- [61]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 58,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 62,
-											}, -- [62]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 68,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 63,
-											}, -- [63]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 78,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 64,
-											}, -- [64]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 9,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 65,
-											}, -- [65]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 19,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 66,
-											}, -- [66]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 29,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 67,
-											}, -- [67]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 39,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 68,
-											}, -- [68]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 49,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 69,
-											}, -- [69]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 59,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 70,
-											}, -- [70]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 69,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 71,
-											}, -- [71]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 79,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 72,
-											}, -- [72]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 10,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 73,
-											}, -- [73]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 20,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 74,
-											}, -- [74]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 30,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 75,
-											}, -- [75]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 40,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 76,
-											}, -- [76]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 50,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 77,
-											}, -- [77]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 60,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 78,
-											}, -- [78]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 70,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 79,
-											}, -- [79]
-											{
-												["q"] = 1,
-												["loc_id"] = 13,
-												["count"] = 1,
-												["sb"] = true,
-												["display_id"] = 80,
-												["age"] = 22761066,
-												["bag_id"] = 1,
-												["slot_id"] = 80,
-											}, -- [80]
-										},
-										["status"] = -3,
-										["empty"] = 80,
-									}, -- [1]
-								},
-							},
 							[3] = {
 								["slot_count"] = 172,
 								["bag"] = {
@@ -37853,19 +36925,235 @@ ARKINVDB = {
 									}, -- [8]
 								},
 							},
-							[10] = {
-								["bag"] = {
-									{
-										["type"] = 20,
-										["status"] = -3,
-									}, -- [1]
-								},
-							},
 							[5] = {
 								["bag"] = {
 									{
 										["type"] = 15,
 										["status"] = -3,
+									}, -- [1]
+								},
+							},
+							[6] = {
+								["slot_count"] = 18,
+								["bag"] = {
+									{
+										["type"] = 14,
+										["count"] = 18,
+										["slot"] = {
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:86691:0:4660:4589:0:0:0:0:90:166:445|h[Firebird's Faceguard]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 1,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [1]
+											{
+												["q"] = 4,
+												["age"] = 22778282,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95145:0:0:0:0:0:0:0:90:0:465|h[Mender's Battletags]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 2,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [2]
+											{
+												["q"] = 4,
+												["age"] = 22778378,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95695:4806:4637:0:0:0:0:347959808:90:152:465|h[Spaulders of Quaking Fear]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 3,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [3]
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:86748:4423:0:0:0:0:0:1593213312:90:0:445|h[Cape of Three Lanterns]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 4,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [4]
+											{
+												["q"] = 4,
+												["age"] = 22781030,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:86693:4419:4596:4596:0:0:0:0:90:119:445|h[Firebird's Tunic]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 5,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [5]
+											{
+												["q"] = 1,
+												["ab"] = false,
+												["slot_id"] = 6,
+												["sb"] = false,
+												["count"] = 1,
+												["bag_id"] = 1,
+												["age"] = 22759414,
+												["loc_id"] = 6,
+											}, -- [6]
+											{
+												["q"] = 1,
+												["ab"] = false,
+												["slot_id"] = 7,
+												["sb"] = false,
+												["count"] = 1,
+												["bag_id"] = 1,
+												["age"] = 22759414,
+												["loc_id"] = 6,
+											}, -- [7]
+											{
+												["q"] = 4,
+												["age"] = 22763753,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95673:4877:4596:0:0:0:-340:1653867866:90:0:465|h[Loa-Ridden Bracers]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 8,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [8]
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:85352:4433:0:0:0:0:0:0:90:152:445|h[Firebird's Handwraps]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 9,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [9]
+											{
+												["q"] = 4,
+												["age"] = 22778378,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95714:0:4637:4591:4522:0:0:2000455424:90:166:465|h[Links of the Bifurcated Tongue]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 10,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [10]
+											{
+												["q"] = 4,
+												["age"] = 22781030,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:86690:5004:4637:0:0:0:0:0:90:162:445|h[Firebird's Legwraps]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 11,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [11]
+											{
+												["q"] = 4,
+												["age"] = 22778378,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95643:4429:4536:0:0:0:0:1958733568:90:0:465|h[Ghostbinder Greatboots]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 12,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [12]
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:95514:0:0:0:0:0:0:1847806080:90:0:465|h[Petrified Eye of the Basilisk]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 13,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [13]
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:89073:0:0:0:0:0:0:0:90:0:445|h[Leven's Circle of Hope]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 14,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [14]
+											{
+												["q"] = 4,
+												["age"] = 22778378,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:94509:0:0:0:0:0:0:0:90:0:465|h[Soothing Talisman of the Shado-Pan Assault]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 15,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [15]
+											{
+												["q"] = 4,
+												["age"] = 22779728,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:94514:0:0:0:0:0:0:1764405632:90:0:465|h[Horridon's Last Gasp]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 16,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [16]
+											{
+												["q"] = 4,
+												["age"] = 22781015,
+												["bag_id"] = 1,
+												["h"] = "|cffa335ee|Hitem:86893:4442:4998:0:0:0:0:1211892224:90:148:445|h[Jin'ya, Orb of the Waterspeaker]|h|r",
+												["count"] = 1,
+												["sb"] = true,
+												["slot_id"] = 17,
+												["loc_id"] = 6,
+												["ab"] = false,
+												["new"] = 1,
+											}, -- [17]
+											{
+												["q"] = 1,
+												["age"] = 22778378,
+												["loc_id"] = 6,
+												["count"] = 1,
+												["sb"] = false,
+												["ab"] = false,
+												["bag_id"] = 1,
+												["slot_id"] = 18,
+												["new"] = false,
+											}, -- [18]
+										},
+										["status"] = -3,
+										["empty"] = 3,
 									}, -- [1]
 								},
 							},
@@ -37971,6 +37259,827 @@ ARKINVDB = {
 										["type"] = 19,
 										["status"] = -6,
 									}, -- [2]
+								},
+							},
+							[10] = {
+								["bag"] = {
+									{
+										["type"] = 20,
+										["status"] = -3,
+									}, -- [1]
+								},
+							},
+							[13] = {
+								["slot_count"] = 80,
+								["bag"] = {
+									{
+										["type"] = 24,
+										["count"] = 80,
+										["slot"] = {
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 1,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 1,
+											}, -- [1]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 11,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 2,
+											}, -- [2]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 21,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 3,
+											}, -- [3]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 31,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 4,
+											}, -- [4]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 41,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 5,
+											}, -- [5]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 51,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 6,
+											}, -- [6]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 61,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 7,
+											}, -- [7]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 71,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 8,
+											}, -- [8]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 2,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 9,
+											}, -- [9]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 12,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 10,
+											}, -- [10]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 22,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 11,
+											}, -- [11]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 32,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 12,
+											}, -- [12]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 42,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 13,
+											}, -- [13]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 52,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 14,
+											}, -- [14]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 62,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 15,
+											}, -- [15]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 72,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 16,
+											}, -- [16]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 3,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 17,
+											}, -- [17]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 13,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 18,
+											}, -- [18]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 23,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 19,
+											}, -- [19]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 33,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 20,
+											}, -- [20]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 43,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 21,
+											}, -- [21]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 53,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 22,
+											}, -- [22]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 63,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 23,
+											}, -- [23]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 73,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 24,
+											}, -- [24]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 4,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 25,
+											}, -- [25]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 14,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 26,
+											}, -- [26]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 24,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 27,
+											}, -- [27]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 34,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 28,
+											}, -- [28]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 44,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 29,
+											}, -- [29]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 54,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 30,
+											}, -- [30]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 64,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 31,
+											}, -- [31]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 74,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 32,
+											}, -- [32]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 5,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 33,
+											}, -- [33]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 15,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 34,
+											}, -- [34]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 25,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 35,
+											}, -- [35]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 35,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 36,
+											}, -- [36]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 45,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 37,
+											}, -- [37]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 55,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 38,
+											}, -- [38]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 65,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 39,
+											}, -- [39]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 75,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 40,
+											}, -- [40]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 6,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 41,
+											}, -- [41]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 16,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 42,
+											}, -- [42]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 26,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 43,
+											}, -- [43]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 36,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 44,
+											}, -- [44]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 46,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 45,
+											}, -- [45]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 56,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 46,
+											}, -- [46]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 66,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 47,
+											}, -- [47]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 76,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 48,
+											}, -- [48]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 7,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 49,
+											}, -- [49]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 17,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 50,
+											}, -- [50]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 27,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 51,
+											}, -- [51]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 37,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 52,
+											}, -- [52]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 47,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 53,
+											}, -- [53]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 57,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 54,
+											}, -- [54]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 67,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 55,
+											}, -- [55]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 77,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 56,
+											}, -- [56]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 8,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 57,
+											}, -- [57]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 18,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 58,
+											}, -- [58]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 28,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 59,
+											}, -- [59]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 38,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 60,
+											}, -- [60]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 48,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 61,
+											}, -- [61]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 58,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 62,
+											}, -- [62]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 68,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 63,
+											}, -- [63]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 78,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 64,
+											}, -- [64]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 9,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 65,
+											}, -- [65]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 19,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 66,
+											}, -- [66]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 29,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 67,
+											}, -- [67]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 39,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 68,
+											}, -- [68]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 49,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 69,
+											}, -- [69]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 59,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 70,
+											}, -- [70]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 69,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 71,
+											}, -- [71]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 79,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 72,
+											}, -- [72]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 10,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 73,
+											}, -- [73]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 20,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 74,
+											}, -- [74]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 30,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 75,
+											}, -- [75]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 40,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 76,
+											}, -- [76]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 50,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 77,
+											}, -- [77]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 60,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 78,
+											}, -- [78]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 70,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 79,
+											}, -- [79]
+											{
+												["q"] = 1,
+												["loc_id"] = 13,
+												["count"] = 1,
+												["sb"] = true,
+												["display_id"] = 80,
+												["age"] = 22761066,
+												["bag_id"] = 1,
+												["slot_id"] = 80,
+											}, -- [80]
+										},
+										["status"] = -3,
+										["empty"] = 80,
+									}, -- [1]
 								},
 							},
 						},
@@ -38106,9 +38215,9 @@ ARKINVDB = {
 						["point"] = 1,
 						["b"] = 39.70651626586914,
 						["locked"] = true,
-						["l"] = 895.8800048828125,
-						["r"] = 1513.8798828125,
-						["t"] = 572.7064819335938,
+						["l"] = 887.6000366210938,
+						["r"] = 1505.599975585938,
+						["t"] = 572.70654296875,
 					}, -- [1]
 					nil, -- [2]
 					{
@@ -38120,64 +38229,64 @@ ARKINVDB = {
 						["r"] = 739.2149047851562,
 					}, -- [3]
 					{
-						["b"] = 305.5743103027344,
-						["t"] = 832.57421875,
-						["l"] = 275.0178833007813,
+						["b"] = 305.5741577148438,
+						["l"] = 275.0178833007812,
+						["t"] = 832.5742797851562,
 						["r"] = 893.0178833007812,
 					}, -- [4]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [5]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [6]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [7]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [8]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [9]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [10]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [11]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [12]
 					{
 						["b"] = 925.1950378417969,
-						["t"] = 1105.195068359375,
-						["r"] = 1768.312133789063,
 						["l"] = 1368.312164306641,
+						["r"] = 1768.312133789063,
+						["t"] = 1105.195068359375,
 					}, -- [13]
 				},
 				["location"] = {

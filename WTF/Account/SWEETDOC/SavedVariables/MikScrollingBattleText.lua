@@ -24,6 +24,10 @@ MSBTProfiles_SavedVars = {
 					["offsetX"] = 140,
 				},
 			},
+			["groupNumbers"] = true,
+			["critFontName"] = "MSBT Adventure",
+			["cooldownThreshold"] = 10,
+			["normalFontName"] = "Vixar",
 			["events"] = {
 				["NOTIFICATION_BUFF_FADE"] = {
 					["scrollArea"] = "Notification",
@@ -126,10 +130,6 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Notification",
 				},
 			},
-			["critFontName"] = "MSBT Adventure",
-			["cooldownThreshold"] = 10,
-			["normalFontName"] = "Vixar",
-			["groupNumbers"] = true,
 			["normalFontSize"] = 15,
 		},
 	},

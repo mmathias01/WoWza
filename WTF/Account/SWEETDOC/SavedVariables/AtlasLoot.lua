@@ -230,8 +230,8 @@ AtlasLootDB = {
 							["PARRY_RATING"] = false,
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
-							["AGILITY"] = false,
 							["STRENGTH"] = false,
+							["AGILITY"] = false,
 							["EXPERTISE_RATING"] = false,
 						},
 						["Armor"] = {
@@ -264,8 +264,8 @@ AtlasLootDB = {
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 	},
 	["showWarning"] = true,
 	["profiles"] = {
@@ -288,10 +288,10 @@ AtlasLootDB = {
 				["showExtraSort"] = false,
 			},
 		},
-		["Jolobank - Dragonblight"] = {
-		},
 		["Majandra - Dragonblight"] = {
 			["UseGameTooltip"] = true,
+		},
+		["Jolobank - Dragonblight"] = {
 		},
 	},
 }
