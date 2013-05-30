@@ -1,0 +1,12 @@
+tag v1.2beta
+b97dc534648ff888f342b6b0f79119522a83eb19
+Luke Mundy <lmundy@gmail.com>
+2012-09-25 17:56:54 +0800
+
+Updated TOC number
+
+
+--------------------
+
+Luke Mundy:
+	- Updated TOC

@@ -1,0 +1,51 @@
+
+BeanCounterDB = {
+	["Dragonblight"] = {
+		["Majandra"] = {
+			["vendorsell"] = {
+			},
+			["postedBids"] = {
+			},
+			["postedAuctions"] = {
+			},
+			["completedBidsBuyoutsNeutral"] = {
+			},
+			["vendorbuy"] = {
+			},
+			["failedAuctions"] = {
+			},
+			["failedBidsNeutral"] = {
+			},
+			["failedBids"] = {
+			},
+			["completedAuctions"] = {
+			},
+			["failedAuctionsNeutral"] = {
+			},
+			["completedAuctionsNeutral"] = {
+			},
+			["completedBidsBuyouts"] = {
+			},
+		},
+	},
+}
+BeanCounterDBSettings = {
+	["Dragonblight"] = {
+		["Majandra"] = {
+			["tasks.sortArray"] = 1367468163,
+			["version"] = 3.03,
+			["faction"] = "Alliance",
+			["tasks.compactDB"] = 1367468163,
+			["wealth"] = 151817476,
+			["tasks.prunePostedDB"] = 1367468163,
+			["mailbox"] = {
+			},
+		},
+	},
+	["configator.top"] = 825,
+	["configator.left"] = 560.0001220703125,
+	["util.beancounter.ButtonuseDateCheck"] = false,
+}
+BeanCounterDBNames = {
+}
+BeanCounterAccountDB = nil

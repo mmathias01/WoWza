@@ -1,0 +1,8 @@
+2013-05-21  James D. Callahan III  <jcallahan@curse.com>
+
+[f4dc0e899e3e] [5.3.0-1]
+* WoWDBProfiler.toc:
+
+Update ToC Interface version to 50300.
+
+

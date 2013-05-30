@@ -1,0 +1,10 @@
+
+MacroToolkitDB = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "profile",
+	},
+	["profiles"] = {
+		["profile"] = {
+		},
+	},
+}

@@ -1,0 +1,25 @@
+## Interface: 50300
+## Title: Ask Mr Robot
+## Author: Ask Mr Robot
+## Version: 1.0.9.0
+## Notes: Exports bag/bank items to a saved variable.
+## URL: www.askmrrobot.com
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariablesPerCharacter: AmrBagItems,AmrBankItems,AmrEquipedItems,AmrGold,AmrRealmName,AmrCharacterName,AmrIconInfo,AmrCurrencies,AmrProfessions,AmrSpecializations,AmrRace,AmrLevel,AmrFaction,AmrActiveSpec, AmrHideMapIcon
+
+#@no-lib-strip@
+Libs\LibStub\Libstub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+#@end-no-lib-strip@
+
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+#@no-lib-strip@
+Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+#@end-no-lib-strip@
+
+wait.lua
+AskMrRobot.lua
+config.lua
+AskMrRobot.xml

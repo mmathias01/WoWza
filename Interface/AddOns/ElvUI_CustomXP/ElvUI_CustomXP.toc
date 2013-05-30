@@ -1,0 +1,13 @@
+## Interface: 50300
+## Title: |cff1784d1ElvUI |rCustom XP
+## Author: Sortokk
+## Version: 1.12
+## Notes: Custom XP Tags for use with ElvUI Custom Text
+## RequiredDeps: ElvUI
+## X-Curse-Packaged-Version: 1.12
+## X-Curse-Project-Name: ElvUI_CustomXP
+## X-Curse-Project-ID: elvui_customxp
+## X-Curse-Repository-ID: wow/elvui_customxp/mainline
+
+libs\load_libs.xml
+ElvUI_CustomXP.lua

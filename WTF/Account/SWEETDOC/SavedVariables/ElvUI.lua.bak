@@ -1,0 +1,171 @@
+
+ElvDB = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+	},
+	["gold"] = {
+		["Terenas"] = {
+			["Cellestia"] = 102134158,
+		},
+	},
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profiles"] = {
+		["Cellestia - Terenas"] = {
+			["general"] = {
+				["backdropfadecolor"] = {
+					["b"] = 0.054,
+					["g"] = 0.054,
+					["r"] = 0.054,
+				},
+				["valuecolor"] = {
+					["b"] = 0.819,
+					["g"] = 0.513,
+					["r"] = 0.09,
+				},
+			},
+			["movers"] = {
+				["ElvUF_Raid40Mover"] = "BOTTOMElvUIParentBOTTOM050",
+				["ElvUF_FocusMover"] = "BOTTOMElvUIParentBOTTOM280332",
+				["BossButton"] = "TOPElvUIParentTOP0-250",
+				["ElvUF_Raid10Mover"] = "BOTTOMElvUIParentBOTTOM050",
+				["ElvUF_PlayerMover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT464242",
+				["ElvUF_Raid25Mover"] = "BOTTOMElvUIParentBOTTOM050",
+				["ElvUF_PartyMover"] = "BOTTOMElvUIParentBOTTOM074",
+				["ElvUF_PetMover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT464151",
+				["ElvUF_TargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-464242",
+				["ElvUF_TargetTargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-464151",
+			},
+			["unitframe"] = {
+				["units"] = {
+					["target"] = {
+						["debuffs"] = {
+							["enable"] = false,
+						},
+						["smartAuraDisplay"] = "SHOW_DEBUFFS_ON_FRIENDLIES",
+						["aurabar"] = {
+							["attachTo"] = "BUFFS",
+						},
+						["buffs"] = {
+							["playerOnly"] = {
+								["friendly"] = true,
+							},
+						},
+					},
+					["boss"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
+					},
+					["raid40"] = {
+						["roleIcon"] = {
+							["enable"] = true,
+						},
+						["healPrediction"] = true,
+						["health"] = {
+							["frequentUpdates"] = true,
+							["orientation"] = "VERTICAL",
+							["text"] = true,
+						},
+						["name"] = {
+							["position"] = "TOP",
+						},
+						["height"] = 36,
+					},
+					["arena"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
+					},
+					["party"] = {
+						["debuffs"] = {
+							["anchorPoint"] = "BOTTOMLEFT",
+							["useFilter"] = "Blacklist",
+							["initialAnchor"] = "TOPLEFT",
+							["sizeOverride"] = 0,
+						},
+						["point"] = "LEFT",
+						["xOffset"] = 5,
+						["targetsGroup"] = {
+							["anchorPoint"] = "TOP",
+							["width"] = 80,
+							["initialAnchor"] = "BOTTOM",
+							["xOffset"] = 0,
+							["yOffset"] = 1,
+						},
+						["columnAnchorPoint"] = "LEFT",
+						["healPrediction"] = true,
+						["width"] = 80,
+						["health"] = {
+							["orientation"] = "VERTICAL",
+							["text_format"] = "[healthcolor][health:deficit]",
+							["frequentUpdates"] = true,
+							["position"] = "BOTTOM",
+						},
+						["name"] = {
+							["text_format"] = "[namecolor][name:medium]",
+							["position"] = "TOP",
+						},
+						["height"] = 52,
+						["petsGroup"] = {
+							["anchorPoint"] = "TOP",
+							["width"] = 80,
+							["initialAnchor"] = "BOTTOM",
+							["enable"] = true,
+							["xOffset"] = 0,
+							["yOffset"] = 1,
+						},
+					},
+					["raid25"] = {
+						["healPrediction"] = true,
+						["health"] = {
+							["orientation"] = "VERTICAL",
+							["frequentUpdates"] = true,
+						},
+					},
+				},
+				["colors"] = {
+					["auraBarBuff"] = {
+						["b"] = 0.1,
+						["g"] = 0.1,
+						["r"] = 0.1,
+					},
+					["castColor"] = {
+						["b"] = 0.1,
+						["g"] = 0.1,
+						["r"] = 0.1,
+					},
+					["health"] = {
+						["b"] = 0.1,
+						["g"] = 0.1,
+						["r"] = 0.1,
+					},
+				},
+			},
+			["datatexts"] = {
+				["panels"] = {
+					["LeftChatDataPanel"] = {
+						["right"] = "Haste",
+						["left"] = "Spell/Heal Power",
+					},
+				},
+			},
+			["layoutSet"] = "healer",
+		},
+	},
+}
+ElvPrivateDB = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+	},
+	["profiles"] = {
+		["Cellestia - Terenas"] = {
+			["theme"] = "default",
+			["install_complete"] = "5.19",
+		},
+	},
+}

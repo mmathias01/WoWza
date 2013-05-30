@@ -1,0 +1,23 @@
+## Title: Big Wigs |cffff0000+|r|cffffffff Ji-Kun Assist |r
+## Title.itIT: Big Wigs |cffff0000+|r|cffffffff Ji-Kun Assist |r
+## X-Curse-Packaged-Version: 1.09
+## X-Curse-Project-Name: BigWigs_JiKunAssist
+## X-Curse-Project-ID: bigwigs_jikunassist
+## X-Curse-Repository-ID: wow/bigwigs_jikunassist/mainline
+
+## Notes: v1.08 Tells you which nest to fly to
+## Notes-itIT: v1.08 Ti dice verso quale nido volare durante lo scontro con Ji-Kun
+
+## Author: Caleb
+
+## Interface: 50300
+## Version: 1.09
+
+## X-BigWigs-LoadOn-ZoneId: 930
+
+## Dependencies: BigWigs
+
+## LoadOnDemand: 1
+
+BigWigs_JiKunAssist.lua
+

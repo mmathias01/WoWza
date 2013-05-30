@@ -1,0 +1,17 @@
+## Title: Big Wigs |cffff0000+|r|cffffffff Horridon Marker|r
+## Title-itIT: Big Wigs |cffff0000+|r|cffffffff Horridon Marker|r
+## Notes: Marks the Balcony adds in the Horridon encounter
+## Notes-itIT: Mette un simbolo sugli add del balcone durante lo scontro con Horridon
+## Author: Starinnia
+## Interface: 50300
+## Version: r21-release
+## X-BigWigs-LoadOn-ZoneId: 930
+## Dependencies: BigWigs
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: r21-release
+## X-Curse-Project-Name: BigWigs_Horridon_Marker
+## X-Curse-Project-ID: bigwigs_horridon_marker
+## X-Curse-Repository-ID: wow/bigwigs_horridon_marker/mainline
+
+
+BigWigs_Horridon_Marker.lua

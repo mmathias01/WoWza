@@ -1,0 +1,32 @@
+## Interface: 50200
+## Title: Razer Naga
+## Notes: A main actionbar replacement
+## Author: Tuller
+## Version: 2.4.0
+## SavedVariables: RazerNagaDB, RazerNagaVersion
+## OptionalDeps: Ace3, LibKeyBound-1.0, Masque. FlyPaper
+embeds.xml
+localization.xml
+RazerNaga.lua
+envoy.lua
+fadeManager.lua
+overrideController.lua
+settingsLoader.lua
+bindingsUpdater.lua
+bindingsLoader.lua
+autoBinder.lua
+modifierHighlighter.lua
+drag.lua
+frame.lua
+bindableButton.lua
+barStates.lua
+actionButton.lua
+actionBar.lua
+petBar.lua
+classBar.lua
+bagBar.lua
+menuBar.lua
+extraActionBar.lua
+vehicleBar.lua
+configModeDialog.lua
+hoverMenu.lua

@@ -1,0 +1,134 @@
+== Version 3.6.3
+Update for patch 5.3.
+* Blood: Bone Shield now refreshes a 1 minute when out of combat (instead of 2 minutes).
+
+== Version 3.6.2
+* Unholy - Bugfix for a Lua error.
+
+== Version 3.6.1
+* Bugfix - there were a couple more places to check for 45% vs 35% health when wearing 4pT15.
+* Death Siphon, Death Strike, Death Pact, Rune Tap and Conversion now all consider incoming heals in their logic. 
+
+== Version 3.6.0
+* Blood: Blood Boil was flashing too much in the single-target solo rotation (a bug introduced in a recent version).
+* Frost & Unholy: Soul Reaper now flashes at 45% if you are wearing 4pT15.
+* All: Now flashes Strangulate & Asphyxiate as interrupts.
+* All: Horn of Winter will now always flash if a raid member needs the buff.
+
+== Version 3.5.2
+* Frost: Bugfix for a Lua error.
+
+== Version 3.5.1
+NOTE: This version includes a new version of Bitten's SpellFlash Library that I tried to test well, but if you find any issues please let me know right away.
+* Unholy: No longer tries to flash Icy Touch for Frost Fever (now simply uses Plague Strike).
+
+== Version 3.5.0
+NOTE: Your options will be reset when you upgrade to this version.
+* Repackaging so that Bitten's SpellFlash Library is included with the addon, instead of downloaded separately.
+* Several other internal changes.
+* Blood: Major work to the solo rotation, including AoE.
+* Blood: Solo mode can now be disabled in the options.
+* Frost: Added an AoE rotation.
+
+== Version 3.4.0
+* Blood: Removed code having to do with Cataclysm items/enchants.
+* Blood: Anti-Magic Shell and Anti-Magic Zone now count toward the 2 cooldowns it tries to keep up.
+* Blood: Increase the priority of Icebound Fortitude if it is glyphed for a shorter cooldown.
+* Blood: Factor in 2pT14 when deciding when calculating the minimum Death Strike heal.
+* Blood: Do not flash Dancing Rune Weapon when out of melee range.
+* Blood: Make Death Pact the highest priority cooldown if your ghoul is already out.
+
+== Version 3.3.1
+* Making the "Out of Date" status go away.  Please report any real issues w/ the new patch.
+
+== Version 3.3.0
+* Frost & Unholy: Updated priority lists based on new research.
+* Unholy: Added Soul Reaper.
+* Unholy: Bugfix - Plague Leech was flashing at times that it was not castable.
+
+== Version 3.2.1
+* Blood: Bone Shield will no longer flash when mounted.
+* Blood: Bugfix - there were some circumstances when Blood Tap would flash when no runes were fully depleted.
+* Blood: Bugfix - Blood Boil would never flash if you didn't have a rune available, even if Crimson Scourge proc'd
+* Unholy: Now flashes Death Siphon.  Not sure why I only added it to Frost before.
+
+== Version 3.2.0
+* Blood: Added a Blood soloing rotation, meant for questing as Blood.
+
+== Version 3.1.0
+* Frost: Added a 2-handed Frost rotation.
+* Frost: Now flashes Soul Reaper.
+* Frost: Now flashes Unholy Blight.
+
+== Version 3.0.0
+* Frost: Range checking is back (it won't flash melee spells when you are out of melee range).
+* Unholy: Added an unholy rotation.
+
+== Version 2.6.1
+* Blood: Bugfix - Blood Tap was flashing before you had 5 stacks of Blood Charge.
+
+== Version 2.6.0
+* Frost: Adjusted to the closely match the rotation on EJ.
+
+== Version 2.5.0
+* There is now a Blood rotation for MoP.
+
+== Version 2.4.0
+* There is now a Frost rotation for MoP.
+* Frost: Should now work for people under level 81 (how far under, I do not know).
+
+== Version 2.3.1
+* Unholy AoE: Do not flash Pestilence if a disease is missing from the target (it was rare, but possible in the last version).
+
+== Version 2.3.0
+* Frost: The AoE rotation is now trigger by the keybinding, instead of Frost Presence.
+* Unholy: Added an AoE rotation.  See your keybindings to activate it.
+
+== Version 2.2.2
+* All: Bugfix for non-English clients.
+
+== Version 2.2.1
+* Frost: A couple tweaks to the new AoE rotation - to improve on the one given by EJ. 
+
+== Version 2.2.0
+* Frost: Now flashes an AoE rotation if you use Frost Presence.
+* All: Now takes into account the bonus RP from Frost Presence.
+
+== Version 2.1.0
+* Unholy: Refreshes diseases during their last tick.
+* Unholy: Flashes Dark Transformation out of combat.
+* All: Flashing anticipates queued spells, including rune and RP usage.
+* All: Now flashes spells when they *will* be usable by the time your current cast and queued cast finish.
+
+== Version 2.0.1 beta
+This beta release uses Bitten's SpellFlash Library version 3.  If you update you will also need to update any of your other Bitten's SpellFlash modules to their latest version, which may also be in beta.
+* Unholy: DnD/SS for Runes had a small error in the way they checked which runes were available.
+
+== Version 2.0.0
+* Blood: Flashes taunts.
+* Unholy: There is now an Unholy rotation!
+* All: Flashes Mind Freeze
+
+== Version 1.1.0
+* Blood: No longer flash Empower Rune Weapon.  It is better saved for an emergency channel of Army for mitigation.
+* Frost: Now detects when diseases are pending (e.g. so that it doesn't flash Plague Strike for a second between casting Outbreak and the diseases actually being applied).
+* Frost: Should play nicer with leveling DKs who do not yet have Outbreak.
+* All: Added German localization (thanks Gucki!)
+
+== Version 1.0.3
+* Bugfix: error when the module was loaded, but all flashing was disabled in SpellFlash.
+
+== Version 1.0.2
+* Move to Bitten's SpellFlash Library 2.0.
+* Should now work on non-English clients.
+* Added localization support.
+* Plays nicer with other addons.
+
+== Version 1.0.2 beta
+* The packager will now name the file DK instead of Mage!  Silly betas.
+
+== Version 1.0.1 beta
+* No longer require macros for proper functionality.
+
+== Version 1.0.0 beta
+* Initial Release

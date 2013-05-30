@@ -1,0 +1,5 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Script file="GoingPrice_US_Data.lua"/>
+	<Include file="Libs\Load.xml"/>
+	<Script file="GoingPrice_US.lua"/>
+</Ui>

@@ -1,0 +1,79 @@
+VER 3 010000000000001A "BindingHeal_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Binding Heal
+END
+VER 3 0100000000000020 "Cascade_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Cascade
+END
+VER 3 0100000000000017 "FlashHeal_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Flash Heal
+END
+VER 3 010000000000001D "GH_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Greater Heal
+END
+VER 3 010000000000001E "Heal_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Heal
+END
+VER 3 0100000000000024 "HolyFire_M" "INV_Misc_QuestionMark"
+#showtooltip Holy Fire
+/clearfocus [mod:alt]
+/focus [@focus,noexists ]/[@focus, help]
+/use [@focus,exists][@target,exists]Holy Fire
+END
+VER 3 0100000000000023 "Mindbender_M" "INV_Misc_QuestionMark"
+#showtooltip Mindbender
+/clearfocus [modifier:alt]
+/focus [@focus,noexists ]/[@focus, help]
+/cast [@focus,exists][@target,exists] Mindbender
+END
+VER 3 010000000000001F "PainSup_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Pain Suppression
+END
+VER 3 0100000000000016 "Penance_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Penance
+END
+VER 3 0100000000000021 "Pennance_MD" "INV_MISC_QUESTIONMARK"
+#showtooltip Penance
+/clearfocus [modifier:alt]
+/focus [@focus,noexists ]/[@focus, help]
+/use [@focus,exists][@target,exists] Penance
+END
+VER 3 010000000000001C "POH_M" "INV_MISC_QUESTIONMARK"
+#showtooltip Prayer of Healing
+/cast Inner Focus
+/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Healing
+END
+VER 3 010000000000001B "POM_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Mending
+END
+VER 3 0100000000000018 "PWS_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Power Word: Shield
+END
+VER 3 0100000000000019 "Renew_M" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Renew
+END
+VER 3 0100000000000025 "Smite_M" "INV_Misc_QuestionMark"
+#showtooltip Smite
+/clearfocus [mod:alt]
+/focus [@focus,noexists]/[@focus,help]
+/use [@focus,exists][@target,exists]Smite
+END
+VER 3 0100000000000026 "VoidShift_M" "INV_Misc_QuestionMark"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Void Shift
+END
+VER 3 0100000000000027 "VuhDoDCShieldData" "Ability_Repair"
+P[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1IR[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 0100000000000028 "VuhDoDCShieldNames" "Ability_Repair"
+N[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Maj[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END

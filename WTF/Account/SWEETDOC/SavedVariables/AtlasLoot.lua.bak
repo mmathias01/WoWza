@@ -1,0 +1,27 @@
+
+AtlasLootDB = {
+	["namespaces"] = {
+		["DefaultFrame"] = {
+			["profiles"] = {
+				["Cellestia - Terenas"] = {
+					["module"] = "AtlasLootMoP",
+					["instance"] = "StormstoutBrewery",
+				},
+			},
+		},
+		["AtlasLootPanel"] = {
+		},
+		["WishList"] = {
+		},
+		["Filter"] = {
+		},
+	},
+	["showWarning"] = true,
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+	},
+	["profiles"] = {
+		["Cellestia - Terenas"] = {
+		},
+	},
+}

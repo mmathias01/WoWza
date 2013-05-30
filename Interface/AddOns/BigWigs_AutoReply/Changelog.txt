@@ -1,0 +1,42 @@
+-------------------------------------------------------
+-- BigWigs [AutoReply] --
+--------------------------------------------------------
+
+--------------------------------------------------------
+-- TODO --
+--------------------------------------------------------
++Please use Curse to request new features, file bugs, etc. 
+
+--------------------------------------------------------
+-- CHANGELOG --
+--------------------------------------------------------
+--- v1.07 ---
+-Derp. Fix a stupid scope problem I introduced in a last minute change.
+
+--- v1.06 ---
+-Fix for world bosses not working. Derp.
+-Code optimization (Credit to cremor).
+-Add option to NOT report boss health. (/ar reportHealth)
+
+--- v1.05 ---
+-Added option to filter AutoReplies during combat
+	-Same option will filter DBM's AutoReplies during combat
+-More cleanup / optimizing
+
+--- v1.04 ---
+-Few bug fixes in event that BigWigs broadcasts don't fire
+-Cleanup
+
+--- v1.03 ---
+-Add support for 'BigWigs_OnBossWipe' and remove 'OnBossReboot'
+-Some output optimization
+
+--- v1.02 ---
+-Fixes for GetInstanceDifficulty() removal
+-Update TOC for Patch 5.2
+
+--- v1.01 ---
+Add back in the needed Ace library embeds
+
+--- v1 ---
+Initial public release

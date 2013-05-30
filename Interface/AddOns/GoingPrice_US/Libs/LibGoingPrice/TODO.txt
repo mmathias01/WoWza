@@ -1,0 +1,5 @@
+1.	Perhaps I don't have to use the create _neikos_temp member the ColorPickerFrame
+	and simply rely on local variable persistance.
+
+2.	Use on OnHide and OnShow event handlers in the modifier menu to reset the text 
+	in the menu to the "oldvalue" in case another menu changed it.

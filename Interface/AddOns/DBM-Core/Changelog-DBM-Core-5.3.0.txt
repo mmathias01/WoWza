@@ -1,0 +1,15 @@
+tag 5.3.0
+10c7aad8664213a296933fbfa71f6e0830ae1bed
+subversion <svn@deadlybossmods.com>
+2013-05-21 22:03:00 +0200
+
+Tagging as 5.3.0
+
+I screwed up with the previous 5.2.6 tag, sorry. The correct version number should be 5.3.0 since this is the first version of DBM for WoW 5.3.
+Also, the 5.2.6 tag was based on a branch with a new event handling feature which is probably still somewhat buggy, I didn't realize that I was on that branch, sorry.
+
+
+--------------------
+
+subversion:
+	- increment version number to 5.3.0

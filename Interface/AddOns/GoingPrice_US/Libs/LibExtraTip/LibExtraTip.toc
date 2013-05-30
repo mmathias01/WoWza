@@ -1,0 +1,15 @@
+## Title: LibExtraTip |cff224477(lib)
+## Notes: Assists in the management of additional tooltip information.
+##
+## Interface: 30200
+## LoadOnDemand: 0
+##
+## Version: 1.1
+## Revision: $Id: LibExtraTip.toc 223 2009-08-06 15:23:01Z Nechckn $
+## Author: Norganna's AddOns
+##
+## X-Curse-Packaged-Version: 5.3.1369612800
+## X-Curse-Project-Name: GoingPrice_US
+## X-Curse-Project-ID: goingprice_us
+## X-Curse-Repository-ID: wow/goingprice_us/mainline
+Load.xml

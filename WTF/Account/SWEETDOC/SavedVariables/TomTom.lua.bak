@@ -1,0 +1,20 @@
+
+TomTomDB = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}
+TomTomWaypoints = nil
+TomTomWaypointsMF = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+	},
+	["profiles"] = {
+		["Cellestia - Terenas"] = {
+		},
+	},
+}

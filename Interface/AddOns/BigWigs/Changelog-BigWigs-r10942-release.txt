@@ -1,0 +1,818 @@
+------------------------------------------------------------------------
+r10942 | funkydude | 2013-05-24 13:56:52 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   A /tags/r10942-release (from /trunk:10941)
+
+Tagging as r10942-release
+------------------------------------------------------------------------
+r10941 | funkydude | 2013-05-24 13:53:08 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: Remove life drain say spam in LFR.
+------------------------------------------------------------------------
+r10940 | maat | 2013-05-24 12:32:22 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/LeiShen.lua
+
+fix the stun bars not having names
+------------------------------------------------------------------------
+r10938 | dynaletik | 2013-05-24 06:01:20 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10937 | ananhaid | 2013-05-24 02:23:14 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   M /trunk/EndlessSpring/Locales/zhCN.lua
+   M /trunk/EndlessSpring/Locales/zhTW.lua
+   M /trunk/HeartOfFear/Locales/zhCN.lua
+   M /trunk/HeartOfFear/Locales/zhTW.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10936 | funkydude | 2013-05-23 23:09:28 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/Loader.lua
+
+bump DBM faker
+------------------------------------------------------------------------
+r10935 | _yusaku_ | 2013-05-23 17:44:28 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10934 | funkydude | 2013-05-23 17:14:54 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+
+Loader: add deleted marking addons to the addons-that-should-be-removed print.
+------------------------------------------------------------------------
+r10933 | dynaletik | 2013-05-23 16:46:27 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/EndlessSpring/Locales/deDE.lua
+   M /trunk/HeartOfFear/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10932 | Wetxius | 2013-05-23 13:58:09 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10931 | maat | 2013-05-23 12:26:25 +0000 (Thu, 23 May 2013) | 2 lines
+Changed paths:
+   M /trunk/EndlessSpring/ShaOfFear.lua
+   M /trunk/HeartOfFear/Tayak.lua
+
+merge third party marking addon for Wind Step
+don't clear icons if custom option is off
+------------------------------------------------------------------------
+r10930 | maat | 2013-05-23 11:32:39 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/EndlessSpring/ShaOfFear.lua
+
+fix spelling
+------------------------------------------------------------------------
+r10929 | maat | 2013-05-23 11:21:12 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/EndlessSpring/ShaOfFear.lua
+
+merge third party marking addon for Huddle in Terror
+------------------------------------------------------------------------
+r10928 | nebula169 | 2013-05-23 11:08:40 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Megaera.lua
+
+Megaera: add Diffusion, simplify tank check (just use role)
+------------------------------------------------------------------------
+r10927 | nebula169 | 2013-05-23 10:55:22 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Tortos.lua
+
+Tortos: use GUID
+------------------------------------------------------------------------
+r10926 | nebula169 | 2013-05-23 10:52:20 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Tortos.lua
+
+Tortos: only show Snapping Bite warning to the Tortos tank
+------------------------------------------------------------------------
+r10925 | nebula169 | 2013-05-23 10:46:15 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/esES.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+   M /trunk/ThroneOfThunder/Locales/koKR.lua
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+   M /trunk/ThroneOfThunder/Tortos.lua
+
+Tortos: announce turtle kickers, count Quake Stomp, sound on Snapping Bite, only show Shell Concussion message if not reapplied
+------------------------------------------------------------------------
+r10923 | funkydude | 2013-05-21 16:18:30 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/Core/BigWigs_Core.toc
+   M /trunk/EndlessSpring/BigWigs_EndlessSpring.toc
+   M /trunk/HeartOfFear/BigWigs_HeartOfFear.toc
+   M /trunk/Mogushan/BigWigs_Mogushan.toc
+   M /trunk/Options/BigWigs_Options.toc
+   M /trunk/Pandaria/BigWigs_Pandaria.toc
+   M /trunk/Plugins/BigWigs_Plugins.toc
+   M /trunk/ThroneOfThunder/BigWigs_ThroneOfThunder.toc
+
+toc bumps
+------------------------------------------------------------------------
+r10922 | funkydude | 2013-05-21 16:16:45 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Proximity.lua
+
+Proximity: Update map data.
+------------------------------------------------------------------------
+r10921 | ananhaid | 2013-05-21 07:54:40 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10920 | _yusaku_ | 2013-05-21 07:04:09 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10919 | Wetxius | 2013-05-21 06:46:50 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10918 | ananhaid | 2013-05-21 02:56:11 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/esES.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+   M /trunk/ThroneOfThunder/Locales/koKR.lua
+   M /trunk/ThroneOfThunder/Locales/ptBR.lua
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+   M /trunk/ThroneOfThunder/Locales/zhTW.lua
+
+- Throne of Thunder Trash locale.
+------------------------------------------------------------------------
+r10917 | funkydude | 2013-05-20 17:11:26 +0000 (Mon, 20 May 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+   M /trunk/Locales/deDE.lua
+   M /trunk/Locales/enUS.lua
+   M /trunk/Locales/esES.lua
+   M /trunk/Locales/frFR.lua
+   M /trunk/Locales/itIT.lua
+   M /trunk/Locales/koKR.lua
+   M /trunk/Locales/ptBR.lua
+   M /trunk/Locales/ruRU.lua
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+Loader: use an RW message for the extremely out of date and lacking content messages.
+------------------------------------------------------------------------
+r10916 | dynaletik | 2013-05-20 15:01:57 +0000 (Mon, 20 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10915 | funkydude | 2013-05-20 13:15:01 +0000 (Mon, 20 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/Core.lua
+   M /trunk/Locales/deDE.lua
+   M /trunk/Locales/enUS.lua
+   M /trunk/Locales/esES.lua
+   M /trunk/Locales/frFR.lua
+   M /trunk/Locales/itIT.lua
+   M /trunk/Locales/koKR.lua
+   M /trunk/Locales/ptBR.lua
+   M /trunk/Locales/ruRU.lua
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+Core: Enable cinematic skipping of preselected cinematics and update locale strings.
+------------------------------------------------------------------------
+r10914 | funkydude | 2013-05-20 10:59:24 +0000 (Mon, 20 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/LeiShen.lua
+
+LeiShen: remove Static Shock say spam in LFR.
+------------------------------------------------------------------------
+r10913 | funkydude | 2013-05-19 15:09:55 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Messages.lua
+
+Messages: Remove sink channel outputs.
+------------------------------------------------------------------------
+r10912 | nebula169 | 2013-05-19 14:57:34 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+
+BossPrototype: Add Windwalker Monk to :Damager
+------------------------------------------------------------------------
+r10911 | nebula169 | 2013-05-19 14:46:46 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: play the sound for the controller, too
+------------------------------------------------------------------------
+r10910 | funkydude | 2013-05-18 18:32:24 +0000 (Sat, 18 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: Play the add spawned sound for all dps
+------------------------------------------------------------------------
+r10909 | ananhaid | 2013-05-18 05:59:33 +0000 (Sat, 18 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+
+- zhCN update.
+------------------------------------------------------------------------
+r10908 | funkydude | 2013-05-18 00:23:55 +0000 (Sat, 18 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/Core.lua
+
+Core: implement a temporarily commented out cinematic skipping system.
+------------------------------------------------------------------------
+r10907 | funkydude | 2013-05-17 23:28:12 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: better icon clearing
+------------------------------------------------------------------------
+r10906 | dynaletik | 2013-05-17 14:17:20 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10905 | nebula169 | 2013-05-17 13:50:24 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: use GetRaidRosterInfo instead of UnitName
+------------------------------------------------------------------------
+r10904 | nebula169 | 2013-05-17 13:27:27 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: switch some warnings back to log events
+------------------------------------------------------------------------
+r10903 | nebula169 | 2013-05-17 12:27:08 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: try harder to ignore wrong spear targets in p1, delay changing the proximity display when dropping Arcing Lightning until the raid's debuff status is updated
+------------------------------------------------------------------------
+r10902 | funkydude | 2013-05-16 16:05:23 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/ThroneOfThunder/Durumu.lua
+
+Durumu: remove custom icons OnDisable, drycoded.
+------------------------------------------------------------------------
+r10901 | funkydude | 2013-05-16 15:40:02 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/ThroneOfThunder/Durumu.lua
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/esES.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+   M /trunk/ThroneOfThunder/Locales/koKR.lua
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+
+Durumu: remove incorrect 1 person warning from parasite marking option.
+------------------------------------------------------------------------
+r10900 | funkydude | 2013-05-16 13:18:55 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/EndlessSpring/LeiShi.lua
+   M /trunk/EndlessSpring/ShaOfFear.lua
+   M /trunk/EndlessSpring/Tsulong.lua
+   M /trunk/HeartOfFear/Meljarak.lua
+   M /trunk/HeartOfFear/Tayak.lua
+   M /trunk/HeartOfFear/Unsok.lua
+   M /trunk/ThroneOfThunder/Durumu.lua
+   M /trunk/ThroneOfThunder/IronQon.lua
+   M /trunk/ThroneOfThunder/Jinrokh.lua
+   M /trunk/ThroneOfThunder/Megaera.lua
+
+UnitName fixes.
+------------------------------------------------------------------------
+r10899 | Wetxius | 2013-05-16 07:12:04 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10898 | Wetxius | 2013-05-16 06:49:13 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+
+Update ruRU locale for Ra-den.
+------------------------------------------------------------------------
+r10897 | funkydude | 2013-05-16 00:46:00 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/LeiShen.lua
+
+LeiShen: remove bar text coloring.
+------------------------------------------------------------------------
+r10896 | _yusaku_ | 2013-05-15 08:33:18 +0000 (Wed, 15 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10895 | ananhaid | 2013-05-15 04:53:03 +0000 (Wed, 15 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10894 | dynaletik | 2013-05-14 18:58:42 +0000 (Tue, 14 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10893 | funkydude | 2013-05-14 17:37:31 +0000 (Tue, 14 May 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+   M /trunk/Locales/deDE.lua
+   M /trunk/Locales/enUS.lua
+   M /trunk/Locales/esES.lua
+   M /trunk/Locales/frFR.lua
+   M /trunk/Locales/itIT.lua
+   M /trunk/Locales/koKR.lua
+   M /trunk/Locales/ptBR.lua
+   M /trunk/Locales/ruRU.lua
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+Loader: add a print for removing old BW content addons.
+------------------------------------------------------------------------
+r10892 | funkydude | 2013-05-13 15:47:00 +0000 (Mon, 13 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/DarkAnimus.lua
+
+DarkAnimus: bit early on the anima ring pre warning.
+------------------------------------------------------------------------
+r10891 | dynaletik | 2013-05-13 13:29:48 +0000 (Mon, 13 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/common.deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10890 | funkydude | 2013-05-12 21:20:02 +0000 (Sun, 12 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/DarkAnimus.lua
+
+DarkAnimus: fix first interrupting jolt pre warning.
+------------------------------------------------------------------------
+r10889 | mysticalos | 2013-05-08 05:32:34 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Proximity.lua
+
+5.3 fixes bad mapsize DBC data for isle of thunder. With this information, can correct live too to use actual values instead of calculated
+------------------------------------------------------------------------
+r10888 | nebula169 | 2013-05-08 05:22:28 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: fix p3 Unleashed Flame cd
+------------------------------------------------------------------------
+r10887 | nebula169 | 2013-05-08 04:52:27 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/LeiShen.lua
+
+LeiShen: delay Overcharge check a tick longer, tweaks
+------------------------------------------------------------------------
+r10886 | nebula169 | 2013-05-08 04:51:23 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/JiKun.lua
+
+JiKun: add 30th nest guardian
+------------------------------------------------------------------------
+r10885 | nebula169 | 2013-05-08 00:25:18 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/Pandaria/Nalak.lua
+
+Nalak: shave 2s off the ability cd timer, don't warn when taking Stormcloud damage while you have the debuff (hideCaster D;) and fix the throttle
+------------------------------------------------------------------------
+r10884 | maat | 2013-05-07 12:43:57 +0000 (Tue, 07 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Raden.lua
+
+clean up :TargetBar
+------------------------------------------------------------------------
+r10883 | nebula169 | 2013-05-06 05:51:00 +0000 (Mon, 06 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: delay clearing the spear target mark after spear happens, and don't start the scanner again if its already running (killing the reference to the first scan D;) caused when the phase ends, but he already threw the spear (and it does nothing)
+------------------------------------------------------------------------
+r10881 | nebula169 | 2013-05-06 00:28:59 +0000 (Mon, 06 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: simple range check for Monks as the spear target
+------------------------------------------------------------------------
+r10880 | funkydude | 2013-05-05 23:31:23 +0000 (Sun, 05 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/ThroneOfThunder/DarkAnimus.lua
+   M /trunk/ThroneOfThunder/Raden.lua
+
+DarkAnimus: add counter to heroic siphon anima
+------------------------------------------------------------------------
+r10879 | nebula169 | 2013-05-05 20:50:23 +0000 (Sun, 05 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: Wind Storm -> Windstorm for consistency
+------------------------------------------------------------------------
+r10878 | maat | 2013-05-05 20:04:34 +0000 (Sun, 05 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Raden.lua
+
+some more fixes
+------------------------------------------------------------------------
+r10877 | maat | 2013-05-05 20:03:34 +0000 (Sun, 05 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Raden.lua
+
+bugfix and cleanup
+------------------------------------------------------------------------
+r10875 | funkydude | 2013-05-05 11:39:23 +0000 (Sun, 05 May 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+
+bump DBM faker
+------------------------------------------------------------------------
+r10874 | funkydude | 2013-05-04 21:47:36 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/Core.lua
+
+Core: compensate for no selected spec.
+------------------------------------------------------------------------
+r10873 | jongt23 | 2013-05-04 11:29:19 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/esES.lua
+
+esES update
+------------------------------------------------------------------------
+r10872 | dynaletik | 2013-05-04 11:27:42 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10871 | nebula169 | 2013-05-04 03:33:56 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+
+BossPrototype: let :Range return the distance from a second unit instead player
+------------------------------------------------------------------------
+r10870 | nebula169 | 2013-05-04 02:25:43 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: fix Lightning Storm cd
+------------------------------------------------------------------------
+r10869 | nebula169 | 2013-05-04 01:05:59 +0000 (Sat, 04 May 2013) | 8 lines
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon:
+- rework proximity displays and separate Lightning Storm from Arcing Lightning
+- add Arcing Lightning option for warnings when on you with proximity showing people without the debuff to stay away from
+- roll Throw Spear Target scanning into Throw Spear and add Icon, Flash, and Say
+- reset Throw Spear timer on phase changes
+- get rid of Molten Overload casting option (just use the Molten Overload option)
+- add SPELL_MISSED for standing in lines warnings
+- better cleaning up of bars on puppy death
+------------------------------------------------------------------------
+r10868 | nebula169 | 2013-05-02 22:10:28 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Council.lua
+
+Council: revert Quicksand timer change
+------------------------------------------------------------------------
+r10867 | funkydude | 2013-05-02 21:05:28 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/JiKun.lua
+
+JiKun: move down draft to unit event
+------------------------------------------------------------------------
+r10866 | funkydude | 2013-05-02 19:44:08 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Jinrokh.lua
+
+Jinrokh: fix focused lightning check after thundering throw
+------------------------------------------------------------------------
+r10865 | nebula169 | 2013-05-02 19:38:20 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Council.lua
+
+Council: always unregister UNIT_AURA when Frostbite is over
+------------------------------------------------------------------------
+r10864 | nebula169 | 2013-05-02 18:32:40 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Council.lua
+
+Council: add Body Heat to show a bar when you have Frostbite, start Quicksand cd on cast, stop priestess add bar on her death, don't close proximity if you have Biting Cold when Sul dies
+------------------------------------------------------------------------
+r10863 | Wetxius | 2013-05-02 06:37:03 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10862 | ananhaid | 2013-05-02 01:02:26 +0000 (Thu, 02 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+   M /trunk/ThroneOfThunder/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10861 | nebula169 | 2013-05-01 20:35:37 +0000 (Wed, 01 May 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Horridon.lua
+
+Horridon: split out Dire Fixation from Dire Call so it can be customized
+------------------------------------------------------------------------
+r10860 | funkydude | 2013-04-30 20:56:49 +0000 (Tue, 30 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/esES.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+   M /trunk/ThroneOfThunder/Locales/koKR.lua
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+   M /trunk/ThroneOfThunder/Trash.lua
+
+Trash: add displayname translation
+------------------------------------------------------------------------
+r10859 | funkydude | 2013-04-29 17:10:55 +0000 (Mon, 29 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/TwinConsorts.lua
+
+TwinConsorts: cleanups
+------------------------------------------------------------------------
+r10858 | nebula169 | 2013-04-29 12:14:12 +0000 (Mon, 29 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/TwinConsorts.lua
+
+TwinConsorts: listen for Ice Comet and Cosmic Barrage syncs, too
+------------------------------------------------------------------------
+r10857 | nebula169 | 2013-04-29 07:23:26 +0000 (Mon, 29 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/TwinConsorts.lua
+
+TwinConsorts: Nuclear Inferno and Ice Comet cds reset and lengthen at dusk, add initial cd for Flame of Flames
+------------------------------------------------------------------------
+r10856 | nebula169 | 2013-04-29 04:26:42 +0000 (Mon, 29 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/TwinConsorts.lua
+
+TwinConsorts: sync Ice Comet and Cosmic Barrage
+------------------------------------------------------------------------
+r10855 | _yusaku_ | 2013-04-28 21:31:39 +0000 (Sun, 28 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10854 | funkydude | 2013-04-28 15:50:34 +0000 (Sun, 28 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/Core/Core.lua
+
+Core: don't create a new function for each module's options setup.
+------------------------------------------------------------------------
+r10853 | pettigrow | 2013-04-28 09:47:54 +0000 (Sun, 28 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+
+frFR Update
+------------------------------------------------------------------------
+r10852 | ananhaid | 2013-04-28 06:05:39 +0000 (Sun, 28 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10851 | dynaletik | 2013-04-27 23:38:11 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10850 | _yusaku_ | 2013-04-27 21:02:45 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10849 | Wetxius | 2013-04-27 16:33:15 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10848 | funkydude | 2013-04-27 15:49:01 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+   M /trunk/Locales/deDE.lua
+   M /trunk/Locales/enUS.lua
+   M /trunk/Locales/esES.lua
+   M /trunk/Locales/frFR.lua
+   M /trunk/Locales/itIT.lua
+   M /trunk/Locales/koKR.lua
+   M /trunk/Locales/ptBR.lua
+   M /trunk/Locales/ruRU.lua
+   M /trunk/Locales/zhCN.lua
+   M /trunk/Locales/zhTW.lua
+
+Loader: extra nag when over 200 revisions out of date.
+------------------------------------------------------------------------
+r10847 | funkydude | 2013-04-27 15:06:27 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/Core/Core.lua
+
+Core: fire the win callback on death sync
+------------------------------------------------------------------------
+r10846 | funkydude | 2013-04-27 15:00:33 +0000 (Sat, 27 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/JiKun.lua
+
+JiKun: fix 10m feed young
+------------------------------------------------------------------------
+r10845 | Wetxius | 2013-04-26 09:58:14 +0000 (Fri, 26 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10844 | _yusaku_ | 2013-04-25 21:38:17 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/itIT.lua
+
+itIT Locale updates - fix correct syntax for /pull timer
+------------------------------------------------------------------------
+r10843 | Wetxius | 2013-04-25 16:17:27 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r10842 | _yusaku_ | 2013-04-25 07:25:29 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r10841 | nebula169 | 2013-04-25 07:05:21 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/JiKun.lua
+
+JiKun: add initial Talon Rake bar, switch Quills to a unit event so you can't out range it
+------------------------------------------------------------------------
+r10840 | ananhaid | 2013-04-25 04:37:51 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/zhCN.lua
+   M /trunk/Plugins/Locales/zhTW.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r10838 | funkydude | 2013-04-25 00:36:36 +0000 (Thu, 25 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+
+bump version
+------------------------------------------------------------------------
+r10837 | dynaletik | 2013-04-24 21:22:40 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10836 | maat | 2013-04-24 20:24:13 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Raden.lua
+
+some cleanup
+------------------------------------------------------------------------
+r10835 | funkydude | 2013-04-24 20:08:12 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/IronQon.lua
+
+IronQon: add lightning storm say
+------------------------------------------------------------------------
+r10834 | maat | 2013-04-24 20:01:14 +0000 (Wed, 24 Apr 2013) | 7 lines
+Changed paths:
+   M /trunk/ThroneOfThunder/Raden.lua
+
+add phase 2 balls
+add furthest sensitivity warning
+add win trigger
+use the bosses power to improve tank ability bars
+try to be intelligent with proximity meters
+count them balls
+
+------------------------------------------------------------------------
+r10833 | pettigrow | 2013-04-24 19:44:54 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/frFR.lua
+
+frFR Update
+------------------------------------------------------------------------
+r10832 | dynaletik | 2013-04-24 18:12:40 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Locales/deDE.lua
+
+- deDE update
+------------------------------------------------------------------------
+r10831 | funkydude | 2013-04-24 16:25:29 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Bars.lua
+   M /trunk/Plugins/Locales/deDE.lua
+   M /trunk/Plugins/Locales/enUS.lua
+   M /trunk/Plugins/Locales/esES.lua
+   M /trunk/Plugins/Locales/frFR.lua
+   M /trunk/Plugins/Locales/itIT.lua
+   M /trunk/Plugins/Locales/koKR.lua
+   M /trunk/Plugins/Locales/ptBR.lua
+   M /trunk/Plugins/Locales/ruRU.lua
+   M /trunk/Plugins/Locales/zhCN.lua
+   M /trunk/Plugins/Locales/zhTW.lua
+
+Bars: add a print for cancelling pull.
+------------------------------------------------------------------------
+r10830 | funkydude | 2013-04-24 15:35:37 +0000 (Wed, 24 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/LeiShen.lua
+
+LeiShen: Fix kill detection, Lei Shen's id was being registered to the AddDeath trigger, overwriting the Win trigger.
+------------------------------------------------------------------------
+r10829 | funkydude | 2013-04-23 20:10:19 +0000 (Tue, 23 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneOfThunder/Durumu.lua
+   M /trunk/ThroneOfThunder/Locales/deDE.lua
+   M /trunk/ThroneOfThunder/Locales/esES.lua
+   M /trunk/ThroneOfThunder/Locales/frFR.lua
+   M /trunk/ThroneOfThunder/Locales/itIT.lua
+   M /trunk/ThroneOfThunder/Locales/koKR.lua
+   M /trunk/ThroneOfThunder/Locales/ruRU.lua
+   M /trunk/ThroneOfThunder/Locales/zhCN.lua
+
+Remove the incorrect "only 1 person should enable this" warning from Durumu ray marking.
+------------------------------------------------------------------------
+r10828 | funkydude | 2013-04-23 18:51:59 +0000 (Tue, 23 Apr 2013) | 2 lines
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+   M /trunk/Core/Core.lua
+   M /trunk/Plugins/Bars.lua
+
+Core: allow modules to specify a specific sync throttle.
+Bars: Revert addon message delay and properly fix the issue by removing the sync throttle. Allow a pull timer of 0 to cancel the timer.
+------------------------------------------------------------------------
+r10827 | funkydude | 2013-04-23 15:22:13 +0000 (Tue, 23 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Bars.lua
+
+Bars: delay the DBM custom bar addon message by 0.1s to prevent attributing BW users as DBM users for cases when the DBM message arrives before the BW message.
+------------------------------------------------------------------------
+r10826 | funkydude | 2013-04-22 21:06:57 +0000 (Mon, 22 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/Bars.lua
+
+Bars: change the fill value for all currently running bars when selecting/deselecting the option.
+------------------------------------------------------------------------

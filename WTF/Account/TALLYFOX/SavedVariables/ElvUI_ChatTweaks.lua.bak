@@ -1,0 +1,328 @@
+
+ElvUI_ChatTweaksDB = {
+	["namespaces"] = {
+		["EmoteFilter"] = {
+		},
+		["AutoWelcome"] = {
+		},
+		["DamageMeters"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["Party Leader"] = 2,
+					["Raid Leader"] = 2,
+					["Yell"] = 2,
+					["Instance Chat Leader"] = 2,
+					["Instance Chat"] = 2,
+					["Party"] = 2,
+					["Whisper"] = 2,
+					["Channel"] = 2,
+					["Say"] = 2,
+					["Raid"] = 2,
+					["Guild"] = 2,
+					["Officer"] = 2,
+				},
+			},
+		},
+		["PetBattles"] = {
+		},
+		["FunFilters"] = {
+		},
+		["AutoCongratulate"] = {
+		},
+		["ChannelColors"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["colors"] = {
+						["RealID Conversation"] = {
+							["b"] = 0.9411765336990356,
+							["g"] = 0.6941176652908325,
+							["r"] = 0,
+						},
+						["RealID Whisper"] = {
+							["b"] = 0.9647059440612793,
+							["g"] = 1,
+							["r"] = 0,
+						},
+						["Party Leader"] = {
+							["b"] = 1,
+							["g"] = 0.7843137979507446,
+							["r"] = 0.4627451300621033,
+						},
+						["Instance Leader"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["Instance"] = {
+							["b"] = 0,
+							["g"] = 0.4980392456054688,
+							["r"] = 1,
+						},
+						["Raid Leader"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["General"] = {
+							["b"] = 0.9098039865493774,
+							["g"] = 0.9019608497619629,
+							["r"] = 0.7647059559822083,
+						},
+						["Yell"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.250980406999588,
+							["r"] = 1,
+						},
+						["LocalDefense"] = {
+							["b"] = 0.4745098352432251,
+							["g"] = 0.8941177129745483,
+							["r"] = 0.9098039865493774,
+						},
+						["Party"] = {
+							["b"] = 1,
+							["g"] = 0.6666666865348816,
+							["r"] = 0.6666666865348816,
+						},
+						["Whisper"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["Say"] = {
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["Raid Warning"] = {
+							["b"] = 0,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["Raid"] = {
+							["b"] = 0,
+							["g"] = 0.4980392456054688,
+							["r"] = 1,
+						},
+						["Guild"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 1,
+							["r"] = 0.250980406999588,
+						},
+						["Officer"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.7529412508010864,
+							["r"] = 0.250980406999588,
+						},
+					},
+				},
+			},
+		},
+		["GoldCalculator"] = {
+		},
+		["ChannelSounds"] = {
+		},
+		["AutoFarewell"] = {
+		},
+		["Reputation"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["factions"] = {
+						["bootybay"] = false,
+						["theconsortium"] = false,
+						["timbermawhold"] = false,
+						["darkmoonfaire"] = false,
+						["gelkisclancentaur"] = false,
+						["orderofthecloudserpent"] = false,
+						["everlook"] = false,
+						["shadopanassault"] = false,
+						["hydraxianwaterlords"] = false,
+						["theaugustcelestials"] = false,
+						["theshatar"] = false,
+						["ginamudclaw"] = false,
+						["thoriumbrotherhood"] = false,
+						["thealdor"] = false,
+						["operation:shieldwall"] = false,
+						["ratchet"] = false,
+						["thevioleteye"] = false,
+						["lowercity"] = false,
+						["sporeggar"] = false,
+						["gadgetzan"] = false,
+						["gnomeregan"] = false,
+						["cenarioncircle"] = false,
+						["ashtonguedeathsworn"] = false,
+						["kirintoroffensive"] = false,
+						["theblackprince"] = false,
+						["thescaleofthesands"] = false,
+						["shatteredsunoffensive"] = false,
+						["ironforge"] = false,
+						["shatariskyguard"] = false,
+						["pearlfinjinyu"] = false,
+						["holycrit"] = false,
+						["bloodsailbuccaneers"] = false,
+						["thesilvercovenant"] = false,
+						["honorhold"] = false,
+						["sho"] = false,
+						["zandalartribe"] = false,
+						["argentdawn"] = false,
+						["valianceexpedition"] = false,
+						["thelorewalkers"] = false,
+						["shadopan"] = false,
+						["gilneas"] = false,
+						["tushuipandaren"] = false,
+						["tinamudclaw"] = false,
+						["theleagueofarathor"] = false,
+						["stormwind"] = false,
+						["keepersoftime"] = false,
+						["cenarionexpedition"] = false,
+						["silverwingsentinels"] = false,
+						["exodar"] = false,
+						["thescryers"] = false,
+						["joguthedrunk"] = false,
+						["kurenai"] = false,
+						["theklaxxi"] = false,
+						["stormpikeguard"] = false,
+						["magramclancentaur"] = false,
+						["darnassus"] = false,
+						["goldenlotus"] = false,
+					},
+				},
+			},
+		},
+		["RepeatCommand"] = {
+		},
+		["MaterialsFarming"] = {
+		},
+		["AFK/DNDFilter"] = {
+		},
+		["ChatTabs"] = {
+		},
+		["Search"] = {
+		},
+		["Substitutions"] = {
+		},
+		["ColorRolls"] = {
+		},
+		["CustomChatFilters"] = {
+		},
+		["PlayerNames"] = {
+		},
+		["TextJustification"] = {
+		},
+		["Datatext"] = {
+		},
+		["Magic8-Ball"] = {
+		},
+		["Companions"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["global"] = {
+					},
+				},
+			},
+		},
+		["ChannelSpam"] = {
+		},
+		["CustomEmotes"] = {
+		},
+		["Calculator"] = {
+		},
+		["ATestofValor"] = {
+		},
+		["AuctionMessageFiltering"] = {
+		},
+		["Timestamps"] = {
+		},
+		["CustomNamedChatFilters"] = {
+		},
+		["InviteLinks"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["groupWords"] = {
+						["inv"] = "inv",
+						["invite"] = "invite",
+					},
+					["guildWords"] = {
+						["ginvite"] = "ginvite",
+						["ginv"] = "ginv",
+					},
+				},
+			},
+		},
+		["AutoProfessionLink"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["Guild"] = false,
+					["Instance Chat"] = false,
+					["Raid"] = false,
+					["Party Leader"] = false,
+					["Yell"] = false,
+					["Party"] = false,
+					["Say"] = false,
+					["Instance Chat Leader"] = false,
+					["Raid Leader"] = false,
+					["Whisper"] = false,
+					["Officer"] = false,
+				},
+			},
+		},
+		["LootIcons"] = {
+		},
+		["RerouteAuctionMessages"] = {
+		},
+		["AutoDing"] = {
+		},
+		["AltNames"] = {
+		},
+		["KeywordSounds"] = {
+		},
+		["PopupMessages"] = {
+		},
+		["MultipleInviteCommand"] = {
+		},
+		["XPLeftToLevel"] = {
+		},
+		["ChannelNoticeFilter"] = {
+		},
+		["ImprovedAuctionMessages"] = {
+		},
+		["EditboxHistory"] = {
+			["char"] = {
+				["Jolokia - Dragonblight"] = {
+					["history"] = {
+						"/p damn I have no idea where you guys went", -- [1]
+						"/p im going to bio summon me when you get there lol", -- [2]
+						"/p back", -- [3]
+						"/p no problem", -- [4]
+						"/p have a good one ;)", -- [5]
+						"/tov", -- [6]
+						"/1 invite for Nalak", -- [7]
+						"/g what are the coords for nalak?", -- [8]
+						"/g thnx ;)", -- [9]
+						"/macro", -- [10]
+						"/g  |cffa335ee|Hitem:95323:0:0:0:0:0:0:1212808960:90:0:465|h[Kilt of the Witch Doctor]|h|r damn being in elemental spec!", -- [11]
+						"/g yah lol", -- [12]
+						"/g forgot that loot is tagged on spec", -- [13]
+						"/g its still an upgrade even for my resto spec", -- [14]
+						"/g just the set bonuses dont matter", -- [15]
+						"/g how often does that guy come up?", -- [16]
+						"/g but you can only get loot once a week", -- [17]
+					},
+				},
+			},
+		},
+		["MinimapButton"] = {
+		},
+		["AchievementFilter"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
+	},
+	["profiles"] = {
+		["Jolokia - Dragonblight"] = {
+			["modules"] = {
+				["Alt Names"] = true,
+			},
+		},
+	},
+}

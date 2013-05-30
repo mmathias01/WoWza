@@ -1,0 +1,28 @@
+## Interface: 50300
+## X-Curse-Packaged-Version: r232-release
+## X-Curse-Project-Name: BigWigs_CommonAuras
+## X-Curse-Project-ID: big-wigs_common-auras
+## X-Curse-Repository-ID: wow/big-wigs_common-auras/mainline
+
+## Title: Big Wigs |cffff0000+|r|cffffffffCommon Auras|r
+## Title-zhCN: Big Wigs |cffff0000+|r|cffffffff普通光环|r
+## Title-frFR: Big Wigs |cffff0000+|r|cffffffffAuras habituelles|r
+## Title-ruRU: Big Wigs |cffff0000+|r|cffffffffОсновные ауры|r
+## Title-itIT: Big Wigs |cffff0000+|r|cffffffffAuree Comuni|r
+
+## Notes: Notifies the raid about common buffs and debuffs.
+## Notes-zhCN: 显示团队通用的增益效果与负面影响。
+## Notes-frFR: Prévient le raid lors de l'utilisation de certains buffs & débuffs habituels.
+## Notes-ruRU: Предупреждает рейд об основных положительных и отрицательных эффектах.
+## Notes-itIT: Avvisa l'incursione di certi benefici e malefici comuni.
+
+## Author: Funkydude, Nebula169
+## X-Category: Raid
+## Dependencies: BigWigs
+
+## LoadOnDemand: 1
+
+## X-BigWigs-LoadOn-CoreLoaded: 1
+
+CommonAuras.lua
+

@@ -1,0 +1,17 @@
+
+Postal3DB = {
+	["global"] = {
+		["BlackBook"] = {
+			["alts"] = {
+				"Cellestia|Terenas|Alliance|87|SHAMAN", -- [1]
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+	},
+	["profiles"] = {
+		["Cellestia - Terenas"] = {
+		},
+	},
+}

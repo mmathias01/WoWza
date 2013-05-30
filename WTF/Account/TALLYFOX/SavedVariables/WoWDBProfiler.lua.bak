@@ -1,0 +1,1295 @@
+
+WoWDBProfilerData = {
+	["char"] = {
+		["Cellestia - Terenas"] = {
+			["bg_blacklist"] = {
+				-1, -- [1]
+				-1, -- [2]
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Default",
+	},
+	["version"] = 14,
+	["build_num"] = 16357,
+	["global"] = {
+		["npcs"] = {
+			[22445] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 12,
+							["max_health"] = 150,
+							["attack"] = 8,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[57421] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[80555] = 1,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58431] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[126820] = 28,
+							[100842] = 13,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[61081] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 11,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
+				["wild_pet"] = true,
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58563] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_1"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:486"] = true,
+									},
+								},
+								["max_health"] = 84,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[58439] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[1604] = 1,
+							[126061] = 3,
+							[118223] = 8,
+							[118510] = 10,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[10598] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 147,
+							["attack"] = 11,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[21010] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 154,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58646] = {
+				["genders"] = {
+					["MALE"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_90"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:522:488"] = true,
+									},
+								},
+								["max_health"] = 393941,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[58900] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[6660] = 1,
+							[1604] = 1,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[56132] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[130984] = 4,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58843] = {
+				["flight_master"] = true,
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[60231] = {
+				["genders"] = {
+					["FEMALE"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_85"] = {
+								["max_health"] = 158079,
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:564:504"] = true,
+									},
+								},
+								["power"] = "MANA:8908",
+							},
+						},
+					},
+				},
+				["flight_master"] = true,
+				["class"] = "PALADIN",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[58910] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[117516] = 4,
+							[117507] = 2,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[10259] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 160,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[66089] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_1"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 84,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[63832] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_3"] = {
+							["speed"] = 35,
+							["max_health"] = 256,
+							["attack"] = 35,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[7384] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 142,
+							["attack"] = 13,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58548] = {
+				["reaction"] = "88:Alliance:HOSTILE",
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["loot_counts"] = {
+							["drops"] = 15,
+						},
+						["stats"] = {
+							["level_87"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:238:662"] = true,
+										["0:242:766"] = true,
+										["0:240:790"] = true,
+										["0:252:686"] = true,
+										["0:250:784"] = true,
+										["0:232:652"] = true,
+										["0:202:696"] = true,
+										["0:256:678"] = true,
+										["0:230:800"] = true,
+										["0:246:668"] = true,
+										["0:252:662"] = true,
+										["0:230:730"] = true,
+										["0:238:800"] = true,
+										["0:250:790"] = true,
+										["0:246:772"] = true,
+										["0:220:706"] = true,
+										["0:256:672"] = true,
+									},
+								},
+								["max_health"] = 214985,
+							},
+						},
+						["spells"] = {
+							[1604] = 3,
+							[79853] = 24,
+							[32919] = 29,
+							[80576] = 11,
+						},
+						["drops"] = {
+							"81194:1", -- [1]
+							"81194:1", -- [2]
+							"81194:1", -- [3]
+							"81194:1", -- [4]
+							"81194:1", -- [5]
+							"81194:1", -- [6]
+							"81194:1", -- [7]
+							"81194:1", -- [8]
+							"81194:1", -- [9]
+							"81194:1", -- [10]
+							"81194:1", -- [11]
+							"81194:1", -- [12]
+							"89112:1", -- [13]
+							"81194:1", -- [14]
+							"81194:1", -- [15]
+							"81194:1", -- [16]
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["genders"] = {
+					["MALE"] = true,
+				},
+			},
+			[58489] = {
+				["reaction"] = "88:Alliance:HOSTILE",
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["loot_counts"] = {
+							["drops"] = 11,
+						},
+						["stats"] = {
+							["level_86"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:254:724"] = true,
+										["0:282:750"] = true,
+										["0:266:784"] = true,
+										["0:230:806"] = true,
+										["0:262:716"] = true,
+										["0:234:784"] = true,
+										["0:248:676"] = true,
+										["0:258:774"] = true,
+										["0:260:786"] = true,
+										["0:248:760"] = true,
+									},
+								},
+								["max_health"] = 221220,
+							},
+						},
+						["spells"] = {
+							[6268] = 28,
+							[1604] = 1,
+							[117459] = 22,
+						},
+						["drops"] = {
+							"81204:1", -- [1]
+							"81204:1", -- [2]
+							"81204:1", -- [3]
+							"81204:1", -- [4]
+							"81204:1", -- [5]
+							"81204:1", -- [6]
+							"81204:1", -- [7]
+							"81204:1", -- [8]
+							"81204:1", -- [9]
+							"81204:1", -- [10]
+							"81204:1", -- [11]
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["genders"] = {
+					["MALE"] = true,
+				},
+			},
+			[60072] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_88"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 271376,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:HOSTILE",
+			},
+			[29726] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_2"] = {
+							["speed"] = 21,
+							["max_health"] = 207,
+							["attack"] = 19,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[66082] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_1"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 84,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[7387] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 9,
+							["max_health"] = 156,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58070] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[61184] = 4,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[65627] = {
+				["reaction"] = "88:Alliance:HOSTILE",
+				["class"] = "WARRIOR",
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[117586] = 4,
+							[117913] = 1,
+						},
+						["stats"] = {
+							["level_87"] = {
+								["max_health"] = 322478,
+							},
+						},
+					},
+				},
+			},
+			[58116] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[6016] = 4,
+							[128852] = 4,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[57648] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[1604] = 1,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[60230] = {
+				["flight_master"] = true,
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58899] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[1604] = 2,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58490] = {
+				["genders"] = {
+					["MALE"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_86"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:258:774"] = true,
+									},
+								},
+								["max_health"] = 110610,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:NEUTRAL",
+			},
+			[58462] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[110781] = 2,
+							[80009] = 5,
+							[6660] = 2,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[60039] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_88"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 271376,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:HOSTILE",
+			},
+			[58718] = {
+				["reaction"] = "88:Alliance:FRIENDLY",
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_90"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:528:520"] = true,
+									},
+								},
+								["max_health"] = 393941,
+							},
+						},
+					},
+				},
+				["sells"] = {
+					[89202] = "-1:1:[10000]",
+					[85267] = "-1:1:[1000]",
+					[85269] = "-1:1:[1000]",
+					[80590] = "-1:1:[1500]",
+					[80592] = "-1:1:[1500]",
+					[80594] = "-1:1:[1500]",
+					[85215] = "-1:1:[10000]",
+					[85217] = "-1:1:[10000]",
+					[89197] = "-1:1:[10000]",
+					[89233] = "-1:1:[10000]",
+					[89326] = "-1:1:[1500]",
+					[85268] = "-1:1:[1000]",
+					[89328] = "-1:1:[1500]",
+					[80591] = "-1:1:[1500]",
+					[80593] = "-1:1:[1500]",
+					[80595] = "-1:1:[1500]",
+					[85216] = "-1:1:[10000]",
+					[89329] = "-1:1:[1500]",
+					[79102] = "-1:1:[1500]",
+				},
+				["class"] = "WARRIOR",
+				["genders"] = {
+					["MALE"] = true,
+				},
+			},
+			[66079] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_1"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 84,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[66083] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_1"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:520:484"] = true,
+									},
+								},
+								["max_health"] = 84,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[60299] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[1604] = 1,
+							[118558] = 2,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[63822] = {
+				["quotes"] = {
+					["CHAT_MSG_MONSTER_SAY"] = {
+						["The air is so clean here."] = true,
+					},
+				},
+				["genders"] = {
+					["FEMALE"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_86"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:162:826"] = true,
+									},
+								},
+								["max_health"] = 184350,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:FRIENDLY",
+			},
+			[58427] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+							["level_86"] = {
+								["locations"] = {
+									["Valley of the Four Winds:807"] = {
+										["0:204:696"] = true,
+									},
+								},
+								["max_health"] = 129045,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:NEUTRAL",
+			},
+			[56462] = {
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[130830] = 32,
+							[118657] = 2,
+						},
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[36871] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_4"] = {
+							["speed"] = 34,
+							["max_health"] = 344,
+							["attack"] = 51,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[62829] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 153,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[58435] = {
+				["genders"] = {
+					["UNKNOWN"] = true,
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["spells"] = {
+							[117586] = 4,
+							[128963] = 4,
+						},
+						["stats"] = {
+							["level_87"] = {
+								["max_health"] = 644955,
+							},
+						},
+					},
+				},
+				["class"] = "WARRIOR",
+				["reaction"] = "88:Alliance:HOSTILE",
+			},
+		},
+		["quests"] = {
+			[30467] = {
+				["can_share"] = true,
+			},
+			[30468] = {
+				["can_share"] = true,
+			},
+			[31724] = {
+			},
+			[30469] = {
+				["can_share"] = true,
+			},
+			[7025] = {
+				["can_share"] = true,
+			},
+			[30967] = {
+				["can_share"] = true,
+			},
+			[32038] = {
+				["reward_text"] = "I haven't seen stag hunting this good since Ashenvale.",
+				["end"] = {
+					["NPC:58434"] = true,
+				},
+			},
+			[30186] = {
+				["begin"] = {
+					["NPC:58422"] = true,
+				},
+				["races"] = {
+					["Draenei"] = true,
+				},
+				["end"] = {
+					["NPC:58421"] = true,
+				},
+				["reward_text"] = "You saved me son! I canno' ever thank ye enough. Please! Take this fer your efforts. ",
+				["classes"] = {
+					["SHAMAN"] = true,
+				},
+			},
+			[30182] = {
+				["reward_text"] = "Well done! You outfoxed the foxes. I will talk to Mr. Pleeb about getting you another trophy made.",
+				["end"] = {
+					["NPC:63822"] = true,
+				},
+			},
+			[30667] = {
+				["classes"] = {
+					["SHAMAN"] = true,
+				},
+				["can_share"] = true,
+				["races"] = {
+					["Draenei"] = true,
+				},
+				["begin"] = {
+					["NPC:60182"] = true,
+				},
+			},
+			[31392] = {
+				["can_share"] = true,
+			},
+			[28866] = {
+				["can_share"] = true,
+			},
+			[30184] = {
+				["reward_text"] = "Now that's a proper trophy right there.",
+				["progress_text"] = "Puttin' the \"big\" into \"Big Game Hunter.\"",
+				["end"] = {
+					["NPC:58421"] = true,
+				},
+			},
+			[7062] = {
+				["can_share"] = true,
+			},
+			[29100] = {
+			},
+			[30666] = {
+				["classes"] = {
+					["SHAMAN"] = true,
+				},
+				["races"] = {
+					["Draenei"] = true,
+				},
+				["begin"] = {
+					["NPC:60173"] = true,
+				},
+			},
+			[30496] = {
+				["can_share"] = true,
+			},
+			[30512] = {
+				["can_share"] = true,
+			},
+			[30185] = {
+				["begin"] = {
+					["NPC:58422"] = true,
+				},
+				["progress_text"] = "I've always been livin' in me father's shadow. But after today, folks are gonna remember the name of Nesingwary, Jr.!",
+				["races"] = {
+					["Draenei"] = true,
+				},
+				["end"] = {
+					["NPC:58422"] = true,
+				},
+				["reward_text"] = "Thank ye. This one aught ta' one up me pop.",
+				["classes"] = {
+					["SHAMAN"] = true,
+				},
+			},
+			[28824] = {
+				["can_share"] = true,
+			},
+		},
+		["items"] = {
+			[83097] = {
+				["upgrade_id"] = "0",
+			},
+			[86026] = {
+				["upgrade_id"] = "0",
+			},
+			[81859] = {
+				["durability"] = 55,
+				["upgrade_id"] = "0",
+			},
+			[89233] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[74636] = {
+				["upgrade_id"] = "0",
+			},
+			[53072] = {
+				["upgrade_id"] = "0",
+			},
+			[88376] = {
+				["upgrade_id"] = "0",
+			},
+			[81780] = {
+				["durability"] = 55,
+				["upgrade_id"] = "0",
+			},
+			[81534] = {
+				["upgrade_id"] = "0",
+			},
+			[74843] = {
+				["upgrade_id"] = "0",
+			},
+			[87297] = {
+				["durability"] = 50,
+				["upgrade_id"] = "0",
+			},
+			[79058] = {
+				["upgrade_id"] = "0",
+			},
+			[84281] = {
+				["upgrade_id"] = "0",
+			},
+			[5976] = {
+				["upgrade_id"] = "0",
+			},
+			[88377] = {
+				["upgrade_id"] = "0",
+			},
+			[81400] = {
+				["upgrade_id"] = "0",
+			},
+			[81789] = {
+				["durability"] = 40,
+				["upgrade_id"] = "0",
+			},
+			[81194] = {
+				["upgrade_id"] = "0",
+			},
+			[87306] = {
+				["durability"] = 50,
+				["upgrade_id"] = "0",
+			},
+			[79059] = {
+				["upgrade_id"] = "0",
+			},
+			[63352] = {
+				["upgrade_id"] = "0",
+			},
+			[53069] = {
+				["upgrade_id"] = "0",
+			},
+			[88370] = {
+				["upgrade_id"] = "0",
+			},
+			[84322] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[76083] = {
+				["upgrade_id"] = "0",
+			},
+			[81819] = {
+				["upgrade_id"] = "0",
+			},
+			[81814] = {
+				["upgrade_id"] = "0",
+			},
+			[74837] = {
+				["upgrade_id"] = "0",
+			},
+			[81204] = {
+				["upgrade_id"] = "0",
+			},
+			[85267] = {
+				["req_reputation"] = "The Tillers:HONORED",
+			},
+			[80513] = {
+				["upgrade_id"] = "0",
+			},
+			[89197] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[85215] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[62781] = {
+				["upgrade_id"] = "0",
+			},
+			[84291] = {
+				["upgrade_id"] = "0",
+			},
+			[81505] = {
+				["durability"] = 40,
+				["upgrade_id"] = "0",
+			},
+			[89202] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[85217] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[69210] = {
+				["upgrade_id"] = "0",
+			},
+			[81537] = {
+				["upgrade_id"] = "0",
+			},
+			[85216] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[81496] = {
+				["durability"] = 40,
+				["upgrade_id"] = "0",
+			},
+			[52974] = {
+				["upgrade_id"] = "0",
+			},
+			[74838] = {
+				["upgrade_id"] = "0",
+			},
+			[74846] = {
+				["upgrade_id"] = "0",
+			},
+			[85268] = {
+				["req_reputation"] = "The Tillers:REVERED",
+			},
+			[81212] = {
+				["upgrade_id"] = "0",
+			},
+			[88375] = {
+				["upgrade_id"] = "0",
+			},
+			[80593] = {
+				["upgrade_id"] = "0",
+			},
+			[81744] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[53070] = {
+				["upgrade_id"] = "0",
+			},
+			[80871] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[89880] = {
+				["upgrade_id"] = "0",
+			},
+			[81522] = {
+				["upgrade_id"] = "0",
+			},
+			[81403] = {
+				["upgrade_id"] = "0",
+			},
+			[82173] = {
+				["upgrade_id"] = "0",
+				["unique_id"] = 545,
+				["suffix_id"] = -42,
+			},
+			[76085] = {
+				["upgrade_id"] = "0",
+			},
+			[79104] = {
+				["upgrade_id"] = "0",
+			},
+			[90043] = {
+				["upgrade_id"] = "0",
+			},
+			[74839] = {
+				["upgrade_id"] = "0",
+			},
+			[81451] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[85269] = {
+				["req_reputation"] = "The Tillers:EXALTED",
+			},
+			[77530] = {
+				["upgrade_id"] = "0",
+			},
+			[43626] = {
+				["upgrade_id"] = "0",
+			},
+			[62778] = {
+				["upgrade_id"] = "0",
+			},
+			[75014] = {
+				["upgrade_id"] = "0",
+			},
+			[87595] = {
+				["durability"] = 50,
+				["upgrade_id"] = "0",
+			},
+			[87285] = {
+				["durability"] = 100,
+				["upgrade_id"] = "0",
+			},
+			[63388] = {
+				["upgrade_id"] = "0",
+			},
+			[79249] = {
+				["upgrade_id"] = "0",
+			},
+			[81404] = {
+				["upgrade_id"] = "0",
+			},
+			[74844] = {
+				["upgrade_id"] = "0",
+			},
+			[88532] = {
+				["upgrade_id"] = "0",
+			},
+			[89683] = {
+				["upgrade_id"] = "0",
+			},
+			[3371] = {
+				["upgrade_id"] = "0",
+			},
+			[81401] = {
+				["upgrade_id"] = "0",
+			},
+			[89326] = {
+				["upgrade_id"] = "0",
+			},
+			[81460] = {
+				["durability"] = 115,
+				["upgrade_id"] = "0",
+			},
+			[88580] = {
+				["upgrade_id"] = "0",
+			},
+			[62779] = {
+				["upgrade_id"] = "0",
+			},
+			[81402] = {
+				["upgrade_id"] = "0",
+			},
+			[89112] = {
+				["upgrade_id"] = "0",
+			},
+			[81824] = {
+				["upgrade_id"] = "0",
+			},
+			[81762] = {
+				["durability"] = 140,
+				["upgrade_id"] = "0",
+			},
+			[21524] = {
+				["upgrade_id"] = "0",
+			},
+			[80866] = {
+				["upgrade_id"] = "0",
+			},
+			[81405] = {
+				["upgrade_id"] = "0",
+			},
+			[88387] = {
+				["upgrade_id"] = "0",
+			},
+			[81201] = {
+				["upgrade_id"] = "0",
+			},
+			[41542] = {
+				["upgrade_id"] = "0",
+			},
+			[74833] = {
+				["upgrade_id"] = "0",
+			},
+			[74841] = {
+				["upgrade_id"] = "0",
+			},
+			[62782] = {
+				["upgrade_id"] = "0",
+			},
+			[88388] = {
+				["upgrade_id"] = "0",
+			},
+			[72093] = {
+				["upgrade_id"] = "0",
+			},
+			[84540] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[86057] = {
+				["upgrade_id"] = "0",
+			},
+			[62783] = {
+				["upgrade_id"] = "0",
+			},
+			[72103] = {
+				["upgrade_id"] = "0",
+			},
+			[62791] = {
+				["upgrade_id"] = "0",
+			},
+			[81771] = {
+				["durability"] = 85,
+				["upgrade_id"] = "0",
+			},
+			[81197] = {
+				["upgrade_id"] = "0",
+			},
+			[81406] = {
+				["upgrade_id"] = "0",
+			},
+			[72988] = {
+				["upgrade_id"] = "0",
+			},
+			[53010] = {
+				["upgrade_id"] = "0",
+			},
+			[80795] = {
+				["durability"] = 90,
+				["upgrade_id"] = "0",
+			},
+			[74834] = {
+				["upgrade_id"] = "0",
+			},
+			[88050] = {
+				["durability"] = 40,
+				["upgrade_id"] = "0",
+			},
+		},
+	},
+}

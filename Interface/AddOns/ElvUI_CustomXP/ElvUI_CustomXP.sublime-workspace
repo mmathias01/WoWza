@@ -1,0 +1,810 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ElvUI_Rep",
+				"ElvUI_RepCustomXP"
+			],
+			[
+				"ElvUI_Exp",
+				"ElvUI_ExpCustomXP"
+			],
+			[
+				"growth",
+				"growthValues"
+			],
+			[
+				"Ge",
+				"GenerateValidAnchors"
+			],
+			[
+				"St",
+				"StaticPopup_Show"
+			],
+			[
+				"debu",
+				"debuffOptions"
+			],
+			[
+				"UpdateClass",
+				"UpdateClassBarAnchors"
+			],
+			[
+				"Sh",
+				"ShadowOrbsBar"
+			],
+			[
+				"W",
+				"WarlockSpecBars"
+			],
+			[
+				"spa",
+				"spacesettings"
+			],
+			[
+				"GetFr",
+				"GetFrameLevel"
+			],
+			[
+				"SetFr",
+				"SetFrameLevel"
+			],
+			[
+				"SetFrame",
+				"SetFrameStrata"
+			],
+			[
+				"Gene",
+				"GenerateElementOptionTable"
+			],
+			[
+				"name",
+				"nameMap"
+			],
+			[
+				"heal",
+				"healcommOptions"
+			],
+			[
+				"pvp",
+				"pvpOptions"
+			],
+			[
+				"comb",
+				"combatOptions"
+			],
+			[
+				"res",
+				"restingOptions"
+			],
+			[
+				"re",
+				"resting"
+			],
+			[
+				"raid",
+				"raidIconOptions"
+			],
+			[
+				"aura",
+				"aurabarOptions"
+			],
+			[
+				"aurab",
+				"aurabars"
+			],
+			[
+				"cp",
+				"cpointOptions"
+			],
+			[
+				"clas",
+				"classbarOptions"
+			],
+			[
+				"castb",
+				"castbarOptions"
+			],
+			[
+				"power",
+				"powerOptions"
+			],
+			[
+				"horiz",
+				"horizCastbar"
+			],
+			[
+				"GetFra",
+				"GetFrameStrata"
+			],
+			[
+				"SetFra",
+				"SetFrameStrata"
+			],
+			[
+				"UN",
+				"UNIT_SPELLCAST_CHANNEL_STOP"
+			],
+			[
+				"SetStat",
+				"SetStatusBarColor"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ElvUI_CustomXP.lua",
+			"settings":
+			{
+				"buffer_size": 12356,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ElvUI_CustomXP.toc",
+			"settings":
+			{
+				"buffer_size": 193,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "/Users/mtindal/Development/ElvUI/ElvUI/modules/misc/exprepbar.lua",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtindal/Development/ElvUI/ElvUI/config/profile.lua",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtindal/Development/ElvUI/ElvUI/core/options.lua",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtindal/Projects/ElvUI/ElvUI/modules/misc/exprepbar.lua",
+			"settings":
+			{
+				"buffer_size": 9289,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Pack	",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/mtindal/Projects/ElvUI_CustomXP/.git/TAG_EDITMSG",
+		"/Users/mtindal/Development/ElvUI/.git/COMMIT_EDITMSG",
+		"/Users/mtindal/Development/ElvUI/.git/MERGE_MSG",
+		"/Users/mtindal/Projects/ElvUI_CustomXP/profile.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/.git/TAG_EDITMSG",
+		"/Users/mtindal/Projects/PartyXP/profile.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/construct_elements.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/units/pet.lua",
+		"/Users/mtindal/Development/ElvUI/.git/rebase-merge/git-rebase-todo",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/hud.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/units/target.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/units/pettarget.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/units/player.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/config/profile.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/.git/COMMIT_EDITMSG",
+		"/Users/mtindal/Projects/ElvUI_Reminder/.git/TAG_EDITMSG",
+		"/Users/mtindal/Projects/ElvUI_Hud/ElvUI_Hud.toc",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/italian.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI_ShadowOrbColor/ElvUI_ShadowOrbColor.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_GCD/oUF_GCD.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/core/core.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/core/options.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/update_elements.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/options.lua",
+		"/Users/mtindal/Development/ElvUI_SLE/.git/MERGE_MSG",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/spanish.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/china.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/english.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/french.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/german.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/korean.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/portuguese.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/russian.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/taiwan.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/locales/load_locales.xml",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_AdvancedMovers/ElvUI_AdvancedMovers.lua",
+		"/Users/mtindal/Projects/ElvUI_PartyXP/ElvUI_PartyXP.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_WildMushroom/oUF_WildMushroom.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_WeakenedSoul/oUF_WeakenedSoul.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_WarlockSpecBars/oUF_WarlockSpecBars.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_ShadowOrbsBar/oUF_ShadowOrbsBar.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_HarmonyBar/oUF_HarmonyBar.lua",
+		"/Users/mtindal/Development/ElvUI-Beta/.git/MERGE_MSG",
+		"/Users/mtindal/Development/ElvUI-Beta/.git/COMMIT_EDITMSG",
+		"/usr/local/.git/MERGE_MSG",
+		"/Applications/World of Warcraft/Interface/AddOns/Archy/Archy.toc",
+		"/Users/mtindal/Projects/ElvUI_Hud/releases/create-release.sh",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/units/targettarget.lua",
+		"/Users/mtindal/Downloads/ElvUI_EnhancedNameplates/ElvUI_EnhancedNameplates.toc",
+		"/Users/mtindal/Downloads/stufiles/finalexam.htm",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI_LocPlus/core.lua",
+		"/Users/mtindal/Development/Tukui-Beta/Tukui/core/functions.lua",
+		"/Users/mtindal/.zshrc",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/load_libs.xml",
+		"/Users/mtindal/Development/ElvUI-Beta/ElvUI/locales/english.lua",
+		"/Users/mtindal/Development/ElvUI-Beta/ElvUI/libs/oUF_Plugins/oUF_TotemBar/oUF_TotemBar.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_HarmonyBar/oUF_HarmonyBar.toc",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/modules/unitframes/tags.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/init.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/libs/oUF_Plugins/oUF_AuraBars/oUF_AuraBars.lua",
+		"/Users/mtindal/Downloads/Tukui-Beta-tree-110541e/Tukui/modules/unitframes/layouts/tukui.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/core/load_core.xml",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_WildMushroom/oUF_WildMushroom.toc",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/modules/unitframes/options.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/load_hud.xml",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/config/profile.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/modules/actionbars/options.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/libs/oUF/elements/tags.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI_SLE/core/options.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/libs/oUF_Plugins/oUF_TotemBar/oUF_TotemBar.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/libs/oUF_Plugins/oUF_ArcaneCharge/oUF_ArcaneCharge.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/libs/oUF/elements/threat.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/ElvUI_Hud.sublime-workspace",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_ArcaneCharge/oUF_ArcaneCharge.lua",
+		"/Applications/World of Warcraft Beta/Interface/AddOns/ElvUI/modules/unitframes/update_elements.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/libs/oUF_ThreatBar/oUF_ThreatBar.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/layouts/normal/player.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/ElvUI_Hud.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/layouts/normal/target.lua",
+		"/Users/mtindal/Projects/ElvUI_Hud/modules/hud/layouts/normal/pet.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI/modules/classtimers/classtimers.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/Tukui_UIPackages_Skins/Archy.lua",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dtable.css",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dome.css",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dhome.htm",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dhometxt.htm",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dometxt.css",
+		"/Users/mtindal/Downloads/0495806404_307588/tutorial.05/case3/dtabletxt.css",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/ElvUI_Hud.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/config/profile.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/layouts/normal/player.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/layouts/normal/target.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/construct_elements.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/ElvUI_Hud.toc",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/core/core.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/core/options.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/core/load_core.xml",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/load_modules.xml",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/hud.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/layouts/load_layouts.xml",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/layouts/normal/pet.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/layouts/simple.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_Hud/modules/hud/update_elements.lua",
+		"/Applications/World of Warcraft/Interface/AddOns/ElvUI_PartyXP/options.lua"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"TrimFloatingPoint",
+			"UPDATE_FACTION",
+			"if blah and",
+			"if rested",
+			"if rested and",
+			"if not name return",
+			"PLAYER_XP_UPDATE",
+			"xp:",
+			"E:GetFormattedTextCXP",
+			"+ 11",
+			"HealthFrame",
+			"SetTemplate\\('Transparent'\\)",
+			"SetTemplate\\(\"Transparent\"\\)",
+			"SetTemplate",
+			"CreateBackdrop",
+			"SetTemplate",
+			"[0-9]+(L.+= )(.+)",
+			"[0-9](L.+= )(.+)",
+			"Flash",
+			"Alpha",
+			"SetAlpha",
+			"self:ConstructCombatFade(frame)",
+			"self:ConstructCombatFrame(frame)",
+			"hideOOC",
+			"SetAlpha",
+			"hideOOC",
+			"Strata",
+			"Default",
+			"ForceUpdate",
+			"print",
+			"__CheckEnabled",
+			"Point",
+			"health",
+			"self",
+			"verticalal",
+			"CheckInterrupt",
+			"E.db.hud",
+			"ElvUF",
+			"ElvUF:",
+			"gcd",
+			"enabled",
+			"OnHide",
+			"EnableMouse",
+			"select",
+			"attachTo",
+			"select",
+			"Harmony",
+			"PostUpdate",
+			"Monk",
+			"Harmony",
+			"Simple",
+			"local self",
+			"E.db.hud",
+			"Hide",
+			"= ([A-Z].+)",
+			"print",
+			"color",
+			"interrupt",
+			".elements",
+			"(L\\[.+\\]) = .+\"",
+			"FormatTime",
+			"backdrop",
+			"print",
+			"UpdateFrame(unit)",
+			"Resting Indicator",
+			"L\\[\"(.+)\"\\] = true",
+			"L\\[\"(.+)\"\\]",
+			"Set the Width of the Text Font",
+			"Set the Width of Text Font",
+			"Arcane",
+			"spaced",
+			"spaced and spacing or 1",
+			"UpdateFrames",
+			"/ [0-9]",
+			"for i.*=.*1,[0-9]",
+			"Override",
+			"PostUpdate",
+			"/ [0-9]",
+			"for i = 1,numPoints",
+			"for i.*=.*1,[0-9]",
+			"frame\\.([^[]+).+:Point\\([^,]+,[ ]*[a-z]+",
+			"print",
+			"msurhoom",
+			"classbar'",
+			"ovveride",
+			"UpdateMAll",
+			"override",
+			"\\['ovveride'\\] = (true|false),",
+			"\\['override'\\] = (true|false),",
+			"libs\\\\(.+)",
+			"Spark",
+			"local ([a-z]+)",
+			"\\['([^']+)'\\] =",
+			"\\['[^']+'\\] =",
+			"UpdateClassBar",
+			"arg.",
+			"arg",
+			"print",
+			"statusbar = {",
+			"font = {",
+			"font",
+			"name",
+			"UpdateMedia",
+			"value =",
+			"H:UpdateHud\\([^)]+\\)",
+			"P.hud",
+			"E.db.unitframe",
+			"player",
+			"P.hud",
+			"pvp",
+			"resting",
+			"pvp",
+			"'name'",
+			"cpoints",
+			"classbars",
+			"power",
+			"vak",
+			"health",
+			"P.hud",
+			"P.hud[",
+			"P.hud.units",
+			"SetStatusBarColor",
+			"SetTemplate(\"Default\")",
+			"Show",
+			"tags",
+			"E\\.db\\.sle[^ ]+",
+			"_PATTERN",
+			"print"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"UPDATE_FACTION CHAT_MSG_COMBAT_FACTION_CHANGE",
+			"if rested and",
+			"if rested and rested",
+			"if blah and",
+			"if not name then return",
+			"UPDATE_FACTION",
+			"rep:",
+			"CXP:GetFormattedText",
+			"+ 35",
+			"sbframe",
+			"SetTemplate(\"Default\")",
+			"\\1\"\\2\"",
+			"frame.CombatFade = self:ConstructCombatFade(frame)",
+			"frame.CombatFade = self:ConstructCombatFrame(frame)",
+			"oUF",
+			"oUF:",
+			"self.db",
+			"= \"\\1\"",
+			"",
+			"\\1 = true",
+			"UpdateAllFrames()",
+			"Rest Icon",
+			"L[\"\\1\"] = \"\\1\"",
+			"spacing",
+			"UpdateFrame",
+			"/ numPoints",
+			"for i = 1, numPoints",
+			"/ numPoints",
+			"for i = 1, numPoints",
+			"for i = 1,numPoints",
+			"frame.\\1[i]:Point(\"BOTTOM\",frame.\\1",
+			"mushroom",
+			"classbars'",
+			"overide",
+			"UpdateAll",
+			"",
+			"<Script file=\"\\1\"/>",
+			"['\\1']",
+			"local \\1 =",
+			"args.",
+			"UpdateAllFrames",
+			"H:UpdateAllFrames()",
+			"E.db.hud",
+			"pettarget",
+			"targettarget",
+			"pet",
+			"target",
+			"healcomm",
+			"combat",
+			"resting",
+			"raidicon",
+			"'pvp'",
+			"aurabars",
+			"cpoints",
+			"classbars",
+			"castbar",
+			"power",
+			"P.hud.units[",
+			"P.hud",
+			"SetTemplate(\"Transparent\")",
+			"(false)",
+			"(true)",
+			"units",
+			"current-percent",
+			"current",
+			"current-percent",
+			"AddElement",
+			"H:Construct",
+			"e.",
+			"self.units[",
+			"'\\1'",
+			"return frame.\\1",
+			"ElvUF_PetHud",
+			"ElvUF_TargetHud",
+			"ElvUF_PlayerHud",
+			"H:DisableFrame",
+			"H:EnableFrame",
+			"H:Hide",
+			"OnLeave",
+			"frame",
+			"HUD:",
+			"HUD.",
+			"local HUD ="
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ElvUI_CustomXP.lua",
+					"settings":
+					{
+						"buffer_size": 12356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2495,
+								2495
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ElvUI_CustomXP.toc",
+					"settings":
+					{
+						"buffer_size": 193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "/Users/mtindal/Development/ElvUI/ElvUI/modules/misc/exprepbar.lua",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/mtindal/Development/ElvUI/ElvUI/config/profile.lua",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/mtindal/Development/ElvUI/ElvUI/core/options.lua",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2717.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/mtindal/Projects/ElvUI/ElvUI/modules/misc/exprepbar.lua",
+					"settings":
+					{
+						"buffer_size": 9289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4961,
+								4961
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 21.0,
+						"translation.y": 1695.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

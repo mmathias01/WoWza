@@ -1,0 +1,18 @@
+
+SpellFlashAddonConfig = {
+	["SERVER"] = {
+		["us.logon.worldofwarcraft.com"] = {
+			["REALM"] = {
+				["Terenas"] = {
+					["PLAYER"] = {
+						["Cellestia"] = {
+							["use_all_class_modules"] = true,
+							["MODULE"] = {
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+}

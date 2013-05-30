@@ -1,0 +1,26 @@
+﻿## Interface: 50300
+## Title: Broker Volume
+## Notes: A volume control for Data Broker.
+## Author: Shenton
+## SavedVariables: BrokerVolumeDB
+## Version: 1.3.1
+## OptionalDeps: Ace3
+## X-Curse-Packaged-Version: v1.3.1
+## X-Curse-Project-Name: Data Broker Volume Control
+## X-Curse-Project-ID: data-broker-volume-controle
+## X-Curse-Repository-ID: wow/data-broker-volume-controle/mainline
+
+#@no-lib-strip@
+Embeds.xml
+#@end-no-lib-strip@
+
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+
+Localization\Locales-enUS.lua
+Localization\Locales-zhCN.lua
+Localization\Locales-zhTW.lua
+
+Core.lua
+
+VolumeSliders.lua

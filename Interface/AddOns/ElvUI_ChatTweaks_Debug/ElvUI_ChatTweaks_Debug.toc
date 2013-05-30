@@ -1,0 +1,12 @@
+## Interface: 50300
+## Author: Lockslap
+## Title: |cff1784d1ElvUI|r Chat Tweaks [|cff00ff96Debug Modules|r]
+## Notes: Adds modules that are useful for debugging any issues you may be having.
+## RequiredDeps: ElvUI_ChatTweaks
+## DefaultState: disabled
+## X-Curse-Packaged-Version: 6.11
+## X-Curse-Project-Name: ElvUI Chat Tweaks
+## X-Curse-Project-ID: elvui_chattweaks
+## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline
+
+includes.xml

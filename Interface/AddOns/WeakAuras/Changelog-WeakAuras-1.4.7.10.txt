@@ -1,0 +1,28 @@
+------------------------------------------------------------------------
+r304 | stanzilla | 2013-05-21 16:32:40 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   A /tags/1.4.7.10 (from /trunk:303)
+
+Tagging as 1.4.7.10
+------------------------------------------------------------------------
+r303 | stanzilla | 2013-05-21 13:17:32 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.toc
+   M /trunk/WeakAurasModelPaths/WeakAurasModelPaths.toc
+   M /trunk/WeakAurasOptions/WeakAurasOptions.toc
+   M /trunk/WeakAurasTutorials/WeakAurasTutorials.toc
+
+Let's escalate some TOCs! (5.3 Update)
+------------------------------------------------------------------------
+r302 | mysticalos | 2013-04-30 01:07:44 +0000 (Tue, 30 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+update instance code for difficulty index 10 and 11 (normal scenario and heroic scenario)
+------------------------------------------------------------------------
+r301 | stassart | 2013-03-24 21:45:46 +0000 (Sun, 24 Mar 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAurasOptions/WeakAurasOptions.lua
+
+Fix for ticket 353: lua error attempt to call method ControlChildren.
+------------------------------------------------------------------------

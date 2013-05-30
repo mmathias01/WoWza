@@ -1,0 +1,3 @@
+
+arFilterWhispers = true
+arReportHealth = true

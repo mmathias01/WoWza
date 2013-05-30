@@ -1,0 +1,15 @@
+## Interface: 50001
+## Title: XPStat
+## Author: Boak (Frostmourne-US)
+## Version: v1.0 (Beta)
+## Notes: Provides a a LDB mod showing experience rate + other experience stats.
+## SavedVariables: XPStatDB
+## X-Curse-Packaged-Version: v1.2beta
+## X-Curse-Project-Name: XPStat
+## X-Curse-Project-ID: xpstat
+## X-Curse-Repository-ID: wow/xpstat/mainline
+
+embeds.xml
+libs\LibDataBroker-1.1.lua
+
+XPStat.lua

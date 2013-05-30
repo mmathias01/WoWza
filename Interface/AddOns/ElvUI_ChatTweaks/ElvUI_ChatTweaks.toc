@@ -1,0 +1,58 @@
+## Interface: 50300
+## Author: Lockslap
+## Title: |cff1784d1ElvUI|r Chat Tweaks
+## Version: 6.11
+## Notes: Provides various tweaks to the Chat windows.
+## RequiredDeps: ElvUI
+## OptionalDeps: SharedMedia
+## SavedVariables: ElvUI_ChatTweaksDB
+## X-Curse-Packaged-Version: 6.11
+## X-Curse-Project-Name: ElvUI Chat Tweaks
+## X-Curse-Project-ID: elvui_chattweaks
+## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline
+
+## X-Category: Chat, Plugins
+## X-Author-Server: Bleeding Hollow, US
+## X-Author-Faction: Alliance
+## X-Email: adam [at] lockslap [dot] com
+## X-Website: http://ba-guild.com
+## X-Paypal: adam@lockslap.com
+## X-Credits: Borderline Amazing, Elv (for ElvUI)
+
+Libraries\LibStub\LibStub.lua
+Libraries\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libraries\AceAddon-3.0\AceAddon-3.0.xml
+Libraries\AceGUI-3.0\AceGUI-3.0.xml
+Libraries\AceConfig-3.0\AceConfig-3.0.xml
+Libraries\AceConsole-3.0\AceConsole-3.0.xml
+Libraries\AceDB-3.0\AceDB-3.0.xml
+Libraries\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Libraries\AceEvent-3.0\AceEvent-3.0.xml
+Libraries\AceGUI-3.0-SharedMediaWidgets\widget.xml
+Libraries\AceHook-3.0\AceHook-3.0.xml
+Libraries\AceLocale-3.0\AceLocale-3.0.xml
+Libraries\AceTab-3.0\AceTab-3.0.xml
+Libraries\AceTimer-3.0\AceTimer-3.0.xml
+Libraries\LibAlts-1.0\lib.xml
+Libraries\LibDataBroker-1.1\LibDataBroker-1.1.lua
+Libraries\LibDBIcon-1.0\LibDBIcon-1.0.lua
+Libraries\LibPetJournal-2.0\LibPetJournal-2.0.lua
+Libraries\LibSharedMedia-3.0\lib.xml
+Libraries\LibSink-2.0\lib.xml
+
+Locales\enUS.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\esMX.lua
+Locales\frFR.lua
+Locales\itIT.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+
+SharedMedia.lua
+ElvUI_ChatTweaks.lua
+StaticPopups.lua
+Modules.xml

@@ -1,0 +1,112 @@
+== Version 3.7.0
+Updated for patch 5.3:
+* Elemental: Changed the conditions for Ancestral Swiftness, since it's fine to use on Lava Burst now that it has a 2 second cast time.
+* Elemental & Enhancement: Adjusted the flashing while moving to take into account that Lightning Bolt can always be cast.
+* Enhancement: Elemental Blast waits for at least 1 stack of Maelstrom Weapon, and turns into an optional flash while you are moving.
+
+== Version 3.6.0
+* Elemental: Added an AoE rotation.
+* Elemental: Flame Shock can now flash during Ascendance.
+* Elemental: Lava Burst can now flash when Flame Shock is not up if Flame Shock is on cooldown.
+* Elemental: Lava Burst flashes small and green at the same time that Ascendance flashes (single target), to remind you that will be next if you press Ascendance.
+* Elemental: Added suggested flashing for when you are moving.
+* Elemental: Thunderstorm can now flash during combat, in case you are weaving in Chain Lightnings for 2-target AoE.
+
+== Version 3.5.1
+* Enhancement: Fix for an occasional Lua error.
+
+== Version 3.5.0
+* Enhancement: Updated the rotation, including a couple adjustments when you have T15 set bonuses.
+* All: Cleaned up Ascendance flashing (e.g. it no longer flashes while it is already up).
+
+== Version 3.4.3
+NOTE: This version includes a new version of Bitten's SpellFlash Library that I tried to test well, but if you find any issues please let me know right away.
+
+== Version 3.4.2
+* Enhancement: Bugfix - I believe there was probably an issue with Stormblast flashing, which this should fix.
+
+== Version 3.4.1
+NOTE: Your options will be reset when you upgrade to this version.
+* Repackaging so that Bitten's SpellFlash Library is included with the addon, instead of downloaded separately.
+* Several other internal changes.
+* Elemental: Now properly detects that the cooldown on Lava Burst is not going to trigger if Lava Surge is up.
+* Elemental & Enhancement: Flashes Healing Surge when solo and you could use the heal.
+* Restoration: Flashes Lightning Bolt if you have the Glyph of Telluric Currents, under 95% mana, and everyone in range has at least 90% health.
+* All: Flashes Water Walking when you are swimming.
+
+== Version 3.3.1
+* All: Fixed a recent error in the German translation that caused weapon buffs to continuously flash.
+* All: Added Spanish translations for weapon buffs so they hopefully flash correctly.
+
+== Version 3.3.0
+* Restoration: Added some flashing for Restoration.
+
+== Version 3.2.1
+* Making the "Out of Date" status go away.  Please report any real issues w/ the new patch.
+
+== Version 3.2.0
+* Elemental: Prioritize Lava Burst above Flame Shock.
+* Elemental: Do not flash Elemental Mastery during Bloodlust.
+* Elemental: Do not flash Flame Shock during Ascendance.
+* Elemental: Bugfix - flash Ascendance when Lava Burst is on cooldown, instead of when it is not.
+
+== Version 3.1.0 beta
+* All: Updated rotations to match Simulationcraft defaults.
+* All: Added Ascendance and level 90 talents.
+* All: Updated translations for Brazilian Portuguese (thanks Kasth!).
+
+== Version 3.0.0
+* Enhancement: added an Enhancement rotation for 5.0.4.
+* All: No longer reported as "Out of Date" in 5.0.4.
+
+== Version 2.2.0
+* Added an Elemental rotation for MoP.
+
+== Version 2.1.6
+* Enhancement: Windfury Weapon should work on a German client now.  Thanks booni89!
+
+== Version 2.1.5
+* Elemental: Bugfix - Flame Shock was not working correctly on non-English clients.
+
+== Version 2.1.4
+* All: FaStEr96 added a Russion localization.  Thanks!
+* All: dayv_d added a Traditional Chinese localization.  Thanks!
+
+== Version 2.1.3
+* Elemental: Lightning shield will now flash at 1 minute remaining out of combat, down from 5.  If you have more than 3 stacks, it waits until 15 seconds.
+* Elemental: Thunderstorm will now flash at under 92% mana out of combat, down from 100%.
+* Restoration: Earth Shield now flashes at 2 minutes out of combat, down from 5.
+
+== Version 2.1.2
+* Taking out of beta.
+
+== Version 2.1.1 beta
+This beta release uses Bitten's SpellFlash Library version 3.  If you update you will also need to update any of your other Bitten's SpellFlash modules, which may also be in beta.
+* Elemental: Lava Burst now flashes in anticipation of the Flame Shock debuff if you just cast it, instead of waiting for the actually debuff to appear.
+* Enhancement: Unleash Elements was probably broken - or at least not perfect - on non-English clients.
+
+== Version 2.1.0
+* Elemental: Tighter timing for refreshing Flame Shock.
+* Elemental: Spends a 7-stack of Fulmination a little sooner when Flame Shock will be falling off soon.
+* Enhancement: No longer flashes Lightning Bolt at 4 stacks while you are moving.
+
+== Version 2.0.0
+* Enhancement: Added an Enhancement rotation!
+* All: Flashes Wind Shear.
+
+== Version 1.2.1
+* Added German localization (thanks Gucki!)
+
+== Version 1.2.0
+* Add Earth Shield flashing for Resto.
+* Add fire totem flashing for Elemental.
+* Disables Blizzard's default proc hilighting when one of the rotations is in use.
+* Should now work on non-English clients.
+* Added localization support.
+* Plays nicer with other addons.
+
+== Version 1.1.0
+* Remove the attempts at Unleash Elements - it's to tricky to get the timing and the best case scenario is a very minimal dps gain.
+
+== Version 1.0.0
+* Initial Alpha Release

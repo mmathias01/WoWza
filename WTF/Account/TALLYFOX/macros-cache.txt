@@ -1,0 +1,63 @@
+VER 3 0000000000000007 "Camera" "INV_MISC_QUESTIONMARK"
+/script SetCVar("cameraDistanceMax", 30)
+END
+VER 3 0000000000000001 "Decursive" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cast [@mouseover,nomod,exists] Cleanse Spirit;  [@mouseover,exists,mod:ctrl] Hex; [@mouseover,exists,mod:shift] Cleanse Spirit
+END
+VER 3 0000000000000002 "Onyx 1" "Ability_Mount_YakMountWhite"
+/way 64.18, 23.92
+/way 63.39, 21.62
+/way 62.98, 21.95
+/way 62.37, 32.84
+/way 62.17, 31.75
+/way 62.19, 31.21
+/way 67.02, 32.68
+/way 62.46, 28.77
+/way 62.21, 29.29
+/way 62.00, 29.54
+/way 63.73, 21.90
+/way 62.30, 28.12
+/way 62.71, 29.78
+/way 66.43, 29.55
+END
+VER 3 0000000000000003 "Onyx 2" "Ability_Mount_YakMountWhite"
+/way 65.08, 26.20
+/way 66.64, 28.69
+/way 67.12, 24.94
+/way 65.18, 24.77
+/way 67.05, 33.81
+/way 66.61, 31.58
+/way 66.54, 32.20
+/way 63.09, 29.31
+/way 69.65, 31.64
+/way 70.53, 28.99
+/way 61.89, 30.20
+/way 66.18, 33.43
+/way 62.40, 32.36
+/way 65.63, 25.07
+END
+VER 3 0000000000000004 "Onyx 3" "Ability_Mount_YakMountWhite"
+/way 65.18, 24.77
+/way 65.24, 23.91
+/way 70.33, 28.63
+/way 67.06, 30.25
+END
+VER 3 0000000000000006 "Trove1" "INV_KNIFE_1H_PANDARAID_D_02"
+/way 58.0, 39.6
+/way 44.1, 56.2
+/way 59.3, 56.8
+/way 47.4, 72.4
+/way 43.5, 78.6
+/way 52.9, 77.2
+/way 47.9, 82.1
+/way 38.96, 54.62
+/way 34.86, 47.63
+/way 37.0, 60.0
+/way 38.97, 59.9
+END
+VER 3 0000000000000005 "vent" "ABILITY_CREATURE_CURSED_05"
+/p Vent
+/p gotham.hidef-voice.com
+/p port: 4144
+END

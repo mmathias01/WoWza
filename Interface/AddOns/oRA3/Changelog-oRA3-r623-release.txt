@@ -1,0 +1,409 @@
+------------------------------------------------------------------------
+r623 | funkydude | 2013-05-24 11:25:00 +0000 (Fri, 24 May 2013) | 1 line
+Changed paths:
+   A /tags/r623-release (from /trunk:622)
+
+Tagging as r623-release
+------------------------------------------------------------------------
+r622 | funkydude | 2013-05-23 10:11:30 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.lua
+
+Cleanup previous OnHide re-hooking commit.
+------------------------------------------------------------------------
+r621 | oscarucb | 2013-05-23 00:51:29 +0000 (Thu, 23 May 2013) | 2 lines
+Changed paths:
+   M /trunk/oRA3.lua
+
+fix frame auto-hide to work correctly after Blizzard_RaidGroupFrame loads
+
+------------------------------------------------------------------------
+r620 | funkydude | 2013-05-22 16:49:43 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.toc
+
+fix toc title
+------------------------------------------------------------------------
+r619 | nebula169 | 2013-05-22 11:10:10 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: add a timer fallback in case READY_CHECK_FINISHED fires before READY_CHECK
+------------------------------------------------------------------------
+r618 | nebula169 | 2013-05-22 10:46:12 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: move OnUpdate to animations
+------------------------------------------------------------------------
+r617 | nebula169 | 2013-05-22 10:36:09 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/frFR.lua
+   M /trunk/locales/itIT.lua
+   M /trunk/locales/koKR.lua
+   M /trunk/locales/ptBR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: clarify the "Play Sound" option, and only relay results if you're promoted
+------------------------------------------------------------------------
+r615 | nebula169 | 2013-05-22 02:41:11 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+tweak
+------------------------------------------------------------------------
+r614 | nebula169 | 2013-05-22 02:36:21 +0000 (Wed, 22 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: some nil checks
+------------------------------------------------------------------------
+r612 | funkydude | 2013-05-21 23:32:35 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/oRA3.lua
+
+Fix shaman res comm.
+------------------------------------------------------------------------
+r610 | funkydude | 2013-05-21 18:00:40 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.toc
+
+bump toc
+------------------------------------------------------------------------
+r609 | funkydude | 2013-05-21 17:57:18 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/libs.xml
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/modules/Durability.lua
+   M /trunk/modules/Latency.lua
+   M /trunk/oRA3.lua
+
+Remove AceComm & AceSerializer. Breaks backwards compat which should be fixed by patch day updating.
+------------------------------------------------------------------------
+r608 | funkydude | 2013-05-21 14:29:11 +0000 (Tue, 21 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Loot.lua
+
+Loot: bugfix setting threshold.
+------------------------------------------------------------------------
+r607 | nebula169 | 2013-05-20 03:22:25 +0000 (Mon, 20 May 2013) | 1 line
+Changed paths:
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/frFR.lua
+   M /trunk/locales/itIT.lua
+   M /trunk/locales/koKR.lua
+   M /trunk/locales/ptBR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+   M /trunk/modules/Latency.lua
+   M /trunk/modules/Zone.lua
+
+Latency: show home latency, too
+------------------------------------------------------------------------
+r606 | funkydude | 2013-05-19 18:43:30 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/libs.xml
+   M /trunk/modules/Durability.lua
+   M /trunk/modules/Invite.lua
+   M /trunk/modules/Latency.lua
+   M /trunk/modules/ReadyCheck.lua
+   M /trunk/modules/Zone.lua
+   M /trunk/oRA3.lua
+
+Remove AceConsole
+------------------------------------------------------------------------
+r605 | nebula169 | 2013-05-19 17:06:24 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: print results if you're not promoted (info is available to everyone apparently!)
+------------------------------------------------------------------------
+r604 | nebula169 | 2013-05-19 16:37:07 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/frFR.lua
+   M /trunk/locales/itIT.lua
+   M /trunk/locales/koKR.lua
+   M /trunk/locales/ptBR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+   A /trunk/modules/Latency.lua
+   M /trunk/oRA3.toc
+
+add Latency module
+------------------------------------------------------------------------
+r603 | funkydude | 2013-05-19 16:00:40 +0000 (Sun, 19 May 2013) | 1 line
+Changed paths:
+   D /trunk/modules/Inventory.lua
+   M /trunk/oRA3.toc
+
+Nuke inventory module
+------------------------------------------------------------------------
+r602 | funkydude | 2013-05-18 19:16:17 +0000 (Sat, 18 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: Remove SYSTEM chat filter, known to cause world map poi taint issues and isn't really necessary.
+------------------------------------------------------------------------
+r601 | nebula169 | 2013-05-17 11:53:20 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Promote.lua
+
+Promote: OnUpdate to AceTimer and some minor refactoring
+------------------------------------------------------------------------
+r600 | nebula169 | 2013-05-17 11:02:10 +0000 (Fri, 17 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: tweak display updating and maths
+------------------------------------------------------------------------
+r599 | funkydude | 2013-05-16 12:56:37 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/modulePrototype.lua
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/modules/ReadyCheck.lua
+
+better UnitName fix
+------------------------------------------------------------------------
+r598 | ywfn | 2013-05-16 09:00:25 +0000 (Thu, 16 May 2013) | 3 lines
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+Ready Check window:
+- Right column of the bottom frame will now line up with the right column of the top frame, instead of being offset to the right
+- (From ticket #128) Vertical spacing below the top frame's names, and above and below the bottom frame's names should now roughly be the same as the spacing that's above the top frame's names.  Spacing should now be consistent regardless of whether there's an even or odd number of people in either frame.  (Left the min vertical size of 128 alone, so you'll still have extra space below, if you're in a small raid)
+------------------------------------------------------------------------
+r597 | ywfn | 2013-05-16 08:24:26 +0000 (Thu, 16 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+Bugfix for ready checks with out-of-range players
+------------------------------------------------------------------------
+r596 | funkydude | 2013-05-15 23:44:27 +0000 (Wed, 15 May 2013) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/libs.xml
+   M /trunk/modulePrototype.lua
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/modules/Durability.lua
+   M /trunk/modules/Inventory.lua
+   M /trunk/modules/Invite.lua
+   M /trunk/modules/Promote.lua
+   M /trunk/modules/ReadyCheck.lua
+   M /trunk/modules/Tanks.lua
+   M /trunk/modules/Zone.lua
+   M /trunk/oRA3.lua
+
+Remove AceEvent
+------------------------------------------------------------------------
+r595 | funkydude | 2013-05-15 23:12:45 +0000 (Wed, 15 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Loot.lua
+
+Loot: Use AceTimer for the threshold delay.
+------------------------------------------------------------------------
+r594 | funkydude | 2013-05-14 13:48:04 +0000 (Tue, 14 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: somewhat hacky but better overall way of implementing combat soulstone (now covered by the soulstone option rather than a separate option).
+------------------------------------------------------------------------
+r593 | funkydude | 2013-05-13 15:40:56 +0000 (Mon, 13 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: fix arg order, fix pet owner detection.
+------------------------------------------------------------------------
+r592 | funkydude | 2013-05-13 13:25:05 +0000 (Mon, 13 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: move the combat log onto its own event handler
+------------------------------------------------------------------------
+r591 | funkydude | 2013-05-12 23:32:56 +0000 (Sun, 12 May 2013) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/libs.xml
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/frFR.lua
+   M /trunk/locales/koKR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+   M /trunk/modules/Durability.lua
+   M /trunk/modules/Inventory.lua
+   M /trunk/modules/Loot.lua
+   M /trunk/modules/Promote.lua
+   M /trunk/modules/Tanks.lua
+   M /trunk/modules/Zone.lua
+   M /trunk/oRA3.lua
+
+Remove AceHook
+------------------------------------------------------------------------
+r590 | funkydude | 2013-05-12 22:09:48 +0000 (Sun, 12 May 2013) | 1 line
+Changed paths:
+   M /trunk/modulePrototype.lua
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: add warlock combat res spell id, change the way encounter checking is done to work on old encounters and encounters like dark animus normal.
+------------------------------------------------------------------------
+r589 | nebula169 | 2013-05-11 00:09:16 +0000 (Sat, 11 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: revert the bottom group bar spacing
+------------------------------------------------------------------------
+r588 | nebula169 | 2013-05-09 05:25:27 +0000 (Thu, 09 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: tweak the bottom member's offsets a bit
+------------------------------------------------------------------------
+r587 | nebula169 | 2013-05-08 11:33:52 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: first pass at updating included spells
+------------------------------------------------------------------------
+r586 | nebula169 | 2013-05-08 08:32:10 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: revert to just using GetNumSubgroupMembers again :p
+------------------------------------------------------------------------
+r585 | ywfn | 2013-05-08 07:36:09 +0000 (Wed, 08 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Bugfix for invites after recent changes (was causing 1 invite to be lost whenever forming a raid from scratch)
+------------------------------------------------------------------------
+r584 | nebula169 | 2013-05-04 18:39:53 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/modules/ReadyCheck.lua
+   M /trunk/oRA3.lua
+
+use CUSTOM_CLASS_COLORS in other modules
+------------------------------------------------------------------------
+r583 | nebula169 | 2013-05-04 18:14:31 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.lua
+
+CUSTOM_CLASS_COLORS support
+------------------------------------------------------------------------
+r582 | nebula169 | 2013-05-04 17:57:22 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+   M /trunk/oRA3.lua
+
+tweaks
+------------------------------------------------------------------------
+r581 | nebula169 | 2013-05-04 17:53:10 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.lua
+
+tweak the gbank repair stuff a bit
+------------------------------------------------------------------------
+r580 | nebula169 | 2013-05-04 17:27:05 +0000 (Sat, 04 May 2013) | 2 lines
+Changed paths:
+   M /trunk/oRA3.lua
+
+fix error from trying to restore the last selected list when it doesn't exist anymore
+other minor tweaks
+------------------------------------------------------------------------
+r579 | funkydude | 2013-05-04 13:44:37 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/oRA3.lua
+
+temp error fix
+------------------------------------------------------------------------
+r578 | nebula169 | 2013-05-04 07:39:30 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: even better battle.net handling. MysticalOS is a bully.
+------------------------------------------------------------------------
+r577 | nebula169 | 2013-05-04 07:01:54 +0000 (Sat, 04 May 2013) | 2 lines
+Changed paths:
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/frFR.lua
+   A /trunk/locales/itIT.lua
+   M /trunk/locales/koKR.lua
+   A /trunk/locales/ptBR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+   D /trunk/modules/Resistance.lua
+   M /trunk/oRA3.toc
+
+remove Resistances module
+add itIT and ptBR locale files
+------------------------------------------------------------------------
+r576 | nebula169 | 2013-05-04 06:32:28 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: replace all the OnUpdate timers with AceTimer
+------------------------------------------------------------------------
+r575 | nebula169 | 2013-05-04 06:24:59 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: better battle.net handling
+------------------------------------------------------------------------
+r574 | nebula169 | 2013-05-04 05:20:12 +0000 (Sat, 04 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: 3min tranq for resto druids
+------------------------------------------------------------------------
+r573 | nebula169 | 2013-05-03 19:17:12 +0000 (Fri, 03 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: lower Recklessness cd to 3min
+------------------------------------------------------------------------
+r572 | oscarucb | 2013-05-02 22:15:24 +0000 (Thu, 02 May 2013) | 2 lines
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+fix a lua error on receiving a BN wsp from non-wow client
+
+------------------------------------------------------------------------
+r571 | nebula169 | 2013-05-01 23:22:49 +0000 (Wed, 01 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: fix top/bottom grouping, delay auto-hiding by a few seconds, fix duplicate result prints and sending results to chat
+------------------------------------------------------------------------
+r570 | gnarfoz | 2013-05-01 23:09:53 +0000 (Wed, 01 May 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Make keyword invites work again for battle.net contacts who are from the same realm as the player.
+------------------------------------------------------------------------
+r569 | Ackis | 2013-04-28 21:08:01 +0000 (Sun, 28 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Implement ticket 123: Battle.net cross-realm fix.
+------------------------------------------------------------------------
+r568 | StingerSoft | 2013-04-21 09:56:47 +0000 (Sun, 21 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/locales/ruRU.lua
+
+ruRU update
+------------------------------------------------------------------------

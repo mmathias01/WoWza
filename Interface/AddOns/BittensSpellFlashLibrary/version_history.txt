@@ -1,0 +1,103 @@
+== Version 4.11.0
+* c.FlashAll() and c.PriorityFlash() now respect a new "Dispel" flag.
+* Added c.AddDispel().
+* Removed the unused c.CloneSpell().
+* Bugfix: c.AddInterrupt() and c.AddTaunt() were not respecting the attributes parameter.
+
+== Version 4.10.1
+* Flash food buffs on enemy "detection" instead of targeting.
+* Do not flash food buttons when you don't have any in your bags.
+
+== Version 4.10.0 beta
+* Added c.FlashFoods().
+* c.RegisterAddon() now flashes MoP foods for anything listed in a rotation's UsefulStats.
+
+== Version 4.9.1
+This version supports the latest Warlock release.
+* c.HasMyDebuff() and c.HasBuff() now work on auras without a duration.
+
+== Version 4.9.0
+This version supports the latest Druid release.
+* Added c.PredictFlash()
+* c.RegisterForEvents() has a new callback: AutoAttack.
+* c.IsCastingOrInAir() and c.IsAuraPendingFor() now work for AoE spells that do not have a target.
+* c.FlashAll() and c.PriorityFlash() now automatically assume NotIfActive if Cooldown is defined.
+* Bugfix - the SpecialGCD and NoGCD flags now correctly influence c.GetBusyTime() for spells with sub-names.
+
+== Version 4.8.0
+This version supports the latest Shaman release.
+* New spell tags: Tick and PredictFlash.
+* Added c.AoeColor and c.MovementColor.
+
+== Version 4.7.4
+This version supports the latest Hunter release.
+* c.GetHealth() and g.GetHealthPercent() now work on dead targets (they return 0)
+* Bugfix - the "fct" toggle was not completely turning off floating combat text over the player.
+
+== Version 4.7.3
+* NoRangeCheck is now implied when defining Melee or Range.
+* Bugfix - c.LastGCD was not being updated as often as it should.
+
+== Version 4.7.2
+* Bugfix: 4.7.1 had a conflict with 4.7.0.
+* c.PriorityFlash() and c.FlashAll() now respect spells' UseBuffID flag.
+
+== Version 4.7.1
+* Bugfix for a Lua error w/ some classes.
+
+== Version 4.7.0
+This version supports the latest Druid release, and may provide some small benefit to most classes - especially tanks.
+* c.GetBusyTime() is a little smarter about spells that don't trigger a GCD, and spells which define the new SpecialGCD flag.
+* c.IsTanking() is smarter when fighting Gara'jal.
+* c.DelayPriorityFlash() now honors Debuff and MyBuff flags.
+* c.DelayPriorityFlash() now flashes blue when in AoE mode.
+* Added c.HasMyBuff(), c.GetMyBuffDuration(), and c.GetMyBuffStack().
+* Added c.IsCastingAt()
+
+== Version 4.6.7
+This version supports the latest Monk release.
+* Spell info tables now include TargetID, which is the GUID of that spell's target.  Does not work if for spells not cast on s.UnitSelection().
+* c.PriorityFlash now respects the MyBuff tag.
+
+== Version 4.6.6
+* Added a slash command to use the Blizzard proc highlights instead of the red border.
+* Bugfix - the "/bsf debug" command wasn't working correctly.
+
+== Version 4.6.5
+This version supports the latest Paladin release.
+* c.DelayPriorityFlash() now respects spell ranges.
+* c.DelayPriorityFlash() now looks for a new spell attribute: "Cooldown".
+
+== Version 4.6.4
+This version supports the latest Priest release.
+* c.DelayPriorityFlash() was not always accounting for cast time correctly.
+
+== Version 4.6.3-beta
+This version supports the latest Priest release.
+* Added c.DelayPriorityFlash().
+* Added a "FullCD" parameter to c.GetCooldown().
+* Added c.RegisterInitiatingSpell(), and the logic to make it work w/ event handling.
+
+== Version 4.6.2-beta
+This version supports the latest Priest release.
+* c.PriorityFlash now considers a new flag: "CanCastWhileMoving".
+* c.PriorityFlash and c.FlashAll now consider the "Range" flag even if Override is defined.
+
+== Version 4.6.1-beta
+This version fixes a bug in the Mage beta.
+* c.IsSolo() now only considers visible group members, unless you set the "considerFutureGroup" flag.
+* Bugfix - c.PriorityFlash had possible infinite recursion w/ MovementFallthrough.
+
+== Version 4.6.0
+This version supports the latest Mage and Warlock releases.
+* Now supports rotations with a MovementFallthrough function.
+* Added c.MakeMini()
+* Bugfix - c.PriorityFlash and c.FlashAll were checking your stance for a "form" spell even with Override.
+* Bugfix - c.PriorityFlash and c.FlashAll were not handling EarlyRefresh correctly.
+
+== Version 4.5.2
+This version supports the latest Rogue and Druid releases.
+* Added c.MakeOptional()
+* Added c.MakePredictor()
+* Most of the buff functions now take an additional argument: "applied".
+* c.RegisterForEvents() now passes along SPELL_PERIODIC_ENERGIZE.

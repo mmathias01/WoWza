@@ -1,0 +1,11 @@
+
+RKDatabase = {
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["firstLoad"] = false,
+		},
+	},
+}
