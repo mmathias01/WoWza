@@ -32,15 +32,15 @@ BigWigs3DB = {
 		},
 		["BigWigs_Plugins_Sounds"] = {
 		},
+		["BigWigs_Plugins_Statistics"] = {
+		},
 		["BigWigs_Plugins_Messages"] = {
 			["profiles"] = {
 				["Default"] = {
-					["font"] = "Vixar",
 					["fontSize"] = 20,
+					["font"] = "Vixar",
 				},
 			},
-		},
-		["BigWigs_Plugins_Statistics"] = {
 		},
 		["BigWigs_Plugins_Proximity"] = {
 			["profiles"] = {
@@ -49,11 +49,11 @@ BigWigs3DB = {
 					["fontSize"] = 20,
 					["posy"] = 484.2667651984448,
 					["height"] = 157.0000305175781,
-					["font"] = "Vixar",
 					["objects"] = {
-						["background"] = false,
 						["close"] = false,
+						["background"] = false,
 					},
+					["font"] = "Vixar",
 					["width"] = 202.9999389648438,
 				},
 			},
@@ -65,15 +65,15 @@ BigWigs3DB = {
 					["Stampeding Roar"] = 2,
 					["Skull Banner"] = 0,
 					["Create Soulwell"] = 2,
-					["Rallying Cry"] = 0,
+					["rebirth"] = 2,
+					["Conjure Refreshment Table"] = 2,
 					["Stormlash Totem"] = 2,
-					["Ritual of Summoning"] = 2,
 					["feast"] = 2,
 					["portal"] = 2,
 					["Shattering Throw"] = 0,
 					["Innervate"] = 258,
-					["Conjure Refreshment Table"] = 2,
-					["rebirth"] = 2,
+					["Ritual of Summoning"] = 2,
+					["Rallying Cry"] = 0,
 				},
 			},
 		},

@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
+	["session"] = 532,
 	["lastSanitation"] = 3,
-	["session"] = 531,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",
@@ -791,5 +791,12 @@ BugGrabberDB = {
 			["session"] = 526,
 			["counter"] = 2,
 		}, -- [109]
+		{
+			["message"] = "ElvUI-6.11\\core\\core.lua:177: attempt to index field \"general\" (a nil value)",
+			["time"] = "2013/05/30 11:37:31",
+			["stack"] = "ElvUI-6.11\\core\\core.lua:177: in function \"UpdateMedia\"\nElvUI-6.11\\core\\core.lua:511: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.28\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-6.11\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-6.11\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:204: in function \"_EnhanceDatabase\"\nElvUI-6.11\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:226: in function \"EnhanceDatabase\"\nElvUI-6.11\\core\\core.lua:769: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
+			["session"] = 532,
+			["counter"] = 1,
+		}, -- [110]
 	},
 }
