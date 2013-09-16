@@ -61,7 +61,7 @@ end
 
 
 --
-local tComboModels = { }
+local tComboModels = { };
 local function getOrCreateComboModelForType(aType)
 	if not tComboModels[aType] then
 		tComboModels[aType] = { };

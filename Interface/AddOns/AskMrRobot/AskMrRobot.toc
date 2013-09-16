@@ -1,12 +1,12 @@
-## Interface: 50300
+## Interface: 50400
 ## Title: Ask Mr Robot
 ## Author: Ask Mr Robot
-## Version: 1.0.9.0
+## Version: 1.1.10.0
 ## Notes: Exports bag/bank items to a saved variable.
 ## URL: www.askmrrobot.com
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## SavedVariablesPerCharacter: AmrBagItems,AmrBankItems,AmrEquipedItems,AmrGold,AmrRealmName,AmrCharacterName,AmrIconInfo,AmrCurrencies,AmrProfessions,AmrSpecializations,AmrRace,AmrLevel,AmrFaction,AmrActiveSpec, AmrHideMapIcon
+## SavedVariablesPerCharacter: AmrBagItems,AmrBankItems,AmrEquipedItems,AmrGold,AmrRealmName,AmrCharacterName,AmrIconInfo,AmrCurrencies,AmrProfessions,AmrSpecializations,AmrRace,AmrLevel,AmrFaction,AmrActiveSpec,AmrOptions,AmrGlyphs,AmrTalents,AmrBankItemsAndCounts,AmrImportString,AmrImportDate,AmrSendSettings
 
 #@no-lib-strip@
 Libs\LibStub\Libstub.lua
@@ -20,6 +20,27 @@ Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 #@end-no-lib-strip@
 
 wait.lua
+sort.lua
+enchants.lua
+gems.lua
+ui\Components.lua
+ui\RobotStamp.lua
+ui\ItemTooltipFrame.lua
+ui\ItemLinkText.lua
+ui\ItemIcon.lua
+ui\GemIcon.lua
+ui\EnchantLinkText.lua
+ui\JewelPanel.lua
+ui\SummaryTab.lua
+ui\GemTab.lua
+ui\EnchantTab.lua
+ui\HelpTab.lua
+ui\ImportTab.lua
+ui\ExportTab.lua
+ui\ReforgesTab.lua
+ui\ShoppingListTab.lua
+AskMrRobotUi.lua
 AskMrRobot.lua
 config.lua
 AskMrRobot.xml
+

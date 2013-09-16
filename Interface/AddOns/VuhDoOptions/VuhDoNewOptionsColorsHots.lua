@@ -32,8 +32,8 @@ end
 function	VUHDO_colorsHotsSetSwatchHotName(aTexture, aHotNum)
 	tHotName = VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][aHotNum] or "";
 
-	if (strlen(tHotName) > 0) then
-		_G[aTexture:GetName() .. "TitleString"]:SetText(tHotName);
+	if (not VUHDO_strempty(tHotName)) then
+		_G[aTexture:GetName() .. "TitleString"]:SetText(gsub(tHotName, "BOUQUET_", ""));
 	end
 end
 

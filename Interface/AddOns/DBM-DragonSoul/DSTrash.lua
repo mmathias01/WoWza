@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("DSTrash", "DBM-DragonSoul")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 51 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 72 $"):sub(12, -3))
 mod:SetModelID(39378)
 mod:SetZone()
 mod.isTrashMod = true
@@ -9,7 +9,7 @@ mod.isTrashMod = true
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_SPELLCAST_SUCCEEDED_UNFILTERED"
 )
 
 local warnBoulder			= mod:NewTargetAnnounce(107597, 3)--This is morchok entryway trash that throws rocks at random poeple.
@@ -47,14 +47,18 @@ local function drakeDied(GUID)
 end
 
 function mod:BoulderTarget(sGUID)
+	if not IsInGroup() then--you are ALWAYS target
+		specWarnBoulder:Show()
+		return
+	end
 	local targetname = nil
-	for i=1, DBM:GetNumGroupMembers() do
-		if UnitGUID("raid"..i.."target") == sGUID then
-			targetname = DBM:GetUnitFullName("raid"..i.."targettarget")
+	for uId in DBM:GetGroupMembers() do
+		if UnitGUID(uId.."target") == sGUID then
+			targetname = DBM:GetUnitFullName(uId.."targettarget")
 			break
 		end
 	end
-	if targetname and self:AntiSpam(2, targetname) then--Anti spam using targetname as an identifier, will prevent same target being announced double/tripple but NOT prevent multiple targets being announced at once :)
+	if targetname and self:AntiSpam(1, targetname) then--Anti spam using targetname as an identifier, will prevent same target being announced double/tripple but NOT prevent multiple targets being announced at once :)
 		warnBoulder:Show(targetname)
 		if targetname == UnitName("player") then
 			specWarnBoulder:Show()
@@ -144,7 +148,7 @@ end
 
 --	"<101.5> CHAT_MSG_MONSTER_YELL#It is good to see you again, Alexstrasza. I have been busy in my absence.#Deathwing###Vounelli##0#0##0#3093##0#false", -- [1]
 --	"<133.3> [UNIT_SPELLCAST_SUCCEEDED] Thrall:Possible Target<nil>:target:Ward of Earth::0:108161", -- [875]
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED_UNFILTERED(uId, _, _, _, spellId)
 	if spellId == 108161 then--Thrall starting drake event, comes later then yell but is only event that triggers after a wipe to this trash.
 		self:SendSync("Skyrim")
 	elseif spellId == 109904 then

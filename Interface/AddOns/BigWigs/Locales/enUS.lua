@@ -38,7 +38,7 @@ L["Waiting until combat ends to finish loading due to Blizzard combat restrictio
 L["Combat has ended, Big Wigs has now finished loading."] = true
 L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."] = true
 
-L.missingAddOn = "Please note that this zone requires the -[[\124cFF436EEE%s\124r]]- plugin for timers to be displayed."
+L.missingAddOn = "Please note that this zone requires the [\124cFF436EEE%s\124r] plugin for timers to be displayed."
 
 L.coreAddonDisabled = "Big Wigs won't function properly since the addon %s is disabled. You can enable it from the addon control panel at the character selection screen."
 
@@ -76,6 +76,8 @@ L.chatMessages = "Chat frame messages"
 L.chatMessagesDesc = "Outputs all BigWigs messages to the default chat frame in addition to the display setting."
 L.autoRole = "Automatic role update"
 L.autoRoleDesc = "Knowing what role you are will improve Big Wigs warnings for other people in your raid, this option lets Big Wigs automatically update your role. For example, some modules will check if a player is a tank when scanning for boss abilities that never affect tanks.\n\n|cffff4411This is not related to role specific warnings and it's highly recommended you leave this turned on!|r"
+L.zoneMessages = "Show zone messages"
+L.zoneMessagesDesc = "Disabling this will stop showing messages when you enter a zone that Big Wigs has timers for, but you don't have installed. We recommend you leave this turned on as it's the only notification you will get if we suddenly create timers for a new zone that you find useful."
 
 L.slashDescTitle = "|cFFFED000Slash Commands:|r"
 L.slashDescPull = "|cFFFED000/pull:|r Sends a pull countdown to your raid."
@@ -136,6 +138,7 @@ L.heroic25 = "25h"
 L.norm10 = "10"
 L.heroic10 = "10h"
 L.lfr = "LFR"
+L.flex = "Flex"
 L.wipes = "Wipes:"
 L.kills = "Kills:"
 L.bestkill = "Best Kill:"

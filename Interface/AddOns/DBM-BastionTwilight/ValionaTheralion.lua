@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(157, "DBM-BastionTwilight", nil, 72)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(45992, 45993)
-mod:SetModelID(34812)
 mod:SetZone()
 mod:SetUsedIcons(6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Chogall\\VO_BT_Chogall_BotEvent10.wav", "Sound\\Creature\\Valiona\\VO_BT_Valiona_Event06.wav")
@@ -23,8 +22,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_HEAL",
 	"SPELL_PERIODIC_HEAL",
 	"RAID_BOSS_EMOTE",
-	"UNIT_AURA",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_AURA player",
+	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2"
 )
 
 --Valiona Ground Phase
@@ -81,7 +80,6 @@ mod:AddBoolOption("TwilightBlastArrow", false)
 mod:AddBoolOption("BlackoutIcon")
 mod:AddBoolOption("EngulfingIcon")
 mod:AddBoolOption("RangeFrame")
-mod:RemoveOption("HealthFrame")
 mod:AddBoolOption("BlackoutShieldFrame", true, "misc")
 
 local engulfingMagicTargets = {}
@@ -227,7 +225,7 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(8)
 	end
-	if self.Options.BlackoutShieldFrame then
+	if DBM.BossHealth:IsShown() then
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(45992, 45993, L.name)
 	end
@@ -237,7 +235,6 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
-	DBM.BossHealth:Clear()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -252,8 +249,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnBlackout:Show()
 		end
-		setBlackoutTarget(self, args.destGUID, args.destName)
-		self:Schedule(15, clearBlackoutTarget, self, args.destName)
+		if self.Options.BlackoutShieldFrame and DBM.BossHealth:IsShown() then
+			setBlackoutTarget(self, args.destGUID, args.destName)
+			self:Schedule(15, clearBlackoutTarget, self, args.destName)
+		end
 	elseif args.spellId == 86622 then
 		engulfingMagicTargets[#engulfingMagicTargets + 1] = args.destName
 		timerEngulfingMagicNext:Start()
@@ -302,7 +301,9 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 		blackoutActive = false
 		self:Unschedule(clearBlackoutTarget)
-		clearBlackoutTarget(self, args.destName)
+		if self.Options.BlackoutShieldFrame and DBM.BossHealth:IsShown() then
+			clearBlackoutTarget(self, args.destName)
+		end
 	elseif args.spellId == 86622 then
 		if self.Options.EngulfingIcon then
 			self:SetIcon(args.destName, 0)
@@ -363,7 +364,6 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:UNIT_AURA(uId)
-	if uId ~= "player" then return end
 	if UnitDebuff("player", meteorTarget) and not markWarned then
 		specWarnTwilightMeteorite:Show()
 		timerTwilightMeteorite:Start()

@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(103, "DBM-Party-Cataclysm", 9, 65)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(40825, 40788)		-- 40788 = Mindbender Ghur'sha
-mod:SetModelID(32259)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

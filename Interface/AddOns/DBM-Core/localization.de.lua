@@ -6,12 +6,14 @@ DBM_HOW_TO_USE_MOD					= "Willkommen bei DBM. Tippe /dbm help für eine Liste un
 DBM_FORUMS_MESSAGE					= "Du hast einen Bug oder einen falschen Timer gefunden? Du glaubst einige Mods würden zusätzliche Warnungen, Timer oder Spezialfeatures benötigen?\nBesuche die neuen Deadly Boss Mods Foren für Diskussionen, Fehlermeldungen und Featurewünsche: |HDBM:forums|h|cff3588ffhttp://www.deadlybossmods.com|r (Du kannst auf den Link klicken um ihn zu kopieren.)"
 DBM_FORUMS_COPY_URL_DIALOG			= "Besuche unsere neuen Diskussions- und Support-Foren\r\n(gehostet von Elitist Jerks!)"
 
-
 DBM_CORE_LOAD_MOD_ERROR				= "Fehler beim Laden der Boss Mods für %s: %s"
 DBM_CORE_LOAD_MOD_SUCCESS			= "Boss Mods für '%s' geladen. Für weitere Einstellungen /dbm oder /dbm help im Chatfenster eingeben!"
+DBM_CORE_LOAD_MOD_COMBAT			= "Laden von '%s' verzögert bis du den Kampf verlässt"
 DBM_CORE_LOAD_GUI_ERROR				= "Konnte die grafische Benutzeroberfläche nicht laden: %s"
 DBM_CORE_LOAD_GUI_COMBAT			= "Die grafische Benutzeroberfläche kann nicht im Kampf geladen werden. Zur Vornahme von Einstellungen bitte diese zunächst außerhalb des Kampfes laden. Danach steht sie auch im Kampf zur Verfügung."
 DBM_CORE_BAD_LOAD					= "Dein Boss Mod für diese Instanz konnte nicht vollständig korrekt im Kampf geladen werden. Bitte führe baldmöglichst nach Kampfende /reload aus."
+
+DBM_CORE_LOOT_SPEC_REMINDER			= "Deine aktuelle Spezialisierung ist %s. Deine aktuelle Beutespezialisierung ist %s."
 
 DBM_CORE_BIGWIGS_ICON_CONFLICT		= "DBM hat festgestellt, dass du das Setzen von Schlachtzugzeichen in \"BigWigs\" und in \"DBM\" aktiviert hast. Bitte deaktiviere das Setzen von Zeichen in einem der beiden Addons um Konflikte zu vermeiden."
 
@@ -41,8 +43,6 @@ DBM_CORE_MIN						= "Min"
 DBM_CORE_MIN_FMT					= "%d Min"
 DBM_CORE_SEC						= "Sek"
 DBM_CORE_SEC_FMT					= "%d Sek"
-DBM_CORE_DEAD						= "Tot"
-DBM_CORE_OK							= "Okay"
 
 DBM_CORE_GENERIC_WARNING_DUPLICATE	= "Einer der %s"
 DBM_CORE_GENERIC_WARNING_BERSERK	= "Berserker in %s %s"
@@ -54,7 +54,6 @@ DBM_CORE_OPTION_HEALTH_FRAME		= "Zeige Lebensanzeige"
 
 DBM_CORE_OPTION_CATEGORY_TIMERS		= "Timer"
 DBM_CORE_OPTION_CATEGORY_WARNINGS	= "Ansagen"
-DBM_CORE_OPTION_CATEGORY_MISC		= "Verschiedenes"
 
 DBM_CORE_AUTO_RESPONDED						= "Automatisch geantwortet."
 DBM_CORE_STATUS_WHISPER						= "%s: %s, %d/%d Spieler am Leben"
@@ -76,22 +75,23 @@ DBM_CORE_VERSIONCHECK_ENTRY			= "%s: %s (r%d)"
 DBM_CORE_VERSIONCHECK_ENTRY_TWO		= "%s: %s (r%d) und %s (r%d)"
 DBM_CORE_VERSIONCHECK_ENTRY_NO_DBM	= "%s: Kein Boss Mod installiert"
 DBM_CORE_VERSIONCHECK_FOOTER		= "%d Spieler mit DBM und %d Spieler mit BigWigs gefunden"
-DBM_CORE_YOUR_VERSION_OUTDATED      = "Deine Version von Deadly Boss Mods ist veraltet! Bitte besuche http://dev.deadlybossmods.com um die neueste Version herunterzuladen."
+DBM_CORE_YOUR_VERSION_OUTDATED      = "Deine Version von Deadly Boss Mods ist veraltet! Bitte besuche http://www.deadlybossmods.com um die neueste Version herunterzuladen."
+DBM_CORE_OUTDATED_PVP_MODS			= "Deine PvP-Mods von DBM sind veraltet. Die PvP-Mods sind nicht mehr im \"DBM-Core\"-Download enthalten. Die aktuellsten PvP-Mods findest du unter http://www.deadlybossmods.com als separaten Download. Bitte lösche den Ordner \"DBM-PvP\" (unterhalb des Ordners \"...\\Interface\\AddOns\"), falls du die PvP-Mods nicht benutzt."
 --DBM_BIG_WIGS
 --DBM_BIG_WIGS_ALPHA
 
 DBM_CORE_UPDATEREMINDER_HEADER			= "Deine Version von Deadly Boss Mods ist veraltet.\n Version %s (r%d) ist hier zum Download verfügbar:"
+DBM_CORE_UPDATEREMINDER_HEADER_ALPHA	= "Deine Alphaversion von Deadly Boss Mods ist veraltet.\nDu liegst mindestens %d Revisionen zurück. Es wird empfohlen, die neueste Alphaversion oder neueste stabile Version von DBM zu benutzen. Die Funktionalität veralteter Alphaversionen kann schlecht oder unvollständig sein."
 DBM_CORE_UPDATEREMINDER_FOOTER			= "Drücke " .. (IsMacClient() and "Cmd-C" or "Strg+C")  ..  " um den Downloadlink in die Zwischenablage zu kopieren."
 DBM_CORE_UPDATEREMINDER_FOOTER_GENERIC	= "Drücke " .. (IsMacClient() and "Cmd-C" or "Strg+C")  ..  " um den Link in die Zwischenablage zu kopieren."
 DBM_CORE_UPDATEREMINDER_NOTAGAIN		= "Zeige Popup, wenn eine neue Version verfügbar ist"
+--DBM_CORE_UPDATEREMINDER_DISABLE -- not translated, players should never be able to disable mods of other players..
 
 DBM_CORE_MOVABLE_BAR				= "Zieh mich!"
 
 DBM_PIZZA_SYNC_INFO					= "|Hplayer:%1$s|h[%1$s]|h hat dir einen DBM-Timer geschickt: '%2$s'\n|HDBM:cancel:%2$s:nil|h|cff3588ff[Diesen Timer abbrechen]|r|h  |HDBM:ignore:%2$s:%1$s|h|cff3588ff[Timer von %1$s ignorieren]|r|h"
 DBM_PIZZA_CONFIRM_IGNORE			= "Willst du wirklich DBM-Timer von %s für diese Sitzung ignorieren?"
 DBM_PIZZA_ERROR_USAGE				= "Benutzung: /dbm [broadcast] timer <Sekunden> <Text>"
-
-DBM_CORE_ERROR_DBMV3_LOADED			= "Deadly Boss Mods läuft doppelt, da du DBMv3 und DBMv4 installiert und aktiviert hast!\nKlick auf \"Okay\" um DBMv3 zu deaktivieren und dein Interface neu zu laden.\nAußerdem solltest du deinen AddOn-Ordner aufräumen, indem du die alten DBMv3-Ordner löschst."
 
 --DBM_CORE_MINIMAP_TOOLTIP_HEADER
 DBM_CORE_MINIMAP_TOOLTIP_FOOTER		= "Shift+Klick oder Rechtsklick zum Bewegen\nAlt+Shift+Klick zum freien Bewegen"
@@ -104,9 +104,7 @@ DBM_CORE_RANGECHECK_SOUND_OPTION_2	= "Sound, falls mehr als ein Spieler in Reich
 DBM_CORE_RANGECHECK_SOUND_0			= "Kein Sound"
 DBM_CORE_RANGECHECK_SOUND_1			= "Standard-Sound"
 DBM_CORE_RANGECHECK_SOUND_2			= "Nerviges Piepsen"
-DBM_CORE_RANGECHECK_HIDE			= "Verstecken"
 DBM_CORE_RANGECHECK_SETRANGE_TO		= "%dm"
-DBM_CORE_RANGECHECK_LOCK			= "Fenster sperren"
 DBM_CORE_RANGECHECK_OPTION_FRAMES	= "Fenster"
 DBM_CORE_RANGECHECK_OPTION_RADAR	= "Zeige Radarfenster"
 DBM_CORE_RANGECHECK_OPTION_TEXT		= "Zeige Textfenster"
@@ -114,8 +112,6 @@ DBM_CORE_RANGECHECK_OPTION_BOTH		= "Zeige beide Fenster"
 DBM_CORE_RANGERADAR_HEADER			= "Abstandsradar (%dm)"
 DBM_CORE_RANGERADAR_IN_RANGE_TEXT	= "%d Spieler in Reichweite"
 
-DBM_CORE_INFOFRAME_LOCK				= "Fenster sperren"
-DBM_CORE_INFOFRAME_HIDE				= "Verstecken"
 DBM_CORE_INFOFRAME_SHOW_SELF		= "Eigene Stärke immer anzeigen" -- Always show your own power value even if you are below the threshold
 
 DBM_LFG_INVITE						= "Einladung der Gruppensuche"
@@ -131,15 +127,12 @@ DBM_CORE_SLASHCMD_HELP				= {
 	"/dbm pull <sec>: Startet einen Pull-Timer für <sec> Sekunden. Schickt allen Schlachzugsmitgliedern mit DBM einen Pull-Timer (nur als Leiter/Assistent).",
 	"/dbm arrow: Zeigt den DBM-Pfeil, siehe /dbm arrow help für Details.",
 	"/dbm lockout: Fragt die Schlachtzugsmitglieder nach ihren derzeitigen Instanzsperren (IDs) (nur als Leiter/Assistent).",
-	"/dbm help: Zeigt diese Hilfe.",
+	"/dbm help: Zeigt diese Hilfe."
 }
 
 DBM_ERROR_NO_PERMISSION				= "Du hast nicht die benötigte Berechtigung für diesen Befehl!"
 
 DBM_CORE_BOSSHEALTH_HIDE_FRAME		= "Verstecken"
-
-DBM_CORE_ALLIANCE					= "Allianz"
-DBM_CORE_HORDE						= "Horde"
 
 DBM_CORE_WORLD_BOSS					= "Weltboss"
 DBM_CORE_UNKNOWN					= "unbekannt"
@@ -208,6 +201,7 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 	move		= "%s - geh weg",
 	run			= "%s - lauf weg",
 	cast		= "%s - stoppe Zauber",
+	reflect		= "%s - stoppe Angriffe",
 	count		= "%s! (%%d)",
 	stack		= "%%d Stapel von %s auf dir",
 	switch		= ">%s< - Ziel wechseln"
@@ -228,6 +222,7 @@ DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	move 		= "Spezialwarnung zum Herausgehen aus $spell:%s",
 	run 		= "Spezialwarnung zum Weglaufen vor $spell:%s",
 	cast 		= "Spezialwarnung zum Zauberstopp bei $spell:%s",
+	reflect 	= "Spezialwarnung zum Angriffsstopp auf $spell:%s",
 	count 		= "Spezialwarnung für $spell:%s",
 	stack 		= "Spezialwarnung bei >=%d Stapel von $spell:%s auf dir",
 	switch		= "Spezialwarnung für Zielwechsel auf $spell:%s"
@@ -265,9 +260,9 @@ DBM_CORE_AUTO_TIMER_OPTIONS = {
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT			= "Setze Zeichen auf Ziele von $spell:%s"
 DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "Spiele \"Lauf weg!\"-Sound für $spell:%s"
-DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT		= "Spiele Countdown-Sound bis $spell:%s gewirkt wird"
-DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT2	= "Spiele Countdown-Sound bis $spell:%s schwindet"
-DBM_CORE_AUTO_COUNTOUT_OPTION_TEXT		= "Spiele Countout-Sound für Dauer von $spell:%s"
+DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT		= "Spiele akustischen Countdown bis $spell:%s gewirkt wird"
+DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT2	= "Spiele akustischen Countdown bis $spell:%s schwindet"
+DBM_CORE_AUTO_COUNTOUT_OPTION_TEXT		= "Zähle akustisch die Dauer von $spell:%s"
 DBM_CORE_AUTO_YELL_OPTION_TEXT			= "Schreie, wenn du von $spell:%s betroffen bist"
 DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT		= "%s auf " .. UnitName("player") .. "!"
 DBM_CORE_AUTO_RANGE_OPTION_TEXT			= "Zeige Abstandsfenster (%sm) für $spell:%s"
@@ -288,7 +283,7 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <x> <y>  erzeugt einen Pfeil, der auf bestimmte Koordinaten zeigt (0 < x/y < 100)",
 	"/dbm arrow <player>  erzeugt einen Pfeil, der auf einen bestimmten Spieler in deiner Gruppe oder deinem Schlachtzug zeigt",
 	"/dbm arrow hide  versteckt den Pfeil",
-	"/dbm arrow move  macht den Pfeil beweglich",
+	"/dbm arrow move  macht den Pfeil beweglich"
 }
 
 DBM_SPEED_KILL_TIMER_TEXT	= "Rekordzeit"

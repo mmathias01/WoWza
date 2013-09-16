@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(818, "DBM-ThroneofThunder", nil, 362)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9566 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10152 $"):sub(12, -3))
 mod:SetCreatureID(68036)--Crimson Fog 69050, 
-mod:SetQuestID(32750)
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6, 5, 4, 3, 1)
 
@@ -20,7 +19,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_PERIODIC_DAMAGE",
 	"SPELL_PERIODIC_MISS",
 	"CHAT_MSG_MONSTER_EMOTE",
-	"UNIT_AURA"
+	"UNIT_DIED"
 )
 
 local warnHardStare					= mod:NewSpellAnnounce(133765, 3, nil, mod:IsTank() or mod:IsHealer())--Announce CAST not debuff, cause it misses a lot, plus we have 1 sec to hit an active mitigation
@@ -53,8 +52,8 @@ local specWarnEyeSore				= mod:NewSpecialWarningMove(140502)
 local specWarnLifeDrain				= mod:NewSpecialWarningTarget(133795, mod:IsTank())
 local yellLifeDrain					= mod:NewYell(133795, L.LifeYell)
 
-local timerHardStareCD				= mod:NewCDTimer(12, 133765, mod:IsTank() or mod:IsHealer())
-local timerSeriousWound				= mod:NewTargetTimer(60, 133767, mod:IsTank() or mod:IsHealer())
+local timerHardStareCD				= mod:NewCDTimer(12, 133765, nil, mod:IsTank() or mod:IsHealer())
+local timerSeriousWound				= mod:NewTargetTimer(60, 133767, nil, mod:IsTank() or mod:IsHealer())
 local timerLingeringGazeCD			= mod:NewCDTimer(46, 138467)
 local timerForceOfWillCD			= mod:NewCDTimer(20, 136413)--Actually has a 20 second cd but rarely cast more than once per phase because of how short the phases are (both beams phases cancel this ability)
 local timerLightSpectrumCD			= mod:NewNextTimer(60, "ej6891")
@@ -63,8 +62,8 @@ local timerDisintegrationBeamCD		= mod:NewNextTimer(136, "ej6882")
 local timerLifeDrainCD				= mod:NewCDTimer(40, 133795)
 local timerLifeDrain				= mod:NewBuffActiveTimer(18, 133795)
 local timerIceWallCD				= mod:NewNextTimer(120, 134587, nil, nil, nil, 111231)
-local timerDarkParasiteCD			= mod:NewCDTimer(60.5, 133597, mod:IsHealer())--Heroic 60-62. (the timer is tricky and looks far more variable but it really isn't, it just doesn't get to utilize it's true cd timer more than twice per fight)
-local timerDarkParasite				= mod:NewTargetTimer(30, 133597, mod:IsHealer())--Only healer/dispeler needs to know this.
+local timerDarkParasiteCD			= mod:NewCDTimer(60.5, 133597, nil, mod:IsHealer())--Heroic 60-62. (the timer is tricky and looks far more variable but it really isn't, it just doesn't get to utilize it's true cd timer more than twice per fight)
+local timerDarkParasite				= mod:NewTargetTimer(30, 133597, nil, mod:IsHealer())--Only healer/dispeler needs to know this.
 local timerDarkPlague				= mod:NewTargetTimer(30, 133598)--EVERYONE needs to know this, if dispeler messed up and dispelled parasite too early you're going to get a new add every 3 seconds for remaining duration of this bar.
 local timerObliterateCD				= mod:NewNextTimer(80, 137747)--Heroic
 
@@ -100,6 +99,7 @@ local azureFog = EJ_GetSectionInfo(6898)
 local playerName = UnitName("player")
 local firstIcewall = false
 local CVAR = nil
+local yellowRevealed = 0
 
 local function warnLingeringGazeTargets()
 	warnLingeringGaze:Show(table.concat(lingeringGazeTargets, "<, >"))
@@ -238,8 +238,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 local function findBeamJump(spellName, spellId)
-	for i=1, DBM:GetNumGroupMembers() do
-		local uId = "raid"..i
+	for uId in DBM:GetGroupMembers() do
 		local name = DBM:GetUnitFullName(uId)
 		if spellId == 139202 and UnitDebuff(uId, spellName) and lastBlue ~= name then
 			lastBlue = name
@@ -251,7 +250,7 @@ local function findBeamJump(spellName, spellId)
 				end
 			end
 			if mod.Options.SetIconRays then
-				mod:SetIcon(name, 6)--Square
+				SetRaidTarget(uId, 6)--Square
 			end
 			return
 		elseif spellId == 139204 and UnitDebuff(uId, spellName) and lastRed ~= name then
@@ -260,7 +259,7 @@ local function findBeamJump(spellName, spellId)
 				specWarnRedBeam:Show()
 			end
 			if mod.Options.SetIconRays then
-				mod:SetIcon(name, 7)--Cross
+				SetRaidTarget(uId, 7)--Cross
 			end
 			return
 		end
@@ -317,6 +316,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 	elseif args.spellId == 134124 then--Yellow Beam Precast
 		lastYellow = args.destName
 		totalFogs = 3
+		yellowRevealed = 0
 		lfrCrimsonFogRevealed = false
 		lfrAmberFogRevealed = false
 		lfrAzureFogRevealed = false
@@ -359,7 +359,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		local _, _, _, _, _, duration = UnitDebuff(args.destName, args.spellName)
 		timerDarkParasite:Start(duration, args.destName)
 		self:Unschedule(warnDarkParasiteTargets)
-		if #darkParasiteTargets >= 3 and self:IsDifficulty("heroic25") or self:IsDifficulty("heroic10") then
+		if (self:IsDifficulty("heroic25") and #darkParasiteTargets >= 3) or self:IsDifficulty("heroic10") then
 			warnDarkParasiteTargets()
 		else
 			self:Schedule(0.5, warnDarkParasiteTargets)
@@ -368,7 +368,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			table.insert(darkParasiteTargetsIcons, DBM:GetRaidUnitId(DBM:GetFullPlayerNameByGUID(args.destGUID)))
 			self:UnscheduleMethod("SetParasiteIcons")
 			if self:LatencyCheck() then--lag can fail the icons so we check it before allowing.
-				if #darkParasiteTargetsIcons >= 3 and self:IsDifficulty("heroic25") or self:IsDifficulty("heroic10") then
+				if (self:IsDifficulty("heroic25") and #darkParasiteTargets >= 3) or self:IsDifficulty("heroic10") then
 					self:SetParasiteIcons()
 				else
 					self:ScheduleMethod(0.5, "SetParasiteIcons")
@@ -441,11 +441,16 @@ mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
 --Blizz doesn't like combat log anymore for some spells
 function mod:CHAT_MSG_MONSTER_EMOTE(msg, npc, _, _, target)
-	if npc == crimsonFog or npc == amberFog or npc == azureFog then
-		if self:IsDifficulty("lfr25") and npc == azureFog and not lfrAzureFogRevealed then
-			lfrAzureFogRevealed = true
+	if (npc == crimsonFog or npc == amberFog or npc == azureFog) and self:AntiSpam(1, npc) then
+		if npc == azureFog and not lfrAzureFogRevealed then
+			lfrAzureFogRevealed = true--Only one in ALL modes, so might as well use this to work around the multi emote blizz bug
 			specWarnFogRevealed:Show(npc)
-		elseif not lfrAzureFogRevealed or not self:IsDifficulty("lfr25") then
+		elseif npc == amberFog and not self:IsDifficulty("lfr25") then
+			yellowRevealed = yellowRevealed + 1
+			if yellowRevealed > 2 and self:AntiSpam(10, npc) or yellowRevealed < 3 then--Fix for invisible amber blizz bug (when this happens it spams emote like 20 times)
+				specWarnFogRevealed:Show(npc)
+			end
+		elseif npc == crimsonFog and not self:IsDifficulty("lfr25") then
 			specWarnFogRevealed:Show(npc)
 		end
 	elseif msg:find("spell:133795") then--Does show in combat log, but emote gives targetname 3 seconds earlier.
@@ -485,6 +490,7 @@ function mod:UNIT_DIED(args)
 		if totalFogs >= 1 then
 			warnAddsLeft:Show(totalFogs)
 		else--No adds left, force ability is re-enabled
+			self:Unschedule(findBeamJump)
 			timerObliterateCD:Cancel()
 			timerForceOfWillCD:Start(15)
 			if self.Options.SetIconRays and lastRed then
@@ -502,6 +508,7 @@ function mod:UNIT_DIED(args)
 		if self:IsDifficulty("lfr25") then
 			totalFogs = totalFogs - 1
 			if totalFogs >= 1 then
+				self:Unschedule(findBeamJump)
 				--LFR does something completely different than kill 3 crimson adds to end phase. in LFR, they kill 1 of each color (which is completely against what you do in 10N, 25N, 10H, 25H)
 				warnAddsLeft:Show(totalFogs)
 			else--No adds left, force ability is re-enabled
@@ -521,6 +528,7 @@ function mod:UNIT_DIED(args)
 	elseif cid == 69052 then--Azure Fog (endlessly respawn in all but LFR, so we ignore them dying anywhere else)
 		--Maybe do something for heroic here too, if timers for the crap this thing does gets added.
 		if self:IsDifficulty("lfr25") then
+			self:Unschedule(findBeamJump)
 			totalFogs = totalFogs - 1
 			if totalFogs >= 1 then
 				--LFR does something completely different than kill 3 crimson adds to end phase. in LFR, they kill 1 of each color (which is completely against what you do in 10N, 25N, 10H, 25H)

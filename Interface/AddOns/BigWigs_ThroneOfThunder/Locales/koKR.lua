@@ -74,6 +74,7 @@ end
 
 L = BigWigs:NewBossLocale("Ji-Kun", "koKR")
 if L then
+	--L.first_lower_hatch_trigger = "The eggs in one of the lower nests begin to hatch!"
 	L.lower_hatch_trigger = "아랫둥지에 있는 알들이 부화하기 시작합니다!"
 	L.upper_hatch_trigger = "위쪽 둥지에 있는 알들이 부화하기 시작합니다!"
 
@@ -193,6 +194,8 @@ if L then
 
 	L.balls = "Balls"
 	L.balls_desc = "Anima (red) and Vita (blue) balls, that determine which abilities will Ra-den gain"
+
+	L.assistPrint = "A plugin called 'BigWigs_Ra-denAssist' has now been released for assistance during the Ra-den encounter that your guild may be interested in trying."
 end
 
 L = BigWigs:NewBossLocale("Throne of Thunder Trash", "koKR")

@@ -1,8 +1,8 @@
-## Interface: 50300
+## Interface: 50400
 ## Title: |cff1784d1ElvUI|r Enhanced
 ## Author: Tristimdorio (Omega1970)
-## X-Credits: Azilroka, Lockslap, Sortokk
-## Version: 1.82
+## X-Credits: Azilroka, Lockslap, Sortokk, Repooc, moresunders
+## Version: 2.05
 ## Notes: Plugin-Enhancements for |cff1784d1ElvUI|r.
 ## X-Category: Plugins
 ## URL: http://www.tukui.org/addons/index.php?act=view&id=161

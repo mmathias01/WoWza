@@ -29,6 +29,8 @@ DBM_CORE_OK							= "Okay"
 DBM_CORE_GENERIC_WARNING_BERSERK	= "Enrage dans %s %s"
 DBM_CORE_GENERIC_TIMER_BERSERK		= "Enrage"
 DBM_CORE_OPTION_TIMER_BERSERK		= "Montrer les chronos pour $spell:26662"
+DBM_CORE_GENERIC_TIMER_COMBAT		= "Le combat débute dans"
+DBM_CORE_OPTION_TIMER_COMBAT		= "Montre le timer avant le début du combat"
 DBM_CORE_OPTION_HEALTH_FRAME		= "Afficher le cadre de vie des Boss"
 
 DBM_CORE_OPTION_CATEGORY_TIMERS		= "Bars"
@@ -58,8 +60,6 @@ DBM_CORE_MOVABLE_BAR				= "Bougez-moi !"
 DBM_PIZZA_SYNC_INFO					= "|Hplayer:%1$s|h[%1$s]|h vous a envoyé un délai DBM: '%2$s'\n|HDBM:cancel:%2$s:nil|h|cff3588ff[Annuler ce délais]|r|h  |HDBM:ignore:%2$s:%1$s|h|cff3588ff[Ignorer les délais de %1$s]|r|h"
 DBM_PIZZA_CONFIRM_IGNORE			= "Voulez-vous réellement ignorer les délais DBM de %s de cette session ?"
 DBM_PIZZA_ERROR_USAGE				= "Utilisation: /dbm [broadcast] timer <durée> <texte>"
-
-DBM_CORE_ERROR_DBMV3_LOADED			= "Deadly Boss Mods est exécuté deux fois car DBMv3 et DBMv4 sont tous les deux installés et activés\nCliquez sur \"Okay\" pour désactiver DBMv3 et recharger votre interface.\nIl serait judicieux de nettoyer votre répertoire AddOns en supprimant les vieux répertoires de DBMv3."
 
 --DBM_CORE_MINIMAP_TOOLTIP_HEADER (Same as English locales)
 DBM_CORE_MINIMAP_TOOLTIP_FOOTER		= "MAJ+clic ou clic-droit pour déplacer\nAlt+MAJ+clic pour une saisie libre"
@@ -103,7 +103,7 @@ DBM_CORE_SLASHCMD_HELP				= {
 	"/dbm pull <sec> : lance un délai de pull de <sec> secondes. Donne à tous les membres du raid ayant DBM ce délai de pull (nécessite d'être chef du raid ou assistant).",
 	"/dbm arrow : affiche la flèche DBM, voir /dbm arrow help pour les détails.",
 	"/dbm lockout : demande aux membres du raid leurs verrouillages actuels d'instance de raid (aliases : lockouts, ids) (nécessite d'être chef du raid ou assistant).",
-	"/dbm help : affiche ce message.",
+	"/dbm help : affiche ce message."
 }
 
 DBM_ERROR_NO_PERMISSION				= "Vous n'avez pas la permission requise pour faire cela."
@@ -230,7 +230,7 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <x> <y>  créée une flèche qui pointe vers une position spécifique (0 < x/y < 100)",
 	"/dbm arrow <player>  créée une flèche qui pointe vers un joueur spécifique de votre groupe ou raid",
 	"/dbm arrow hide  masque la flèche",
-	"/dbm arrow move  rend la flèche déplaçable",
+	"/dbm arrow move  rend la flèche déplaçable"
 }
 
 DBM_SPEED_KILL_TIMER_TEXT	= "Record à battre"

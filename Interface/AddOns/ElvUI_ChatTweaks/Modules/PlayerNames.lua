@@ -392,25 +392,27 @@ function Module:GUILD_ROSTER_UPDATE(event)
 	end
 end
 
-function Module:RAID_ROSTER_UPDATE(event)
-	wipe(channels.RAID)
-	for i = 1, GetNumGroupMembers() do
-		local name, _, _, level, _, class = GetRaidRosterInfo(i)
-		if name and class and level then
-			channels.RAID[name] = true
-			self:AddPlayer(name, class, level, Module.db.profile.saveParty)
-		end
-	end
-end
-
-function Module:PARTY_MEMBERS_CHANGED(event)
-	local partyStr = "party%d"
+function Module:GROUP_ROSTER_UPDATE(event)
 	wipe(channels.PARTY)
-	for i = 1, GetNumSubgroupMembers() do
-		local name, level = UnitName(format(partyStr, i)), UnitLevel(format(partyStr, i))
-		local _, class = UnitClass(format(partyStr, i))
-		channels.PARTY[name] = true
-		self:AddPlayer(name, class, level, Module.db.profile.saveParty)
+	wipe(channels.RAID)
+	
+	if IsInRaid() then
+		for i = 1, GetNumGroupMembers() do
+			local name, _, _, level, _, class = GetRaidRosterInfo(i)
+			if name and level and class then
+				channels.RAID[name] = true
+				self:AddPlayer(name, class, level, Module.db.profile.saveGroup)
+			end
+		end
+	elseif IsInGroup() then
+		for i = 1, GetNumSubgroupMembers() do
+			local unit = ("party%d"):format(i)
+			local name = UnitName(unit)
+			local _, class = UnitClass(unit)
+			local level = UnitLevel(unit)
+			channels.PARTY[name] = true
+			self:AddPlayer(name, class, level, Module.db.profile.saveGroup)
+		end
 	end
 end
 
@@ -475,8 +477,7 @@ function Module:Decorate(frame)
 end
 
 function Module:OnEnable()
-	self:RegisterEvent("RAID_ROSTER_UPDATE")
-	self:RegisterEvent("PARTY_MEMBERS_CHANGED")
+	self:RegisterEvent("GROUP_ROSTER_UPDATE")
 	self:RegisterEvent("WHO_LIST_UPDATE")
 	self:RegisterEvent("PLAYER_TARGET_CHANGED")
 	self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
@@ -487,9 +488,8 @@ function Module:OnEnable()
 	self:RegisterEvent("CHAT_MSG_CHANNEL_LEAVE")
 	self:RegisterEvent("CHAT_MSG_CHANNEL", "CHAT_MSG_CHANNEL_JOIN")
 	
-	if IsInGuild then GuildRoster() end
-	self:RAID_ROSTER_UPDATE()
-	self:PARTY_MEMBERS_CHANGED()
+	if IsInGuild() then GuildRoster() end
+	self:GROUP_ROSTER_UPDATE()
 	
 	for i = 1, NUM_CHAT_WINDOWS do
 		local frame = _G[format("ChatFrame%d", i)]
@@ -520,6 +520,17 @@ function Module:OnEnable()
 end
 
 function Module:OnDisable()
+	self:UnregisterEvent("GROUP_ROSTER_UPDATE")
+	self:UnregisterEvent("WHO_LIST_UPDATE")
+	self:UnregisterEvent("PLAYER_TARGET_CHANGED")
+	self:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+	self:UnregisterEvent("CHAT_MSG_SYSTEM")
+	self:UnregisterEvent("FRIENDLIST_UPDATE")
+	self:UnregisterEvent("GUILD_ROSTER_UPDATE")
+	self:UnregisterEvent("CHAT_MSG_CHANNEL_JOIN")
+	self:UnregisterEvent("CHAT_MSG_CHANNEL_LEAVE")
+	self:UnregisterEvent("CHAT_MSG_CHANNEL")
+
 	if AceTab:IsTabCompletionRegistered("ElvUI_ChatTweaks") then
 		AceTab:UnregisterTabCompletion("ElvUI_ChatTweaks")
 	end

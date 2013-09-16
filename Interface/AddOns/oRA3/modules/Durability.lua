@@ -7,7 +7,7 @@ local util = oRA.util
 local module = oRA:NewModule("Durability")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 609 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 645 $"):sub(12, -3))
 
 local durability = {}
 
@@ -45,7 +45,7 @@ function module:OnShutdown()
 	self:UnregisterAllEvents()
 end
 
-function module:CheckDurability(event)
+function module:CheckDurability()
 	local cur, max, broken, vmin = 0, 0, 0, 100
 	for i = 1, 18 do
 		local imin, imax = GetInventoryItemDurability(i)
@@ -57,14 +57,14 @@ function module:CheckDurability(event)
 		end
 	end
 	local perc = math.floor(cur / max * 100)
-	oRA:SendComm("Durability", perc, vmin, broken)
+	self:SendComm("Durability", perc, vmin, broken)
 end
 
 function module:OnCommReceived(_, sender, prefix, perc, minimum, broken)
 	if prefix == "RequestUpdate" then
 		self:CheckDurability()
 	elseif prefix == "Durability" then
-		local k = util:inTable(durability, sender, 1)
+		local k = util.inTable(durability, sender, 1)
 		if not k then
 			durability[#durability + 1] = { sender }
 			k = #durability

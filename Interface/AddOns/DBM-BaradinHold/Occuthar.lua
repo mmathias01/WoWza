@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(140, "DBM-BaradinHold", nil, 74)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(52363)
-mod:SetModelID(37876)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

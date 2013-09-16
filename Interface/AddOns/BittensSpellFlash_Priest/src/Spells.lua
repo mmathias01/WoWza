@@ -49,7 +49,7 @@ c.AddOptionalSpell("Shadowfiend", "for Mana", {
 
 c.AddOptionalSpell("Mindbender", "for Mana", {
 	CheckFirst = function()
-		return s.PowerPercent("player") < 85
+		return s.PowerPercent("player") < 82
 	end
 })
 
@@ -63,7 +63,6 @@ c.AddOptionalSpell("Inner Fire", "or Will", {
 c.AddOptionalSpell("Desperate Prayer", nil, {
 	Override = function()
 		return c.GetHealthPercent("player") < 70
-			and s.HasSpell(c.GetID("Desperate Prayer"))
 			and c.GetCooldown("Desperate Prayer") == 0
 	end
 })
@@ -74,6 +73,8 @@ c.AddOptionalSpell("Binding Heal", nil, {
 		return c.GetHealthPercent("player") < 85
 	end
 })
+
+c.AddDispel("Dispel Magic", nil, "Magic")
 
 -------------------------------------------------------------------- Discipline
 c.RegisterForFullChannels("Penance", 2)

@@ -1,0 +1,15 @@
+Version: 1
+Frame: DBMMinimapButton
+FrameLevel: 4
+Anchor: TOPRIGHT
+X: -145
+Y: -117
+W: 32
+H: 32
+Frame: _NPCScanButton
+FrameLevel: 1
+Anchor: BOTTOM
+X: 0
+Y: 128
+W: 150
+H: 42

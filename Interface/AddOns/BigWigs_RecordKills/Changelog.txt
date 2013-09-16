@@ -6,11 +6,39 @@
 -- TODO --
 --------------------------------------------------------
 +Please use Curse to request new features, file bugs, etc. 
-+I consider this add-on fairly complete at this point, barring bugs.
 
 --------------------------------------------------------
 -- CHANGELOG --
 --------------------------------------------------------
+--- v1.26 ---
+-Fix a bug preventing some records from tracking
+
+--- v1.25 ---
+-Fix typo in new raid's data (Orgimmar :\)
+-Fix an issue when certain encounters wouldn't be tracked
+-Fix an error that sometimes appears in Pre-MoP raids
+-Add Flexible support for T16+
+-Update database import for 5.4 and flex difficulty
+-Clean up constants table
+-Update TOC for 5.4
+
+--- v1.24 ---
+-Fix small typo in :RemoveBestTime()
+-Add automatic downgrade of all Heroic records to corresponding Normal difficulty.
+-Record downgrade can be forced through command (/bwrk downgrade).
+-Fix apparent Amber-Shaper Un'sok mistype (again?)
+-Add T16 boss data in preparation for 5.4
+-Fix a database error on first load of the addon
+-Clean up unused/test code
+-Reset commmand will now reset all settings as well as records
+-Immediately attempt to re-register for BW messages after failed encounter track
+
+--- v1.23 ---
+-Small change to console config
+-If a heroic record added with no normal record, the record will also become the corresponding normal record
+-Add option to show bosses you haven't killed by difficulty (/bwrk allBosses)
+-Change the chat command to toggle per tier display (/bwrk allTiers)
+
 --- v1.22 (Release) ---
 -Changed the chat slash command to /bwrk to avoid conflicts
 -Load some variables earlier, remove some globals

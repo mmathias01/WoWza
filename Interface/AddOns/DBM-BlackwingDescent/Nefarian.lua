@@ -3,9 +3,8 @@ local L		= mod:GetLocalizedStrings()
 local Nefarian	= EJ_GetSectionInfo(3279)
 local Onyxia	= EJ_GetSectionInfo(3283)
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(41376, 41270)
-mod:SetModelID(32716)
 mod:SetZone()
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_Event09.wav", "Sound\\Creature\\Nefarian\\VO_BD_Nefarian_Event13.wav")
 --"Ha ha ha ha ha! The heroes have made it to the glorious finale. I take it you are in good spirits? Prepared for the final battle? Then gaze now upon my ultimate creation! RISE, SISTER!" = "Nefarian\\VO_BD_Nefarian_Event01",
@@ -190,7 +189,7 @@ function mod:SPELL_CAST_START(args)
 			timerNefBreathCD:Start()
 		end
 	elseif args.spellId == 80734 then
-		if not DBM.BossHealth:HasBoss(args.sourceGUID) then
+		if not DBM.BossHealth:HasBoss(args.sourceGUID) and DBM.BossHealth:IsShown() then
 			DBM.BossHealth:AddBoss(args.sourceGUID, args.sourceName)
 		end
 		if args.sourceGUID == UnitGUID("target") then--Only show warning/timer for your own target.
@@ -272,7 +271,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, _, destGUID, _, _, _, spellId)
 	if spellId == 81007 and destGUID == UnitGUID("player") and self:AntiSpam(4) then
 		specWarnShadowblaze:Show()
 	elseif spellId ~= 50288 and self:GetCIDFromGUID(destGUID) == 41918 and bit.band(sourceFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0 and self:IsInCombat() then--Any spell damage except for starfall
@@ -347,9 +346,9 @@ end
 
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
-	if cid == 41948 then--Also remove from boss health when they die based on GUID
+	if cid == 41948 and DBM.BossHealth:IsShown() then--Also remove from boss health when they die based on GUID
 		DBM.BossHealth:RemoveBoss(args.destGUID)
-	elseif cid == 41270 then
+	elseif cid == 41270 and DBM.BossHealth:IsShown() then
 		DBM.BossHealth:RemoveBoss(cid)
 	end
 end

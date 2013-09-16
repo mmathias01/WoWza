@@ -3,6 +3,7 @@
 local _G = getfenv(0)
 
 local pairs = _G.pairs
+local tostring = _G.tostring
 local tonumber = _G.tonumber
 
 local bit = _G.bit
@@ -10,6 +11,7 @@ local math = _G.math
 local table = _G.table
 
 local select = _G.select
+local unpack = _G.unpack
 
 
 -- ADDON NAMESPACE ----------------------------------------------------
@@ -31,14 +33,14 @@ DatamineTT:SetOwner(_G.WorldFrame, "ANCHOR_NONE")
 
 local AF = private.ACTION_TYPE_FLAGS
 local CLIENT_LOCALE = _G.GetLocale()
-local DB_VERSION = 16
+local DB_VERSION = 18
 local DEBUGGING = false
 local EVENT_DEBUG = false
 local OBJECT_ID_ANVIL = 192628
 local OBJECT_ID_FORGE = 1685
 local PLAYER_CLASS = _G.select(2, _G.UnitClass("player"))
 local PLAYER_FACTION = _G.UnitFactionGroup("player")
-local PLAYER_GUID = _G.UnitGUID("player")
+local PLAYER_GUID
 local PLAYER_NAME = _G.UnitName("player")
 local PLAYER_RACE = _G.select(2, _G.UnitRace("player"))
 
@@ -99,6 +101,7 @@ local EVENT_MAPPING = {
     QUEST_LOG_UPDATE = true,
     QUEST_PROGRESS = true,
     SHOW_LOOT_TOAST = true,
+    SPELL_CONFIRMATION_PROMPT = true,
     TAXIMAP_OPENED = true,
     TRADE_SKILL_SHOW = true,
     TRAINER_CLOSED = true,
@@ -112,9 +115,9 @@ local EVENT_MAPPING = {
     UNIT_SPELLCAST_SENT = true,
     UNIT_SPELLCAST_SUCCEEDED = true,
     VOID_STORAGE_OPEN = true,
-    ZONE_CHANGED = "SetCurrentAreaID",
-    ZONE_CHANGED_INDOORS = "SetCurrentAreaID",
-    ZONE_CHANGED_NEW_AREA = "SetCurrentAreaID",
+    ZONE_CHANGED = "HandleZoneChange",
+    ZONE_CHANGED_INDOORS = "HandleZoneChange",
+    ZONE_CHANGED_NEW_AREA = "HandleZoneChange",
 }
 
 
@@ -124,19 +127,26 @@ local anvil_spell_ids = {}
 local currently_drunk
 local char_db
 local global_db
-local group_member_uids = {}
+local group_member_guids = {}
 local group_owner_guids_to_pet_guids = {}
 local group_pet_guids = {}
+local in_instance
 local item_process_timer_handle
 local faction_standings = {}
 local forge_spell_ids = {}
 local languages_known = {}
+local boss_loot_toasting = {}
+local loot_toast_container_timer_handle
+local loot_toast_data
+local loot_toast_data_timer_handle
 local name_to_id_map = {}
+local killed_boss_id_timer_handle
 local killed_npc_id
 local target_location_timer_handle
 local current_target_id
 local current_area_id
 local current_loot
+
 
 -- Data for our current action. Including possible values as a reference.
 local current_action = {
@@ -156,10 +166,17 @@ local current_action = {
 -- HELPERS ------------------------------------------------------------
 
 local function Debug(message, ...)
-    if not DEBUGGING then
+    if not DEBUGGING or not message or not ... then
         return
     end
-    _G.print(message:format(...))
+    local args = { ... }
+
+    for index = 1, #args do
+        if args[index] == nil then
+            args[index] = "nil"
+        end
+    end
+    _G.print(message:format(unpack(args)))
 end
 
 
@@ -167,7 +184,6 @@ local TradeSkillExecutePer
 do
     local header_list = {}
 
-    -- iter_func returns true to indicate that the loop should be broken
     function TradeSkillExecutePer(iter_func)
         if not _G.TradeSkillFrame or not _G.TradeSkillFrame:IsVisible() then
             return
@@ -270,6 +286,12 @@ do
 end -- do-block
 
 
+-- constant for duplicate boss data; a dirty hack to get around world bosses that cannot be identified individually and cannot be linked on wowdb because they are not in a raid
+local DUPLICATE_WORLD_BOSS_IDS = {
+    [71952] = { 71953, 71954, 71955, },
+}
+
+
 -- Called on a timer
 local function ClearKilledNPC()
     killed_npc_id = nil
@@ -277,8 +299,34 @@ end
 
 
 local function ClearKilledBossID()
+    if killed_boss_id_timer_handle then
+        WDP:CancelTimer(killed_boss_id_timer_handle)
+    end
+    table.wipe(boss_loot_toasting)
     private.raid_finder_boss_id = nil
     private.world_boss_id = nil
+    killed_boss_id_timer_handle = nil
+end
+
+
+local function ClearLootToastContainerID()
+    if loot_toast_container_timer_handle then
+        WDP:CancelTimer(loot_toast_container_timer_handle)
+    end
+    private.container_loot_toasting = false
+    private.loot_toast_container_id = nil
+    loot_toast_container_timer_handle = nil
+end
+
+
+local function ClearLootToastData()
+    -- cancel existing timer if found
+    if loot_toast_data_timer_handle then
+        WDP:CancelTimer(loot_toast_data_timer_handle)
+    end
+
+    if loot_toast_data then table.wipe(loot_toast_data) end
+    loot_toast_data_timer_handle = nil
 end
 
 
@@ -288,7 +336,7 @@ local function InstanceDifficultyToken()
     if not instance_type or instance_type == "" then
         instance_type = "NONE"
     end
-    return ("%s:%d:%s"):format(instance_type:upper(), instance_difficulty, _G.tostring(is_dynamic))
+    return ("%s:%d:%s"):format(instance_type:upper(), instance_difficulty, tostring(is_dynamic))
 end
 
 
@@ -376,6 +424,15 @@ local function CurrentLocationData()
         y = y + 1
     end
     return _G.GetRealZoneText(), current_area_id, x, y, map_level, InstanceDifficultyToken()
+end
+
+
+local function CurrencyLinkToTexture(currency_link)
+    if not currency_link then
+        return
+    end
+    local _, _, texture_path = _G.GetCurrencyInfo(tonumber(currency_link:match("currency:(%d+)")))
+    return texture_path:match("[^\\]+$"):lower()
 end
 
 
@@ -514,10 +571,11 @@ local function HandleItemUse(item_link, bag_index, slot_index)
         if not current_line then
             break
         end
-        local is_ptr = select(4, _G.GetBuildInfo()) ~= 50100
 
-        if is_ptr or current_line:GetText() == _G.ITEM_OPENABLE then
+        if current_line:GetText() == _G.ITEM_OPENABLE then
             table.wipe(current_action)
+            current_loot = nil
+
             current_action.target_type = AF.ITEM
             current_action.identifier = item_id
             current_action.loot_label = "contains"
@@ -593,35 +651,47 @@ do
 
         if current_loot.sources then
             for source_guid, loot_data in pairs(current_loot.sources) do
-                local entry, source_id
+                local source_id
 
                 if current_loot.target_type == AF.ITEM then
                     -- Items return the player as the source, so we need to use the item's ID (disenchant, milling, etc)
                     source_id = current_loot.identifier
-                    entry = DBEntry(data_type, source_id)
                 elseif current_loot.target_type == AF.OBJECT then
                     source_id = ("%s:%s"):format(current_loot.spell_label, select(2, ParseGUID(source_guid)))
-                    entry = DBEntry(data_type, source_id)
                 else
                     source_id = select(2, ParseGUID(source_guid))
-                    entry = DBEntry(data_type, source_id)
                 end
+                local entry = DBEntry(data_type, source_id)
 
                 if entry then
                     local loot_table = LootTable(entry, loot_type, top_field)
 
-                    if not source_list[source_guid] then
+                    if not source_list[source_id] then
                         if top_field then
                             entry[top_field][loot_count] = (entry[top_field][loot_count] or 0) + 1
-                        else
+                        elseif not private.container_loot_toasting then
                             entry[loot_count] = (entry[loot_count] or 0) + 1
                         end
-                        source_list[source_guid] = true
+                        source_list[source_id] = true
                     end
                     UpdateDBEntryLocation(data_type, source_id)
 
-                    for item_id, quantity in pairs(loot_data) do
-                        table.insert(loot_table, ("%d:%d"):format(item_id, quantity))
+                    if current_loot.target_type == AF.ZONE then
+                        for item_id, quantity in pairs(loot_data) do
+                            table.insert(loot_table, ("%d:%d"):format(item_id, quantity))
+                        end
+                    else
+                        for loot_token, quantity in pairs(loot_data) do
+                            local label, currency_texture = (":"):split(loot_token)
+
+                            if label == "currency" and currency_texture then
+                                table.insert(loot_table, ("currency:%d:%s"):format(quantity, currency_texture))
+                            elseif loot_token == "money" then
+                                table.insert(loot_table, ("money:%d"):format(quantity))
+                            else
+                                table.insert(loot_table, ("%d:%d"):format(loot_token, quantity))
+                            end
+                        end
                     end
                 end
             end
@@ -645,11 +715,14 @@ do
         end
         local loot_table = LootTable(entry, loot_type, top_field)
 
-        if not source_list[current_loot.identifier] then
-            if top_field then
-                entry[top_field][loot_count] = (entry[top_field][loot_count] or 0) + 1
-            else
-                entry[loot_count] = (entry[loot_count] or 0) + 1
+        if current_loot.identifier then
+            if not source_list[current_loot.identifier] then
+                if top_field then
+                    entry[top_field][loot_count] = (entry[top_field][loot_count] or 0) + 1
+                else
+                    entry[loot_count] = (entry[loot_count] or 0) + 1
+                end
+                source_list[current_loot.identifier] = true
             end
         end
 
@@ -692,7 +765,7 @@ do
         ShrineofSevenStars = 905,
     }
 
-    function WDP:SetCurrentAreaID(event_name)
+    local function SetCurrentAreaID()
         if private.in_combat then
             private.set_area_id = true
             return
@@ -704,7 +777,7 @@ do
         end
         local world_map = _G.WorldMapFrame
         local map_visible = world_map:IsVisible()
-        local sfx_value = _G.tonumber(_G.GetCVar("Sound_EnableSFX"))
+        local sfx_value = tonumber(_G.GetCVar("Sound_EnableSFX"))
 
         if not map_visible then
             _G.SetCVar("Sound_EnableSFX", 0)
@@ -727,8 +800,30 @@ do
             _G.SetCVar("Sound_EnableSFX", sfx_value)
         end
     end
+
+    function WDP:HandleZoneChange(event_name)
+        in_instance = _G.IsInInstance()
+        SetCurrentAreaID()
+    end
 end
 
+local function InitializeCurrentLoot()
+    current_loot = {
+        list = {},
+        sources = {},
+        identifier = current_action.identifier,
+        label = current_action.loot_label or "drops",
+        map_level = current_action.map_level,
+        object_name = current_action.object_name,
+        spell_label = current_action.spell_label,
+        target_type = current_action.target_type,
+        x = current_action.x,
+        y = current_action.y,
+        zone_data = current_action.zone_data,
+    }
+
+    table.wipe(current_action)
+end
 
 -- METHODS ------------------------------------------------------------
 
@@ -749,10 +844,8 @@ function WDP:OnInitialize()
     raw_db.build_num = build_num
     raw_db.version = DB_VERSION
 
-    if DEBUGGING then -- TODO: Remove this when comment subsystem is finished.
-        private.InitializeCommentSystem()
-        self:RegisterChatCommand("comment", private.ProcessCommentCommand)
-    end
+    private.InitializeCommentSystem()
+    self:RegisterChatCommand("comment", private.ProcessCommentCommand)
 end
 
 
@@ -777,6 +870,8 @@ end
 
 
 function WDP:OnEnable()
+    PLAYER_GUID = _G.UnitGUID("player")
+
     for event_name, mapping in pairs(EVENT_MAPPING) do
         if EVENT_DEBUG then
             self:RegisterEvent(event_name, "EventDispatcher")
@@ -806,7 +901,7 @@ function WDP:OnEnable()
         HandleItemUse(item_link)
     end)
 
-    self:SetCurrentAreaID("OnEnable")
+    self:HandleZoneChange("OnEnable")
     self:GROUP_ROSTER_UPDATE()
 end
 
@@ -824,10 +919,10 @@ do
         table.wipe(intermediary)
 
         for line_index = 1, DatamineTT:NumLines() do
-            local left_text = _G["WDPDatamineTTTextLeft" .. line_index]:GetText()
+            local left_text = _G["WDPDatamineTTTextLeft" .. line_index]:GetText():trim()
 
-            if not left_text then
-                return
+            if not left_text or left_text == "" or left_text:find("Socket") or left_text:find("Set:") then
+                break
             end
             local amount, stat = left_text:match("+(.-) (.*)")
 
@@ -841,7 +936,7 @@ do
                     end
                 end
                 create_entry = true
-                intermediary[stat:lower():gsub(" ", "_"):gsub("|r", "")] = tonumber(amount)
+                intermediary[stat:lower():gsub(" ", "_"):gsub("|r", "")] = tonumber((amount:gsub(",", "")))
             end
         end
 
@@ -979,7 +1074,7 @@ do
 
             if max_power > 0 then
                 local power_type = _G.UnitPowerType("target")
-                level_data.power = ("%s:%d"):format(POWER_TYPE_NAMES[_G.tostring(power_type)] or power_type, max_power)
+                level_data.power = ("%s:%d"):format(POWER_TYPE_NAMES[tostring(power_type)] or power_type, max_power)
             end
         end
         name_to_id_map[_G.UnitName("target")] = unit_idnum
@@ -1049,70 +1144,153 @@ function WDP:BLACK_MARKET_ITEM_UPDATE(event_name)
 end
 
 
-function WDP:GROUP_ROSTER_UPDATE()
-    local is_raid = _G.IsInRaid()
-    local unit_type = is_raid and "raid" or "party"
-    local group_size = is_raid and _G.GetNumGroupMembers() or _G.GetNumSubgroupMembers()
-
-    table.wipe(group_member_uids)
-
-    Debug("GROUP_ROSTER_UPDATE: %s group - %d members.", unit_type, group_size)
-
-    for index = 1, group_size do
-        local group_unit = unit_type .. index
-        local unit_guid = _G.UnitGUID(group_unit)
-
-        Debug("%s (%s) added as GUID %s", group_unit, _G.UnitName(group_unit), unit_guid)
-        group_member_uids[unit_guid] = true
-    end
-    group_member_uids[_G.UnitGUID("player")] = true
-end
-
-
-function WDP:UNIT_PET(event_name, unit_id)
-    local unit_guid = _G.UnitGUID(unit_id)
+local function UpdateUnitPet(unit_guid, unit_id)
     local current_pet_guid = group_owner_guids_to_pet_guids[unit_guid]
 
     if current_pet_guid then
-        Debug("Removing existing pet GUID for %s", _G.UnitName(unit_id))
         group_owner_guids_to_pet_guids[unit_guid] = nil
         group_pet_guids[current_pet_guid] = nil
     end
     local pet_guid = _G.UnitGUID(unit_id .. "pet")
 
     if pet_guid then
-        Debug("Adding new pet GUID for %s.", _G.UnitName(unit_id))
-        group_owner_guids_to_pet_guids[unit_id] = pet_guid
+        group_owner_guids_to_pet_guids[unit_guid] = pet_guid
         group_pet_guids[pet_guid] = true
     end
 end
 
 
+function WDP:GROUP_ROSTER_UPDATE(event_name)
+    local is_raid = _G.IsInRaid()
+    local unit_type = is_raid and "raid" or "party"
+    local group_size = is_raid and _G.GetNumGroupMembers() or _G.GetNumSubgroupMembers()
+
+    table.wipe(group_member_guids)
+
+    for index = 1, group_size do
+        local unit_id = unit_type .. index
+        local unit_guid = _G.UnitGUID(unit_id)
+
+        group_member_guids[unit_guid] = true
+        UpdateUnitPet(unit_guid, unit_id)
+    end
+    group_member_guids[PLAYER_GUID] = true
+end
+
+
+function WDP:UNIT_PET(event_name, unit_id)
+    UpdateUnitPet(_G.UnitGUID(unit_id), unit_id)
+end
+
+
 function WDP:SHOW_LOOT_TOAST(event_name, loot_type, item_link, quantity)
-    if loot_type ~= "item" then
+    if not loot_type or (loot_type ~= "item" and loot_type ~= "money" and loot_type ~= "currency") then
+        Debug("%s: loot_type is %s. Item link is %s, and quantity is %d.", event_name, loot_type, item_link, quantity)
         return
     end
-    local npc = NPCEntry(private.raid_finder_boss_id or private.world_boss_id)
-    ClearKilledBossID()
+    local container_id = private.loot_toast_container_id
+    local npc_id = private.raid_finder_boss_id or private.world_boss_id
 
-    if not npc then
-        Debug("%s: NPC is nil.", event_name)
-        return
+    if npc_id then
+        -- slightly messy hack to workaround duplicate world bosses
+        local upper_limit = 0
+        if DUPLICATE_WORLD_BOSS_IDS[npc_id] then
+            upper_limit = #DUPLICATE_WORLD_BOSS_IDS[npc_id]
+        end
+        for i = 0, upper_limit do
+            local temp_npc_id = npc_id
+
+            if i > 0 then
+                temp_npc_id = DUPLICATE_WORLD_BOSS_IDS[npc_id][i]
+            end
+
+            local npc = NPCEntry(temp_npc_id)
+            if npc then
+                local loot_label = "drops"
+                local encounter_data = npc:EncounterData(InstanceDifficultyToken())
+                encounter_data[loot_label] = encounter_data[loot_label] or {}
+                encounter_data.loot_counts = encounter_data.loot_counts or {}
+
+                if loot_type == "item" then
+                    local item_id = ItemLinkToID(item_link)
+                    if item_id then
+                        Debug("%s: %s X %d (%d)", event_name, item_link, quantity, item_id)
+                        table.insert(encounter_data[loot_label], ("%d:%d"):format(item_id, quantity))
+                    else
+                        Debug("%s: ItemID is nil, from item link %s", event_name, item_link)
+                        return
+                    end
+                elseif loot_type == "money" then
+                    Debug("%s: money X %d", event_name, quantity)
+                    table.insert(encounter_data[loot_label], ("money:%d"):format(quantity))
+                elseif loot_type == "currency" then
+                    local currency_texture = CurrencyLinkToTexture(item_link)
+                    if currency_texture and currency_texture ~= "" then
+                        Debug("%s: %s X %d", event_name, currency_texture, quantity)
+                        -- workaround for Patch 5.4.0 bug with Flexible raid Siege of Orgrimmar bosses and Valor Points
+                        if quantity > 1000 and currency_texture == "pvecurrency-valor" then
+                            quantity = math.floor(quantity / 100)
+                        end
+                        table.insert(encounter_data[loot_label], ("currency:%d:%s"):format(quantity, currency_texture))
+                    else
+                        Debug("%s: Currency texture is nil, from currency link %s", event_name, item_link)
+                        return
+                    end
+                end
+
+                if not boss_loot_toasting[temp_npc_id] then
+                    encounter_data.loot_counts[loot_label] = (encounter_data.loot_counts[loot_label] or 0) + 1
+                    boss_loot_toasting[temp_npc_id] = true -- Do not count further loots until timer expires or another boss is killed
+                end
+            end
+        end
+    elseif container_id then
+        InitializeCurrentLoot()
+
+        -- Fake the loot characteristics to match that of an actual container item
+        current_loot.identifier = container_id
+        current_loot.label = "contains"
+        current_loot.target_type = AF.ITEM
+
+        current_loot.sources[container_id] = current_loot.sources[container_id] or {}
+
+        if loot_type == "item" then
+            local item_id = ItemLinkToID(item_link)
+            if item_id then
+                Debug("%s: %s X %d (%d)", event_name, item_link, quantity, item_id)
+                current_loot.sources[container_id][item_id] = current_loot.sources[container_id][item_id] or 0 + quantity
+            else
+                Debug("%s: ItemID is nil, from item link %s", event_name, item_link)
+                current_loot = nil
+                return
+            end
+        elseif loot_type == "money" then
+            Debug("%s: money X %d", event_name, quantity)
+            current_loot.sources[container_id]["money"] = current_loot.sources[container_id]["money"] or 0 + quantity
+        elseif loot_type == "currency" then
+            local currency_texture = CurrencyLinkToTexture(item_link)
+            if currency_texture and currency_texture ~= "" then
+                Debug("%s: %s X %d", event_name, currency_texture, quantity)
+                local currency_token = ("currency:%s"):format(currency_texture)
+                current_loot.sources[container_id][currency_token] = current_loot.sources[container_id][currency_token] or 0 + quantity
+            else
+                Debug("%s: Currency texture is nil, from currency link %s", event_name, item_link)
+                current_loot = nil
+                return
+            end
+        end
+
+        GenericLootUpdate("items")
+        current_loot = nil
+        private.container_loot_toasting = true -- Do not count further loots until timer expires or another container is opened
+    else
+        Debug("%s: NPC and Container are nil, storing loot toast data for 5 seconds.", event_name)
+
+        loot_toast_data = loot_toast_data or {}
+        loot_toast_data[#loot_toast_data + 1] = { loot_type, item_link, quantity }
+
+        loot_toast_data_timer_handle = WDP:ScheduleTimer(ClearLootToastData, 5)
     end
-    local item_id = ItemLinkToID(item_link)
-
-    if not item_id then
-        Debug("%s: ItemID is nil, from item link %s", event_name, item_link)
-        return
-    end
-    local loot_type = "drops"
-    local encounter_data = npc:EncounterData(InstanceDifficultyToken())
-    encounter_data[loot_type] = encounter_data[loot_type] or {}
-    encounter_data.loot_counts = encounter_data.loot_counts or {}
-    encounter_data.loot_counts[loot_type] = (encounter_data.loot_counts[loot_type] or 0) + 1
-
-    table.insert(encounter_data[loot_type], ("%d:%d"):format(item_id, quantity))
-    Debug("%s: %sX%d (%d)", event_name, item_link, quantity, item_id)
 end
 
 
@@ -1122,22 +1300,10 @@ do
             Debug("CHAT_MSG_LOOT: %d (%d)", item_id, quantity)
         end,
         [AF.ZONE] = function(item_id, quantity)
-            current_loot = {
-                list = {
-                    ("%d:%d"):format(item_id, quantity)
-                },
-                identifier = current_action.identifier,
-                label = current_action.loot_label or "drops",
-                map_level = current_action.map_level,
-                object_name = current_action.object_name,
-                spell_label = current_action.spell_label,
-                target_type = current_action.target_type,
-                x = current_action.x,
-                y = current_action.y,
-                zone_data = current_action.zone_data,
-            }
-            table.wipe(current_action)
+            InitializeCurrentLoot()
+            current_loot.list[1] = ("%d:%d"):format(item_id, quantity)
             GenericLootUpdate("zones")
+            current_loot = nil
         end,
     }
 
@@ -1168,6 +1334,7 @@ do
         update_func(item_id, quantity)
     end
 end
+
 
 function WDP:RecordQuote(event_name, message, source_name, language_name)
     if not ALLOWED_LOCALES[CLIENT_LOCALE] or not source_name or not name_to_id_map[source_name] or (language_name ~= "" and not languages_known[language_name]) then
@@ -1249,9 +1416,8 @@ do
     end
 end
 
--- do-block
 
-do
+do -- do-block
     local FLAGS_NPC = bit.bor(_G.COMBATLOG_OBJECT_TYPE_GUARDIAN, _G.COMBATLOG_OBJECT_CONTROL_NPC)
     local FLAGS_NPC_CONTROL = bit.bor(_G.COMBATLOG_OBJECT_AFFILIATION_OUTSIDER, _G.COMBATLOG_OBJECT_CONTROL_NPC)
 
@@ -1295,7 +1461,6 @@ do
             if not unit_idnum or not UnitTypeIsNPC(unit_type) then
                 Debug("%s: %s is not an NPC, or has no ID.", sub_event, dest_name or _G.UNKNOWN)
                 ClearKilledNPC()
-                ClearKilledBossID()
                 private.harvesting = nil
                 return
             end
@@ -1306,29 +1471,15 @@ do
             local killer_guid = source_guid or previous_combat_event.source_guid
             local killer_name = source_name or previous_combat_event.source_name
 
-            if not group_member_uids[killer_guid] and not group_pet_guids[killer_guid] then
-                Debug("%s: %s was killed by %s (not group member or pet).", sub_event, dest_name or _G.UNKNOWN, killer_name or _G.UNKNOWN)
+            if not previous_combat_event.party_damage then
+                --Debug("%s: %s was killed by %s (not group member or pet).", sub_event, dest_name or _G.UNKNOWN, killer_name or _G.UNKNOWN) -- broken in Patch 5.4
+                table.wipe(previous_combat_event)
                 ClearKilledNPC()
-                ClearKilledBossID()
-                return
-            end
-            Debug("%s: %s was killed by %s.", sub_event, dest_name or _G.UNKNOWN, killer_name or _G.UNKNOWN)
-
-            if private.RAID_FINDER_BOSS_IDS[unit_idnum] then
-                Debug("%s: Matching boss %s.", sub_event, dest_name)
-                ClearKilledBossID()
-                private.raid_finder_boss_id = unit_idnum
-            elseif private.WORLD_BOSS_IDS[unit_idnum] then
-                Debug("%s: Matching world boss %s.", sub_event, dest_name)
-                ClearKilledBossID()
-                private.world_boss_id = unit_idnum
             else
-                Debug("%s: Killed NPC %s (ID: %d) is not in LFG or World boss list.", sub_event, dest_name, unit_idnum)
+                --Debug("%s: %s was killed by %s.", sub_event, dest_name or _G.UNKNOWN, killer_name or _G.UNKNOWN) -- broken in Patch 5.4
             end
-
             killed_npc_id = unit_idnum
             WDP:ScheduleTimer(ClearKilledNPC, 0.1)
-            WDP:ScheduleTimer(ClearKilledBossID, 1)
         end,
     }
 
@@ -1341,23 +1492,34 @@ do
         SWING_MISSED = true,
     }
 
+    local DAMAGE_EVENTS = {
+        RANGE_DAMAGE = true,
+        SPELL_BUILDING_DAMAGE = true,
+        SPELL_DAMAGE = true,
+        SPELL_PERIODIC_DAMAGE = true,
+        SWING_DAMAGE = true,
+    }
+
 
     function WDP:COMBAT_LOG_EVENT_UNFILTERED(event_name, time_stamp, sub_event, hide_caster, source_guid, source_name, source_flags, source_raid_flags, dest_guid, dest_name, dest_flags, dest_raid_flags, ...)
         local combat_log_func = COMBAT_LOG_FUNCS[sub_event]
 
         if not combat_log_func then
-            if not NON_DAMAGE_EVENTS[sub_event] then
-                -- Uncomment to look for other sub-events to blacklist.
-                --                Debug("Recording for %s", sub_event)
-                previous_combat_event.source_guid = source_guid
+            if DAMAGE_EVENTS[sub_event] then
+                table.wipe(previous_combat_event)
                 previous_combat_event.source_name = source_name
-                previous_combat_event.dest_guid = dest_guid
-                previous_combat_event.dest_name = dest_name
+
+                if source_guid ~= dest_guid and (in_instance or group_member_guids[source_guid] or group_pet_guids[source_guid]) then
+                    previous_combat_event.party_damage = true
+                end
             end
             return
         end
         combat_log_func(sub_event, source_guid, source_name, source_flags, dest_guid, dest_name, dest_flags, ...)
-        table.wipe(previous_combat_event)
+
+        if NON_DAMAGE_EVENTS[sub_event] then
+            table.wipe(previous_combat_event)
+        end
     end
 
     local DIPLOMACY_SPELL_ID = 20599
@@ -1498,24 +1660,6 @@ end
 
 
 do
-    local RE_GOLD = _G.GOLD_AMOUNT:gsub("%%d", "(%%d+)")
-    local RE_SILVER = _G.SILVER_AMOUNT:gsub("%%d", "(%%d+)")
-    local RE_COPPER = _G.COPPER_AMOUNT:gsub("%%d", "(%%d+)")
-
-
-    local function _moneyMatch(money, re)
-        return money:match(re) or 0
-    end
-
-
-    local function _toCopper(money)
-        if not money then
-            return 0
-        end
-        return _moneyMatch(money, RE_GOLD) * 10000 + _moneyMatch(money, RE_SILVER) * 100 + _moneyMatch(money, RE_COPPER)
-    end
-
-
     local LOOT_OPENED_VERIFY_FUNCS = {
         [AF.ITEM] = function()
             local locked_item_id
@@ -1566,7 +1710,7 @@ do
         end,
         [AF.NPC] = function()
             local difficulty_token = InstanceDifficultyToken()
-            local loot_type = current_loot.label
+            local loot_label = current_loot.label
             local source_list = {}
 
             for source_guid, loot_data in pairs(current_loot.sources) do
@@ -1575,39 +1719,26 @@ do
 
                 if npc then
                     local encounter_data = npc:EncounterData(difficulty_token)
-                    encounter_data[loot_type] = encounter_data[loot_type] or {}
+                    encounter_data[loot_label] = encounter_data[loot_label] or {}
 
                     if not source_list[source_guid] then
                         encounter_data.loot_counts = encounter_data.loot_counts or {}
-                        encounter_data.loot_counts[loot_type] = (encounter_data.loot_counts[loot_type] or 0) + 1
-                        source_list[source_id] = true
+                        encounter_data.loot_counts[loot_label] = (encounter_data.loot_counts[loot_label] or 0) + 1
+                        source_list[source_guid] = true
                     end
 
-                    for item_id, quantity in pairs(loot_data) do
-                        table.insert(encounter_data[loot_type], ("%d:%d"):format(item_id, quantity))
+                    for loot_token, quantity in pairs(loot_data) do
+                        local loot_type, currency_texture = (":"):split(loot_token)
+
+                        if loot_type == "currency" and currency_texture then
+                            table.insert(encounter_data[loot_label], ("currency:%d:%s"):format(quantity, currency_texture))
+                        elseif loot_token == "money" then
+                            table.insert(encounter_data[loot_label], ("money:%d"):format(quantity))
+                        else
+                            table.insert(encounter_data[loot_label], ("%d:%d"):format(loot_token, quantity))
+                        end
                     end
                 end
-            end
-
-            -- TODO: Remove this when GetLootSourceInfo() has values for money
-            if #current_loot.list <= 0 then
-                return
-            end
-            local npc = NPCEntry(current_loot.identifier)
-
-            if not npc then
-                return
-            end
-            local encounter_data = npc:EncounterData(difficulty_token)
-            encounter_data[loot_type] = encounter_data[loot_type] or {}
-
-            if not source_list[current_loot.identifier] then
-                encounter_data.loot_counts = encounter_data.loot_counts or {}
-                encounter_data.loot_counts[loot_type] = (encounter_data.loot_counts[loot_type] or 0) + 1
-            end
-
-            for index = 1, #current_loot.list do
-                table.insert(encounter_data[loot_type], current_loot.list[index])
             end
         end,
         [AF.OBJECT] = function()
@@ -1655,10 +1786,12 @@ do
 
     function WDP:LOOT_OPENED(event_name)
         if current_loot then
+            Debug("%s: Previous loot did not process.", event_name)
             return
         end
 
         if not current_action.target_type then
+            Debug("%s: No target type found.", event_name)
             return
         end
         local verify_func = LOOT_OPENED_VERIFY_FUNCS[current_action.target_type]
@@ -1673,25 +1806,11 @@ do
         end
         local guids_used = {}
 
-        current_loot = {
-            list = {},
-            sources = {},
-            identifier = current_action.identifier,
-            label = current_action.loot_label or "drops",
-            map_level = current_action.map_level,
-            object_name = current_action.object_name,
-            spell_label = current_action.spell_label,
-            target_type = current_action.target_type,
-            x = current_action.x,
-            y = current_action.y,
-            zone_data = current_action.zone_data,
-        }
-        table.wipe(current_action)
-
+        InitializeCurrentLoot()
         loot_guid_registry[current_loot.label] = loot_guid_registry[current_loot.label] or {}
 
         for loot_slot = 1, _G.GetNumLootItems() do
-            local icon_texture, item_text, quantity, quality, locked = _G.GetLootSlotInfo(loot_slot)
+            local icon_texture, item_text, slot_quantity, quality, locked = _G.GetLootSlotInfo(loot_slot)
             local slot_type = _G.GetLootSlotType(loot_slot)
             local loot_info = {
                 _G.GetLootSourceInfo(loot_slot)
@@ -1703,21 +1822,38 @@ do
 
                 if not loot_guid_registry[current_loot.label][source_guid] then
                     local loot_quantity = loot_info[loot_index + 1]
+                    if #loot_info == 2 and slot_quantity > loot_quantity then
+                        loot_quantity = slot_quantity
+                    end
                     local source_type, source_id = ParseGUID(source_guid)
                     local source_key = ("%s:%d"):format(private.UNIT_TYPE_NAMES[source_type + 1], source_id)
-                    Debug("GUID: %s - Type:ID: %s - Amount: %d", loot_info[loot_index], source_key, loot_quantity)
 
                     if slot_type == _G.LOOT_SLOT_ITEM then
                         local item_id = ItemLinkToID(_G.GetLootSlotLink(loot_slot))
+                        Debug("GUID: %s - Type:ID: %s - ItemID: %d - Amount: %d (%d)", loot_info[loot_index], source_key, item_id, loot_info[loot_index + 1], slot_quantity)
                         current_loot.sources[source_guid] = current_loot.sources[source_guid] or {}
                         current_loot.sources[source_guid][item_id] = current_loot.sources[source_guid][item_id] or 0 + loot_quantity
                         guids_used[source_guid] = true
                     elseif slot_type == _G.LOOT_SLOT_MONEY then
-                        Debug("money:%d", _toCopper(item_text))
-                        table.insert(current_loot.list, ("money:%d"):format(_toCopper(item_text)))
+                        Debug("GUID: %s - Type:ID: %s - Money - Amount: %d (%d)", loot_info[loot_index], source_key, loot_info[loot_index + 1], slot_quantity)
+                        if current_loot.target_type == AF.ZONE then
+                            table.insert(current_loot.list, ("money:%d"):format(loot_quantity))
+                        else
+                            current_loot.sources[source_guid] = current_loot.sources[source_guid] or {}
+                            current_loot.sources[source_guid]["money"] = current_loot.sources[source_guid]["money"] or 0 + loot_quantity
+                            guids_used[source_guid] = true
+                        end
                     elseif slot_type == _G.LOOT_SLOT_CURRENCY then
-                        Debug("Found currency: %s", icon_texture)
-                        table.insert(current_loot.list, ("currency:%d:%s"):format(quantity, icon_texture:match("[^\\]+$"):lower()))
+                        Debug("GUID: %s - Type:ID: %s - Currency: %s - Amount: %d (%d)", loot_info[loot_index], source_key, icon_texture, loot_info[loot_index + 1], slot_quantity)
+                        if current_loot.target_type == AF.ZONE then
+                            table.insert(current_loot.list, ("currency:%d:%s"):format(loot_quantity, icon_texture:match("[^\\]+$"):lower()))
+                        else
+                            local currency_token = ("currency:%s"):format(icon_texture:match("[^\\]+$"):lower())
+
+                            current_loot.sources[source_guid] = current_loot.sources[source_guid] or {}
+                            current_loot.sources[source_guid][currency_token] = current_loot.sources[source_guid][currency_token] or 0 + loot_quantity
+                            guids_used[source_guid] = true
+                        end
                     end
                 end
             end
@@ -1852,15 +1988,16 @@ do
                     price_string = ("%s:%s:%s"):format(price_string, personal_rating, required_season_amount or 0)
 
                     for cost_index = 1, item_count do
-                        local icon_texture, amount_required, currency_link = _G.GetMerchantItemCostItem(item_index, cost_index)
-                        local currency_id = currency_link and ItemLinkToID(currency_link) or nil
+                        -- the third return (Blizz calls "currency_link") of GetMerchantItemCostItem only returns item links as of Patch 5.3.0
+                        local icon_texture, amount_required, item_link = _G.GetMerchantItemCostItem(item_index, cost_index)
+                        local currency_identifier = item_link and ItemLinkToID(item_link) or nil
 
-                        if (not currency_id or currency_id < 1) and icon_texture then
-                            currency_id = icon_texture:match("[^\\]+$"):lower()
+                        if (not currency_identifier or currency_identifier < 1) and icon_texture then
+                            currency_identifier = icon_texture:match("[^\\]+$"):lower()
                         end
 
-                        if currency_id then
-                            currency_list[#currency_list + 1] = ("(%s:%s)"):format(amount_required, currency_id)
+                        if currency_identifier then
+                            currency_list[#currency_list + 1] = ("(%s:%s)"):format(amount_required, currency_identifier)
                         end
                     end
 
@@ -1896,6 +2033,11 @@ end
 
 
 function WDP:PET_JOURNAL_LIST_UPDATE(event_name)
+    -- this function produces data currently unused by wowdb.com and it makes debugging errors in the .lua output nearly impossible due to the massive bloat
+    if DEBUGGING then
+        return
+    end
+
     local num_pets = LPJ:NumPets()
 
     for index, pet_id in LPJ:IteratePetIDs() do
@@ -1931,7 +2073,7 @@ function WDP:PLAYER_REGEN_ENABLED(event_name)
     private.in_combat = nil
 
     if private.set_area_id then
-        self:SetCurrentAreaID(event_name)
+        self:HandleZoneChange(event_name)
         private.set_area_id = nil
     end
 end
@@ -2137,6 +2279,7 @@ function WDP:UNIT_SPELLCAST_SENT(event_name, unit_id, spell_name, spell_rank, ta
     if not spell_label then
         return
     end
+
     local item_name, item_link = _G.GameTooltip:GetItem()
     local unit_name, unit_id = _G.GameTooltip:GetUnit()
 
@@ -2189,6 +2332,85 @@ function WDP:UNIT_SPELLCAST_SENT(event_name, unit_id, spell_name, spell_rank, ta
 end
 
 
+function WDP:SPELL_CONFIRMATION_PROMPT(event_name, spell_id, confirm_type, text, duration, currency_id_cost)
+    if private.RAID_BOSS_BONUS_SPELL_ID_TO_NPC_ID_MAP[spell_id] then
+        ClearKilledBossID()
+        ClearLootToastContainerID()
+        private.raid_finder_boss_id = private.RAID_BOSS_BONUS_SPELL_ID_TO_NPC_ID_MAP[spell_id]
+    elseif private.WORLD_BOSS_BONUS_SPELL_ID_TO_NPC_ID_MAP[spell_id] then
+        ClearKilledBossID()
+        ClearLootToastContainerID()
+        private.world_boss_id = private.WORLD_BOSS_BONUS_SPELL_ID_TO_NPC_ID_MAP[spell_id]
+    else
+        Debug("%s: Spell ID %d is not a known raid or world boss 'Bonus' spell.", event_name, spell_id)
+        return
+    end
+
+    -- assign existing loot data to boss if it exists
+    if loot_toast_data then
+        local npc_id = private.raid_finder_boss_id or private.world_boss_id
+
+        -- slightly messy hack to workaround duplicate world bosses
+        local upper_limit = 0
+        if DUPLICATE_WORLD_BOSS_IDS[npc_id] then
+            upper_limit = #DUPLICATE_WORLD_BOSS_IDS[npc_id]
+        end
+
+        for i = 0, upper_limit do
+            local temp_npc_id = npc_id
+
+            if i > 0 then
+                temp_npc_id = DUPLICATE_WORLD_BOSS_IDS[npc_id][i]
+            end
+
+            local npc = NPCEntry(temp_npc_id)
+            if npc then
+                -- create needed npc fields if required
+                local loot_label = "drops"
+                local encounter_data = npc:EncounterData(InstanceDifficultyToken())
+                encounter_data[loot_label] = encounter_data[loot_label] or {}
+                encounter_data.loot_counts = encounter_data.loot_counts or {}
+
+                for index = 1, #loot_toast_data do
+                    local data = loot_toast_data[index]
+                    local loot_type = data[1]
+                    local hyperlink = data[2]
+                    local quantity = data[3]
+
+                    if loot_type == "item" then
+                        local item_id = ItemLinkToID(hyperlink)
+                        Debug("%s: Assigned stored item loot data - %s - %d:%d", event_name, hyperlink, item_id, quantity)
+                        table.insert(encounter_data[loot_label], ("%d:%d"):format(item_id, quantity))
+                    elseif loot_type == "money" then
+                        Debug("%s: Assigned stored money loot data - money:%d", event_name, quantity)
+                        table.insert(encounter_data[loot_label], ("money:%d"):format(quantity))
+                    elseif loot_type == "currency" then
+                        local currency_texture = CurrencyLinkToTexture(hyperlink)
+                        Debug("%s: Assigned stored currency loot data - %s - currency:%d:%s", event_name, hyperlink, currency_texture, quantity)
+                        -- workaround for Patch 5.4.0 bug with Flexible raid Siege of Orgrimmar bosses and Valor Points
+                        if quantity > 1000 and currency_texture == "pvecurrency-valor" then
+                            quantity = math.floor(quantity / 100)
+                        end
+                        table.insert(encounter_data[loot_label], ("currency:%d:%s"):format(quantity, currency_texture))
+                    end
+                end
+
+                if not boss_loot_toasting[temp_npc_id] then
+                    encounter_data.loot_counts[loot_label] = (encounter_data.loot_counts[loot_label] or 0) + 1
+                    boss_loot_toasting[temp_npc_id] = true -- Do not count further loots until timer expires or another boss is killed
+                end
+            else
+                Debug("%s: NPC is nil, but we have stored loot data...", event_name)
+            end
+        end
+    end
+
+    ClearLootToastData()
+
+    killed_boss_id_timer_handle = WDP:ScheduleTimer(ClearKilledBossID, 5) -- we need to assign a handle here to cancel it later
+end
+
+
 function WDP:UNIT_SPELLCAST_SUCCEEDED(event_name, unit_id, spell_name, spell_rank, spell_line, spell_id)
     if unit_id ~= "player" then
         return
@@ -2196,15 +2418,22 @@ function WDP:UNIT_SPELLCAST_SUCCEEDED(event_name, unit_id, spell_name, spell_ran
     private.tracked_line = nil
     private.previous_spell_id = spell_id
 
-    if spell_name:match("^Harvest.+") then
-        killed_npc_id = current_target_id
-        private.harvesting = true
+    if private.LOOT_SPELL_ID_TO_ITEM_ID_MAP[spell_id] then
+        ClearKilledBossID()
+        ClearLootToastContainerID()
+        ClearLootToastData()
+
+        private.loot_toast_container_id = private.LOOT_SPELL_ID_TO_ITEM_ID_MAP[spell_id]
+        loot_toast_container_timer_handle = WDP:ScheduleTimer(ClearLootToastContainerID, 1) -- we need to assign a handle here to cancel it later
     end
 
     if anvil_spell_ids[spell_id] then
         UpdateDBEntryLocation("objects", OBJECT_ID_ANVIL)
     elseif forge_spell_ids[spell_id] then
         UpdateDBEntryLocation("objects", OBJECT_ID_FORGE)
+    elseif spell_name:match("^Harvest.+") then
+        killed_npc_id = current_target_id
+        private.harvesting = true
     end
 end
 

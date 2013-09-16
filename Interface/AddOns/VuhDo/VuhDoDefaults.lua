@@ -476,7 +476,7 @@ local VUHDO_DEFAULT_CONFIG = {
 	["SHOW_OVERHEAL"] = true,
 	["SHOW_OWN_INCOMING"] = true,
 	["SHOW_TEXT_OVERHEAL"] = true,
-	["SHOW_SHIELD_BAR"] = false,
+	["SHOW_SHIELD_BAR"] = true,
 
 	["RANGE_CHECK_DELAY"] = 260,
 
@@ -1480,10 +1480,6 @@ function VUHDO_loadDefaultPanelSetup()
 			if VUHDO_DEFAULT_MODELS[tPanelNum] and VUHDO_ID_MAINTANKS == VUHDO_DEFAULT_MODELS[tPanelNum][1] then
 				tAktPanel["PANEL_COLOR"]["TEXT"]["textSize"] = 12;
 			end
-		end
-
-		if not VUHDO_PANEL_SETUP[tPanelNum]["PANEL_COLOR"]["TEXT"]["USE_SHADOW"] then
-			VUHDO_PANEL_SETUP[tPanelNum]["PANEL_COLOR"]["TEXT"]["USE_SHADOW"] = not VUHDO_PANEL_SETUP[tPanelNum]["PANEL_COLOR"]["TEXT"]["outline"];
 		end
 	end
 

@@ -1,0 +1,56 @@
+
+TradeSkillMaster_AccountingDB = {
+	["global"] = {
+		["itemStrings"] = {
+			["Potion of the Jade Serpent"] = "item:76093:0:0:0:0:0:0",
+			["Giant Mantis Shrimp"] = "item:74857:0:0:0:0:0:0",
+			["Purified Imperial Amethyst"] = "item:76686:0:0:0:0:0:0",
+			["Master Mana Potion"] = "item:76098:0:0:0:0:0:0",
+			["Flask of Falling Leaves"] = "item:76086:0:0:0:0:0:0",
+			["Braised Turtle"] = "item:74649:0:0:0:0:0:0",
+			["Enchanting Vellum"] = "item:38682:0:0:0:0:0:0",
+			["Reef Octopus"] = "item:74864:0:0:0:0:0:0",
+			["Pearl Milk Tea"] = "item:81414:0:0:0:0:0:0",
+			["Tome of the Clear Mind"] = "item:79249:0:0:0:0:0:0",
+			["Bolt of Windwool Cloth"] = "item:82441:0:0:0:0:0:0",
+			["Skewered Peanut Chicken"] = "item:81413:0:0:0:0:0:0",
+			["Spirit Dust"] = "item:74249:0:0:0:0:0:0",
+			["Red Blossom Leek"] = "item:74844:0:0:0:0:0:0",
+			["Windwool Cloth"] = "item:72988:0:0:0:0:0:0",
+			["Green Curry Fish"] = "item:81410:0:0:0:0:0:0",
+			["Mysterious Essence"] = "item:74250:0:0:0:0:0:0",
+			["Raw Turtle Meat"] = "item:74837:0:0:0:0:0:0",
+			["Master Healing Potion"] = "item:76097:0:0:0:0:0:0",
+			["Sha Crystal"] = "item:74248:0:0:0:0:0:0",
+			["Deep Fried Candybar"] = "item:19225:0:0:0:0:0:0",
+			["Ethereal Shard"] = "item:74247:0:0:0:0:0:0",
+			["Great Pandaren Banquet"] = "item:75016:0:0:0:0:0:0",
+			["Iceweb Spider Silk"] = "item:42253:0:0:0:0:0:0",
+			["Red Beans"] = "item:85585:0:0:0:0:0:0",
+			["Ghost Iron Lockbox"] = "item:88567:0:0:0:0:0:0",
+			["Mogu Fish Stew"] = "item:74650:0:0:0:0:0:0",
+		},
+	},
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["csvExpired"] = "itemString,itemName,stackSize,quantity,player,time",
+			["goldLog"] = {
+				["Majandra"] = {
+					{
+						["endMinute"] = 22977088,
+						["copper"] = 28250377,
+						["startMinute"] = 22977085,
+					}, -- [1]
+				},
+			},
+			["csvBuys"] = "itemString,itemName,stackSize,quantity,price,seller,player,time,source",
+			["csvSales"] = "itemString,itemName,stackSize,quantity,price,buyer,player,time,source",
+			["csvIncome"] = "type,amount,source,player,time",
+			["csvExpense"] = "type,amount,destination,player,time",
+			["csvCancelled"] = "itemString,itemName,stackSize,quantity,player,time",
+		},
+	},
+}

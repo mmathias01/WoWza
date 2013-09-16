@@ -1,0 +1,49 @@
+
+TradeSkillMaster_ItemTrackerDB = {
+	["profileKeys"] = {
+		["Shenlu - Dragonblight"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["characters"] = {
+				["Shenlu"] = {
+					["guild"] = "Holy Crit",
+					["mailInfo"] = {
+					},
+					["lastUpdate"] = {
+						["guild"] = 1378794798,
+						["mail"] = 0,
+						["bags"] = 1378794798,
+						["auctions"] = 0,
+						["bank"] = 0,
+					},
+					["bags"] = {
+						["item:4542:0:0:0:0:0:0"] = 20,
+						["item:818:0:0:0:0:0:0"] = 1,
+						["item:774:0:0:0:0:0:0"] = 1,
+						["item:4605:0:0:0:0:0:0"] = 1,
+						["item:4606:0:0:0:0:0:0"] = 3,
+						["item:1205:0:0:0:0:0:0"] = 1,
+						["item:1179:0:0:0:0:0:0"] = 2,
+						["item:858:0:0:0:0:0:0"] = 2,
+					},
+					["mailInbox"] = {
+					},
+					["mail"] = {
+					},
+					["account"] = "Dragonblight803115249",
+					["auctions"] = {
+					},
+					["bank"] = {
+					},
+				},
+			},
+			["guilds"] = {
+				["Holy Crit"] = {
+					["items"] = {
+					},
+				},
+			},
+		},
+	},
+}

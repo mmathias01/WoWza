@@ -1,0 +1,4 @@
+
+ElvChatFontDB = {
+	["fontSize"] = 11,
+}

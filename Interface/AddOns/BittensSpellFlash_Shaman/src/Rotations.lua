@@ -1,6 +1,5 @@
 local addonName, a = ...
 
-local L = a.Localize
 local s = SpellFlashAddon
 local g = BittensGlobalTables
 local c = g.GetTable("BittensSpellFlashLibrary")
@@ -20,6 +19,10 @@ end
 a.Rotations.Elemental = {
 	Spec = 1,
 	
+	UsefulStats = { 
+		"Intellect", "Spell Hit", "Hit from Spirit", "Crit", "Haste" 
+	},
+	
 	FlashInCombat = function()
 		c.FlashAll(
 			"Elemental Mastery", 
@@ -27,6 +30,7 @@ a.Rotations.Elemental = {
 			"Ascendance for Elemental",
 			"Fire Elemental Totem",
 			"Spiritwalker's Grace",
+			"Purge",
 			"Wind Shear")
 		if c.AoE then
 			c.PriorityFlash(
@@ -83,6 +87,8 @@ end
 a.Rotations.Enhancement = {
 	Spec = 2,
 	
+	UsefulStats = { "Agility", "Melee Hit", "Strength", "Crit", "Haste" },
+	
 	FlashInCombat = function()
 		if c.IsCasting("Lightning Bolt") 
 			and not c.HasBuff("Ancestral Swiftness") then
@@ -97,6 +103,7 @@ a.Rotations.Enhancement = {
 			"Fire Elemental Totem",
 			"Searing Totem",
 			"Ascendance for Enhancement", 
+			"Purge",
 			"Wind Shear")
 		c.PriorityFlash(
 			"Unleash Elements with Unleashed Fury",
@@ -156,12 +163,15 @@ a.Rotations.Enhancement = {
 a.Rotations.Restoration = {
 	Spec = 3,
 	
+	UsefulStats = { "Intellect", "Spirit", "Crit", "Haste" },
+	
 	FlashInCombat = function()
 		c.FlashAll(
-			"Wind Shear",
 			"Healing Stream Totem",
 			"Mana Tide Totem",
-			"Lightning Bolt for Mana")
+			"Lightning Bolt for Mana",
+			"Purge",
+			"Wind Shear")
 	end,
 	
 	FlashOutOfCombat = function()

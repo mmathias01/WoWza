@@ -138,9 +138,9 @@
 				</Frames>
 			</Frame>
 
-			<Frame name="$parentReactionPanel" inherits="VuhDoPanelTemplate">
+			<Frame name="$parentOtherPanel" inherits="VuhDoPanelTemplate">
 				<Size>
-					<AbsDimension x="140" y="70" />
+					<AbsDimension x="236" y="96" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -155,7 +155,7 @@
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="20" y="-27" />
+									<AbsDimension x="13" y="-13" />
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -167,35 +167,27 @@
 						</Scripts>
 					</CheckButton>
 
-					<Frame name="$parentTitleLabel" inherits="VuhDoLabelFrameTemplate">
-						<Layers>
-							<Layer>
-								<FontString name="$parentLabel" text="VUHDO_I18N_REACTION_ON" inherits="VuDoDefaultTitleFontTemplate">
-								</FontString>
-							</Layer>
-						</Layers>
-					</Frame>
-				</Frames>
-			</Frame>
-
-			<Frame name="$parentDcShieldPanel" inherits="VuhDoPanelTemplate">
-				<Size>
-					<AbsDimension x="126" y="70" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="270" y="-110" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Frames>
-
-					<CheckButton name="$parentDisableCheckButton" text="VUHDO_I18N_DISABLE" inherits="VuhDoCheckButtonTemplate">
+					<CheckButton name="$parentGcDButton" text="VUHDO_I18N_GLOBAL_COOLDOWN" inherits="VuhDoCheckButtonTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="13" y="-27" />
+									<AbsDimension x="123" y="-13" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								VUHDO_lnfSetModel(self, "VUHDO_CONFIG.IS_SHOW_GCD");
+								VUHDO_lnfSetTooltip(self, VUHDO_I18N_TT.K436);
+							</OnLoad>
+						</Scripts>
+					</CheckButton>
+
+					<CheckButton name="$parentDcShieldCheckButton" text="VUHDO_I18N_DC_RESTORE" inherits="VuhDoInverseCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="13" y="-51" />
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -207,54 +199,22 @@
 						</Scripts>
 					</CheckButton>
 
-					<Frame name="$parentTitleLabel" inherits="VuhDoLabelFrameTemplate">
-						<Layers>
-							<Layer>
-								<FontString name="$parentLabel" text="VUHDO_I18N_DC_RESTORE" inherits="VuDoDefaultTitleFontTemplate">
-								</FontString>
-							</Layer>
-						</Layers>
-					</Frame>
-				</Frames>
-			</Frame>
-
-			<Frame name="$parentReadyCheckPanel" inherits="VuhDoPanelTemplate">
-				<Size>
-					<AbsDimension x="126" y="70" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="400" y="-110" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Frames>
-
-					<CheckButton name="$parentDisableCheckButton" text="VUHDO_I18N_DISABLE" inherits="VuhDoCheckButtonTemplate">
+					<CheckButton name="$parentReadyCheckButton" text="VUHDO_I18N_READY_CHECK" inherits="VuhDoInverseCheckButtonTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="13" y="-27" />
+									<AbsDimension x="123" y="-51" />
 								</Offset>
 							</Anchor>
 						</Anchors>
 						<Scripts>
 							<OnLoad>
 								VUHDO_lnfSetModel(self, "VUHDO_CONFIG.IS_READY_CHECK_DISABLED");
-								VUHDO_lnfSetTooltip(self, "Check to disable ready check display");
+								VUHDO_lnfSetTooltip(self, "Check to enable ready check icons. You need to be at least assistant in order to see ready checks anyway.");
 							</OnLoad>
 						</Scripts>
 					</CheckButton>
 
-					<Frame name="$parentTitleLabel" inherits="VuhDoLabelFrameTemplate">
-						<Layers>
-							<Layer>
-								<FontString name="$parentLabel" text="Ready Check" inherits="VuDoDefaultTitleFontTemplate">
-								</FontString>
-							</Layer>
-						</Layers>
-					</Frame>
 				</Frames>
 			</Frame>
 
@@ -319,54 +279,14 @@
 				</Frames>
 			</Frame>
 
-			<Frame name="$parentGcdPanel" inherits="VuhDoPanelTemplate">
-				<Size>
-					<AbsDimension x="170" y="74" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="60" y="-235" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Frames>
-
-					<CheckButton name="$parentGcDButton" text="VUHDO_I18N_ENABLE" inherits="VuhDoCheckButtonTemplate">
-						<Anchors>
-							<Anchor point="TOPLEFT">
-								<Offset>
-									<AbsDimension x="13" y="-31" />
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnLoad>
-								VUHDO_lnfSetModel(self, "VUHDO_CONFIG.IS_SHOW_GCD");
-								VUHDO_lnfSetTooltip(self, VUHDO_I18N_TT.K436);
-							</OnLoad>
-						</Scripts>
-					</CheckButton>
-
-					<Frame name="$parentTitleLabel" inherits="VuhDoLabelFrameTemplate">
-						<Layers>
-							<Layer>
-								<FontString name="$parentLabel" text="VUHDO_I18N_GLOBAL_COOLDOWN" inherits="VuDoDefaultTitleFontTemplate">
-								</FontString>
-							</Layer>
-						</Layers>
-					</Frame>
-				</Frames>
-			</Frame>
-
 			<Frame name="$parentCustomAddonsPanel" inherits="VuhDoPanelTemplate">
 				<Size>
-					<AbsDimension x="170" y="112" />
+					<AbsDimension x="126" y="112" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
-							<AbsDimension x="270" y="-200" />
+							<AbsDimension x="270" y="-127" />
 						</Offset>
 					</Anchor>
 				</Anchors>

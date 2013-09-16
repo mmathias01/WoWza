@@ -1,7 +1,7 @@
 local addon = LibStub("AceAddon-3.0"):NewAddon("oRA3")
 local CallbackHandler = LibStub("CallbackHandler-1.0")
 
-addon.VERSION = tonumber(("$Revision: 622 $"):sub(12, -3))
+addon.VERSION = tonumber(("$Revision: 662 $"):sub(12, -3))
 
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 local oraFrame = CreateFrame("Frame", "oRA3Frame", UIParent)
@@ -9,7 +9,7 @@ local oraFrame = CreateFrame("Frame", "oRA3Frame", UIParent)
 BINDING_HEADER_oRA3 = "oRA3"
 BINDING_NAME_TOGGLEORA3 = L["Toggle oRA3 Pane"]
 
-local hexColors, classColors = {}, {}
+local hexColors, classColors = {}, {UNKNOWN = {r = 0.8, g = 0.8, b = 0.8}}
 for k, v in next, RAID_CLASS_COLORS do
 	hexColors[k] = string.format("|cff%02x%02x%02x", v.r * 255, v.g * 255, v.b * 255)
 	classColors[k] = v
@@ -45,11 +45,15 @@ addon.coloredNames = coloredNames
 
 addon.util = {}
 local util = addon.util
-function util:inTable(t, value, subindex)
-	for k, v in pairs(t) do
+function util.inTable(t, value, subindex)
+	for k, v in next, t do
 		if subindex then
-			if type(v) == "table" and v[subindex] == value then return k end
-		elseif v == value then return k end
+			if type(v) == "table" and v[subindex] == value then
+				return k
+			end
+		elseif v == value then
+			return k
+		end
 	end
 	return nil
 end
@@ -66,6 +70,7 @@ local playerPromoted = nil
 local UNGROUPED = 0
 local INPARTY = 1
 local INRAID = 2
+local ININSTANCE = 3
 local groupStatus = UNGROUPED -- flag indicating groupsize
 
 -- overview drek
@@ -75,11 +80,14 @@ local scrollheaders = {} -- scrollheader frames
 local scrollhighs = {} -- scroll highlights
 local secureScrollhighs = {} -- clickable secure scroll highlights
 
+-- guild repair functions
+local onGroupChanged, onShutdown = nil, nil
+
 local function actuallyDisband()
-	if addon:IsPromoted() then
-		SendChatMessage(L["<oRA3> Disbanding group."], addon:InRaid() and "RAID" or "PARTY")
-		for i, unit in next, groupMembers do
-			if unit ~= playerName then
+	if (addon:IsPromoted() or 0) > 1 and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) then
+		SendChatMessage(L["<oRA3> Disbanding group."], IsInRaid() and "RAID" or "PARTY")
+		for _, unit in next, groupMembers do
+			if not UnitIsUnit(unit, "player") then
 				UninviteUnit(unit)
 			end
 		end
@@ -102,7 +110,10 @@ local defaults = {
 		repairFlagStorage = {},
 		repairAmountStorage = {},
 		open = false,
-	}
+	},
+	char = {
+		lastRaidDifficulty = 3,
+	},
 }
 
 local selectList -- implemented down the file
@@ -133,6 +144,14 @@ local function giveOptions()
 					descStyle = "inline",
 					order = 2,
 					width = "full",
+					set = function(info, value)
+						db[info[#info]] = value
+						if not value then
+							onShutdown()
+						elseif groupStatus == 2 then
+							onGroupChanged(nil, groupStatus, groupMembers)
+						end
+					end,
 				},
 				showHelpTexts = {
 					type = "toggle",
@@ -167,11 +186,18 @@ end
 -- Ensure guild repairs
 --
 
-local onGroupChanged, onShutdown = nil, nil
 do
 	local processedRanks = {}
 	function onGroupChanged(event, status, members)
-		if not db.ensureRepair or not IsGuildLeader() or not IsInRaid() or not addon:IsPromoted() then return end
+		local promoted = addon:IsPromoted() or 0
+		if not db.ensureRepair or not IsGuildLeader() or not IsInRaid() or promoted < 2 then return end
+		if status == 3 then -- don't enable for LFR or BGs
+			if next(processedRanks) then -- disable for premades
+				onShutdown(event, status)
+			end
+			return
+		end
+
 		local amount = math.floor(GetAverageItemLevel()) or 300 -- vhaarr am so smrt.. ?!
 		for _, name in next, members do
 			local rankIndex = guildMemberList[name]
@@ -223,9 +249,9 @@ do
 	oraFrame:SetScript("OnEvent", function(_, event, ...)
 		for k,v in next, eventMap[event] do
 			if type(v) == "function" then
-				v(event, ...)
+				v(...)
 			else
-				k[v](k, event, ...)
+				k[v](k, ...)
 			end
 		end
 	end)
@@ -263,6 +289,7 @@ end
 
 function addon:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("oRA3DB", defaults, true)
+	LibStub("LibDualSpec-1.0"):EnhanceDatabase(self.db, "oRA3")
 
 	-- Comm register
 	RegisterAddonMessagePrefix("oRA")
@@ -271,6 +298,7 @@ function addon:OnInitialize()
 	self.callbacks = CallbackHandler:New(self)
 
 	local function profileUpdate()
+		db = self.db.profile
 		self.callbacks:Fire("OnProfileUpdate")
 	end
 
@@ -283,7 +311,9 @@ function addon:OnInitialize()
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("oRA3", giveOptions)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("oRA3", "oRA3")
 
-	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("oRA3 Profile", LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db))
+	local profileOptions = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	LibStub("LibDualSpec-1.0"):EnhanceOptions(profileOptions, self.db)
+	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("oRA3 Profile", profileOptions)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("oRA3 Profile", L["Profile"], "oRA3")
 
 	local function OnRaidHide()
@@ -300,7 +330,7 @@ function addon:OnInitialize()
 		if addon:IsEnabled() and db.toggleWithRaid then
 			addon:ToggleFrame(true)
 		end
-		if addon.rehookAfterRaidUILoad and IsAddOnLoaded("Blizzard_RaidUI") then 
+		if addon.rehookAfterRaidUILoad and IsAddOnLoaded("Blizzard_RaidUI") then
 			-- Blizzard_RaidUI overwrites the RaidFrame "OnHide" script squashing the hook registered above, so re-hook.
 			addon.rehookAfterRaidUILoad = nil
 			RaidFrame:HookScript("OnHide", OnRaidHide)
@@ -341,6 +371,7 @@ function addon:OnEnable()
 
 	self.RegisterCallback(addon, "OnGroupChanged", onGroupChanged)
 	self.RegisterCallback(addon, "OnShutdown", onShutdown)
+	self.RegisterCallback(addon, "ConvertParty", onShutdown)
 
 	SLASH_ORADISBAND1 = "/radisband"
 	SlashCmdList.ORADISBAND = actuallyDisband
@@ -368,13 +399,19 @@ function addon:OnDisable()
 end
 
 do
+	local unitJoinedParty = '^' .. JOINED_PARTY:gsub("%%s", "(%%S+)") .. '$'
 	local unitJoinedRaid = '^' .. ERR_RAID_MEMBER_ADDED_S:gsub("%%s", "(%%S+)") .. '$'
-	function addon:CHAT_MSG_SYSTEM(event, msg)
-		if not IsInRaid() then return end
-		local _, _, name = msg:find(unitJoinedRaid)
-		if not name then return end
-		if rawget(coloredNames, name) then
-			coloredNames[name] = nil
+	local unitJoinedInstanceGroup = '^' .. ERR_INSTANCE_GROUP_ADDED_S:gsub("%%s", "(%%S+)") .. '$'
+	local difficultyChanged = '^' .. ERR_RAID_DIFFICULTY_CHANGED_S:gsub("%%s", ".-") .. '$'
+	function addon:CHAT_MSG_SYSTEM(msg)
+		if msg:find(difficultyChanged) then
+			-- firing PLAYER_DIFFICULTY_CHANGED outside of instances would be nice ;[
+			self.callbacks:Fire("OnDifficultyChanged")
+		elseif IsInGroup() then
+			local name = msg:match(unitJoinedParty) or msg:match(unitJoinedInstanceGroup) or msg:match(unitJoinedRaid)
+			if name and rawget(coloredNames, name) then
+				coloredNames[name] = nil
+			end
 		end
 	end
 end
@@ -393,17 +430,17 @@ do
 	end
 	local function isKeyedEqual(a, b)
 		local aC, bC = 0, 0
-		for k in pairs(a) do aC = aC + 1 end
-		for k in pairs(b) do bC = bC + 1 end
+		for k in next, a do aC = aC + 1 end
+		for k in next, b do bC = bC + 1 end
 		if aC ~= bC then return false end
-		for k, v in pairs(a) do
+		for k, v in next, a do
 			if not b[k] or v ~= b[k] then return false end
 		end
 		return true
 	end
 	local function copyToTable(src, dst)
 		wipe(dst)
-		for i, v in pairs(src) do dst[i] = v end
+		for i, v in next, src do dst[i] = v end
 	end
 
 	local tmpRanks = {}
@@ -443,16 +480,16 @@ do
 	local tmpGroup = {}
 	local tmpTanks = {}
 
-	function addon:GROUP_ROSTER_UPDATE(event)
+	function addon:GROUP_ROSTER_UPDATE()
 		local oldStatus = groupStatus
-		groupStatus = IsInRaid() and INRAID or IsInGroup() and INPARTY or UNGROUPED
+		groupStatus = IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and ININSTANCE or IsInRaid() and INRAID or IsInGroup() and INPARTY or UNGROUPED
 		if oldStatus ~= groupStatus and groupStatus ~= UNGROUPED then
 			self:SendComm("RequestUpdate")
 		end
 
 		wipe(tmpGroup)
 		wipe(tmpTanks)
-		if groupStatus == INRAID then
+		if IsInRaid() then
 			for i = 1, GetNumGroupMembers() do
 				local n, _, _, _, _, _, _, _, _, role = GetRaidRosterInfo(i)
 				if n then
@@ -462,8 +499,8 @@ do
 					end
 				end
 			end
-		elseif groupStatus == INPARTY then
-			table.insert(tmpGroup, playerName)
+		elseif IsInGroup() then
+			tinsert(tmpGroup, playerName)
 			for i = 1, 4 do
 				local n = UnitName("party" .. i)
 				if n then tmpGroup[#tmpGroup + 1] = n end
@@ -478,7 +515,6 @@ do
 			-- may need to adjust based on preferences.
 			copyToTable(tmpTanks, tanks)
 			self.callbacks:Fire("OnTanksChanged", tanks)
-			--lastTankCount = currTankCount
 		end
 		if groupStatus == UNGROUPED and oldStatus > groupStatus then
 			self.callbacks:Fire("OnShutdown", groupStatus)
@@ -488,10 +524,13 @@ do
 		if oldStatus == INPARTY and groupStatus == INRAID then
 			self.callbacks:Fire("OnConvertRaid", groupStatus)
 		end
+		if oldStatus == INRAID and groupStatus == INPARTY then
+			self.callbacks:Fire("OnConvertParty", groupStatus)
+		end
 		if playerPromoted ~= self:IsPromoted() then
 			playerPromoted = self:IsPromoted()
 			if playerPromoted then
-				self:OnPromoted()
+				self:OnPromoted(playerPromoted)
 				self.callbacks:Fire("OnPromoted", playerPromoted)
 			else
 				self:OnDemoted()
@@ -501,23 +540,17 @@ do
 	end
 end
 
-function addon:InGroup()
-	return groupStatus == INRAID or groupStatus == INPARTY
-end
-
-function addon:InRaid()
-	return groupStatus == INRAID
-end
-
-function addon:InParty()
-	return groupStatus == INPARTY
-end
-
 function addon:IsPromoted(name)
 	if groupStatus == UNGROUPED then return end
 
-	if not name then name = playerName end
-	return UnitIsGroupLeader(name) or UnitIsGroupAssistant(name)
+	if not name then name = "player" end
+	if UnitIsGroupLeader(name) then
+		return 3
+	elseif IsEveryoneAssistant() then
+		return 1
+	elseif UnitIsGroupAssistant(name) then
+		return 2
+	end
 end
 
 -----------------------------------------------------------------------
@@ -525,11 +558,14 @@ end
 --
 
 function addon:SendComm(...)
-	if groupStatus == UNGROUPED or UnitInBattleground("player") then return end
-	SendAddonMessage("oRA", strjoin(" ", ...), IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
+	if groupStatus == UNGROUPED then
+		addon.callbacks:Fire("OnCommReceived", playerName, ...)
+	elseif not UnitInBattleground("player") then
+		SendAddonMessage("oRA", strjoin(" ", ...), IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
+	end
 end
 
-function addon:OnCommReceived(_, prefix, message, distribution, sender)
+function addon:OnCommReceived(prefix, message, distribution, sender)
 	if prefix == "oRA" then
 		self.callbacks:Fire("OnCommReceived", sender, strsplit(" ", message))
 	end
@@ -617,7 +653,7 @@ local function setupGUI()
 			StaticPopup_Show("oRA3DisbandGroup")
 		end
 	end)
-	if addon:IsPromoted() then
+	if (addon:IsPromoted() or 0) > 1 and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) then
 		disband:Enable()
 	else
 		disband:Disable()
@@ -641,20 +677,20 @@ local function setupGUI()
 		PlaySound("igCharacterInfoTab")
 		addon:SelectPanel(self:GetText())
 	end
-	frame.selectedTab = 1
-	for i, tab in next, panels do
+	for i, tab in ipairs(panels) do
 		local f = CreateFrame("Button", "oRA3FrameTab"..i, frame, "CharacterFrameTabButtonTemplate")
 		if i > 1 then
 			f:SetPoint("TOPLEFT", _G["oRA3FrameTab"..(i - 1)], "TOPRIGHT", -16, 0)
 		else
-			f:SetPoint("BOTTOMLEFT", 11,46)
+			f:SetPoint("BOTTOMLEFT", 11, 49)
 		end
 		f:SetText(tab.name)
 		f:SetScript("OnClick", selectPanel)
+		f:SetScale(0.95)
 
-		PanelTemplates_SetNumTabs(oRA3Frame, i)
-		PanelTemplates_UpdateTabs(oRA3Frame)
+		PanelTemplates_SetNumTabs(frame, i)
 	end
+	PanelTemplates_SetTab(frame, 1)
 
 	local subframe = CreateFrame("Frame", nil, frame)
 	subframe:SetPoint("TOPLEFT", 18, -70)
@@ -767,16 +803,18 @@ function addon:ToggleFrame(force)
 	end
 end
 
-function addon:OnPromoted()
-	if oRA3Disband then
+function addon:OnPromoted(promoted)
+	if oRA3Disband and promoted > 1 and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) then
 		oRA3Disband:Enable()
 	end
+	onGroupChanged("OnPromoted", groupStatus, groupMembers)
 end
 
 function addon:OnDemoted()
 	if oRA3Disband then
 		oRA3Disband:Disable()
 	end
+	onShutdown("OnDemoted", groupStatus)
 end
 
 function addon:SetAllPointsToPanel(frame, aceguihacky)

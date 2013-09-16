@@ -14,20 +14,19 @@ MSBTProfiles_SavedVars = {
 			["creationVersion"] = "5.7.125",
 			["powerThrottleDuration"] = 4,
 			["scrollAreas"] = {
+				["Notification"] = {
+					["disabled"] = true,
+				},
 				["Static"] = {
 					["disabled"] = true,
 				},
-				["Incoming"] = {
-					["offsetX"] = -180,
-				},
 				["Outgoing"] = {
-					["offsetX"] = 140,
+					["offsetX"] = 260,
+				},
+				["Incoming"] = {
+					["offsetX"] = -300,
 				},
 			},
-			["groupNumbers"] = true,
-			["critFontName"] = "MSBT Adventure",
-			["cooldownThreshold"] = 10,
-			["normalFontName"] = "Vixar",
 			["events"] = {
 				["NOTIFICATION_BUFF_FADE"] = {
 					["scrollArea"] = "Notification",
@@ -130,6 +129,10 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Notification",
 				},
 			},
+			["critFontName"] = "MSBT Adventure",
+			["cooldownThreshold"] = 10,
+			["normalFontName"] = "Vixar",
+			["groupNumbers"] = true,
 			["normalFontSize"] = 15,
 		},
 	},

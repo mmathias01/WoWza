@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(173, "DBM-BlackwingDescent", nil, 73)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(41378)
-mod:SetModelID(33186)
 mod:SetZone()
 mod:SetUsedIcons(1, 2, 3, 4, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_MaloriakIntro01.wav", "Sound\\Creature\\Maloriak\\VO_BD_Maloriak_Event05.wav")
@@ -19,7 +18,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"SPELL_INTERRUPT",
 	"RAID_BOSS_EMOTE",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH boss1"
 )
 
 local isDispeller = select(2, UnitClass("player")) == "MAGE"

@@ -37,26 +37,26 @@ GoingPrice_US_SV = {
 		["Buy From Vendor"] = 3,
 		["Market Mean"] = 1,
 	},
-	["Std Deviation"] = {
-		["next"] = "Buy From Vendor",
-		["keep"] = true,
-		["checked"] = true,
-		["prev"] = "Market Mean",
+	["_discard"] = {
+		["checked"] = false,
 	},
 	["Market Mean"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["next"] = "Std Deviation",
 	},
-	["_lib_major_version"] = 2,
-	["_lib_minor_version"] = 5,
 	["Buy From Vendor"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["prev"] = "Std Deviation",
 	},
+	["_lib_minor_version"] = 7,
 	["_lastKey"] = "Buy From Vendor",
-	["_discard"] = {
-		["checked"] = false,
+	["_lib_major_version"] = 2,
+	["Std Deviation"] = {
+		["prev"] = "Market Mean",
+		["keep"] = true,
+		["checked"] = true,
+		["next"] = "Buy From Vendor",
 	},
 }

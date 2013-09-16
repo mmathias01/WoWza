@@ -433,7 +433,7 @@ function VUHDO_customizeText(aButton, aMode, anIsTarget)
 
 		elseif 3 == tLifeConfig["mode"] then -- VUHDO_LT_MODE_MISSING
 			tMissLife = tLifeAmount - tInfo["healthmax"];
-			if (tMissLife < -10) then
+			if tMissLife < -10 then
 
 				if tLifeConfig["showTotalHp"] then
 					tLifeString = format("%s / %s",
@@ -477,9 +477,7 @@ function VUHDO_customizeText(aButton, aMode, anIsTarget)
 	elseif tIsLife then
 		if tIsLifeLeftOrRight then
 
-			if tTagText ~= "" then
-				tTextString = tTagText .. "-" .. tTextString;
-			end
+			if tTagText ~= "" then tTextString = tTagText .. "-" .. tTextString; end
 			VUHDO_getLifeText(tHealthBar):SetText("");
 		else
 			VUHDO_getLifeText(tHealthBar):SetText(tTagText);

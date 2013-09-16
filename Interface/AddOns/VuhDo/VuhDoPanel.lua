@@ -63,8 +63,7 @@ local VUHDO_getDynamicModelArray = VUHDO_getDynamicModelArray;
 --
 function VUHDO_getHeaderText(aModelId)
 	return 10 == aModelId -- VUHDO_ID_GROUP_OWN
-		and VUHDO_HEADER_TEXTS[aModelId] .. " (" .. VUHDO_PLAYER_GROUP .. ")"
-		or VUHDO_HEADER_TEXTS[aModelId];
+		and VUHDO_HEADER_TEXTS[aModelId] .. " (" .. VUHDO_PLAYER_GROUP .. ")" or VUHDO_HEADER_TEXTS[aModelId];
 end
 local VUHDO_getHeaderText = VUHDO_getHeaderText;
 
@@ -77,16 +76,14 @@ function VUHDO_customizeHeader(aHeader, aPanelNum, aModelId)
 	tHeaderText = VUHDO_getHeaderTextId(aHeader);
 	tHeaderText:SetText(VUHDO_getHeaderText(aModelId));
 
-	if VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["classColorsHeader"]
-		and 1 == VUHDO_getModelType(aModelId) then -- VUHDO_ID_TYPE_CLASS
+	if VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["classColorsHeader"] and 1 == VUHDO_getModelType(aModelId) then -- VUHDO_ID_TYPE_CLASS
 		tColor = VUHDO_getClassColorByModelId(aModelId);
 	else
 		tColor = VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["HEADER"];
 	end
 	tHeaderText:SetTextColor(VUHDO_textColor(tColor));
 
-	if VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["classColorsBackHeader"]
-		and 1 == VUHDO_getModelType(aModelId) then -- VUHDO_ID_TYPE_CLASS
+	if VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["classColorsBackHeader"] and 1 == VUHDO_getModelType(aModelId) then -- VUHDO_ID_TYPE_CLASS
 		tColor = VUHDO_getClassColorByModelId(aModelId);
 	else
 		tColor = VUHDO_PANEL_SETUP[aPanelNum]["PANEL_COLOR"]["HEADER"];
@@ -119,9 +116,7 @@ local function VUHDO_cutSubGroup(anIdentifier, aPanelNum, aModelIndex)
 	tDynModel = VUHDO_getDynamicModelArray(aPanelNum);
 	tOccurrence = 0;
 	for tModelNo = 1, aModelIndex do
-		if tDynModel[tModelNo] == anIdentifier then
-			tOccurrence = tOccurrence + 1;
-		end
+		if tDynModel[tModelNo] == anIdentifier then tOccurrence = tOccurrence + 1; end
 	end
 
 	tMaxRows = VUHDO_PANEL_SETUP[aPanelNum]["SCALING"]["arrangeHorizontal"]

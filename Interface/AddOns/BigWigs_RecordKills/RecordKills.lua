@@ -1,6 +1,5 @@
 --@Name: BigWigs RecordKills
 --@Author: Kiezo @ Bleeding Hollow
---@Version: 1.22
 --@Notes: Many thanks to Funkydude and the creators of BigWigs for the boss mod this add-on is based on.
 --@Todo:
 --===============================================================================
@@ -23,9 +22,9 @@ Broker_RK = ldb:NewDataObject("Record Kills", {
   end, 
   OnClick = function(self, button)
 	if button == "RightButton" then 
-		addon:UpdateTierShown(self)
+		addon:CycleTierShown(self)
 	else 
-		addon:UpdateDiffShown(self) 
+		addon:CycleDiffShown(self) 
 	end
   end,
   OnLeave = function(self)
@@ -38,9 +37,10 @@ local defaults = {
 	-- options 
 	RK_DEBUG = false,
 	showAllTiers = false,
+	showAllBosses = true,
 
-	tierShown = 15,
-	prevTierShown = 15,
+	tierShown = C["CURRENT_TIER"],
+	prevTierShown = C["CURRENT_TIER"],
 	diffShown = 3,
 	prevDiffShown = 3,
 	recordTimes = {},
@@ -58,11 +58,11 @@ function addon:OnInitialize()
 	addon:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 
 	if BigWigsLoader then
-			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWipe", "onBossWipe")
-			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossEngage", "onBossEngage")
-			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWin", "onBossWin")
-			addon:dlog("BigWigsLoader present. Messages registered.")
-		end
+		BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWipe", "onBossWipe")
+		BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossEngage", "onBossEngage")
+		BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWin", "onBossWin")
+		addon:dlog("BigWigsLoader present. Messages registered.")
+	end
 
 	if self.db.profile.firstLoad then
 		addon:ImportRecords()
@@ -79,7 +79,15 @@ function addon:SlashHandler(input)
 
 	elseif (input == "reset") then
 		for k,v in pairs(self.db.profile.recordTimes) do 
-			self.db.profile.recordTimes[k]=nil 
+			self.db.profile.recordTimes[k]=nil
+			self.db.profile.firstLoad = true
+			self.db.profile.showAllBosses = true
+			self.db.profile.showAllTiers = false
+			self.db.profile.diffShown = 3
+			self.db.profile.prevDiffShown = 3 
+			self.db.profile.tierShown = C["CURRENT_TIER"]
+			self.db.profile.prevTierShown = C["CURRENT_TIER"]
+			self.db.profile.RK_DEBUG = false
 		end
 		addon:rlog("Data |c00FF0000Reset|r.")
 
@@ -92,7 +100,7 @@ function addon:SlashHandler(input)
 			addon:rlog("Debugging |c00FF0000OFF|r.")
 		end
 
-	elseif (input == "showAll") then
+	elseif (input == "allTiers") then
 		self.db.profile.showAllTiers = not self.db.profile.showAllTiers
 
 		if (self.db.profile.showAllTiers) then
@@ -101,16 +109,25 @@ function addon:SlashHandler(input)
 			addon:rlog("Showing All Tiers: |c00FF0000OFF|r.")
 		end
 
+	elseif (input == "allBosses") then
+		self.db.profile.showAllBosses = not self.db.profile.showAllBosses
+
+		if (self.db.profile.showAllBosses) then
+			addon:rlog("Showing All Bosses: |c0000FF00ON|r.")
+		else
+			addon:rlog("Showing All Bosses: |c00FF0000OFF|r.")
+		end
+
 	elseif (input == "import") then
 		addon:ImportRecords()
 
 	else
 		local command, instance, encounter, diff, extraArg = self:GetArgs(input, 5, 1, _)
 		if command == "remove" then
-			if (instance and encounter and diff and not extraArg and tonumber(diff) >= 3 and tonumber(diff) <= 7) then
+			if instance and encounter and diff and not extraArg and ((tonumber(diff) >= 3 and tonumber(diff) <= 7) or tonumber(diff) == 14) then
 	 			addon:RemoveBestTime(instance, encounter, diff)
 			else
-				addon:rlog("Improper usage. [/bwrk remove \"<Instance>\" \"<Encounter>\" <Difficulty Index (3-7)>]")
+				addon:rlog("Improper usage. [/bwrk remove \"<Instance>\" \"<Encounter>\" <Difficulty Index (3-7,14)>]")
 			end
 		else
 			addon:rlog("Not a recognized command.")
@@ -122,7 +139,7 @@ function addon:ImportRecords()
 	local statDB = BigWigsStatisticsDB
 	if not statDB then return end
 
-	local diffRef = {["10"] = 3, ["25"] = 4, ["10h"] = 5, ["25h"] = 6, ["lfr"] = 7}	
+	local diffRef = {["10"] = 3, ["25"] = 4, ["10h"] = 5, ["25h"] = 6, ["lfr"] = 7, ["flex"] = 14}	
 
 	for zoneID, idArray in pairs (statDB) do
 		for eID, diffArray in pairs (idArray) do
@@ -149,45 +166,29 @@ end
 --BOSS ENGAGE/WIPE/KILL DETECTION THROUGH BIGWIGS
 --===============================================================================
 function addon:onBossEngage(self, module) 
-	if (not addon.db.profile.RK_DEBUG) then 
-		if (not addon:ShouldRecord(addon:InstanceName()) or not module.encounterId) then 
-			return 
-		end
-	end
+	if (not addon:ShouldRecord(addon:InstanceName()) or not module.encounterId) then return end
 
 	--add the 'start time' to activeEncounters
 	activeEncounters[module.encounterId] = GetTime() --denotes the start time of a boss
-	
-	--add a 'best kill' bar to BW
-	addon:StartRecordTimer(addon:InstanceName(), module)
 
-	--announce that a boss is in combat
+	--add a 'best kill' bar to BW and announce
+	addon:StartRecordTimer(addon:InstanceName(), module)
 	addon:dlog(string.format("Encounter Engaged: %s [%i]", module.moduleName, module.encounterId))
 end
 
 function addon:onBossWipe(sender, module)
-	if (not addon.db.profile.RK_DEBUG) then 
-		if (not addon:ShouldRecord(addon:InstanceName()) or not module.encounterId) then 
-			return 
-		end
-	end
+	if (not addon:ShouldRecord(addon:InstanceName()) or not module.encounterId) then return end
 
-	--reset the 'start time' for this activeEncounter
+	--reset the 'start time' for this activeEncounter 
 	activeEncounters[module.encounterId] = nil
 
-	--kill the BW 'best kill' bar
+	--kill the BW 'best kill' bar and announce
 	addon:EndRecordTimer(module)
-
-	--announce that the boss encounter has ended
 	addon:dlog(string.format("Encounter Wiped: %s [%i]", module.moduleName, module.encounterId))
 end
 
 function addon:onBossWin(sender, module) 
-	if (not addon.db.profile.RK_DEBUG) then 
-		if (not addon:ShouldRecord(addon:InstanceName()) or curTime == 0 or not module.encounterId) then 
-			return 
-		end
-	end
+	if (not addon:ShouldRecord(addon:InstanceName()) or not module.encounterId) then return end
 
 	--determine the current and previous best times
 	local curTime = -1
@@ -196,7 +197,13 @@ function addon:onBossWin(sender, module)
 	if activeEncounters[module.encounterId] then
 		curTime = addon:round(GetTime() - activeEncounters[module.encounterId])
 	else
-		addon:rlog("[ERROR] "..module.moduleName.." defeated, but no engage broadcast was sent.") 
+		addon:rlog("[ERROR] "..module.moduleName.." defeated, but no engage broadcast was detected.")
+		if BigWigsLoader then
+			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWipe", "onBossWipe")
+			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossEngage", "onBossEngage")
+			BigWigsLoader.RegisterMessage(addon, "BigWigs_OnBossWin", "onBossWin")
+			addon:dlog("BigWigsLoader present. Messages registered.")
+		end 
 		return 
 	end
 
@@ -210,23 +217,19 @@ function addon:onBossWin(sender, module)
 			else
 				addon:rlog(string.format("%s defeated in %s!", module.moduleName, addon:FormatTime(curTime)))
 			end
-		elseif prevTime > 0 then
-			addon:dlog(string.format("%s has been defeated in %s (NOT A RECORD)!", module.moduleName, addon:FormatTime(curTime)))
 		end
 	end
 	addon:EndRecordTimer(module)	
 end
 
 function addon:ShouldRecord(raidName)
-	local pLevel = UnitLevel("player")
-	if pLevel ~= C["MAX_LEVEL"] then return false end
+	if UnitLevel("player") ~= C["MAX_LEVEL"] then return false end
 
 	local tierList = C["RAID_LOOKUP"]
-
-	for i=C["MINIMUM_TIER"], C["CURRENT_TIER"] do
-		for k=1, #tierList[i]["raids"] do
-			if raidName == tierList[i]["raids"][k].name  and pLevel == tierList[i]["raids"][k].level then
-				--The raid your in exists for tracking, and you are the appropriate level for it
+	for tierNum=C["MINIMUM_TIER"], C["CURRENT_TIER"] do
+		for k=1, #tierList[tierNum]["raids"] do
+			if raidName == tierList[tierNum]["raids"][k].name  and UnitLevel("player") == tierList[tierNum]["raids"][k].level then
+				--The raid you'rer in exists for tracking, and you are the appropriate level for it
 				return true
 			end
 		end
@@ -251,61 +254,81 @@ function addon:DisplayRecords(frame)
 		else
 			tierShown = C["RAID_LOOKUP"][C["CURRENT_TIER"]]["raids"]
 		end
-	
-		GameTooltip:AddLine(string.format("Tier %i Record Kills [%s]\n", addon.db.profile.tierShown, diffLookup.shortName))
 
-		for i=1, #tierShown do
+		GameTooltip:AddLine(string.format("Tier %i Record Kills [%s]\n", addon.db.profile.tierShown, diffLookup.name))
+
+		for i=1, #tierShown do --Cycle through all the raids in the tier
 			local raidName = tierShown[i].name
 
-			if addon:RecordsForDifficulty(raidName, diffLookup.index) > 0 then
+			if addon:RecordsForDifficulty(raidName, diffLookup.index) > 0 or addon.db.profile.showAllBosses then
 				GameTooltip:AddLine(raidName)
-			
-				local eList = tierShown[i]["encounters"]
-				for k=1, #eList do
-					local record = addon:GetBestTime(raidName, eList[k].eName, diffLookup.index)
+				local bossList = tierShown[i]["encounters"]
+
+				for k=1, #bossList do
+					local record = addon:GetBestTime(raidName, bossList[k].eName, diffLookup.index)
+
 					if (record > 0) then
-						GameTooltip:AddDoubleLine("  |cFFFFFFFF".. eList[k].eName .."", ""..addon:FormatTime(record).."|r")
+						GameTooltip:AddDoubleLine("  |cFFFFFFFF".. bossList[k].eName .."", ""..addon:FormatTime(record).."|r")
+					elseif addon.db.profile.showAllBosses then
+						if (bossList[k].heroicOnly and diffLookup.index > 4 and diffLookup.index < 7) or not bossList[k].heroicOnly then
+							GameTooltip:AddDoubleLine("  |cFFFFFFFF".. bossList[k].eName .."", "|cFF00FF00ALIVE|r")
+						end
 					end
 				end	 		
 			end	
 		end
 	else
-		GameTooltip:AddLine(string.format("Record Kills [%s]\n", diffLookup.shortName))
+		--Showing ALL tiers for this current level (ex: all MoP tiers)
+		GameTooltip:AddLine(string.format("Record Kills [%s]\n", diffLookup.name))
 
-		for tierNum, tierList in pairs (C["RAID_LOOKUP"]) do
-			local tierShown = tierList["raids"]
+		for tierNum = C["MINIMUM_TIER"], C["CURRENT_TIER"] do
+			local tierShown = C["RAID_LOOKUP"][tierNum]["raids"]
 
-			for i=1, #tierShown do
+			for i=1, #tierShown do --Cycle through all the raids in the tier
 				local raidName = tierShown[i].name
 
-				if addon:RecordsForDifficulty(raidName, diffLookup.index) > 0 then
-					GameTooltip:AddLine(raidName)
-			
-					local eList = tierShown[i]["encounters"]
-					for k=1, #eList do
-						local record = addon:GetBestTime(raidName, eList[k].eName, diffLookup.index)
-						if (record > 0) then
-							GameTooltip:AddDoubleLine("  |cFFFFFFFF".. eList[k].eName .."", ""..addon:FormatTime(record).."|r")
+				if tierShown[i].level == UnitLevel("player") and addon:TierHasDifficulty(tierNum, diffLookup.index) then
+					if addon:RecordsForDifficulty(raidName, diffLookup.index) > 0 or addon.db.profile.showAllBosses then
+						GameTooltip:AddLine(raidName)
+						local bossList = tierShown[i]["encounters"]
+
+						for j=1, #bossList do
+							local record = addon:GetBestTime(raidName, bossList[j].eName, diffLookup.index)	
+
+							if (record > 0) then
+								GameTooltip:AddDoubleLine("  |cFFFFFFFF".. bossList[j].eName .."", ""..addon:FormatTime(record).."|r")
+							elseif addon.db.profile.showAllBosses then
+								if (bossList[j].heroicOnly and diffLookup.index > 4 and diffLookup.index < 7) or not bossList[j].heroicOnly then
+									GameTooltip:AddDoubleLine("  |cFFFFFFFF".. bossList[j].eName .."", "|cFF00FF00ALIVE|r")
+								end
+							end
 						end
 					end	 		
 				end	
 			end
-		end
+		end	
 	end
 
-	if GameTooltip:NumLines() == 1 then GameTooltip:AddLine("No records found.") end
-	GameTooltip:Show()
+	if GameTooltip:NumLines() == 1 then GameTooltip:AddLine("No records available.") end
+		GameTooltip:Show()
 end
 
 function addon:RecordsForDifficulty(raidName, difficulty)
+	if not addon.db.profile.recordTimes[raidName] then return 0 end
 	local count = 0
+
 	for bossName, diffArray in pairs(addon.db.profile.recordTimes[raidName]) do
 		local record = addon:GetBestTime(raidName, bossName, difficulty)
 		if record and record > 0 then
 			count = count + 1
 		end
 	end
-	return count;
+	return count
+end
+
+function addon:TierHasDifficulty(tierNum, hasDiff)
+	return hasDiff < 7 or (tierNum >= 13 and hasDiff == 7)  or (tierNum >= 16 and hasDiff == 14)
+	--Norm/Heroic -- LFR --  Flex
 end
 
 function addon:FormatTime(seconds)
@@ -315,7 +338,6 @@ function addon:FormatTime(seconds)
 
 	local mins= math.floor(seconds/60)
 	local secs= seconds - (mins*60)
-
 	return string.format("%i:%02d", mins, secs)
 end
 
@@ -342,27 +364,37 @@ function addon:ZONE_CHANGED_NEW_AREA()
 	end
 end
 
-function addon:UpdateDiffShown(self)
-	addon.db.profile.diffShown = addon.db.profile.diffShown + 1
-	if addon.db.profile.diffShown >= 8 then addon.db.profile.diffShown = 3 end
+function addon:CycleDiffShown(self)
+	local diff = addon.db.profile.diffShown + 1
 
+	if diff > 7 and diff < 14 and addon.db.profile.tierShown >= 16 then
+		diff = 14
+	elseif diff > 7 then
+		diff = 3
+	end
+
+	addon.db.profile.diffShown = diff
 	addon:DisplayRecords(self)
 end
 
-function addon:UpdateTierShown(self)
+function addon:CycleTierShown(self)
 	addon.db.profile.tierShown = addon.db.profile.tierShown + 1
 	if addon.db.profile.tierShown > C["CURRENT_TIER"] then addon.db.profile.tierShown = C["MINIMUM_TIER"] end
+
+	if addon.db.profile.diffShown == 14 and addon.db.profile.tierShown < 16 then -- Flex difficulty where Flex doesn't exist
+		addon:SetDiffShown(3)
+	end
 
 	addon:DisplayRecords(self)
 end
 
 function addon:SetDiffShown(newDiff)
-	if newDiff < 3 or newDiff > 7 then return end
+	if (newDiff < 3 or newDiff > 7) and not newDiff == 14 then return end
 	addon.db.profile.diffShown = newDiff
 end
 
 function addon:SetTierShown(newTier)
-	if newTier == -1 then return end
+	if newTier == -1 or newTier > C["CURRENT_TIER"] or newTier < C["MINIMUM_TIER"] then return end
 	addon.db.profile.tierShown = newTier	
 end
 
@@ -394,12 +426,20 @@ function addon:SetBestTime(instance, boss, difficulty, time)
 		self.db.profile.recordTimes[instance][boss][difficulty] = time
 		addon:dlog("RK: Time Set for "..boss..": "..time)
 	end
+
+	--If this is a heroic record and there is no normal record for this boss, duplicate it to normal.
+	if difficulty == 5 or difficulty == 6 then
+		local normTime = addon:GetBestTime(instance, boss, difficulty-2)
+		if (not normTime or normTime < 0) then
+			addon:SetBestTime(instance, boss, difficulty-2)
+		end
+	end
 end
 
 function addon:RemoveBestTime(instance, boss, difficulty)
 	if (addon:GetBestTime(instance, boss, tonumber(difficulty)) > 0) then
 		self.db.profile.recordTimes[instance][boss][tonumber(difficulty)] = -1 --resets to the 'nil' value
-		addon:rlog(boss.." record removed.") 
+		addon:rlog(boss.." [".. C["DIFFICULTY"][tonumber(difficulty)].name .."] record removed.") 
 	else
 		addon:rlog("No record found to remove.") 
 	end
@@ -409,10 +449,10 @@ end
 --CREATION/REMOVAL OF BIGWIGS RECORD KILL BARS
 --===============================================================================
 function addon:StartRecordTimer(instance, module)
-	if not BigWigs then return end
+	if not BigWigs then addon:rlog("No record bar created. 'BW' not found.") return end
 
 	local bars = BigWigs:GetPlugin("Bars", true)
-	if not bars then return end
+	if not bars then addon:rlog("No record bar created. 'Bars' plugin not found.") return end
 	
 	local bestTime = addon:GetBestTime(instance, module.moduleName, addon:InstanceDiff())	
 	bars:BigWigs_StartBar(_, module, nil, "Record Kill", bestTime, icon, false)
@@ -439,14 +479,7 @@ function addon:InstanceName()
 end
 
 function addon:InstanceDiff()
-	return select(3, GetInstanceInfo())
-end
-
-function addon:EffectiveLevel()
-	local pLevel = UnitLevel("player")
-
-	if pLevel%5 == 0 then return pLevel end
-	return pLevel - (pLevel%5)
+	return select (3, GetInstanceInfo())
 end
 
 function addon:GetTierForRaid(raidName)

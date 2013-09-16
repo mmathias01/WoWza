@@ -1,0 +1,102 @@
+
+ElvDB = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Saphiira - Terenas",
+	},
+	["gold"] = {
+		["Terenas"] = {
+			["Saphiira"] = 420437,
+		},
+	},
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profiles"] = {
+		["Saphiira - Terenas"] = {
+			["layoutSet"] = "dpsCaster",
+			["movers"] = {
+				["ElvUF_Raid40Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM042",
+				["ElvAB_2"] = "BOTTOMElvUIParentBOTTOM038",
+				["ElvUF_PartyMover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["ElvUF_Raid10Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["ElvUF_PetMover"] = "BOTTOMElvUIParentBOTTOM0150",
+				["ElvUF_Raid25Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["BossButton"] = "BOTTOMElvUIParentBOTTOM0195",
+				["ElvUF_PlayerMover"] = "BOTTOMElvUIParentBOTTOM-278110",
+				["ElvUF_TargetTargetMover"] = "BOTTOMElvUIParentBOTTOM0110",
+				["ElvUF_TargetMover"] = "BOTTOMElvUIParentBOTTOM278110",
+			},
+			["general"] = {
+				["valuecolor"] = {
+					["b"] = 0.99,
+					["g"] = 0.99,
+					["r"] = 0.99,
+				},
+				["bordercolor"] = {
+					["b"] = 0.31,
+					["g"] = 0.31,
+					["r"] = 0.31,
+				},
+			},
+			["unitframe"] = {
+				["units"] = {
+					["player"] = {
+						["castbar"] = {
+							["width"] = 406,
+							["height"] = 28,
+						},
+					},
+					["target"] = {
+						["debuffs"] = {
+							["enable"] = false,
+						},
+						["smartAuraDisplay"] = "SHOW_DEBUFFS_ON_FRIENDLIES",
+						["aurabar"] = {
+							["attachTo"] = "BUFFS",
+						},
+						["buffs"] = {
+							["playerOnly"] = {
+								["friendly"] = true,
+							},
+						},
+					},
+				},
+				["colors"] = {
+					["auraBarBuff"] = {
+						["b"] = 0.99,
+						["g"] = 0.99,
+						["r"] = 0.99,
+					},
+					["healthclass"] = true,
+					["castClassColor"] = true,
+				},
+			},
+			["datatexts"] = {
+				["panels"] = {
+					["LeftChatDataPanel"] = {
+						["right"] = "Haste",
+						["left"] = "Spell/Heal Power",
+					},
+				},
+			},
+		},
+	},
+}
+ElvPrivateDB = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Saphiira - Terenas",
+	},
+	["profiles"] = {
+		["Saphiira - Terenas"] = {
+			["skins"] = {
+				["addons"] = {
+					["AlwaysTrue"] = true,
+				},
+			},
+			["theme"] = "class",
+			["install_complete"] = "5.88",
+		},
+	},
+}

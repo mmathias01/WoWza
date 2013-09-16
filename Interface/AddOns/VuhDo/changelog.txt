@@ -1,3 +1,40 @@
+Version 3.44.
+
+
+Bugfixes:
+-- Minor bugfixes
+
+
+Improvements:
+
+
+Changes:
+
+
+Features:
+
+
+--------------------------------------------------------------
+Version 3.43.
+
+
+Bugfixes:
+-- Fixed possible taint in debuff handling
+-- Minor bugfixes
+
+
+Improvements:
+
+
+Changes:
+-- Some checkboxes Options=>General=>Misc changed to "enable"
+	instead of "disable" style
+
+
+Features:
+
+
+--------------------------------------------------------------
 Version 3.41.
 
 

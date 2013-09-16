@@ -1,0 +1,24 @@
+## Interface: 50300
+## Version: 1.5
+## Title: FasterCamera
+## Notes: Accelerates Camera Zooming
+## Author: Ketho @ EU-Boulderfist
+## SavedVariables: FasterCameraDB2
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+## X-Curse-Packaged-Version: v1.5
+## X-Curse-Project-Name: FasterCamera
+## X-Curse-Project-ID: fastercamera
+## X-Curse-Repository-ID: wow/fastercamera/mainline
+
+#@no-lib-strip@
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+#@end-no-lib-strip@
+
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+Locales.lua
+FasterCamera.lua

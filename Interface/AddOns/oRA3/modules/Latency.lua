@@ -7,7 +7,7 @@ local util = oRA.util
 local module = oRA:NewModule("Latency")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 645 $"):sub(12, -3))
 
 local latency = {}
 
@@ -34,23 +34,17 @@ function module:OnShutdown()
 	wipe(latency)
 end
 
--- throttled updates when checking the list
 do
 	local prev = 0
 	function module:OnListSelected(event, list)
 		if list == L["Latency"] then
 			local t = GetTime()
-			if t-prev > 10 then
+			if t-prev > 7 then
 				prev = t
-				oRA:SendComm("QueryLag")
+				self:SendComm("QueryLag")
 			end
 		end
 	end
-end
-
-function module:CheckLatency()
-	local _, _, latencyHome, latencyWorld = GetNetStats() -- average world latency
-	oRA:SendComm("Lag", latencyHome, latencyWorld)
 end
 
 do
@@ -58,12 +52,13 @@ do
 	function module:OnCommReceived(_, sender, prefix, latencyHome, latencyWorld)
 		if prefix == "QueryLag" then
 			local t = GetTime()
-			if t-prev > 5 then
+			if t-prev > 7 then
 				prev = t
-				self:CheckLatency()
+				local _, _, latencyHome, latencyWorld = GetNetStats() -- average world latency
+				self:SendComm("Lag", latencyHome, latencyWorld)
 			end
 		elseif prefix == "Lag" then
-			local k = util:inTable(latency, sender, 1)
+			local k = util.inTable(latency, sender, 1)
 			if not k then
 				k = #latency + 1
 				latency[k] = { sender }

@@ -38,20 +38,12 @@ AtlasLootDB = {
 									{
 										{
 											0, -- [1]
-											86814, -- [2]
-											"", -- [3]
-											"=q4=Fragment of Fear Made Flesh", -- [4]
-											"=ds=#s13#", -- [5]
-											"HoFZorlok#RaidFinder", -- [6]
-										}, -- [1]
-										{
-											0, -- [1]
 											86858, -- [2]
 											"", -- [3]
 											"=q4=Seal of the Profane", -- [4]
 											"=ds=#s13#", -- [5]
 											"HoFUnsok#RaidFinder", -- [6]
-										}, -- [2]
+										}, -- [1]
 										{
 											0, -- [1]
 											86857, -- [2]
@@ -59,15 +51,7 @@ AtlasLootDB = {
 											"=q4=Belt of Malleable Amber", -- [4]
 											"=ds=#s10#, #a1#", -- [5]
 											"HoFUnsok#RaidFinder", -- [6]
-										}, -- [3]
-										{
-											0, -- [1]
-											86873, -- [2]
-											"", -- [3]
-											"=q4=Watersoul Signet", -- [4]
-											"=ds=#s13#", -- [5]
-											"ToESProtectors#RaidFinder", -- [6]
-										}, -- [4]
+										}, -- [2]
 										{
 											0, -- [1]
 											86884, -- [2]
@@ -75,7 +59,7 @@ AtlasLootDB = {
 											"=q4=Belt of Embodied Terror", -- [4]
 											"=ds=#s10#, #a1#", -- [5]
 											"ToESTsulong#RaidFinder", -- [6]
-										}, -- [5]
+										}, -- [3]
 										{
 											0, -- [1]
 											86895, -- [2]
@@ -83,7 +67,7 @@ AtlasLootDB = {
 											"=q4=Healer's Belt of Final Winter", -- [4]
 											"=ds=#s10#, #a1#", -- [5]
 											"ToESTsulong#RaidFinder", -- [6]
-										}, -- [6]
+										}, -- [4]
 										{
 											0, -- [1]
 											86897, -- [2]
@@ -91,15 +75,7 @@ AtlasLootDB = {
 											"=q4=Sorcerer's Belt of Final Winter", -- [4]
 											"=ds=#s10#, #a1#", -- [5]
 											"ToESTsulong#RaidFinder", -- [6]
-										}, -- [7]
-										{
-											0, -- [1]
-											89968, -- [2]
-											"", -- [3]
-											"=q4=Feng's Ring of Dreams", -- [4]
-											"=ds=#s13#", -- [5]
-											"MSVFeng#RaidFinder", -- [6]
-										}, -- [8]
+										}, -- [5]
 										{
 											0, -- [1]
 											86798, -- [2]
@@ -107,7 +83,47 @@ AtlasLootDB = {
 											"=q4=Orbital Belt", -- [4]
 											"=ds=#s10#, #a1#", -- [5]
 											"MSVElegon#RaidFinder", -- [6]
+										}, -- [6]
+										{
+											0, -- [1]
+											95659, -- [2]
+											"", -- [3]
+											"=q4=Petrified Eye of the Basilisk", -- [4]
+											"=ds=#s13#", -- [5]
+											"ToTHorridon#RaidFinder", -- [6]
+										}, -- [7]
+										{
+											0, -- [1]
+											95742, -- [2]
+											"", -- [3]
+											"=q4=Durumu's Captive Eyeball", -- [4]
+											"=ds=#s13#", -- [5]
+											"ToTDurumu#RaidFinder", -- [6]
+										}, -- [8]
+										{
+											0, -- [1]
+											95782, -- [2]
+											"", -- [3]
+											"=q4=Quet'zal's Crackling Cord", -- [4]
+											"=ds=#s10#, #a1#", -- [5]
+											"ToTIronQon#RaidFinder", -- [6]
 										}, -- [9]
+										{
+											0, -- [1]
+											95956, -- [2]
+											"", -- [3]
+											"=q4=Shoulders of the Crackling Conqueror", -- [4]
+											"=ds=#e15#, #m41#", -- [5]
+											"ToTIronQon#RaidFinder", -- [6]
+										}, -- [10]
+										{
+											0, -- [1]
+											95785, -- [2]
+											"", -- [3]
+											"=q4=Ro'shak's Remembrance", -- [4]
+											"=ds=#s13#", -- [5]
+											"ToTIronQon#RaidFinder", -- [6]
+										}, -- [11]
 									}, -- [1]
 									["info"] = {
 										["icon"] = "INTERFACE\\ICONS\\Ability_CheapShot",
@@ -165,13 +181,13 @@ AtlasLootDB = {
 					["instance"] = "ThroneofThunder",
 				},
 				["Majandra - Dragonblight"] = {
-					["instance"] = "ThroneofThunder",
+					["instance"] = "SiegeofOrgrimmar",
 					["NEWpoint"] = {
-						"TOPRIGHT", -- [1]
+						"TOP", -- [1]
 						nil, -- [2]
-						"TOPRIGHT", -- [3]
-						-197.5002746582031, -- [4]
-						-68.99993133544922, -- [5]
+						"TOP", -- [3]
+						68.50005340576172, -- [4]
+						-39.00002670288086, -- [5]
 					},
 					["module"] = "AtlasLootMoP",
 				},
@@ -230,8 +246,8 @@ AtlasLootDB = {
 							["PARRY_RATING"] = false,
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
-							["STRENGTH"] = false,
 							["AGILITY"] = false,
+							["STRENGTH"] = false,
 							["EXPERTISE_RATING"] = false,
 						},
 						["Armor"] = {
@@ -264,8 +280,8 @@ AtlasLootDB = {
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 	},
 	["showWarning"] = true,
 	["profiles"] = {
@@ -288,10 +304,10 @@ AtlasLootDB = {
 				["showExtraSort"] = false,
 			},
 		},
+		["Jolobank - Dragonblight"] = {
+		},
 		["Majandra - Dragonblight"] = {
 			["UseGameTooltip"] = true,
-		},
-		["Jolobank - Dragonblight"] = {
 		},
 	},
 }

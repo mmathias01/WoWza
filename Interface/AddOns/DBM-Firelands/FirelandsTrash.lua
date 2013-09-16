@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("FirelandsTrash", "DBM-Firelands")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 51 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 60 $"):sub(12, -3))
 mod:SetModelID(38765)
 mod:SetZone()
 mod.isTrashMod = true
@@ -39,9 +39,9 @@ local lavaRunning = false
 
 function mod:LeapTarget(sGUID)
 	local targetname = nil
-	for i=1, DBM:GetNumGroupMembers() do
-		if UnitGUID("raid"..i.."target") == sGUID then
-			targetname = DBM:GetUnitFullName("raid"..i.."targettarget")
+	for uId in DBM:GetGroupMembers() do
+		if UnitGUID(uId.."target") == sGUID then
+			targetname = DBM:GetUnitFullName(uId.."targettarget")
 			break
 		end
 	end

@@ -19,7 +19,7 @@ L.toggleWithRaidDesc = "Opens and closes the oRA3 pane automatically along with 
 L["Show interface help"] = true
 L.showHelpTextsDesc = "The oRA3 interface is full of helpful texts intended to better describe what is going on and what the different interface elements actually do. Disabling this option will remove them, limiting the clutter on each pane. |cffff4411Requires a interface reload on some panes.|r"
 L["Ensure guild repairs are enabled for all ranks present in raid"] = true
-L.ensureRepairDesc = "If you are the Guild Master, whenever you join a raid group and is the leader or promoted, you will ensure that it is enabled for the duration of the raid (up to 300g). Once you leave the group, the flags will be restored to their original state |cffff4411provided you have not crashed during the raid.|r"
+L.ensureRepairDesc = "If you are the Guild Master, whenever you join a raid group and are the leader or promoted, you will ensure that guild repairs are enabled for the duration of the raid (up to 300g). Once you leave the group, the flags will be restored to their original state |cffff4411provided you have not crashed during the raid.|r"
 L.repairEnabled = "Enabled guild repairs for %s for the duration of this raid."
 
 L["Slash commands"] = true
@@ -27,6 +27,7 @@ L.slashCommands = [[
 oRA3 sports a range of slash commands to aid you in fast-paced raiding. In case you weren't around in the old CTRA days, here's a little reference. All of the slash commands have various shorthands and also longer, more descriptive alternatives in some cases, for convenience.
 
 |cff44ff44/radur|r - Opens the durability list.
+|cff44ff44/ragear|r - Opens the gear check list.
 |cff44ff44/ralag|r - Opens the latency list.
 |cff44ff44/razone|r - Opens the zone list.
 |cff44ff44/radisband|r - Instantly disbands the raid with no verification.
@@ -79,6 +80,7 @@ L["Invite zone"] = true
 L["Invite everyone in your guild who are in the same zone as you."] = true
 L["Guild rank invites"] = true
 L["Clicking any of the buttons below will invite anyone of the selected rank AND HIGHER to your group. So clicking the 3rd button will invite anyone of rank 1, 2 or 3, for example. It will first post a message in either guild or officer chat and give your guild members 10 seconds to leave their groups before doing the actual invites."] = true
+L["Only invite on keyword if in a raid group"] = true
 
 -- Promote module
 L["Demote everyone"] = true
@@ -115,6 +117,8 @@ L["Toggle whether the cooldown display should never show your own cooldowns. For
 L["Cooldowns"] = true
 L["Right-Click me for options!"] = true
 L["Bar Settings"] = true
+L["Label Text Settings"] = true
+L["Duration Text Settings"] = true
 L["Spawn test bar"] = true
 L["Use class color"] = true
 L["Custom color"] = true
@@ -127,10 +131,15 @@ L["Duration"] = true
 L["Unit name"] = true
 L["Spell name"] = true
 L["Short Spell name"] = true
+L["Font"] = true
+L["Font Size"] = true
 L["Label Align"] = true
 L["Left"] = true
 L["Right"] = true
 L["Center"] = true
+L["Outline"] = true
+L["Thick"] = true
+L["Thin"] = true
 L["Grow up"] = true
 
 -- Zone module
@@ -161,4 +170,10 @@ L.showButtonHelp = "Show this tank in your personal sorted tank display. This op
 L["Latency"] = true
 L["Home"] = true
 L["World"] = true
+
+-- Gear Module
+L["Gear"] = true
+L["Item Level"] = true
+L["Missing Gems"] = true
+L["Missing Enchants"] = true
 

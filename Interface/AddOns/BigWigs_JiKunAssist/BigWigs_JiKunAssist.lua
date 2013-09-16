@@ -19,13 +19,6 @@ if L then
 	L.your_nest_soon = "Your nest in 5 sec!"
 	L.go = "GO %s NOW!"
 end
-local L = mod:NewLocale("itIT", true)
-if L then
-	L.assist = "Ji-Kun Assist"
-	L.assist_desc = "È caldamente raccomandato enfatizzare questo avviso!. Il messaggio avvisa 5 secondi prima che sia il tuo turno di volare verso un nido, inoltre avvisa il tuo gruppo se andare sopra o sotto. Puoi vedere quale nido è stato chiamato guardando le {} sulle barre."
-	L.your_nest_soon = "Prossimo nido tra 5 secondi!"
-	L.go = "VOLA %s ADESSO!"
-end
 L = mod:GetLocale()
 
 function mod:GetOptions()

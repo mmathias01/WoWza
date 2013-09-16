@@ -21,11 +21,8 @@ end
 
 --
 local function VUHDO_backOrTextColor(aColor, anIsText)
-	if (anIsText) then
-		return VUHDO_textColor(aColor);
-	else
-		return VUHDO_backColor(aColor);
-	end
+	if anIsText then return VUHDO_textColor(aColor);
+	else return VUHDO_backColor(aColor); end
 end
 
 

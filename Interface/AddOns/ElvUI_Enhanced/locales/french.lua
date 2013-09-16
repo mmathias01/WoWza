@@ -7,7 +7,7 @@ if not L then return; end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "Vous utilisez |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v5.81 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUi est trop ancienne (requiert v5.81 ou plus). Merci de télécharger une version plus récente sur tukui.org."
+L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUi est trop ancienne (requiert v6.44 ou plus). Merci de télécharger une version plus récente sur tukui.org."
 
 -- Equipment
 L["Equipment"] = "Equipement"
@@ -51,6 +51,10 @@ L["Changes the transparency of all the movers."] = "Chance la transparence des M
 L['Automatic Role Assignment'] = "Assigner automatiquement le rôle"
 L['Enables the automatic role assignment based on specialization for party / raid members (only work when you are group leader or group assist).'] = "Active l'assignation automatique des rôles des membres selon la spécialisation dans le group/ Raid (Fonctionne seulement quans vous êtes le leader ou que vous possédez une assist.)"
 
+-- Auto Hide Role Icons in combat
+L['Hide Role Icon in combat'] = true
+L['All role icons (Damage/Healer/Tank) on the unit frames are hidden when you go into combat.'] = true
+
 -- GPS module
 L['GPS'] = "GPS"
 L['Show the direction and distance to the selected party or raid member.'] = "Affiche la direction et la distance entre vous et la cible du groupe ou du raid."
@@ -58,6 +62,9 @@ L['Show the direction and distance to the selected party or raid member.'] = "Af
 -- Attack Icon
 L['Attack Icon'] = "Icône d'Attaque"
 L['Show attack icon for units that are not tapped by you or your group, but still give kill credit when attacked.'] = "Affiche un icône d'attaque sur les unités que vous ou votre groupe n'avez pas encore tapé mais dont vous pouvez revendiquer la paternité."
+
+-- Class Icon
+L['Show class icon for units.'] = true
 
 -- Minimap Location
 L['Above Minimap'] = "Sous la minicarte"
@@ -92,6 +99,13 @@ L['Automatically change your watched faction on the reputation bar to the factio
 L['Select Quest Reward'] = "Sélection de la récompense de quête"
 L['Automatically select the quest reward with the highest vendor sell value.'] = "Sélectionne automatiquement la récompense de quête qui vaut la plus chère chez le vendeur."
 
+-- Item Level Datatext
+L['Item Level'] = true
+
+-- Range Datatext
+L['Target Range'] = true
+L['Distance'] = true
+
 -- Extra Datatexts
 L['Actionbar1DataPanel'] = "Barre d'actions 1"
 L['Actionbar3DataPanel'] = "Barre d'actions 3"
@@ -120,6 +134,8 @@ L['The direction of the seed bar buttons (Horizontal or Vertical).'] = "La direc
 -- Nameplates
 L["Threat Text"] = "Texte de menace"
 L["Display threat level as text on targeted, boss or mouseover nameplate."] = "Affiche le niveau de menace sur le cadre d'unité de la cible, du boss, ou en passant votre souris."
+L["Target Count"] = true
+L["Display the number of party / raid members targetting the nameplate unit."] = true
 
 -- HealGlow
 L['Heal Glow'] = "Prédiction des soins"
@@ -127,6 +143,20 @@ L['Direct AoE heals will let the unit frames of the affected party / raid member
 L["Glow Duration"] = "Durée de la prédiction"
 L["The amount of time the unit frames of party / raid members will glow when affected by a direct AoE heal."] = "Le temps que les cadres d'unités du groupe / Raid seront affectés par la prédiction de soin."
 L["Glow Color"] = "Couleur de la prédiction"
+
+-- Raid Marker Bar
+L['Raid Marker Bar'] = true
+L['Display a quick action bar for raid targets and world markers.'] = true
+L['Modifier Key'] = true
+L['Set the modifier key for placing world markers.'] = true
+L['Shift Key'] = true
+L['Ctrl Key'] = true
+L['Alt Key'] = true
+L["Raid Markers"] = true
+L["Click to clear the mark."] = true
+L["Click to mark the target."] = true
+L["%sClick to remove all worldmarkers."] = true
+L["%sClick to place a worldmarker."] = true
 
 -- WatchFrame
 L['WatchFrame'] = "Fenêtre d'objectifs"
@@ -139,3 +169,7 @@ L['PvP'] = "PvP"
 L['Arena'] = "Arêne"
 L['Party'] = "Groupe"
 L['Raid'] = "Raid"
+
+-- Tooltips
+L['Progression Info'] = true
+L['Display the players raid progression in the tooltip, this may not immediately update when mousing over a unit.'] = true

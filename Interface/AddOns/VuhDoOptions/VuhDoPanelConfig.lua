@@ -18,9 +18,8 @@ function VUHDO_positionAllGroupConfigPanels(aPanelNum)
 	end
 
 	local tModelArray = VUHDO_PANEL_MODELS[aPanelNum];
-	if (tModelArray == nil) then
-		return;
-	end
+
+	if not tModelArray then return; end
 
 	local tParentPanel = VUHDO_getActionPanel(aPanelNum);
 	local tAnzModels = #tModelArray;
@@ -51,16 +50,12 @@ function VUHDO_positionAllGroupConfigPanels(aPanelNum)
 	local tCnt = tAnzModels + 1;
 	while true do -- VUHDO_MAX_GROUPS_PER_PANEL
  		tOrderPanel = VUHDO_getGroupOrderPanel(aPanelNum, tCnt);
- 		if (tOrderPanel ~= nil) then
- 			tOrderPanel:Hide();
-		else
-			break;
-		end
+
+ 		if tOrderPanel then tOrderPanel:Hide();
+ 		else break; end
 
 		tSelectPanel = VUHDO_getGroupSelectPanel(aPanelNum, tCnt);
-		if (tSelectPanel ~= nil) then
-			tSelectPanel:Hide();
-		end
+		if tSelectPanel then tSelectPanel:Hide(); end
 
 		tCnt = tCnt + 1;
 	end
@@ -83,10 +78,13 @@ local tDragSweetY;
 local tTargetSweetY;
 local function VUHDO_GetDragTargetSweetY(aDraggedPanel, aDragTargetPanel)
 	tDragSweetY = aDraggedPanel:GetTop() * aDraggedPanel:GetScale() - (aDraggedPanel:GetHeight() * aDraggedPanel:GetScale() * 0.5);
-	if (tDragSweetY > aDragTargetPanel:GetTop() * aDragTargetPanel:GetScale()) then
+
+	if tDragSweetY > aDragTargetPanel:GetTop() * aDragTargetPanel:GetScale() then
 		tTargetSweetY = aDragTargetPanel:GetTop() * aDragTargetPanel:GetScale();
-	elseif (tDragSweetY < aDragTargetPanel:GetBottom() * aDragTargetPanel:GetScale()) then
+
+	elseif tDragSweetY < aDragTargetPanel:GetBottom() * aDragTargetPanel:GetScale() then
 		tTargetSweetY = aDragTargetPanel:GetBottom() * aDragTargetPanel:GetScale();
+
 	else
 		tTargetSweetY = tDragSweetY;
 	end
@@ -104,11 +102,9 @@ local function VUHDO_determineDragDistance(aDraggedPanel, aDragTargetPanel, anIs
 	tDragSweetX = aDraggedPanel:GetLeft() * aDraggedPanel:GetScale() + (aDraggedPanel:GetWidth() * aDraggedPanel:GetScale() * 0.5);
 	tDragSweetY = aDraggedPanel:GetTop() * aDraggedPanel:GetScale() - (aDraggedPanel:GetHeight() * aDraggedPanel:GetScale() * 0.5);
 
-	if (anIsLeftOf) then
-		tTargetSweetX = aDragTargetPanel:GetLeft() * aDragTargetPanel:GetScale();
-	else
-		tTargetSweetX = aDragTargetPanel:GetRight() * aDragTargetPanel:GetScale();
-	end
+	tTargetSweetX = anIsLeftOf
+		and aDragTargetPanel:GetLeft() * aDragTargetPanel:GetScale()
+		or aDragTargetPanel:GetRight() * aDragTargetPanel:GetScale();
 
 	tTargetSweetY = VUHDO_GetDragTargetSweetY(aDraggedPanel, aDragTargetPanel);
 	return VUHDO_determineDistance(tDragSweetX, tDragSweetY, tTargetSweetX, tTargetSweetY);
@@ -124,18 +120,18 @@ local function VUHDO_refreshDragTargetBars(aPanelNum, anOrderPanelNum, anIsLeft,
 	tLeftBarOrderNum = nil;
 	tRightBarOrderNum = nil;
 
-	if (anOrderPanelNum ~= nil) then
-		if (anIsLeft) then
+	if anOrderPanelNum then
+		if anIsLeft then
 			tLeftBarOrderNum = anOrderPanelNum;
 
-			if (anOrderPanelNum > 1) then
+			if anOrderPanelNum > 1 then
 				tRightBarOrderNum = anOrderPanelNum - 1;
 			end
 		else
 			tRightBarOrderNum = anOrderPanelNum;
 
-			if (VUHDO_PANEL_MODELS[aPanelNum] ~= nil
-				and anOrderPanelNum < #VUHDO_PANEL_MODELS[aPanelNum]) then
+			if VUHDO_PANEL_MODELS[aPanelNum]
+				and anOrderPanelNum < #VUHDO_PANEL_MODELS[aPanelNum] then
 				tLeftBarOrderNum = anOrderPanelNum + 1;
 			end
 		end
@@ -146,18 +142,18 @@ local function VUHDO_refreshDragTargetBars(aPanelNum, anOrderPanelNum, anIsLeft,
 			tBarLeft = VUHDO_getConfigOrderBarLeft(tPanelNum, tOrderNum);
 			tBarRight = VUHDO_getConfigOrderBarRight(tPanelNum, tOrderNum);
 
-			if (aPanelNum == tPanelNum) then
-				if (tLeftBarOrderNum ~= nil
+			if aPanelNum == tPanelNum then
+				if tLeftBarOrderNum
 					and tLeftBarOrderNum == tOrderNum
-					and tBarLeft:GetParent() ~= aDraggedPanel) then
+					and tBarLeft:GetParent() ~= aDraggedPanel then
 					tBarLeft:Show();
 				else
 					tBarLeft:Hide();
 				end
 
-				if (tRightBarOrderNum ~= nil
+				if tRightBarOrderNum
 					and tRightBarOrderNum == tOrderNum
-					and tBarLeft:GetParent() ~= aDraggedPanel) then
+					and tBarLeft:GetParent() ~= aDraggedPanel then
 					tBarRight:Show();
 				else
 					tBarRight:Hide();
@@ -188,15 +184,15 @@ function VUHDO_determineDragTarget(aDraggedPanel)
 
 	tLowestDistance = math.huge;
 	for tPanelNum, tPanel in pairs(VUHDO_getAllActionPanels()) do
-		if (tPanel:IsVisible()) then
+		if tPanel:IsVisible() then
 			tMaxOrderPanels = #VUHDO_PANEL_MODELS[tPanelNum];
 			for tConfigNum = 1, tMaxOrderPanels do
 				tOrderPanel = VUHDO_getGroupOrderPanel(tPanelNum, tConfigNum);
 
-				if (tOrderPanel ~= aDraggedPanel) then
+				if tOrderPanel ~= aDraggedPanel then
 
 					tCurrentDistance = VUHDO_determineDragDistance(aDraggedPanel, tOrderPanel, true);
-					if (tCurrentDistance < tLowestDistance) then
+					if tCurrentDistance < tLowestDistance then
 						tLowestDistance = tCurrentDistance;
 						tLowPanelNum = tPanelNum;
 						tLowOrderNum = tConfigNum;
@@ -204,7 +200,7 @@ function VUHDO_determineDragTarget(aDraggedPanel)
 					end
 
 					tCurrentDistance = VUHDO_determineDragDistance(aDraggedPanel, tOrderPanel, false);
-					if (tCurrentDistance < tLowestDistance) then
+					if tCurrentDistance < tLowestDistance then
 						tLowestDistance = tCurrentDistance;
 						tLowPanelNum = tPanelNum;
 						tLowOrderNum = tConfigNum;
@@ -213,7 +209,7 @@ function VUHDO_determineDragTarget(aDraggedPanel)
 				end
 			end
 			-- Test for dragging into an empty Panel
-			if (tMaxOrderPanels == 0) then
+			if tMaxOrderPanels == 0 then
 
 				tPanelX = tPanel:GetLeft() + (tPanel:GetWidth() * 0.5);
 				tPanelY = tPanel:GetTop() - (tPanel:GetHeight()  * 0.5);
@@ -221,7 +217,7 @@ function VUHDO_determineDragTarget(aDraggedPanel)
 				tDragY = aDraggedPanel:GetTop() * aDraggedPanel:GetScale() - (aDraggedPanel:GetHeight() * aDraggedPanel:GetScale() * 0.5);
 				tCurrentDistance = VUHDO_determineDistance(tPanelX, tPanelY, tDragX, tDragY);
 
-				if (tCurrentDistance < tLowestDistance) then
+				if tCurrentDistance < tLowestDistance then
 					tLowestDistance = tCurrentDistance;
 					tLowPanelNum = tPanelNum;
 					tLowOrderNum = 1;
@@ -270,7 +266,7 @@ function VUHDO_reorderGroupsAfterDragged(aDraggedPanel)
 		tModelId = VUHDO_PANEL_MODELS[tSourcePanelNum][tSourceGroupOrderNum];
 		VUHDO_removeFromModel(tSourcePanelNum, tSourceGroupOrderNum);
 
-		if (tSourcePanelNum == tPanelNum and tSourceGroupOrderNum < tOrderNum and tOrderNum > 1) then
+		if tSourcePanelNum == tPanelNum and tSourceGroupOrderNum < tOrderNum and tOrderNum > 1 then
 			tOrderNum = tOrderNum - 1;
 		end
 

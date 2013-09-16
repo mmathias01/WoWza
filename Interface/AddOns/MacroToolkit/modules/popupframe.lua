@@ -212,8 +212,8 @@ function MT:CreateMTPopup()
 			elseif MacroToolkitPopup.mode == "edit" then
 				if PanelTemplates_GetSelectedTab(MacroToolkitFrame) == 3 then
 					index = MacroToolkitFrame.selectedMacro
-					MT.db.global.extra[index].name = text
-					MT.db.global.extra[index].texture = iconTexture
+					MT.db.global.extra[tostring(index)].name = text
+					MT.db.global.extra[tostring(index)].texture = iconTexture
 				else index = EditMacro(MacroToolkitFrame.selectedMacro, text, iconTexture) end
 			end
 			MacroToolkitPopup:Hide()

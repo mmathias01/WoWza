@@ -1,12 +1,54 @@
+VER 3 000000000000000C "Beams" "SPELL_MAGIC_MANAGAIN"
+/click MacroToolkitSecureButton1
+END
+VER 3 0000000000000011 "crystal" "INV_Misc_QuestionMark"
+/target Humming
+/cast  Holy Fire
+END
 VER 3 0000000000000001 "Decursive" "INV_MISC_QUESTIONMARK"
 /stopcasting
 /cast [@mouseover,nomod,exists] Cleanse Spirit;  [@mouseover,exists,mod:ctrl] Hex; [@mouseover,exists,mod:shift] Cleanse Spirit
+END
+VER 3 000000000000000E "DIRE" "INV_Misc_QuestionMark"
+#showtooltip
+/cleartarget
+/tar Direhorn Spirit
+/cast Penance
+/targetlasttarget
+/startattack
+END
+VER 3 000000000000000F "DIRE_1" "INV_Misc_QuestionMark"
+#showtooltip
+/cleartarget
+/tar Direhorn Spirit
+/cast Holy Fire
+/targetlasttarget
+/startattack
+END
+VER 3 0000000000000010 "DIRE_3" "INV_Misc_QuestionMark"
+#showtooltip
+/cleartarget
+/tar Direhorn Spirit
+/cast Smite
+/targetlasttarget
+/startattack
 END
 VER 3 0000000000000007 "FOCUS!" "SPELL_HOLY_DEVINEAEGIS"
 /focus
 END
 VER 3 0000000000000008 "GET ON ME" "INV_PET_BATTLEPETTRAINING"
 /say GET ON ME
+END
+VER 3 000000000000000B "HW_M" "INV_Misc_QuestionMark"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][@target] Holy Word: Chastise
+END
+VER 3 000000000000000D "LoF_M" "INV_Misc_QuestionMark"
+#showtooltip
+/cast [@mouseover,help][@target,help][@targettarget,help][] Leap of Faith
+END
+VER 3 000000000000000A "MAX DISTRANCE" "SPELL_HOLY_MINDVISION"
+/console cameradistancemaxfactor 20
 END
 VER 3 0000000000000002 "Onyx 1" "Ability_Mount_YakMountWhite"
 /way 64.18, 23.92
@@ -46,6 +88,18 @@ VER 3 0000000000000004 "Onyx 3" "Ability_Mount_YakMountWhite"
 /way 70.33, 28.63
 /way 67.06, 30.25
 END
+VER 3 0000000000000012 "test" "INV_Misc_QuestionMark"
+#showtooltip Smite
+/clearfocus [mod:alt]
+/focus [@focus,noexists]/[@focus,help]
+/use [@focus,exists][@target,exists]Smite
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
+END
 VER 3 0000000000000006 "Trove1" "INV_KNIFE_1H_PANDARAID_D_02"
 /way 58.0, 39.6
 /way 44.1, 56.2
@@ -58,6 +112,10 @@ VER 3 0000000000000006 "Trove1" "INV_KNIFE_1H_PANDARAID_D_02"
 /way 34.86, 47.63
 /way 37.0, 60.0
 /way 38.97, 59.9
+END
+VER 3 0000000000000013 "TSMAucBClick" "1"
+/click TSMAuctioningCancelButton
+/click TSMAuctioningPostButton
 END
 VER 3 0000000000000005 "vent" "ABILITY_CREATURE_CURSED_05"
 /p Vent

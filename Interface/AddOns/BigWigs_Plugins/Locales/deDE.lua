@@ -250,4 +250,6 @@ L.printWipeOption = "Niederlagendauer"
 L.countKills = "Siege zählen"
 L.countWipes = "Niederlagen zählen"
 L.recordBestKills = "Beste Siege speichern"
+L.createTimeBar = "'Rekordzeit'-Timer anzeigen"
+L.bestTimeBar = "Rekordzeit"
 

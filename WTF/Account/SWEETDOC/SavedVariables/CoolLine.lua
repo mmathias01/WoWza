@@ -1,0 +1,53 @@
+
+CoolLineDB = {
+	["hidebag"] = false,
+	["bgcolor"] = {
+		["a"] = 0,
+		["b"] = 0,
+		["g"] = 0,
+		["r"] = 0,
+	},
+	["border"] = "None",
+	["borderinset"] = 4,
+	["h"] = 15,
+	["fontsize"] = 9,
+	["block"] = {
+		["Hearthstone"] = true,
+	},
+	["iconplus"] = 0,
+	["spellcolor"] = {
+		["a"] = 1,
+		["r"] = 0.8,
+		["g"] = 0.4,
+		["b"] = 0,
+	},
+	["x"] = 1,
+	["nospellcolor"] = {
+		["a"] = 1,
+		["r"] = 0,
+		["g"] = 0,
+		["b"] = 0,
+	},
+	["inactivealpha"] = 0.5,
+	["bordercolor"] = {
+		["a"] = 1,
+		["r"] = 1,
+		["g"] = 1,
+		["b"] = 1,
+	},
+	["w"] = 440,
+	["hidepet"] = true,
+	["y"] = -215,
+	["activealpha"] = 0.9999999999999999,
+	["dbinit"] = 3,
+	["statusbar"] = "Armory",
+	["font"] = "Cecile",
+	["bordersize"] = 1,
+	["fontcolor"] = {
+		["a"] = 0.8,
+		["r"] = 1,
+		["g"] = 1,
+		["b"] = 1,
+	},
+	["hidefail"] = true,
+}

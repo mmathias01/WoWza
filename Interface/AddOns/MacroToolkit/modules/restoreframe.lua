@@ -72,7 +72,7 @@ function MT:CreateRestoreFrame()
 		function()
 			local tab = PanelTemplates_GetSelectedTab(MacroToolkitFrame)
 			local mtype = _G[format("MacroToolkitFrameTab%d", tab)]:GetText()
-			StaticPopupDialogs.MACROTOOLKIT_DELETEBACKUP.text = format("|cffeedd82%s|r\n\n|cffff0000%s|r\n\n%s", mtype, L["Are you sure? This operation cannot be undone."])
+			StaticPopupDialogs.MACROTOOLKIT_DELETEBACKUP.text = format("|cffeedd82%s|r\n\n|cffff0000%s|r", mtype, L["Are you sure? This operation cannot be undone."])
 			StaticPopupDialogs.MACROTOOLKIT_DELETEBACKUP.OnAccept = function() MT:RestoreBackup() end
 			StaticPopup_Show("MACROTOOLKIT_DELETEBACKUP")
 		end)

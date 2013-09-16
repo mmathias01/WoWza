@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(158, "DBM-BastionTwilight", nil, 72)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(43686, 43687, 43688, 43689, 43735)
-mod:SetModelID(34822)
 mod:SetZone()
 mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Chogall\\VO_BT_Chogall_BotEvent14.wav", "Sound\\Creature\\Terrastra\\VO_BT_Terrastra_Event02.wav")
@@ -20,8 +19,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"RAID_BOSS_EMOTE",
-	"UNIT_SPELLCAST_SUCCEEDED",
-	"UNIT_HEALTH"
+	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2 boss3 boss4",
+	"UNIT_HEALTH boss1 boss2 boss3 boss4"
 )
 
 --Feludius
@@ -193,15 +192,17 @@ local function checkSearingWinds()
 end
 
 local function updateBossFrame()
-	DBM.BossHealth:Clear()
-	if phase == 1 then
-		DBM.BossHealth:AddBoss(43687, Feludius)
-		DBM.BossHealth:AddBoss(43686, Ignacious)
-	elseif phase == 2 then
-		DBM.BossHealth:AddBoss(43688, Arion)
-		DBM.BossHealth:AddBoss(43689, Terrastra)
-	elseif phase == 3 then
-		DBM.BossHealth:AddBoss(43735, Monstrosity)
+	if DBM.BossHealth:IsShown() then
+		DBM.BossHealth:Clear()
+		if phase == 1 then
+			DBM.BossHealth:AddBoss(43687, Feludius)
+			DBM.BossHealth:AddBoss(43686, Ignacious)
+		elseif phase == 2 then
+			DBM.BossHealth:AddBoss(43688, Arion)
+			DBM.BossHealth:AddBoss(43689, Terrastra)
+		elseif phase == 3 then
+			DBM.BossHealth:AddBoss(43735, Monstrosity)
+		end
 	end
 end
 
@@ -340,8 +341,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		local shieldname = GetSpellInfo(82631)
 		warnAegisFlame:Show()
 		specWarnAegisFlame:Show()
-		showShieldHealthBar(self, args.destGUID, shieldname)
-		self:Schedule(20, hideShieldHealthBar)
+		if DBM.BossHealth:IsShown() then
+			showShieldHealthBar(self, args.destGUID, shieldname)
+			self:Schedule(20, hideShieldHealthBar)
+		end
 	elseif args.spellId == 82762 and args:IsPlayer() then
 		specWarnWaterLogged:Show()
 	elseif args.spellId == 84948 then
@@ -528,7 +531,9 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 	elseif args.spellId == 82631 then	-- Shield Removed
 		self:Unschedule(hideShieldHealthBar)
-		hideShieldHealthBar()
+		if DBM.BossHealth:IsShown() then
+			hideShieldHealthBar()
+		end
 		if self:IsMelee() and (self:GetUnitCreatureId("target") == 43686 or self:GetUnitCreatureId("focus") == 43686) or not self:IsMelee() then
 			specWarnRisingFlames:Show(args.sourceName)--Only warn for melee targeting him or exclicidly put him on focus, else warn regardless if he's your target/focus or not if you aren't a melee
 		end

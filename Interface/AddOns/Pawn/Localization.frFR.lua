@@ -258,6 +258,7 @@ Pour plus d'information sur la Personnalisation de Pawn, regarder le fichier d'a
 		Expertise = "^%+?([%d%.,]+) Expertise$", -- Needs review
 		Expertise2 = "^%+?([%d%.,]+) \195\160 l'expertise$",
 		FistWeapon = "^Arme de pugilat$",
+		Flexible = "^Flexible$",
 		Formula = "Formule\194\160:", -- Needs review
 		Gun = "^Arme \195\160 feu$",
 		Haste = "^%+?(%-?%d+) H\195\162te$", -- Needs review
@@ -268,6 +269,7 @@ Pour plus d'information sur la Personnalisation de Pawn, regarder le fichier d'a
 		Heroic = "^H\195\169ro\195\175que$", -- Needs review
 		HeroicElite = "^H\195\169ro\195\175que \195\169lite$", -- Needs review
 		HeroicThunderforged = "^Foudroyant h\195\169ro\195\175que$", -- Needs review
+		HeroicWarforged = "^Heroic Warforged$",
 		Hit = "^%+?([%d%.,]+) Toucher$",
 		Hit2 = "^%+?([%d%.,]+) au toucher$",
 		Hit3 = "^%+?([%d%.,]+) au score de toucher$",
@@ -319,9 +321,11 @@ Pour plus d'information sur la Personnalisation de Pawn, regarder le fichier d'a
 		TemporaryBuffMinutes = "^.+%(%d+ min%)$", -- Needs review
 		TemporaryBuffSeconds = "^.+%(%d+ sec%)$", -- Needs review
 		Thunderforged = "^Foudroyant$", -- Needs review
+		Timeless = "^Timeless$",
 		UpgradeLevel = "^Niveau d\226\128\153am\195\169lioration\194\160:",
 		Use = "Utiliser\194\160:", -- Needs review
 		Wand = "^Baguette$",
+		Warforged = "^Warforged$",
 		WeaponDamage = "^D\195\169g\195\162ts\194\160: ([%d%.,]+) %- ([%d%.,]+)$",
 		WeaponDamageArcane = "^%+?([%d%.,]+) %- ([%d%.,]+) points de d\195\169g\195\162ts %(Arcanes%)$",
 		WeaponDamageEnchantment = "^%+?([%d%.,]+) aux d\195\169g\195\162ts de l'arme$",

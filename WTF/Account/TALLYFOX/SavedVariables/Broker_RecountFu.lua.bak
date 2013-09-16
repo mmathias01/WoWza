@@ -1,0 +1,11 @@
+
+BrokerRecountFuDB = {
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["maxAddonVersionSeen"] = "1.18",
+		},
+	},
+}

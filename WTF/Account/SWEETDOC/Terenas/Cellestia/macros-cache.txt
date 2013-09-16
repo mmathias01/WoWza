@@ -1,0 +1,35 @@
+VER 3 0100000000000005 "Anc Swith" "INV_MISC_QUESTIONMARK"
+#showtooltip Greater Healing Wave
+/cast Ancestral Swiftness
+/cast [@mouseover] Greater Healing Wave
+END
+VER 3 0100000000000004 "Earth Ele" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast Earth Elemental Totem
+/cast Reinforce
+END
+VER 3 0100000000000003 "Fire Ele" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast Fire Elemental Totem
+/cast Empower
+END
+VER 3 0100000000000001 "Lava Burst" "INV_Misc_QuestionMark"
+#showtooltip Lava Burst
+#show Lava Burst
+/stopcasting
+/cast Lava Burst
+END
+VER 3 0100000000000008 "RipTide!" "INV_Misc_QuestionMark"
+END
+VER 3 0100000000000006 "VuhDoDCShieldData" "Ability_Repair"
+P[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1SH[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 0100000000000007 "VuhDoDCShieldNames" "Ability_Repair"
+N[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Cel[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 0100000000000002 "Wind Sheer" "INV_MISC_QUESTIONMARK"
+#showtooltip Wind Shear
+#show Wind Shear
+/stopcasting
+/cast Wind Shear
+END

@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(167, "DBM-BastionTwilight", nil, 72)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 49 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(43324)
-mod:SetModelID(34576)
 mod:SetZone()
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Chogall\\VO_BT_Chogall_BotEvent15.wav", "Sound\\Creature\\Chogall\\VO_BT_Chogall_BotEvent42.wav")
@@ -19,8 +18,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
-	"UNIT_HEALTH",
-	"UNIT_AURA",
+	"UNIT_HEALTH boss1",
+	"UNIT_AURA player",
 	"UNIT_DIED"
 )
 
@@ -97,9 +96,9 @@ end
 
 function mod:CorruptingCrashTarget(sGUID)
 	local targetname = nil
-	for i=1, DBM:GetNumGroupMembers() do
-		if UnitGUID("raid"..i.."target") == sGUID then
-			targetname = DBM:GetUnitFullName("raid"..i.."targettarget")
+	for uId in DBM:GetGroupMembers() do
+		if UnitGUID(uId.."target") == sGUID then
+			targetname = DBM:GetUnitFullName(uId.."targettarget")
 			break
 		end
 	end
@@ -213,7 +212,7 @@ function mod:SPELL_CAST_START(args)
 			creatureIcon = creatureIcon - 1
 		end
 	elseif args.spellId == 81713 then
-		if not DBM.BossHealth:HasBoss(args.sourceGUID) then--Check if added to boss health
+		if not DBM.BossHealth:HasBoss(args.sourceGUID) and DBM.BossHealth:IsShown() then--Check if added to boss health
 			DBM.BossHealth:AddBoss(args.sourceGUID, args.sourceName)--And add if not.
 		end
 		if args.sourceGUID == UnitGUID("target") then--Only show warning for your own target.
@@ -229,8 +228,8 @@ end
 
 mod:RegisterOnUpdateHandler(function(self)
 	if self.Options.SetIconOnCreature and (DBM:GetRaidRank() > 0 and not (iconsSet == 8 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 4 and self:IsDifficulty("normal10", "heroic10"))) then
-		for i = 1, DBM:GetNumGroupMembers() do
-			local uId = "raid"..i.."target"
+		for uId in DBM:GetGroupMembers() do
+			local uId = uId.."target"
 			local guid = UnitGUID(uId)
 			if creatureIcons[guid] then
 				SetRaidTarget(uId, creatureIcons[guid])
@@ -274,7 +273,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			timerFlamingDestructionCD:Start(10.8)--Half the time on normal since you don't actually have to kill elementals plus the only thing worth showing on normal.
 		end
 	elseif args.spellId == 81685 then
-		if not DBM.BossHealth:HasBoss(args.sourceGUID) then--Check if added to boss health
+		if not DBM.BossHealth:HasBoss(args.sourceGUID) and DBM.BossHealth:IsShown() then--Check if added to boss health
 			DBM.BossHealth:AddBoss(args.sourceGUID, args.sourceName)--And add if not.
 		end
 		self:ScheduleMethod(0.2, "CorruptingCrashTarget", args.sourceGUID)
@@ -313,7 +312,7 @@ end
 
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
-	if cid == 43622 then--Also remove from boss health when they die based on GUID
+	if cid == 43622 and DBM.BossHealth:IsShown() then--Also remove from boss health when they die based on GUID
 		DBM.BossHealth:RemoveBoss(args.destGUID)
 	end
 end

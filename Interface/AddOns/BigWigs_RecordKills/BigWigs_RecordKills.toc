@@ -1,8 +1,8 @@
-## Interface: 50300
+## Interface: 50400
 ## Title: Big Wigs [|cffeda55fRecord Kills|r]
 ## Author: Kiezo
 ## Notes: A record of your fastest kills of MoP raid bosses.
-## Version: 1.22
+## Version: 1.26
 ## Dependencies: BigWigs
 ## SavedVariables: RKDatabase
 

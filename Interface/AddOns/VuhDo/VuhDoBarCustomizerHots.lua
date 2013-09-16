@@ -31,18 +31,15 @@ local sOthersHotsInfo = { };
 
 local VUHDO_CHARGE_TEXTURES = {
 	"Interface\\AddOns\\VuhDo\\Images\\hot_stacks1", "Interface\\AddOns\\VuhDo\\Images\\hot_stacks2",
-	"Interface\\AddOns\\VuhDo\\Images\\hot_stacks3", "Interface\\AddOns\\VuhDo\\Images\\hot_stacks4", };
+	"Interface\\AddOns\\VuhDo\\Images\\hot_stacks3", "Interface\\AddOns\\VuhDo\\Images\\hot_stacks4" };
 
 local VUHDO_SHIELD_TEXTURES = {
 	"Interface\\AddOns\\VuhDo\\Images\\shield_stacks1", "Interface\\AddOns\\VuhDo\\Images\\shield_stacks2",
-	"Interface\\AddOns\\VuhDo\\Images\\shield_stacks3", "Interface\\AddOns\\VuhDo\\Images\\shield_stacks4", };
+	"Interface\\AddOns\\VuhDo\\Images\\shield_stacks3", "Interface\\AddOns\\VuhDo\\Images\\shield_stacks4" };
 
-local VUHDO_CHARGE_COLORS = {
-	"HOT_CHARGE_1", "HOT_CHARGE_2", "HOT_CHARGE_3", "HOT_CHARGE_4", };
+local VUHDO_CHARGE_COLORS = { "HOT_CHARGE_1", "HOT_CHARGE_2", "HOT_CHARGE_3", "HOT_CHARGE_4" };
 
-local VUHDO_HOT_CFGS = {
-	"HOT1", "HOT2", "HOT3", "HOT4", "HOT5",
-	"HOT6", "HOT7", "HOT8", "HOT9", "HOT10", };
+local VUHDO_HOT_CFGS = { "HOT1", "HOT2", "HOT3", "HOT4", "HOT5", "HOT6", "HOT7", "HOT8", "HOT9", "HOT10", };
 
 -- BURST CACHE -------------------------------------------------
 
@@ -593,19 +590,11 @@ local function VUHDO_updateHots(aUnit, anInfo)
 		end
 
 		-- Other players' HoTs
-		if sIsOthersHots then
-			VUHDO_updateHotIcons(aUnit, "OTHER", 999, tOtherHotCnt, tOtherIcon, nil, 0, nil, nil, nil, nil, nil, nil);
-		end
-
+		if sIsOthersHots then VUHDO_updateHotIcons(aUnit, "OTHER", 999, tOtherHotCnt, tOtherIcon, nil, 0, nil, nil, nil, nil, nil, nil); end
 		-- Clusters
-		if sIsClusterIcons then
-			VUHDO_updateAllClusterIcons(aUnit, anInfo);
-		end
-
-		if sIsPlayerKnowsSwiftmend then
-			sSwiftmendUnits[aUnit] = sIsSwiftmend;
-		end
-
+		if sIsClusterIcons then VUHDO_updateAllClusterIcons(aUnit, anInfo); end
+		-- Swiftmend
+		if sIsPlayerKnowsSwiftmend then sSwiftmendUnits[aUnit] = sIsSwiftmend; end
 	end -- Should scan unit
 
 	-- Own
@@ -623,7 +612,6 @@ local function VUHDO_updateHots(aUnit, anInfo)
 		VUHDO_updateHotIcons(aUnit, tHotCmpName, tHotInfo[1], tHotInfo[2], tHotInfo[3], tHotInfo[4], 3, nil, nil, nil, nil, nil, nil);
 		if not tHotInfo[1] then twipe(tHotInfo); VUHDO_MY_AND_OTHERS_HOTS[aUnit][tHotCmpName] = nil; end
 	end
-
 end
 
 

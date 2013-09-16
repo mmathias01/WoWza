@@ -1,10 +1,10 @@
-## Interface: 50200
+## Interface: 50400
 ## Title: DamaFont
 ## Author: Stormcast
 ## Notes: Yet another damage font changer
 ## SavedVariables: DamaFontDB
 ## OptionalDeps: LibSharedMedia-3.0
-## X-Curse-Packaged-Version: v1.4
+## X-Curse-Packaged-Version: v1.4.2
 ## X-Curse-Project-Name: DamaFont
 ## X-Curse-Project-ID: damafont
 ## X-Curse-Repository-ID: wow/damafont/mainline

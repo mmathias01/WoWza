@@ -102,11 +102,8 @@ function VUHDO_getUnitGroupPrivileges(aUnit)
 		tUnitNo = VUHDO_getUnitNo(aUnit);
 		if tUnitNo then
 			_, tRank, _, _, _, _, _, _, _, _, tIsMasterLooter = GetRaidRosterInfo(tUnitNo);
-			if 2 == tRank then
-				tIsLeader = true;
-			elseif 1 == tRank then
-				tIsAssist = true;
-			end
+			if 2 == tRank then tIsLeader = true;
+			elseif 1 == tRank then tIsAssist = true; end
 		end
 	else
 		tIsLeader = UnitIsGroupLeader(aUnit);
@@ -159,8 +156,7 @@ local function VUHDO_showPlayerIcons(aButton, aPanelNum)
 		tIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES");
 		tIcon:SetTexCoord(GetTexCoordsForRole(
 			VUHDO_ID_MELEE_TANK == tInfo["role"] and "TANK"
-			or VUHDO_ID_RANGED_HEAL == tInfo["role"] and "HEALER"	or "DAMAGER")
-		);
+			or VUHDO_ID_RANGED_HEAL == tInfo["role"] and "HEALER"	or "DAMAGER"));
 		VUHDO_placePlayerIcon(aButton, 5, 5);
 	end
 end
@@ -194,9 +190,7 @@ local function VUHDO_showAllPlayerIcons(aPanel)
 	local tPanelNum = VUHDO_getPanelNum(aPanel);
 
 	for _, tButton in pairs(VUHDO_getPanelButtons(tPanelNum)) do
-		if tButton:IsShown() then
-			VUHDO_showPlayerIcons(tButton, tPanelNum);
-		end
+		if tButton:IsShown() then VUHDO_showPlayerIcons(tButton, tPanelNum); end
 	end
 end
 
@@ -216,9 +210,7 @@ function VuhDoActionOnEnter(aButton)
 		VUHDO_updateBouquetsForEvent(sMouseoverUnit, 15); -- VUHDO_UPDATE_MOUSEOVER
 	end
 
-	if VUHDO_isShowDirectionArrow() then
-		VUHDO_updateDirectionFrame(aButton);
-	end
+	if VUHDO_isShowDirectionArrow() then VUHDO_updateDirectionFrame(aButton); end
 
 	if VUHDO_isShowGcd() then
 		VuhDoGcdStatusBar:ClearAllPoints();
@@ -301,9 +293,7 @@ end
 local tModi;
 local tKey;
 function VuhDoActionPreClick(aButton, aMouseButton)
-	if (VUHDO_CONFIG["IS_CLIQUE_COMPAT_MODE"]) then
-		return;
-	end
+	if VUHDO_CONFIG["IS_CLIQUE_COMPAT_MODE"] then return; end
 
 	tModi = VUHDO_getCurrentKeyModifierString();
 	tKey = VUHDO_SPELL_ASSIGNMENTS[tModi .. SecureButton_GetButtonSuffix(aMouseButton)];
@@ -405,9 +395,7 @@ end
 local tButton;
 local sDebuffIcon = nil;
 function VUHDO_showDebuffTooltip(aDebuffIcon)
-	if not VUHDO_CONFIG["DEBUFF_TOOLTIP"] then
-		return;
-	end
+	if not VUHDO_CONFIG["DEBUFF_TOOLTIP"] then return; end
 
 	tButton = aDebuffIcon:GetParent():GetParent():GetParent():GetParent();
 	GameTooltip:SetOwner(aDebuffIcon, "ANCHOR_RIGHT", 0, 0);
@@ -431,7 +419,5 @@ end
 
 --
 function VUHDO_updateCustomDebuffTooltip()
-	if sDebuffIcon then
-		VUHDO_showDebuffTooltip(sDebuffIcon);
-	end
+	if sDebuffIcon then VUHDO_showDebuffTooltip(sDebuffIcon); end
 end

@@ -273,4 +273,4 @@ VUHDO_GLOBAL_ICONS = {
 	["Mana Tide Totem"] = "Interface\\Icons\\Spell_Holy_Stoicism",
 	["Health Funnel"] = "Interface\\Icons\\Spell_Shadow_LifeDrain",
 }
-VUHDO_GI_SCAN_IDX = 178551
+VUHDO_GI_SCAN_IDX = 83401

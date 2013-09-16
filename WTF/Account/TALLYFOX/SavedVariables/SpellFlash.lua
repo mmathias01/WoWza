@@ -31,6 +31,7 @@ SpellFlashAddonConfig = {
 							},
 						},
 						["Shenlu"] = {
+							["selected_class_module"] = "BittensSpellFlash_Monk",
 							["MODULE"] = {
 							},
 						},

@@ -43,9 +43,7 @@ end
 
 -- Reset if spec changed or slash command
 function VUHDO_resetTalentScan(aUnit)
-	if VUHDO_PLAYER_RAID_ID == aUnit then
-		aUnit = "player";
-	end
+	if VUHDO_PLAYER_RAID_ID == aUnit then aUnit = "player"; end
 
 	local tInfo = VUHDO_RAID[aUnit];
 	if tInfo then
@@ -90,14 +88,11 @@ local VUHDO_CLASS_ROLES = {
 local tInfo;
 local tName;
 local function VUHDO_shouldBeInspected(aUnit)
-	if "focus" == aUnit or "target" == aUnit then
-		return false;
-	end
+	if "focus" == aUnit or "target" == aUnit then return false; end
 
 	tInfo = VUHDO_RAID[aUnit];
-	if tInfo["isPet"] or not tInfo["connected"] then
-		return false;
-	end
+	if tInfo["isPet"] or not tInfo["connected"] then return false; end
+
 	-- Determined by role or can't tell by talent trees (dk)?
 	if VUHDO_CLASS_ROLES[tInfo["classId"]] then -- VUHDO_ID_DEATH_KNIGHT, hat zwar keine feste Rolle, Talentbäume bringen aber auch nichts
 		return false;
@@ -123,11 +118,9 @@ function VUHDO_tryInspectNext()
 		if VUHDO_shouldBeInspected(tUnit) then
 			VUHDO_NEXT_INSPECT_TIME_OUT = GetTime() + VUHDO_INSPECT_TIMEOUT;
 			VUHDO_NEXT_INSPECT_UNIT = tUnit;
-			if "player" == tUnit then
-				VUHDO_inspectLockRole();
-			else
-				NotifyInspect(tUnit);
-			end
+
+			if "player" == tUnit then VUHDO_inspectLockRole();
+			else NotifyInspect(tUnit); end
 
 			return;
 		end

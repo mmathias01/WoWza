@@ -12,7 +12,7 @@ frame:Hide()
 
 -- Credits to Ace3, Tekkub, cladhaire and Tuller for some of the widget stuff.
 
-local function newCheckbox(label, description, onClick)
+local function newCheckbox(label, tooltipTitle, description, onClick)
 	local check = CreateFrame("CheckButton", "AmrCheck" .. label, frame, "InterfaceOptionsCheckButtonTemplate")
 	check:SetScript("OnClick", function(self)
 		PlaySound(self:GetChecked() and "igMainMenuOptionCheckBoxOn" or "igMainMenuOptionCheckBoxOff")
@@ -20,7 +20,7 @@ local function newCheckbox(label, description, onClick)
 	end)
 	check.label = _G[check:GetName() .. "Text"]
 	check.label:SetText(label)
-	check.tooltipText = label
+	check.tooltipText = tooltipTitle
 	check.tooltipRequirement = description
 	return check
 end
@@ -39,19 +39,54 @@ frame:SetScript("OnShow", function(frame)
 	subtitle:SetJustifyH("LEFT")
 	subtitle:SetNonSpaceWrap(false)
 	subtitle:SetJustifyV("TOP")
-	subtitle:SetText("Ask Mr Robot collects your item information and sends it to AskMrRobot.com for optimization")
+	subtitle:SetText("Mr. Robot's addon can export your item information to his website, and import your optimizations into the game.")
 	subTitleWrapper:SetHeight(subtitle:GetHeight())
 
 	local autoPopup = newCheckbox(
+		"Show minimap icon",
 		"Minimap Icon",
-		"Show Ask Mr Robot Minimap Icon",
+		"Show the Ask Mr. Robot minimap icon.",
 		function(self, value) 
-			AmrHideMapIcon = not AmrHideMapIcon;
-			AmrUpdateMinimap();
+			if AmrOptions.hideMapIcon then
+				AmrOptions.hideMapIcon = false
+			else
+				AmrOptions.hideMapIcon = true
+			end
+			AskMrRobot.AmrUpdateMinimap();
 		end
 	)
-	autoPopup:SetChecked(not AmrHideMapIcon)
+	autoPopup:SetChecked(not AmrOptions.hideMapIcon)
 	autoPopup:SetPoint("TOPLEFT", subTitleWrapper, "BOTTOMLEFT", -2, -16)
+
+	local autoReforge = newCheckbox(
+		"Automatically show Mr. Robot's reforge window at the reforger",
+		"Auto-Show Reforges",
+		"When you have suggested reforges left to complete, automatically show Mr. Robot's reforge window when you visit a reforger.",
+		function(self, value) 
+			if AmrOptions.manualShowReforge then
+				AmrOptions.manualShowReforge = false
+			else
+				AmrOptions.manualShowReforge = true
+			end
+		end
+	)
+	autoReforge:SetChecked(not AmrOptions.manualShowReforge)
+	autoReforge:SetPoint("TOPLEFT", subTitleWrapper, "BOTTOMLEFT", -2, -52)
+
+	local autoAh = newCheckbox(
+		"Automatically show Mr. Robot's shopping list at the auction house",
+		"Auto-Show Shopping List",
+		"When your shopping list still has things left to buy, automatically show Mr. Robot's shopping list when you visit the auction house.",
+		function(self, value) 
+			if AmrOptions.manualShowShop then
+				AmrOptions.manualShowShop = false
+			else
+				AmrOptions.manualShowShop = true
+			end
+		end
+	)
+	autoAh:SetChecked(not AmrOptions.manualShowShop)
+	autoAh:SetPoint("TOPLEFT", subTitleWrapper, "BOTTOMLEFT", -2, -88)
 
 	frame:SetScript("OnShow", nil)
 end)

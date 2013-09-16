@@ -1,0 +1,21 @@
+
+SkadaDB = {
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["windows"] = {
+				{
+					["point"] = "TOPRIGHT",
+					["x"] = -262.2132568359375,
+					["hidden"] = true,
+					["y"] = -210.3756713867188,
+				}, -- [1]
+			},
+			["icon"] = {
+				["minimapPos"] = 219.7704696270918,
+			},
+		},
+	},
+}

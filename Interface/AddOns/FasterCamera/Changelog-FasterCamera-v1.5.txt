@@ -1,0 +1,12 @@
+tag v1.5
+b73ccb70c89d1c9a6a2f9022c216ce8972f4ecda
+Ketho <ngsc1@live.cn>
+2013-05-23 02:48:51 +0200
+
+Tagging as v1.5
+
+
+--------------------
+
+Ketho:
+	- Bumped TOC to 50300

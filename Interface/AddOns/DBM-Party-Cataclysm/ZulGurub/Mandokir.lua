@@ -2,9 +2,8 @@ local mod	= DBM:NewMod(176, "DBM-Party-Cataclysm", 11, 76)
 local L		= mod:GetLocalizedStrings()
 local Ohgan	= EJ_GetSectionInfo(2615)
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(52151)
-mod:SetModelID(37816)
 mod:SetZone()
 mod:SetUsedIcons(8)
 
@@ -50,10 +49,10 @@ local ohganDiedOnce = false
 mod:RegisterOnUpdateHandler(function(self)
 	if self.Options.SetIconOnOhgan and ohganGUID then
 		for uId in DBM:GetGroupMembers() do
-			uId = uId .. "target"
-			local guid = UnitGUID(uId)
+			local unitID = uId .. "target"
+			local guid = UnitGUID(unitID)
 			if guid == ohganGUID then
-				SetRaidTarget(uId, 8)
+				SetRaidTarget(unitID, 8)
 				ohganGUID = nil
 			end
 		end

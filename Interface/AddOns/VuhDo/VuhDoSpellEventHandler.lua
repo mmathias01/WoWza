@@ -44,11 +44,8 @@ end
 local function VUHDO_activateSpellForSpec(aSpecId)
 	local tName = VUHDO_SPEC_LAYOUTS[aSpecId];
 	if not VUHDO_strempty(tName) then
-		if VUHDO_SPELL_LAYOUTS[tName] then
-			VUHDO_activateLayout(tName);
-		else
-			VUHDO_Msg(format(VUHDO_I18N_SPELL_LAYOUT_NOT_EXIST, tName), 1, 0.4, 0.4);
-		end
+		if VUHDO_SPELL_LAYOUTS[tName] then VUHDO_activateLayout(tName);
+		else VUHDO_Msg(format(VUHDO_I18N_SPELL_LAYOUT_NOT_EXIST, tName), 1, 0.4, 0.4); end
 	end
 end
 
@@ -58,9 +55,7 @@ end
 local function VUHDO_activateSpecc(aSpecNum)
 	VUHDO_activateSpellForSpec(aSpecNum);
 	local tProfile = VUHDO_getBestProfileAfterSpecChange();
-	if tProfile then
-		VUHDO_loadProfile(tProfile);
-	end
+	if tProfile then VUHDO_loadProfile(tProfile); end
 	VUHDO_aoeUpdateTalents();
 end
 
@@ -92,11 +87,8 @@ function VUHDO_spellcastSucceeded(aUnit, aSpellName)
 		VUHDO_updateAllCyclicBouquets(true);
 	end
 
-	if VUHDO_SPELL_ID.ACTIVATE_FIRST_TALENT == aSpellName then
-		VUHDO_activateSpecc("1");
-	elseif (VUHDO_SPELL_ID.ACTIVATE_SECOND_TALENT == aSpellName) then
-		VUHDO_activateSpecc("2");
-	end
+	if VUHDO_SPELL_ID.ACTIVATE_FIRST_TALENT == aSpellName then VUHDO_activateSpecc("1");
+	elseif (VUHDO_SPELL_ID.ACTIVATE_SECOND_TALENT == aSpellName) then VUHDO_activateSpecc("2"); end
 
 	VUHDO_aoeUpdateAll();
 end

@@ -30,6 +30,7 @@ a.SpellIDs = {
 	["Maelstrom Weapon"] = 53817,
 	["Magma Totem"] = 8190,
 	["Mana Tide Totem"] = 16190,
+	["Purge"] = 370,
 	["Rolling Thunder"] = 88764,
 	["Searing Flame"] = 77661,
 	["Searing Totem"] = 3599,
@@ -48,6 +49,7 @@ a.SpellIDs = {
 
 a.TalentIDs = {
 	["Echo of the Elements"] = 108283,
+	["Totemic Persistence"] = 108284,
 	["Unleashed Fury"] = 117012,
 }
 

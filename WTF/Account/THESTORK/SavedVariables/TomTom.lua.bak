@@ -1,0 +1,23 @@
+
+TomTomDB = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["arrow"] = {
+				["arrival"] = 5,
+			},
+		},
+	},
+}
+TomTomWaypoints = nil
+TomTomWaypointsMF = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Saphiira - Terenas",
+	},
+	["profiles"] = {
+		["Saphiira - Terenas"] = {
+		},
+	},
+}

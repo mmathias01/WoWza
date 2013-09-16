@@ -1,0 +1,11 @@
+
+BrokerRecountFuDB = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["maxAddonVersionSeen"] = "1.18",
+		},
+	},
+}

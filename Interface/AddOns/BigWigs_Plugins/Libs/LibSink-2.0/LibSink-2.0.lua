@@ -1,6 +1,6 @@
 --[[
 Name: Sink-2.0
-Revision: $Rev: 91 $
+Revision: $Rev: 94 $
 Author(s): Funkydude, Rabbit
 Description: Library that handles chat output.
 Dependencies: LibStub, SharedMedia-3.0 (optional)
@@ -18,7 +18,7 @@ If you derive from the library or change it in any way, you are required to cont
 -- Sink-2.0
 
 local SINK20 = "LibSink-2.0"
-local SINK20_MINOR = 90000 + tonumber(("$Revision: 91 $"):match("(%d+)"))
+local SINK20_MINOR = 90000 + tonumber(("$Revision: 94 $"):match("(%d+)"))
 
 local sink = LibStub:NewLibrary(SINK20, SINK20_MINOR)
 if not sink then return end
@@ -288,12 +288,12 @@ do
 			local id, name = select(i, ...)
 			newChannels[name] = true
 		end
-		for k, v in pairs(sink.channelMapping) do
+		for k, v in next, sink.channelMapping do
 			if v == "CHANNEL" and not newChannels[k] then
 				sink.channelMapping[k] = nil
 			end
 		end
-		for k in pairs(newChannels) do sink.channelMapping[k] = "CHANNEL" end
+		for k in next, newChannels do sink.channelMapping[k] = "CHANNEL" end
 	end
 	local function rescanChannels() loop(GetChannelList()) end
 	sink.frame:SetScript("OnEvent", rescanChannels)
@@ -445,22 +445,18 @@ do
 				return Parrot:GetScrollAreasValidate()
 			end
 		elseif addon == "MikSBT" then
-			if isMSBTFive then
-				if not msbtFrames then
-					msbtFrames = {}
-					for key, name in MikSBT.IterateScrollAreas() do
-						table.insert(msbtFrames, name)
-					end
+			if not msbtFrames then
+				msbtFrames = {}
+				for key, name in MikSBT.IterateScrollAreas() do
+					msbtFrames[#msbtFrames+1] = name
 				end
-				return msbtFrames
-			else
-				return MikSBT.GetScrollAreaList()
 			end
+			return msbtFrames
 		elseif addon == "SCT" then
 			return sctFrames
 		elseif addon == "Channel" then
 			wipe(tmp)
-			for k in pairs(sink.channelMapping) do
+			for k in next, sink.channelMapping do
 				tmp[#tmp + 1] = k
 			end
 			return tmp
@@ -629,10 +625,10 @@ do
 		["Ace2"] = getAce2SinkOptions,
 		["Ace3"] = getAce3SinkOptions
 	}
-	for generatorName, generator in pairs(sinkOptionGenerators) do
+	for generatorName, generator in next, sinkOptionGenerators do
 		options[generatorName] = options[generatorName] or {}
 		args[generatorName] = args[generatorName] or {}
-		for name, opts in pairs(sinks) do
+		for name, opts in next, sinks do
 			generator(name, opts)
 		end
 	end
@@ -675,7 +671,7 @@ do
 		assert(type(name) == "string")
 		assert(type(desc) == "string" or desc == nil)
 		assert(type(func) == "function" or type(func) == "string")
-		assert(type(scrollAreas) == "function" or scrollAreas == nil)
+		assert(type(scrollAreaFunc) == "function" or scrollAreaFunc == nil)
 		assert(type(hasSticky) == "boolean" or hasSticky == nil)
 
 		if sinks[shortName] or sink.handlers[shortName] then
@@ -702,7 +698,7 @@ do
 		end
 		sink.stickyAddons[shortName] = hasSticky and true or nil
 
-		for k, v in pairs(sinkOptionGenerators) do
+		for k, v in next, sinkOptionGenerators do
 			v(shortName, sinks[shortName])
 		end
 	end
@@ -736,7 +732,7 @@ local handlers = {
 	None = noop,
 }
 -- Overwrite any handler functions from the old library
-for k, v in pairs(handlers) do
+for k, v in next, handlers do
 	sink.handlers[k] = v
 end
 
@@ -752,13 +748,13 @@ local mixins = {
 
 function sink:Embed(target)
 	sink.embeds[target] = true
-	for _,v in pairs(mixins) do
+	for _,v in next, mixins do
 		target[v] = sink[v]
 	end
 	return target
 end
 
-for addon in pairs(sink.embeds) do
+for addon in next, sink.embeds do
 	sink:Embed(addon)
 end
 

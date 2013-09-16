@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(168, "DBM-BastionTwilight", nil, 72)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(45213)
-mod:SetModelID(34335)
 mod:SetZone()
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Sinestra\\VO_BT_Sinestra_Aggro01.wav", "Sound\\Creature\\Sinestra\\VO_BT_Sinestra_Kill02.wav")
@@ -52,7 +51,6 @@ local timerRedEssence		= mod:NewBuffFadesTimer(180, 87946)
 
 local countdownOrbs			= mod:NewCountdown(28, 92954, nil, "OrbsCountdown")
 
-mod:AddBoolOption("HealthFrame", false)
 mod:AddBoolOption("SetIconOnOrbs", true)
 mod:AddBoolOption("InfoFrame", false)--Does not filter tanks. not putting ugly hack in info frame, its simpley an aggro tracker
 
@@ -228,12 +226,12 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:ClearIcons()
 		end
 	elseif args.spellId == 87231 and not args:IsDestTypePlayer() then
-		if not DBM.BossHealth:HasBoss(args.sourceGUID) then
+		calenGUID = args.sourceGUID
+		if not DBM.BossHealth:HasBoss(args.sourceGUID) and DBM.BossHealth:IsShown() then
 			DBM.BossHealth:AddBoss(args.sourceGUID, args.sourceName)
-			calenGUID = args.sourceGUID
 		end
 	elseif args.spellId == 87654 then
-		if not DBM.BossHealth:HasBoss(args.sourceGUID) then
+		if not DBM.BossHealth:HasBoss(args.sourceGUID) and DBM.BossHealth:IsShown() then
 			DBM.BossHealth:AddBoss(args.sourceGUID, args.sourceName)
 		end
 		if self:AntiSpam(3) then
@@ -276,10 +274,14 @@ end
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 46842 then
-		DBM.BossHealth:RemoveBoss(args.destGUID)
+		if DBM.BossHealth:IsShown() then
+			DBM.BossHealth:RemoveBoss(args.destGUID)
+		end
 		eggDown = eggDown + 1
 		if eggDown >= 2 then
-			DBM.BossHealth:RemoveBoss(calenGUID)
+			if DBM.BossHealth:IsShown() then
+				DBM.BossHealth:RemoveBoss(calenGUID)
+			end
 			timerEggWeaken:Cancel()
 			warnPhase3:Show()
 			timerBreathCD:Start()

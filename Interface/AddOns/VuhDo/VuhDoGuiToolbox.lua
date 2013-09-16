@@ -807,11 +807,11 @@ end
 
 
 
+--
 local tFrame;
 local tIndex;
 local tFlashTime;
 local tAlpha;
-
 function VUHDO_UIFrameFlash_OnUpdate(aTimeDelta)
 	tIndex = #sFlashFrames;
 

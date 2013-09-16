@@ -4,7 +4,7 @@
 ## Notes: Adds modules that are useful for debugging any issues you may be having.
 ## RequiredDeps: ElvUI_ChatTweaks
 ## DefaultState: disabled
-## X-Curse-Packaged-Version: 6.11
+## X-Curse-Packaged-Version: 6.15
 ## X-Curse-Project-Name: ElvUI Chat Tweaks
 ## X-Curse-Project-ID: elvui_chattweaks
 ## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline

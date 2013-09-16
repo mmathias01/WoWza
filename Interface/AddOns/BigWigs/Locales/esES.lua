@@ -12,8 +12,8 @@ L.stages_desc = "Habilita funciones relacionadas con varias etapas/fases del jef
 
 L.already_registered = "|cffff0000ATENCIóN:|r |cff00ff00%s|r (|cffffff00%s|r) ya existe ese módulo en BigWigs, pero sin embargo está intentando registrarlo de nuevo. Esto normalmente ocurre cuando tienes varias copias de este módulo en tu carpeta de addons posiblemente por una actualización fallida. Es recomendable que borres la carpeta de Big Wigs y lo reinstales por completo."
 
---L.movieBlocked = "You've seen this movie before, skipping it."
---L.roleUpdate = "Updated your role."
+L.movieBlocked = "Ya has visto esta cinemática antes, omitiéndola."
+L.roleUpdate = "Rol actualizado."
 
 -- Loader / Options.lua
 L["You are running an official release of Big Wigs %s (revision %d)"] = "Estás usando la versión oficial de Big Wigs %s (revisión %d)"
@@ -38,11 +38,11 @@ L["Waiting until combat ends to finish loading due to Blizzard combat restrictio
 L["Combat has ended, Big Wigs has now finished loading."] = "El combate ha terminado, Big Wigs ha terminado de cargar."
 L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."] = "Debido a las restricciones de Blizzard la configuración debe abrirse primero fuera de combate, antes se podia acceder en combate."
 
-L.missingAddOn = "Tenga en cuenta que esta zona requiere el plugin -[[\124cFF436EEE%s\124r]]- para que los contadores sean mostrados."
+L.missingAddOn = "Tenga en cuenta que esta zona requiere el plugin [\124cFF436EEE%s\124r] para que los contadores sean mostrados."
 
 L.coreAddonDisabled = "Big Wigs no puede funcionar debidamente ya que el addon %s está desactivado. Puedes activarlo desde el addon Control panel o en la pantalla de selección de personaje."
 
---L.removeAddon = "Please remove '|cFF436EEE%s|r' as it's been replaced by '|cFF436EEE%s|r'."
+L.removeAddon = "Por favor elimina '|cFF436EEE%s|r' ya que está siendo reemplazado por '|cFF436EEE%s|r'."
 
 -- Options.lua
 L["Customize ..."] = "Personalizar..."
@@ -76,6 +76,8 @@ L.chatMessages = "Chat frame messages"
 L.chatMessagesDesc = "Todos los mensajes de salida de Big Wigs a la ventana de chat por defecto en adición a los ajustes mostrados"
 L.autoRole = "Actualizar rol automáticamente"
 L.autoRoleDesc = "Saber que rol tienes mejorará los avisos de Big Wigs para el resto de miembros de tu raid, esta opción permite a Big Wigs actualizar automáticamente tu rol. Por ejemplo, algunos módulos comprobarán si un jugador es tanque cuando escanea las habilidades del jefe que nunca afecta a tanques.\n\n|cffff4411¡Esto no esta relacionado con los avisos específicos de rol y recomendamos encarecidamente que dejes esta opción activada!|r"
+--L.zoneMessages = "Show zone messages"
+--L.zoneMessagesDesc = "Disabling this will stop showing messages when you enter a zone that Big Wigs has timers for, but you don't have installed. We recommend you leave this turned on as it's the only notification you will get if we suddenly create timers for a new zone that you find useful."
 
 L.slashDescTitle = "|cFFFED000Atajo de comandos:|r"
 L.slashDescPull = "|cFFFED000/pull:|r Envia una cuenta atrás de puleo a tu raid."
@@ -136,6 +138,7 @@ L.heroic25 = "25h"
 L.norm10 = "10"
 L.heroic10 = "10h"
 L.lfr = "LFR"
+L.flex = "Flex"
 L.wipes = "Wipes:"
 L.kills = "Muertes:"
 L.bestkill = "Mejor muerte:"

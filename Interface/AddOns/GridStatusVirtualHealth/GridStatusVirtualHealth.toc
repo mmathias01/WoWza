@@ -1,0 +1,11 @@
+## Interface: 50300
+## Title: GridStatusVirtualHealth
+## Notes: Adds a combined Absorb- and incoming Heals-status
+## Author: Zid & Figâ
+## Version: 1.0
+## X-Category: UnitFrame
+## X-GridStatusModule: GridStatusVirtualHealth
+## Dependencies: Grid
+
+
+GridStatusVirtualHealth.lua

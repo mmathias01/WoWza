@@ -240,7 +240,7 @@
 
 			<Frame name="$parentMiscPanel" inherits="VuhDoPanelTemplate">
 				<Size>
-					<AbsDimension x="130" y="152" />
+					<AbsDimension x="130" y="114" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -264,7 +264,7 @@
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="13" y="-69" />
+									<AbsDimension x="13" y="-31" />
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -280,7 +280,7 @@
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="13" y="-107" />
+									<AbsDimension x="13" y="-69" />
 								</Offset>
 							</Anchor>
 						</Anchors>

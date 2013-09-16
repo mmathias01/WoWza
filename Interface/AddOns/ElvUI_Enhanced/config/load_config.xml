@@ -2,4 +2,5 @@
 	<Script file="profile.lua"/>
 	<Script file="private.lua"/>
 	<Script file="options.lua"/>
+	<Include file="filters\load_filters.xml"/>
 </Ui>

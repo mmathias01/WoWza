@@ -1,272 +1,290 @@
 local E, L, V, P, G, _ = unpack(ElvUI)
 local AS = E:GetModule('AddOnSkins')
 
-local EmbeddingWindow = CreateFrame("Frame", "EmbeddingWindow", UIParent)
-EmbeddingWindow:SetTemplate("Transparent")
-EmbeddingWindow:SetFrameStrata("HIGH")
-EmbeddingWindow:Hide()
+local format, gsub, pairs, ipairs, select, tinsert, tonumber = format, gsub, pairs, ipairs, select, tinsert, tonumber
 
-function AS:EmbedWindowResize()
-	local RDTS
-	if (AS:CheckOption("EmbedRight") and not E.db.datatexts.rightChatPanel) or (not AS:CheckOption("EmbedRight") and not E.db.datatexts.leftChatPanel) then
-		RDTS = 22
-	else
-		RDTS = 0
-	end
+local SkadaWindows = {}
+local EmbedSystem_MainWindow = CreateFrame('Frame', 'EmbedSystem_MainWindow', UIParent)
+local EmbedSystem_LeftWindow = CreateFrame('Frame', 'EmbedSystem_LeftWindow', EmbedSystem_MainWindow)
+local EmbedSystem_RightWindow = CreateFrame('Frame', 'EmbedSystem_RightWindow', EmbedSystem_MainWindow)
+local ChatHeight, ChatWidth = E.db.chat.panelHeight, E.db.chat.panelWidth
 
-	if not self.sle then
-		if E.PixelMode then
-			EmbeddingWindow:SetPoint("TOP", (AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel), "TOP", 0, -3) EmbeddingWindow:Size(((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetWidth() - 6),((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetHeight() - (28 - RDTS)))
-		else
-			EmbeddingWindow:SetPoint("TOP", (AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel), "TOP", 0, -5) EmbeddingWindow:Size(((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetWidth() - 10),((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetHeight() - (32 - RDTS)))
-		end
-	else
-		EmbeddingWindow:SetPoint("TOP", (AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel), "TOP", 0, 0) EmbeddingWindow:Size(((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetWidth() - 1),(AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel):GetHeight() - 1)
+function AS:Embed_Show()
+	if AS:CheckOption('EmbedSystem') then
+		if EmbedSystem_MainWindow.FrameName ~= nil then _G[EmbedSystem_MainWindow.FrameName]:Show() end
 	end
-	
-	local OrigHeight, OrigWidth
-	if OrigHeight == nil then OrigHeight = EmbeddingWindow:GetHeight() end
-	if OrigWidth == nil then OrigWidth = EmbeddingWindow:GetWidth() end
-	if EmbeddingWindow:GetHeight() == OrigHeight and EmbeddingWindow:GetWidth() == OrigWidth then return end
-	OrigHeight = EmbeddingWindow:GetHeight()
-	OrigWidth = EmbeddingWindow:GetWidth()
-	
-	if (self:CheckOption("EmbedRO","Recount","Omen")) then self:EmbedRecountOmenResize() end
-	if (self:CheckOption("EmbedTDPS","TinyDPS")) then self:EmbedTDPSResize() end
-	if (self:CheckOption("EmbedRecount","Recount")) then self:EmbedRecountResize() end
-	if (self:CheckOption("EmbedOmen","Omen")) then self:EmbedOmenResize() end
-	if (self:CheckOption("EmbedSkada","Skada")) then self:EmbedSkada() end
+	if AS:CheckOption('EmbedSystemDual') then
+		EmbedSystem_LeftWindow:Show()
+		EmbedSystem_RightWindow:Show()
+		if EmbedSystem_LeftWindow.FrameName ~= nil then _G[EmbedSystem_LeftWindow.FrameName]:Show() end
+		if EmbedSystem_RightWindow.FrameName ~= nil then _G[EmbedSystem_RightWindow.FrameName]:Show() end
+	end
 end
 
-function AS:EmbedRecount()
-	local Recount = _G.Recount
+function AS:Embed_Hide()
+	EmbedSystem_LeftWindow:Hide()
+	EmbedSystem_RightWindow:Hide()
+end
 
-	if (self:CheckOption("EmbedOoC")) then
-		if (self:CheckOption("EmbedRecount")) then
-			Recount_MainWindow:Hide()
+function AS:EmbedSystem_WindowResize()
+	if InCombatLockdown() then return end
+	local DataTextSize = AS:CheckOption('EmbedLeftChat') and E.db.datatexts.leftChatPanel and LeftChatDataPanel:GetHeight() or E.db.datatexts.rightChatPanel and RightChatDataPanel:GetHeight() or 0
+	local ChatTabSize = AS:CheckOption('EmbedBelowTop') and RightChatTab:GetHeight() or 0
+	local Width = AS.SLE and (E.PixelMode and 4 or 6) or E.PixelMode and 6 or 10
+	local Height = E.PixelMode and 2 or 4
+	local Spacing = AS.SLE and (E.PixelMode and 2 or 3) or E.PixelMode and 3 or 7
+	local Total = AS.SLE and ((E.PixelMode and 4 or 6) + ChatTabSize) or ((E.PixelMode and 6 or 12) + ChatTabSize + DataTextSize)
+
+	local ChatPanel = AS:CheckOption('EmbedLeftChat') and LeftChatPanel or RightChatPanel
+
+	EmbedSystem_MainWindow:SetSize(ChatPanel:GetWidth() - Width, ChatPanel:GetHeight() - Total)
+	EmbedSystem_LeftWindow:SetSize(AS:CheckOption('EmbedLeftWidth') + (E.PixelMode and 1 or 0), EmbedSystem_MainWindow:GetHeight() - Height)
+	EmbedSystem_RightWindow:SetSize((EmbedSystem_MainWindow:GetWidth() - AS:CheckOption('EmbedLeftWidth')) - 1, EmbedSystem_MainWindow:GetHeight() - Height)
+
+	EmbedSystem_LeftWindow:SetPoint('RIGHT', EmbedSystem_RightWindow, 'LEFT', (E.PixelMode and 0 or -1), 0)
+	EmbedSystem_RightWindow:SetPoint('RIGHT', EmbedSystem_MainWindow, 'RIGHT', 0, 0)
+	EmbedSystem_MainWindow:SetPoint('BOTTOM', ChatPanel, 'BOTTOM', 0, (AS.SLE and Spacing or (Spacing + DataTextSize)))
+
+	-- Dynamic Range
+	if IsAddOnLoaded("ElvUI_Config") then
+		E.Options.args.addonskins.args.embed.args.EmbedLeftWidth.min = floor(EmbedSystem_MainWindow:GetWidth() * .25)
+		E.Options.args.addonskins.args.embed.args.EmbedLeftWidth.max = floor(EmbedSystem_MainWindow:GetWidth() * .75)
+	end
+end
+
+function AS:Embed_Check(Message)
+	if not (AS:CheckOption('EmbedSystem') or AS:CheckOption('EmbedSystemDual')) then return end
+	AS:Embed_Toggle(Message)
+	if AS:CheckOption('EmbedOmen', 'Omen') then AS:Embed_Omen() end
+	if AS:CheckOption('EmbedSkada', 'Skada') then AS:Embed_Skada() end
+	if AS:CheckOption('EmbedTinyDPS', 'TinyDPS') then AS:Embed_TinyDPS() end
+	if AS:CheckOption('EmbedRecount', 'Recount') then AS:Embed_Recount() end
+	if AS:CheckOption('EmbedalDamageMeter', 'alDamageMeter') then AS:Embed_alDamageMeter() end
+end
+
+function AS:Embed_Toggle(Message)
+	local MainEmbed, LeftEmbed, RightEmbed = 'NONE', 'NONE', 'NONE'
+	EmbedSystem_MainWindow.FrameName = nil
+	EmbedSystem_LeftWindow.FrameName = nil
+	EmbedSystem_RightWindow.FrameName = nil
+	if AS:CheckOption('EmbedSystem') then
+		MainEmbed = AS:CheckOption('EmbedMain')
+		if MainEmbed ~= 'Skada' and MainEmbed ~= 'Omen' and MainEmbed ~= 'Recount' and MainEmbed ~= 'TinyDPS' and MainEmbed ~= 'alDamageMeter' then
+			EmbedSystem_MainWindow.FrameName = MainEmbed
 		end
 	end
-	Recount:LockWindows(true)
+	if AS:CheckOption('EmbedSystemDual') then
+		LeftEmbed, RightEmbed = AS:CheckOption('EmbedLeft'), AS:CheckOption('EmbedRight')
+		if LeftEmbed ~= 'Skada' and LeftEmbed ~= 'Omen' and LeftEmbed ~= 'Recount' and LeftEmbed ~= 'TinyDPS' and LeftEmbed ~= 'alDamageMeter' then
+			EmbedSystem_LeftWindow.FrameName = LeftEmbed
+		end
+		if RightEmbed ~= 'Skada' and RightEmbed ~= 'Omen' and RightEmbed ~= 'Recount' and RightEmbed ~= 'TinyDPS' and RightEmbed ~= 'alDamageMeter' then
+			EmbedSystem_RightWindow.FrameName = RightEmbed
+		end
+	end
+	AS:DisableOption('EmbedalDamageMeter')
+	AS:DisableOption('EmbedOmen')
+	AS:DisableOption('EmbedRecount')
+	AS:DisableOption('EmbedTinyDPS')
+	AS:DisableOption('EmbedSkada')
+	local Frame = nil
+	if EmbedSystem_MainWindow.FrameName ~= nil then
+		Frame = _G[EmbedSystem_MainWindow.FrameName]
+		if Frame and Frame:IsObjectType('Frame') and not Frame:IsProtected() then
+			Frame:ClearAllPoints()
+			Frame:SetParent(EmbedSystem_MainWindow)
+			Frame:SetInside(EmbedSystem_MainWindow, 0, 0)
+		end
+	end
+	if EmbedSystem_LeftWindow.FrameName ~= nil then
+		Frame = _G[EmbedSystem_LeftWindow.FrameName]
+		if Frame and Frame:IsObjectType('Frame') and not Frame:IsProtected() then
+			Frame:ClearAllPoints()
+			Frame:SetParent(EmbedSystem_LeftWindow)
+			Frame:SetInside(EmbedSystem_LeftWindow, 0, 0)
+		end
+	end
+	if EmbedSystem_RightWindow.FrameName ~= nil then
+		Frame = _G[EmbedSystem_RightWindow.FrameName]
+		if Frame and Frame:IsObjectType('Frame') and not Frame:IsProtected() then
+			Frame:ClearAllPoints()
+			Frame:SetParent(EmbedSystem_RightWindow)
+			Frame:SetInside(EmbedSystem_RightWindow, 0, 0)
+		end
+	end
+	if MainEmbed == 'Skada' or LeftEmbed == 'Skada' or RightEmbed == 'Skada' then
+		AS:EnableOption('EmbedSkada')
+	end
+	if MainEmbed == 'Omen' or LeftEmbed == 'Omen' or RightEmbed == 'Omen' then
+		AS:EnableOption('EmbedOmen')
+	end
+	if MainEmbed == 'Recount' or LeftEmbed == 'Recount' or RightEmbed == 'Recount' then
+		AS:EnableOption('EmbedRecount')
+	end
+	if MainEmbed == 'TinyDPS' or LeftEmbed  == 'TinyDPS' or RightEmbed == 'TinyDPS' then
+		AS:EnableOption('EmbedTinyDPS')
+	end
+	if MainEmbed == 'alDamageMeter' or LeftEmbed  == 'alDamageMeter' or RightEmbed == 'alDamageMeter' then
+		AS:EnableOption('EmbedalDamageMeter')
+	end
+	if Message then
+		local Message = format("Main: '%s'", AS:CheckOption('EmbedMain'))
+		if AS:CheckOption('EmbedSystemDual') then Message = format("Left: '%s' | Right: '%s'", AS:CheckOption('EmbedLeft'), AS:CheckOption('EmbedRight')) end
+		AS:Print(format("Embed System: - %s", Message))
+	end
+end
+
+function AS:Embed_Recount()
+	local EmbedParent = EmbedSystem_MainWindow
+	if AS:CheckOption('EmbedSystemDual') then EmbedParent = AS:CheckOption('EmbedRight') == 'Recount' and EmbedSystem_RightWindow or EmbedSystem_LeftWindow end
+	EmbedParent.FrameName = "Recount_MainWindow"
+
+	Recount_MainWindow:SetParent(EmbedParent)
 	Recount_MainWindow:ClearAllPoints()
-	self:EmbedRecountResize()
-	if (self:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel) then Recount_MainWindow:SetParent((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel)) end
-	Recount.MainWindow:SetFrameStrata("LOW")
+	Recount_MainWindow:SetPoint('TOPLEFT', EmbedParent, 'TOPLEFT', 0, 6)
+	Recount_MainWindow:SetPoint('BOTTOMRIGHT', EmbedParent, 'BOTTOMRIGHT', 0, 0)
+	if Recount.MainWindow.backdrop then Recount.MainWindow.backdrop:SetTemplate(AS:CheckOption('TransparentEmbed') and 'Transparent' or 'Default') end
+	if not AS:CheckOption('RecountBackdrop') then Recount.MainWindow.backdrop:Hide() end
+
+	Recount.db.profile.Locked = true
+	Recount.db.profile.Scaling = 1
+	Recount.db.profile.ClampToScreen = true
+	Recount.db.profile.FrameStrata = '2-LOW'
+	Recount:SetStrataAndClamp()
+	Recount:LockWindows(true)
+	Recount:ResizeMainWindow()
 end
 
-function AS:EmbedRecountResize()
-	Recount_MainWindow:SetPoint("TOPLEFT", EmbeddingWindow,"TOPLEFT", 0, 7)
-	Recount_MainWindow:SetPoint("BOTTOMRIGHT", EmbeddingWindow,"BOTTOMRIGHT", 0, 2)
-end
+function AS:Embed_Omen()
+	local EmbedParent = EmbedSystem_MainWindow
+	if AS:CheckOption('EmbedSystemDual') then EmbedParent = AS:CheckOption('EmbedRight') == 'Omen' and EmbedSystem_RightWindow or EmbedSystem_LeftWindow end
+	EmbedParent.FrameName = "OmenAnchor"
 
-function AS:EmbedOmen()
-	if (AS:CheckOption("EmbedOoC")) then
-		if (AS:CheckOption("EmbedOmen")) then
-			OmenBarList:Hide()
-		end
-	end
-	Omen.db.profile.Locked = true
-	Omen:UpdateGrips()
-	Omen.UpdateGrips = function(...)
-		local db = Omen.db.profile
-		Omen.VGrip1:ClearAllPoints()
-		Omen.VGrip1:SetPoint("TOPLEFT", Omen.BarList, "TOPLEFT", db.VGrip1, 0)
-		Omen.VGrip1:SetPoint("BOTTOMLEFT", Omen.BarList, "BOTTOMLEFT", db.VGrip1, 0)
-		Omen.VGrip2:ClearAllPoints()
-		Omen.VGrip2:SetPoint("TOPLEFT", Omen.BarList, "TOPLEFT", db.VGrip2, 0)
-		Omen.VGrip2:SetPoint("BOTTOMLEFT", Omen.BarList, "BOTTOMLEFT", db.VGrip2, 0)
-		Omen.Grip:Hide()
-		if db.Locked then
-			Omen.VGrip1:Hide()
-			Omen.VGrip2:Hide()
-		else
-			Omen.VGrip1:Show()
-			if db.Bar.ShowTPS then
-				Omen.VGrip2:Show()
-			else
-				Omen.VGrip2:Hide()
-			end
-		end
-	end
-	OmenTitle:Kill()
-	OmenBarList:StripTextures()
-	OmenBarList:SetTemplate("Transparent")
-	self:EmbedOmenResize()
-	if RightChatPanel then OmenBarList:SetParent(RightChatPanel) end
-	OmenBarList:SetFrameStrata("LOW")
-end
+	local db = Omen.db
+	db.profile.Scale = 1
+	db.profile.Bar.Spacing = 1
+	db.profile.Background.EdgeSize = 2
+	db.profile.Background.BarInset = 2
+	db.profile.TitleBar.UseSameBG = true
+	db.profile.ShowWith.UseShowWith = false
+	db.profile.Locked = true
+	db.profile.TitleBar.ShowTitleBar = true
+	db.profile.FrameStrata = '2-LOW'
+	Omen:OnProfileChanged(nil, db)
 
-function AS:EmbedOmenResize()
-	OmenBarList:ClearAllPoints()
-	OmenBarList:SetPoint("TOPLEFT", EmbeddingWindow, "TOPLEFT", 0, 0)
-	OmenBarList:SetPoint("BOTTOMRIGHT", EmbeddingWindow, "BOTTOMRIGHT", 0, 2)
-end
+	OmenAnchor:StripTextures()
+	AS:SkinTitleBar(OmenTitle, 'Default')
+	AS:SkinFrame(OmenBarList, AS:CheckOption('TransparentEmbed') and 'Transparent' or 'Default')
+	if not AS:CheckOption('OmenBackdrop') then OmenBarList:StripTextures() end
 
-function AS:EmbedRecountOmen()
-	if (self:CheckOption("EmbedOoC")) then
-		if (self:CheckOption("EmbedRO")) then
-			Recount_MainWindow:Hide()
-			OmenBarList:Hide()
-		end
-	end
-
-	OmenTitle:Kill()
-	Omen.db.profile.Locked = true
-	Omen:UpdateGrips()
-	Omen.UpdateGrips = function(...)
-		local db = Omen.db.profile
-		Omen.VGrip1:ClearAllPoints()
-		Omen.VGrip1:SetPoint("TOPLEFT", Omen.BarList, "TOPLEFT", db.VGrip1, 0)
-		Omen.VGrip1:SetPoint("BOTTOMLEFT", Omen.BarList, "BOTTOMLEFT", db.VGrip1, 0)
-		Omen.VGrip2:ClearAllPoints()
-		Omen.VGrip2:SetPoint("TOPLEFT", Omen.BarList, "TOPLEFT", db.VGrip2, 0)
-		Omen.VGrip2:SetPoint("BOTTOMLEFT", Omen.BarList, "BOTTOMLEFT", db.VGrip2, 0)
-		Omen.Grip:Hide()
-		if db.Locked then
-			Omen.VGrip1:Hide()
-			Omen.VGrip2:Hide()
-		else
-			Omen.VGrip1:Show()
-			if db.Bar.ShowTPS then
-				Omen.VGrip2:Show()
-			else
-				Omen.VGrip2:Hide()
-			end
-		end
-	end
-
-	OmenBarList:StripTextures()
-	OmenBarList:SetTemplate("Default")
+	OmenAnchor:SetParent(EmbedParent)
 	OmenAnchor:ClearAllPoints()
-	Recount:LockWindows(true)
-	Recount_MainWindow:ClearAllPoints()
-	if (AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel) then
-		OmenBarList:SetParent((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel))
-		Recount_MainWindow:SetParent((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel))
-	end
-	
-	Recount_MainWindow:SetFrameStrata("LOW")
-	OmenBarList:SetFrameStrata("LOW")
-	self:EmbedRecountOmenResize()
+	OmenAnchor:SetPoint('TOPLEFT', EmbedParent, 'TOPLEFT', 0, 0)
+	OmenAnchor:SetPoint('BOTTOMRIGHT', EmbedParent, 'BOTTOMRIGHT', 0, 0)
 end
 
-function AS:EmbedRecountOmenResize()
-	if E.PixelMode then
-		OmenAnchor:SetWidth((EmbeddingWindow:GetWidth() / 3))
-		OmenAnchor:SetHeight((EmbeddingWindow:GetHeight() + 21))
-		OmenAnchor:SetPoint("BOTTOMLEFT", EmbeddingWindow, "BOTTOMLEFT", 0, 0)
-		Recount_MainWindow:SetWidth((EmbeddingWindow:GetWidth() / 3) + (EmbeddingWindow:GetWidth() / 3))
-		Recount_MainWindow:SetHeight((EmbeddingWindow:GetHeight()+7))
-		Recount_MainWindow:SetPoint("BOTTOMRIGHT", EmbeddingWindow,"BOTTOMRIGHT", 0, 0)
-	else
-		OmenAnchor:SetWidth((EmbeddingWindow:GetWidth() / 3) - 1)
-		OmenAnchor:SetHeight((EmbeddingWindow:GetHeight() + 21))
-		OmenAnchor:SetPoint("BOTTOMLEFT", EmbeddingWindow, "BOTTOMLEFT", 0, 1)
-		Recount_MainWindow:SetWidth((EmbeddingWindow:GetWidth() / 3) + (EmbeddingWindow:GetWidth() / 3))
-		Recount_MainWindow:SetHeight((EmbeddingWindow:GetHeight()+7))
-		Recount_MainWindow:SetPoint("BOTTOMRIGHT", EmbeddingWindow,"BOTTOMRIGHT", 0, 1)
-	end
-end
-	
-local function EmbedWindow(window, width, height, point, relativeFrame, relativePoint, ofsx, ofsy)
-	local barmod = Skada.displays["bar"]
+function AS:Embed_TinyDPS()
+	local EmbedParent = EmbedSystem_MainWindow
+	if AS:CheckOption('EmbedSystemDual') then EmbedParent = AS:CheckOption('EmbedRight') == 'TinyDPS' and EmbedSystem_RightWindow or EmbedSystem_LeftWindow end
+	EmbedParent.FrameName = "tdpsFrame"
 
-	window.db.barwidth = width
-	window.db.background.height = height
-	window.db.spark = false
-	window.db.barslocked = true
-	window.bargroup:ClearAllPoints()
-	window.bargroup:SetPoint(point, relativeFrame, relativePoint, ofsx, ofsy)
-	
-	barmod.ApplySettings(barmod, window)
-end
+	AS:SkinFrame(tdpsFrame, AS:CheckOption('TransparentEmbed') and 'Transparent' or 'Default')
+	tdpsFrame:SetParent(EmbedParent)
+	tdpsFrame:SetFrameStrata('LOW')
+	tdpsAnchor:ClearAllPoints()
+	tdpsAnchor:Point('TOPLEFT', EmbedParent, 'TOPLEFT', 0, 0)
+	tdpsAnchor:Point('BOTTOMRIGHT', EmbedParent, 'BOTTOMRIGHT', 0, 0)
 
-function AS:EmbedSkada()
-	if self.embeddingskada then return end
-	self.embeddingskada = true
-	windows = {}
-	for _, window in ipairs(Skada:GetWindows()) do
-		tinsert(windows, window)
-	end
-	local borderWidth = 1
-	local height = AS:CheckOption("SkadaBelowTop") and 43 or E.PixelMode and 20 or 18
-	local notitleheight = height - 15
-	local yoffset = AS:CheckOption("SkadaBelowTop") and -40 or -17
-	local notitleoffset = yoffset + 15
-
-	if(#windows == 1) then
-		EmbedWindow(windows[1], EmbeddingWindow:GetWidth() - 4, (EmbeddingWindow:GetHeight() - height), "TOPRIGHT", EmbeddingWindow, "TOPRIGHT", -2, yoffset)
-	elseif(#windows >= 2) then
-		local w2height = windows[2].db.enabletitle and height or notitleheight
-		local w2yoffset = windows[2].db.enabletitle and yoffset or notitleoffset
-		if AS:CheckOption("SkadaTwoThirds") then
-			EmbedWindow(windows[1], (((EmbeddingWindow:GetWidth() - 4) / 3) * 2) - (borderWidth*1.5 + E.mult), EmbeddingWindow:GetHeight() - height, "TOPRIGHT", EmbeddingWindow, "TOPRIGHT", -2, yoffset)
-			EmbedWindow(windows[2], ((EmbeddingWindow:GetWidth() - 4) / 3) - (borderWidth*1.5 + E.mult), EmbeddingWindow:GetHeight() - w2height, "TOPLEFT", EmbeddingWindow, "TOPLEFT", 2, w2yoffset)
-		else
-			EmbedWindow(windows[1], ((EmbeddingWindow:GetWidth() - 4) / 2) - (borderWidth + E.mult), EmbeddingWindow:GetHeight() - height, "TOPRIGHT", EmbeddingWindow, "TOPRIGHT", -2, yoffset)
-			EmbedWindow(windows[2], ((EmbeddingWindow:GetWidth() - 4) / 2) - (borderWidth + E.mult), EmbeddingWindow:GetHeight() - w2height, "TOPLEFT", EmbeddingWindow, "TOPLEFT", 2, w2yoffset)
-		end
-	end
-	self.embeddingskada = false
-end
-
-function AS:EmbedTDPS()
-	tdpsFrame:SetParent((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel))
-	tdpsFrame:SetFrameStrata("LOW")
-	tdpsFrame.spacing = 0
-	tdpsFrame.barHeight = 14
-	tdpsVisibleBars = 9
-	AS:EmbedTDPSResize()
-	tdpsAnchor:Point("TOPLEFT", EmbeddingWindow, "TOPLEFT", 0, 0)
-
+	tdps.hideOOC = false
+	tdps.hideIC = false
+	tdps.hideSolo = false
+	tdps.hidePvP = false
 	tdpsRefresh()
-	if (AS:CheckOption("EmbedOoC")) then
-		if (AS:CheckOption("EmbedTDPS")) then
-			tdpsFrame:Hide()
-		end
-	end
 end
 
-function AS:EmbedTDPSResize()
-	tdpsFrame:SetWidth(EmbeddingWindow:GetWidth())
-	tdpsRefresh()
+function AS:Embed_alDamageMeter()
+	local EmbedParent = EmbedSystem_MainWindow
+	if AS:CheckOption('EmbedSystemDual') then EmbedParent = AS:CheckOption('EmbedRight') == 'alDamageMeter' and EmbedSystem_RightWindow or EmbedSystem_LeftWindow end
+	EmbedParent.FrameName = "alDamagerMeterFrame"
+
+	dmconf.barheight = floor((EmbedParent:GetHeight() / dmconf.maxbars) - dmconf.spacing)
+	dmconf.width = EmbedParent:GetWidth()
+
+	alDamageMeterFrame.backdrop:SetTemplate(AS:CheckOption('TransparentEmbed') and 'Transparent' or 'Default')
+	alDamageMeterFrame.bg:Kill()
+	alDamageMeterFrame:ClearAllPoints()
+	alDamageMeterFrame:SetInside(EmbedParent)
+	alDamageMeterFrame:SetParent(EmbedParent)
+	alDamageMeterFrame:SetFrameStrata('LOW')
+end
+
+function AS:Embed_Skada()
+	wipe(SkadaWindows)
+	for k, window in pairs(Skada:GetWindows()) do
+		tinsert(SkadaWindows, window)
+	end
+
+	local NumberToEmbed = 0
+	if AS:CheckOption('EmbedSystem') then
+		NumberToEmbed = 1
+	end
+	if AS:CheckOption('EmbedSystemDual') then
+		if AS:CheckOption('EmbedRight') == 'Skada' then NumberToEmbed = NumberToEmbed + 1 end
+		if AS:CheckOption('EmbedLeft') == 'Skada' then NumberToEmbed = NumberToEmbed + 1 end
+	end
+
+	local function EmbedWindow(window, width, height, point, relativeFrame, relativePoint, ofsx, ofsy)
+		if not window then return end
+		local barmod = Skada.displays['bar']
+		local offsety = (window.db.enabletitle and window.db.title.height or 0) + (E.PixelMode and 1 or 0)
+		window.db.barwidth = width - 4
+		window.db.background.height = height - (window.db.enabletitle and window.db.title.height or 0) - (E.PixelMode and 2 or 0)
+		window.db.spark = false
+		window.db.barslocked = true
+		window.bargroup:ClearAllPoints()
+		window.bargroup:SetPoint(point, relativeFrame, relativePoint, ofsx, -offsety)
+		window.bargroup:SetParent(relativeFrame)
+		window.bargroup:SetFrameStrata('LOW')
+		if window.bargroup.backdrop then
+			window.bargroup.backdrop:SetTemplate(AS:CheckOption('TransparentEmbed') and 'Transparent' or 'Default')
+			if not AS:CheckOption('SkadaBackdrop') then window.bargroup.backdrop:Hide() else window.bargroup.backdrop:Show() end
+		end
+		barmod.ApplySettings(barmod, window)
+	end
+
+	if NumberToEmbed == 1 then
+		local EmbedParent = EmbedSystem_MainWindow
+		if AS:CheckOption('EmbedSystemDual') then EmbedParent = AS:CheckOption('EmbedRight') == 'Skada' and EmbedSystem_RightWindow or EmbedSystem_LeftWindow end
+		EmbedWindow(SkadaWindows[1], EmbedParent:GetWidth(), EmbedParent:GetHeight(), 'TOPLEFT', EmbedParent, 'TOPLEFT', 2, 0)
+	elseif NumberToEmbed == 2 then
+		EmbedWindow(SkadaWindows[1], EmbedSystem_LeftWindow:GetWidth(), EmbedSystem_LeftWindow:GetHeight(), 'TOPLEFT', EmbedSystem_LeftWindow, 'TOPLEFT', 2, 0)
+		EmbedWindow(SkadaWindows[2], EmbedSystem_RightWindow:GetWidth(), EmbedSystem_RightWindow:GetHeight(), 'TOPLEFT', EmbedSystem_RightWindow, 'TOPLEFT', 2, 0)
+	end
 end
 
 function AS:EmbedInit()
-	self:EmbedWindowResize()
-	hooksecurefunc((AS:CheckOption("EmbedRight") and RightChatPanel or LeftChatPanel), "SetSize", function(self, width, height) AS:EmbedWindowResize() end)
+	AS:EmbedSystem_WindowResize()
+	AS:Embed_Check(true)
+	EmbedSystem_MainWindow:SetScript('OnShow', AS.Embed_Show)
+	EmbedSystem_MainWindow:SetScript('OnHide', AS.Embed_Hide)
+	if AS:CheckOption('EmbedOoC') and not InCombatLockdown() then AS:Embed_Hide() end
 
-	local button = AS:CheckOption("EmbedRight") and RightChatToggleButton or LeftChatToggleButton
-	button:SetScript("OnClick", function(self, btn)
+	local ChatPanel = AS:CheckOption('EmbedLeftChat') and LeftChatPanel or RightChatPanel
+	local ToggleButton = AS:CheckOption('EmbedLeftChat') and LeftChatToggleButton or RightChatToggleButton
+
+	hooksecurefunc(ChatPanel, 'SetSize', function()
+		if ChatHeight ~= E.db.chat.panelHeight or ChatWidth ~= E.db.chat.panelWidth then
+			ChatHeight, ChatWidth = E.db.chat.panelHeight, E.db.chat.panelWidth
+			AS:EmbedSystem_WindowResize()
+			AS:Embed_Check()
+		end
+	end)
+	ToggleButton:SetScript('OnClick', function(self, btn)
 		if btn == 'RightButton' then
-			if (AS:CheckOption("EmbedRecount","Recount")) or (AS:CheckOption("EmbedRO","Recount","Omen")) then
-				if Recount_MainWindow:IsShown() then
-					Recount_MainWindow:Hide()
-				else
-					Recount_MainWindow:Show()
-				end
-			end
-			if (AS:CheckOption("EmbedSkada","Skada")) then
-				for _, window in ipairs(Skada:GetWindows()) do
-					if window:IsShown() then
-						window:Hide()
-					else
-						window:Show()
-					end
-				end
-			end
-			if (AS:CheckOption("EmbedOmen","Omen")) or (AS:CheckOption("EmbedRO","Recount","Omen")) then
-				if OmenBarList:IsVisible() then
-					OmenBarList:Hide()
-				else
-					OmenBarList:Show()
-				end
-			end
-			if (AS:CheckOption("EmbedTDPS","TinyDPS")) then
-				if tdpsFrame:IsShown() then
-					tdpsFrame:Hide()
-				else
-					tdpsFrame:Show()
-				end
+			if EmbedSystem_MainWindow:IsShown() then
+				EmbedSystem_MainWindow:Hide()
+			else
+				EmbedSystem_MainWindow:Show()
 			end
 		else
 			if E.db[self.parent:GetName()..'Faded'] then
@@ -282,66 +300,27 @@ function AS:EmbedInit()
 		end
 	end)
 
-	button:SetScript("OnEnter", function(self, ...)
-		if E.db[self.parent:GetName()..'Faded'] then
-			self.parent:Show()
-			UIFrameFadeIn(self.parent, 0.2, self.parent:GetAlpha(), 1)
-			UIFrameFadeIn(self, 0.2, self:GetAlpha(), 1)
-		end
-		GameTooltip:SetOwner(self, 'ANCHOR_TOPRIGHT', 0, 4)
-		GameTooltip:ClearLines()
-		GameTooltip:AddDoubleLine(L['Left Click:'], L['Toggle Chat Frame'], 1, 1, 1)
+	ToggleButton:HookScript('OnEnter', function(self, ...)
 		GameTooltip:AddDoubleLine(L['Right Click:'], L['Toggle Embedded Addon'], 1, 1, 1)
 		GameTooltip:Show()
 	end)
-
-	if (self:CheckOption("EmbedRO","Recount","Omen")) then self:EmbedRecountOmen() end
-	if (self:CheckOption("EmbedOmen","Omen")) then self:EmbedOmen() end
-	if (self:CheckOption("EmbedSkada","Skada")) then
-		self:EmbedSkada()
-		hooksecurefunc(Skada, "CreateWindow", self.EmbedSkada)
-		hooksecurefunc(Skada, "DeleteWindow", self.EmbedSkada)
-	end
-	if (self:CheckOption("EmbedTDPS","TinyDPS")) then self:EmbedTDPS() end
-	if (self:CheckOption("EmbedRecount","Recount")) then self:EmbedRecount() end
 end
 
-function AS:EmbedEnterCombat()
-	if (self:CheckOption("EmbedOoC")) then
-		if (self:CheckOption("EmbedRecount","Recount")) or (self:CheckOption("EmbedRO","Recount","Omen")) then
-			Recount_MainWindow:Show()
-		end
-		if (self:CheckOption("EmbedSkada","Skada"))  then
-			if Skada.db.profile.hidesolo then return end
-			if Skada.db.profile.hidecombat then return end
-			for _, window in ipairs(Skada:GetWindows()) do
-				window:Show()
-			end
-		end
-		if (self:CheckOption("EmbedOmen","Omen")) or (self:CheckOption("EmbedRO","Recount","Omen")) then
-			OmenBarList:Show()
-		end
-		if (self:CheckOption("EmbedTDPS","TinyDPS")) then
-			tdpsFrame:Show()
-		end
+local EmbedOoCCombatStart
+function AS:EmbedEnterCombat(event)
+	EmbedOoCCombatStart = true
+	if AS:CheckOption('EmbedOoC') then
+		EmbedSystem_MainWindow:Show()
 	end
 end
 
-function AS:EmbedExitCombat()
-	if (self:CheckOption("EmbedOoC")) then
-		if (self:CheckOption("EmbedRecount","Recount")) or (self:CheckOption("EmbedRO","Recount","Omen")) then
-			Recount_MainWindow:Hide()
-		end
-		if (self:CheckOption("EmbedSkada","Skada")) then
-			for _, window in ipairs(Skada:GetWindows()) do
-				window:Hide()
+function AS:EmbedExitCombat(event)
+	EmbedOoCCombatStart = false
+	if AS:CheckOption('EmbedOoC') then
+		AS:Delay(10, function()
+			if not EmbedOoCCombatStart then
+				EmbedSystem_MainWindow:Hide()
 			end
-		end
-		if (self:CheckOption("EmbedOmen","Omen")) or (self:CheckOption("EmbedRO","Recount","Omen")) then
-			OmenBarList:Hide()
-		end
-		if (self:CheckOption("EmbedTDPS","TinyDPS")) then
-			tdpsFrame:Hide()
-		end
+		end)
 	end
 end

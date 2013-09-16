@@ -2,6 +2,8 @@
 local HG = E:NewModule('HealGlow', 'AceEvent-3.0')
 local UF = E:GetModule('UnitFrames')
 
+local GetNumGroupMembers, GetNumSubgroupMembers = GetNumGroupMembers, GetNumSubgroupMembers
+local IsInRaid, IsInGroup, GetTime = IsInRaid, IsInGroup, GetTime
 local tinsert, twipe = table.insert, table.wipe
 
 local playerId
@@ -62,7 +64,7 @@ function HG:SetupVariables()
 		23455,  -- Holy Nova
 		596,    -- Prayer of Healing
 		-- Shaman
-		1064,   -- Chain Heal
+		1064,   -- Chain Heal	
 	}) do
 		local name, _, icon = GetSpellInfo(spellID)
 		if name then
@@ -74,11 +76,13 @@ function HG:SetupVariables()
 	twipe(frameBuffers)
 	for _, index in ipairs(frameGroups) do
 		frameBuffers[index] = {}
-		for i = 1, index do
-			frame = (index == 5 and _G[("ElvUF_PartyUnitButton%d"):format(i)] or _G[("ElvUF_Raid%dUnitButton%i"):format(index, i)])
-			if frame then
-				frame.HealGlow = UF:Construct_HealGlow(frame, ((index == 5 and 'party%d' or 'raid%d')):format(i))
-				tinsert(frameBuffers[index], frame)		
+		for i=1, (index/5) do
+			for j=1, 5 do
+				frame = (index == 5 and _G[("ElvUF_PartyGroup%dUnitButton%i"):format(i, j)] or _G[("ElvUF_Raid%dGroup%dUnitButton%i"):format(index, i, j)])
+				if frame then
+					frame.HealGlow = UF:Construct_HealGlow(frame, ((index == 5 and 'party%d' or 'raid%d')):format(i))
+					tinsert(frameBuffers[index], frame)		
+				end
 			end
 		end
 	end
@@ -122,15 +126,21 @@ function HG:UpdateSettings()
 end
 
 function HG:GroupRosterUpdate()
-	twipe(groupUnits)
-	
-	local unit
-	for index = 1, GetNumGroupMembers() - (IsInGroup() and 1 or 0) do
-		unit = format("%s%d", (IsInRaid() and "raid" or (IsInGroup() and "party" or "solo")), index)
-		if not UnitIsUnit(unit, "player") then
-			groupUnits[UnitGUID(unit)] = { unit, 0 }
-		end
-	end
+    twipe(groupUnits)
+
+    -- GetNumSubgroupMembers() automatically handles the 1-4 party convention, excluding 'player', GetNumGroupMembers() includes player
+    local numMembers = IsInRaid() and GetNumGroupMembers() or IsInGroup() and GetNumSubgroupMembers() or 0
+    local groupName = IsInRaid() and "raid%d" or IsInGroup() and "party%d" or "solo"
+    local unit
+    for index = 1, numMembers do
+        unit = (groupName):format(index)
+        if not UnitIsUnit(unit, "player") then
+            groupUnits[UnitGUID(unit)] = { unit, 0 }
+        end
+    end
+    if groupName == "solo" then
+    	groupUnits[UnitGUID('player')] = { 'player', 0 }
+    end
 end
 
 function HG:Initialize()

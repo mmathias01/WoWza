@@ -36,10 +36,7 @@ end
 --
 function VUHDO_tableCount(anArray)
 	local tCount = 0;
-	for _ in pairs(anArray) do
-		tCount = tCount + 1;
-	end
-
+	for _ in pairs(anArray) do tCount = tCount + 1; end
 	return tCount;
 end
 

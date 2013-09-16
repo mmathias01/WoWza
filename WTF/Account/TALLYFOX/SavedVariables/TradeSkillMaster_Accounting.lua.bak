@@ -1,0 +1,37 @@
+
+TradeSkillMaster_AccountingDB = {
+	["global"] = {
+		["itemStrings"] = {
+			["Ice Cold Milk"] = "item:1179:0:0:0:0:0:0",
+			["Moist Cornbread"] = "item:4542:0:0:0:0:0:0",
+			["Spongy Morel"] = "item:4606:0:0:0:0:0:0",
+			["Melon Juice"] = "item:1205:0:0:0:0:0:0",
+			["Lesser Healing Potion"] = "item:858:0:0:0:0:0:0",
+			["Malachite"] = "item:774:0:0:0:0:0:0",
+			["Red-Speckled Mushroom"] = "item:4605:0:0:0:0:0:0",
+			["Tigerseye"] = "item:818:0:0:0:0:0:0",
+		},
+	},
+	["profileKeys"] = {
+		["Shenlu - Dragonblight"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["csvExpired"] = "itemString,itemName,stackSize,quantity,player,time",
+			["goldLog"] = {
+				["Shenlu"] = {
+					{
+						["endMinute"] = 22979917,
+						["copper"] = 22575,
+						["startMinute"] = 22979913,
+					}, -- [1]
+				},
+			},
+			["csvBuys"] = "itemString,itemName,stackSize,quantity,price,seller,player,time,source",
+			["csvSales"] = "itemString,itemName,stackSize,quantity,price,buyer,player,time,source",
+			["csvIncome"] = "type,amount,source,player,time",
+			["csvExpense"] = "type,amount,destination,player,time",
+			["csvCancelled"] = "itemString,itemName,stackSize,quantity,player,time",
+		},
+	},
+}

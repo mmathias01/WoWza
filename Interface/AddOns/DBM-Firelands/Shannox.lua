@@ -3,9 +3,8 @@ local L		= mod:GetLocalizedStrings()
 local Riplimb	= EJ_GetSectionInfo(2581)
 local Rageface	= EJ_GetSectionInfo(2583)
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(53691)
-mod:SetModelID(38448)
 mod:SetZone()
 mod:SetUsedIcons(6, 8) -- cross(7) is hard to see in redish environment?
 mod:SetModelSound("Sound\\Creature\\SHANNOX\\VO_FL_SHANNOX_SPAWN.wav", "Sound\\Creature\\SHANNOX\\VO_FL_SHANNOX_KILL_04.wav")
@@ -21,7 +20,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_SUMMON",
-	"UNIT_HEALTH",
+	"UNIT_HEALTH boss1 boss2 boss3", -- probably needs just one (?)
 	"UNIT_DIED"
 )
 
@@ -114,23 +113,23 @@ function mod:CrystalTrapTarget(targetname)
 end
 
 local function getBossuId()
-	local uId
+	local UnitID
 	if UnitExists("boss1") or UnitExists("boss2") or UnitExists("boss3") then
 		for i = 1, 3 do
 			if UnitName("boss"..i) == L.name then
-				uId = "boss"..i
+				UnitID = "boss"..i
 				break
 			end
 		end
 	else
-		for i = 1, DBM:GetNumGroupMembers() do
-			if UnitName("raid"..i.."target") == L.name and not UnitIsPlayer("raid"..i.."target") then
-				uId = "raid"..i.."target"
+		for uId in DBM:GetGroupMembers() do
+			if UnitName(uId.."target") == L.name and not UnitIsPlayer(uId.."target") then
+				UnitID = uId.."target"
 				break
 			end			
 		end
 	end
-	return uId
+	return UnitID
 end
 
 local function isTank(unit)

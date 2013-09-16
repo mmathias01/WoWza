@@ -31,13 +31,18 @@ local function LoadSkin()
 	}
 	for _, slot in pairs(slots) do
 		local icon = _G["Character"..slot.."IconTexture"]
-		local slot = _G["Character"..slot]
+		local cooldown = _G["Character"..slot.."Cooldown"]
+		slot = _G["Character"..slot]
 		slot:StripTextures()
 		slot:StyleButton(false)
 		slot.ignoreTexture:SetTexture([[Interface\PaperDollInfoFrame\UI-GearManager-LeaveItem-Transparent]])
 		slot:SetTemplate("Default", true)
 		icon:SetTexCoord(unpack(E.TexCoords))
 		icon:SetInside()
+		
+		if(cooldown) then
+			E:RegisterCooldown(cooldown)
+		end
 	end	
 	-- a request by diftraku to color item by rarity on character frame.
 	local function ColorItemBorder()
@@ -107,6 +112,7 @@ local function LoadSkin()
 	S:HandleCheckBox(ReputationDetailAtWarCheckBox)
 	S:HandleCheckBox(ReputationDetailMainScreenCheckBox)
 	S:HandleCheckBox(ReputationDetailInactiveCheckBox)
+	S:HandleCheckBox(ReputationDetailLFGBonusReputationCheckBox)
 	S:HandleCheckBox(TokenFramePopupInactiveCheckBox)
 	S:HandleCheckBox(TokenFramePopupBackpackCheckBox)
 
@@ -208,7 +214,7 @@ local function LoadSkin()
 			end)
 			
 			if not object.icon.bordertop then
-				E:GetModule("NamePlates"):CreateVirtualFrame(object, object.icon)
+				E:GetModule("NamePlates"):CreateBackdrop(object, object.icon)
 			end			
 		end
 		GearManagerDialogPopup:StripTextures()

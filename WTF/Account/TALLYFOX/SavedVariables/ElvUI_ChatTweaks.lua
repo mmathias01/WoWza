@@ -10,15 +10,43 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["Party Leader"] = 2,
 					["Raid Leader"] = 2,
-					["Yell"] = 2,
 					["Instance Chat Leader"] = 2,
+					["Yell"] = 2,
 					["Instance Chat"] = 2,
 					["Party"] = 2,
 					["Whisper"] = 2,
 					["Channel"] = 2,
-					["Say"] = 2,
-					["Raid"] = 2,
 					["Guild"] = 2,
+					["Raid"] = 2,
+					["Say"] = 2,
+					["Officer"] = 2,
+				},
+				["Jolobank - Dragonblight"] = {
+					["Party Leader"] = 2,
+					["Raid Leader"] = 2,
+					["Instance Chat Leader"] = 2,
+					["Yell"] = 2,
+					["Instance Chat"] = 2,
+					["Party"] = 2,
+					["Whisper"] = 2,
+					["Channel"] = 2,
+					["Guild"] = 2,
+					["Raid"] = 2,
+					["Say"] = 2,
+					["Officer"] = 2,
+				},
+				["Shenlu - Dragonblight"] = {
+					["Party Leader"] = 2,
+					["Raid Leader"] = 2,
+					["Instance Chat Leader"] = 2,
+					["Yell"] = 2,
+					["Instance Chat"] = 2,
+					["Party"] = 2,
+					["Whisper"] = 2,
+					["Channel"] = 2,
+					["Guild"] = 2,
+					["Raid"] = 2,
+					["Say"] = 2,
 					["Officer"] = 2,
 				},
 			},
@@ -34,14 +62,498 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["colors"] = {
 						["CHANNEL6"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["Raid Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["CHANNEL"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["PARTY"] = {
+							["b"] = 1,
+							["g"] = 0.6666666865348816,
+							["r"] = 0.6666666865348816,
+						},
+						["CHANNEL_LIST"] = {
+							["b"] = 0.501960813999176,
+							["g"] = 0.501960813999176,
+							["r"] = 0.7529412508010864,
+						},
+						["Raid"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["SYSTEM"] = {
+							["b"] = 0,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["RAID_BOSS_EMOTE"] = {
+							["b"] = 0,
+							["g"] = 0.8666667342185974,
+							["r"] = 1,
+						},
+						["CHANNEL7"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["SKILL"] = {
+							["b"] = 1,
+							["g"] = 0.3333333432674408,
+							["r"] = 0.3333333432674408,
+						},
+						["CHANNEL8"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["CHANNEL3"] = {
+							["b"] = 0.4745098352432251,
+							["g"] = 0.8941177129745483,
+							["r"] = 0.9098039865493774,
+						},
+						["BATTLENET"] = {
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["BN_CONVERSATION_LIST"] = {
+							["b"] = 0.9411765336990356,
+							["g"] = 0.6941176652908325,
+							["r"] = 0,
+						},
+						["PET_BATTLE_INFO"] = {
+							["b"] = 0.364705890417099,
+							["g"] = 0.8705883026123047,
+							["r"] = 0.8823530077934265,
+						},
+						["LOOT"] = {
+							["b"] = 0,
+							["g"] = 0.6666666865348816,
+							["r"] = 0,
+						},
+						["Officer"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.250980406999588,
+						},
+						["IGNORED"] = {
+							["b"] = 0,
+							["g"] = 0,
+							["r"] = 1,
+						},
+						["BN_WHISPER_PLAYER_OFFLINE"] = {
+							["b"] = 0,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["OFFICER"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.7529412508010864,
+							["r"] = 0.250980406999588,
+						},
+						["YELL"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.250980406999588,
+							["r"] = 1,
+						},
+						["RealID Whisper"] = {
+							["r"] = 0,
+							["g"] = 1,
+							["b"] = 0.9647059440612793,
+						},
+						["COMBAT_MISC_INFO"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 0.501960813999176,
+						},
+						["SAY"] = {
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["Raid Warning"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0,
+						},
+						["DND"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["GUILD_ACHIEVEMENT"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 1,
+							["r"] = 0.250980406999588,
+						},
+						["MONSTER_PARTY"] = {
+							["b"] = 1,
+							["g"] = 0.6666666865348816,
+							["r"] = 0.6666666865348816,
+						},
+						["BN_INLINE_TOAST_ALERT"] = {
+							["b"] = 1,
+							["g"] = 0.7725490927696228,
+							["r"] = 0.5098039507865906,
+						},
+						["CHANNEL4"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["BN_CONVERSATION"] = {
+							["b"] = 0.9411765336990356,
+							["g"] = 0.6941176652908325,
+							["r"] = 0,
+						},
+						["WHISPER_FOREIGN"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["CHANNEL_NOTICE_USER"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 0.7529412508010864,
+						},
+						["Trade"] = {
+							["r"] = 0.9098039865493774,
+							["g"] = 0.6196078658103943,
+							["b"] = 0.4745098352432251,
+						},
+						["MONSTER_WHISPER"] = {
+							["b"] = 0.9215686917304993,
+							["g"] = 0.7098039388656616,
+							["r"] = 1,
+						},
+						["CHANNEL_JOIN"] = {
+							["b"] = 0.501960813999176,
+							["g"] = 0.501960813999176,
+							["r"] = 0.7529412508010864,
+						},
+						["WHISPER_INFORM"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["QUEST_BOSS_EMOTE"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["Guild"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 1,
+							["b"] = 0.250980406999588,
+						},
+						["COMBAT_HONOR_GAIN"] = {
+							["b"] = 0.03921568766236305,
+							["g"] = 0.7921569347381592,
+							["r"] = 0.8784314393997192,
+						},
+						["CHANNEL5"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["TRADESKILLS"] = {
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["Party"] = {
+							["r"] = 0.6666666865348816,
+							["g"] = 0.6666666865348816,
+							["b"] = 1,
+						},
+						["CHANNEL1"] = {
+							["b"] = 0.9098039865493774,
+							["g"] = 0.9019608497619629,
+							["r"] = 0.7647059559822083,
+						},
+						["BG_SYSTEM_NEUTRAL"] = {
+							["b"] = 0.03921568766236305,
+							["g"] = 0.4705882668495178,
+							["r"] = 1,
+						},
+						["MONEY"] = {
+							["b"] = 0,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["TEXT_EMOTE"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["WHISPER"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["CHANNEL9"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["MONSTER_SAY"] = {
+							["b"] = 0.6235294342041016,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["INSTANCE_CHAT_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["GUILD"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 1,
+							["r"] = 0.250980406999588,
+						},
+						["OPENING"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 0.501960813999176,
+						},
+						["RAID_WARNING"] = {
+							["b"] = 0,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["BG_SYSTEM_HORDE"] = {
+							["b"] = 0,
+							["g"] = 0,
+							["r"] = 1,
+						},
+						["Yell"] = {
+							["r"] = 1,
+							["g"] = 0.250980406999588,
+							["b"] = 0.250980406999588,
+						},
+						["COMBAT_FACTION_CHANGE"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 0.501960813999176,
+						},
+						["MONSTER_EMOTE"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["CHANNEL_LEAVE"] = {
+							["b"] = 0.501960813999176,
+							["g"] = 0.501960813999176,
+							["r"] = 0.7529412508010864,
+						},
+						["BN_INLINE_TOAST_BROADCAST_INFORM"] = {
+							["b"] = 1,
+							["g"] = 0.7725490927696228,
+							["r"] = 0.5098039507865906,
+						},
+						["BN_CONVERSATION_NOTICE"] = {
+							["b"] = 0.9411765336990356,
+							["g"] = 0.6941176652908325,
+							["r"] = 0,
+						},
+						["General"] = {
+							["r"] = 0.7647059559822083,
+							["g"] = 0.9019608497619629,
+							["b"] = 0.9098039865493774,
+						},
+						["PET_INFO"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 0.501960813999176,
+						},
+						["CHANNEL10"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["RealID Conversation"] = {
+							["r"] = 0,
+							["g"] = 0.6941176652908325,
+							["b"] = 0.9411765336990356,
+						},
+						["ACHIEVEMENT"] = {
+							["b"] = 0,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["INSTANCE_CHAT"] = {
+							["b"] = 0,
+							["g"] = 0.4980392456054688,
+							["r"] = 1,
+						},
+						["Instance Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["EMOTE"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["COMBAT_XP_GAIN"] = {
+							["b"] = 1,
+							["g"] = 0.4352941513061523,
+							["r"] = 0.4352941513061523,
+						},
+						["CHANNEL2"] = {
+							["b"] = 0.4745098352432251,
+							["g"] = 0.6196078658103943,
+							["r"] = 0.9098039865493774,
+						},
+						["COMBAT_GUILD_XP_GAIN"] = {
+							["b"] = 1,
+							["g"] = 0.4352941513061523,
+							["r"] = 0.4352941513061523,
+						},
+						["LookingForGroup"] = {
+							["r"] = 1,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
+						},
+						["BG_SYSTEM_ALLIANCE"] = {
+							["b"] = 0.9372549653053284,
+							["g"] = 0.6823529601097107,
+							["r"] = 0,
+						},
+						["BN_WHISPER_INFORM"] = {
+							["b"] = 0.9647059440612793,
+							["g"] = 1,
+							["r"] = 0,
+						},
+						["PARTY_LEADER"] = {
+							["b"] = 1,
+							["g"] = 0.7843137979507446,
+							["r"] = 0.4627451300621033,
+						},
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
+							["r"] = 1,
+						},
+						["CHANNEL_NOTICE"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 0.7529412508010864,
+						},
+						["RAID_BOSS_WHISPER"] = {
+							["b"] = 0,
+							["g"] = 0.8666667342185974,
+							["r"] = 1,
+						},
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
+							["r"] = 1,
+						},
+						["BN_WHISPER"] = {
+							["b"] = 0.9647059440612793,
+							["g"] = 1,
+							["r"] = 0,
+						},
+						["TARGETICONS"] = {
+							["b"] = 0,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["Party Leader"] = {
+							["r"] = 0.4627451300621033,
+							["g"] = 0.7843137979507446,
+							["b"] = 1,
+						},
+						["ARENA_POINTS"] = {
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["Instance"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["RESTRICTED"] = {
+							["b"] = 0,
+							["g"] = 0,
+							["r"] = 1,
+						},
+						["FILTERED"] = {
+							["b"] = 0,
+							["g"] = 0,
+							["r"] = 1,
+						},
+						["BN_INLINE_TOAST_CONVERSATION"] = {
+							["b"] = 1,
+							["g"] = 0.7725490927696228,
+							["r"] = 0.5098039507865906,
+						},
+						["LocalDefense"] = {
+							["r"] = 0.9098039865493774,
+							["g"] = 0.8941177129745483,
+							["b"] = 0.4745098352432251,
+						},
+						["BN_INLINE_TOAST_BROADCAST"] = {
+							["b"] = 1,
+							["g"] = 0.7725490927696228,
+							["r"] = 0.5098039507865906,
+						},
+						["RAID"] = {
+							["b"] = 0,
+							["g"] = 0.4980392456054688,
+							["r"] = 1,
+						},
+						["Whisper"] = {
+							["r"] = 1,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
+						},
+						["PET_BATTLE_COMBAT_LOG"] = {
+							["b"] = 0.6705882549285889,
+							["g"] = 0.8705883026123047,
+							["r"] = 0.9058824181556702,
+						},
+						["MONSTER_YELL"] = {
+							["b"] = 0.250980406999588,
+							["g"] = 0.250980406999588,
+							["r"] = 1,
+						},
+						["CURRENCY"] = {
+							["b"] = 0,
+							["g"] = 0.6666666865348816,
+							["r"] = 0,
+						},
+						["Say"] = {
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
+						},
+					},
+				},
+				["Jolobank - Dragonblight"] = {
+					["colors"] = {
+						["CHANNEL6"] = {
 							["r"] = 1,
 							["g"] = 0.7529412508010864,
 							["b"] = 0.7529412508010864,
 						},
 						["Raid Leader"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["CHANNEL"] = {
 							["r"] = 1,
@@ -59,9 +571,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.501960813999176,
 						},
 						["Raid"] = {
-							["b"] = 0,
-							["g"] = 0.4980392456054688,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["SYSTEM"] = {
 							["r"] = 1,
@@ -83,10 +595,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.3333333432674408,
 							["b"] = 1,
 						},
-						["CHANNEL8"] = {
-							["r"] = 1,
-							["g"] = 0.7529412508010864,
-							["b"] = 0.7529412508010864,
+						["CHANNEL1"] = {
+							["r"] = 0.7647059559822083,
+							["g"] = 0.9019608497619629,
+							["b"] = 0.9098039865493774,
 						},
 						["CHANNEL3"] = {
 							["r"] = 0.9098039865493774,
@@ -114,9 +626,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0,
 						},
 						["Officer"] = {
-							["b"] = 0.250980406999588,
-							["g"] = 0.7529412508010864,
-							["r"] = 0.250980406999588,
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["IGNORED"] = {
 							["r"] = 1,
@@ -139,9 +651,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.250980406999588,
 						},
 						["RealID Whisper"] = {
-							["b"] = 0.9647059440612793,
+							["r"] = 1,
 							["g"] = 1,
-							["r"] = 0,
+							["b"] = 1,
 						},
 						["COMBAT_MISC_INFO"] = {
 							["r"] = 0.501960813999176,
@@ -154,9 +666,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 1,
 						},
 						["Raid Warning"] = {
-							["b"] = 0,
-							["g"] = 0.2823529541492462,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["DND"] = {
 							["r"] = 1,
@@ -198,10 +710,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7529412508010864,
 							["b"] = 0.7529412508010864,
 						},
-						["Trade"] = {
-							["b"] = 0.4745098352432251,
-							["g"] = 0.6196078658103943,
-							["r"] = 0.9098039865493774,
+						["Say"] = {
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["MONSTER_WHISPER"] = {
 							["r"] = 1,
@@ -224,9 +736,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.250980406999588,
 						},
 						["Guild"] = {
-							["b"] = 0.250980406999588,
+							["r"] = 1,
 							["g"] = 1,
-							["r"] = 0.250980406999588,
+							["b"] = 1,
 						},
 						["COMBAT_HONOR_GAIN"] = {
 							["r"] = 0.8784314393997192,
@@ -244,23 +756,18 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 1,
 						},
 						["Party"] = {
-							["b"] = 1,
-							["g"] = 0.6666666865348816,
-							["r"] = 0.6666666865348816,
-						},
-						["Say"] = {
-							["b"] = 1,
-							["g"] = 1,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["BG_SYSTEM_NEUTRAL"] = {
 							["r"] = 1,
 							["g"] = 0.4705882668495178,
 							["b"] = 0.03921568766236305,
 						},
-						["MONEY"] = {
+						["FILTERED"] = {
 							["r"] = 1,
-							["g"] = 1,
+							["g"] = 0,
 							["b"] = 0,
 						},
 						["TEXT_EMOTE"] = {
@@ -278,15 +785,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7529412508010864,
 							["b"] = 0.7529412508010864,
 						},
-						["MONSTER_SAY"] = {
+						["BG_SYSTEM_HORDE"] = {
 							["r"] = 1,
-							["g"] = 1,
-							["b"] = 0.6235294342041016,
-						},
-						["INSTANCE_CHAT_LEADER"] = {
-							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0,
+							["b"] = 0,
 						},
 						["GUILD"] = {
 							["r"] = 0.250980406999588,
@@ -298,20 +800,20 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.501960813999176,
 							["b"] = 1,
 						},
-						["RAID_WARNING"] = {
+						["INSTANCE_CHAT_LEADER"] = {
 							["r"] = 1,
 							["g"] = 0.2823529541492462,
-							["b"] = 0,
+							["b"] = 0.03529411926865578,
 						},
 						["Whisper"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["Yell"] = {
-							["b"] = 0.250980406999588,
-							["g"] = 0.250980406999588,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["COMBAT_FACTION_CHANGE"] = {
 							["r"] = 0.501960813999176,
@@ -328,20 +830,20 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.501960813999176,
 							["b"] = 0.501960813999176,
 						},
-						["BN_INLINE_TOAST_BROADCAST_INFORM"] = {
-							["r"] = 0.5098039507865906,
-							["g"] = 0.7725490927696228,
-							["b"] = 1,
-						},
-						["BN_CONVERSATION_NOTICE"] = {
-							["r"] = 0,
-							["g"] = 0.6941176652908325,
-							["b"] = 0.9411765336990356,
-						},
-						["INSTANCE_CHAT"] = {
+						["RESTRICTED"] = {
 							["r"] = 1,
-							["g"] = 0.4980392456054688,
+							["g"] = 0,
 							["b"] = 0,
+						},
+						["General"] = {
+							["r"] = 0.7647059559822083,
+							["g"] = 0.9019608497619629,
+							["b"] = 0.9098039865493774,
+						},
+						["BN_WHISPER_INFORM"] = {
+							["r"] = 0,
+							["g"] = 1,
+							["b"] = 0.9647059440612793,
 						},
 						["PET_INFO"] = {
 							["r"] = 0.501960813999176,
@@ -354,24 +856,24 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.7529412508010864,
 						},
 						["RealID Conversation"] = {
-							["b"] = 0.9411765336990356,
-							["g"] = 0.6941176652908325,
-							["r"] = 0,
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["ACHIEVEMENT"] = {
 							["r"] = 1,
 							["g"] = 1,
 							["b"] = 0,
 						},
-						["General"] = {
-							["b"] = 0.9098039865493774,
-							["g"] = 0.9019608497619629,
-							["r"] = 0.7647059559822083,
+						["INSTANCE_CHAT"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
 						},
 						["Instance Leader"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["EMOTE"] = {
 							["r"] = 1,
@@ -393,29 +895,29 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.6196078658103943,
 							["b"] = 0.4745098352432251,
 						},
-						["LookingForGroup"] = {
-							["b"] = 0.7529412508010864,
-							["g"] = 0.7529412508010864,
+						["ARENA_POINTS"] = {
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
 						},
 						["BG_SYSTEM_ALLIANCE"] = {
 							["r"] = 0,
 							["g"] = 0.6823529601097107,
 							["b"] = 0.9372549653053284,
 						},
-						["FILTERED"] = {
-							["r"] = 1,
-							["g"] = 0,
-							["b"] = 0,
+						["BN_INLINE_TOAST_BROADCAST_INFORM"] = {
+							["r"] = 0.5098039507865906,
+							["g"] = 0.7725490927696228,
+							["b"] = 1,
 						},
 						["PARTY_LEADER"] = {
 							["r"] = 0.4627451300621033,
 							["g"] = 0.7843137979507446,
 							["b"] = 1,
 						},
-						["RESTRICTED"] = {
+						["MONEY"] = {
 							["r"] = 1,
-							["g"] = 0,
+							["g"] = 1,
 							["b"] = 0,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -444,29 +946,29 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0,
 						},
 						["Party Leader"] = {
-							["b"] = 1,
-							["g"] = 0.7843137979507446,
-							["r"] = 0.4627451300621033,
-						},
-						["ARENA_POINTS"] = {
 							["r"] = 1,
 							["g"] = 1,
 							["b"] = 1,
 						},
+						["BN_CONVERSATION_NOTICE"] = {
+							["r"] = 0,
+							["g"] = 0.6941176652908325,
+							["b"] = 0.9411765336990356,
+						},
 						["Instance"] = {
-							["b"] = 0,
-							["g"] = 0.4980392456054688,
 							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
+						},
+						["MONSTER_SAY"] = {
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 0.6235294342041016,
 						},
 						["AFK"] = {
 							["r"] = 1,
 							["g"] = 0.501960813999176,
 							["b"] = 1,
-						},
-						["BN_WHISPER_INFORM"] = {
-							["r"] = 0,
-							["g"] = 1,
-							["b"] = 0.9647059440612793,
 						},
 						["BN_INLINE_TOAST_CONVERSATION"] = {
 							["r"] = 0.5098039507865906,
@@ -474,9 +976,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 1,
 						},
 						["LocalDefense"] = {
-							["b"] = 0.4745098352432251,
-							["g"] = 0.8941177129745483,
 							["r"] = 0.9098039865493774,
+							["g"] = 0.8941177129745483,
+							["b"] = 0.4745098352432251,
 						},
 						["BN_INLINE_TOAST_BROADCAST"] = {
 							["r"] = 0.5098039507865906,
@@ -488,9 +990,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.4980392456054688,
 							["b"] = 0,
 						},
-						["BG_SYSTEM_HORDE"] = {
+						["RAID_WARNING"] = {
 							["r"] = 1,
-							["g"] = 0,
+							["g"] = 0.2823529541492462,
 							["b"] = 0,
 						},
 						["PET_BATTLE_COMBAT_LOG"] = {
@@ -508,10 +1010,104 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.6666666865348816,
 							["b"] = 0,
 						},
-						["CHANNEL1"] = {
+						["CHANNEL8"] = {
+							["r"] = 1,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
+						},
+					},
+				},
+				["Shenlu - Dragonblight"] = {
+					["colors"] = {
+						["RealID Conversation"] = {
+							["r"] = 0,
+							["g"] = 0.6941176652908325,
+							["b"] = 0.9411765336990356,
+						},
+						["Guild"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 1,
+							["b"] = 0.250980406999588,
+						},
+						["Instance Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["Raid Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["LookingForGroup"] = {
+							["r"] = 1,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
+						},
+						["Party"] = {
+							["r"] = 0.6666666865348816,
+							["g"] = 0.6666666865348816,
+							["b"] = 1,
+						},
+						["Whisper"] = {
+							["r"] = 1,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
+						},
+						["Raid"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["Raid Warning"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0,
+						},
+						["Party Leader"] = {
+							["r"] = 0.4627451300621033,
+							["g"] = 0.7843137979507446,
+							["b"] = 1,
+						},
+						["Instance"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["Yell"] = {
+							["r"] = 1,
+							["g"] = 0.250980406999588,
+							["b"] = 0.250980406999588,
+						},
+						["LocalDefense"] = {
+							["r"] = 0.9098039865493774,
+							["g"] = 0.8941177129745483,
+							["b"] = 0.4745098352432251,
+						},
+						["Say"] = {
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
+						},
+						["Trade"] = {
+							["r"] = 0.9098039865493774,
+							["g"] = 0.6196078658103943,
+							["b"] = 0.4745098352432251,
+						},
+						["RealID Whisper"] = {
+							["r"] = 0,
+							["g"] = 1,
+							["b"] = 0.9647059440612793,
+						},
+						["General"] = {
 							["r"] = 0.7647059559822083,
 							["g"] = 0.9019608497619629,
 							["b"] = 0.9098039865493774,
+						},
+						["Officer"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.250980406999588,
 						},
 					},
 				},
@@ -539,7 +1135,7 @@ ElvUI_ChatTweaksDB = {
 						["theaugustcelestials"] = false,
 						["theshatar"] = false,
 						["ginamudclaw"] = false,
-						["thoriumbrotherhood"] = false,
+						["tinamudclaw"] = false,
 						["thealdor"] = false,
 						["operation:shieldwall"] = false,
 						["ratchet"] = false,
@@ -550,8 +1146,8 @@ ElvUI_ChatTweaksDB = {
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
 						["ashtonguedeathsworn"] = false,
-						["kirintoroffensive"] = false,
-						["theblackprince"] = false,
+						["stormpikeguard"] = false,
+						["theklaxxi"] = false,
 						["thescaleofthesands"] = false,
 						["shatteredsunoffensive"] = false,
 						["ironforge"] = false,
@@ -565,25 +1161,25 @@ ElvUI_ChatTweaksDB = {
 						["sho"] = false,
 						["zandalartribe"] = false,
 						["argentdawn"] = false,
-						["thelorewalkers"] = false,
+						["valianceexpedition"] = false,
 						["tushuipandaren"] = false,
 						["gilneas"] = false,
 						["theleagueofarathor"] = false,
 						["keepersoftime"] = false,
-						["valianceexpedition"] = false,
-						["orderofthecloudserpent"] = false,
-						["theklaxxi"] = false,
-						["thescryers"] = false,
-						["joguthedrunk"] = false,
+						["kirintoroffensive"] = false,
 						["kurenai"] = false,
+						["orderofthecloudserpent"] = false,
+						["thescryers"] = false,
+						["thelorewalkers"] = false,
+						["magramclancentaur"] = false,
+						["darnassus"] = false,
 						["exodar"] = false,
 						["stormwind"] = false,
-						["magramclancentaur"] = false,
+						["theblackprince"] = false,
 						["silverwingsentinels"] = false,
-						["tinamudclaw"] = false,
 						["goldenlotus"] = false,
-						["stormpikeguard"] = false,
-						["darnassus"] = false,
+						["thoriumbrotherhood"] = false,
+						["joguthedrunk"] = false,
 					},
 				},
 			},
@@ -610,7 +1206,7 @@ ElvUI_ChatTweaksDB = {
 		},
 		["Datatext"] = {
 		},
-		["CustomNamedChatFilters"] = {
+		["AchievementFilter"] = {
 		},
 		["Timestamps"] = {
 		},
@@ -621,54 +1217,6 @@ ElvUI_ChatTweaksDB = {
 		["CustomEmotes"] = {
 		},
 		["Calculator"] = {
-		},
-		["PopupMessages"] = {
-		},
-		["InviteLinks"] = {
-			["profiles"] = {
-				["Jolokia - Dragonblight"] = {
-					["groupWords"] = {
-						["inv"] = "inv",
-						["invite"] = "invite",
-					},
-					["guildWords"] = {
-						["ginvite"] = "ginvite",
-						["ginv"] = "ginv",
-					},
-				},
-			},
-		},
-		["Companions"] = {
-			["profiles"] = {
-				["Jolokia - Dragonblight"] = {
-					["global"] = {
-					},
-				},
-			},
-		},
-		["LootIcons"] = {
-		},
-		["MultipleInviteCommand"] = {
-		},
-		["RerouteAuctionMessages"] = {
-		},
-		["Magic8-Ball"] = {
-		},
-		["ChannelSpam"] = {
-		},
-		["AuctionMessageFiltering"] = {
-		},
-		["AltNames"] = {
-		},
-		["KeywordSounds"] = {
-		},
-		["AutoDing"] = {
-		},
-		["ATestofValor"] = {
-		},
-		["XPLeftToLevel"] = {
-		},
-		["ChannelNoticeFilter"] = {
 		},
 		["AutoProfessionLink"] = {
 			["profiles"] = {
@@ -685,61 +1233,205 @@ ElvUI_ChatTweaksDB = {
 					["Say"] = false,
 					["Officer"] = false,
 				},
+				["Jolobank - Dragonblight"] = {
+					["Guild"] = false,
+					["Raid Leader"] = false,
+					["Yell"] = false,
+					["Instance Chat"] = false,
+					["Party"] = false,
+					["Whisper"] = false,
+					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Instance Chat Leader"] = false,
+					["Officer"] = false,
+				},
+				["Shenlu - Dragonblight"] = {
+					["Guild"] = false,
+					["Raid Leader"] = false,
+					["Instance Chat Leader"] = false,
+					["Instance Chat"] = false,
+					["Party"] = false,
+					["Whisper"] = false,
+					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Yell"] = false,
+					["Officer"] = false,
+				},
 			},
+		},
+		["Magic8-Ball"] = {
+		},
+		["MultipleInviteCommand"] = {
+		},
+		["KeywordSounds"] = {
+		},
+		["InviteLinks"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["groupWords"] = {
+						["inv"] = "inv",
+						["invite"] = "invite",
+					},
+					["guildWords"] = {
+						["ginvite"] = "ginvite",
+						["ginv"] = "ginv",
+					},
+				},
+				["Jolobank - Dragonblight"] = {
+					["groupWords"] = {
+						["inv"] = "inv",
+						["invite"] = "invite",
+					},
+					["guildWords"] = {
+						["ginvite"] = "ginvite",
+						["ginv"] = "ginv",
+					},
+				},
+				["Shenlu - Dragonblight"] = {
+					["groupWords"] = {
+						["inv"] = "inv",
+						["invite"] = "invite",
+					},
+					["guildWords"] = {
+						["ginvite"] = "ginvite",
+						["ginv"] = "ginv",
+					},
+				},
+			},
+		},
+		["AuctionMessageFiltering"] = {
+		},
+		["Companions"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["global"] = {
+					},
+				},
+				["Jolobank - Dragonblight"] = {
+					["global"] = {
+					},
+				},
+				["Shenlu - Dragonblight"] = {
+					["global"] = {
+					},
+				},
+			},
+		},
+		["ATestofValor"] = {
+		},
+		["AutoDing"] = {
+		},
+		["AltNames"] = {
+		},
+		["ChannelSpam"] = {
+		},
+		["RerouteAuctionMessages"] = {
+		},
+		["LootIcons"] = {
+		},
+		["XPLeftToLevel"] = {
+		},
+		["ChannelNoticeFilter"] = {
+		},
+		["PopupMessages"] = {
 		},
 		["EditboxHistory"] = {
 			["char"] = {
 				["Jolokia - Dragonblight"] = {
 					["history"] = {
-						"/g he was dead in the instance", -- [1]
-						"/g hmmmm", -- [2]
-						" im doing both", -- [3]
-						" all the time", -- [4]
-						" I have my dps spells bound to mouse buttons on focus target macros", -- [5]
-						"/cw Blondi icc?", -- [6]
-						"/cw Blondi lol what is icc", -- [7]
-						"/cw Blondi ahh Ice Crown", -- [8]
-						"/cw Blondi sorry wasnt around in wrath ;)", -- [9]
-						"/cw Blondi dont know the lingo", -- [10]
-						" stam flasks?", -- [11]
-						" coo", -- [12]
-						" will do", -- [13]
-						"/g  yup cracked me up too", -- [14]
-						"/g my bank alt on Terenas is \"Loottable\"", -- [15]
-						"/g only boss I have not killed this week (on Maj granted) is Garajal", -- [16]
-						"/g tier and rings is why I ran em all lol", -- [17]
-						"/g that and practice for some of them on Maj", -- [18]
-						"/g tho, LFR is bad practice", -- [19]
-						"/g thatst ALL they drop", -- [20]
-						"/g srsly I think they nerfed the bajesus out of real loot drops", -- [21]
-						"/g my theory is they \"fixed\" bonus rolls", -- [22]
-						"/g and compensated by lowering real drop rates", -- [23]
-						"/g ur tier has that model?", -- [24]
-						"/g bad ass", -- [25]
-						"/g perfect!", -- [26]
-						"/g lol ur gonna transmog the regular to LFR", -- [27]
-						"/g thats awesome and ironic", -- [28]
-						"/g blizz really likes making facemakes that are mouths these days", -- [29]
-						"/g so many helms are eating the wearer's head lol", -- [30]
-						"/g ok gonna get some extra sleep tonight just because I can", -- [31]
-						"/g save up for the week lol", -- [32]
+						"/raid well damn", -- [1]
+						"/raid I take it back then", -- [2]
+						"/raid oh", -- [3]
+						"/raid this fight gets easier as it goes", -- [4]
+						"/raid the first split is the hardest", -- [5]
+						"/cw Destellar ill try", -- [6]
+						"/raid yah youll see", -- [7]
+						"/raid lets get him to split this time", -- [8]
+						"/raid this is NOT LFR", -- [9]
+						"/raid lol", -- [10]
+						"/raid spread out", -- [11]
+						"/raid try and stay on either side of the blue / green", -- [12]
+						"/raid within 1 section", -- [13]
+						"/raid dps on yellow / either side of blue / green", -- [14]
+						"/raid lets get him to split this time", -- [15]
+						"/raid fuck it let me get back on my priest", -- [16]
+						"/raid im faster on that toon", -- [17]
+						"/raid and keep trying to shield people", -- [18]
+						"/raid ffs", -- [19]
+						"/raid im switching", -- [20]
+						"/raid that should help", -- [21]
+						"/raid this toon feels SLOOOOW to me", -- [22]
+						"/raid and keep trying to shield people", -- [23]
+						"/raid ffs", -- [24]
+						"/raid im switching", -- [25]
+						"/raid that should help", -- [26]
+						"/raid this toon feels SLOOOOW to me", -- [27]
+						"/raid and keep trying to shield people", -- [28]
+						"/raid ffs", -- [29]
+						"/raid im switching", -- [30]
+						"/raid that should help", -- [31]
+						"/raid this toon feels SLOOOOW to me", -- [32]
+					},
+				},
+				["Shenlu - Dragonblight"] = {
+					["history"] = {
+						"/g night!", -- [1]
+						"/cw bandersnack   invite", -- [2]
+						"/gquit", -- [3]
+						" ginvite plz (Maj)", -- [4]
+						"/reloadui", -- [5]
+						"/g night!", -- [6]
+						"/cw bandersnack   invite", -- [7]
+						"/gquit", -- [8]
+						" ginvite plz (Maj)", -- [9]
+						"/reloadui", -- [10]
+						"/target band", -- [11]
+						"/reloadui", -- [12]
+						"/cw bandersnack   invite", -- [13]
+						"/gquit", -- [14]
+						" ginvite plz (Maj)", -- [15]
+						"/reloadui", -- [16]
+						"/target band", -- [17]
+						"/cw Bandersnack try again", -- [18]
+						"/gquit", -- [19]
+						" ginvite plz (Maj)", -- [20]
+						"/reloadui", -- [21]
+						"/target band", -- [22]
+						"/cw Bandersnack try again", -- [23]
+						"/p can you summon me", -- [24]
+						"/p ok so it is JUST Maj's account", -- [25]
+						"/p ok", -- [26]
+						"/target band", -- [27]
+						"/cw Bandersnack try again", -- [28]
+						"/p can you summon me", -- [29]
+						"/p ok so it is JUST Maj's account", -- [30]
+						"/p ok", -- [31]
+						"/p yup cannot do it", -- [32]
 					},
 				},
 			},
 		},
 		["MinimapButton"] = {
 		},
-		["AchievementFilter"] = {
+		["CustomNamedChatFilters"] = {
 		},
 	},
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 	},
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
 			["modules"] = {
 				["Alt Names"] = true,
 			},
+		},
+		["Jolobank - Dragonblight"] = {
+		},
+		["Shenlu - Dragonblight"] = {
 		},
 	},
 }

@@ -3,20 +3,21 @@
 --
 
 local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
-local module = oRA:NewModule("Cooldowns")
+local module = oRA:NewModule("Cooldowns", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 local AceGUI = LibStub("AceGUI-3.0")
 local candy = LibStub("LibCandyBar-3.0")
 local media = LibStub("LibSharedMedia-3.0")
 local LGIST = LibStub("LibGroupInSpecT-1.0")
 
-module.VERSION = tonumber(("$Revision: 612 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 663 $"):sub(12, -3))
 
 --------------------------------------------------------------------------------
 -- Locals
 --
 
-local mType = media and media.MediaType and media.MediaType.STATUSBAR or "statusbar"
+local mTypeBar = media and media.MediaType and media.MediaType.STATUSBAR or "statusbar"
+local mTypeFont = media and media.MediaType and media.MediaType.FONT or "font"
 local playerName, playerGUID
 
 local glyphCooldowns = {
@@ -333,15 +334,15 @@ local spells = {
 }
 
 local allSpells = {}
-allSpells[95750] = 600 -- Combat Soulstone
 local classLookup = {}
-classLookup[95750] = "WARLOCK"
 for class, spells in next, spells do
 	for id, cd in next, spells do
 		allSpells[id] = cd
 		classLookup[id] = class
 	end
 end
+allSpells[95750] = 600 -- Combat Soulstone
+classLookup[95750] = "WARLOCK"
 
 local db = nil
 local cdModifiers = {}
@@ -350,7 +351,8 @@ local options, restyleBars
 local lockDisplay, unlockDisplay, isDisplayLocked, showDisplay, hideDisplay, isDisplayShown
 local showPane, hidePane
 local combatLog
-local textures = media:List(mType)
+local textures = media:List(mTypeBar)
+local fonts = media:List(mTypeFont)
 local function getOptions()
 	if not options then
 		options = {
@@ -450,6 +452,7 @@ local function getOptions()
 							order = 14,
 							disabled = function() return db.barClassColor end,
 						},
+						spacer = { type = "description", name = " ", order = 14.5 },
 						barHeight = {
 							type = "range",
 							name = L["Height"],
@@ -482,12 +485,7 @@ local function getOptions()
 								db.barTexture = textures[v]
 								restyleBars()
 							end,
-						},
-						barLabelAlign = {
-							type = "select",
-							name = L["Label Align"],
-							order = 18,
-							values = {LEFT = "Left", CENTER = "Center", RIGHT = "Right"},
+							itemControl = "DDI-Statusbar",
 						},
 						barGrowUp = {
 							type = "toggle",
@@ -523,6 +521,126 @@ local function getOptions()
 									name = L["Short Spell name"],
 								},
 							},
+						},
+					},
+				},
+				labelSettings = {
+					type = "group",
+					name = L["Label Text Settings"],
+					order = 21,
+					width = "full",
+					inline = true,
+					disabled = function() return not db.barShowUnit and not db.barShowSpell end,
+					args = {
+						barLabelClassColor = {
+							type = "toggle",
+							name = L["Use class color"],
+							order = 1,
+						},
+						barLabelColor = {
+							type = "color",
+							name = L["Custom color"],
+							get = function() return unpack(db.barLabelColor) end,
+							set = function(info, r, g, b)
+								db.barLabelColor = {r, g, b, 1}
+								restyleBars()
+							end,
+							order = 2,
+							disabled = function() return (not db.barShowUnit and not db.barShowSpell) or db.barLabelClassColor end,
+						},
+						spacer = { type = "description", name = " ", order = 3 },
+						barLabelFont = {
+							type = "select",
+							name = L["Font"],
+							order = 4,
+							values = fonts,
+							get = function()
+								for i, v in next, fonts do
+									if v == db.barLabelFont then
+										return i
+									end
+								end
+							end,
+							set = function(_, v)
+								db.barLabelFont = fonts[v]
+								restyleBars()
+							end,
+							itemControl = "DDI-Font",
+						},
+						barLabelFontSize = {
+							type = "range",
+							name = L["Font Size"],
+							order = 5,
+							min = 6, max = 24, step = 1,
+						},
+						barLabelOutline = {
+							type = "select",
+							name = L["Outline"],
+							order = 6,
+							values = { NONE = NONE, OUTLINE = L["Thin"], THICKOUTLINE = L["Thick"] },
+						},
+						barLabelAlign = {
+							type = "select",
+							name = L["Label Align"],
+							order = 7,
+							values = { LEFT = "Left", CENTER = "Center", RIGHT = "Right" },
+						},
+					},
+				},
+				durationSettings = {
+					type = "group",
+					name = L["Duration Text Settings"],
+					order = 22,
+					width = "full",
+					inline = true,
+					disabled = function() return not db.barShowDuration end,
+					args = {
+						barDurationClassColor = {
+							type = "toggle",
+							name = L["Use class color"],
+							order = 1,
+						},
+						barDurationColor = {
+							type = "color",
+							name = L["Custom color"],
+							get = function() return unpack(db.barLabelColor) end,
+							set = function(info, r, g, b)
+								db.barLabelColor = {r, g, b, 1}
+								restyleBars()
+							end,
+							order = 2,
+							disabled = function() return not db.barShowDuration or db.barLabelClassColor end,
+						},
+						spacer = { type = "description", name = " ", order = 3 },
+						barDurationFont = {
+							type = "select",
+							name = L["Font"],
+							order = 9,
+							values = fonts,
+							get = function()
+								for i, v in next, fonts do
+									if v == db.barDurationFont then
+										return i
+									end
+								end
+							end,
+							set = function(_, v)
+								db.barDurationFont = fonts[v]
+								restyleBars()
+							end,
+							itemControl = "DDI-Font",
+						},
+						barDurationFontSize = {
+							type = "range",
+							name = L["Font Size"],
+							order = 10,
+							min = 6, max = 24, step = 1,
+						},
+						barDurationOutline = {
+							type = "select",
+							name = L["Outline"],
+							order = 11,
+							values = { NONE = NONE, OUTLINE = L["Thin"], THICKOUTLINE = L["Thick"] },
 						},
 					},
 				},
@@ -698,7 +816,7 @@ do
 		bar:SetIcon(db.barShowIcon and bar:Get("ora3cd:icon") or nil)
 		bar:SetTimeVisibility(db.barShowDuration)
 		bar:SetScale(db.barScale)
-		bar:SetTexture(media:Fetch(mType, db.barTexture))
+		bar:SetTexture(media:Fetch(mTypeBar, db.barTexture))
 		local spell = bar:Get("ora3cd:spell")
 		local unit = bar:Get("ora3cd:unit"):gsub("(%a)%-(.*)", "%1")
 		if db.barShorthand then spell = shorts[spell] end
@@ -711,9 +829,26 @@ do
 		else
 			bar:SetLabel()
 		end
+
+		--bar.candyBarLabel:SetFontObject("GameFontHighlightSmallOutline")
+		bar.candyBarLabel:SetFont(media:Fetch(mTypeFont, db.barLabelFont), db.barLabelFontSize, db.barLabelOutline ~= "NONE" and db.barLabelOutline)
 		bar.candyBarLabel:SetJustifyH(db.barLabelAlign)
+
+		--bar.candyBarDuration:SetFontObject("GameFontHighlightSmallOutline")
+		bar.candyBarDuration:SetFont(media:Fetch(mTypeFont, db.barDurationFont), db.barDurationFontSize, db.barDurationOutline ~= "NONE" and db.barDurationOutline)
+
+		local c = oRA.classColors[bar:Get("ora3cd:unitclass")]
+		if db.barLabelClassColor then
+			bar.candyBarLabel:SetTextColor(c.r, c.g, c.b, 1)
+		else
+			bar.candyBarLabel:SetTextColor(unpack(db.barLabelColor))
+		end
+		if db.barDurationClassColor then
+			bar.candyBarDuration:SetTextColor(c.r, c.g, c.b, 1)
+		else
+			bar.candyBarDuration:SetTextColor(unpack(db.barDurationColor))
+		end
 		if db.barClassColor then
-			local c = oRA.classColors[bar:Get("ora3cd:unitclass")]
 			bar:SetColor(c.r, c.g, c.b, 1)
 		else
 			bar:SetColor(unpack(db.barColor))
@@ -941,10 +1076,11 @@ function module:OnRegister()
 	local database = oRA.db:RegisterNamespace("Cooldowns", {
 		profile = {
 			spells = {
-				[6203] = true,
-				[19752] = true,
+				[20484] = true,
 				[20608] = true,
-				[27239] = true,
+				[20707] = true,
+				[61999] = true,
+				[126393] = true,
 			},
 			showDisplay = true,
 			onlyShowMine = nil,
@@ -962,6 +1098,16 @@ function module:OnRegister()
 			barLabelAlign = "CENTER",
 			barColor = { 0.25, 0.33, 0.68, 1 },
 			barTexture = "oRA3",
+			barLabelClassColor = false,
+			barLabelColor = { 1, 1, 1, 1 },
+			barLabelFont = "Friz Quadrata TT",
+			barLabelFontSize = 10,
+			barLabelOutline = "NONE",
+			barDurationClassColor = false,
+			barDurationColor = { 1, 1, 1, 1 },
+			barDurationFont = "Friz Quadrata TT",
+			barDurationFontSize = 10,
+			barDurationOutline = "NONE",
 		},
 	})
 	for k, v in next, database.profile.spells do
@@ -978,11 +1124,14 @@ function module:OnRegister()
 	)
 
 	if media then
-		media:Register(mType, "oRA3", "Interface\\AddOns\\oRA3\\images\\statusbar")
+		media:Register(mTypeBar, "oRA3", "Interface\\AddOns\\oRA3\\images\\statusbar")
 	end
 
 	oRA.RegisterCallback(self, "OnStartup")
 	oRA.RegisterCallback(self, "OnShutdown")
+	oRA.RegisterCallback(self, "OnProfileUpdate", function()
+		db = database.profile
+	end)
 	candy.RegisterCallback(self, "LibCandyBar_Stop", barStopped)
 	oRA:RegisterModuleOptions("CoolDowns", getOptions, L["Cooldowns"])
 
@@ -991,27 +1140,27 @@ function module:OnRegister()
 
 	local _, playerClass = UnitClass("player")
 	if playerClass == "SHAMAN" then
-		-- GetSpellCooldown returns 0 when UseSoulstone is invoked, so we delay until SPELL_UPDATE_COOLDOWN
-		function module:SPELL_UPDATE_COOLDOWN()
-			self:UnregisterEvent("SPELL_UPDATE_COOLDOWN")
+		-- GetSpellCooldown returns 0 when UseSoulstone is invoked, so we delay the check
+		local function checkCooldown()
 			local start, duration = GetSpellCooldown(20608)
-			if start > 0 and duration > 0 then
-				oRA:SendComm("Reincarnation", duration-1)
+			if start > 0 and duration > 1.5 then
+				local elapsed = GetTime() - start -- don't resend the full duration if already on cooldown
+				module:SendComm("Reincarnation", duration-elapsed)
 			end
 		end
 		hooksecurefunc("UseSoulstone", function()
-			if oRA3CooldownFrame and oRA3CooldownFrame:IsShown() then
-				module:RegisterEvent("SPELL_UPDATE_COOLDOWN")
+			if IsInGroup() then
+				module:ScheduleTimer(checkCooldown, 1)
 			end
 		end)
 	end
 end
 
 function module:IsOnCD(unit, spell)
-	for b, v in next, self:GetBars() do
-		local u = b:Get("ora3cd:unit")
-		local s = type(spell) == "string" and b:Get("ora3cd:spell") or b:Get("ora3cd:spellid")
-		if UnitIsUnit(u, unit) and spellName == s then
+	local barSpellKey = type(spell) == "string" and "ora3cd:spell" or "ora3cd:spellid"
+	for bar in next, self:GetBars() do
+		local barUnit = bar:Get("ora3cd:unit")
+		if UnitIsUnit(barUnit, unit) and spell == bar:Get(barSpellKey) then
 			return true
 		end
 	end
@@ -1050,6 +1199,7 @@ function module:OnStartup()
 	self:RegisterEvent("PLAYER_TALENT_UPDATE", "UpdateCooldownModifiers")
 	self:RegisterEvent("PLAYER_ENTERING_WORLD", "UpdateCooldownModifiers")
 	self:RegisterEvent("PLAYER_ALIVE", "UpdateCooldownModifiers")
+	self:RegisterEvent("GROUP_ROSTER_UPDATE")
 
 	LGIST.RegisterCallback(self, "GroupInSpecT_Update", "InspectUpdate")
 	LGIST.RegisterCallback(self, "GroupInSpecT_Remove", "InspectRemove")
@@ -1075,8 +1225,15 @@ function module:OnCommReceived(_, sender, prefix, cd)
 	end
 end
 
+function module:GROUP_ROSTER_UPDATE()
+	for bar in next, self:GetBars() do
+		if not UnitExists(bar:Get("ora3cd:unit")) then
+			bar:Stop()
+		end
+	end
+end
+
 function module:Cooldown(player, spell, cd)
-	--print("We got a cooldown for " .. tostring(spell) .. " (" .. tostring(cd) .. ") from " .. tostring(player))
 	if type(spell) ~= "number" or type(cd) ~= "number" then error("Spell or number had the wrong type.") end
 	if not db.spells[spell] then return end
 	if db.onlyShowMine and not UnitIsUnit(player, "player") then return end
@@ -1125,13 +1282,13 @@ local talentScanners = {
 	end,
 }
 
-function module:UpdateCooldownModifiers(event)
+function module:UpdateCooldownModifiers()
 	local info = LGIST:GetCachedInfo(playerGUID)
 	if not info then return end
-	self:UpdateGroupCooldownModifiers(event, info)
+	self:UpdateGroupCooldownModifiers(info)
 end
 
-function module:UpdateGroupCooldownModifiers(event, info)
+function module:UpdateGroupCooldownModifiers(info)
 	if cdModifiers[info.guid] then
 		wipe(cdModifiers[info.guid])
 	end
@@ -1145,11 +1302,11 @@ function module:UpdateGroupCooldownModifiers(event, info)
 	if talentMod then talentMod(info) end
 end
 
-function module:InspectUpdate(event, guid, unit, info)
-	self:UpdateGroupCooldownModifiers(event, info)
+function module:InspectUpdate(_, guid, unit, info)
+	self:UpdateGroupCooldownModifiers(info)
 end
 
-function module:InspectRemove(event, guid)
+function module:InspectRemove(_, guid)
 	if not guid then return end
   cdModifiers[guid] = nil
 end

@@ -1,0 +1,13 @@
+## Interface: 50300
+## Author: Dandruff
+## Version: 1.0.3
+## Title: |cff1784d1ElvUI|r ChatFontSize
+## Notes: Allows users to set a custom font size for every chat frame.
+## SavedVariables: ElvChatFontDB
+## RequiredDeps: ElvUI
+
+ElvUI_ChatFontSize.lua
+ 
+ 
+## X-Tukui-ProjectID: 159
+## X-Tukui-ProjectFolders: ElvUI_ChatFontSize

@@ -3,7 +3,7 @@ local util = oRA.util
 local module = oRA:NewModule("Zone")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 150 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 645 $"):sub(12, -3))
 
 local zones = {}
 local factionList = {}
@@ -131,7 +131,7 @@ end
 
 local function addPlayer(name, zone)
 	if not name then return end
-	local k = util:inTable(zones, name, 1)
+	local k = util.inTable(zones, name, 1)
 	if not k then
 		zones[#zones + 1] = { name }
 		k = #zones
@@ -142,12 +142,12 @@ end
 
 function module:UpdateZoneList()
 	wipe(zones)
-	if oRA:InRaid() then
+	if IsInRaid() then
 		for i = 1, GetNumGroupMembers() do
 			local name, _, _, _, _, _, zone = GetRaidRosterInfo(i)
 			addPlayer(name, zone)
 		end
-	elseif oRA:InParty() then
+	elseif IsInGroup() then
 		if not tip then
 			createTooltip()
 		end

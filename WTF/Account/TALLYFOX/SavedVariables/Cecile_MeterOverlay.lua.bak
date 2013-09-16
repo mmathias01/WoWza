@@ -1,0 +1,19 @@
+
+Cecile_MeterOverlayDB = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["datatext"] = {
+				["y"] = 760,
+				["h"] = 15.99993324279785,
+				["x"] = 582.6666870117188,
+			},
+		},
+	},
+}

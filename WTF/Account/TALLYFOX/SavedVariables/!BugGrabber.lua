@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
-	["session"] = 428,
 	["lastSanitation"] = 3,
+	["session"] = 463,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",
@@ -159,36 +159,20 @@ BugGrabberDB = {
 			["counter"] = 1,
 		}, -- [22]
 		{
-			["message"] = "FrameXML\\FloatingChatFrame.lua:1046: bad argument #1 to \"max\" (number expected, got nil)",
-			["time"] = "2013/01/15 01:32:08",
-			["locals"] = "chatFrame = ChatFrame2 {\n 0 = <userdata>\n flashTimer = 0\n originalShow = <func> =[C]:-1\n tellTimer = 67.865\n button = CopyChatButton2 {}\n resizeButton = ChatFrame2ResizeButton {}\n buttonFrame = ChatFrame2ButtonFrame {}\n Hide = <func> @FrameXML\\FrameLocks.lua:119\n hasBeenFaded = true\n buttonSide = \"left\"\n channelList = <table> {}\n SetScript = <func> =[C]:-1\n clickAnywhereButton = ChatFrame2ClickAnywhereButton {}\n isDocked = 1\n styled = true\n editBox = ChatFrame2EditBox {}\n Show = <func> @FrameXML\\FrameLocks.lua:123\n isLocked = 1\n name = \"Combat Log\"\n isStaticDocked = true\n originalHide = <func> =[C]:-1\n zoneChannelList = <table> {}\n defaultLanguage = \"Common\"\n messageTypeList = <table> {}\n}\nframeName = \"ChatFrame2\"\n(for generator) = <func> =[C]:-1\n(for state) = <table> {\n 1 = \"Background\"\n 2 = \"TopLeftTexture\"\n 3 = \"BottomLeftTexture\"\n 4 = \"TopRightTexture\"\n 5 = \"BottomRightTexture\"\n 6 = \"LeftTexture\"\n 7 = \"RightTexture\"\n 8 = \"BottomTexture\"\n 9 = \"TopTexture\"\n 10 = \"ButtonFrameBackground\"\n 11 = \"ButtonFrameTopLeftTexture\"\n 12 = \"ButtonFrameBottomLeftTexture\"\n 13 = \"ButtonFrameTopRightTexture\"\n 14 = \"ButtonFrameBottomRightTexture\"\n 15 = \"ButtonFrameLeftTexture\"\n 16 = \"ButtonFrameRightTexture\"\n 17 = \"ButtonFrameBottomTexture\"\n 18 = \"ButtonFrameTopTexture\"\n}\n(for control) = 10\nindex = 10\nvalue = \"ButtonFrameBackground\"\nobject = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = <func> @FrameXML\\UIParent.lua:2670\n(*temporary) = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = 0\n(*temporary) = 1\n",
-			["stack"] = "<in C code>\nFrameXML\\FloatingChatFrame.lua:1046: in function \"FCF_FadeInChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1052: in function \"FCF_FadeInChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1128: in function \"FCF_OnUpdate\"\n<string>:\"*:OnUpdate\":1: in function <string>:\"*:OnUpdate\":1",
-			["session"] = 186,
-			["counter"] = 6,
-		}, -- [23]
-		{
-			["message"] = "FrameXML\\FloatingChatFrame.lua:1076: bad argument #2 to \"max\" (number expected, got nil)",
-			["time"] = "2013/01/15 01:32:09",
-			["locals"] = "chatFrame = ChatFrame2 {\n 0 = <userdata>\n flashTimer = 0\n originalShow = <func> =[C]:-1\n tellTimer = 67.865\n button = CopyChatButton2 {}\n resizeButton = ChatFrame2ResizeButton {}\n buttonFrame = ChatFrame2ButtonFrame {}\n Hide = <func> @FrameXML\\FrameLocks.lua:119\n buttonSide = \"left\"\n channelList = <table> {}\n SetScript = <func> =[C]:-1\n clickAnywhereButton = ChatFrame2ClickAnywhereButton {}\n isDocked = 1\n styled = true\n editBox = ChatFrame2EditBox {}\n Show = <func> @FrameXML\\FrameLocks.lua:123\n isLocked = 1\n name = \"Combat Log\"\n isStaticDocked = true\n originalHide = <func> =[C]:-1\n zoneChannelList = <table> {}\n defaultLanguage = \"Common\"\n messageTypeList = <table> {}\n}\nframeName = \"ChatFrame2\"\n(for generator) = <func> =[C]:-1\n(for state) = <table> {\n 1 = \"Background\"\n 2 = \"TopLeftTexture\"\n 3 = \"BottomLeftTexture\"\n 4 = \"TopRightTexture\"\n 5 = \"BottomRightTexture\"\n 6 = \"LeftTexture\"\n 7 = \"RightTexture\"\n 8 = \"BottomTexture\"\n 9 = \"TopTexture\"\n 10 = \"ButtonFrameBackground\"\n 11 = \"ButtonFrameTopLeftTexture\"\n 12 = \"ButtonFrameBottomLeftTexture\"\n 13 = \"ButtonFrameTopRightTexture\"\n 14 = \"ButtonFrameBottomRightTexture\"\n 15 = \"ButtonFrameLeftTexture\"\n 16 = \"ButtonFrameRightTexture\"\n 17 = \"ButtonFrameBottomTexture\"\n 18 = \"ButtonFrameTopTexture\"\n}\n(for control) = 10\nindex = 10\nvalue = \"ButtonFrameBackground\"\nobject = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = <func> @FrameXML\\UIParent.lua:2680\n(*temporary) = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = 2\n",
-			["stack"] = "<in C code>\nFrameXML\\FloatingChatFrame.lua:1076: in function \"FCF_FadeOutChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1082: in function \"FCF_FadeOutChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1137: in function \"FCF_OnUpdate\"\n<string>:\"*:OnUpdate\":1: in function <string>:\"*:OnUpdate\":1",
-			["session"] = 186,
-			["counter"] = 6,
-		}, -- [24]
-		{
 			["message"] = "ElvUI-5.22\\modules\\datatexts\\datatexts.lua:64: attempt to call field \"OnClick\" (a nil value)",
 			["time"] = "2013/01/15 12:37:22",
 			["locals"] = "",
 			["stack"] = "ElvUI-5.22\\modules\\datatexts\\datatexts.lua:64: in function <ElvUI\\modules\\datatexts\\datatexts.lua:63>",
 			["session"] = 198,
 			["counter"] = 3,
-		}, -- [25]
+		}, -- [23]
 		{
 			["message"] = "Lorewalkers\\Lorewalkers-4.47.lua:631: attempt to perform arithmetic on field \"x\" (a nil value)",
 			["time"] = "2013/01/15 22:16:14",
 			["stack"] = "Lorewalkers\\Lorewalkers-4.47.lua:631: in function \"GetClosestWaypoint\"\nLorewalkers\\Lorewalkers-4.47.lua:654: in function \"AddClosestWaypoint\"\nLorewalkers\\Lorewalkers-4.47.lua:750: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 203,
 			["counter"] = 1,
-		}, -- [26]
+		}, -- [24]
 		{
 			["message"] = "ElvUI-5.24\\modules\\datatexts\\datatexts.lua:64: attempt to call field \"OnClick\" (a nil value)",
 			["time"] = "2013/01/17 00:55:05",
@@ -196,14 +180,14 @@ BugGrabberDB = {
 			["stack"] = "ElvUI-5.24\\modules\\datatexts\\datatexts.lua:64: in function <ElvUI\\modules\\datatexts\\datatexts.lua:63>",
 			["session"] = 205,
 			["counter"] = 1,
-		}, -- [27]
+		}, -- [25]
 		{
 			["message"] = "Lorewalkers\\Lorewalkers-4.47.lua:701: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/01/12 22:36:11",
 			["stack"] = "Lorewalkers\\Lorewalkers-4.47.lua:701: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 207,
 			["counter"] = 12,
-		}, -- [28]
+		}, -- [26]
 		{
 			["message"] = "VuhDo-3.25\\VuhDoToolbox.lua:758: attempt to index global \"VUHDO_BOUQUETS\" (a nil value)",
 			["time"] = "2013/01/19 10:52:12",
@@ -211,42 +195,42 @@ BugGrabberDB = {
 			["stack"] = "VuhDo-3.25\\VuhDoToolbox.lua:758: in function \"VUHDO_compressAllBouquets\"\nVuhDo-3.25\\VuhDoEventHandler.lua:556: in function <VuhDo\\VuhDoEventHandler.lua:353>",
 			["session"] = 213,
 			["counter"] = 1,
-		}, -- [29]
+		}, -- [27]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"PickupContainerItem()\".",
 			["time"] = "2013/01/22 22:39:01",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\ContainerFrame.lua:758: in function \"ContainerFrameItemButton_OnClick\"\nArkInventory\\ArkInventory-3.03.25.lua:6803: in function \"Frame_Item_OnDrag\"\n<string>:\"*:OnReceiveDrag\":1: in function <string>:\"*:OnReceiveDrag\":1",
 			["session"] = 220,
 			["counter"] = 1,
-		}, -- [30]
+		}, -- [28]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"GearScore\" tried to call the protected function \"WorldMapBlobFrame:Show()\".",
 			["time"] = "2013/01/22 23:04:55",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\WorldMapFrame.lua:1963: in function \"WorldMapFrame_DisplayQuests\"\nFrameXML\\WorldMapFrame.lua:2037: in function \"WorldMapFrame_UpdateMap\"\nFrameXML\\WorldMapFrame.lua:306: in function <FrameXML\\WorldMapFrame.lua:292>\n<in C code>\nFrameXML\\WorldMapFrame.lua:252: in function <FrameXML\\WorldMapFrame.lua:233>\n(tail call): ?\n<in C code>\n<in C code>\nFrameXML\\UIParent.lua:1750: in function \"SetUIPanel\"\nFrameXML\\UIParent.lua:1555: in function \"ShowUIPanel\"\nFrameXML\\UIParent.lua:1481: in function <FrameXML\\UIParent.lua:1477>\n<in C code>\nFrameXML\\UIParent.lua:2193: in function \"ShowUIPanel\"\nFrameXML\\UIParent.lua:2177: in function \"ToggleFrame\"\n<string>:\"TOGGLEWORLDMAP\":1: in function <string>:\"TOGGLEWORLDMAP\":1",
 			["session"] = 221,
 			["counter"] = 3,
-		}, -- [31]
+		}, -- [29]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"WorldMapBlobFrame:SetScale()\".",
 			["time"] = "2013/01/24 00:57:24",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\WorldMapFrame.lua:321: in function <FrameXML\\WorldMapFrame.lua:292>",
 			["session"] = 223,
 			["counter"] = 1,
-		}, -- [32]
+		}, -- [30]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"ScenarioPOIFrame:SetScale()\".",
 			["time"] = "2013/01/24 00:57:24",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\WorldMapFrame.lua:322: in function <FrameXML\\WorldMapFrame.lua:292>",
 			["session"] = 223,
 			["counter"] = 1,
-		}, -- [33]
+		}, -- [31]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame1:SetAttribute()\".",
 			["time"] = "2013/01/24 00:57:24",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:194: in function \"CompactUnitFrame_SetUpClicks\"\nFrameXML\\CompactUnitFrame.lua:38: in function <FrameXML\\CompactUnitFrame.lua:6>\n<in C code>\n<in C code>\nBlizzard_CompactRaidFrameContainer.lua:345: in function \"CompactRaidFrameContainer_GetUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:317: in function \"CompactRaidFrameContainer_AddUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:254: in function \"CompactRaidFrameContainer_AddPlayers\"\nBlizzard_CompactRaidFrameContainer.lua:176: in function \"CompactRaidFrameContainer_LayoutFrames\"\nBlizzard_CompactRaidFrameContainer.lua:130: in function \"CompactRaidFrameContainer_TryUpdate\"\nBlizzard_CompactRaidFrameContainer.lua:95: in function \"CompactRaidFrameContainer_SetFlowSortFunction\"\nBlizzard_CompactRaidFrameManager.lua:405: in function <Blizzard_CompactRaidFrameManager.lua:402>\nBlizzard_CompactRaidFrameManager.lua:491: in function \"CompactRaidFrameManager_SetSetting\"\nBlizzard_CompactUnitFrameProfiles.lua:572: in function \"func\"\nBlizzard_CompactUnitFrameProfiles.lua:549: in function \"CompactUnitFrameProfiles_ApplyProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:176: in function \"CompactUnitFrameProfiles_ApplyCurrentSettings\"\nBlizzard_CompactUnitFrameProfiles.lua:172: in function \"CompactUnitFrameProfiles_ActivateRaidProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:45: in function \"CompactUnitFrameProfiles_ValidateProfilesLoaded\"\nBlizzard_CompactUnitFrameProfiles.lua:25: in function <Blizzard_CompactUnitFrameProfiles.lua:18>",
 			["session"] = 223,
 			["counter"] = 2,
-		}, -- [34]
+		}, -- [32]
 		{
 			["message"] = "VuhDo-3.25\\VuhDoPanel.lua:51: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/01/24 00:58:02",
@@ -254,70 +238,70 @@ BugGrabberDB = {
 			["stack"] = "VuhDo-3.25\\VuhDoPanel.lua:51: in function <VuhDo\\VuhDoPanel.lua:50>\nVuhDo-3.25\\VuhDoPanel.lua:120: in function <VuhDo\\VuhDoPanel.lua:119>\nVuhDo-3.25\\VuhDoPanel.lua:142: in function <VuhDo\\VuhDoPanel.lua:138>\nVuhDo-3.25\\VuhDoModelTools.lua:92: in function \"VUHDO_initDynamicPanelModels\"\nVuhDo-3.25\\VuhDoNewOptionsGeneralSkinsShared.lua:2481: in function \"VUHDO_loadProfile\"\nVuhDo-3.25\\VuhDoDropdownFactory.lua:290: in function \"func\"\nFrameXML\\UIDropDownMenu.lua:710: in function \"UIDropDownMenuButton_OnClick\"\n<string>:\"*:OnClick\":1: in function <string>:\"*:OnClick\":1",
 			["session"] = 223,
 			["counter"] = 1,
-		}, -- [35]
+		}, -- [33]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"SpellFlash\" tried to call the protected function \"MultiBarBottomLeft:Show()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\MultiActionBars.lua:37: in function \"MultiActionBar_Update\"\nFrameXML\\InterfaceOptionsPanels.lua:1074: in function \"setFunc\"\nFrameXML\\InterfaceOptionsPanels.lua:90: in function <FrameXML\\InterfaceOptionsPanels.lua:86>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 6,
-		}, -- [36]
+		}, -- [34]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"SpellFlash\" tried to call the protected function \"MultiBarBottomRight:Show()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\MultiActionBars.lua:46: in function \"MultiActionBar_Update\"\nFrameXML\\InterfaceOptionsPanels.lua:1074: in function \"setFunc\"\nFrameXML\\InterfaceOptionsPanels.lua:90: in function <FrameXML\\InterfaceOptionsPanels.lua:86>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 6,
-		}, -- [37]
+		}, -- [35]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"SpellFlash\" tried to call the protected function \"MultiBarRight:Show()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\MultiActionBars.lua:53: in function \"MultiActionBar_Update\"\nFrameXML\\InterfaceOptionsPanels.lua:1074: in function \"setFunc\"\nFrameXML\\InterfaceOptionsPanels.lua:90: in function <FrameXML\\InterfaceOptionsPanels.lua:86>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 6,
-		}, -- [38]
+		}, -- [36]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"SpellFlash\" tried to call the protected function \"MultiBarLeft:Show()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\MultiActionBars.lua:60: in function \"MultiActionBar_Update\"\nFrameXML\\InterfaceOptionsPanels.lua:1074: in function \"setFunc\"\nFrameXML\\InterfaceOptionsPanels.lua:90: in function <FrameXML\\InterfaceOptionsPanels.lua:86>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 6,
-		}, -- [39]
+		}, -- [37]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"CompactRaidFrameContainer:Hide()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nBlizzard_CompactRaidFrameManager.lua:515: in function \"CompactRaidFrameManager_UpdateContainerVisibility\"\nBlizzard_CompactRaidFrameManager.lua:460: in function <Blizzard_CompactRaidFrameManager.lua:449>\nBlizzard_CompactRaidFrameManager.lua:499: in function \"CompactRaidFrameManager_SetSetting\"\nBlizzard_CompactUnitFrameProfiles.lua:572: in function \"func\"\nBlizzard_CompactUnitFrameProfiles.lua:549: in function \"CompactUnitFrameProfiles_ApplyProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:176: in function \"CompactUnitFrameProfiles_ApplyCurrentSettings\"\nBlizzard_CompactUnitFrameProfiles.lua:85: in function \"CompactUnitFrameProfiles_CancelChanges\"\nBlizzard_CompactUnitFrameProfiles.lua:78: in function <Blizzard_CompactUnitFrameProfiles.lua:76>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 1,
-		}, -- [40]
+		}, -- [38]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"CompactRaidFrameManagerContainerResizeFrame:Hide()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nBlizzard_CompactRaidFrameManager.lua:559: in function \"CompactRaidFrameManager_LockContainer\"\nBlizzard_CompactRaidFrameManager.lua:552: in function \"CompactRaidFrameManager_UpdateContainerLockVisibility\"\nBlizzard_CompactRaidFrameManager.lua:394: in function <Blizzard_CompactRaidFrameManager.lua:389>\nBlizzard_CompactRaidFrameManager.lua:489: in function \"CompactRaidFrameManager_SetSetting\"\nBlizzard_CompactUnitFrameProfiles.lua:572: in function \"func\"\nBlizzard_CompactUnitFrameProfiles.lua:549: in function \"CompactUnitFrameProfiles_ApplyProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:176: in function \"CompactUnitFrameProfiles_ApplyCurrentSettings\"\nBlizzard_CompactUnitFrameProfiles.lua:85: in function \"CompactUnitFrameProfiles_CancelChanges\"\nBlizzard_CompactUnitFrameProfiles.lua:78: in function <Blizzard_CompactUnitFrameProfiles.lua:76>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 1,
-		}, -- [41]
+		}, -- [39]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame2:SetAttribute()\".",
 			["time"] = "2013/01/24 00:58:54",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:194: in function \"CompactUnitFrame_SetUpClicks\"\nFrameXML\\CompactUnitFrame.lua:38: in function <FrameXML\\CompactUnitFrame.lua:6>\n<in C code>\n<in C code>\nBlizzard_CompactRaidFrameContainer.lua:345: in function \"CompactRaidFrameContainer_GetUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:317: in function \"CompactRaidFrameContainer_AddUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:296: in function \"CompactRaidFrameContainer_AddFlaggedUnits\"\nBlizzard_CompactRaidFrameContainer.lua:169: in function \"CompactRaidFrameContainer_LayoutFrames\"\nBlizzard_CompactRaidFrameContainer.lua:130: in function \"CompactRaidFrameContainer_TryUpdate\"\nBlizzard_CompactRaidFrameContainer.lua:76: in function \"CompactRaidFrameContainer_SetGroupMode\"\nBlizzard_CompactRaidFrameManager.lua:425: in function <Blizzard_CompactRaidFrameManager.lua:416>\nBlizzard_CompactRaidFrameManager.lua:493: in function \"CompactRaidFrameManager_SetSetting\"\nBlizzard_CompactUnitFrameProfiles.lua:572: in function \"func\"\nBlizzard_CompactUnitFrameProfiles.lua:549: in function \"CompactUnitFrameProfiles_ApplyProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:176: in function \"CompactUnitFrameProfiles_ApplyCurrentSettings\"\nBlizzard_CompactUnitFrameProfiles.lua:85: in function \"CompactUnitFrameProfiles_CancelChanges\"\nBlizzard_CompactUnitFrameProfiles.lua:78: in function <Blizzard_CompactUnitFrameProfiles.lua:76>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:217: in function <FrameXML\\InterfaceOptionsFrame.lua:216>\n<in C code>\nFrameXML\\InterfaceOptionsFrame.lua:252: in function <FrameXML\\InterfaceOptionsFrame.lua:248>",
 			["session"] = 223,
 			["counter"] = 2,
-		}, -- [42]
+		}, -- [40]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"VuhDo\" tried to call the protected function \"ClearOverrideBindings()\".",
 			["time"] = "2013/01/20 00:01:19",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nVuhDo-3.25\\VuhDoMacroFactory.lua:483: in function \"VUHDO_initKeyboardMacros\"\nVuhDoOptions-3.25\\VuhDoNewOptionsTabbedFrame.lua:112: in function \"VUHDO_tabbedPanelCancelClicked\"\n<string>:\"*:OnClick\":1: in function <string>:\"*:OnClick\":1",
 			["session"] = 228,
 			["counter"] = 2,
-		}, -- [43]
+		}, -- [41]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"VuhDo\" tried to call the protected function \"DeleteMacro()\".",
 			["time"] = "2013/01/20 00:01:19",
 			["stack"] = "!BugGrabber-r189\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nVuhDo-3.25\\VuhDoMacroFactory.lua:514: in function \"VUHDO_initKeyboardMacros\"\nVuhDoOptions-3.25\\VuhDoNewOptionsTabbedFrame.lua:112: in function \"VUHDO_tabbedPanelCancelClicked\"\n<string>:\"*:OnClick\":1: in function <string>:\"*:OnClick\":1",
 			["session"] = 228,
 			["counter"] = 32,
-		}, -- [44]
+		}, -- [42]
 		{
 			["message"] = "GearScore-5.2.0\\scripts.lua:3274: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/03/19 20:40:30",
@@ -325,14 +309,14 @@ BugGrabberDB = {
 			["stack"] = "GearScore-5.2.0\\scripts.lua:3274: in function \"GetPlayerInfo\"\nGearScore-5.2.0\\scripts.lua:3174: in function <GearScore\\scripts.lua:3042>\n<in C code>\n...\\ArkInventory\\Externals\\Ace3-AceHook\\AceHook-3.0-6.lua:95: in function <...\\ArkInventory\\Externals\\Ace3-AceHook\\AceHook-3.0.lua:87>\n<in C code>\n<in C code>\n<in C code>\nFrameXML\\BuffFrame.lua:520: in function \"TempEnchantButton_OnEnter\"\n<string>:\"*:OnEnter\":1: in function <string>:\"*:OnEnter\":1",
 			["session"] = 231,
 			["counter"] = 11,
-		}, -- [45]
+		}, -- [43]
 		{
 			["message"] = "ElvUI_Enhanced-1.62\\modules\\maps\\minimapbuttons.lua:203: attempt to index upvalue \"minimapButtonBar\" (a nil value)",
 			["time"] = "2013/03/19 20:45:13",
 			["stack"] = "ElvUI_Enhanced-1.62\\modules\\maps\\minimapbuttons.lua:203: in function \"ChangeMouseOverSetting\"\nElvUI_Enhanced-1.62\\config\\options.lua:337: in function <ElvUI_Enhanced\\config\\options.lua:337>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[2]\":9: in function <string>:\"safecall Dispatcher[2]\":5\n(tail call): ?\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.27\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:68: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:57>",
 			["session"] = 232,
 			["counter"] = 1,
-		}, -- [46]
+		}, -- [44]
 		{
 			["message"] = "WoWDBProfiler-r273\\Comments.lua:17: Cannot find a library instance of \"LibQTip-1.0\".",
 			["time"] = "2013/03/25 22:40:05",
@@ -340,28 +324,28 @@ BugGrabberDB = {
 			["stack"] = "<in C code>\nArkInventory-3.03.27\\Libs\\LibStub\\LibStub.lua:23: in function \"LibStub\"\nWoWDBProfiler-r273\\Comments.lua:17: in main chunk",
 			["session"] = 236,
 			["counter"] = 2,
-		}, -- [47]
+		}, -- [45]
 		{
 			["message"] = "ElvUI-5.84\\modules\\unitframes\\unitframes.lua:559: No unit provided to create or update.",
 			["time"] = "2013/03/27 22:14:35",
 			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nElvUI-5.84\\modules\\unitframes\\unitframes.lua:454: in function \"Update_AllFrames\"\nElvUI-5.84\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n[string \"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.84\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.84\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 237,
 			["counter"] = 5,
-		}, -- [48]
+		}, -- [46]
 		{
 			["message"] = "ElvUI-5.84\\modules\\unitframes\\groups\\party-Party.lua:513: attempt to index local \"GPS\" (a nil value)",
 			["time"] = "2013/03/27 22:14:35",
 			["stack"] = "ElvUI-5.84\\modules\\unitframes\\groups\\party-Party.lua:513: in function \"?\"\nElvUI-5.84\\modules\\unitframes\\unitframes.lua:534: in function \"Update\"\nElvUI-5.84\\modules\\unitframes\\unitframes.lua:631: in function \"UpdateAllHeaders\"\nElvUI-5.84\\modules\\unitframes\\unitframes.lua:454: in function \"Update_AllFrames\"\nElvUI-5.84\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.84\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.84\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 237,
 			["counter"] = 1,
-		}, -- [49]
+		}, -- [47]
 		{
 			["message"] = "ElvUI-5.84\\modules\\actionbars\\actionbars.lua:778: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/03/27 22:14:35",
 			["stack"] = "ElvUI-5.84\\modules\\actionbars\\actionbars.lua:778: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 237,
 			["counter"] = 1,
-		}, -- [50]
+		}, -- [48]
 		{
 			["message"] = "ElvUI-5.84\\core\\math.lua:260: attempt to compare nil with number",
 			["time"] = "2013/03/27 22:15:19",
@@ -369,7 +353,7 @@ BugGrabberDB = {
 			["stack"] = "ElvUI-5.84\\core\\math.lua:260: in function \"GetTimeInfo\"\nElvUI-5.84\\modules\\auras\\auras-Auras.lua:24: in function <ElvUI\\modules\\auras\\auras.lua:9>",
 			["session"] = 237,
 			["counter"] = 40,
-		}, -- [51]
+		}, -- [49]
 		{
 			["message"] = "Blizzard_AchievementUI\\Blizzard_AchievementUI-1.0.lua:704: Usage: GetCategoryNumAchievements(categoryID, includeSuperceded)",
 			["time"] = "2013/01/03 01:00:41",
@@ -377,7 +361,7 @@ BugGrabberDB = {
 			["stack"] = "<in C code>\nBlizzard_AchievementUI\\Blizzard_AchievementUI-1.0.lua:704: in function \"AchievementFrameComparison_UpdateStatusBars\"\nBlizzard_AchievementUI\\Blizzard_AchievementUI-1.0.lua:2782: in function <Blizzard_AchievementUI\\Blizzard_AchievementUI.lua:2779>",
 			["session"] = 239,
 			["counter"] = 114,
-		}, -- [52]
+		}, -- [50]
 		{
 			["message"] = "<string>:\"TenTonHammer_QuickRateFrame:OnShow\":18: attempt to concatenate field \"Spec\" (a nil value)",
 			["time"] = "2013/01/22 00:59:36",
@@ -385,49 +369,49 @@ BugGrabberDB = {
 			["stack"] = "<string>:\"*:OnShow\":18: in function <string>:\"*:OnShow\":1\n<in C code>\nGearScore-5.00.04.00\\scripts.lua:919: in function \"?\"\nGearScore-5.00.04.00\\scripts.lua:827: in function <GearScore\\scripts.lua:826>",
 			["session"] = 245,
 			["counter"] = 2,
-		}, -- [53]
+		}, -- [51]
 		{
 			["message"] = "ElvUI-5.86\\modules\\unitframes\\unitframes.lua:573: No unit provided to create or update.",
 			["time"] = "2013/03/29 14:53:45",
 			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nElvUI-5.86\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.86\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n[string \"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.86\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.86\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 252,
 			["counter"] = 5,
-		}, -- [54]
+		}, -- [52]
 		{
 			["message"] = "ElvUI-5.86\\modules\\unitframes\\groups\\party-Party.lua:513: attempt to index local \"GPS\" (a nil value)",
 			["time"] = "2013/03/29 14:53:45",
 			["stack"] = "ElvUI-5.86\\modules\\unitframes\\groups\\party-Party.lua:513: in function \"?\"\nElvUI-5.86\\modules\\unitframes\\unitframes.lua:548: in function \"Update\"\nElvUI-5.86\\modules\\unitframes\\unitframes.lua:645: in function \"UpdateAllHeaders\"\nElvUI-5.86\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.86\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.86\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.86\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 252,
 			["counter"] = 1,
-		}, -- [55]
+		}, -- [53]
 		{
 			["message"] = "ElvUI-5.86\\modules\\actionbars\\actionbars.lua:778: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/03/29 14:53:45",
 			["stack"] = "ElvUI-5.86\\modules\\actionbars\\actionbars.lua:778: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 252,
 			["counter"] = 1,
-		}, -- [56]
+		}, -- [54]
 		{
 			["message"] = "ElvUI-5.96\\modules\\unitframes\\unitframes.lua:573: No unit provided to create or update.",
 			["time"] = "2013/04/12 22:04:45",
 			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nElvUI-5.96\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.96\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n[string \"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.96\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.96\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 323,
 			["counter"] = 5,
-		}, -- [57]
+		}, -- [55]
 		{
 			["message"] = "ElvUI-5.96\\modules\\unitframes\\groups\\party-Party.lua:525: attempt to index local \"GPS\" (a nil value)",
 			["time"] = "2013/04/12 22:04:45",
 			["stack"] = "ElvUI-5.96\\modules\\unitframes\\groups\\party-Party.lua:525: in function \"?\"\nElvUI-5.96\\modules\\unitframes\\unitframes.lua:548: in function \"Update\"\nElvUI-5.96\\modules\\unitframes\\unitframes.lua:645: in function \"UpdateAllHeaders\"\nElvUI-5.96\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.96\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.96\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.96\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 323,
 			["counter"] = 1,
-		}, -- [58]
+		}, -- [56]
 		{
 			["message"] = "ElvUI-5.96\\modules\\actionbars\\actionbars.lua:782: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/04/12 22:04:45",
 			["stack"] = "ElvUI-5.96\\modules\\actionbars\\actionbars.lua:782: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 323,
 			["counter"] = 1,
-		}, -- [59]
+		}, -- [57]
 		{
 			["message"] = "ElvUI-5.96\\core\\math.lua:260: attempt to compare nil with number",
 			["time"] = "2013/04/12 22:04:45",
@@ -435,42 +419,42 @@ BugGrabberDB = {
 			["stack"] = "ElvUI-5.96\\core\\math.lua:260: in function \"GetTimeInfo\"\nElvUI-5.96\\modules\\auras\\auras-Auras.lua:24: in function <ElvUI\\modules\\auras\\auras.lua:9>",
 			["session"] = 323,
 			["counter"] = 42,
-		}, -- [60]
+		}, -- [58]
 		{
 			["message"] = "ElvUI-5.98\\modules\\unitframes\\unitframes.lua:573: No unit provided to create or update.",
 			["time"] = "2013/04/13 17:32:32",
 			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nElvUI-5.98\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.98\\core\\core.lua:515: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n[string \"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.98\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.98\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 330,
 			["counter"] = 5,
-		}, -- [61]
+		}, -- [59]
 		{
 			["message"] = "ElvUI-5.98\\modules\\chat\\chat-Chat.lua:1434: attempt to compare number with nil",
 			["time"] = "2013/04/13 17:32:55",
 			["stack"] = "ElvUI-5.98\\modules\\chat\\chat-Chat.lua:1434: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[16]\":4: in function <string>:\"safecall Dispatcher[16]\":4\n<in C code>\n<string>:\"safecall Dispatcher[16]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 330,
 			["counter"] = 1,
-		}, -- [62]
+		}, -- [60]
 		{
 			["message"] = "ElvUI-5.98\\modules\\unitframes\\groups\\party-Party.lua:525: attempt to index local \"GPS\" (a nil value)",
 			["time"] = "2013/04/13 17:32:32",
 			["stack"] = "ElvUI-5.98\\modules\\unitframes\\groups\\party-Party.lua:525: in function \"?\"\nElvUI-5.98\\modules\\unitframes\\unitframes.lua:548: in function \"Update\"\nElvUI-5.98\\modules\\unitframes\\unitframes.lua:645: in function \"UpdateAllHeaders\"\nElvUI-5.98\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.98\\core\\core.lua:515: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.98\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.98\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 330,
 			["counter"] = 2,
-		}, -- [63]
+		}, -- [61]
 		{
 			["message"] = "ElvUI-5.98\\core\\pixelperfect.lua:114: attempt to perform arithmetic on local \"x\" (a nil value)",
 			["time"] = "2013/04/13 17:33:33",
 			["stack"] = "ElvUI-5.98\\core\\pixelperfect.lua:114: in function \"Scale\"\nElvUI-5.98\\modules\\actionbars\\actionbars.lua:63: in function <ElvUI\\modules\\actionbars\\actionbars.lua:62>\n<in C code>\nElvUI_Config-1.00\\actionbars.lua:23: in function <ElvUI_Config\\actionbars.lua:23>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[2]\":9: in function <string>:\"safecall Dispatcher[2]\":5\n(tail call): ?\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.27\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-DropDown.lua:439: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-DropDown.lua:430>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.27\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\n...\\Ace3-AceGUI\\widgets\\AceGUIWidget-DropDown-Items.lua:351: in function <...\\Ace3-AceGUI\\widgets\\AceGUIWidget-DropDown-Items.lua:341>",
 			["session"] = 330,
 			["counter"] = 4,
-		}, -- [64]
+		}, -- [62]
 		{
 			["message"] = "ElvUI-5.98\\modules\\actionbars\\actionbars.lua:782: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/04/13 17:32:32",
 			["stack"] = "ElvUI-5.98\\modules\\actionbars\\actionbars.lua:782: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 330,
 			["counter"] = 7,
-		}, -- [65]
+		}, -- [63]
 		{
 			["message"] = "ElvUI-5.98\\modules\\datatexts\\datatexts.lua:61: attempt to call field \"OnClick\" (a nil value)",
 			["time"] = "2013/04/14 20:13:01",
@@ -478,7 +462,7 @@ BugGrabberDB = {
 			["stack"] = "ElvUI-5.98\\modules\\datatexts\\datatexts.lua:61: in function \"origOnClick\"\nElvUI_Enhanced-1.71\\modules\\datatexts\\extratexts.lua:115: in function <ElvUI_Enhanced\\modules\\datatexts\\extratexts.lua:101>",
 			["session"] = 342,
 			["counter"] = 1,
-		}, -- [66]
+		}, -- [64]
 		{
 			["message"] = "ElvUI_ChatTweaks-5.94\\Modules\\InviteLinks.lua:72: attempt to perform arithmetic on a nil value",
 			["time"] = "2013/04/15 00:03:40",
@@ -486,42 +470,42 @@ BugGrabberDB = {
 			["stack"] = "ElvUI_ChatTweaks-5.94\\Modules\\InviteLinks.lua:72: in function <ElvUI_ChatTweaks\\Modules\\InviteLinks.lua:71>\n(tail call): ?\n(tail call): ?\n(tail call): ?\nBlizzard_CombatLog\\Blizzard_CombatLog.lua:3573: in function <Blizzard_CombatLog\\Blizzard_CombatLog.lua:3517>\n<in C code>\n<in C code>\nFrameXML\\ChatFrame.lua:3381: in function <FrameXML\\ChatFrame.lua:3380>\n<in C code>\nElvUI-5.98\\modules\\chat\\chat-Chat.lua:601: in function <ElvUI\\modules\\chat\\chat.lua:588>",
 			["session"] = 348,
 			["counter"] = 1,
-		}, -- [67]
+		}, -- [65]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"MacroToolkit\" tried to call the protected function \"EditMacro()\".",
 			["time"] = "2013/04/16 01:10:34",
 			["stack"] = "!BugGrabber-r191-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nBlizzard_MacroUI\\Blizzard_MacroUI.lua:424: in function \"MacroFrame_SaveMacro\"\nBlizzard_MacroUI\\Blizzard_MacroUI.lua:153: in function <Blizzard_MacroUI\\Blizzard_MacroUI.lua:151>",
 			["session"] = 351,
 			["counter"] = 2,
-		}, -- [68]
+		}, -- [66]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame5:Show()\".",
 			["time"] = "2013/04/16 20:41:52",
 			["stack"] = "!BugGrabber-r191-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:279: in function \"CompactUnitFrame_UpdateVisible\"\nFrameXML\\CompactUnitFrame.lua:237: in function \"CompactUnitFrame_UpdateAll\"\nFrameXML\\CompactUnitFrame.lua:139: in function <FrameXML\\CompactUnitFrame.lua:139>",
 			["session"] = 354,
 			["counter"] = 33,
-		}, -- [69]
+		}, -- [67]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame6:Show()\".",
 			["time"] = "2013/04/16 20:41:52",
 			["stack"] = "!BugGrabber-r191-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:279: in function \"CompactUnitFrame_UpdateVisible\"\nFrameXML\\CompactUnitFrame.lua:237: in function \"CompactUnitFrame_UpdateAll\"\nFrameXML\\CompactUnitFrame.lua:139: in function <FrameXML\\CompactUnitFrame.lua:139>",
 			["session"] = 354,
 			["counter"] = 33,
-		}, -- [70]
+		}, -- [68]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame2:Show()\".",
 			["time"] = "2013/04/16 20:41:52",
 			["stack"] = "!BugGrabber-r191-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:279: in function \"CompactUnitFrame_UpdateVisible\"\nFrameXML\\CompactUnitFrame.lua:237: in function \"CompactUnitFrame_UpdateAll\"\nFrameXML\\CompactUnitFrame.lua:139: in function <FrameXML\\CompactUnitFrame.lua:139>",
 			["session"] = 356,
 			["counter"] = 87,
-		}, -- [71]
+		}, -- [69]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ACP\" tried to call the protected function \"CompactRaidFrame3:Show()\".",
 			["time"] = "2013/04/16 20:41:52",
 			["stack"] = "!BugGrabber-r191-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\CompactUnitFrame.lua:279: in function \"CompactUnitFrame_UpdateVisible\"\nFrameXML\\CompactUnitFrame.lua:237: in function \"CompactUnitFrame_UpdateAll\"\nFrameXML\\CompactUnitFrame.lua:139: in function <FrameXML\\CompactUnitFrame.lua:139>",
 			["session"] = 356,
 			["counter"] = 87,
-		}, -- [72]
+		}, -- [70]
 		{
 			["message"] = "ElvUI-5.99\\core\\math.lua:260: attempt to compare nil with number",
 			["time"] = "2013/04/16 23:04:10",
@@ -529,28 +513,28 @@ BugGrabberDB = {
 			["stack"] = "ElvUI-5.99\\core\\math.lua:260: in function \"GetTimeInfo\"\nElvUI-5.99\\modules\\auras\\auras-Auras.lua:24: in function <ElvUI\\modules\\auras\\auras.lua:9>",
 			["session"] = 373,
 			["counter"] = 200,
-		}, -- [73]
+		}, -- [71]
 		{
 			["message"] = "ElvUI-5.99\\modules\\actionbars\\actionbars.lua:782: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/04/16 23:04:01",
 			["stack"] = "ElvUI-5.99\\modules\\actionbars\\actionbars.lua:782: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 380,
 			["counter"] = 10,
-		}, -- [74]
+		}, -- [72]
 		{
 			["message"] = "ElvUI-5.99\\modules\\chat\\chat-Chat.lua:1434: attempt to compare number with nil",
 			["time"] = "2013/04/21 00:23:19",
 			["stack"] = "ElvUI-5.99\\modules\\chat\\chat-Chat.lua:1434: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[16]\":4: in function <string>:\"safecall Dispatcher[16]\":4\n<in C code>\n<string>:\"safecall Dispatcher[16]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 380,
 			["counter"] = 34,
-		}, -- [75]
+		}, -- [73]
 		{
 			["message"] = "ElvUI-5.99\\modules\\actionbars\\actionbars.lua:63: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/04/21 00:23:17",
 			["stack"] = "ElvUI-5.99\\modules\\actionbars\\actionbars.lua:63: in function <ElvUI\\modules\\actionbars\\actionbars.lua:62>\n<in C code>\nElvUI-5.99\\modules\\actionbars\\actionbars.lua:381: in function \"UpdateButtonSettings\"\nElvUI_Enhanced-1.71\\modules\\datatexts\\extratexts.lua:49: in function \"UpdateSettings\"\nElvUI_Enhanced-1.71\\config\\options.lua:39: in function <ElvUI_Enhanced\\config\\options.lua:37>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[2]\":9: in function <string>:\"safecall Dispatcher[2]\":5\n(tail call): ?\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.27\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:68: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:57>",
 			["session"] = 380,
 			["counter"] = 5,
-		}, -- [76]
+		}, -- [74]
 		{
 			["message"] = "CreateFrame: Can\"t create protected \"Button\" now",
 			["time"] = "2013/01/24 00:57:24",
@@ -558,28 +542,28 @@ BugGrabberDB = {
 			["stack"] = "<in C code>\n<in C code>\nBlizzard_CompactRaidFrameContainer.lua:345: in function \"CompactRaidFrameContainer_GetUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:317: in function \"CompactRaidFrameContainer_AddUnitFrame\"\nBlizzard_CompactRaidFrameContainer.lua:254: in function \"CompactRaidFrameContainer_AddPlayers\"\nBlizzard_CompactRaidFrameContainer.lua:176: in function \"CompactRaidFrameContainer_LayoutFrames\"\nBlizzard_CompactRaidFrameContainer.lua:130: in function \"CompactRaidFrameContainer_TryUpdate\"\nBlizzard_CompactRaidFrameContainer.lua:95: in function \"CompactRaidFrameContainer_SetFlowSortFunction\"\nBlizzard_CompactRaidFrameManager.lua:405: in function <Blizzard_CompactRaidFrameManager.lua:402>\nBlizzard_CompactRaidFrameManager.lua:491: in function \"CompactRaidFrameManager_SetSetting\"\nBlizzard_CompactUnitFrameProfiles.lua:572: in function \"func\"\nBlizzard_CompactUnitFrameProfiles.lua:549: in function \"CompactUnitFrameProfiles_ApplyProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:176: in function \"CompactUnitFrameProfiles_ApplyCurrentSettings\"\nBlizzard_CompactUnitFrameProfiles.lua:172: in function \"CompactUnitFrameProfiles_ActivateRaidProfile\"\nBlizzard_CompactUnitFrameProfiles.lua:45: in function \"CompactUnitFrameProfiles_ValidateProfilesLoaded\"\nBlizzard_CompactUnitFrameProfiles.lua:25: in function <Blizzard_CompactUnitFrameProfiles.lua:18>",
 			["session"] = 384,
 			["counter"] = 2,
-		}, -- [77]
+		}, -- [75]
 		{
 			["message"] = "ElvUI-5.99\\core\\core.lua:177: attempt to index field \"general\" (a nil value)",
 			["time"] = "2013/04/28 20:47:09",
 			["stack"] = "ElvUI-5.99\\core\\core.lua:177: in function \"UpdateMedia\"\nElvUI-5.99\\core\\core.lua:507: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:204: in function \"_EnhanceDatabase\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:226: in function \"EnhanceDatabase\"\nElvUI-5.99\\core\\core.lua:765: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 392,
 			["counter"] = 1,
-		}, -- [78]
+		}, -- [76]
 		{
 			["message"] = "ElvUI-5.99\\modules\\unitframes\\unitframes.lua:573: No unit provided to create or update.",
 			["time"] = "2013/04/16 23:04:01",
 			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nElvUI-5.99\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.99\\core\\core.lua:511: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n[string \"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 392,
 			["counter"] = 40,
-		}, -- [79]
+		}, -- [77]
 		{
 			["message"] = "ElvUI-5.99\\modules\\unitframes\\groups\\party-Party.lua:525: attempt to index local \"GPS\" (a nil value)",
 			["time"] = "2013/04/16 23:04:01",
 			["stack"] = "ElvUI-5.99\\modules\\unitframes\\groups\\party-Party.lua:525: in function \"?\"\nElvUI-5.99\\modules\\unitframes\\unitframes.lua:548: in function \"Update\"\nElvUI-5.99\\modules\\unitframes\\unitframes.lua:645: in function \"UpdateAllHeaders\"\nElvUI-5.99\\modules\\unitframes\\unitframes.lua:468: in function \"Update_AllFrames\"\nElvUI-5.99\\core\\core.lua:511: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.27\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:178: in function \"CheckDualSpecState\"\nElvUI-5.99\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0-8.lua:325: in function <ElvUI\\libs\\LibDualSpec-1.0\\LibDualSpec-1.0.lua:319>",
 			["session"] = 392,
 			["counter"] = 14,
-		}, -- [80]
+		}, -- [78]
 		{
 			["message"] = "Pawn\\Pawn-1.8.4.lua:4112: attempt to concatenate global \"PawnPlayerFullName\" (a nil value)",
 			["time"] = "2013/03/29 11:37:10",
@@ -587,21 +571,86 @@ BugGrabberDB = {
 			["stack"] = "Pawn\\Pawn-1.8.4.lua:4112: in function \"PawnIsScaleVisible\"\nPawn\\Pawn-1.8.4.lua:1300: in function \"PawnGetAllItemValues\"\nPawn\\Pawn-1.8.4.lua:1189: in function \"PawnRecalculateItemValuesIfNecessary\"\nPawn\\Pawn-1.8.4.lua:1067: in function \"PawnGetItemData\"\nPawn-1.8.4\\PawnUI.lua:2271: in function \"PawnUI_OnQuestInfo_ShowRewards\"\nPawn-1.8.4\\PawnUI.lua:2230: in function <Pawn\\PawnUI.lua:2226>\n<in C code>\nFrameXML\\WorldMapFrame.lua:2335: in function \"WorldMapFrame_SelectQuestFrame\"\nFrameXML\\WorldMapFrame.lua:2100: in function \"WorldMapFrame_SelectQuestById\"\nFrameXML\\WorldMapFrame.lua:2066: in function \"WorldMapFrame_DisplayQuests\"\nFrameXML\\WorldMapFrame.lua:2156: in function \"WorldMapFrame_UpdateMap\"\nFrameXML\\WorldMapFrame.lua:306: in function <FrameXML\\WorldMapFrame.lua:292>\nExternals\\Ace3-AceAddon\\AceAddon-3.0-11.lua:543: in function \"EnableAddon\"\nExternals\\Ace3-AceAddon\\AceAddon-3.0-11.lua:636: in function <Externals\\Ace3-AceAddon\\AceAddon-3.0.lua:621>\n<in C code>\nFrameXML\\UIParent.lua:301: in function \"UIParentLoadAddOn\"\nFrameXML\\UIParent.lua:375: in function \"TimeManager_LoadUI\"\nFrameXML\\UIParent.lua:713: in function <FrameXML\\UIParent.lua:678>",
 			["session"] = 396,
 			["counter"] = 16,
-		}, -- [81]
+		}, -- [79]
 		{
 			["message"] = "oRA3-r565-release\\modules\\Cooldowns.lua:1021: attempt to call method \"SendComm\" (a nil value)",
 			["time"] = "2013/04/15 00:36:25",
 			["stack"] = "oRA3-r565-release\\modules\\Cooldowns.lua:1021: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
 			["session"] = 415,
 			["counter"] = 18,
+		}, -- [80]
+		{
+			["message"] = "FrameXML\\FloatingChatFrame.lua:1046: bad argument #1 to \"max\" (number expected, got nil)",
+			["time"] = "2013/01/15 01:32:08",
+			["locals"] = "chatFrame = ChatFrame2 {\n 0 = <userdata>\n flashTimer = 0\n originalShow = <func> =[C]:-1\n tellTimer = 67.865\n button = CopyChatButton2 {}\n resizeButton = ChatFrame2ResizeButton {}\n buttonFrame = ChatFrame2ButtonFrame {}\n Hide = <func> @FrameXML\\FrameLocks.lua:119\n hasBeenFaded = true\n buttonSide = \"left\"\n channelList = <table> {}\n SetScript = <func> =[C]:-1\n clickAnywhereButton = ChatFrame2ClickAnywhereButton {}\n isDocked = 1\n styled = true\n editBox = ChatFrame2EditBox {}\n Show = <func> @FrameXML\\FrameLocks.lua:123\n isLocked = 1\n name = \"Combat Log\"\n isStaticDocked = true\n originalHide = <func> =[C]:-1\n zoneChannelList = <table> {}\n defaultLanguage = \"Common\"\n messageTypeList = <table> {}\n}\nframeName = \"ChatFrame2\"\n(for generator) = <func> =[C]:-1\n(for state) = <table> {\n 1 = \"Background\"\n 2 = \"TopLeftTexture\"\n 3 = \"BottomLeftTexture\"\n 4 = \"TopRightTexture\"\n 5 = \"BottomRightTexture\"\n 6 = \"LeftTexture\"\n 7 = \"RightTexture\"\n 8 = \"BottomTexture\"\n 9 = \"TopTexture\"\n 10 = \"ButtonFrameBackground\"\n 11 = \"ButtonFrameTopLeftTexture\"\n 12 = \"ButtonFrameBottomLeftTexture\"\n 13 = \"ButtonFrameTopRightTexture\"\n 14 = \"ButtonFrameBottomRightTexture\"\n 15 = \"ButtonFrameLeftTexture\"\n 16 = \"ButtonFrameRightTexture\"\n 17 = \"ButtonFrameBottomTexture\"\n 18 = \"ButtonFrameTopTexture\"\n}\n(for control) = 10\nindex = 10\nvalue = \"ButtonFrameBackground\"\nobject = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = <func> @FrameXML\\UIParent.lua:2670\n(*temporary) = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = 0\n(*temporary) = 1\n",
+			["stack"] = "<in C code>\nFrameXML\\FloatingChatFrame.lua:1046: in function \"FCF_FadeInChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1052: in function \"FCF_FadeInChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1128: in function \"FCF_OnUpdate\"\n<string>:\"*:OnUpdate\":1: in function <string>:\"*:OnUpdate\":1",
+			["session"] = 432,
+			["counter"] = 7,
+		}, -- [81]
+		{
+			["message"] = "FrameXML\\FloatingChatFrame.lua:1076: bad argument #2 to \"max\" (number expected, got nil)",
+			["time"] = "2013/01/15 01:32:09",
+			["locals"] = "chatFrame = ChatFrame2 {\n 0 = <userdata>\n flashTimer = 0\n originalShow = <func> =[C]:-1\n tellTimer = 67.865\n button = CopyChatButton2 {}\n resizeButton = ChatFrame2ResizeButton {}\n buttonFrame = ChatFrame2ButtonFrame {}\n Hide = <func> @FrameXML\\FrameLocks.lua:119\n buttonSide = \"left\"\n channelList = <table> {}\n SetScript = <func> =[C]:-1\n clickAnywhereButton = ChatFrame2ClickAnywhereButton {}\n isDocked = 1\n styled = true\n editBox = ChatFrame2EditBox {}\n Show = <func> @FrameXML\\FrameLocks.lua:123\n isLocked = 1\n name = \"Combat Log\"\n isStaticDocked = true\n originalHide = <func> =[C]:-1\n zoneChannelList = <table> {}\n defaultLanguage = \"Common\"\n messageTypeList = <table> {}\n}\nframeName = \"ChatFrame2\"\n(for generator) = <func> =[C]:-1\n(for state) = <table> {\n 1 = \"Background\"\n 2 = \"TopLeftTexture\"\n 3 = \"BottomLeftTexture\"\n 4 = \"TopRightTexture\"\n 5 = \"BottomRightTexture\"\n 6 = \"LeftTexture\"\n 7 = \"RightTexture\"\n 8 = \"BottomTexture\"\n 9 = \"TopTexture\"\n 10 = \"ButtonFrameBackground\"\n 11 = \"ButtonFrameTopLeftTexture\"\n 12 = \"ButtonFrameBottomLeftTexture\"\n 13 = \"ButtonFrameTopRightTexture\"\n 14 = \"ButtonFrameBottomRightTexture\"\n 15 = \"ButtonFrameLeftTexture\"\n 16 = \"ButtonFrameRightTexture\"\n 17 = \"ButtonFrameBottomTexture\"\n 18 = \"ButtonFrameTopTexture\"\n}\n(for control) = 10\nindex = 10\nvalue = \"ButtonFrameBackground\"\nobject = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = <func> @FrameXML\\UIParent.lua:2680\n(*temporary) = ChatFrame2ButtonFrameBackground {\n 0 = <userdata>\n}\n(*temporary) = 2\n",
+			["stack"] = "<in C code>\nFrameXML\\FloatingChatFrame.lua:1076: in function \"FCF_FadeOutChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1082: in function \"FCF_FadeOutChatFrame\"\nFrameXML\\FloatingChatFrame.lua:1137: in function \"FCF_OnUpdate\"\n<string>:\"*:OnUpdate\":1: in function <string>:\"*:OnUpdate\":1",
+			["session"] = 432,
+			["counter"] = 7,
 		}, -- [82]
 		{
 			["message"] = "FrameXML\\FloatingPetBattleTooltip.lua:107: attempt to index field \"?\" (a nil value)",
 			["time"] = "2013/04/28 21:03:59",
 			["locals"] = "speciesID = 89\nlevel = nil\nbreedQuality = nil\nmaxHealth = nil\npower = nil\nspeed = nil\ncustomName = nil\nname = \"Worg Pup\"\nicon = \"INTERFACE\\ICONS\\INV_BOX_PETCARRIER_01.BLP\"\npetType = 8\nBATTLE_PET_TOOLTIP = <table> {\n speciesID = 89\n petType = 8\n name = \"Worg Pup\"\n}\n",
 			["stack"] = "FrameXML\\FloatingPetBattleTooltip.lua:107: in function \"BattlePetTooltipTemplate_SetBattlePet\"\nFrameXML\\BattlePetTooltip.lua:20: in function <FrameXML\\BattlePetTooltip.lua:3>\n<in C code>\nFrameXML\\BankFrame.lua:40: in function \"BankFrameItemButton_OnEnter\"\nArkInventory\\ArkInventory-3.03.27.lua:6757: in function \"Frame_Item_OnEnter\"\n<string>:\"*:OnEnter\":1: in function <string>:\"*:OnEnter\":1",
-			["session"] = 428,
-			["counter"] = 5,
+			["session"] = 433,
+			["counter"] = 6,
 		}, -- [83]
+		{
+			["message"] = "ElvUI-6.34\\core\\core.lua:178: attempt to index field \"general\" (a nil value)",
+			["time"] = "2013/09/04 21:29:25",
+			["stack"] = "ElvUI-6.34\\core\\core.lua:178: in function \"UpdateMedia\"\nElvUI-6.34\\core\\core.lua:517: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <Libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nLibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nArkInventory-3.03.30\\Externals\\Ace3-AceDB\\AceDB-3.0-22.lua:462: in function \"SetProfile\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:193: in function \"CheckDualSpecState\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:218: in function \"_EnhanceDatabase\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:240: in function \"EnhanceDatabase\"\nElvUI-6.34\\core\\core.lua:777: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
+			["session"] = 449,
+			["counter"] = 1,
+		}, -- [84]
+		{
+			["message"] = "ElvUI-6.36\\modules\\unitframes\\config_enviroment.lua:194: attempt to call a nil value",
+			["time"] = "2013/09/10 00:41:26",
+			["stack"] = "ElvUI-6.36\\modules\\unitframes\\config_enviroment.lua:194: in function \"HeaderConfig\"\nElvUI_Config-1.01\\unitframes.lua:2961: in function <ElvUI_Config\\unitframes.lua:2960>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[4]\":9: in function <string>:\"safecall Dispatcher[4]\":5\n(tail call): ?\nArkInventory-3.03.30\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-Button.lua:28: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-Button.lua:25>",
+			["session"] = 452,
+			["counter"] = 1,
+		}, -- [85]
+		{
+			["message"] = "ElvUI-6.36\\modules\\unitframes\\unitframes.lua:823: No unit provided to create or update.",
+			["time"] = "2013/09/10 00:41:15",
+			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n[string \"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.30\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:68: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:57>",
+			["session"] = 455,
+			["counter"] = 15,
+		}, -- [86]
+		{
+			["message"] = "ElvUI-6.36\\modules\\unitframes\\groups\\party-Party.lua:532: attempt to index local \"GPS\" (a nil value)",
+			["time"] = "2013/09/10 00:41:27",
+			["stack"] = "ElvUI-6.36\\modules\\unitframes\\groups\\party-Party.lua:532: in function \"?\"\nElvUI-6.36\\modules\\unitframes\\unitframes.lua:608: in function \"Update\"\nElvUI-6.36\\modules\\unitframes\\config_enviroment.lua:213: in function \"HeaderConfig\"\nElvUI_Config-1.01\\unitframes.lua:2961: in function <ElvUI_Config\\unitframes.lua:2960>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nAceConfigDialog-3.0\\AceConfigDialog-3.0-57.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n<string>:\"safecall Dispatcher[4]\":9: in function <string>:\"safecall Dispatcher[4]\":5\n(tail call): ?\nArkInventory-3.03.30\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-Button.lua:28: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-Button.lua:25>",
+			["session"] = 455,
+			["counter"] = 11,
+		}, -- [87]
+		{
+			["message"] = "ElvUI_ExtraActionBars-2.22\\core.lua:62: attempt to call method \"UpdateCooldownSettings\" (a nil value)",
+			["time"] = "2013/09/12 20:57:42",
+			["stack"] = "ElvUI_ExtraActionBars-2.22\\core.lua:62: in function \"CreateBars\"\nElvUI_ExtraActionBars-2.22\\core.lua:85: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:146: in function <Libs\\CallbackHandler\\CallbackHandler-1.0.lua:146>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
+			["session"] = 458,
+			["counter"] = 1,
+		}, -- [88]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"TradeSkillMaster_ItemTracker\" tried to call the protected function \"orig()\".",
+			["time"] = "2013/09/10 21:08:59",
+			["stack"] = "!BugGrabber-r193-release\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\n...\\ArkInventory\\Externals\\Ace3-AceHook\\AceHook-3.0-6.lua:95: in function \"PlaceAuctionBid\"\nTradeSkillMaster-v2.1.3\\Auction\\AuctionResultsTable.lua:438: in function <TradeSkillMaster\\Auction\\AuctionResultsTable.lua:423>\n<in C code>\nTradeSkillMaster_Shopping-v2.1\\modules\\Util.lua:269: in function <TradeSkillMaster_Shopping\\modules\\Util.lua:262>\n(tail call): ?\nTradeSkillMaster_Shopping-v2.1\\modules\\Util.lua:234: in function \"callbackHandler\"\n...\\TradeSkillMaster\\Auction\\AuctionScanning.lua:27: in function <...\\TradeSkillMaster\\Auction\\AuctionScanning.lua:25>\n(tail call): ?\n...\\TradeSkillMaster\\Auction\\AuctionScanning.lua:43: in function <...\\TradeSkillMaster\\Auction\\AuctionScanning.lua:31>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nLibs\\CallbackHandler\\CallbackHandler-1.0-6.lua:91: in function \"Fire\"\nExternals\\Ace3-AceEvent\\AceEvent-3.0-3.lua:120: in function <Externals\\Ace3-AceEvent\\AceEvent-3.0.lua:119>",
+			["session"] = 458,
+			["counter"] = 2,
+		}, -- [89]
+		{
+			["message"] = "ElvUI-6.49\\modules\\unitframes\\unitframes.lua:823: No unit provided to create or update.",
+			["time"] = "2013/09/14 18:00:06",
+			["stack"] = "<in C code>\n<in C code>\nFrameXML\\RestrictedFrames.lua:604: in function <FrameXML\\RestrictedFrames.lua:603>\nFrameXML\\RestrictedFrames.lua:742: in function \"CallMethod\"\n<string>:\"		local header = self:GetParent()RestrictedExecution.lua:441: in function <FrameXML\\RestrictedExecution.lua:412>\nFrameXML\\SecureGroupHeaders.lua:116: in function <FrameXML\\SecureGroupHeaders.lua:110>\nFrameXML\\SecureGroupHeaders.lua:166: in function <FrameXML\\SecureGroupHeaders.lua:123>\nFrameXML\\SecureGroupHeaders.lua:488: in function <FrameXML\\SecureGroupHeaders.lua:387>\n<in C code>\nAceConfigDialog-3.0\\AceConfigDialog-3.0-58.lua:799: in function <AceConfigDialog-3.0\\AceConfigDialog-3.0.lua:614>\n(tail call): ?\n<in C code>\n[string \"safecall Dispatcher[3]\":9: in function <string>:\"safecall Dispatcher[3]\":5\n(tail call): ?\nArkInventory-3.03.31\\Externals\\Ace3-AceGUI\\AceGUI-3.0-33.lua:314: in function \"Fire\"\nAce3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:68: in function <Ace3-AceGUI\\widgets\\AceGUIWidget-CheckBox.lua:57>",
+			["session"] = 460,
+			["counter"] = 15,
+		}, -- [90]
 	},
 }

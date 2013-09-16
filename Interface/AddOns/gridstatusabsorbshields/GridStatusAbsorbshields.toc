@@ -1,0 +1,25 @@
+## Interface: 50400
+## Title: GridStatusAbsorbshields
+## Notes: Grid status showing the absorption value of all shields on a target.
+##
+## Author: Eldrikt
+## Dependencies: Grid
+##
+## Version: 1.3
+## X-Category: Raid Frames
+## X-Curse-Packaged-Version: r4
+## X-Curse-Project-Name: GridStatusAbsorbshields
+## X-Curse-Project-ID: gridstatusabsorbshields
+## X-Curse-Repository-ID: wow/gridstatusabsorbshields/mainline
+## X-Curse-Packaged-Version: r10
+## X-Curse-Project-Name: GridStatusAbsorbshields
+## X-Curse-Project-ID: gridstatusabsorbshields
+## X-Curse-Repository-ID: wow/gridstatusabsorbshields/mainline
+
+
+#@no-lib-strip@
+Libs\AceLocale-3.0\AceLocale-3.0.lua
+#@end-no-lib-strip@
+
+enUS.lua
+GridStatusAbsorbshields.lua

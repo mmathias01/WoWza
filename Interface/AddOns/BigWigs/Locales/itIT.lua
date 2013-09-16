@@ -38,7 +38,7 @@ L["Waiting until combat ends to finish loading due to Blizzard combat restrictio
 L["Combat has ended, Big Wigs has now finished loading."] = "Combattimento terminato, Big Wigs è stato caricato completamente."
 L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."] = "A causa di restrizioni Blizzard, la configurazione deve essere aperta fuori combattimento, prima che vi si possa accedere durante il combattimento."
 
-L.missingAddOn = "Per favore, prendi nota che questa zona richiede il plugin -[[\124cFF436EEE%s\124r]]- per fare in modo di visualizzare barre e timers."
+L.missingAddOn = "Per favore, prendi nota che questa zona richiede il plugin [\124cFF436EEE%s\124r] per fare in modo di visualizzare barre e timers."
 
 L.coreAddonDisabled = "Big Wigs non può funzionare correttamente perché l'addon %s è disattivato. Puoi attivarlo nel pannello di controllo degli Addon nella schermata di login dei personaggi."
 
@@ -76,6 +76,8 @@ L.chatMessages = "Messaggi Riquadro Chat"
 L.chatMessagesDesc = "Invia tutti i messaggi di Big Wigs alla chat oltre che nei settaggi di visualizzazione."
 L.autoRole = "Aggiornamento automatico del ruolo"
 L.autoRoleDesc = "Sapere quale è il tuo ruolo migliorerà i suggerimenti di Big Wigs per tutti i membri dell'incursione; questa opzione permette a Big Wigs di aggiornare automaticamente il tuo ruolo. Per esempio, alcuni moduli controllano se il giocatore è un difensore quando controllano le abilità del boss che non possono affliggere i difensori.\n\n|cffff4411Questo non è limitato soltanot agli avvisi specifici di ruolo ed è caldamente consigliato lasciare questa opzione abilitata!|r"
+L.zoneMessages = "Mostra messaggi di zona"
+L.zoneMessagesDesc = "Disabilitando questa opzione BigWigs non mostrerà più i messaggi per avvisare che esistono moduli con timer/barre ecc. disponibili ma che tu non hai installato. Raccomandiamo di lasciare attiva questa opzione perché è una notifica che vedrai solo quando verranno creati timer e quant'altro per una nuova zona che potresti trovare utile."
 
 L.slashDescTitle = "|cFFFED000Comandi Slash:|r"
 L.slashDescPull = "|cFFFED000/pull:|r Invia un conto alla rovescia per l'ingaggio alla tua incursione."
@@ -136,6 +138,7 @@ L.heroic25 = "25h"
 L.norm10 = "10"
 L.heroic10 = "10h"
 L.lfr = "RDI"
+L.flex = "Flex"
 L.wipes = "Tentativi Falliti:"
 L.kills = "Uccisioni:"
 L.bestkill = "Migliore Uccisione:"

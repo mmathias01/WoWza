@@ -22,6 +22,8 @@ end
 a.Rotations.Discipline = {
 	Spec = 1,
 	
+	UsefulStats = { "Intellect", "Spirit", "Crit", "Haste" },
+	
 	FlashInCombat = function()
 		c.FlashAll(
 			"Power Word: Shield under Divine Insight",
@@ -32,7 +34,8 @@ a.Rotations.Discipline = {
 			"Binding Heal",
 			"Shadowfiend for Mana",
 			"Mindbender for Mana",
-			"Desperate Prayer")
+			"Desperate Prayer",
+			"Dispel Magic")
 	end,
 	
 	FlashAlways = function()
@@ -48,6 +51,8 @@ a.Rotations.Discipline = {
 a.Rotations.Holy = {
 	Spec = 2,
 	
+	UsefulStats = { "Intellect", "Spirit", "Crit", "Haste" },
+	
 	FlashInCombat = function()
 		c.FlashAll(
 			"Lightwell",
@@ -58,7 +63,8 @@ a.Rotations.Holy = {
 			"Binding Heal",
 			"Shadowfiend for Mana",
 			"Mindbender for Mana",
-			"Desperate Prayer")
+			"Desperate Prayer",
+			"Dispel Magic")
 	end,
 	
 	FlashAlways = function()
@@ -78,6 +84,10 @@ a.FlayTick = 1
 a.InsanityPending = 0
 a.Rotations.Shadow = {
 	Spec = 3,
+	
+	UsefulStats = { 
+		"Intellect", "Spell Hit", "Hit from Spirit", "Crit", "Haste" 
+	},
 	
 	FlashInCombat = function()
 		a.SinceSWD = GetTime() - lastSWD
@@ -132,6 +142,7 @@ a.Rotations.Shadow = {
 			"Shadowfiend",
 			"Desperate Prayer",
 			"Vampiric Embrace",
+			"Dispel Magic",
 			"Silence")
 		c.DelayPriorityFlash(
 			"Mind Blast",

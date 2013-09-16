@@ -622,6 +622,27 @@
 
 
 
+<CheckButton name="VuhDoInverseCheckButtonTemplate" virtual="true" inherits="VuhDoCheckButtonTemplate">
+	<Scripts>
+		<OnLoad>VUHDO_lnfCheckButtonOnLoad(self)</OnLoad>
+		<OnClick>
+			VUHDO_lnfInverseCheckButtonUpdateModel(self);
+			VUHDO_lnfCheckButtonClicked(self);
+		</OnClick>
+		<OnEnter>
+			VUHDO_lnfCheckButtonOnEnter(self);
+			VUHDO_lnfShowTooltip(self);
+		</OnEnter>
+		<OnLeave>
+			VUHDO_lnfCheckButtonOnLeave(self);
+			VUHDO_lnfHideTooltip(self);
+		</OnLeave>
+		<OnShow>VUHDO_lnfPatchFont(self, "Label"); VUHDO_lnfInverseCheckButtonInitFromModel(self)</OnShow>
+	</Scripts>
+</CheckButton>
+
+
+
 <Button name="VuhDoTriStateCheckButtonTemplate" virtual="true">
 	<Size>
 		<AbsDimension x="100" y="32" />

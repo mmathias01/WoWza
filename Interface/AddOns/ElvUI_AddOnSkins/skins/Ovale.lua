@@ -1,22 +1,26 @@
-local E, L, V, P, G, _ = unpack(ElvUI)
-local AS = E:GetModule('AddOnSkins')
-local S = E:GetModule('Skins')
+local AS = ElvUI[1]:GetModule('AddOnSkins')
 
 local name = "OvaleSkin"
-function AS:SkinOvale(event)
-	E:Delay(15, function()
-		if not IsAddOnLoaded("Ovale") then return end
+function AS:SkinOvale()
+	hooksecurefunc(Ovale, 'UpdateFrame', function(self)
+		if not Icon1n1 then return end
+		Icon1n1:GetParent():StripTextures()
 		local i = 1
 		while _G["Icon"..i.."n1"] do
-			_G["Icon"..i.."n1"]:StripTextures()
-			_G["Icon"..i.."n1"]:CreateBackdrop()
-			_G["Icon"..i.."n1"].backdrop:SetFrameLevel(0)
-			_G["Icon"..i.."n1"].backdrop:SetAllPoints()
-			_G["Icon"..i.."n1"].backdrop:SetBackdropColor(0,0,0,0)
-			_G["Icon"..i.."n1"].icone:SetDrawLayer("OVERLAY")
-			_G["Icon"..i.."n1"].icone:SetTexCoord(0.12, 0.88, 0.12, 0.88)
-			_G["Icon"..i.."n1"].icone:SetInside(_G["Icon"..i.."n1"].backdrop, 1, 1)
-			Icon1n1:HookScript("OnUpdate", function(s) s:GetParent():StripTextures() end)
+			if not _G["Icon"..i.."n1"].backdrop then
+				AS:SkinBackdropFrame(_G["Icon"..i.."n1"], true)
+				_G["Icon"..i.."n1"].backdrop:SetFrameLevel(0)
+				_G["Icon"..i.."n1"].backdrop:SetAllPoints()
+				_G["Icon"..i.."n1"].backdrop:SetScale(AS.UIScale)
+			end
+			_G['Icon'..i..'n1'].shortcut:ClearAllPoints()
+			_G['Icon'..i..'n1'].shortcut:SetJustifyH('LEFT')
+			_G['Icon'..i..'n1'].shortcut:SetPoint('BOTTOMLEFT', _G['Icon'..i..'n1'], 'BOTTOMLEFT', 2, 0)
+			_G["Icon"..i.."n1"].icone:SetDrawLayer("ARTWORK")
+			_G['Icon'..i..'n1'].aPortee:SetJustifyV('BOTTOM')
+			_G['Icon'..i..'n1'].aPortee:SetPoint('BOTTOMLEFT', _G['Icon'..i..'n1'], 'BOTTOMLEFT', 2, 2)
+			AS:SkinTexture(_G["Icon"..i.."n1"].icone)
+			_G["Icon"..i.."n1"].icone:SetInside(_G["Icon"..i.."n1"].backdrop)
 			i = i + 1
 		end
 	end)

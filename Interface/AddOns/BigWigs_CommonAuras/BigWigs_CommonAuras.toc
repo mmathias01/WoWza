@@ -1,5 +1,5 @@
-## Interface: 50300
-## X-Curse-Packaged-Version: r232-release
+## Interface: 50400
+## X-Curse-Packaged-Version: r234-release
 ## X-Curse-Project-Name: BigWigs_CommonAuras
 ## X-Curse-Project-ID: big-wigs_common-auras
 ## X-Curse-Repository-ID: wow/big-wigs_common-auras/mainline

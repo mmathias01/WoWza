@@ -10,8 +10,8 @@ SkadaDB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -20,10 +20,15 @@ SkadaDB = {
 				{
 					["barheight"] = 17,
 					["barslocked"] = true,
-					["modeincombat"] = "Healing",
-					["set"] = "total",
+					["background"] = {
+						["color"] = {
+							["a"] = 0.7800000011920929,
+							["b"] = 0,
+						},
+						["height"] = 131.0000152587891,
+					},
 					["y"] = 187.1185455322266,
-					["barfont"] = "ElvUI Font",
+					["x"] = 5.648526668548584,
 					["title"] = {
 						["color"] = {
 							["a"] = 0.8599999994039536,
@@ -36,26 +41,20 @@ SkadaDB = {
 						["height"] = 17,
 						["texture"] = "Graphite",
 					},
-					["mode"] = "Healing",
-					["x"] = 5.648526668548584,
-					["spark"] = false,
-					["bartexture"] = "Smooth",
-					["barwidth"] = 199.0000457763672,
-					["background"] = {
-						["color"] = {
-							["a"] = 0.7800000011920929,
-							["b"] = 0,
-						},
-						["height"] = 132,
-					},
-					["point"] = "BOTTOMLEFT",
 					["barbgcolor"] = {
 						["a"] = 0,
 						["b"] = 0,
 						["g"] = 0,
 						["r"] = 0,
 					},
+					["mode"] = "Healing",
+					["barfont"] = "ElvUI Font",
+					["spark"] = false,
+					["bartexture"] = "Smooth",
+					["barwidth"] = 197.0000610351563,
+					["point"] = "BOTTOMLEFT",
 					["barfontsize"] = 10,
+					["modeincombat"] = "Healing",
 				}, -- [1]
 				{
 					["barheight"] = 17,
@@ -103,7 +102,7 @@ SkadaDB = {
 					["snapto"] = true,
 					["background"] = {
 						["borderthickness"] = 0,
-						["height"] = 132,
+						["height"] = 131.0000152587891,
 						["color"] = {
 							["a"] = 0.2,
 							["b"] = 0.5,
@@ -117,7 +116,7 @@ SkadaDB = {
 					["name"] = "Skada 2",
 					["spark"] = false,
 					["bartexture"] = "Smooth",
-					["barwidth"] = 199.0000457763672,
+					["barwidth"] = 201.0000915527344,
 					["barspacing"] = 0,
 					["modeincombat"] = "Damage",
 					["buttons"] = {
@@ -139,15 +138,14 @@ SkadaDB = {
 			},
 			["feed"] = "Damage: Personal DPS",
 			["report"] = {
-				["chantype"] = "RealID",
-				["channel"] = "realid",
-				["target"] = "Sheriden Miller",
-				["mode"] = "Total healing",
+				["channel"] = "party",
+				["target"] = "Aedaliora",
 			},
 			["icon"] = {
 				["minimapPos"] = 175.399807178303,
 			},
 			["setstokeep"] = 20,
+			["tooltippos"] = "topleft",
 		},
 	},
 }

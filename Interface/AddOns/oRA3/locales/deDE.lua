@@ -28,6 +28,7 @@ L.slashCommands = [[
 oRA3 verfügt über eine Reihe von Befehlen, die in hektischer Raidumgebung hilfreich sein können. Für den Fall, dass du in den alten CTRA-Tagen nicht dabei warst: Eine kleine Referenz. Alle Befehle haben diverse Abkürzungen, aber manchmal auch längere, aussagekräftigere Alternativen.
 
 |cff44ff44/radur|r - Öffnet die Haltbarkeitsliste.
+|cff44ff44/ragear|r - Opens the gear check list.
 |cff44ff44/ralag|r - Opens the latency list.
 |cff44ff44/razone|r - Öffnet die Zonenliste.
 |cff44ff44/radisband|r - Löst die Gruppe ohne Bestätigung auf.
@@ -80,6 +81,7 @@ L["Invite zone"] = "Zone einladen"
 L["Invite everyone in your guild who are in the same zone as you."] = "Läd jeden in deiner Gilde ein, der sich in der selben Zone wie Du aufhält."
 L["Guild rank invites"] = "Gildenränge einladen"
 L["Clicking any of the buttons below will invite anyone of the selected rank AND HIGHER to your group. So clicking the 3rd button will invite anyone of rank 1, 2 or 3, for example. It will first post a message in either guild or officer chat and give your guild members 10 seconds to leave their groups before doing the actual invites."] = "Sobald Du auf einen der unteren Buttons klickst, werden alle Mitglieder des ausgewählten Rangs UND DARÜBERLIEGENDE in deine Gruppe eingeladen. Dementsprechend läd z.B. das Klicken auf den dritten Button jeden des Rangs 1, 2 und 3 ein. Dies wird zudem entweder eine Nachricht im Gilden- oder Offizierschat auslösen, die deinen Gildenmitgliedern 10 Sekunden Zeit gibt, ihre Gruppen zu verlassen, bevor sie wirklich eingeladen werden."
+L["Only invite on keyword if in a raid group"] = true
 
 -- Promote module
 L["Demote everyone"] = "Massendegradierung"
@@ -116,6 +118,7 @@ L["Toggle whether the cooldown display should never show your own cooldowns. For
 L["Cooldowns"] = "Cooldowns"
 L["Right-Click me for options!"] = "Rechts-klicken für Optionen!"
 L["Bar Settings"] = "Leisteneinstellungen"
+L["Text Settings"] = true
 L["Spawn test bar"] = "Testleiste erzeugen"
 L["Use class color"] = "Klassenfarben"
 L["Custom color"] = "Eigene Farbe"
@@ -128,7 +131,11 @@ L["Duration"] = "Dauer"
 L["Unit name"] = "Spielername"
 L["Spell name"] = "Zauberspruch"
 L["Short Spell name"] = "Zauberspruch abkürzen"
+L["Label Font"] = true
+L["Label Font Size"] = true
 L["Label Align"] = "Textausrichtung"
+L["Duration Font"] = true
+L["Duration Font Size"] = true
 L["Left"] = "Links"
 L["Right"] = "Rechts"
 L["Center"] = "Mittig"
@@ -159,7 +166,13 @@ L["Show"] = "Einblenden"
 L.showButtonHelp = "Blendet diesen Tank in deiner Tankanzeige ein. Diese Option hat nur einen lokalen Effekt und verändert nicht den Tankstatus des betroffenen Spielers für alle anderen Gruppenmitglieder."
 
 -- Latency Module
-L["Latency"] = true
-L["Home"] = true
-L["World"] = true
+L["Latency"] = "Latency"
+L["Home"] = "Home"
+L["World"] = "World"
+
+-- Gear Module
+L["Gear"] = "Gear"
+L["Item Level"] = "Item Level"
+L["Missing Gems"] = "Missing Gems"
+L["Missing Enchants"] = "Missing Enchants"
 

@@ -2,6 +2,18 @@
 CliqueDB = nil
 CliqueDB3 = {
 	["char"] = {
+		["Majandra - Dragonblight"] = {
+			["sec_profileKey"] = "Majandra - Dragonblight",
+			["fastooc"] = false,
+			["blacklist"] = {
+				["ElvUF_Target"] = true,
+				["ElvUF_Player"] = true,
+			},
+			["specswap"] = false,
+			["downclick"] = false,
+			["pri_profileKey"] = "Majandra - Dragonblight",
+			["alerthidden"] = true,
+		},
 		["Cellestia - Terenas"] = {
 			["alerthidden"] = true,
 			["sec_profileKey"] = "Cellestia - Terenas",
@@ -12,50 +24,13 @@ CliqueDB3 = {
 		},
 	},
 	["profileKeys"] = {
-		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
 	},
 	["profiles"] = {
-		["Cellestia - Windrunner"] = {
-			["bindings"] = {
-				{
-					["sets"] = {
-						["default"] = true,
-					},
-					["type"] = "target",
-					["key"] = "BUTTON1",
-					["unit"] = "mouseover",
-				}, -- [1]
-				{
-					["type"] = "menu",
-					["key"] = "BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [2]
-			},
-		},
-		["Jolokya - Dragonblight"] = {
-			["bindings"] = {
-				{
-					["sets"] = {
-						["default"] = true,
-					},
-					["type"] = "target",
-					["key"] = "BUTTON1",
-					["unit"] = "mouseover",
-				}, -- [1]
-				{
-					["type"] = "menu",
-					["key"] = "BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [2]
-			},
-		},
 		["Ziagi - Terenas"] = {
 			["bindings"] = {
 				{
@@ -120,6 +95,111 @@ CliqueDB3 = {
 					["sets"] = {
 					},
 				}, -- [5]
+			},
+		},
+		["Jolokya - Dragonblight"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Majandra - Dragonblight"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+						["ooc"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["spell"] = "Leap of Faith",
+					["key"] = "BUTTON4",
+					["sets"] = {
+						["default"] = true,
+					},
+					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
+					["type"] = "spell",
+				}, -- [2]
+				{
+					["spell"] = "Prayer of Mending",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
+					["type"] = "spell",
+				}, -- [3]
+				{
+					["spell"] = "Purify",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
+					["type"] = "spell",
+				}, -- [4]
+				{
+					["spell"] = "Halo",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["global"] = true,
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_halo",
+					["type"] = "spell",
+				}, -- [5]
+				{
+					["spell"] = "Cascade",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_cascade",
+					["type"] = "spell",
+				}, -- [6]
+				{
+					["spell"] = "Dispel Magic",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
+					["type"] = "spell",
+				}, -- [7]
+			},
+		},
+		["Cellestia - Windrunner"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
 			},
 		},
 	},

@@ -1,0 +1,46 @@
+------------------------------------------------------------------------
+r12 | maat | 2013-05-30 12:14:47 +0000 (Thu, 30 May 2013) | 1 line
+Changed paths:
+   A /tags/1.11 (from /trunk:11)
+
+Tagging as 1.11
+------------------------------------------------------------------------
+r11 | maat | 2013-05-30 12:13:57 +0000 (Thu, 30 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs_JiKunAssist.lua
+   M /trunk/BigWigs_JiKunAssist.toc
+   A /trunk/Locales/deDE.lua
+   A /trunk/Locales/esES.lua
+   A /trunk/Locales/esMX.lua
+   A /trunk/Locales/frFR.lua
+   M /trunk/Locales/itIT.lua
+   A /trunk/Locales/koKR.lua
+   A /trunk/Locales/ptBR.lua
+   A /trunk/Locales/ruRU.lua
+   A /trunk/Locales/zhCN.lua
+   A /trunk/Locales/zhTW.lua
+
+might as well use the wowace localization system
+------------------------------------------------------------------------
+r9 | maat | 2013-05-30 11:26:16 +0000 (Thu, 30 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs_JiKunAssist.lua
+   M /trunk/BigWigs_JiKunAssist.toc
+   A /trunk/Locales
+   A /trunk/Locales/itIT.lua
+
+fix an error that got introduces by someone trying to implement localization
+------------------------------------------------------------------------
+r7 | maat | 2013-05-23 10:27:19 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs_JiKunAssist.toc
+
+toc bump
+------------------------------------------------------------------------
+r6 | _yusaku_ | 2013-05-12 16:47:35 +0000 (Sun, 12 May 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs_JiKunAssist.lua
+   M /trunk/BigWigs_JiKunAssist.toc
+
+itIT locale added
+------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Brawlers", "DBM-Brawlers")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9336 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 9833 $"):sub(12, -3))
 --mod:SetCreatureID(60491)
 --mod:SetModelID(41448)
 mod:SetZone(DBM_DISABLE_ZONE_DETECTION)
@@ -11,25 +11,40 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )
 
+local warnQueuePosition		= mod:NewAnnounce("warnQueuePosition", 2, 132639, false)
 local warnOrgPortal			= mod:NewCastAnnounce(135385, 1)--These are rare casts and linked to achievement.
 local warnStormPortal		= mod:NewCastAnnounce(135386, 1)--So warn for them being cast
 
 local specWarnOrgPortal		= mod:NewSpecialWarningSpell(135385)
 local specWarnStormPortal	= mod:NewSpecialWarningSpell(135386)
+local specWarnYourNext		= mod:NewSpecialWarning("specWarnYourNext")
 local specWarnYourTurn		= mod:NewSpecialWarning("specWarnYourTurn")
 
 local berserkTimer			= mod:NewBerserkTimer(120)--all fights have a 2 min enrage to 134545. some fights have an earlier berserk though.
 
 mod:AddBoolOption("SpectatorMode", true)
+mod:AddBoolOption("SpeakOutQueue", true)
 mod:RemoveOption("HealthFrame")
 mod:RemoveOption("SpeedKillTimer")
 
 local playerIsFighting = false
 local currentFighter = nil
 local currentRank = 0--Used to stop bars for the right sub mod based on dynamic rank detection from pulls
-local currentZoneID = 0
+local currentZoneID = DBM:GetCurrentArea()--As core what current area is on load, since core should know
 local modsStopped = false
 local eventsRegistered = false
+local lastRank = 0
+local QueuedBuff = GetSpellInfo(132639)
+--Fix for not registering events on reloadui or login while already inside brawlers guild.
+if currentZoneID == 369 or currentZoneID == 1043 then
+	eventsRegistered = true
+	mod:RegisterShortTermEvents(
+		"SPELL_CAST_START",
+		"PLAYER_REGEN_ENABLED",
+		"UNIT_DIED",
+		"UNIT_AURA player"
+	)
+end
 
 function mod:PlayerFighting() -- for external mods
 	return playerIsFighting
@@ -124,14 +139,15 @@ function mod:UNIT_DIED(args)
 end
 
 function mod:ZONE_CHANGED_NEW_AREA()
-	currentZoneID = GetCurrentMapAreaID()
-	if currentZoneID == 922 or currentZoneID == 925 then
+	currentZoneID = DBM:GetCurrentArea()
+	if currentZoneID == 369 or currentZoneID == 1043 then
 		modsStopped = false
 		eventsRegistered = true
 		self:RegisterShortTermEvents(
 			"SPELL_CAST_START",
 			"PLAYER_REGEN_ENABLED",
-			"UNIT_DIED"
+			"UNIT_DIED",
+			"UNIT_AURA player"
 		)
 		return
 	end--We returned to arena, reset variable
@@ -154,6 +170,17 @@ function mod:ZONE_CHANGED_NEW_AREA()
 	modsStopped = true
 end
 
+
+local startCallbacks, endCallbacks = {}, {}
+
+function mod:OnMatchStart(callback)
+	table.insert(startCallbacks, callback)
+end
+
+function mod:OnMatchEnd(callback)
+	table.insert(endCallbacks, callback)
+end
+
 --Most group up for this so they can buff eachother for matches. Syncing should greatly improve reliability, especially for match end since the person fighting definitely should detect that (probably missing yells still)
 function mod:OnSync(msg)
 	if msg == "MatchBegin" then
@@ -162,17 +189,24 @@ function mod:OnSync(msg)
 			self:RegisterShortTermEvents(
 				"SPELL_CAST_START",
 				"PLAYER_REGEN_ENABLED",
-				"UNIT_DIED"
+				"UNIT_DIED",
+				"UNIT_AURA player"
 			)
 		end
-		if not (currentZoneID == 0 or currentZoneID == 922 or currentZoneID == 925) then return end
+		if not (currentZoneID == 369 or currentZoneID == 1043) then return end
 		self:Stop()--Sometimes NPC doesn't yell when a match ends too early, if a new match begins we stop on begin before starting new stuff
 		berserkTimer:Start()
+		for i, v in ipairs(startCallbacks) do
+			v()
+		end
 	elseif msg == "MatchEnd" then
-		if not (currentZoneID == 0 or currentZoneID == 922 or currentZoneID == 925) then return end
+		if not (currentZoneID == 369 or currentZoneID == 1043) then return end
 		currentFighter = nil
 		self:Stop()
-		--Boss from any rank can be fought by any rank at max level, so we just need to always cancel them all
+		--Boss from any rank can be fought by any rank now, so we just need to always cancel them all
+		for i, v in ipairs(endCallbacks) do
+			v()
+		end
 		for i = 1, 9 do
 			local mod2 = DBM:GetModByName("BrawlRank" .. i)
 			if mod2 then
@@ -187,3 +221,18 @@ function mod:OnSync(msg)
 		end
 	end
 end
+
+function mod:UNIT_AURA(uId)
+	local currentQueueRank = select(15, UnitBuff("player", QueuedBuff))
+	if currentQueueRank and currentQueueRank ~= lastRank then
+		lastRank = currentQueueRank
+		warnQueuePosition:Show(currentQueueRank)
+		if currentQueueRank == 1 then
+			specWarnYourNext:Show()
+		end
+		if self.Options.SpeakOutQueue then
+			DBM:PlayCountSound(currentQueueRank)
+		end
+	end
+end
+

@@ -34,6 +34,8 @@ DBM_CORE_OK							= "确定"
 DBM_CORE_GENERIC_WARNING_BERSERK	= "%s%s后狂暴"
 DBM_CORE_GENERIC_TIMER_BERSERK		= "狂暴"
 DBM_CORE_OPTION_TIMER_BERSERK		= "计时条：$spell:26662"
+DBM_CORE_GENERIC_TIMER_COMBAT		= "战斗开始"
+DBM_CORE_OPTION_TIMER_COMBAT		= "显示战斗开始倒计时"
 DBM_CORE_OPTION_HEALTH_FRAME		= "首领生命值窗口"
 
 DBM_CORE_OPTION_CATEGORY_TIMERS		= "计时条"
@@ -63,8 +65,6 @@ DBM_CORE_MOVABLE_BAR				= "拖动我！"
 DBM_PIZZA_SYNC_INFO					= "|Hplayer:%1$s|h[%1$s]|h向你发送了一个DBM计时条：'%2$s'\n|HDBM:cancel:%2$s:nil|h|cff3588ff[取消该计时]|r|h  |HDBM:ignore:%2$s:%1$s|h|cff3588ff[忽略来自%1$s的计时条]|r|h"
 DBM_PIZZA_CONFIRM_IGNORE			= "是否要在该次游戏连接中屏蔽来自%s的计时条？"
 DBM_PIZZA_ERROR_USAGE				= "命令：/dbm [broadcast] timer <时间（秒）> <文本>"
-
-DBM_CORE_ERROR_DBMV3_LOADED			= "目前有2个版本的Deadly Boss Mods正在运行：DBMv3和DBMv4。\n单击“确定”按钮可将DBMv3关闭并重载用户界面。\n我们建议将插件目录下的DBMv3删除。"
 
 --DBM_CORE_MINIMAP_TOOLTIP_HEADER (Same as English locales)
 DBM_CORE_MINIMAP_TOOLTIP_FOOTER		= "Shift+拖动 / 右键拖动：拖动\nAlt+Shift+拖动：自由拖动"
@@ -108,7 +108,7 @@ DBM_CORE_SLASHCMD_HELP				= {
 	"/dbm pull <秒>: 开始一个<秒>时间的开怪计时条。 并向所有团队成员发送这个DBM开怪计时条（需开启团队广播及助理权限）。",
 	"/dbm arrow: 显示DBM箭头，输入/dbm arrow查询更多信息。",
 	"/dbm lockout: 查询团队成员当前的副本锁定状态（也可使用：lockouts, ids）（需要团队领袖或助理权限）。",
-	"/dbm help：显示可用命令的说明。",
+	"/dbm help：显示可用命令的说明。"
 }
 
 DBM_ERROR_NO_PERMISSION				= "无权进行该操作。"
@@ -235,7 +235,7 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <x> <y>  新建一个箭头在指定位置(0 < x/y < 100)",
 	"/dbm arrow <玩家>  新建一个箭头并指向你队伍或团队中特定的玩家",
 	"/dbm arrow hide  隐藏箭头",
-	"/dbm arrow move  移动或锁定箭头",
+	"/dbm arrow move  移动或锁定箭头"
 }
 
 DBM_SPEED_KILL_TIMER_TEXT	= "击杀记录"

@@ -93,21 +93,17 @@ local function VUHDO_calibrateMapScale(aUnit, aDeltaX, aDeltaY)
 	for tCnt = 1, 3 do
 		-- Check only if new distance is within bandwidth (= better result than before)
 		if tDistance > VUHDO_INTERACT_MAX_DISTANCES[tCnt] and tDistance < VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] then
-			if CheckInteractDistance(aUnit, tCnt) then
-				VUHDO_INTERACT_MAX_DISTANCES[tCnt] = tDistance;
-			else
-				VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] = tDistance;
-			end
+			if CheckInteractDistance(aUnit, tCnt) then VUHDO_INTERACT_MAX_DISTANCES[tCnt] = tDistance;
+			else VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] = tDistance; end
+
 			VUHDO_clusterBuilderStoreZone(VUHDO_LAST_ZONE);
 		end
 	end
 
 	if tDistance > VUHDO_INTERACT_MAX_DISTANCES[4] and tDistance < VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] then
-		if (VUHDO_RAID[aUnit] or tEmptyUnit)["baseRange"] then
-			VUHDO_INTERACT_MAX_DISTANCES[4] = tDistance;
-		else
-			VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] = tDistance;
-		end
+		if (VUHDO_RAID[aUnit] or tEmptyUnit)["baseRange"] then VUHDO_INTERACT_MAX_DISTANCES[4] = tDistance;
+		else VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] = tDistance; end
+
 		VUHDO_clusterBuilderStoreZone(VUHDO_LAST_ZONE);
 	end
 end
@@ -447,8 +443,7 @@ VuhDoLine.__index = VuhDoLine;
 --
 local tLine;
 function VuhDoLine.create(aLineNum, aStartX, aStartY, anEndX, anEndY)
-	--local tLine = { };
-	if (sLines[aLineNum] == nil) then
+	if not sLines[aLineNum] then
 		sLines[aLineNum] = { };
 		setmetatable(sLines[aLineNum], VuhDoLine);
 	end

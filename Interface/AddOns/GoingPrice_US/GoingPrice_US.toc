@@ -1,18 +1,18 @@
-## Title-enUS: GoingPrice_US: Mined by|cffff7f00 Neikos |r
-## Notes-enUS: Data from:|cffff0000 us.battle.net |r
-## Title-esMX: GoingPrice_US: Minado por|cffff7f00 Neikos |r
-## Notes-esMX: Datos de:|cffff0000 us.battle.net |r
+## Title-enUS: GoingPrice US
+## Notes-enUS: Data from:|cffff0000 us.battle.net. |rMined by|cffff7f00 Neikos |r
+## Title-esMX: GoingPrice US
+## Notes-esMX: Datos de:|cffff0000 us.battle.net. |rMinado por|cffff7f00 Neikos |r
 ##
-## Interface: 50300
+## Interface: 50400
 ## LoadOnDemand: 0
 ## Dependencies:
 ## OptionalDeps: GoingPrice, EnhTooltip
 ## SavedVariables: GoingPrice_US_SV
 ##
-## Version: 5.3.1369612800
+## Version: 5.4.1379289600
 ## X-Website: http://goingpriceaddon.com/
 ##
-## X-Curse-Packaged-Version: 5.3.1369612800
+## X-Curse-Packaged-Version: 5.4.1379289600
 ## X-Curse-Project-Name: GoingPrice_US
 ## X-Curse-Project-ID: goingprice_us
 ## X-Curse-Repository-ID: wow/goingprice_us/mainline

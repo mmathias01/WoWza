@@ -8,8 +8,14 @@ GridDB = {
 						["corner2"] = {
 							["buff_EarthShield"] = true,
 						},
+						["icon"] = {
+							["alert_RaidDebuff"] = true,
+						},
 						["corner1"] = {
 							["buff_EarthShield"] = false,
+						},
+						["healingBar"] = {
+							["unitShieldedHealth"] = true,
 						},
 						["corner3"] = {
 							["buff_Riptide"] = true,
@@ -26,15 +32,61 @@ GridDB = {
 		},
 		["LibDualSpec-1.0"] = {
 		},
+		["GridStatusVirtualHealth"] = {
+		},
 		["GridStatusName"] = {
+		},
+		["GridStatusAbsorbs"] = {
 		},
 		["GridStatusTarget"] = {
 		},
 		["GridStatusRaidIcons"] = {
 		},
+		["GridStatusResurrect"] = {
+		},
+		["GridStatusRaidDebuff"] = {
+			["profiles"] = {
+				["Default"] = {
+					["isFirst"] = false,
+				},
+			},
+		},
+		["GridStatusHealth"] = {
+		},
 		["GridStatusRange"] = {
 		},
-		["GridStatusResurrect"] = {
+		["GridStatusAuras"] = {
+			["profiles"] = {
+				["Default"] = {
+					["buff_Renew"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
+					},
+					["buff_Riptide"] = {
+						["icon"] = "Interface\\Icons\\spell_nature_riptide",
+					},
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					},
+					["buff_LifeCocoon"] = {
+						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
+					},
+					["buff_Rejuvenation"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_Rejuvenation",
+					},
+					["buff_EarthShield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_SkinofEarth",
+					},
+					["buff_Regrowth"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
+					},
+					["buff_BeaconofLight"] = {
+						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
+					},
+					["buff_Lifebloom"] = {
+						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",
+					},
+				},
+			},
 		},
 		["GridStatus"] = {
 			["profiles"] = {
@@ -105,9 +157,9 @@ GridDB = {
 		},
 		["GridStatusReadyCheck"] = {
 		},
-		["GridRoster"] = {
+		["GridStatusHeals"] = {
 		},
-		["GridStatusHealth"] = {
+		["GridStatusMana"] = {
 		},
 		["GridLayout"] = {
 			["profiles"] = {
@@ -120,53 +172,28 @@ GridDB = {
 					},
 					["PosX"] = 541,
 					["PosY"] = -629,
-					["layout"] = "None",
+					["layout"] = "By Group 5",
 					["horizontal"] = true,
 				},
 			},
 		},
-		["GridStatusHeals"] = {
+		["GridStatusShield"] = {
 		},
-		["GridStatusMana"] = {
-		},
-		["GridStatusAuras"] = {
+		["GridRoster"] = {
 			["profiles"] = {
 				["Default"] = {
-					["buff_Renew"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
-					},
-					["buff_Riptide"] = {
-						["icon"] = "Interface\\Icons\\spell_nature_riptide",
-					},
-					["buff_BeaconofLight"] = {
-						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
-					},
-					["buff_LifeCocoon"] = {
-						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
-					},
-					["buff_Rejuvenation"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_Rejuvenation",
-					},
-					["buff_EarthShield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_SkinofEarth",
-					},
-					["buff_Regrowth"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
-					},
-					["buff_PowerWord:Shield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
-					},
-					["buff_Lifebloom"] = {
-						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",
-					},
+					["party_state"] = "party",
 				},
 			},
+		},
+		["GridStatusAbsorbshields"] = {
 		},
 	},
 	["profileKeys"] = {
 		["Jolokya - Dragonblight"] = "Default",
-		["Ziagi - Terenas"] = "Default",
 		["Cellestia - Terenas"] = "Default",
+		["Ziagi - Terenas"] = "Default",
+		["Shenlu - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

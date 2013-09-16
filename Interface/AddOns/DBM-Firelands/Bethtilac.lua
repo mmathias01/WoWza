@@ -1,11 +1,9 @@
 local mod	= DBM:NewMod(192, "DBM-Firelands", nil, 78)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(52498)
-mod:SetModelID(38227)
 mod:SetZone()
-mod:SetUsedIcons()
 
 mod:RegisterCombat("combat")
 

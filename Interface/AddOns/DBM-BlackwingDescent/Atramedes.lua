@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(171, "DBM-BlackwingDescent", nil, 73)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(41442)
-mod:SetModelID(34547)
 mod:SetZone()
 mod:SetUsedIcons(8)
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_AtramedesIntro.wav", "Sound\\Creature\\Atramedes\\VO_BD_Atramedes_Event03.wav")
@@ -19,7 +18,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"UNIT_DIED",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_AURA"
+	"UNIT_AURA player"
 )
 
 local warnSonarPulse		= mod:NewSpellAnnounce(77672, 3)
@@ -157,7 +156,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 end
 
 function mod:UNIT_AURA(uId)
-	if uId ~= "player" or pesteredWarned then return end
+	if pesteredWarned then return end
 	if UnitDebuff("player", pestered) then
 		pesteredWarned = true--This aura is a periodic trigger, so we don't want to spam warn for it.
 		specWarnPestered:Show()

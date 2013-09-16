@@ -46,8 +46,7 @@ local VUHDO_getCellForDirection = VUHDO_getCellForDirection;
 --
 local tStartX, tStartY;
 function VUHDO_getTexCoordsForCell(aCell)
-	tStartX = (aCell % 9) * 0.109375;
-	tStartY = floor(aCell / 9) * 0.08203125;
+	tStartX, tStartY = (aCell % 9) * 0.109375, floor(aCell / 9) * 0.08203125;
 	return tStartX, tStartX + 0.109375, tStartY, tStartY + 0.08203125;
 end
 local VUHDO_getTexCoordsForCell = VUHDO_getTexCoordsForCell;

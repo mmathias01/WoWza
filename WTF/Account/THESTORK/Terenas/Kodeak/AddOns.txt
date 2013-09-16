@@ -1,0 +1,7 @@
+Clique: disabled
+Decursive: disabled
+Grid: disabled
+GridStatusRaidIcons: disabled
+GearScore: disabled
+Tukui: disabled
+Tukui_ConfigUI: disabled

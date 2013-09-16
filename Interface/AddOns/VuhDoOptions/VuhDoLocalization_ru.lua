@@ -915,7 +915,7 @@ VUHDO_I18N_SOUND = "Звук";
 VUHDO_I18N_STORE_DELETE = "Сохранить/Удалить";
 VUHDO_I18N_DEBUFF_SOUND = "Звук дебаффа";
 VUHDO_I18N_MOUSE_UP = "Отпускание\nкнопки";
-VUHDO_I18N_REACTION_ON = "Реакция на...";
+VUHDO_I18N_REACTION_ON = "Реакция на";
 VUHDO_I18N_TOOLTIP_TYPE = "Тип подсказки";
 VUHDO_I18N_BAR_BORDER = "Края полосы";
 VUHDO_I18N_UNIT = "Объект";
@@ -1019,7 +1019,7 @@ VUHDO_I18N_OTHER_HOTS = "HoT'ы других игроков";
 VUHDO_I18N_EMPTY_HOTS = "Пусто";
 VUHDO_I18N_MOUSE_HOVER = "Наведение мыши";
 VUHDO_I18N_COUNTER = "Счётчик";
-VUHDO_I18N_GLOBAL_COOLDOWN = "Глобальный откат";
+VUHDO_I18N_GLOBAL_COOLDOWN = "Глобальный\nоткат";
 VUHDO_I18N_GCD = "GCD";
 
 -- #+1.238

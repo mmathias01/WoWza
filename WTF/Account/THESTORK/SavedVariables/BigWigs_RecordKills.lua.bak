@@ -1,0 +1,11 @@
+
+RKDatabase = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["firstLoad"] = false,
+		},
+	},
+}

@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(170, "DBM-BlackwingDescent", nil, 73)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(41570)
-mod:SetModelID(37993)
 mod:SetZone()
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_MagmawIntro01.wav", nil)
 --Long: I found this fascinating specimen in the lava underneath this very room. Magmaw should provide an adequate challenge for your pathetic little band.
@@ -20,7 +19,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL",
 	"RAID_BOSS_EMOTE",
-	"UNIT_HEALTH",
+	"UNIT_HEALTH boss1",
 	"UNIT_DIED"
 )
 
@@ -63,8 +62,10 @@ function mod:OnCombatStart(delay)
 		timerInferno:Start(30-delay)
 		specWarnInfernoSoon:Schedule(26-delay)
 	end
-	DBM.BossHealth:Clear()
-	DBM.BossHealth:AddBoss(41570, 42347, L.name)
+	if DBM.BossHealth:IsShown() then
+		DBM.BossHealth:Clear()
+		DBM.BossHealth:AddBoss(41570, 42347, L.name)
+	end
 end
 
 function mod:OnCombatEnd()

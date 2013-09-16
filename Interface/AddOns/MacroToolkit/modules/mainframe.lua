@@ -759,7 +759,7 @@ function MT:CreateMTFrame()
 	local mtaddslot = CreateFrame("Button", "MacroToolkitAddSlot", mtframe, "UIPanelButtonTemplate")
 	mtaddslot:SetText(_G.KEY_INSERT)
 	mtaddslot:SetSize(80, 22)
-	mtaddslot:SetPoint("TOPRIGHT", mtframe, "BOTTOMRIGHT", -15, 240)
+	mtaddslot:SetPoint("BOTTOMLEFT", mtscrollbot, "BOTTOMRIGHT", 208, 7)
 	mtaddslot:Disable()
 	mtaddslot:SetScript("OnClick",
 		function(this)

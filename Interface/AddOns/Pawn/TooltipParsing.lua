@@ -92,11 +92,13 @@ PawnRegexes =
 	{PawnGameConstant(ITEM_QUALITY5_DESC)}, -- Legendary
 	{PawnGameConstant(ITEM_QUALITY7_DESC)}, -- Heirloom
 	{L.RaidFinder}, -- Raid Finder
+	{L.Flexible}, -- Flexible raids
 	{L.Heroic}, -- Items from heroic dungeons
 	{L.Elite}, -- one version of Regail's Band of the Endless (http://www.wowhead.com/item=90517)
 	{L.HeroicElite}, -- one version of Regail's Band of the Endless (http://www.wowhead.com/item=90503)
 	{L.Thunderforged}, -- one version of Shoulders of the Crackling Protector (http://ptr.wowhead.com/item=96329)
 	{L.HeroicThunderforged}, -- one version of Shoulders of the Crackling Protector (http://ptr.wowhead.com/item=97073)
+	{L.Timeless}, -- level 535 version of Ordon Legend-Keeper Spaulders (http://ptr.wowhead.com/item=101925)
 	{"^" .. ITEM_LEVEL}, -- Item Level 200
 	{L.UpgradeLevel}, -- Upgrade Level 0/2 (ITEM_UPGRADE_TOOLTIP_FORMAT)
 	{PawnGameConstantIgnoredPlaceholder(EQUIPMENT_SETS)}, -- String is from the Blizzard UI, but only used by Outfitter
@@ -232,7 +234,7 @@ PawnRegexes =
 	{PawnGameConstant(EMPTY_SOCKET_NO_COLOR), "PrismaticSocket", 1, PawnMultipleStatsFixed}, -- unused
 	{PawnGameConstant(EMPTY_SOCKET_META), "MetaSocket", 1, PawnMultipleStatsFixed},
 	{PawnGameConstant(EMPTY_SOCKET_COGWHEEL), "CogwheelSocket", 1, PawnMultipleStatsFixed}, -- level 85+ epic Engineering crafted helms (Retinal Armor)
-	{PawnGameConstant(EMPTY_SOCKET_HYDRAULIC), "ShaTouchedSocket", 1, PawnMultipleStatsFixed, "PrismaticSocket", 1, PawnMultipleStatsFixed}, -- Sha-Touched items (Kri'tak)
+	{PawnGameConstant(EMPTY_SOCKET_HYDRAULIC), "ShaTouchedSocket", 1, PawnMultipleStatsFixed}, -- Sha-Touched items (Kri'tak)
 	{L.OnlyFitsInMetaGemSlot, "MetaSocketEffect", 1, PawnMultipleStatsFixed}, -- Actual meta gems, not the socket
 	{PawnGameConstant(PawnLocal.CrystalOfFearName)}, -- Actual crystals of fear, not the socket
 

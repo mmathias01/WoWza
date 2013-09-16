@@ -57,7 +57,7 @@ if L then
 	L.kick = "Patear"
 	L.kick_desc = "Lleva la cuenta de cuantas tortugas pueden ser pateadas."
 	L.kick_message = "Tortugas pateables: %d"
-	L.kicked_message = "%s kicked! (%d remaining)"
+	L.kicked_message = "¡%s pateada! (%d restantes)"
 
 	L.custom_off_turtlemarker = "Marcador de tortugas"
 	L.custom_off_turtlemarker_desc = "Marca las tortugas usando todos los iconos de raid.\n|cFFFF0000Solo 1 persona de la raid debería tener esta opción activada para prevenir conflictos con las marcas.|r\n|cFFADFF2FCONSEJO: Si la raid te ha elegido para activarla, mover el ratón rápidamente sobre todas las tortugas es la forma más rápida de marcarlas.|r"
@@ -75,6 +75,7 @@ end
 
 L = BigWigs:NewBossLocale("Ji-Kun", "esES") or BigWigs:NewBossLocale("Ji-Kun", "esMX")
 if L then
+	L.first_lower_hatch_trigger = "¡Los huevos de los nidos más bajos empiezan a abrirse!"
 	L.lower_hatch_trigger = "¡Los huevos de uno de los nidos inferiores empiezan a abrirse!"
 	L.upper_hatch_trigger = "¡Los huevos de uno de los nidos superiores empiezan a abrirse!"
 
@@ -192,6 +193,18 @@ if L then
 
 	L.balls = "Bolas"
 	L.balls_desc = "Bolas de Ánima (rojo) y Vita (azul), que determinan que habilidades ganará Ra-den"
+
+	L.assistPrint = "Un plugin llamado 'BigWigs_Ra-denAssist' ha sido publicado para ayudarte en el encuentro contra Ra-den y puede que tu grupo esté interesado en probarlo."
+	
+	L.corruptedballs = "Bolas corruptas"
+	L.corruptedballs_desc = "Bolas Vita y Ánima corruptas, que, o bien aumenta el daño (Vita) o hp máximo (Ánima)"
+
+	L.unstablevitajumptarget = "Salto intestable de Vita"
+	L.unstablevitajumptarget_desc = "Te avisa cuando estás más alejado de un jugador con Vita inestable. Si enfatizas esto, también mostrará una cuenta atrás para cuando Vita inestable esté a punto de saltar DE ti."
+
+	L.unstablevitajumptarget_message = "Eres el más alejado de Vita inestable"
+	L.sensitivityfurthestbad = "Sensibilidad a la vita + alejado = |cffff0000MALO|r!"
+	L.kill_trigger = "Wait!" -- Wait! I am... I am not your enemy. You are powerful. More powerful than he was, even.... Perhaps you are right. Perhaps there is still hope.
 end
 
 L = BigWigs:NewBossLocale("Throne of Thunder Trash", "esES") or BigWigs:NewBossLocale("Throne of Thunder Trash", "esMX")

@@ -212,8 +212,9 @@ do
 	-- Cinematic handling
 	local cinematicZones = {
 		[875] = 1, -- Gate of the Setting Sun gate breach
-		--[930] = 3, -- Tortos cave entry -- Apparently Blizzard don't want us to skip this..?
+		[930] = 3, -- Tortos cave entry -- Doesn't work, apparently Blizzard don't want us to skip this..?
 		[930] = 7, -- Ra-Den room opening
+		[953] = 2, -- After Immerseus, entry to Fallen Protectors
 	}
 	function addon:CINEMATIC_START()
 		if self.db.profile.blockmovies then
@@ -357,7 +358,7 @@ do
 				if not times[sync] or t > (times[sync] + 2) then
 					times[sync] = t
 					local m = addon:GetBossModule(rest, true)
-					if not m or m.isEngaged then
+					if not m or m.isEngaged or not m:IsEnabled() then
 						-- print(bossEngagedSyncError:format(rest, nick))
 						return
 					end
@@ -401,7 +402,7 @@ do
 			local msg = strjoin(" ", sync, ...)
 			chatMsgAddon(nil, "T", msg, pName)
 			if IsInRaid() or IsInGroup() then
-				SendAddonMessage("BigWigs", "T:"..msg, IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
+				SendAddonMessage("BigWigs", "T:"..msg, IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
 			end
 		end
 	end
@@ -418,6 +419,7 @@ function addon:OnInitialize()
 			raidicon = true,
 			flash = true,
 			showBlizzardWarnings = false,
+			showZoneMessages = true,
 			blockmovies = true,
 			fakeDBMVersion = false,
 			customDBMbars = true,

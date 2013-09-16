@@ -13,7 +13,7 @@ end
 function UF:UpdateNameSettings(frame)
 	local db = frame.db
 	local name = frame.Name
-	if not db.power.hideonnpc then
+	if not db.power or not db.power.hideonnpc then
 		local x, y = self:GetPositionOffset(db.name.position)
 		name:ClearAllPoints()
 		name:Point(db.name.position, frame.Health, db.name.position, x + db.name.xOffset, y + db.name.yOffset)				
@@ -24,10 +24,8 @@ end
 
 function UF:PostNamePosition(frame, unit)
 	if not frame.Power.value:IsShown() then return end
-	
+	local db = frame.db
 	if UnitIsPlayer(unit) then
-		local db = frame.db
-		
 		local position = db.name.position
 		local x, y = self:GetPositionOffset(position)
 		frame.Power.value:SetAlpha(1)
@@ -35,7 +33,7 @@ function UF:PostNamePosition(frame, unit)
 		frame.Name:ClearAllPoints()
 		frame.Name:Point(position, frame.Health, position, x + db.name.xOffset, y + db.name.yOffset)	
 	else
-		frame.Power.value:SetAlpha(0)
+		frame.Power.value:SetAlpha(db.power.hideonnpc and 0 or 1)
 		
 		frame.Name:ClearAllPoints()
 		frame.Name:SetPoint(frame.Power.value:GetPoint())

@@ -9,8 +9,7 @@ local C = NS.Constants
 
 C["MAX_LEVEL"] = GetMaxPlayerLevel()
 C["MINIMUM_TIER"] = 14
-C["CURRENT_TIER"] = 15
-
+C["CURRENT_TIER"] = 16
 C["RAID_LOOKUP"] = {	
 	[14] = {
 		raids = {
@@ -67,7 +66,7 @@ C["RAID_LOOKUP"] = {
 						eID = 741,
 					},
 					[5] = {
-						eName = "Amber-shaper Un'sok",
+						eName = "Amber-Shaper Un'sok",
 						eID = 737,
 					},
 					[6] = {
@@ -159,38 +158,104 @@ C["RAID_LOOKUP"] = {
 					[13] = {
 						eName = "Ra-den",
 						eID = 831,
+						heroicOnly = true,
 					},
 				},
 			},
 		},
-		--[16] = new tier starts here
+	},
+	[16] = {
+		raids = {
+			[1] = {
+				["name"] = "Siege of Orgrimmar",
+				["zoneID"] = 956,
+				["level"] = 90,
+				["encounters"] = {
+					[1] = {
+						eName = "Immerseus",
+						eID = 852,
+					},
+					[2] = {
+						eName = "The Fallen Protectors",
+						eID = 849,
+					},
+					[3] = {
+						eName = "Norushen",
+						eID = 866,
+					},
+					[4] = {
+						eName = "Sha of Pride",
+						eID = 867,
+					},
+					[5] = {
+						eName = "Galakras",
+						eID = 868,
+					},
+					[6] = {
+						eName = "Iron Juggernaut",
+						eID = 864,
+					},
+					[7] = {
+						eName = "Kor'kron Dark Shaman",
+						eID = 856,
+					},
+					[8] = {
+						eName = "General Nazgrim",
+						eID = 850,
+					},
+					[9] = {
+						eName = "Malkorok",
+						eID = 846,
+					},
+					[10] = {
+						eName = "Spoils of Pandaria",
+						eID = 870,
+					},
+					[11] = {
+						eName = "Thok the Bloodthirsty",
+						eID = 851,
+					},
+					[12] = {
+						eName = "Siegecrafter Blackfuse",
+						eID = 865,
+					},
+					[13] = {
+						eName = "Paragons of the Klaxxi",
+						eID = 853,
+					},
+					[14] = {
+						eName = "Garrosh Hellscream",
+						eID = 869,
+					},
+				},
+			},
+		},
 	},
 }
 
 C["DIFFICULTY"] = {
 	[3] = {
 		["index"] = 3,
-		["shortName"] = "10",
-		["longName"] = "10 Man",
+		["name"] = "10",
 	},
 	[4] = {
 		["index"] = 4,
-		["shortName"] = "25",
-		["longName"] = "25 Man",
+		["name"] = "25",
 	},
 	[5] = {
 		["index"] = 5,
-		["shortName"] = "10H",
-		["longName"] = "10 Man Heroic",
+		["name"] = "10H",
 	},
 	[6] = {
 		["index"] = 6,
-		["shortName"] = "25H",
-		["longName"] = "25 Man Heroic",
+		["name"] = "25H",
 	},
 	[7] = {
 		["index"] = 7,
-		["shortName"] = "LFR",
-		["longName"] = "Looking For Raid",
+		["name"] = "LFR",
+	},
+	[14] = {
+		["index"] = 14,
+		["name"] = "Flex",
 	},
 }

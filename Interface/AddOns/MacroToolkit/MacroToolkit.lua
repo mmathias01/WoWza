@@ -65,6 +65,8 @@ function MT:eventHandler(this, event, arg1, ...)
 			end
 			MT.db = MT.LS("AceDB-3.0"):New("MacroToolkitDB", MT.defaults, "profile")
 			if not IsAddOnLoaded("Blizzard_MacroUI") then LoadAddOn("Blizzard_MacroUI") end
+			if not MT.db.global.custom then MT.db.global.custom = {} end
+			if not MT.db.global.extra then MT.db.global.extra = {} end
 			for _, c in ipairs(MT.db.global.custom) do
 				_G[format("SLASH_MACROTOOLKIT_CUSTOM_%s%d", string.upper(c.n), 1)] = format("%s%s", MT.slash, c.n)
 				SlashCmdList[format("MACROTOOLKIT_CUSTOM_%s", string.upper(c.n))] = function(input) MT:DoCustomCommand(c.s, input) end

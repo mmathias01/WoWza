@@ -72,15 +72,13 @@ function VUHDO_customClustersInitBurst()
 	sCone = sClusterConfig["CONE_DEGREES"];
 	sCdSpell = sClusterConfig["COOLDOWN_SPELL"];
 	sJumpRangePow = sClusterConfig["RANGE_JUMP"] * sClusterConfig["RANGE_JUMP"];
-	if ((sCdSpell or "") == "" or not VUHDO_isSpellKnown(sCdSpell)) then
+	if (sCdSpell or "") == "" or not VUHDO_isSpellKnown(sCdSpell) then
 		sCdSpell = nil;
 	end
 
 	sClusterSlot = nil;
 	for tIndex, tHotName in pairs(VUHDO_PANEL_SETUP["HOTS"]["SLOTS"]) do
-		if "CLUSTER" == tHotName and (tIndex < 6 or tIndex > 8) then
-			sClusterSlot = tIndex;
-		end
+		if "CLUSTER" == tHotName and (tIndex < 6 or tIndex > 8) then sClusterSlot = tIndex; end
 	end
 end
 
@@ -95,13 +93,10 @@ function VUHDO_getCustomDestCluster(aUnit, anArray, anIsSourcePlayer, anIsRadial
 	if anIsSourcePlayer and aUnit ~= "player" then return 0; end
 
 	tSrcInfo = VUHDO_RAID[aUnit];
-	if not tSrcInfo or tSrcInfo["isPet"] or "focus" == aUnit or "target" == aUnit then	return 0;	end
+	if not tSrcInfo or tSrcInfo["isPet"] or "focus" == aUnit or "target" == aUnit then return 0; end
 
-	if anIsRadial then
-		VUHDO_getUnitsInRadialClusterWith(aUnit, aRangePow, tDestCluster, aCdSpell);
-	else
-		VUHDO_getUnitsInChainClusterWith(aUnit, aJumpRangePow, tDestCluster, aNumMaxTargets, aCdSpell);
-	end
+	if anIsRadial then VUHDO_getUnitsInRadialClusterWith(aUnit, aRangePow, tDestCluster, aCdSpell);
+	else VUHDO_getUnitsInChainClusterWith(aUnit, aJumpRangePow, tDestCluster, aNumMaxTargets, aCdSpell); end
 
 	tSrcGroup = tSrcInfo["group"];
 	for _, tUnit in pairs(tDestCluster) do
@@ -109,9 +104,7 @@ function VUHDO_getCustomDestCluster(aUnit, anArray, anIsSourcePlayer, anIsRadial
 		if tInfo and tInfo["healthmax"] > 0 and not tInfo["dead"] and tInfo["health"] / tInfo["healthmax"] <= aHealthLimit then
 			if (anIsRaid or tInfo["group"] == tSrcGroup) and VUHDO_isInConeInFrontOf(tUnit, aCone) then -- all raid members or in same group
 				anArray[#anArray + 1] = tUnit;
-				if #anArray == aNumMaxTargets then
-					break;
-				end
+				if #anArray == aNumMaxTargets then break; end
 			end
 		end
 	end
@@ -214,10 +207,7 @@ end
 
 --
 function VUHDO_getIsInHiglightCluster(aUnit)
-	if VUHDO_HIGLIGHT_NUM < sThreshFair then
-		return false;
-	end
-
+	if VUHDO_HIGLIGHT_NUM < sThreshFair then return false; end
 	return VUHDO_HIGLIGHT_CLUSTER[aUnit];
 end
 

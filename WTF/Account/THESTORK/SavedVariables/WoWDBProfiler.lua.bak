@@ -1,0 +1,267 @@
+
+WoWDBProfilerData = {
+	["char"] = {
+		["Saphiira - Terenas"] = {
+			["bg_blacklist"] = {
+				-1, -- [1]
+				-1, -- [2]
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Default",
+	},
+	["version"] = 14,
+	["build_num"] = 16357,
+	["global"] = {
+		["npcs"] = {
+			[29726] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_2"] = {
+							["speed"] = 21,
+							["max_health"] = 207,
+							["attack"] = 19,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[63832] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_3"] = {
+							["speed"] = 35,
+							["max_health"] = 256,
+							["attack"] = 35,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[7384] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 142,
+							["attack"] = 13,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[36871] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_4"] = {
+							["speed"] = 34,
+							["max_health"] = 344,
+							["attack"] = 51,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[62829] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 153,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[22445] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 12,
+							["max_health"] = 150,
+							["attack"] = 8,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[10259] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 160,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[15706] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[18381] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_1"] = {
+							["speed"] = 12,
+							["max_health"] = 152,
+							["attack"] = 11,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[21010] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 154,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[61081] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 11,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
+				["wild_pet"] = true,
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[10598] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 147,
+							["attack"] = 11,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+			[7387] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 9,
+							["max_health"] = 156,
+							["attack"] = 10,
+						},
+					},
+				},
+				["encounter_data"] = {
+					["NONE:NONE:false"] = {
+						["stats"] = {
+						},
+					},
+				},
+			},
+		},
+		["quests"] = {
+			[31724] = {
+			},
+			[11514] = {
+				["can_share"] = true,
+			},
+			[10251] = {
+				["can_share"] = true,
+			},
+			[11544] = {
+				["can_share"] = true,
+			},
+			[10973] = {
+				["can_share"] = true,
+			},
+			[10508] = {
+				["can_share"] = true,
+			},
+			[9637] = {
+				["can_share"] = true,
+			},
+			[10778] = {
+				["can_share"] = true,
+			},
+		},
+	},
+}

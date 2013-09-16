@@ -1,0 +1,20 @@
+------------------------------------------------------------------------
+r10 | eldrikt | 2013-09-12 17:12:51 +0000 (Thu, 12 Sep 2013) | 2 lines
+Changed paths:
+   M /trunk/GridStatusAbsorbshields.toc
+
+updated addon version
+
+------------------------------------------------------------------------
+r9 | eldrikt | 2013-09-11 21:36:06 +0000 (Wed, 11 Sep 2013) | 1 line
+Changed paths:
+   M /trunk/GridStatusAbsorbshields.toc
+
+Updated toc
+------------------------------------------------------------------------
+r8 | eldrikt | 2013-05-23 17:24:45 +0000 (Thu, 23 May 2013) | 1 line
+Changed paths:
+   M /trunk/GridStatusAbsorbshields.toc
+
+updated addon version
+------------------------------------------------------------------------

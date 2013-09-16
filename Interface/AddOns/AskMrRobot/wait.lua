@@ -1,8 +1,9 @@
+AskMrRobot = {}
 
 local waitTable = {};
 local waitFrame = nil;
 
-function amr__wait(delay, func, ...)
+function AskMrRobot.wait(delay, func, ...)
   if(type(delay)~="number" or type(func)~="function") then
     print("Bad Arguments to amr__wait");
     return false;

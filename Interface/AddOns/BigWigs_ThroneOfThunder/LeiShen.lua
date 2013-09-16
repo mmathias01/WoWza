@@ -305,14 +305,14 @@ end
 
 do
 	local function whipSoon(spellId, spellName)
-		mod:Message(spellId, "Important", "Warning", CL["soon"]:format(("%s (%d)"):format(spellName, whipCounter)))
+		mod:Message(spellId, "Important", "Warning", CL["soon"]:format(CL["count"]:format(spellName, whipCounter)))
 		mod:Flash(spellId)
 	end
 	function mod:LightningWhip(args)
 		if phase == 3 then
-			self:Message(args.spellId, "Urgent", "Alert", ("%s (%d)"):format(args.spellName, whipCounter))
+			self:Message(args.spellId, "Urgent", "Alert", CL["count"]:format(args.spellName, whipCounter))
 			whipCounter = whipCounter + 1
-			self:Bar(args.spellId, 30.3, ("%s (%d)"):format(args.spellName, whipCounter))
+			self:Bar(args.spellId, 30.3, CL["count"]:format(args.spellName, whipCounter))
 			self:ScheduleTimer(whipSoon, 27, args.spellId, args.spellName)
 		else
 			self:Message(args.spellId, "Urgent", "Alert")
@@ -366,8 +366,8 @@ end
 -- Intermissions
 --
 
-local function warnDiffusionChainSoon()
-	mod:Message(135991, "Important", "Warning", CL["soon"]:format(mod:SpellName(135991)))
+local function warnDiffusionChainSoon(intermission)
+	mod:Message(135991, "Important", intermission or not mod:Tank() and "Warning", CL["soon"]:format(mod:SpellName(135991)))
 	activeProximityAbilities[2] = true
 	updateProximity()
 end
@@ -399,8 +399,8 @@ function mod:IntermissionEnd(msg)
 			end
 		end
 	elseif phase == 3 then -- XXX should start bars for already disabled conduits too
-		self:CDBar(135095, 36, ("%s (%d)"):format(self:SpellName(135095), thunderstruckCounter)) -- Thunderstruck
-		self:Bar(136850, 22, ("%s (%d)"):format(self:SpellName(136850), whipCounter)) -- Lightning Whip
+		self:CDBar(135095, 36, CL["count"]:format(self:SpellName(135095), thunderstruckCounter)) -- Thunderstruck
+		self:Bar(136850, 22, CL["count"]:format(self:SpellName(136850), whipCounter)) -- Lightning Whip
 		self:CDBar(136889, 20) -- Violent Gale Winds
 		if self:Heroic() then
 			if msg:find("135681") then -- Diffusion Adds
@@ -437,7 +437,7 @@ function mod:IntermissionStart(args)
 		if isConduitAlive(68698) then self:CDBar(136366, 20) end -- Bouncing Bolt
 		if isConduitAlive(68696) then
 			self:CDBar(135991, 7)
-			self:ScheduleTimer(warnDiffusionChainSoon, 2)
+			self:ScheduleTimer(warnDiffusionChainSoon, 2, true)
 		end
 	else -- 25 man
 		if isConduitAlive(68398) then self:CDBar(135695, 19) end -- Static Shock
@@ -445,7 +445,7 @@ function mod:IntermissionStart(args)
 		if isConduitAlive(68698) then self:CDBar(136366, 14) end -- Bouncing Bolt
 		if isConduitAlive(68696) then
 			self:CDBar(135991, 6)
-			self:ScheduleTimer(warnDiffusionChainSoon, 1)
+			self:ScheduleTimer(warnDiffusionChainSoon, 1, true)
 		end
 	end
 	if self:Heroic() then
@@ -487,9 +487,9 @@ end
 
 function mod:Thunderstruck(args)
 	if phase == 3 then
-		self:Message(args.spellId, "Attention", "Alert", ("%s (%d)"):format(args.spellName, thunderstruckCounter))
+		self:Message(args.spellId, "Attention", "Alert", CL["count"]:format(args.spellName, thunderstruckCounter))
 		thunderstruckCounter = thunderstruckCounter + 1
-		self:Bar(args.spellId, 30, ("%s (%d)"):format(args.spellName, thunderstruckCounter))
+		self:Bar(args.spellId, 30, CL["count"]:format(args.spellName, thunderstruckCounter))
 	else
 		self:CDBar(args.spellId, 46)
 		self:Message(args.spellId, "Attention", "Alert")
@@ -499,10 +499,10 @@ end
 function mod:Decapitate(args)
 	self:CDBar(args.spellId, 50)
 	self:TargetMessage(args.spellId, args.destName, "Personal", "Warning", nil, nil, true)
-	self:TargetBar(args.spellId, 5, args.destName) -- usually another ~2s before damage due to travel time
-	if self:Me(args.destGUID) then
+	if self:Tank() then
 		self:Flash(args.spellId)
 	end
+	self:TargetBar(args.spellId, 5, args.destName) -- usually another ~2s before damage due to travel time
 end
 
 ----------------------------------------
@@ -579,14 +579,15 @@ do
 		diffusionList[#diffusionList+1] = args.destName
 	end
 	local function warnDiffusionAdds()
+		local intermission = not UnitExists("boss1") -- poor mans intermission check
 		if #diffusionList > 0 then
-			mod:TargetMessage(135991, diffusionList, "Important", "Warning", L["diffusion_add"], nil, true)
+			mod:TargetMessage(135991, diffusionList, "Important", intermission and "Warning", L["diffusion_add"], nil, true)
 		else -- no one in range
-			mod:Message(135991, "Important", "Warning")
+			mod:Message(135991, "Important", intermission and "Warning")
 		end
-		if not UnitExists("boss1") then -- poor mans intermission check
+		if intermission then
 			mod:Bar(135991, 25)
-			mod:ScheduleTimer(warnDiffusionChainSoon, 20)
+			mod:ScheduleTimer(warnDiffusionChainSoon, 20, true)
 		else
 			if phase == 1 or not mod:Heroic() then stopConduitAbilityBars() end
 			mod:Bar(135991, 40)

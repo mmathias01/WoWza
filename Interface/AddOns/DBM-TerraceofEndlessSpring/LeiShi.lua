@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(729, "DBM-TerraceofEndlessSpring", nil, 320)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9560 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10185 $"):sub(12, -3))
 mod:SetCreatureID(62983)--62995 Animated Protector
 
 mod:RegisterCombat("combat")
@@ -13,8 +13,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
-	"UNIT_HEALTH",--UNIT_HEALTH_FREQUENT maybe not needed. It's too high cpu usage.
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_HEALTH boss1",--UNIT_HEALTH_FREQUENT maybe not needed. It's too high cpu usage.
+	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
 local warnProtect						= mod:NewSpellAnnounce(123250, 2)
@@ -156,28 +156,28 @@ end
 	
 mod:RegisterOnUpdateHandler(function(self)
 	if hasHighestVersion and not (iconsSet == guardActivated) then
-		for i = 1, DBM:GetNumGroupMembers() do
-			local uId = "raid"..i.."target"
-			local guid = UnitGUID(uId)
+		for uId in DBM:GetGroupMembers() do
+			local unitid = uId.."target"
+			local guid = UnitGUID(unitid)
 			if guards[guid] then
 				for g,i in pairs(guards) do
 					if i == 8 and g ~= guid then -- always set skull on first we see
-						guards[g] = adds[guid]
+						guards[g] = guards[guid]
 						guards[guid] = 8
 						break
 					end
 				end
-				SetRaidTarget(uId, guards[guid])
+				SetRaidTarget(unitid, guards[guid])
 				iconsSet = iconsSet + 1
 				guards[guid] = nil
 			end
 		end
 		local guid2 = UnitGUID("mouseover")
 		if guards[guid2] then
-			for g,i in pairs(adds) do
+			for g,i in pairs(guards) do
 				if i == 8 and g ~= guid2 then -- always set skull on first we see
-					adds[g] = adds[guid2]
-					adds[guid2] = 8
+					guards[g] = guards[guid2]
+					guards[guid2] = 8
 					break
 				end
 			end
@@ -212,20 +212,21 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			timerGetAway:Start()
 		end
-		if (self.Options.HealthFrame or DBM.Options.AlwaysShowHealthFrame) and self.Options.GWHealthFrame then
+		if DBM.BossHealth:IsShown() and self.Options.GWHealthFrame then
 			local getAwayHealth = math.floor(UnitHealthMax("boss1") * 0.04)
 			showDamagedHealthBar(self, args.sourceGUID, args.spellName, getAwayHealth)
 		end
 	elseif args.spellId == 123121 then
 		local uId = DBM:GetRaidUnitId(args.destName)
 		if self:IsTanking(uId, "boss1") then--Only want sprays that are on tanks, not bads standing on tanks.
+			local amount = args.amount or 1
 			timerSpray:Start(args.destName)
-			if (args.amount or 1) % 3 == 0 then
-				warnSpray:Show(args.destName, args.amount)
-				if args.amount >= 6 and args:IsPlayer() then
-					specWarnSpray:Show(args.amount)
+			if amount % 3 == 0 then
+				warnSpray:Show(args.destName, amount)
+				if amount >= 6 and args:IsPlayer() then
+					specWarnSpray:Show(amount)
 				else
-					if args.amount >= 6 and not UnitDebuff("player", GetSpellInfo(123121)) and not UnitIsDeadOrGhost("player") then
+					if amount >= 6 and not UnitDebuff("player", GetSpellInfo(123121)) and not UnitIsDeadOrGhost("player") then
 						specWarnSprayOther:Show(args.destName)
 					end
 				end
@@ -255,7 +256,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		timerSpray:Cancel(args.destName)
 	elseif args.spellId == 123461 then
 		timerGetAway:Cancel()
-		if (self.Options.HealthFrame or DBM.Options.AlwaysShowHealthFrame) and self.Options.GWHealthFrame then
+		if DBM.BossHealth:IsShown() and self.Options.GWHealthFrame then
 			hideDamagedHealthBar()
 		end
 	end
@@ -286,12 +287,10 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:UNIT_HEALTH(uId)
-	if uId == "boss1" then
-		local currentHealth = 1 - (UnitHealth(uId) / UnitHealthMax(uId))
-		if currentHealth and currentHealth < 1 and currentHealth > prevlostHealth then -- Failsafe.
-			lostHealth = currentHealth
-			prevlostHealth = currentHealth
-		end
+	local currentHealth = 1 - (UnitHealth(uId) / UnitHealthMax(uId))
+	if currentHealth and currentHealth < 1 and currentHealth > prevlostHealth then -- Failsafe.
+		lostHealth = currentHealth
+		prevlostHealth = currentHealth
 	end
 end
 
@@ -313,26 +312,24 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT(event)
 	end
 end
 
-local function FindFastestHighestVersion()
-	mod:SendSync("FastestPerson", UnitGUID("player"))
-end
 
 function mod:OnSync(msg, guid, ver)
 	if msg == "IconCheck" and guid and ver then
-		if tonumber(ver) > highestVersion then
-			highestVersion = tonumber(ver)--Keep bumping highest version to highest we recieve from the icon setters
+		ver = tonumber(ver) or 0
+		if ver > highestVersion then
+			highestVersion = ver--Keep bumping highest version to highest we recieve from the icon setters
 			if guid == UnitGUID("player") then--Check if that highest version was from ourself
 				hasHighestVersion = true
-				self:Unschedule(FindFastestHighestVersion)
-				self:Schedule(5, FindFastestHighestVersion)
+				self:Unschedule(self.SendSync)
+				self:Schedule(5, self.SendSync, self, "FastestPerson", UnitGUID("player"))
 			else--Not from self, it means someone with a higher version than us probably sent it
-				self:Unschedule(FindFastestHighestVersion)
+				self:Unschedule(self.SendSync)
 				hasHighestVersion = false
 			end
 		end
 	elseif msg == "FastestPerson" and guid and self:AntiSpam(10, 2) then--Whoever sends this sync first wins all. They have highest version and probably the lowest ping
 		-- note: this assumes that everyone sees chat/addon-messages in the same order which seems to be true at the moment; can be changed to use GetNetStats() if this changes
-		self:Unschedule(FindFastestHighestVersion)
+		self:Unschedule(self.SendSync)
 		if guid == UnitGUID("player") then
 			hasHighestVersion = true
 		else

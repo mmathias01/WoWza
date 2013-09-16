@@ -1,0 +1,35 @@
+
+RecountDB = {
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+	},
+	["profiles"] = {
+		["Majandra - Dragonblight"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -0.5,
+					["x"] = -245.5001220703125,
+					["w"] = 292.9998779296875,
+					["h"] = 212.9999389648438,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["MainWindowWidth"] = 292.9998779296875,
+			["MainWindowHeight"] = 212.9999389648438,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+		},
+	},
+}

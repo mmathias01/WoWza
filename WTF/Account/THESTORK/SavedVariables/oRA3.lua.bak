@@ -1,0 +1,37 @@
+
+oRA3DB = {
+	["namespaces"] = {
+		["Tanks"] = {
+		},
+		["Loot"] = {
+		},
+		["Invite"] = {
+		},
+		["Cooldowns"] = {
+			["profiles"] = {
+				["Default"] = {
+					["showDisplay"] = false,
+				},
+			},
+		},
+		["ReadyCheck"] = {
+		},
+		["Promote"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["positions"] = {
+				["oRA3CooldownFrame"] = {
+					["Height"] = 148,
+					["Width"] = 200.0000305175781,
+					["PosY"] = 661.3425082291105,
+					["PosX"] = 784.2696947937584,
+				},
+			},
+		},
+	},
+}

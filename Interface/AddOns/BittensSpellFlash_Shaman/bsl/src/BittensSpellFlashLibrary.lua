@@ -1,21 +1,33 @@
 local g = BittensGlobalTables
 local c = g.GetOrMakeTable("BittensSpellFlashLibrary", 2)
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "MainFile", 28) then
+if u.SkipOrUpgrade(c, "MainFile", 38) then
 	return
 end
 
 local s = SpellFlashAddon
+local x = s.UpdatedVariables
 
+local GetItemCount = GetItemCount
 local GetNumGroupMembers = GetNumGroupMembers
+local GetPowerRegen = GetPowerRegen
+local GetSpecialization = GetSpecialization
 local GetTime = GetTime
+local GetTotemInfo = GetTotemInfo
 local IsInRaid = IsInRaid
 local IsItemInRange = IsItemInRange
 local IsMounted = IsMounted
+local GetSpellCharges = GetSpellCharges
+local UnitGetIncomingHeals = UnitGetIncomingHeals
 local UnitIsDeadOrGhost = UnitIsDeadOrGhost
 local UnitGroupRolesAssigned = UnitGroupRolesAssigned
+local UnitHealth = UnitHealth
+local UnitHealthMax = UnitHealthMax
 local UnitIsUnit = UnitIsUnit
 local UnitInVehicle = UnitInVehicle
+local UnitPower = UnitPower
+local UnitPowerMax = UnitPowerMax
+local UnitPowerType = UnitPowerType
 local UnitSpellHaste = UnitSpellHaste
 local UnitThreatSituation = UnitThreatSituation
 local math = math
@@ -29,6 +41,154 @@ local unpack = unpack
 
 function c.Init(a)
 	c.A = a
+end
+
+local healthstone = {
+	ID = 5512,
+	Type = "item",
+	Continue = true,
+	FlashColor = "yellow",
+	CheckFirst = function(z)
+		return c.GetHealthPercent("player") < 80 
+			and GetItemCount(z.ID, false, true) > 0
+	end,
+}
+
+local function auraCheck(spell, id, pending, func, early)
+	return id 
+		and (pending 
+			or func(id, spell.BuffUnit, early, nil, nil, spell.UseBuffID))
+end
+
+local function spellCastable(spell)
+	if spell.Type == "form" and s.Form(spell.ID) then
+		return false
+	end
+	
+	if c.GetCooldown(spell.ID, spell.NoGCD) > 0 then
+		return false -- TODO: Add lag or cushion?
+	end
+	
+	local isUsable, notEnoughPower = s.UsableSpell(spell.ID)
+	if notEnoughPower then
+		if not spell.NoPowerCheck then
+			return false
+		end
+	elseif not isUsable and not spell.EvenIfNotUsable then
+		return false
+	end
+	
+	if not (spell.NoRangeCheck or spell.Melee or spell.Range) 
+		and s.SpellHasRange(spell.ID) 
+		and not s.SpellInRange(spell.ID) then
+		
+		return false
+	end
+	
+	return true
+end
+
+local overrideColor
+
+local function getFlashColor(spell, rotation)
+	return spell.FlashColor 
+		or (c.AoE and (rotation and rotation.AoEColor or c.AoeColor))
+end
+
+local function flashSingle(spell, rotation)
+	if spell.RunFirst then
+		spell:RunFirst()
+	end
+	if spell.CheckFirst and not spell:CheckFirst() then
+		return false
+	end
+	
+	if (spell.NotIfActive or spell.Cooldown) and c.IsCasting(spell.ID) then
+		return false
+	end
+	
+	if spell.Buff 
+		or spell.MyDebuff 
+		or spell.Debuff 
+		or spell.MyBuff 
+		or spell.Interrupt
+		or spell.Dispel then
+		
+		local early = 
+			c.GetBusyTime(spell.NoGCD) + math.max(0, s.CastTime(spell.ID) or 0)
+		if spell.Interrupt 
+			and s.GetCastingOrChanneling(nil, nil, true) - early <= 0 then
+			
+			return false -- TODO: Add lag or cushion?
+		end
+		
+		if spell.Dispel 
+			and not s.Buff(nil, nil, early, nil, nil, nil, spell.Dispel) then
+			
+			return false
+		end
+		
+		local pending = c.IsAuraPendingFor(spell.ID)
+		early = early + (spell.EarlyRefresh or 0)
+		if auraCheck(spell, spell.Buff, pending, s.Buff, early) 
+			or auraCheck(spell, spell.MyDebuff, pending, s.MyDebuff, early)
+			or auraCheck(spell, spell.Debuff, pending, s.Debuff, early)
+			or auraCheck(spell, spell.MyBuff, pending, s.MyBuff, early) then
+			
+			return false
+		end
+	end
+	
+	if spell.Melee and not s.MeleeDistance() then
+		return false
+	end
+	
+	if spell.Range and c.DistanceAtTheMost() > spell.Range then
+		return false
+	end
+	
+	if spell.NotWhileMoving and s.Moving("player") then
+		return false
+	end
+	
+	local flashableFunc = nil
+	local castableFunc
+	local flashFunc1 = s.Flash
+	local flashFunc2 = nil
+	if spell.Type == "item" then
+		flashableFunc = s.ItemFlashable
+		castableFunc = s.CheckIfItemCastable
+		flashFunc1 = s.FlashItem
+	elseif spell.Type == "pet" then
+		castableFunc = s.CheckIfPetSpellCastable
+		flashFunc2 = s.FlashPet
+	elseif spell.Type == "form" then
+		castableFunc = spellCastable
+		flashFunc2 = s.FlashForm
+	else
+		flashableFunc = s.Flashable
+		castableFunc = spellCastable
+	end
+	if spell.Override then
+		castableFunc = spell.Override
+	end
+	local flashID = spell.FlashID or spell.ID
+	if (flashableFunc and not flashableFunc(flashID))
+		or not castableFunc(spell)
+		or (spell.CheckLast and not spell:CheckLast()) then
+		
+		return false
+	end
+	
+	local color = overrideColor or getFlashColor(spell, rotation)
+	flashFunc1(flashID, color, spell.FlashSize)
+	if flashFunc2 then
+		flashFunc2(flashID, color, spell.FlashSize)
+	end
+	if spell.PredictFlashID then
+		c.PredictFlash(spell.PredictFlashID)
+	end
+	return true
 end
 
 function c.RegisterAddon()
@@ -64,10 +224,14 @@ function c.RegisterAddon()
 		if inCombat then
 			if rotation.FlashInCombat then
 				rotation:FlashInCombat()
+				flashSingle(healthstone)
 			end
 		else
 			if rotation.FlashOutOfCombat then
 				rotation:FlashOutOfCombat()
+			end
+			if x.EnemyDetected and rotation.UsefulStats then
+				c.FlashFoods(rotation.UsefulStats)
 			end
 		end
 	end)
@@ -77,7 +241,7 @@ function c.GetCurrentRotation()
 	for name, rotation in pairs(c.A.Rotations) do
 		local optionName = "Flash" .. name
 		if (rotation.CheckFirst == nil or rotation.CheckFirst())
-			and rotation.Spec == s.TalentMastery()
+			and rotation.Spec == GetSpecialization()
 			and (not c.HasOption(optionName) or c.GetOption(optionName)) then
 			
 			return rotation
@@ -99,7 +263,7 @@ end
 
 function c.GetCooldown(name, noGCD, fullCD)
 	local id = c.GetID(name)
-	if not s.HasSpell(id) then
+	if not c.HasSpell(id) then
 		return 9001 -- (more than 9000!)
 	end
 	
@@ -122,6 +286,25 @@ function c.GetMinCooldown(...)
 		end
 	end
 	return min, minName
+end
+
+-- returns (number-of-charges, time-until-next-charge, time-until-max-charges)
+function c.GetChargeInfo(name, noGCD)
+	local charges, max, start, duration = GetSpellCharges(c.GetID(name))
+	local untilNext = start + duration - GetTime()
+	local busy = c.GetBusyTime(noGCD)
+	if untilNext <= busy then
+		charges = charges + 1
+		untilNext = untilNext + duration
+	end
+	if c.IsCasting(name) then
+		charges = charges - 1
+	end
+	if charges == max then
+		return charges, 9001, 0
+	else
+		return charges, untilNext, untilNext + duration * (max - charges - 1)
+	end
 end
 
 function c.GetIDs(...)
@@ -228,98 +411,144 @@ function c.HasGlyph(name)
 	end
 end
 
-function c.GetCastTime(spellName)
-	return s.CastTime(s.SpellName(c.GetID(spellName)))
+function c.GetCastTime(name)
+	return s.CastTime(s.SpellName(c.GetID(name)))
 end
 
-function c.GetCost(spellName)
-	return s.SpellCost(s.SpellName(c.GetID(spellName)))
+function c.GetCost(name)
+	return s.SpellCost(s.SpellName(c.GetID(name)))
 end
 
-local fullChannels = {}
+local fullChannels = { }
+local channelBuffs = { }
+function c.RegisterForFullChannels(name, unhastedChannelTime, channelViaBuff)
+	local id = c.GetID(name)
+	fullChannels[s.SpellName(id)] = unhastedChannelTime
+	if channelViaBuff then
+		channelBuffs[id] = true
+	end
+end
 
-function c.RegisterForFullChannels(name, unhastedChannelTime)
-	fullChannels[s.SpellName(c.GetID(name))] = unhastedChannelTime
+function c.RegisterBusyDuringBuff(name, unhastedChannelTime)
+	c.RegisterForFullChannels(name, unhastedChannelTime)
+end
+
+local function getChannelTimeRemaining()
+	local remaining = 0
+	if fullChannels[s.ChannelingName(nil, "player")] then
+		remaining = s.GetChanneling(nil, "player")
+	end
+	for buff in u.Keys(channelBuffs) do
+		remaining = math.max(remaining, s.BuffDuration(buff, "player"))
+	end
+	return remaining
+end
+
+local function getCastFinish(info)
+	return info.CastStart + s.CastTime(info.Name)
+end
+
+local function getChannelFinish(info)
+	local time = fullChannels[info.Name]
+	if time then
+		time = c.GetHastedTime(time)
+	else
+		time = 0
+	end
+	return info.CastStart + time
+end
+
+local function getGcdFinish(info)
+	local nextGcd = c.A.SpecialGCDs[info.Name]
+	if nextGcd == nil then
+		nextGcd = c.LastGCD
+	elseif nextGcd == "hasted" then
+		nextGcd = math.max(1, c.GetHastedTime(1.5))
+	end
+	return info.GCDStart + nextGcd
 end
 
 function c.GetBusyTime(noGCD)
+	local busy = 0
 	local info = c.GetQueuedInfo()
-	local gcd, _ = s.GlobalCooldown()
 	if info then
-		local castTime = fullChannels[info.Name]
-		if castTime ~= nil then
-			castTime = c.GetHastedTime(castTime)
-		else
-			castTime = s.CastTime(info.Name)
+		busy = math.max(getCastFinish(info), getChannelFinish(info))
+		if not noGCD then
+			busy = math.max(busy, getGcdFinish(info))
 		end
-		if noGCD then
-			return math.max(0, info.CastStart + castTime - GetTime())
-		else
-			local nextGcd = c.A.SpecialGCDs[info.Name]
-			if nextGcd == nil then
-				nextGcd = c.LastGCD
-			elseif nextGcd == "hasted" then
-				nextGcd = math.max(1, c.GetHastedTime(1.5))
-			end
-			return math.max(
-				gcd,
-				math.max(
-						info.GCDStart + nextGcd, info.CastStart + castTime)
-					- GetTime())
+		busy = math.max(0, busy - GetTime())
+	end
+	if not noGCD then
+		local gcd = s.GlobalCooldown()
+		busy = math.max(busy, gcd)
+	end
+	return math.max(
+		s.GetCasting(nil, "player"), getChannelTimeRemaining(), busy)
+end
+
+local function advancePowerCalc(t, power, newT, regen, max, info, powerType)
+	if newT > t then
+		power = math.min(max, power + regen * (newT - t))
+		t = newT
+	end
+	if info then
+		local cost = info.Cost[powerType]
+		if not cost then
+			cost = s.SpellCost(info.Name, powerType)
 		end
+		power = math.min(max, power - cost)
 	end
-	
-	local remaining
-	if fullChannels[s.ChannelingName(nil, "player")] then
-		remaining = s.GetChanneling(nil, "player")
-	else
-		remaining = s.GetCasting(nil, "player")
-	end
-	if noGCD then
-		return remaining
-	else
-		return math.max(remaining, gcd)
-	end
+	return t, power
 end
 
 -- If you supply a powerType it will not consider any currently casting spell.
 -- But that should be OK, since I can only think of instant cast spells that use
 -- secondary power.
 function c.GetPower(regen, powerType)
-	local power = s.Power("player", powerType)
-	local max = s.MaxPower("player", powerType)
+	if not regen then
+		regen = select(2, GetPowerRegen())
+	end
+	if not powerType then
+		powerType = UnitPowerType("player")
+	end
+	
 	local t = GetTime()
-	local busy = s.GetCastingOrChanneling(nil, "player")
+	local power = UnitPower("player", powerType)
+	local max = UnitPowerMax("player", powerType)
+--c.Debug("GetPower", power, "initial")
 	
---c.Debug("Lib", power, "--------")
-	local info = c.GetCastingInfo()
-	if info and (not powerType or powerType == UnitPowerType("player")) then
-		power = math.min(max, power + busy * regen)
-		power = math.min(max, power - info.Cost)
-		t = t + busy
---c.Debug("Lib", power, info.Name, "cast", busy)
+	-- current cast
+	t, power = advancePowerCalc(
+		t, power,
+		GetTime() + s.GetCasting(nil, "player"), regen, max, 
+		c.GetCastingInfo(), powerType)
+--c.Debug("GetPower", power, "After Current Cast")
+	t, power = advancePowerCalc(
+		t, power, GetTime() + getChannelTimeRemaining(), regen, max)
+--c.Debug("GetPower", power, "After Current Channel")
+	
+	-- queued cast
+	local queued = c.GetQueuedInfo()
+	if queued then
+		t, power = advancePowerCalc(
+			t, power, getCastFinish(queued), regen, max, queued, powerType)
+--c.Debug("GetPower", power, "After Queued Cast")
+		t, power = advancePowerCalc(
+			t, power, getChannelFinish(queued), regen, max)
+--c.Debug("GetPower", power, "After Queued Channel")
+		t, power = advancePowerCalc(t, power, getGcdFinish(queued), regen, max)
+--c.Debug("GetPower", power, "After Queued GCD")
 	end
 	
-	info = c.GetQueuedInfo()
-	if info then
-		local castTime = s.CastTime(info.Name)
-		local busy = castTime + (info.CastStart - t)
-		power = math.min(max, power + busy * regen)
-		power = math.min(
-			max, power - (info.Cost or s.SpellCost(info.Name, powerType)))
-		t = t + busy
---c.Debug("Lib", power, info.Name, "queue", busy)
-		
-		busy = math.max(0, info.GCDStart + c.LastGCD - t)
-		power = math.min(max, power + busy * regen)
---c.Debug("Lib", power, "gcd", busy)
-	else
-		local gcd = s.GlobalCooldown()
-		busy = math.max(0, gcd - busy)
-		power = math.min(max, power + busy * regen)
---c.Debug("Lib", power, "gcd", busy)
-	end
+	-- current gcd
+	t, power = advancePowerCalc(
+		t, power, GetTime() + s.GlobalCooldown(), regen, max)
+--c.Debug("GetPower", power, "After Current GCD")
 	return power
+end
+
+function c.GetPowerPercent()
+	return c.GetPower() / UnitPowerMax("player") * 100
 end
 
 local function convertToIDs(attributes, key, ...)
@@ -396,156 +625,28 @@ function c.AddOptionalSpell(name, tag, attributes, color)
 	return spell
 end
 
-function c.AddInterrupt(name)
-	return c.AddOptionalSpell(name, nil, { Interrupt = true }, "aqua")
-end
-
-function c.AddTaunt(name, tag, attributes)
-	return c.AddOptionalSpell(name, tag, { CheckFirst = c.CheckFirstForTaunts })
-end
-
-function c.CloneSpell(sourceName, tag, attributes)
-	local sourceAttributes = c.A.Spells[sourceName]
-	if sourceAttributes == nil then
-		print("Cannot clone", sourceName, "if it does not exist!")
-		return
-	end
-	
-	local spell = c.AddSpell(sourceName, tag, attributes)
-	for k, v in pairs(sourceAttributes) do
-		if spell[k] == nil then
-			spell[k] = v
-		end
-	end
+function c.AddInterrupt(name, tag, attributes)
+	local spell = c.AddOptionalSpell(name, tag, attributes)
+	spell.Interrupt = true
+	spell.FlashColor = "aqua"
 	return spell
 end
 
-local function auraCheck(spell, id, pending, func, early)
-	return id 
-		and (pending 
-			or func(id, spell.BuffUnit, early, nil, nil, spell.UseBuffID))
+function c.AddDispel(name, tag, type, attributes)
+	local spell = c.AddOptionalSpell(name, tag, attributes)
+	spell.Dispel = type
+	spell.FlashColor = "aqua"
+	return spell
 end
 
-local function spellCastable(spell)
-	if spell.Type == "form" and s.Form(spell.ID) then
-		return false
-	end
-	
-	if c.GetCooldown(spell.ID, spell.NoGCD) > 0 then
-		return false -- TODO: Add lag or cushion?
-	end
-	
-	local isUsable, notEnoughPower = s.UsableSpell(spell.ID)
-	if notEnoughPower then
-		if not spell.NoPowerCheck then
-			return false
-		end
-	elseif not isUsable and not spell.EvenIfNotUsable then
-		return false
-	end
-	
-	if not (spell.NoRangeCheck or spell.Melee or spell.Range) 
-		and s.SpellHasRange(spell.ID) 
-		and not s.SpellInRange(spell.ID) then
-		
-		return false
-	end
-	
-	return true
+function c.AddTaunt(name, tag, attributes)
+	local spell = c.AddOptionalSpell(name, tag, attributes)
+	spell.CheckFirst = c.CheckFirstForTaunts
+	return spell
 end
 
 c.AoeColor = { r = .25, g = .25, b = 1 }
 c.MovementColor = "orange"
-local overrideColor
-
-local function flashSingle(spell)
-	if spell.RunFirst then
-		spell:RunFirst()
-	end
-	if spell.CheckFirst and not spell:CheckFirst() then
-		return false
-	end
-	
-	if (spell.NotIfActive or spell.Cooldown) and c.IsCasting(spell.ID) then
-		return false
-	end
-	
-	if spell.Buff 
-		or spell.MyDebuff 
-		or spell.Debuff 
-		or spell.MyBuff 
-		or spell.Interrupt then
-		
-		local early = 
-			c.GetBusyTime(spell.NoGCD) + math.max(0, s.CastTime(spell.ID) or 0)
-		if spell.Interrupt 
-			and s.GetCastingOrChanneling(nil, nil, true) - early <= 0 then
-			
-			return false -- TODO: Add lag or cushion?
-		end
-		
-		local pending = c.IsAuraPendingFor(spell.ID)
-		early = early + (spell.EarlyRefresh or 0)
-		if auraCheck(spell, spell.Buff, pending, s.Buff, early) 
-			or auraCheck(spell, spell.MyDebuff, pending, s.MyDebuff, early)
-			or auraCheck(spell, spell.Debuff, pending, s.Debuff, early)
-			or auraCheck(spell, spell.MyBuff, pending, s.MyBuff, early) then
-			
-			return false
-		end
-	end
-	
-	if spell.Melee and not s.MeleeDistance() then
-		return false
-	end
-	
-	if spell.Range and c.DistanceAtTheMost() > spell.Range then
-		return false
-	end
-	
-	if spell.NotWhileMoving and s.Moving("player") then
-		return false
-	end
-	
-	local flashableFunc = nil
-	local castableFunc
-	local flashFunc1 = s.Flash
-	local flashFunc2 = nil
-	if spell.Type == "item" then
-		flashableFunc = s.ItemFlashable
-		castableFunc = s.CheckIfItemCastable
-		flashFunc1 = s.FlashItem
-	elseif spell.Type == "pet" then
-		castableFunc = s.CheckIfPetSpellCastable
-		flashFunc2 = s.FlashPet
-	elseif spell.Type == "form" then
-		castableFunc = spellCastable
-		flashFunc2 = s.FlashForm
-	else
-		flashableFunc = s.Flashable
-		castableFunc = spellCastable
-	end
-	if spell.Override then
-		castableFunc = spell.Override
-	end
-	local flashID = spell.FlashID or spell.ID
-	if (flashableFunc and not flashableFunc(flashID))
-		or not castableFunc(spell)
-		or (spell.CheckLast and not spell:CheckLast()) then
-		
-		return false
-	end
-	
-	local color = overrideColor or spell.FlashColor or (c.AoE and c.AoeColor)
-	flashFunc1(flashID, color, spell.FlashSize)
-	if flashFunc2 then
-		flashFunc2(flashID, color, spell.FlashSize)
-	end
-	if spell.PredictFlashID then
-		c.PredictFlash(spell.PredictFlashID)
-	end
-	return true
-end
 
 function c.PredictFlash(name)
 	s.Flash(c.GetID(name), "green", s.FlashSizePercent() / 2)
@@ -565,7 +666,7 @@ function c.PriorityFlash(...)
 			canCastWhileMoving = c.GetCastTime(spell.ID) == 0
 		end
 		if (canCastWhileMoving or not moving or overrideColor == nil)
-			and flashSingle(spell) then
+			and flashSingle(spell, rotation) then
 			
 			flashed = name
 			if not spell.Continue then
@@ -642,15 +743,16 @@ local function getDelay(spell)
 			or 0)
 end
 
-local function delayFlash(spell, delay, minDelay)
+local function delayFlash(spell, delay, minDelay, rotation)
 	if minDelay > 0 or delay + (spell.WhiteFlashOffset or 0) > 0 then
 --c.Debug("delayFlash", s.SpellName(spell.ID), delay, minDelay, "green")
 		s.Flash(spell.FlashID or spell.ID, "green", s.FlashSizePercent() / 2)
+		return true
 	else
 --c.Debug("delayFlash", s.SpellName(spell.ID), delay, minDelay, "white")
 		s.Flash(
 			spell.FlashID or spell.ID, 
-			spell.FlashColor or (c.AoE and c.AoeColor), 
+			getFlashColor(spell, rotation), 
 			spell.FlashSize)
 	end
 end
@@ -661,6 +763,7 @@ function c.DelayPriorityFlash(...)
 	local nextSpell
 	local nextSpellName
 	local nextSpellMinDelay
+	local rotation = c.GetCurrentRotation()
 	local continuers = { }
 	local continuerMinDelays = { }
 	local pusherMins = { }
@@ -705,20 +808,20 @@ function c.DelayPriorityFlash(...)
 		end
 	end
 	for spell, delay in pairs(continuers) do
-		delayFlash(spell, delay, continuerMinDelays[spell])
+		if delay <= nextDelay then
+			delayFlash(spell, delay, continuerMinDelays[spell], rotation)
+		end
 	end
 	if nextSpell then
-		delayFlash(nextSpell, nextDelay, nextSpellMinDelay)
-		
-		local rotation = c.GetCurrentRotation()
 		if rotation.ExtraDebugInfo then
 			c.Debug("Flash", 
 				rotation.ExtraDebugInfo(), nextSpellName, nextDelay)
 		else
 			c.Debug("Flash", nextSpellName, nextDelay)
 		end
+		return nextSpellName, 
+			delayFlash(nextSpell, nextDelay, nextSpellMinDelay, rotation)
 	end
-	return nextSpellName
 end
 
 function c.FlashAll(...)
@@ -859,4 +962,8 @@ function c.MakePredictor(spell, condition, normalColor)
 	else
 		spell.FlashColor = normalColor
 	end
+end
+
+function c.HasSpell(name)
+	return s.HasSpell(c.GetID(name))
 end

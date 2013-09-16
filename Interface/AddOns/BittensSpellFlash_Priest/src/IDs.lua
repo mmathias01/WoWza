@@ -17,6 +17,7 @@ a.SpellIDs = {
 --	["Dark Evangelism"] = 87118,
 	["Desperate Prayer"] = 19236,
 	["Devouring Plague"] = 2944,
+	["Dispel Magic"] = 528,
 	["Dispersion"] = 47585,
 	["Divine Insight"] = 123266,
 	["Divine Star"] = 110744,

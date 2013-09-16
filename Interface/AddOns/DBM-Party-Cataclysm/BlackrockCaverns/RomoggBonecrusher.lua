@@ -1,16 +1,16 @@
 local mod	= DBM:NewMod(105, "DBM-Party-Cataclysm", 1, 66)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(39665)
-mod:SetModelID(33147)
 mod:SetZone()
 
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
-	"SPELL_CAST_START"
+	"SPELL_CAST_START",
+	"UNIT_HEALTH"
 )
 
 local warnWoundingStrike	= mod:NewTargetAnnounce(75571, 2)

@@ -19,6 +19,7 @@ local ignoreButtons = {
 	"DroodFocusMinimapButton",
 	"QueueStatusMinimapButton",
 	"TimeManagerClockButton",
+	"MinimapZoneTextButton",
 }
 
 -- list of frames that are ignored when they start with this text
@@ -48,14 +49,20 @@ local whiteList = {
 local moveButtons = {}
 local minimapButtonBarAnchor, minimapButtonBar
 
-local function OnEnter()
-	if not E.private.general.minimapbar.mouseover or E.private.general.minimapbar.skinStyle == 'NOANCHOR' then return end
+local function OnEnter(self)
+	if not E.minimapbuttons.db.mouseover or E.minimapbuttons.db.skinStyle == 'NOANCHOR' then return end
 	UIFrameFadeIn(MinimapButtonBar, 0.2, MinimapButtonBar:GetAlpha(), 1)
+	if self:GetName() ~= 'MinimapButtonBar' then
+		self:SetBackdropBorderColor(.7, .7, 0)
+	end
 end
 
-local function OnLeave()
-	if not E.private.general.minimapbar.mouseover or E.private.general.minimapbar.skinStyle == 'NOANCHOR' then return end
+local function OnLeave(self)
+	if not E.minimapbuttons.db.mouseover or E.minimapbuttons.db.skinStyle == 'NOANCHOR' then return end
 	UIFrameFadeOut(MinimapButtonBar, 0.2, MinimapButtonBar:GetAlpha(), 0)
+	if self:GetName() ~= 'MinimapButtonBar' then
+		self:SetBackdropBorderColor(0, 0, 0)
+	end
 end
 
 function MB:SkinButton(frame)
@@ -102,6 +109,7 @@ function MB:SkinButton(frame)
 			frame.original.Parent = frame:GetParent()
 			frame.original.FrameStrata = frame:GetFrameStrata()
 			frame.original.FrameLevel = frame:GetFrameLevel()
+			frame.original.Scale = frame:GetScale()
 			if frame:HasScript("OnDragStart") then
 				frame.original.DragStart = frame:GetScript("OnDragStart")
 			end
@@ -126,7 +134,7 @@ function MB:SkinButton(frame)
 				end
 			end
 		end
-		frame:SetTemplate("Default")
+		frame:SetTemplate("Tranparent")
 
 		tinsert(moveButtons, name)
 		frame.isSkinned = true
@@ -137,14 +145,14 @@ function MB:UpdateLayout()
 	if not E.minimapbuttons then return end
 	
 	minimapButtonBar:SetPoint("CENTER", minimapButtonBarAnchor, "CENTER", 0, 0)
-	minimapButtonBar:Height(E.private.general.minimapbar.buttonSize + 4)
-	minimapButtonBar:Width(E.private.general.minimapbar.buttonSize + 4)
+	minimapButtonBar:Height(E.minimapbuttons.db.buttonSize + 4)
+	minimapButtonBar:Width(E.minimapbuttons.db.buttonSize + 4)
 
 	local lastFrame, anchor1, anchor2, offsetX, offsetY
 	for i = 1, #moveButtons do
 		local frame =	_G[moveButtons[i]]
 		
-		if E.private.general.minimapbar.skinStyle == 'NOANCHOR' then
+		if E.minimapbuttons.db.skinStyle == 'NOANCHOR' then
 			frame:SetParent(frame.original.Parent)
 			if frame.original.DragStart then
 				frame:SetScript("OnDragStart", frame.original.DragStart)
@@ -158,6 +166,7 @@ function MB:UpdateLayout()
 			frame:SetPoint(frame.original.Point, frame.original.relativeTo, frame.original.relativePoint, frame.original.xOfs, frame.original.yOfs)
 			frame:SetFrameStrata(frame.original.FrameStrata)
 			frame:SetFrameLevel(frame.original.FrameLevel)
+			frame:SetScale(frame.original.Scale)
 			frame:SetMovable(true)
 		else
 			frame:SetParent(minimapButtonBar)
@@ -168,8 +177,8 @@ function MB:UpdateLayout()
 			frame:ClearAllPoints()
 			frame:SetFrameStrata("LOW")
 			frame:SetFrameLevel(20)
-			frame:Size(E.private.general.minimapbar.buttonSize)
-			if E.private.general.minimapbar.skinStyle == 'HORIZONTAL' then
+			frame:Size(E.minimapbuttons.db.buttonSize)
+			if E.minimapbuttons.db.skinStyle == 'HORIZONTAL' then
 				anchor1 = 'RIGHT'
 				anchor2 = 'LEFT'
 				offsetX = -2
@@ -190,21 +199,27 @@ function MB:UpdateLayout()
 		lastFrame = frame	
 	end
 	
-	if E.private.general.minimapbar.skinStyle ~= 'NOANCHOR' and #moveButtons > 0 then
-		if E.private.general.minimapbar.skinStyle == "HORIZONTAL" then
-			minimapButtonBar:Width((E.private.general.minimapbar.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
+	if E.minimapbuttons.db.skinStyle ~= 'NOANCHOR' and #moveButtons > 0 then
+		if E.minimapbuttons.db.skinStyle == "HORIZONTAL" then
+			minimapButtonBar:Width((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
 		else
-			minimapButtonBar:Height((E.private.general.minimapbar.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
+			minimapButtonBar:Height((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
 		end
 		minimapButtonBarAnchor:SetSize(minimapButtonBar:GetSize())
 		minimapButtonBar:Show()
 	else
 		minimapButtonBar:Hide()
-	end	
+	end
+	
+	if E.minimapbuttons.db.backdrop then
+		minimapButtonBar.backdrop:Show()
+	else
+		minimapButtonBar.backdrop:Hide()
+	end
 end
 
 function MB:ChangeMouseOverSetting()
-	if E.private.general.minimapbar.mouseover then
+	if E.minimapbuttons.db.mouseover then
 		minimapButtonBar:SetAlpha(0)
 	else
 		minimapButtonBar:SetAlpha(1)
@@ -228,10 +243,11 @@ end
 
 function MB:CreateFrames()
 	minimapButtonBarAnchor = CreateFrame("Frame", "MinimapButtonBarAnchor", E.UIParent)
+	
 	if E.db.auras.consolidatedBuffs.enable then
-		minimapButtonBarAnchor:Point("TOPRIGHT", ElvConfigToggle, "BOTTOMRIGHT", -2, -2)
+		minimapButtonBarAnchor:Point("TOPRIGHT", ElvConfigToggle, "BOTTOMRIGHT", -1, -2)
 	else
-		minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", -2, -2)		
+		minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", -1, -2)
 	end
 	minimapButtonBarAnchor:Size(200, 32)
 	minimapButtonBarAnchor:SetFrameStrata("BACKGROUND")
@@ -239,22 +255,25 @@ function MB:CreateFrames()
 	E:CreateMover(minimapButtonBarAnchor, "MinimapButtonAnchor", L["Minimap Button Bar"])
 
 	minimapButtonBar = CreateFrame("Frame", "MinimapButtonBar", E.UIParent)
-	minimapButtonBar:SetFrameStrata("BACKGROUND")
-	minimapButtonBar:SetTemplate("Transparent")
-	minimapButtonBar:CreateShadow()
+	minimapButtonBar:SetFrameStrata('LOW')
+	minimapButtonBar:CreateBackdrop('Transparent')
+	minimapButtonBar:ClearAllPoints()
 	minimapButtonBar:SetPoint("CENTER", minimapButtonBarAnchor, "CENTER", 0, 0)
 	minimapButtonBar:SetScript("OnEnter", OnEnter)
 	minimapButtonBar:SetScript("OnLeave", OnLeave)
+
+	minimapButtonBar.backdrop:SetAllPoints()
 
 	self:ChangeMouseOverSetting()
 	self:SkinMinimapButtons()
 end
 
 function MB:Initialize()
-	if not E.private.general.minimapbar.skinButtons then return end
-
 	E.minimapbuttons = MB
-	
+	E.minimapbuttons.db = E.private.general.minimapbar
+
+	if not E.minimapbuttons.db.skinButtons then return end
+
 	self:CreateFrames()
 end
 

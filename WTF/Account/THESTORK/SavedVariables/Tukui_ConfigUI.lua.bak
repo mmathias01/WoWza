@@ -1,0 +1,7 @@
+
+TukuiConfigAll = {
+	["Terenas"] = {
+		["Saphiira"] = false,
+	},
+}
+TukuiConfigPublic = nil

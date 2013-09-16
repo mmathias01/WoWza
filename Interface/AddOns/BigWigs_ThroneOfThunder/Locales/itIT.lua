@@ -38,7 +38,7 @@ end
 L = BigWigs:NewBossLocale("Council of Elders", "itIT")
 if L then
 	L.priestess_adds = "Add Sacerdotessa"
-	L.priestess_adds_desc = "Avviso per tutti i tipi di add della Gran Sacerdotessa Mar'li"
+	L.priestess_adds_desc = "Avvisa quando la Gran Sacerdotessa Mar'li inizia ad evocare un'add"
 	L.priestess_adds_message = "Add Sacerdotessa"
 
 	L.assault_stun = "Difensore Stordito!"
@@ -48,7 +48,7 @@ if L then
 	L.hp_to_go_fullpower = "Punti Vita alla Fine %d%%! (Piena Potenza)"
 
 	L.custom_on_markpossessed = "Evidenzia Boss Posseduto"
-	L.custom_on_markpossessed_desc = "Evidenzia il Boss posseduto con un teschio."
+	L.custom_on_markpossessed_desc = "Evidenzia il Boss posseduto con un teschio richiede capo incursione o assistente."
 end
 
 L = BigWigs:NewBossLocale("Tortos", "itIT")
@@ -58,7 +58,7 @@ if L then
 	L.kick = "Calcio"
 	L.kick_desc = "Tieni il conto di quante tartarughe possono essere prese a calci"
 	L.kick_message = "Tartarughe Calciabili: %d"
-	L.kicked_message = "%s calciata! (%d rimaste)"
+	L.kicked_message = "%s ha calciato! (%d rimaste)"
 
 	L.custom_off_turtlemarker = "Selezionatore Tartarughe"
 	L.custom_off_turtlemarker_desc = "Evidenzia le tartarughe usando tutti i simboli dell'incursione.\n|cFFFF0000Solo una persona dovrebbe abilitare questa opzione per evitare conflitti nella marcatura.|r\n|cFFADFF2FSUGGERIMENTO: Se l'Incursione ha scelto te per abilitare questa opzione, muovere velocemente il mouse sopra le tartarughe è il modo più rapido per marcarle.|r"
@@ -69,11 +69,12 @@ L = BigWigs:NewBossLocale("Megaera", "itIT")
 if L then
 	L.breaths = "Soffi"
 	L.breaths_desc = "Avvisi relativi ad ogni tipo di soffio possibile."
-	L.arcane_adds = "Teste Arcane"
+	L.arcane_adds = "Testa Arcana"
 end
 
 L = BigWigs:NewBossLocale("Ji-Kun", "itIT")
 if L then
+	L.first_lower_hatch_trigger = "Le uova in uno dei nidi inferiori iniziano a schiudersi!"
 	L.lower_hatch_trigger = "Le uova in uno dei nidi inferiori iniziano a schiudersi!"
 	L.upper_hatch_trigger = "Le uova in uno dei nidi superiori iniziano a schiudersi!"
 
@@ -96,7 +97,7 @@ if L then
 	L.yellow_spawn_trigger = "Nebbia d'Ambra" -- "The Bright Light reveals an Amber Fog!"
 
 	L.adds = "Rivela Adds"
-	L.adds_desc = "Avvisa quando rivela una Nebbia Cremisi, d'ambra o Azzurra e quante Nebbie d'Ambra rimangono."
+	L.adds_desc = "Avvisa quando rivela una Nebbia Cremisi, d'Ambra o Azzurra e quante Nebbie rimangono."
 
 	L.custom_off_ray_controllers = "Controllori dei Raggi"
 	L.custom_off_ray_controllers_desc = "Usa le icone di incursione %s%s%s per evidenziare i giocatori che controllano le posizioni dei raggi e il loro movimento."
@@ -137,29 +138,29 @@ if L then
 	L.slam_message = "Urto Esplosivo"
 end
 
-L = BigWigs:NewBossLocale("Iron Qon", "itIT")
+L = BigWigs:NewBossLocale("Iron Qon", "itIT") -- commented out strings not present anymore in this module, keeping translated strings for lazyness; if not useful feel free to delete them
 if L then
 	L.molten_energy = "Energia Fusa"
 
-	L.overload_casting = "Lancio Sovraccarico Fuso"
-	L.overload_casting_desc = "Avvisa quando viene lanciato Sovraccarico Fuso"
+	--L.overload_casting = "Lancio Sovraccarico Fuso"
+	--L.overload_casting_desc = "Avvisa quando viene lanciato Sovraccarico Fuso"
 
 	L.arcing_lightning_cleared = "Fulmine Arcuato non più presente sull'Incursione"
 
-	L.custom_off_spear_target = "Bersaglio Tiro Lancia"
-	L.custom_off_spear_target_desc = "Cerca di avvisare il bersaglio di Tiro Lancia. Questo metodo è molto esigente in quanto all'uso di CPU e a volte mostra il bersaglio errato quindi è disabilitato per default.\n|cFFADFF2FTIP: Impostare il ruolo di DIFENSORE dovrebbe aiutare l'accuratezza dell'avviso.|r"
-	L.possible_spear_target = "Possibile Lancia"
+	--L.custom_off_spear_target = "Bersaglio Tiro Lancia"
+	--L.custom_off_spear_target_desc = "Cerca di avvisare il bersaglio di Tiro Lancia. Questo metodo è molto esigente in quanto all'uso di CPU e a volte mostra il bersaglio errato quindi è disabilitato per default.\n|cFFADFF2FTIP: Impostare il ruolo di DIFENSORE dovrebbe aiutare l'accuratezza dell'avviso.|r"
+	--L.possible_spear_target = "Possibile Lancia"
 end
 
 L = BigWigs:NewBossLocale("Twin Consorts", "itIT")
 if L then
-	L.barrage_fired = "Raffica Lanciata!"
+	L.barrage_fired = "Lancio di Raffica!"
 	L.last_phase_yell_trigger = "Solo per questa volta..." -- "<490.4 01:24:30> CHAT_MSG_MONSTER_YELL#Just this once...#Lu'lin###Suen##0#0##0#3273#nil#0#false#false", -- [6]
 end
 
 L = BigWigs:NewBossLocale("Lei Shen", "itIT")
 if L then
-	L.custom_off_diffused_marker = "Marcatore Fulmine Diffuso Marker"
+	L.custom_off_diffused_marker = "Marcatore Fulmine Diffuso"
 	L.custom_off_diffused_marker_desc = "Marca gli add Fulmine Diffuso usando tutte le icone dell'incursione, richiede capogruppo o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti di marcamento.|r\n|cFFADFF2FTIP: Se l'incursione ha scelto te attivalo, e muovi velocemente il mouse sopra OGNI add per marcarli più velocemente possibile.|r"
 
 	L.stuns = "Disorientamenti"
@@ -192,6 +193,15 @@ if L then
 
 	L.balls = "Sfere"
 	L.balls_desc = "Sfere dell'Anima (rosse) e della Vita (blu), che determinano quali abilità guadagna Ra-den"
+	L.corruptedballs = "Sfere Corrotte"
+	L.corruptedballs_desc = "Sfere Corrotte della Vita e dell'Anima, che aumentano il danno fatto (Vita) o i pf massimi (Anima)"
+	L.unstablevitajumptarget = "Cambio bersaglio Vita Instabile"
+	L.unstablevitajumptarget_desc = "Ti avvisa quando sei il più distante da un giocatore con Vita Instabile. Se enfatizzi questo avviso, attiverai un conto alla rovescia che indica quando Vita Instabile salterà SU DI TE."
+	L.unstablevitajumptarget_message = "Sei il più lontano da Vita Instabile"
+	L.sensitivityfurthestbad = "Sensitività Vita + più lontano = |cffff0000NON BENE|r!"
+	L.kill_trigger = "Fermi!" 
+
+	L.assistPrint = "Un plugin di nome 'BigWigs_Ra-denAssist' è stato rilasciato e reso disponibile per assistenza durante lo scontro con Ra-den che potrebbe interessare alla tua gilda."
 end
 
 L = BigWigs:NewBossLocale("Throne of Thunder Trash", "itIT")

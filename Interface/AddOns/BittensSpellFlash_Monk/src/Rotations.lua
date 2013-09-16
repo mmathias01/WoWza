@@ -6,25 +6,24 @@ local c = BittensGlobalTables.GetTable("BittensSpellFlashLibrary")
 local GetPowerRegen = GetPowerRegen
 local GetTime = GetTime
 local SPELL_POWER_CHI = SPELL_POWER_CHI
+local SPELL_POWER_ENERGY = SPELL_POWER_ENERGY
 local select = select
 local string = string
+local tostring = tostring
 local wipe = wipe
 
 local lastPowerStrike = 0
 
+local function setCost(info)
+	info.Cost[SPELL_POWER_ENERGY] = a.GetEnergyCost(info.Name)
+	info.Cost[SPELL_POWER_CHI] = a.GetChiCost(info.Name)
+end
+
 a.Rotations = { }
 
 function a.PreFlash()
-	local info = c.GetQueuedInfo()
-	if info then
-		info.Cost = a.GetEnergyCost(info.Name) or info.Cost
-	end
 	a.Regen = select(2, GetPowerRegen())
-	a.Power = c.GetPower(a.Regen)
-	
-	if info then
-		info.Cost = a.GetChiCost(info.Name)
-	end
+	a.Power = c.GetPower(a.Regen, SPELL_POWER_ENERGY)
 	a.Chi = c.GetPower(0, SPELL_POWER_CHI)
 	a.MissingChi = s.MaxPower("player", SPELL_POWER_CHI) - a.Chi
 	
@@ -46,13 +45,13 @@ a.Rotations.Noob = {
 	FlashAlways = function()
 		c.FlashAll("Roll")
 	end,
+	
+	CastQueued = setCost,
 }
 
 -------------------------------------------------------------------- Brewmaster
 local uncontrolledMitigationBuffs = {
 	"Diffuse Magic",
-	"Zen Meditation",
-	"Ring of Peace",
 	"Staggering", -- 2pT15
 }
 a.Rotations.Brewmaster = {
@@ -63,39 +62,47 @@ a.Rotations.Brewmaster = {
 	},
 	
 	FlashInCombat = function()
-		a.Trained = s.HasSpell(c.GetID("Brewmaster Training"))
+		a.Trained = c.HasSpell("Brewmaster Training")
 		a.Shuffle = c.GetBuffDuration("Shuffle")
 		if c.IsQueued("Blackout Kick") then
 			a.Shuffle = a.Shuffle + 6
 		end
 		c.FlashAll(
 			"Purifying Brew",
+			"Chi Brew for Brewmaster",
 			"Summon Black Ox Statue", 
 			"Spear Hand Strike", 
 			"Provoke")
 		c.FlashMitigationBuffs(
 			1,
 			uncontrolledMitigationBuffs,
+			c.COMMON_TANKING_BUFFS,
 			"Elusive Brew at 10",
 			"Guard",
 			"Dampen Harm",
 			"Fortifying Brew",
 			"Elusive Brew")
-		if c.AoE then
-			c.PriorityFlash(
-				"Rushing Jade Wind for Brewmaster",
-				"Blackout Kick for Shuffle",
-				"Expel Harm for Brewmaster",
-				"Blackout Kick for AoE",
-				"Keg Smash",
-				"Spinning Crane Kick")
-		elseif c.IsSolo() then
+			
+		if c.AoE and c.PriorityFlash(
+			"Blackout Kick for Shuffle",
+			"Expel Harm for Brewmaster",
+			"Blackout Kick for AoE",
+			"Keg Smash",
+			"Breath of Fire",
+			"Rushing Jade Wind",
+			"Spinning Crane Kick") then
+			
+			return
+		end
+		
+		if c.InDamageMode() then
 			c.PriorityFlash(
 				"Touch of Death",
 				"Chi Wave",
 				"Keg Smash",
 				"Chi Burst",
 				"Tiger Palm for Tiger Power",
+				"Breath of Fire for DoT",
 				"Blackout Kick",
 				"Expel Harm for Brewmaster",
 				"Jab for Brewmaster",
@@ -121,6 +128,8 @@ a.Rotations.Brewmaster = {
 		c.FlashAll("Stance of the Sturdy Ox", "Legacy of the Emperor", "Roll")
 	end,
 	
+	CastQueued = setCost,
+	
 	ExtraDebugInfo = function()
 		return string.format("c:%d e:%.1f s:%.1f b:%.1f", 
 			a.Chi, a.Power, a.Shuffle, c.GetBusyTime())
@@ -130,6 +139,7 @@ a.Rotations.Brewmaster = {
 -------------------------------------------------------------------- Mistweaver
 a.Rotations.Mistweaver = {
 	Spec = 2,
+	AoEColor = "orange",
 	
 	UsefulStats = { "Intellect", "Spirit", "Crit", "Haste" },
 	
@@ -142,20 +152,38 @@ a.Rotations.Mistweaver = {
 		
 		c.FlashAll(
 			"Spear Hand Strike", 
+			"Chi Brew for Mistweaver",
 			"Mana Tea", 
 			"Enveloping Mist",
 			"Surging Mist", 
 			"Uplift",
 			"Summon Jade Serpent Statue")
-		if s.HasSpell(c.GetID("Muscle Memory"))
-			and (s.PowerPercent("player") > c.GetOption("MeleeCutoff")
-				or c.HasBuff("Muscle Memory")) then
 			
+		if not c.HasSpell("Muscle Memory") then
+			return
+		end
+		
+		if c.IsCasting("Tiger Palm", "Blackout Kick") then
+			a.MuscleMemory = false
+		elseif c.IsCasting(
+			"Jab", "Spinning Crane Kick", "Rushing Jade Wind") then
+			
+			a.MuscleMemory = true
+		else
+			a.MuscleMemory = c.HasBuff("Muscle Memory")
+		end
+		if a.MuscleMemory
+			or s.PowerPercent("player") > c.GetOption("MeleeCutoff")
+			or c.IsSolo() then
+		
 			c.PriorityFlash(
 				"Touch of Death for Mistweaver",
 				"Blackout Kick for Serpent's Zeal",
+				"Chi Wave for Mistweaver",
 				"Expel Harm for Mistweaver",
 				"Tiger Palm for Mistweaver",
+				"Rushing Jade Wind for Mistweaver",
+				"Spinning Crane Kick for Mistweaver",
 				"Jab for Mistweaver",
 				"Crackling Jade Lightning")
 		end
@@ -167,6 +195,7 @@ a.Rotations.Mistweaver = {
 	end,
 	
 	CastQueued = function(info)
+		setCost(info)
 		if c.InfoMatches(info, "Soothing Mist") then
 			a.SoothTarget = info.Target
 			c.Debug("Event", "Soothing Mist cast at", a.SoothTarget)
@@ -174,8 +203,11 @@ a.Rotations.Mistweaver = {
 	end,
 	
 	ExtraDebugInfo = function()
-		return string.format("%d, %s, %.1f", 
-			a.Chi, a.SoothTarget or "none", a.SoothDamage or 0)
+		return string.format("c:%d m:%s s:%s d:%.1f", 
+			a.Chi, 
+			tostring(a.MuscleMemory),
+			a.SoothTarget or "none", 
+			a.SoothDamage or 0)
 	end,
 }
 
@@ -195,11 +227,12 @@ a.Rotations.Windwalker = {
 		c.FlashAll(
 			"Storm, Earth, and Fire",
 			"Tigereye Brew", 
-			"Chi Brew",
+			"Chi Brew for Windwalker",
 			"Energizing Brew", 
 			"Spear Hand Strike")
+		
 		if c.AoE then
-			c.PriorityFlash(
+			local flashing = c.PriorityFlash(
 				"Rising Sun Kick for Debuff",
 				"Tiger Palm for Tiger Power",
 				"Invoke Xuen, the White Tiger",
@@ -209,25 +242,28 @@ a.Rotations.Windwalker = {
 				"Chi Wave",
 				"Zen Sphere",
 				"Chi Burst")
-		else
-			c.PriorityFlash(
-				"Touch of Death",
-				"Rising Sun Kick for Debuff",
-				"Tiger Palm for Tiger Power",
-				"Invoke Xuen, the White Tiger",
-				"Rising Sun Kick",
-				"Fists of Fury",
-				"Blackout Kick under Combo Breaker",
-				"Chi Wave for Windwalker",
-				"Tiger Palm under Combo Breaker",
-				"Expel Harm for Windwalker",
-				"Jab for Windwalker",
-				"Blackout Kick without blocking RSK",
-				"Chi Wave",
-				"Chi Burst",
-				"Flying Serpent Kick 1",
-				"Zen Sphere")
+			if flashing and not c.GetSpell(flashing).Continue then
+				return
+			end
 		end
+		
+		c.PriorityFlash(
+			"Touch of Death",
+			"Rising Sun Kick for Debuff",
+			"Tiger Palm for Tiger Power",
+			"Invoke Xuen, the White Tiger",
+			"Rising Sun Kick",
+			"Fists of Fury",
+			"Blackout Kick under Combo Breaker",
+			"Chi Wave for Windwalker",
+			"Tiger Palm under Combo Breaker",
+			"Expel Harm for Windwalker",
+			"Jab for Windwalker",
+			"Blackout Kick without blocking RSK",
+			"Chi Wave",
+			"Chi Burst",
+			"Flying Serpent Kick 1",
+			"Zen Sphere")
 	end,
 	
 	FlashAlways = function()
@@ -238,35 +274,23 @@ a.Rotations.Windwalker = {
 			"Roll")
 	end,
 	
+	CastQueued = setCost,
+	
 	CastSucceeded = function(info)
-		if c.InfoMatches(info, "Storm, Earth, and Fire") then
+		if info.TargetID and c.InfoMatches(info, "Storm, Earth, and Fire") then
 			a.SefTargets[info.TargetID] = true
 			c.Debug("Event", 
 				"Storm, Earth, and Fire on", info.Target, info.TargetID)
 		end
 	end,
 	
-	CastFailed = function(info)
-		if c.InfoMatches(info, "Storm, Earth, and Fire") then
-			a.SefTargets[info.TargetID] = true
+	UncastSpellFailed = function(info)
+		if info.TargetID and c.InfoMatches(info, "Storm, Earth, and Fire") then
+			a.SefTargets[info.TargetID] = nil
 			c.Debug("Event", 
 				"Storm, Earth, and Fire removed from", 
 				info.Target, 
 				info.TargetID)
-		end
-	end,
-	
-	AuraApplied = function(spellID)
-		if c.IdMatches(spellID, "Tigereye Brew") then
-			local syncBuff = c.GetOption("TigerSyncBuff")
-			if string.len(syncBuff) == 0 then
-				a.BrewIsBuffed = false
-			else
-				a.BrewIsBuffed = s.Buff(syncBuff, "player")
-				c.Debug("Event", 
-					"Tigereye Brew is buffed with", syncBuff, ":", 
-					a.BrewIsBuffed)
-			end
 		end
 	end,
 	

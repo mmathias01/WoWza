@@ -81,6 +81,7 @@ local acOptions = {
 			name = L["Customize ..."],
 			func = function()
 				InterfaceOptionsFrame_OpenToCategory(L["Customize ..."])
+				InterfaceOptionsFrame_OpenToCategory(L["Customize ..."])
 			end,
 			order = 11.5,
 		},
@@ -119,14 +120,13 @@ local acOptions = {
 			name = L["Sound"],
 			desc = L.soundDesc,
 			order = 21,
-			width = "full",
+			width = "half",
 		},
 		flash = {
 			type = "toggle",
 			name = L["Flash Screen"],
 			desc = L.flashDesc,
 			order = 22,
-			width = "full",
 		},
 		raidicon = {
 			type = "toggle",
@@ -141,7 +141,6 @@ local acOptions = {
 				plugin:Enable()
 			end,
 			order = 24,
-			width = "full",
 		},
 		chat = {
 			type = "toggle",
@@ -171,6 +170,13 @@ local acOptions = {
 				plugin:Enable()
 			end,
 			order = 31,
+			width = "full",
+		},
+		showZoneMessages = {
+			type = "toggle",
+			name = L.zoneMessages,
+			desc = L.zoneMessagesDesc,
+			order = 32,
 			width = "full",
 		},
 		blockmovies = {
@@ -293,7 +299,9 @@ local function findPanel(name, parent)
 end
 
 function options:OnInitialize()
-	BigWigsLoader:RemoveInterfaceOptions()
+	if BigWigsLoader.RemoveInterfaceOptions then
+		BigWigsLoader:RemoveInterfaceOptions()
+	end
 
 	ac:RegisterOptionsTable("BigWigs", acOptions)
 	local mainOpts = acd:AddToBlizOptions("BigWigs", "Big Wigs")
@@ -415,9 +423,11 @@ function options:Open()
 			local menu = translateZoneID(module.otherMenu) or translateZoneID(module.zoneId)
 			if not menu then return end
 			InterfaceOptionsFrame_OpenToCategory(self:GetZonePanel(module.otherMenu or module.zoneId))
+			InterfaceOptionsFrame_OpenToCategory(self:GetZonePanel(module.otherMenu or module.zoneId))
 		end
 	end
 	if not InterfaceOptionsFrame:IsShown() then
+		InterfaceOptionsFrame_OpenToCategory("Big Wigs")
 		InterfaceOptionsFrame_OpenToCategory("Big Wigs")
 	end
 end
@@ -868,103 +878,118 @@ local function populateToggleOptions(widget, module)
 		scrollFrame:AddChild(statGroup)
 
 		local statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText("")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.norm25)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.heroic25)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.norm10)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.heroic10)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.lfr)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
+		statistics:SetWidth(78)
+		statistics:SetText(L.flex)
+		statGroup:AddChild(statistics)
+
+		statistics = AceGUI:Create("Label")
 		statistics:SetFullWidth(true)
 		statistics:SetText("")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.wipes)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25"] and sDB["25"].wipes or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25h"] and sDB["25h"].wipes or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10"] and sDB["10"].wipes or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10h"] and sDB["10h"].wipes or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB.lfr and sDB.lfr.wipes or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
+		statistics:SetWidth(78)
+		statistics:SetText(sDB.flex and sDB.flex.wipes or "-")
+		statGroup:AddChild(statistics)
+
+		statistics = AceGUI:Create("Label")
 		statistics:SetFullWidth(true)
 		statistics:SetText("")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.kills)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25"] and sDB["25"].kills or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25h"] and sDB["25h"].kills or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10"] and sDB["10"].kills or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10h"] and sDB["10h"].kills or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB.lfr and sDB.lfr.kills or "-")
+		statGroup:AddChild(statistics)
+
+		statistics = AceGUI:Create("Label")
+		statistics:SetWidth(78)
+		statistics:SetText(sDB.flex and sDB.flex.kills or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
@@ -973,33 +998,38 @@ local function populateToggleOptions(widget, module)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(L.bestkill)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25"] and sDB["25"].best and SecondsToTime(sDB["25"].best) or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["25h"] and sDB["25h"].best and SecondsToTime(sDB["25h"].best) or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10"] and sDB["10"].best and SecondsToTime(sDB["10"].best) or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB["10h"] and sDB["10h"].best and SecondsToTime(sDB["10h"].best) or "-")
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")
-		statistics:SetWidth(90)
+		statistics:SetWidth(78)
 		statistics:SetText(sDB.lfr and sDB.lfr.best and SecondsToTime(sDB.lfr.best) or "-")
+		statGroup:AddChild(statistics)
+
+		statistics = AceGUI:Create("Label")
+		statistics:SetWidth(78)
+		statistics:SetText(sDB.flex and sDB.flex.best and SecondsToTime(sDB.flex.best) or "-")
 		statGroup:AddChild(statistics)
 		-- End statistics table
 	end
@@ -1169,7 +1199,10 @@ do
 					-- if we were collapsed.
 					-- So now we need to select the first zone.
 					p = findPanel(nil, self.name)
-					if p then InterfaceOptionsFrame_OpenToCategory(p.element.name) end
+					if p then
+						InterfaceOptionsFrame_OpenToCategory(p.element.name)
+						InterfaceOptionsFrame_OpenToCategory(p.element.name)
+					end
 				end)
 			end
 
@@ -1181,7 +1214,7 @@ do
 
 	function options:GetZonePanel(zoneId)
 		local zoneName = translateZoneID(zoneId)
-		local parent = BigWigsLoader.zoneList[zoneId] and addonNameToHeader[BigWigsLoader.zoneList[zoneId]] or addonNameToHeader.BigWigs_MistsOfPandaria
+		local parent = BigWigsLoader.zoneTbl[zoneId] and addonNameToHeader[BigWigsLoader.zoneTbl[zoneId]] or addonNameToHeader.BigWigs_MistsOfPandaria
 		local panel, created = self:GetPanel(zoneName, parent, zoneId)
 		if created then
 			panel:SetScript("OnShow", onZoneShow)

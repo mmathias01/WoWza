@@ -1,5 +1,5 @@
 local major = 2
-local minor = 5
+local minor = 7
 
 local oldlib = LibStub("LibGoingPrice-"..major,true)
 
@@ -82,16 +82,29 @@ end
 
 function lib:DisplaySourceTitle(tooltip,id)
 
-	local pd = _G[self._name.."_PullDateCb"]
-	local sv = _G[self._name.."_SV"]
-	local data = _G[self._name.."_Data"]
+	local addonName = self._name
+
+	local pd = _G[addonName.."_PullDateCb"]
+	local sv = _G[addonName.."_SV"]
+	local data = _G[addonName.."_Data"]
+
+	local title = GetAddOnMetadata(self._name,"Title");
+
+	local addonBaseName,region,realm = strsplit("_",addonName)
+
+	if not realm then
+    	title = region
+	else
+    	title = title:gsub("^"..addonBaseName.." "..region.." ","",1)
+		title = title.." ("..region..")"
+	end
 
 	if pd:GetChecked() and sv._pullDate.keep then
 		local lr,lg,lb = unpack(sv._base.settings.sourceTitleColor)
 		local rr,rg,rb = unpack(sv._base.settings.pullDateColor)
 		value = data[id][#data[id]]
 		lib_tt:AddDoubleLine(tooltip,
-			self._source,"("..date("%b %d, %Y %I:%M %p",value)..")",lr,lg,lb,rr,rg,rb)
+			title,"("..date("%b %d, %Y %I:%M %p",value)..")",lr,lg,lb,rr,rg,rb)
 	else
 		local r,g,b = unpack(sv._base.settings.sourceTitleColor)
 		lib_tt:AddLine(tooltip,self._source,r,g,b)

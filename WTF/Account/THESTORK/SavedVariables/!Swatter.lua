@@ -1,0 +1,2 @@
+
+SwatterData = nil

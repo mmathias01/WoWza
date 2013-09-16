@@ -1,7 +1,7 @@
 local g = BittensGlobalTables
 local c = g.GetTable("BittensSpellFlashLibrary")
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "SlashCommands", 5) then
+if u.SkipOrUpgrade(c, "SlashCommands", 6) then
 	return
 end
 
@@ -90,3 +90,17 @@ function c.ToggleAlwaysShowBlizHighlights()
 end
 
 regCommand("blizprocs", c.ToggleAlwaysShowBlizHighlights)
+
+--------------------------------------------------------- Damage Mode in Groups
+function c.InDamageMode()
+	return c.IsSolo() 
+		and c.GetHealthPercent("player") > 50 
+		or c.DamageModeInGroups
+end
+
+function c.ToggleDamageModeInGroups()
+	c.DamageModeInGroups = not c.DamageModeInGroups
+	libPrint("Damage Mode in Groups:", c.DamageModeInGroups)
+end
+
+regCommand("damage", c.ToggleDamageModeInGroups)

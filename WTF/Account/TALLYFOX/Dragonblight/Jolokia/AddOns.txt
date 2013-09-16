@@ -135,3 +135,4 @@ Auc-ScanData: disabled
 Auc-Filter-Basic: disabled
 Stubby: disabled
 ElvUI_CustomXP: disabled
+CoolLine: disabled

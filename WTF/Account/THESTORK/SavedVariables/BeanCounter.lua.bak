@@ -1,0 +1,51 @@
+
+BeanCounterDB = {
+	["Terenas"] = {
+		["Saphiira"] = {
+			["vendorsell"] = {
+			},
+			["postedBids"] = {
+			},
+			["postedAuctions"] = {
+			},
+			["completedBidsBuyoutsNeutral"] = {
+			},
+			["vendorbuy"] = {
+			},
+			["failedAuctions"] = {
+			},
+			["failedBidsNeutral"] = {
+			},
+			["failedBids"] = {
+			},
+			["completedAuctions"] = {
+			},
+			["failedAuctionsNeutral"] = {
+			},
+			["completedAuctionsNeutral"] = {
+			},
+			["completedBidsBuyouts"] = {
+			},
+		},
+	},
+}
+BeanCounterDBSettings = {
+	["configator.left"] = 560.0000610351563,
+	["configator.top"] = 764.9999389648438,
+	["Terenas"] = {
+		["Saphiira"] = {
+			["tasks.sortArray"] = 1373457398,
+			["version"] = 3.03,
+			["faction"] = "Alliance",
+			["tasks.compactDB"] = 1373457398,
+			["wealth"] = 99994293,
+			["tasks.prunePostedDB"] = 1373457398,
+			["mailbox"] = {
+			},
+		},
+	},
+	["util.beancounter.ButtonuseDateCheck"] = false,
+}
+BeanCounterDBNames = {
+}
+BeanCounterAccountDB = nil

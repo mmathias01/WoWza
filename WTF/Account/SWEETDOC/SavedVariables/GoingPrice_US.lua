@@ -13,7 +13,7 @@ GoingPrice_US_SV = {
 				0, -- [3]
 			},
 			["modifier"] = 4,
-			["date"] = 1369634382,
+			["date"] = 1374306447,
 			["statisticColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -49,7 +49,7 @@ GoingPrice_US_SV = {
 		["next"] = "Std Deviation",
 	},
 	["_lib_major_version"] = 2,
-	["_lib_minor_version"] = 5,
+	["_lib_minor_version"] = 7,
 	["_lastKey"] = "Buy From Vendor",
 	["Buy From Vendor"] = {
 		["keep"] = true,

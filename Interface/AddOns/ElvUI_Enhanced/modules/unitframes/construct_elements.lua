@@ -115,11 +115,13 @@ end
 function UF:EnhanceUpdateRoleIcon()
 	local frame
 	for i=1, 5 do
-		UF:UpdateRoleIconFrame(_G[("ElvUF_PartyUnitButton%d"):format(i)])
+		UF:UpdateRoleIconFrame(_G[("ElvUF_PartyGroup1UnitButton%d"):format(i)])
 	end
 	for r=10,40,15 do
-		for i=1, r do
-			UF:UpdateRoleIconFrame(_G[("ElvUF_Raid%dUnitButton%i"):format(r, i)])
+		for i=1, (r/5) do
+			for j=1, 5 do
+				UF:UpdateRoleIconFrame(_G[("ElvUF_Raid%dGroup%dUnitButton%i"):format(r, i, j)])
+			end
 		end
 	end
 	
@@ -132,7 +134,11 @@ function UF:UpdateRoleIconFrame(frame)
 	frame:UnregisterEvent("UNIT_CONNECTION")
 	frame:RegisterEvent("UNIT_CONNECTION", UF.UpdateRoleIconEnhanced)
 	
-	frame.LFDRole.Override = UF.UpdateRoleIconEnhanced	
+	frame.LFDRole.Override = UF.UpdateRoleIconEnhanced
+	
+	if E.db.unitframe.hideroleincombat then
+		RegisterStateDriver(frame.LFDRole:GetParent(), 'visibility', '[combat]hide;show')
+	end
 end
 
 function UF:ApplyUnitFrameEnhancements()
@@ -146,9 +152,8 @@ end
 local CF = CreateFrame('Frame')
 CF:RegisterEvent("PLAYER_ENTERING_WORLD")
 CF:SetScript("OnEvent", function(self, event)
+	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 	if not E.private["unitframe"].enable then return end
 
 	UF:ScheduleTimer("ApplyUnitFrameEnhancements", 5)
-	
-	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 end)

@@ -1,0 +1,14 @@
+
+TradeSkillMaster_CraftingDB = {
+	["profileKeys"] = {
+		["Shenlu - Dragonblight"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["tradeSkills"] = {
+				["Shenlu"] = {
+				},
+			},
+		},
+	},
+}

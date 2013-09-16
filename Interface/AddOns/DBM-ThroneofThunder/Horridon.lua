@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(819, "DBM-ThroneofThunder", nil, 362)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9578 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10106 $"):sub(12, -3))
 mod:SetCreatureID(68476)
-mod:SetQuestID(32745)
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6, 5, 4, 3, 1)
 
@@ -146,15 +145,15 @@ end
 
 mod:RegisterOnUpdateHandler(function(self)
 	if hasHighestVersion and not (iconsSet == addsJumped) then
-		for i = 1, DBM:GetNumGroupMembers() do
-			local uId = "raid"..i.."target"
-			local guid = UnitGUID(uId)
+		for uId in DBM:GetGroupMembers() do
+			local unitid = uId.."target"
+			local guid = UnitGUID(unitid)
 			local cid = self:GetCIDFromGUID(guid)
 			if not adds[guid] and balcMobs[cid] then
 				if cid == 69221 then--Dinomancer always skull
-					SetRaidTarget(uId, 8)
+					SetRaidTarget(unitid, 8)
 				else
-					SetRaidTarget(uId, AddIcon)
+					SetRaidTarget(unitid, AddIcon)
 					AddIcon = AddIcon - 1
 				end
 				iconsSet = iconsSet + 1
@@ -275,13 +274,13 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
-	if spellId == 136723 and destGUID == UnitGUID("player") and self:AntiSpam(3, 3) then
+	if spellId == 136723 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnSandTrap:Show()
-	elseif spellId == 136646 and destGUID == UnitGUID("player") and self:AntiSpam(3, 3) then
+	elseif spellId == 136646 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnLivingPoison:Show()
-	elseif spellId == 136573 and destGUID == UnitGUID("player") and self:AntiSpam(3, 3) then
+	elseif spellId == 136573 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnFrozenBolt:Show()
-	elseif spellId == 136490 and destGUID == UnitGUID("player") and self:AntiSpam(3, 3) then
+	elseif spellId == 136490 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnLightningNova:Show()
 	end
 end
@@ -329,7 +328,9 @@ function mod:UNIT_DIED(args)
 	end
 end
 
-function mod:OnSync(msg, target)
+function mod:OnSync(msg, targetOrGuid, ver)
+	local target = targetOrGuid
+	local guid = targetOrGuid
 	if msg == "ChargeTo" and target then
 		local target = DBM:GetFullNameByShortName(target)
 		warnCharge:Show(target)
@@ -342,7 +343,7 @@ function mod:OnSync(msg, target)
 		if UnitExists(target) and self.Options.SetIconOnCharge then
 			self:SetIcon(target, 1, 5)--star
 		end
-	elseif msg == "Door" and self:AntiSpam(60, 4) then--prevent bad doorNumber increase if very late sync received.
+	elseif msg == "Door" and self:AntiSpam(15, 3) then--prevent bad doorNumber increase if very late sync received. (60 too high, breaks first door warnings after a quick wipe recovery since antispam carries over from previous pull)
 	--Doors spawn every 131.5 seconds
 	--Halfway through it (literlaly exact center) Dinomancers spawn at 56.75
 	--Then, before the dinomancer, lesser adds spawn twice splitting that timer into 3rds
@@ -385,19 +386,20 @@ function mod:OnSync(msg, target)
 			end
 		end
 	elseif msg == "IconCheck" and guid and ver then
-		if tonumber(ver) > highestVersion then
-			highestVersion = tonumber(ver)--Keep bumping highest version to highest we recieve from the icon setters
+		ver = tonumber(ver) or 0
+		if ver > highestVersion then
+			highestVersion = ver--Keep bumping highest version to highest we recieve from the icon setters
 			if guid == UnitGUID("player") then--Check if that highest version was from ourself
 				hasHighestVersion = true
-				self:Unschedule(FindFastestHighestVersion)
-				self:Schedule(5, FindFastestHighestVersion)
+				self:Unschedule(self.SendSync)
+				self:Schedule(5, self.SendSync, self, "FastestPerson", UnitGUID("player"))
 			else--Not from self, it means someone with a higher version than us probably sent it
-				self:Unschedule(FindFastestHighestVersion)
+				self:Unschedule(self.SendSync)
 				hasHighestVersion = false
 			end
 		end
-	elseif msg == "FastestPerson" and guid and self:AntiSpam(10, 4) then--Whoever sends this sync first wins all. They have highest version and fastest computer
-		self:Unschedule(FindFastestHighestVersion)
+	elseif msg == "FastestPerson" and guid and self:AntiSpam(10, 1) then--Whoever sends this sync first wins all. They have highest version and fastest computer
+		self:Unschedule(self.SendSync)
 		if guid == UnitGUID("player") then
 			hasHighestVersion = true
 		else

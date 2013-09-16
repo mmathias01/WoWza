@@ -1,17 +1,20 @@
-local E, L, V, P, G, _ = unpack(ElvUI)
-local AS = E:GetModule('AddOnSkins')
-local S = E:GetModule('Skins')
+local AS = ElvUI[1]:GetModule('AddOnSkins')
 
 local name = "BPTSkin"
 function AS:SkinBPT()
-	if select(2, UnitClass("player")) ~= "DRUID" then return end
+	if AS.MyClass ~= "DRUID" then return end
 	BalancePowerTracker_Options.global.enabled = true
 	BalancePowerTracker.CheckAll()
-	BalancePowerTracker_Eclipse_Bar_Frame:SetTemplate("Transparent")
-	BalancePowerTracker_SolarEclipseIcon:SetTemplate(Transparent)
-	BalancePowerTracker_LunarEclipseIcon:SetTemplate(Transparent)
-	
-	hooksecurefunc(BalancePowerTracker.modules.eclipse_bar,"ReDraw", function() BalancePowerTracker_Eclipse_Bar_Frame:SetTemplate("Transparent") end)
+	AS:SkinFrame(BalancePowerTracker_Eclipse_Bar_Frame, false, true)
+	AS:SkinFrame(BalancePowerTracker_SolarEclipseIcon, false, true)
+	AS:SkinFrame(BalancePowerTracker_LunarEclipseIcon, false, true)
+	hooksecurefunc(BalancePowerTracker.modules.eclipse_bar, "ReDraw", function() 
+		AS:SkinFrame(BalancePowerTracker_Eclipse_Bar_Frame, false, true)
+		AS:SkinFrame(BalancePowerTracker_SolarEclipseIcon, false, true)
+		AS:SkinFrame(BalancePowerTracker_LunarEclipseIcon, false, true)
+		BalancePowerTracker_Eclipse_Bar_Frame:SetTemplate("Transparent")
+	end)
+	BalancePowerTracker.modules.eclipse_bar:ReDraw()
 end
 
 AS:RegisterSkin(name, AS.SkinBPT)

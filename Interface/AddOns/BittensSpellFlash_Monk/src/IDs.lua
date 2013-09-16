@@ -11,6 +11,7 @@ a.SpellIDs = {
 	["Chi Brew"] = 115399,
 	["Chi Burst"] = 123986,
 	["Chi Sphere"] = 121283,
+	["Chi Torpedo"] = 115008,
 	["Chi Wave"] = 115098,
 	["Combo Breaker: Blackout Kick"] = 116768,
 	["Combo Breaker: Tiger Palm"] = 118864,
@@ -46,7 +47,6 @@ a.SpellIDs = {
 	["Provoke"] = 115546,
 	["Purifying Brew"] = 119582,
 	["Renewing Mist"] = 115151,
-	["Ring of Peace"] = 116844,
 	["Rising Sun Kick"] = 107428,
 	["Roll"] = 109132,
 	["Rushing Jade Wind"] = 116847,
@@ -69,7 +69,6 @@ a.SpellIDs = {
 	["Touch of Death"] = 115080,
 	["Uplift"] = 116670,
 	["Vital Mists"] = 118674,
-	["Zen Meditation"] = 115176,
 	["Zen Sphere"] = 124081,
 	
 	-- Items

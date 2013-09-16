@@ -1,0 +1,21 @@
+------------------------------------------------------------------------
+r27 | stassart | 2013-09-11 06:16:45 +0000 (Wed, 11 Sep 2013) | 1 line
+Changed paths:
+   M /trunk/GridStatusRD_MoP.toc
+   M /trunk/SiegeofOrgrimmar.lua
+
+Fixed zoneid (MapID) for Siege of Orgrimmar for 5.4 live.
+------------------------------------------------------------------------
+r26 | sithempress | 2013-08-13 22:53:39 +0000 (Tue, 13 Aug 2013) | 1 line
+Changed paths:
+   M /trunk/GridStatusRD_MoP.toc
+   A /trunk/SiegeofOrgrimmar.lua
+
+Siege of Orgrimmar added with all normal mode spells and most of the heroic spells up through 8/13 testing. 
+------------------------------------------------------------------------
+r25 | sithempress | 2013-06-26 14:13:26 +0000 (Wed, 26 Jun 2013) | 1 line
+Changed paths:
+   M /trunk/ThroneofThunder.lua
+
+Updated to include the 2 Raden debuffs.
+------------------------------------------------------------------------

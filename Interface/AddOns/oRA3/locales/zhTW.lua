@@ -28,7 +28,8 @@ L.slashCommands = [[
 oRA3誇示/指令範圍來幫助你在快節奏的團隊中。假如你不再徘迴在舊的CTRA日子，這裡有一些參考。所有/指令有各種速記也有長的，為了方便，更多描述在某些情況會被取代。
 
 |cff44ff44/radur|r - 開啟耐久度列表。
-|cff44ff44/ralag|r - Opens the latency list.
+|cff44ff44/ragear|r - 開啟裝備檢查列表。
+|cff44ff44/ralag|r - 開始延遲列表。
 |cff44ff44/razone|r - 開啟區域列表。
 |cff44ff44/radisband|r - 立刻解散團隊，不經過確認。
 |cff44ff44/raready|r - 執行準備確認。
@@ -80,6 +81,7 @@ L["Invite zone"] = "區域邀請"
 L["Invite everyone in your guild who are in the same zone as you."] = "邀請在相同區域的公會成員。"
 L["Guild rank invites"] = "階級邀請"
 L["Clicking any of the buttons below will invite anyone of the selected rank AND HIGHER to your group. So clicking the 3rd button will invite anyone of rank 1, 2 or 3, for example. It will first post a message in either guild or officer chat and give your guild members 10 seconds to leave their groups before doing the actual invites."] = "自動邀請階級高於等於所選等級的公會成員，按下該按鈕會自動在公會和幹部頻道發送要求10秒內離隊待組的消息，10秒後自動開始組人。"
+L["Only invite on keyword if in a raid group"] = true
 
 -- Promote module
 L["Demote everyone"] = "降級所有人"
@@ -116,6 +118,7 @@ L["Toggle whether the cooldown display should never show your own cooldowns. For
 L["Cooldowns"] = "冷卻"
 L["Right-Click me for options!"] = "右鍵點擊設定"
 L["Bar Settings"] = "計時條設定"
+L["Text Settings"] = true
 L["Spawn test bar"] = "顯示測試計時條"
 L["Use class color"] = "使用職業顏色"
 L["Custom color"] = "自訂顏色"
@@ -128,10 +131,14 @@ L["Duration"] = "時間"
 L["Unit name"] = "名字"
 L["Spell name"] = "技能"
 L["Short Spell name"] = "技能縮寫"
+L["Label Font"] = true
+L["Label Font Size"] = true
 L["Label Align"] = "標記對齊"
 L["Left"] = "左"
 L["Right"] = "右"
 L["Center"] = "中"
+L["Duration Font"] = true
+L["Duration Font Size"] = true
 L["Grow up"] = "向上遞增"
 
 -- Zone module
@@ -159,7 +166,13 @@ L["Show"] = "顯示"
 L.showButtonHelp = "在你個人的坦克排列中顯示這個坦克. 此項只對本地有效, 不會影響團隊中其他人的配置"
 
 -- Latency Module
-L["Latency"] = true
-L["Home"] = true
-L["World"] = true
+L["Latency"] = "延遲"
+L["Home"] = "家"
+L["World"] = "世界"
+
+-- Gear Module
+L["Gear"] = "裝備"
+L["Item Level"] = "物品等級"
+L["Missing Gems"] = "缺少寶石"
+L["Missing Enchants"] = "缺少附魔"
 

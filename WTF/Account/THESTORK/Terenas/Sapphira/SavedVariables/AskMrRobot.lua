@@ -1,0 +1,106 @@
+
+AmrBagItems = nil
+AmrBankItems = {
+	"|cffffffff|Hitem:27854:0:0:0:0:0:0:0:61:0:0|h[Smoked Talbuk Venison]|h|r", -- [1]
+	"|cffffffff|Hitem:27854:0:0:0:0:0:0:0:61:0:0|h[Smoked Talbuk Venison]|h|r", -- [2]
+	"|cff0070dd|Hitem:16207:0:0:0:0:0:0:1551395712:61:0:0|h[Runed Arcanite Rod]|h|r", -- [3]
+	"|cffffffff|Hitem:28501:0:0:0:0:0:0:1147903992:61:0:0|h[Ravager Egg Omelet]|h|r", -- [4]
+	"|cffffffff|Hitem:22723:0:0:0:0:0:0:1454250647:61:0:0|h[A Letter from the Keeper of the Rolls]|h|r", -- [5]
+	"|cffffffff|Hitem:27674:0:0:0:0:0:0:2022935794:61:0:0|h[Ravager Flesh]|h|r", -- [6]
+	"|cff9d9d9d|Hitem:23355:0:0:0:0:0:0:181647814:61:0:0|h[Toxic Helboar Meat]|h|r", -- [7]
+	"|cff1eff00|Hitem:12336:0:0:0:0:0:0:0:61:0:0|h[Gemstone of Spirestone]|h|r", -- [8]
+	"|cff0070dd|Hitem:9240:0:0:0:0:0:0:567970624:61:0:0|h[Mallet of Zul'Farrak]|h|r", -- [9]
+	"|cffffffff|Hitem:12219:0:0:0:0:0:0:0:61:0:0|h[Unadorned Seal of Ascension]|h|r", -- [10]
+	"|cff0070dd|Hitem:8632:0:0:0:0:0:0:0:61:0:0|h[Reins of the Spotted Frostsaber]|h|r", -- [11]
+	"|cffffffff|Hitem:12840:0:0:0:0:0:0:0:61:0:0|h[Minion's Scourgestone]|h|r", -- [12]
+	"|cff1eff00|Hitem:12844:0:0:0:0:0:0:2135395668:61:0:0|h[Argent Dawn Valor Token]|h|r", -- [13]
+	"|cffffffff|Hitem:12841:0:0:0:0:0:0:0:61:0:0|h[Invader's Scourgestone]|h|r", -- [14]
+	"|cff0070dd|Hitem:12065:0:0:0:0:0:0:1881108352:61:0:0|h[Ward of the Elements]|h|r", -- [15]
+	"|cff1eff00|Hitem:18150:0:0:0:0:0:0:765155200:61:0:0|h[Rune of Recall]|h|r", -- [16]
+	"|cffffffff|Hitem:4306:0:0:0:0:0:0:1847833352:61:0:0|h[Silk Cloth]|h|r", -- [17]
+	"|cff0070dd|Hitem:11130:0:0:0:0:0:0:266675984:61:0:0|h[Runed Golden Rod]|h|r", -- [18]
+	"|cff0070dd|Hitem:11145:0:0:0:0:0:0:1066686144:61:0:0|h[Runed Truesilver Rod]|h|r", -- [19]
+	"|cffffffff|Hitem:2589:0:0:0:0:0:0:-1881026154:61:0:0|h[Linen Cloth]|h|r", -- [20]
+	"|cffffffff|Hitem:8529:0:0:0:0:0:0:864917440:61:0:0|h[Noggenfogger Elixir]|h|r", -- [21]
+	"|cffffffff|Hitem:17202:0:0:0:0:0:0:0:61:0:0|h[Snowball]|h|r", -- [22]
+	"|cffffffff|Hitem:2459:0:0:0:0:0:0:1502466816:61:0:0|h[Swiftness Potion]|h|r", -- [23]
+	"|cffffffff|Hitem:4388:0:0:0:0:0:0:2127027968:61:0:0|h[Discombobulator Ray]|h|r", -- [24]
+	"|cffffffff|Hitem:18640:0:0:0:0:0:0:428330112:61:0:0|h[Happy Fun Rock]|h|r", -- [25]
+	"|cffffffff|Hitem:13443:0:0:0:0:0:0:0:61:0:0|h[Superior Mana Potion]|h|r", -- [26]
+	"|cffffffff|Hitem:13446:0:0:0:0:0:0:0:61:0:0|h[Major Healing Potion]|h|r", -- [27]
+	"|cffffffff|Hitem:8952:0:0:0:0:0:0:0:61:0:0|h[Roasted Quail]|h|r", -- [28]
+	"|cffffffff|Hitem:3730:0:0:0:0:0:0:2108301071:61:0:0|h[Big Bear Meat]|h|r", -- [29]
+	"|cffffffff|Hitem:14047:0:0:0:0:0:0:409539716:61:0:0|h[Runecloth]|h|r", -- [30]
+	"|cff0070dd|Hitem:12607:0:0:0:0:0:0:0:61:0:0|h[Brilliant Chromatic Scale]|h|r", -- [31]
+	"|cffffffff|Hitem:2592:0:0:0:0:0:0:1818228912:61:0:0|h[Wool Cloth]|h|r", -- [32]
+	"|cff1eff00|Hitem:21213:0:0:0:0:0:0:0:61:0:0|h[Preserved Holly]|h|r", -- [33]
+	"|cff9d9d9d|Hitem:31837:0:0:0:0:0:0:1939406267:61:0:0|h[Codex: Prayer of Shadow Protection]|h|r", -- [34]
+	"|cff9d9d9d|Hitem:15997:0:0:0:0:0:0:1293122304:61:0:0|h[Thorium Shells]|h|r", -- [35]
+	"|cffffffff|Hitem:11516:0:0:0:0:0:0:1887200640:61:0:0|h[Cenarion Plant Salve]|h|r", -- [36]
+	"|cffffffff|Hitem:17048:0:0:0:0:0:0:1452839168:61:0:0|h[Rumsey Rum]|h|r", -- [37]
+	"|cffffffff|Hitem:12928:0:0:0:0:0:0:742702272:61:0:0|h[Umi's Mechanical Yeti]|h|r", -- [38]
+	"|cffffffff|Hitem:11083:0:0:0:0:0:0:-119369541:61:0:0|h[Soul Dust]|h|r", -- [39]
+	"|cff0070dd|Hitem:10455:0:0:0:0:0:0:192197792:61:0:0|h[Chained Essence of Eranikus]|h|r", -- [40]
+	"|cffffffff|Hitem:21254:0:0:0:0:0:0:0:61:0:0|h[Winter Veil Cookie]|h|r", -- [41]
+	"|cffffffff|Hitem:14047:0:0:0:0:0:0:0:61:0:0|h[Runecloth]|h|r", -- [42]
+	"|cffffffff|Hitem:2901:0:0:0:0:0:0:0:61:0:0|h[Mining Pick]|h|r", -- [43]
+	"|cffffffff|Hitem:3928:0:0:0:0:0:0:0:61:0:0|h[Superior Healing Potion]|h|r", -- [44]
+	"|cffffffff|Hitem:8150:0:0:0:0:0:0:0:61:0:0|h[Deeprock Salt]|h|r", -- [45]
+	"|cffffffff|Hitem:10548:0:0:0:0:0:0:446237280:61:0:0|h[Sniper Scope]|h|r", -- [46]
+	"|cff1eff00|Hitem:8218:0:0:0:0:0:0:659870720:61:0:0|h[Thick Leather Ammo Pouch]|h|r", -- [47]
+	"|cff9d9d9d|Hitem:8151:0:0:0:0:0:0:709762536:61:0:0|h[Flask of Mojo]|h|r", -- [48]
+	"|cffffffff|Hitem:5976:0:0:0:0:0:0:0:61:0:0|h[Guild Tabard]|h|r", -- [49]
+	"|cffffffff|Hitem:17202:0:0:0:0:0:0:0:61:0:0|h[Snowball]|h|r", -- [50]
+	"|cffffffff|Hitem:13724:0:0:0:0:0:0:0:61:0:0|h[Enriched Manna Biscuit]|h|r", -- [51]
+	"|cff0070dd|Hitem:6339:0:0:0:0:0:0:188464640:61:0:0|h[Runed Silver Rod]|h|r", -- [52]
+	"|cffffffff|Hitem:14047:0:0:0:0:0:0:0:61:0:0|h[Runecloth]|h|r", -- [53]
+	"|cffffffff|Hitem:19440:0:0:0:0:0:0:1327977088:61:0:0|h[Powerful Anti-Venom]|h|r", -- [54]
+	"|cff9d9d9d|Hitem:1825:0:0:0:0:0:0:1947681538:61:0:0|h[Bulky Bludgeon]|h|r", -- [55]
+	"|cffffffff|Hitem:11186:0:0:0:0:0:0:0:61:0:0|h[Red Power Crystal]|h|r", -- [56]
+	"|cffffffff|Hitem:28116:0:0:0:0:0:0:1439472714:61:0:0|h[Zeppelin Debris]|h|r", -- [57]
+	"|cffffffff|Hitem:11184:0:0:0:0:0:0:0:61:0:0|h[Blue Power Crystal]|h|r", -- [58]
+	"|cff9d9d9d|Hitem:11482:0:0:0:0:0:0:11645402:61:0:0|h[Crystal Pylon User's Manual]|h|r", -- [59]
+	"|cffffffff|Hitem:23268:0:0:0:0:0:0:426036582:61:0:0|h[Purification Mixture]|h|r", -- [60]
+	"|cffffffff|Hitem:11188:0:0:0:0:0:0:0:61:0:0|h[Yellow Power Crystal]|h|r", -- [61]
+	"|cffffffff|Hitem:11185:0:0:0:0:0:0:0:61:0:0|h[Green Power Crystal]|h|r", -- [62]
+	"|cffffffff|Hitem:23336:0:0:0:0:0:0:2135612118:61:0:0|h[Helboar Blood Sample]|h|r", -- [63]
+	"|cffffffff|Hitem:11950:0:0:0:0:0:0:1783216768:61:0:0|h[Windblossom Berries]|h|r", -- [64]
+	"|cffffffff|Hitem:25719:0:0:0:0:0:0:630843444:61:0:0|h[Arakkoa Feather]|h|r", -- [65]
+	"|cffffffff|Hitem:23248:0:0:0:0:0:0:593097667:61:0:0|h[Purified Helboar Meat]|h|r", -- [66]
+	"|cff1eff00|Hitem:15255:0:0:0:0:0:-18:141164569:61:0:0|h[Gallant Flamberge of Agility]|h|r", -- [67]
+	"|cffffffff|Hitem:13444:0:0:0:0:0:0:1985190721:61:0:0|h[Major Mana Potion]|h|r", -- [68]
+	"|cffffffff|Hitem:13446:0:0:0:0:0:0:915642504:61:0:0|h[Major Healing Potion]|h|r", -- [69]
+	"|cff9d9d9d|Hitem:13377:0:0:0:0:0:0:0:61:0:0|h[Miniature Cannon Balls]|h|r", -- [70]
+	"|cffffffff|Hitem:28399:0:0:0:0:0:0:0:61:0:0|h[Filtered Draenic Water]|h|r", -- [71]
+	"|cffffffff|Hitem:28399:0:0:0:0:0:0:0:61:0:0|h[Filtered Draenic Water]|h|r", -- [72]
+	"|cffffffff|Hitem:11563:0:0:0:0:0:0:176451840:61:0:0|h[Crystal Force]|h|r", -- [73]
+	"|cffffffff|Hitem:11951:0:0:0:0:0:0:11324430:61:0:0|h[Whipper Root Tuber]|h|r", -- [74]
+	"|cffffffff|Hitem:28399:0:0:0:0:0:0:0:61:0:0|h[Filtered Draenic Water]|h|r", -- [75]
+	"|cffffffff|Hitem:28399:0:0:0:0:0:0:0:61:0:0|h[Filtered Draenic Water]|h|r", -- [76]
+	"|cff9d9d9d|Hitem:18256:0:0:0:0:0:0:0:61:0:0|h[Melted Vial]|h|r", -- [77]
+	"|cffffffff|Hitem:3857:0:0:0:0:0:0:0:61:0:0|h[Coal]|h|r", -- [78]
+	"|cff9d9d9d|Hitem:6302:0:0:0:0:0:0:1759354045:61:0:0|h[Delicate Insect Wing]|h|r", -- [79]
+	"|cff9d9d9d|Hitem:4583:0:0:0:0:0:0:1223720894:61:0:0|h[Thick Furry Mane]|h|r", -- [80]
+	"|cffffffff|Hitem:11370:0:0:0:0:0:0:1392895452:61:0:0|h[Dark Iron Ore]|h|r", -- [81]
+	"|cffffffff|Hitem:11370:0:0:0:0:0:0:958404728:61:0:0|h[Dark Iron Ore]|h|r", -- [82]
+	"|cff9d9d9d|Hitem:22528:0:0:0:0:0:0:1051764438:61:0:0|h[Dark Iron Scraps]|h|r", -- [83]
+	"|cffffffff|Hitem:10305:0:0:0:0:0:0:0:61:0:0|h[Scroll of Protection IV]|h|r", -- [84]
+	"|cffffffff|Hitem:4606:0:0:0:0:0:0:1990079920:61:0:0|h[Spongy Morel]|h|r", -- [85]
+	"|cffffffff|Hitem:8952:0:0:0:0:0:0:0:61:0:0|h[Roasted Quail]|h|r", -- [86]
+}
+AmrEquipedItems = nil
+AmrGold = nil
+AmrRealmName = "Terenas"
+AmrCharacterName = "Sapphira"
+AmrIconInfo = {
+}
+AmrCurrencies = {
+}
+AmrProfessions = nil
+AmrSpecializations = {
+}
+AmrRace = nil
+AmrLevel = nil
+AmrFaction = nil
+AmrActiveSpec = nil
+AmrHideMapIcon = false

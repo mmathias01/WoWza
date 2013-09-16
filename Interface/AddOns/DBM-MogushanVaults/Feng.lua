@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(689, "DBM-MogushanVaults", nil, 317)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9581 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 9663 $"):sub(12, -3))
 mod:SetCreatureID(60009)--60781 Soul Fragment
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6)
@@ -17,9 +17,9 @@ mod:RegisterEventsInCombat(
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_SPELLCAST_SUCCEEDED",
-	"UNIT_SPELLCAST_STOP",
-	"UNIT_SPELLCAST_CHANNEL_STOP"
+	"UNIT_SPELLCAST_SUCCEEDED boss1",
+	"UNIT_SPELLCAST_STOP boss1",
+	"UNIT_SPELLCAST_CHANNEL_STOP boss1"
 )
 --Phase order is controlled by players. it is only pre determined order in LFR and LFR only.
 --Heroic a player can do ANY phase first. It even says this in encounter journal.
@@ -47,7 +47,7 @@ local warnChainsOfShadow			= mod:NewSpellAnnounce(118783, 2, nil, false)
 local warnSiphoningShield			= mod:NewCountAnnounce(117203, 4)
 --Tank Abilities
 local warnReversalLightningFists	= mod:NewTargetAnnounce(118302, 2)--this spell can interrupt Epicenter, so needs to warn.
-local warnNullBarrier				= mod:NewSpellAnnounce(115817, 2)
+local warnNullBarrier				= mod:NewSpellAnnounce(115817, 1)
 
 --Nature/Fist
 local specWarnLightningLash			= mod:NewSpecialWarningStack(131788, mod:IsTank(), 2)
@@ -70,7 +70,7 @@ local specWarnShadowBurn			= mod:NewSpecialWarningStack(131792, mod:IsTank(), 2)
 local specWarnShadowBurnOther		= mod:NewSpecialWarningTarget(131792, mod:IsTank())
 local specWarnSiphoningShield		= mod:NewSpecialWarningSpell(117203)
 --Tank Abilities
-local specWarnBarrierNow			= mod:NewSpecialWarning("specWarnBarrierNow")--Because i'm so damn tired of tanks not having a damn clue how/when to use this in LFR
+local specWarnBarrierNow			= mod:NewSpecialWarning("specWarnBarrierNow")--Because i'm so damn tired of tanks not having a clue how/when to use this in LFR
 local specWarnNullBarrier			= mod:NewSpecialWarningSpell(115817) -- Null Barrier is important all members, espcially Earth and Arcane Phase.
 
 --Nature/Fist
@@ -384,7 +384,7 @@ function mod:OnSync(msg)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
-	if spellId == 117203 and self:AntiSpam(2, 1) then--Siphoning Shield
+	if spellId == 117203 then--Siphoning Shield
 		specialCount = specialCount + 1
 		warnSiphoningShield:Show(specialCount)
 		specWarnSiphoningShield:Show()

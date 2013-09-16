@@ -74,6 +74,7 @@ end
 
 L = BigWigs:NewBossLocale("Ji-Kun", "zhCN")
 if L then
+	L.first_lower_hatch_trigger = "下层某个鸟巢中的蛋开始孵化了！"
 	L.lower_hatch_trigger = "下层某个鸟巢中的蛋开始孵化了！"
 	L.upper_hatch_trigger = "上层某个鸟巢中的蛋开始孵化了！"
 
@@ -81,8 +82,8 @@ if L then
 	L.nest_desc = "警报依赖于巢穴。\n|cFFADFF2F提示：如果你没有分配到处理巢穴请关闭该警报。|r"
 
 	L.flight_over = "飞行结束 %d秒！"
-	L.upper_nest = "|cff008000下层|r巢穴"
-	L.lower_nest = "|cffff0000上层|r巢穴"
+	L.upper_nest = "|cff008000上层|r巢穴"
+	L.lower_nest = "|cffff0000下层|r巢穴"
 	L.up = "|cff008000上层|r"
 	L.down = "|cffff0000下层|r"
 	L.add = "增援"
@@ -199,6 +200,8 @@ if L then
 	L.unstablevitajumptarget_message = ">你< 距离不稳定的生命最远！"
 	L.sensitivityfurthestbad = "生命过敏+最远距离 = |cffff0000坏|r！"
 	L.kill_trigger = "等等"
+
+	L.assistPrint = "一个名为“BigWigs_Ra-denAssist”的插件已经发布，可以帮助公会在莱登的战斗中提供帮助。"
 end
 
 L = BigWigs:NewBossLocale("Throne of Thunder Trash", "zhCN")

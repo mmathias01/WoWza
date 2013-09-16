@@ -42,8 +42,8 @@ local VUHDO_TOOLTIP_POS_CUSTOM = 1;
 local VUHDO_TOOLTIP_POS_STANDARD = 2;
 local VUHDO_TOOLTIP_POS_MOUSE = 3;
 
-local sAktLineLeft = 1;
-local sAktLineRight = 1;
+local sAktLineLeft;
+local sAktLineRight;
 
 local VUHDO_TEXT_SIZE_LEFT = { };
 

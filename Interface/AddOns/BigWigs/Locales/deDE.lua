@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "deDE")
+﻿local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "deDE")
 
 if not L then return end
 
@@ -40,7 +40,7 @@ L["Waiting until combat ends to finish loading due to Blizzard combat restrictio
 L["Combat has ended, Big Wigs has now finished loading."] = "Kampf ist vorbei, Big Wigs is nur vollständig geladen."
 L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."] = "Aufgrund der Beschränkungen von Blizzard muss die Konfiguration zuerst ausserhalb des Kampfes geöffnet werden bevor dies im Kampf möglich ist."
 
-L.missingAddOn = "Bitte beachte, dass diese Zone das -[[\124cFF436EEE%s\124r]]- Plugin für Timer zur Anzeige benötigt."
+L.missingAddOn = "Bitte beachte, dass diese Zone das [\124cFF436EEE%s\124r] Plugin für Timer zur Anzeige benötigt."
 
 L.coreAddonDisabled = "Big Wigs wird nicht richtig funktionieren, da das Addon %s deaktiviert ist. Du kannst es über die Addonkonfiguration im Charakterauswahlmenü aktivieren."
 
@@ -78,6 +78,8 @@ L.chatMessages = "Chatfenster-Nachrichten"
 L.chatMessagesDesc = "Gibt alle Big Wigs Nachrichten im Standard-Chatfenster aus, zusätzlich zu der Einstellung unter 'Ausgabe'."
 L.autoRole = "Automatisches Rollen-Update"
 L.autoRoleDesc = "Wenn Big Wigs Deine Rolle bekannt ist, verbessert dies die Warnungen für andere Spieler im Schlachtzug. Diese Option aktualisiert Deine Rolle automatisch. Beispielsweise überprüfen einige Module, ob der Spielercharakter die Tankrolle übernimmt, da einige Boss-Fähigkeiten niemals den Tank treffen.\n\n|cffff4411Dies steht nicht in Bezug zu den rollenspezifischen Warnungen und es wird empfohlen diese Option aktiviert zu lassen!|r"
+L.zoneMessages = "Gebietsmeldungen anzeigen"
+L.zoneMessagesDesc = "Wenn Du diese Option deaktivierst, zeigt Big Wigs beim Betreten von Gebieten ohne installierte Boss Mods keine Meldungen mehr an. Es wird empfohlen, diese Option aktiviert zu lassen, da sie über neu erstellte Timer für neue Gebiete informiert."
 
 L.slashDescTitle = "|cFFFED000Slash Befehle:|r"
 L.slashDescPull = "|cFFFED000/pull:|r Sendet einen Countdown zum Pull an den Raid."
@@ -134,10 +136,11 @@ L["Thanks to the following for all their help in various fields of development"]
 -- Statistics
 L.statistics = "Statistiken"
 L.norm25 = "25"
-L.heroic25 = "25h"
+L.heroic25 = "25 HC"
 L.norm10 = "10"
-L.heroic10 = "10h"
+L.heroic10 = "10 HC"
 L.lfr = "LFR"
+L.flex = "Flexibel"
 L.wipes = "Niederlagen:"
 L.kills = "Siege:"
 L.bestkill = "Bester Sieg:"

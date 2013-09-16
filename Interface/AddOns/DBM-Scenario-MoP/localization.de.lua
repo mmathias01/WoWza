@@ -43,6 +43,16 @@ L:SetMiscLocalization{
 	TelvrakPull			= "Zan'vess will never fall!"--translate (trigger)
 }
 
+------------------------------
+-- Battle on the High Seas ---
+------------------------------
+L= DBM:GetModLocalization("d652")
+
+-----------------------
+-- Blood in the Snow --
+-----------------------
+L= DBM:GetModLocalization("d646")
+
 -----------------------
 -- Brewmoon Festival --
 -----------------------
@@ -85,6 +95,15 @@ L:SetMiscLocalization{
 	LizardLord		= "Diese Saurok bewachen die Höhle. Räumen wir sie aus'm Weg!"
 }
 
+----------------------------
+-- Dark Heart of Pandaria --
+----------------------------
+L= DBM:GetModLocalization("d647")
+
+L:SetMiscLocalization{
+	summonElemental		= "Meine Diener, vernichtet diese Insekten!"
+}
+
 ------------------------
 -- Greenstone Village --
 ------------------------
@@ -101,6 +120,16 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	WarnAchFiveAlive	= "Zeige Warnung bei Fehlschlag des Erfolgs \"Nummer 5 lebt!\""
+}
+
+----------------------------
+-- The Secret of Ragefire --
+----------------------------
+L= DBM:GetModLocalization("d649")
+
+L:SetMiscLocalization{
+	XorenthPull		= "Alle niederen Völker sind Feinde der wahren Horde!",
+	ElagloPull		= "Dummköpfe! Die wahre Horde lässt sich nicht von Euresgleichen aufhalten!"
 }
 
 ----------------------
@@ -129,14 +158,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	timerCombatStarts		= "Kampfbeginn",
 	timerLostSoulsCD		= "Verirrte Seelen CD"
 }
 
 L:SetOptionLocalization{
 	specWarnLostSouls		= "Spezialwarnung, wenn Verirrte Seelen erscheinen",
 	specWarnEnslavePitLord	= "Spezialwarnung zum Dämonenversklaven, wenn der Grubenlord erscheint/freikommt",
-	timerCombatStarts		= "Zeige Zeit bis Kampfbeginn",
 	timerLostSoulsCD		= "Zeige Zeit bis nächste Verirrte Seelen erscheinen"
 }
 

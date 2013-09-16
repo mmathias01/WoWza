@@ -1,0 +1,10 @@
+## Interface: 50300
+## Title: Skada |r[|caaedc99fSmall Numbers|r]
+## Notes: Shows all numbers in a human readable form.
+## Author: Warmexx [Neighbours]
+## Version: 1.2
+## Dependencies: Skada
+## X-Donate: PayPal:warmexx AT wow-neighbours DOT com
+## X-Website: http://www.wow-neighbours.com/
+
+SmallNumbers.lua

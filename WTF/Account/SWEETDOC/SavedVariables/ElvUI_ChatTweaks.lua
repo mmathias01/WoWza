@@ -8,6 +8,7 @@ ElvUI_ChatTweaksDB = {
 		["DamageMeters"] = {
 			["profiles"] = {
 				["Majandra - Dragonblight"] = {
+					["capture"] = 2,
 					["Party Leader"] = 2,
 					["Raid Leader"] = 2,
 					["Instance Chat Leader"] = 2,
@@ -213,9 +214,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.7529412508010864,
 						},
 						["Trade"] = {
-							["r"] = 0.9098039269447327,
+							["r"] = 0.9098039865493774,
 							["g"] = 0.6196078658103943,
-							["b"] = 0.4745098054409027,
+							["b"] = 0.4745098352432251,
 						},
 						["MONSTER_WHISPER"] = {
 							["r"] = 1,
@@ -378,9 +379,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0,
 						},
 						["General"] = {
-							["r"] = 0.7647058963775635,
-							["g"] = 0.9019607901573181,
-							["b"] = 0.9098039269447327,
+							["r"] = 0.7647059559822083,
+							["g"] = 0.9019608497619629,
+							["b"] = 0.9098039865493774,
 						},
 						["Instance Leader"] = {
 							["r"] = 1,
@@ -409,8 +410,8 @@ ElvUI_ChatTweaksDB = {
 						},
 						["LookingForGroup"] = {
 							["r"] = 1,
-							["g"] = 0.7529411911964417,
-							["b"] = 0.7529411911964417,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
 						},
 						["BG_SYSTEM_ALLIANCE"] = {
 							["r"] = 0,
@@ -488,9 +489,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 1,
 						},
 						["LocalDefense"] = {
-							["r"] = 0.9098039269447327,
-							["g"] = 0.8941176533699036,
-							["b"] = 0.4745098054409027,
+							["r"] = 0.9098039865493774,
+							["g"] = 0.8941177129745483,
+							["b"] = 0.4745098352432251,
 						},
 						["BN_INLINE_TOAST_BROADCAST"] = {
 							["r"] = 0.5098039507865906,
@@ -1013,6 +1014,22 @@ ElvUI_ChatTweaksDB = {
 		},
 		["Reputation"] = {
 			["profiles"] = {
+				["Majandra - Dragonblight"] = {
+					["factions"] = {
+						["operation:shieldwall"] = false,
+						["thelorewalkers"] = false,
+						["natpagle"] = false,
+						["orderofthecloudserpent"] = false,
+						["shadopanassault"] = false,
+						["theaugustcelestials"] = false,
+						["shadopan"] = false,
+						["pearlfinjinyu"] = false,
+						["mayorcarlosdanger"] = false,
+						["kirintoroffensive"] = false,
+						["goldenlotus"] = false,
+						["theblackprince"] = false,
+					},
+				},
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
@@ -1101,6 +1118,11 @@ ElvUI_ChatTweaksDB = {
 		["CustomNamedChatFilters"] = {
 		},
 		["Timestamps"] = {
+			["profiles"] = {
+				["Majandra - Dragonblight"] = {
+					["format"] = "%I:%M:S",
+				},
+			},
 		},
 		["ImprovedAuctionMessages"] = {
 		},
@@ -1163,6 +1185,12 @@ ElvUI_ChatTweaksDB = {
 		["AltNames"] = {
 		},
 		["ATestofValor"] = {
+			["profiles"] = {
+				["Majandra - Dragonblight"] = {
+					["completed"] = true,
+					["gains"] = false,
+				},
+			},
 		},
 		["AuctionMessageFiltering"] = {
 		},
@@ -1206,38 +1234,38 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/raid thanks all", -- [1]
-						"/g lol not bad for only 3 healers", -- [2]
-						"/cw Dariar not bad for 3 healers lol", -- [3]
-						"/g thanks guys", -- [4]
-						"/friend Dariar", -- [5]
-						"/raid thanks all", -- [6]
-						"/g lol not bad for only 3 healers", -- [7]
-						"/cw Dariar not bad for 3 healers lol", -- [8]
-						"/g thanks guys", -- [9]
-						"/friend Dariar", -- [10]
-						"/g good evening all", -- [11]
-						"/s np", -- [12]
-						"/p over here you dot have to deal w/them", -- [13]
-						"/p so what ya up to tonight?", -- [14]
-						"/p we melted the fuck out of those \"bosses\"", -- [15]
-						"/p me too pretty much", -- [16]
-						"/p cool  man well  have a good one then", -- [17]
-						"/p over here you dot have to deal w/them", -- [18]
-						"/p so what ya up to tonight?", -- [19]
-						"/p we melted the fuck out of those \"bosses\"", -- [20]
-						"/p me too pretty much", -- [21]
-						"/p cool  man well  have a good one then", -- [22]
-						"/p over here you dot have to deal w/them", -- [23]
-						"/p so what ya up to tonight?", -- [24]
-						"/p we melted the fuck out of those \"bosses\"", -- [25]
-						"/p me too pretty much", -- [26]
-						"/p cool  man well  have a good one then", -- [27]
-						"/p over here you dot have to deal w/them", -- [28]
-						"/p so what ya up to tonight?", -- [29]
-						"/p we melted the fuck out of those \"bosses\"", -- [30]
-						"/p me too pretty much", -- [31]
-						"/p cool  man well  have a good one then", -- [32]
+						"/g needed DPS for a while", -- [1]
+						"/g it happens", -- [2]
+						"/g ;)", -- [3]
+						"/g anyone have some  |cffffffff|Hitem:74865:0:0:0:0:0:0:172613760:90:0:0|h[Krasarang Paddlefish]|h|r lying around?", -- [4]
+						"/g hey gun", -- [5]
+						"/g :)", -- [6]
+						"/g ill be back in 45 min or so", -- [7]
+						"/g have to watch some TV with the wife to keep her off my back", -- [8]
+						"/g anyone have some  |cffffffff|Hitem:74865:0:0:0:0:0:0:172613760:90:0:0|h[Krasarang Paddlefish]|h|r lying around?", -- [9]
+						"/g hey gun", -- [10]
+						"/g :)", -- [11]
+						"/g ill be back in 45 min or so", -- [12]
+						"/g have to watch some TV with the wife to keep her off my back", -- [13]
+						" ilevel?", -- [14]
+						" what is it", -- [15]
+						" if I can get you in to flex SOO do you want in?", -- [16]
+						" 2 bosses down", -- [17]
+						" ok np", -- [18]
+						" sure thing", -- [19]
+						"/i basicaly 8", -- [20]
+						"/i but we fux up @ 10%", -- [21]
+						"/g I need 5 people (1 tank) to help me do Sha of Doubt after this", -- [22]
+						"/g yes", -- [23]
+						"/cw Aotis lol just 1 shot all 4", -- [24]
+						"/cw Aotis not sure what our rank is now", -- [25]
+						"/cw Aotis we are going after Naz now", -- [26]
+						"/cw Aotis had him @ 5% on Thursday", -- [27]
+						"/g  |cff71d5ff|Hspell:145038|h[Noodle Cart Kit]|h|r", -- [28]
+						"/cw Aaronsbuddy hey can you AOE tank / DPS something for me quick", -- [29]
+						"/cw Aaronsbuddy I need to kill turtles in mass", -- [30]
+						"/cw Aaronsbuddy ok np", -- [31]
+						"/cw Aaronsbuddy np that is what mind sear is for I guess", -- [32]
 					},
 				},
 				["Jolokia - Dragonblight"] = {
@@ -1289,6 +1317,13 @@ ElvUI_ChatTweaksDB = {
 	},
 	["profiles"] = {
 		["Majandra - Dragonblight"] = {
+			["welcome"] = false,
+			["modules"] = {
+				["Custom Named Chat Filters"] = false,
+				["A Test of Valor"] = false,
+				["Companions"] = false,
+				["Alt Names"] = true,
+			},
 		},
 		["Jolokia - Dragonblight"] = {
 			["modules"] = {

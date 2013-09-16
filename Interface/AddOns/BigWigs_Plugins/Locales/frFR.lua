@@ -249,4 +249,6 @@ L.printWipeOption = "Durée (échec)"
 L.countKills = "Compter les victoires"
 L.countWipes = "Compter les échecs"
 L.recordBestKills = "Se souvenir des meilleurs temps"
+L.createTimeBar = "Afficher la barre 'Meilleur temps'"
+L.bestTimeBar = "Meilleur temps"
 

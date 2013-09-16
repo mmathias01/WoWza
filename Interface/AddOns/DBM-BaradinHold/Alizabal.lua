@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(339, "DBM-BaradinHold", nil, 74)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(55869)
-mod:SetModelID(21252)
 mod:SetModelSound("sound\\CREATURE\\ALIZABAL\\VO_BH_ALIZABAL_INTRO_01.OGG", "sound\\CREATURE\\ALIZABAL\\VO_BH_ALIZABAL_RESET_01.OGG")
 mod:SetZone()
 

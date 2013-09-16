@@ -1,0 +1,17 @@
+
+TradeSkillMaster_AuctioningDB = {
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["player"] = {
+				["Majandra"] = true,
+			},
+		},
+	},
+}

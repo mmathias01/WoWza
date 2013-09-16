@@ -22,48 +22,113 @@ local extrapanel = {
 	[5] = 1,
 }
 
-function EDT:UpdateSettings()
+local visibility = {}
+
+-- Change bar 2 default position
+AB.barDefaults.bar2.position = "BOTTOM,ElvUI_Bar1,TOP,0,0"
+AB.barDefaults.bar3.position = "BOTTOMLEFT,ElvUI_Bar1,BOTTOMRIGHT,4,0"
+AB.barDefaults.bar5.position = "BOTTOMRIGHT,ElvUI_Bar1,BOTTOMLEFT,-4,0"
+
+function EDT:ToggleSettings(barnumber)
+	EDT:RegisterDrivers()
+	
+	twipe(visibility)
+	
 	for k, v in pairs(extrapanel) do
-		local panel = _G[('Actionbar%dDataPanel'):format(k)]
-		local wasVisible = panel:IsShown()
-
-		panel:SetShown(E.db.actionbar[('bar%d'):format(k)].enabled and E.db.datatexts[("actionbar%d"):format(k)])
-
-		if (wasVisible ~= panel:IsShown()) then
-			local mover = _G[('ElvAB_%d'):format(k)]
-
-			if (mover) then
-				local point, relativeTo, relativePoint, xOfs, yOfs = mover:GetPoint()
-				local newYOfs = floor((wasVisible and (yOfs - PANEL_HEIGHT) or (yOfs + PANEL_HEIGHT)) + .5)
-				if (newYOfs >= 0) then
-					if k ~=1 and not E.db["movers"][mover:GetName()] then
-						point = "BOTTOM"
-						relativePoint = "BOTTOM"
-						local calcOfs = floor(((_G['ElvUI_Bar1']:GetWidth() / 2) + (mover:GetWidth() / 2) + (SPACING * 2)) + .5)
-						xOfs = k == 3 and calcOfs or -calcOfs
-					end
-					mover:ClearAllPoints()
-					mover:Point(point, E.UIParent, relativePoint, xOfs, newYOfs)
-					E:SaveMoverPosition(mover.name)	
-					
-					AB:UpdateButtonSettings()
-				end
-			end
+		-- actionbarName, enabled, showPanel
+		local actionBarName = ('bar%d'):format(k)
+		local showPanel = E.db.actionbar[actionBarName].enabled and E.db.datatexts[("actionbar%d"):format(k)]
+		local mover = _G[('ElvAB_%d'):format(k)]
+		if mover then
+			visibility[k] = { showPanel, mover }
 		end
 	end
+	
+	if visibility[1][1] then
+		EDT:ResetMover(2)
+		EDT:CheckForMoveUp(visibility[1][2])
+	end
+	
+	if visibility[1][1] then
+		if visibility[3][1] then
+			EDT:ResetMover(3)
+		else
+			EDT:ForceMover(visibility[3][2], -22)
+		end
+		if visibility[5][1] then
+			EDT:ResetMover(5)
+		else
+			EDT:ForceMover(visibility[5][2], -22)
+		end	
+	else
+		EDT:ResetMover(1)
+		if visibility[3][1] then
+			EDT:ForceMover(visibility[3][2], 22)
+		else
+			EDT:ResetMover(3)
+		end
+		if visibility[5][1] then
+			EDT:ForceMover(visibility[5][2], 22)
+		else
+			EDT:ResetMover(5)
+		end
+	end
+end
+
+function EDT:CheckForMoveUp(mover)
+	local point, relativeTo, relativePoint, xOfs, yOfs = mover:GetPoint()
+	
+	if (relativePoint == 'BOTTOM' and yOfs < 26) then
+		EDT:PositionActionBar(mover, point, relativeTo, relativePoint, xOfs, 26)
+	end
+end
+
+function EDT:ForceMover(mover, offSet)
+	local point, relativeTo, relativePoint, xOfs, yOfs = mover:GetPoint()
+	EDT:PositionActionBar(mover, point, relativeTo, relativePoint, xOfs, offSet)
+end
+
+function EDT:ResetMover(barnumber)
+	local bar = _G[('ElvAB_%d'):format(barnumber)]
+	if (bar and bar.textString) then
+		E:ResetMovers(bar.textString)
+	end	
+end
+
+function EDT:RegisterDrivers()
+	for k, v in pairs(extrapanel) do	
+		local panel = _G[('Actionbar%dDataPanel'):format(k)]
+		local showPanel = E.db.datatexts[("actionbar%d"):format(k)]
+		
+		if (panel.db.enabled and showPanel) then
+			RegisterStateDriver(panel, "visibility", panel.db.visibility)
+		else
+			UnregisterStateDriver(panel, "visibility")
+			panel:Hide()
+		end
+	end
+end
+
+function EDT:PositionActionBar(mover, point, relativeTo, relativePoint, xOfs, yOfs)
+	mover:ClearAllPoints()
+	mover:Point(point, relativeTo, relativePoint, xOfs, yOfs)
+	E:SaveMoverPosition(mover.name)
+	
+	mover.parent:ClearAllPoints()
+	mover.parent:SetPoint(relativePoint, mover, 0, 0)
 end
 
 function EDT:PositionDataPanel(panel, index)
 	if not panel then return end
 	
 	local actionbar = _G[("ElvUI_Bar%d"):format(index)]
-	local spacer = E.db.actionbar[("bar%d"):format(index)].backdrop and 0 or E.db.actionbar[("bar%d"):format(index)].buttonspacing
+	local spacer = panel.db.backdrop and 0 or panel.db.buttonspacing
 	
 	panel:ClearAllPoints()
 	panel:Point('TOPLEFT', actionbar, 'BOTTOMLEFT', spacer, 0)
 	panel:Point('BOTTOMRIGHT', actionbar, 'BOTTOMRIGHT', -spacer, -PANEL_HEIGHT)
 	
-	EDT:UpdateSettings()
+	EDT:RegisterDrivers()
 end
 
 function EDT:GetPanelDatatextName()
@@ -146,23 +211,21 @@ function EDT:OnInitialize()
 	for k, v in pairs(extrapanel) do
 		local actionbar = _G[("ElvUI_Bar%d"):format(k)]
 		local panelname = ('Actionbar%dDataPanel'):format(k)
+
 		local panel = CreateFrame('Frame', panelname, E.UIParent)
-		local spacer = E.db.actionbar[("bar%d"):format(k)].backdrop and 0 or SPACING
+		panel.db = E.db.actionbar[("bar%d"):format(k)]
+
+		local spacer = panel.db.backdrop and 0 or SPACING
 
 		panel:SetTemplate(E.db.datatexts.panelTransparency and 'Transparent' or 'Default', true)
 		
-		-- Add DataPanel to FrameLock for hiding during Pet Battles
-		E.FrameLocks[panelname] = true;
-
 		DT:RegisterPanel(panel, v, 'ANCHOR_TOP', 0, -4)
 	end
 	
-	--DT:LoadDataTexts()
-	--DT:PanelLayoutOptions()
-	self:UpdateSettings()
+	EDT:RegisterDrivers()
 	
 	hooksecurefunc(AB,"PositionAndSizeBar",function(self, barName)
-		local barnumber = tonumber(string.match(barName, "%d+"))
+	local barnumber = tonumber(string.match(barName, "%d+"))
 		if extrapanel[barnumber] then
 			EDT:PositionDataPanel(_G[('Actionbar%dDataPanel'):format(barnumber)], barnumber)
 		end

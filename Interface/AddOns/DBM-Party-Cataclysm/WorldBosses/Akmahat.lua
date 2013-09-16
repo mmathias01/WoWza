@@ -1,10 +1,10 @@
 local mod	= DBM:NewMod("Akmahat", "DBM-Party-Cataclysm", 15)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 76 $"):sub(12, -3))
 mod:SetCreatureID(50063)
 mod:SetModelID(34573)
-mod:SetZone(748, 720)--Uldum (both versions of it)
+mod:SetZone()
 
 mod:RegisterCombat("combat")
 
@@ -66,7 +66,9 @@ do
 	end
 	
 	function hideShieldHealthBar()
-		DBM.BossHealth:RemoveBoss(getShieldHP)
+		if DBM.BossHealth:IsShown() then
+			DBM.BossHealth:RemoveBoss(getShieldHP)
+		end
 	end
 end
 
@@ -99,7 +101,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 93561 then
+	if args.spellId == 93561 and DBM.BossHealth:IsShown() then
 		local shieldname = GetSpellInfo(93561)
 		showShieldHealthBar(self, args.destGUID, shieldname, 500000)
 		self:Schedule(60, hideShieldHealthBar)

@@ -1,0 +1,15 @@
+Version: 1
+Frame: ColorPickerFrame
+FrameLevel: 1
+Anchor: CENTER
+X: 0
+Y: 0
+W: 305
+H: 240
+Frame: Recount_GraphWindow
+FrameLevel: 37
+Anchor: LEFT
+X: 255
+Y: 72
+W: 649
+H: 452

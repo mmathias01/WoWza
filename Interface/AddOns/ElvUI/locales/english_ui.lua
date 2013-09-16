@@ -66,6 +66,9 @@ L['whispers'] = true;
 L['yells'] = true;
 
 --DataTexts
+L['Spec'] = true
+L['|cffFFFFFFLeft Click:|r Change Talent Specialization'] = true
+L['|cffFFFFFFRight Click:|r Change Loot Specialization'] = true
 L['(Hold Shift) Memory Usage'] = true;
 L['AP'] = true;
 L['AVD: '] = true;
@@ -309,6 +312,7 @@ L["Your version of ElvUI is out of date. You can download the latest version fro
 L['|cFFE30000Lua error recieved. You can view the error message when you exit combat.'] = true;
 
 --Static Popups
+L["Detected that your ElvUI Config addon is out of date. This may be a result of your Tukui Client being out of date. Please visit our download page and update your Tukui Client, then reinstall ElvUI. Not having your ElvUI Config addon up to date will result in missing options."] = true;
 L["A setting you have changed will change an option for this character only. This setting that you have changed will be uneffected by changing user profiles. Changing this setting requires that you reload your User Interface."] = true;
 L["Are you sure you want to delete all your gray items?"] = true;
 L["Are you sure you want to disband the group?"] = true;

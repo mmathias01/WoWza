@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(169, "DBM-BlackwingDescent", nil, 73)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(42180, 42178, 42179, 42166)
-mod:SetModelID(32688)
 mod:SetZone()
 mod:SetUsedIcons(1, 3, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_OmnitronIntro01.wav", "Sound\\Creature\\Council\\VO_BD_Council_Event01.wav")
@@ -194,8 +193,10 @@ function mod:OnCombatStart(delay)
 	if self:IsDifficulty("heroic10", "heroic25") then
 		berserkTimer:Start(-delay)
 	end
-	DBM.BossHealth:Clear()
-	DBM.BossHealth:AddBoss(42180, 42178, 42179, 42166, L.name)
+	if DBM.BossHealth:IsShown() then
+		DBM.BossHealth:Clear()
+		DBM.BossHealth:AddBoss(42180, 42178, 42179, 42166, L.name)
+	end
 end
 
 function mod:OnCombatEnd()

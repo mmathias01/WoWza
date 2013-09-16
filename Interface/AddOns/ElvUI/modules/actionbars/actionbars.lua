@@ -11,6 +11,8 @@ local gsub = string.gsub
 local format = string.format
 local split = string.split
 
+AB.RegisterCooldown = E.RegisterCooldown
+
 E.ActionBars = AB
 AB["handledBars"] = {} --List of all bars
 AB["handledbuttons"] = {} --List of all buttons that have been modified.
@@ -412,7 +414,7 @@ function AB:GetPage(bar, defaultPage, condition)
 	return condition
 end
 
-function AB:StyleButton(button, noBackdrop, adjustChecked)	
+function AB:StyleButton(button, noBackdrop, adjustChecked)
 	local name = button:GetName();
 	local icon = _G[name.."Icon"];
 	local count = _G[name.."Count"];
@@ -468,7 +470,11 @@ function AB:StyleButton(button, noBackdrop, adjustChecked)
 	self:FixKeybindText(button);
 	button:StyleButton();
 
-	self["handledbuttons"][button] = true;
+	if(not self.handledbuttons[button]) then
+		E:RegisterCooldown(button.cooldown)
+		
+		self.handledbuttons[button] = true;
+	end
 end
 
 function AB:Bar_OnEnter(bar)
@@ -729,6 +735,8 @@ local function SetupFlyoutButton()
 end
 
 function AB:StyleFlyout(button)
+	if(not button.FlyoutArrow or not button.FlyoutArrow:IsShown()) then return end
+
 	if not LAB.buttonRegistry[button] then return end
 	if not button.FlyoutBorder then return end
 	local combat = InCombatLockdown()
@@ -839,7 +847,6 @@ function AB:Initialize()
 	self:UpdateButtonSettings()
 	
 	self:LoadKeyBinder()
-	self:UpdateCooldownSettings()
 	self:RegisterEvent("UPDATE_BINDINGS", "ReassignBindings")
 	self:RegisterEvent("PET_BATTLE_CLOSE", "ReassignBindings")
 	self:RegisterEvent('PET_BATTLE_OPENING_DONE', 'RemoveBindings')

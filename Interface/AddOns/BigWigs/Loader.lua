@@ -16,13 +16,13 @@ do
 	local releaseType = RELEASE
 	local releaseRevision = nil
 	local releaseString = nil
-	--[===[@alpha@
+	--@alpha@
 	-- The following code will only be present in alpha ZIPs.
 	releaseType = ALPHA
-	--@end-alpha@]===]
+	--@end-alpha@
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	releaseRevision = tonumber("10941")
+	releaseRevision = tonumber("11141")
 
 	-- If the releaseRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(releaseRevision) ~= "number" then
@@ -31,7 +31,7 @@ do
 	end
 
 	-- Then build the release string, which we can add to the interface option panel.
-	local majorVersion = GetAddOnMetadata("BigWigs", "Version") or "3.?"
+	local majorVersion = GetAddOnMetadata("BigWigs", "Version") or "4.?"
 	if releaseType == REPO then
 		releaseString = L["You are running a source checkout of Big Wigs %s directly from the repository."]:format(majorVersion)
 	elseif releaseType == RELEASE then
@@ -93,7 +93,7 @@ do
 	local cata = "BigWigs_Cataclysm"
 	local lw = "LittleWigs"
 
-	loader.zoneList = {
+	loader.zoneTbl = {
 		[696]=c, [755]=c,
 		[775]=bc, [780]=bc, [779]=bc, [776]=bc, [465]=bc, [473]=bc, [799]=bc, [782]=bc,
 		[604]=wotlk, [543]=wotlk, [535]=wotlk, [529]=wotlk, [527]=wotlk, [532]=wotlk, [531]=wotlk, [609]=wotlk, [718]=wotlk,
@@ -237,10 +237,6 @@ local reqFuncAddons = {
 }
 
 function loader:OnInitialize()
-	if BigWigs3DB and BigWigs3DB.namespaces then
-		BigWigs3DB.namespaces["BigWigs_Plugins_Tip of the Raid"] = nil -- XXX temp
-	end
-
 	for i = 1, GetNumAddOns() do
 		local name, _, _, enabled = GetAddOnInfo(i)
 		if enabled and not IsAddOnLoaded(i) and IsAddOnLoadOnDemand(i) then
@@ -400,6 +396,7 @@ do
 			BigWigs_PizzaBar = "BigWigs",
 			BigWigs_ShaIcons = "BigWigs",
 			BigWigs_LeiShi_Marker = "BigWigs",
+			BigWigs_NoPluginWarnings = "BigWigs",
 		}
 
 		-- XXX hopefully remove this some day, try to teach people not to force load our modules.
@@ -426,6 +423,12 @@ do
 					print(L.removeAddon:format(name, old[name]))
 				end)
 			end
+
+			-- XXX disable addons that break us
+			if name == "ReckonersProMending" then -- Unfortunately the author isn't responding and it looks abandoned, luckily the addon has next to 0 popularity
+				DisableAddOn("ReckonersProMending")
+				print("The AddOn 'Reckoner's ProMending' has been disabled due to incompatibility, please ask the author to fix it.")
+			end
 		end
 
 		loaderUtilityFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
@@ -440,21 +443,21 @@ do
 		self:RegisterMessage("BigWigs_CoreEnabled")
 		self:RegisterMessage("BigWigs_CoreDisabled")
 
-		self:GROUP_ROSTER_UPDATE()
-		self:ZONE_CHANGED_NEW_AREA()
-
 		self:RegisterMessage("BigWigs_CoreOptionToggled", "UpdateDBMFaking")
-		-- Somewhat ugly, but saves loading AceDB with the loader instead of the the core for this 1 feature
+		-- Somewhat ugly, but saves loading AceDB with the loader instead of with the core
 		if BigWigs3DB and BigWigs3DB.profileKeys and BigWigs3DB.profiles then
 			local name = UnitName("player")
 			local realm = GetRealmName()
 			if name and realm and BigWigs3DB.profileKeys[name.." - "..realm] then
 				local key = BigWigs3DB.profiles[BigWigs3DB.profileKeys[name.." - "..realm]]
 				self.isFakingDBM = key.fakeDBMVersion
+				self.isShowingZoneMessages = key.showZoneMessages
 			end
 		end
 		self:UpdateDBMFaking(nil, "fakeDBMVersion", self.isFakingDBM)
 
+		self:GROUP_ROSTER_UPDATE()
+		self:ZONE_CHANGED_NEW_AREA()
 		self.OnEnable = nil
 	end
 end
@@ -464,18 +467,21 @@ end
 --
 
 do
-	local DBMdotRevision = "9592"
-	local DBMdotDisplayVersion = "5.3.0"
-	function loader:DBM_AddonMessage(channel, sender, prefix, revision, _, displayVersion)
+	-- This is a crapfest mainly because DBM's actual handling of versions is a crapfest, I'll try explain how this works...
+	local DBMdotRevision = "10267" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
+	local DBMdotReleaseRevision = "10267" -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
+	local DBMdotDisplayVersion = "5.4.0" -- Same as above but is changed between alpha and release cycles e.g. "N.N.N" for a release and "N.N.N alpha" for the alpha duration
+	function loader:DBM_AddonMessage(channel, sender, prefix, revision, releaseRevision, displayVersion)
 		if prefix == "H" and (BigWigs and BigWigs.db.profile.fakeDBMVersion or self.isFakingDBM) then
-			SendAddonMessage("D4", "V\t"..DBMdotRevision.."\t"..DBMdotRevision.."\t"..DBMdotDisplayVersion.."\t"..GetLocale(), IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
+			SendAddonMessage("D4", "V\t"..DBMdotRevision.."\t"..DBMdotReleaseRevision.."\t"..DBMdotDisplayVersion.."\t"..GetLocale(), IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
 		elseif prefix == "V" then
 			usersDBM[sender] = displayVersion
 			-- If there are people with newer versions than us, suddenly we've upgraded!
 			local rev, dotRev = tonumber(revision), tonumber(DBMdotRevision)
-			if rev and displayVersion and rev ~= 99999 and rev > dotRev then
-				DBMdotRevision = revision
-				DBMdotDisplayVersion = displayVersion
+			if rev and displayVersion and rev ~= 99999 and rev > dotRev then -- Failsafes
+				DBMdotRevision = revision -- Update our local rev with the highest possible rev found including alphas.
+				DBMdotReleaseRevision = releaseRevision -- Update our release rev with the highest found, this should be the same for alpha users and latest release users.
+				DBMdotDisplayVersion = displayVersion -- Update to the latest display version, including alphas.
 				self:DBM_AddonMessage(nil, nil, "H") -- Re-send addon message.
 			end
 		end
@@ -557,7 +563,7 @@ do
 	loaderUtilityFrame.timer = loaderUtilityFrame:CreateAnimationGroup()
 	loaderUtilityFrame.timer:SetScript("OnFinished", function()
 		if IsInRaid() or IsInGroup() then
-			SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VR:%d" or "VRA:%d"):format(BIGWIGS_RELEASE_REVISION), IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
+			SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VR:%d" or "VRA:%d"):format(BIGWIGS_RELEASE_REVISION), IsInGroup(2) and "INSTANCE_CHAT" or "RAID") -- LE_PARTY_CATEGORY_INSTANCE = 2
 		end
 	end)
 	local anim = loaderUtilityFrame.timer:CreateAnimation()
@@ -570,7 +576,8 @@ do
 				loaderUtilityFrame.timer:Play()
 			end
 			message = tonumber(message)
-			if not message or message == 0 then return end -- Allow addons to query Big Wigs versions by using a version of 0, but don't add them to the user list.
+			-- XXX The > 14k check is a hack for now until I find out what addon is sending a stupidly large version (20032). This is probably being done to farm BW versions, when a version of 0 should be used.
+			if not message or message == 0 or message > 14000 then return end -- Allow addons to query Big Wigs versions by using a version of 0, but don't add them to the user list.
 			usersRelease[sender] = message
 			usersAlpha[sender] = nil
 			if message > highestReleaseRevision then highestReleaseRevision = message end
@@ -591,7 +598,8 @@ do
 				loaderUtilityFrame.timer:Play()
 			end
 			message = tonumber(message)
-			if not message or message == 0 then return end -- Allow addons to query Big Wigs versions by using a version of 0, but don't add them to the user list.
+			-- XXX The > 14k check is a hack for now until I find out what addon is sending a stupidly large version (20032). This is probably being done to farm BW versions, when a version of 0 should be used.
+			if not message or message == 0 or message > 14000 then return end -- Allow addons to query Big Wigs versions by using a version of 0, but don't add them to the user list.
 			usersAlpha[sender] = message
 			usersRelease[sender] = nil
 			if message > highestAlphaRevision then highestAlphaRevision = message end
@@ -706,7 +714,8 @@ do
 		end
 
 		-- Lacking zone modules
-		local zoneAddon = self.zoneList[id]
+		if (BigWigs and BigWigs.db.profile.showZoneMessages == false) or self.isShowingZoneMessages == false then return end
+		local zoneAddon = self.zoneTbl[id]
 		if zoneAddon and not warnedThisZone[id] then
 			local _, _, _, enabled = GetAddOnInfo(zoneAddon)
 			if not enabled then
@@ -722,11 +731,11 @@ end
 do
 	local grouped = nil
 	function loader:GROUP_ROSTER_UPDATE()
-		local groupType = (IsPartyLFG() and 3) or (IsInRaid() and 2) or (IsInGroup() and 1)
+		local groupType = (IsInGroup(2) and 3) or (IsInRaid() and 2) or (IsInGroup() and 1) -- LE_PARTY_CATEGORY_INSTANCE = 2
 		if (not grouped and groupType) or (grouped and groupType and grouped ~= groupType) then
 			grouped = groupType
 			SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VQ:%d" or "VQA:%d"):format(BIGWIGS_RELEASE_REVISION), groupType == 3 and "INSTANCE_CHAT" or "RAID")
-			SendAddonMessage("D4", "H\t", IsPartyLFG() and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
+			SendAddonMessage("D4", "H\t", groupType == 3 and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
 			self:ZONE_CHANGED_NEW_AREA()
 		elseif grouped and not groupType then
 			grouped = nil
@@ -758,9 +767,13 @@ function loader:BigWigs_CoreEnabled()
 	-- Send a version query on enable, should fix issues with joining a group then zoning into an instance,
 	-- which kills your ability to receive addon comms during the loading process.
 	if IsInRaid() or IsInGroup() then
-		SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VQ:%d" or "VQA:%d"):format(BIGWIGS_RELEASE_REVISION), IsPartyLFG() and "INSTANCE_CHAT" or "RAID")
-		SendAddonMessage("D4", "H\t", IsPartyLFG() and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
+		SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VQ:%d" or "VQA:%d"):format(BIGWIGS_RELEASE_REVISION), IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
+		SendAddonMessage("D4", "H\t", IsInGroup(2) and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
 	end
+
+	-- Core is loaded, nil these to force checking BigWigs.db.profile.option
+	self.isFakingDBM = nil
+	self.isShowingZoneMessages = nil
 
 	loadAddons(loadOnCoreEnabled)
 
@@ -937,25 +950,34 @@ end
 -----------------------------------------------------------------------
 -- Interface options
 --
+
 do
 	local frame = CreateFrame("Frame", nil, UIParent)
 	frame.name = "Big Wigs"
 	frame:Hide()
-	local function removeFrame()
+	loader.RemoveInterfaceOptions = function()
 		for k, f in next, INTERFACEOPTIONS_ADDONCATEGORIES do
 			if f == frame then
 				tremove(INTERFACEOPTIONS_ADDONCATEGORIES, k)
 				break
 			end
 		end
+		frame:SetScript("OnShow", nil)
+		loader.RemoveInterfaceOptions = nil
 	end
 	frame:SetScript("OnShow", function()
-		removeFrame()
+		if not BigWigsOptions and (InCombatLockdown() or UnitAffectingCombat("player")) then
+			sysprint(L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."])
+			return
+		end
+
+		loader:RemoveInterfaceOptions()
+		loadCoreAndOpenOptions()
+		InterfaceOptionsFrameOkay:Click()
 		loadCoreAndOpenOptions()
 	end)
 
 	InterfaceOptions_AddCategory(frame)
-	loader.RemoveInterfaceOptions = removeFrame
 end
 
 BigWigsLoader = loader -- Set global

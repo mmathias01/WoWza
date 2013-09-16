@@ -1,0 +1,26 @@
+
+Cecile_MeterOverlayDB = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["datatext"] = {
+				["customformat"] = "[nhealer] [player] [healing] ([hps])",
+				["enable"] = false,
+				["w"] = 199.9999084472656,
+				["y"] = 915.9998168945313,
+				["h"] = 15.99985694885254,
+				["x"] = 860.0001220703125,
+				["format"] = "FORMAT_DEFAULT_HEALER",
+			},
+			["overlay"] = {
+				["type"] = "TYPE_BOTH",
+			},
+		},
+	},
+}

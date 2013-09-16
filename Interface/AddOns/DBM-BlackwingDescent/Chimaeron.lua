@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(172, "DBM-BlackwingDescent", nil, 73)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(43296)
-mod:SetModelID(33308)
 mod:SetZone()
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetModelSound("Sound\\Creature\\Nefarian\\VO_BD_Nefarian_ChimaronIntro01.wav", nil)
@@ -19,7 +18,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH boss1"
 )
 
 mod:RegisterEvents(

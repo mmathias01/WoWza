@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(324, "DBM-DragonSoul", nil, 187)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(55308)
-mod:SetModelID(39138)
 mod:SetModelSound("sound\\CREATURE\\WarlordZonozz\\VO_DS_ZONOZZ_INTRO_01.OGG", "sound\\CREATURE\\WarlordZonozz\\VO_DS_ZONOZZ_SPELL_05.OGG")
 mod:SetZone()
 mod:SetUsedIcons()
@@ -15,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
-	"UNIT_SPELLCAST_SUCCEEDED",
+	"UNIT_SPELLCAST_SUCCEEDED boss1",
 	"CHAT_MSG_MONSTER_YELL"
 )
 
@@ -152,7 +151,6 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
-	if uId ~= "boss1" then return end--Anti spam to ignore all other args (like target/focus/mouseover)
 	--Void of the unmaking cast, do not use spellname because we want to ignore events using spellid 103627 which fires when the sphere dispurses on the boss.
 	--It looks this event doesn't fire in raid finder. It seems to still fire in normal and heroic modes.
 	if spellId == 103571 and not voidWarned then

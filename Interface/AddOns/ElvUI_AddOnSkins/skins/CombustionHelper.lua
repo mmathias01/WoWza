@@ -1,13 +1,13 @@
-local E, L, V, P, G, _ = unpack(ElvUI)
-local AS = E:GetModule('AddOnSkins')
-local S = E:GetModule('Skins')
+local AS = ElvUI[1]:GetModule('AddOnSkins')
 
 local name = "CombustionHelperSkin"
 function AS:SkinCombustionHelper()
-	AS:SkinBackdropFrame(CombustionFrame)
-	--CombustionFrame:HookScript("OnUpdate", function(self) self:StripTextures() end)
+	CombustionFrame:CreateBackdrop()
+	combusettingstable["bgcolornormal"] = AS.BackdropColor
+	combusettingstable["edgecolornormal"] = AS.BackdropColor
 	CombuMBTrackerBorderFrame:Kill()
-	CombuMBTrackerFrame:HookScript("OnUpdate", function(self) self:SetTemplate("Transparent") self:SetPoint("BOTTOM", CombustionFrame, "TOP", 0, 4) end)
+	hooksecurefunc('CombuBackdropBuild', function() CombustionFrame:SetTemplate('Transparent') end)
+	hooksecurefunc('CombuMBTrackerBackdropBuild', function() CombuMBTrackerFrame:SetTemplate('Transparent') end)
 end
 
 AS:RegisterSkin(name, AS.SkinCombustionHelper)

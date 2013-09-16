@@ -6,7 +6,7 @@ if not L then return end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "您正在使用 |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v5.81 or higher). Please, download the latest version from tukui.org."] = "您的ElvUI版本过低(需要 v5.81 或更高), 请前往tukui.org下载最新版本."
+L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = "您的ElvUI版本过低(需要 v6.44 或更高), 请前往tukui.org下载最新版本."
 
 -- Equipment
 L["Equipment"] = "自动换装"
@@ -50,6 +50,10 @@ L["Changes the transparency of all the movers."] = true
 L['Automatic Role Assignment'] = true
 L['Enables the automatic role assignment based on specialization for party / raid members (only work when you are group leader or group assist).'] = true
 
+-- Auto Hide Role Icons in combat
+L['Hide Role Icon in combat'] = true
+L['All role icons (Damage/Healer/Tank) on the unit frames are hidden when you go into combat.'] = true
+
 -- GPS module
 L['GPS'] = "GPS定位"
 L['Show the direction and distance to the selected party or raid member.'] = "显示你与当前队伍或团队成员的方向与距离."
@@ -57,6 +61,9 @@ L['Show the direction and distance to the selected party or raid member.'] = "�
 -- Attack Icon
 L['Attack Icon'] = true
 L['Show attack icon for units that are not tapped by you or your group, but still give kill credit when attacked.'] = true
+
+-- Class Icon
+L['Show class icon for units.'] = true
 
 -- Minimap Buttons
 L["Minimap Button Bar"] = "小地图按钮整合列"
@@ -92,7 +99,11 @@ L['Automatically change your watched faction on the reputation bar to the factio
 L['Select Quest Reward'] = true
 L['Automatically select the quest reward with the highest vendor sell value.'] = true
 
+-- Item Level Datatext
+L['Item Level'] = true
+
 -- Range Datatext
+L['Target Range'] = true
 L['Distance'] = "距离"
 
 -- Extra Datatexts
@@ -123,6 +134,8 @@ L['The direction of the seed bar buttons (Horizontal or Vertical).'] = true
 -- Nameplates
 L["Threat Text"] = "威胁值文字"
 L["Display threat level as text on targeted, boss or mouseover nameplate."] = "在首领或鼠标悬停的血条上显示威胁值文字."
+L["Target Count"] = true
+L["Display the number of party / raid members targetting the nameplate unit."] = true
 
 -- HealGlow
 L['Heal Glow'] = true
@@ -130,6 +143,20 @@ L['Direct AoE heals will let the unit frames of the affected party / raid member
 L["Glow Duration"] = true
 L["The amount of time the unit frames of party / raid members will glow when affected by a direct AoE heal."] = true
 L["Glow Color"] = true
+
+-- Raid Marker Bar
+L['Raid Marker Bar'] = true
+L['Display a quick action bar for raid targets and world markers.'] = true
+L['Modifier Key'] = true
+L['Set the modifier key for placing world markers.'] = true
+L['Shift Key'] = true
+L['Ctrl Key'] = true
+L['Alt Key'] = true
+L["Raid Markers"] = true
+L["Click to clear the mark."] = true
+L["Click to mark the target."] = true
+L["%sClick to remove all worldmarkers."] = true
+L["%sClick to place a worldmarker."] = true
 
 -- WatchFrame
 L['WatchFrame'] = true
@@ -142,3 +169,7 @@ L['PvP'] = true
 L['Arena'] = true
 L['Party'] = true
 L['Raid'] = true
+
+-- Tooltips
+L['Progression Info'] = true
+L['Display the players raid progression in the tooltip, this may not immediately update when mousing over a unit.'] = true

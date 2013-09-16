@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(709, "DBM-TerraceofEndlessSpring", nil, 320)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9469 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 9929 $"):sub(12, -3))
 mod:SetCreatureID(60999)--61042 Cheng Kang, 61046 Jinlun Kun, 61038 Yang Guoshi, 61034 Terror Spawn
 mod:SetUsedIcons(8, 7, 6, 5, 4)
 
@@ -14,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"UNIT_DIED",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
 -- Normal and heroic Phase 1
@@ -113,7 +113,7 @@ local Spawns = {
 	[1] = 1,
 	[2] = 2,
 	[3] = 2,
-	[4] = 3,--no idea, maybe this one is just random 33-40, rest are dead on though.
+	[4] = 3,
 	[5] = 3,
 	[6] = 4,
 	[7] = 4,
@@ -138,12 +138,12 @@ local function warnOminousCackleTargets()
 end
 
 local function warnWaterspoutTargets()
-	warnWaterspout:Show(waterspout, specialCount, table.concat(waterspoutTargets, "<, >"))
+	warnWaterspout:Show(specialCount, table.concat(waterspoutTargets, "<, >"))
 	table.wipe(waterspoutTargets)
 end
 
 local function warnHuddleInTerrorTargets()
-	warnHuddleInTerror:Show(huddleinterror, specialCount, table.concat(huddleInTerrorTargets, "<, >"))
+	warnHuddleInTerror:Show(specialCount, table.concat(huddleInTerrorTargets, "<, >"))
 	table.wipe(huddleInTerrorTargets)
 	huddleIcon = 8
 end
@@ -157,21 +157,13 @@ local function startSpecialTimers()
 	if specialsCast == 101 then
 		timerWaterspoutCD:Start()
 	end
-	if specialsCast == 011 then--Should never happen but leaving in case.
-		timerHuddleInTerrorCD:Start()
-		print("Huddle CAN be cast Last!, tell DBM guys to fix 001 and 010")
-		print("Huddle CAN be cast Last!, tell DBM guys to fix 001 and 010")
-		print("Huddle CAN be cast Last!, tell DBM guys to fix 001 and 010")
-	end	
 	if specialsCast == 100 then
 		timerSpoStrCD:Start()
 	end
 	if specialsCast == 010 then--It is believed and backed that huddle is NEVER cast 3rd. Good evidence suggests this is true so changing timers a bit
---		timerHudStrCD:Start()
 		timerHuddleInTerrorCD:Start()
 	end
 	if specialsCast == 001 then
---		timerSpoHudCD:Start()
 		timerHuddleInTerrorCD:Start()
 	end
 end

@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(331, "DBM-DragonSoul", nil, 187)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(55294)
-mod:SetModelID(39099)
 mod:SetModelSound("sound\\CREATURE\\ULTRAXION\\VO_DS_ULTRAXION_INTRO_01.OGG", "sound\\CREATURE\\ULTRAXION\\VO_DS_ULTRAXION_AGGRO_01.OGG")
 mod:SetZone()
 mod:SetUsedIcons()
@@ -45,7 +44,7 @@ local timerRaidCDs					= mod:NewTimer(60, "timerRaidCDs", 2565, nil, false)
 
 local berserkTimer					= mod:NewBerserkTimer(360)
 
-local countdownFadingLight			= mod:NewCountdown(10, 109075)
+local countdownFadingLight			= mod:NewCountdownFades(10, 109075)
 local countdownHourofTwilight		= mod:NewCountdown(45.5, 106371, mod:IsHealer())--can be confusing with Fading Light, only enable for healer. (healers no dot affect by Fading Light)
 
 --Raid CDs will have following options: Don't show Raid CDs, Show only My Raid CDs, Show all raid CDs

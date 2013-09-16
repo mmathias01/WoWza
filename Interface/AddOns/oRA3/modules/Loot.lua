@@ -2,7 +2,7 @@ local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
 local module = oRA:NewModule("Loot", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 180 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 653 $"):sub(12, -3))
 local db
 local defaults = {
 	profile = {
@@ -123,17 +123,23 @@ function module:OnRegister()
 	oRA.RegisterCallback(self, "OnPromoted", "SetLoot")
 	oRA.RegisterCallback(self, "OnStartup", "SetLoot")
 	oRA.RegisterCallback(self, "OnConvertRaid", "SetLoot")
+	oRA.RegisterCallback(self, "OnConvertParty", "SetLoot")
+	oRA.RegisterCallback(self, "OnProfileUpdate", function()
+		db = self.db.profile
+	end)
 
 	oRA:RegisterModuleOptions("Loot", getOptions, LOOT_METHOD)
 end
 
 function module:SetLoot()
 	if not db.enable then return end
-	if oRA:IsPromoted() and ( UnitIsGroupLeader("player") or oRA:InParty() ) then
-		local method = db.raid.method
-		local threshold = db.raid.threshold
-		local master = db.raid.master
-		if oRA:InParty() then
+	if UnitIsGroupLeader("player") then
+		local method, threshold, master
+		if IsInRaid() then
+			method = db.raid.method
+			threshold = db.raid.threshold
+			master = db.raid.master
+		else
 			method = db.party.method
 			threshold = db.party.threshold
 			master = db.party.master

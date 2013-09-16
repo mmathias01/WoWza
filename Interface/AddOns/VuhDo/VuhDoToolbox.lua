@@ -104,9 +104,7 @@ end]]
 --
 function VUHDO_tableUniqueAdd(aTable, aValue)
 	for _, tValue in pairs(aTable) do
-		if tValue == aValue then
-			return false;
-		end
+		if tValue == aValue then return false; end
 	end
 
 	aTable[#aTable + 1] = aValue;
@@ -118,10 +116,7 @@ end
 --
 function VUHDO_tableRemoveValue(aTable, aValue)
 	for tIndex, tValue in pairs(aTable) do
-		if tValue == aValue then
-			tremove(aTable, tIndex);
-			return;
-		end
+		if tValue == aValue then tremove(aTable, tIndex); return; end
 	end
 end
 
@@ -130,9 +125,7 @@ end
 --
 function VUHDO_tableGetKeyFromValue(aTable, aValue)
 	for tKey, tValue in pairs(aTable) do
-		if tValue == aValue then
-			return tKey;
-		end
+		if tValue == aValue then return tKey; end
 	end
 
 	return nil;
@@ -194,19 +187,12 @@ end
 
 --
 local function VUHDO_arg2Text(anArg)
-	if anArg == nil  then
-		return "<nil>";
-	elseif "function" == type(anArg) then
-		return "<func>";
-	elseif "table" == type(anArg) then
-		return "<table>";
-	elseif "boolean" == type(anArg) then
-		return anArg and "<true>" or  "<false>";
-	elseif anArg == "" then
-		return " ";
-	else
-		return anArg;
-	end
+	if anArg == nil  then return "<nil>";
+	elseif "function" == type(anArg) then return "<func>";
+	elseif "table" == type(anArg) then return "<table>";
+	elseif "boolean" == type(anArg) then return anArg and "<true>" or  "<false>";
+	elseif anArg == "" then return " ";
+	else return anArg; end
 end
 
 
@@ -245,21 +231,14 @@ function VUHDO_getUnitIds()
 	elseif IsInGroup() then	return "party", "partypet";
 	else return "player", "pet"; end
 end
-local VUHDO_getUnitIds = VUHDO_getUnitIds;
 
 
 
 -- Extracts unit number from a Unit's name
 local tUnitNo;
 function VUHDO_getUnitNo(aUnit)
-	if "focus" == aUnit or "target" == aUnit then
-		return 0;
-	end
-
-	if "player" == aUnit then
-		aUnit = VUHDO_PLAYER_RAID_ID or "player";
-	end
-
+	if "focus" == aUnit or "target" == aUnit then return 0; end
+	if "player" == aUnit then aUnit = VUHDO_PLAYER_RAID_ID or "player"; end
 	return tonumber(strsub(aUnit, -2, -1)) or tonumber(strsub(aUnit, -1)) or 1;
 end
 local VUHDO_getUnitNo = VUHDO_getUnitNo;
@@ -268,13 +247,10 @@ local VUHDO_getUnitNo = VUHDO_getUnitNo;
 
 -- returns the units subgroup number, or 0 for pets/focus
 function VUHDO_getUnitGroup(aUnit, anIsPet)
-	if anIsPet or not aUnit or aUnit == "focus" or aUnit == "target" then
-		return 0;
+	if anIsPet or not aUnit or aUnit == "focus" or aUnit == "target" then return 0;
 	elseif VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() then
 		return select(3, GetRaidRosterInfo(VUHDO_getUnitNo(aUnit))) or 1;
-	else
-		return 1;
-	end
+	else return 1; end
 end
 
 
@@ -289,15 +265,10 @@ local VUHDO_isTargetInRange = VUHDO_isTargetInRange;
 
 -- returns wether or not a unit is in range
 function VUHDO_isInRange(aUnit)
-	if "player" == aUnit then
-		return true;
-	elseif "focus" == aUnit or "target" == aUnit then
-		return VUHDO_isTargetInRange(aUnit);
-	elseif (sIsGuessRange) then
-		return UnitInRange(aUnit);
-	else
-		return 1 == IsSpellInRange(sRangeSpell, aUnit);
-	end
+	if "player" == aUnit then return true;
+	elseif "focus" == aUnit or "target" == aUnit then return VUHDO_isTargetInRange(aUnit);
+	elseif (sIsGuessRange) then return UnitInRange(aUnit);
+	else return 1 == IsSpellInRange(sRangeSpell, aUnit); end
 end
 
 
@@ -349,8 +320,7 @@ local VUHDO_isInBattleground = VUHDO_isInBattleground;
 -- returns the appropriate addon message channel for player
 function VUHDO_getAddOnDistribution()
 	return VUHDO_isInBattleground() and "BATTLEGROUND"
-		or VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() and "RAID"
-		or "PARTY";
+		or VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() and "RAID" or "PARTY";
 end
 
 
@@ -363,11 +333,8 @@ function VUHDO_getUnitRank(aUnit)
 	if VUHDO_GROUP_TYPE_RAID == tGroupType then
 		_, tRank, _, _, _, _, _, _, _, _, tIsMl = GetRaidRosterInfo(VUHDO_getUnitNo(aUnit));
 		return tRank, tIsMl;
-	elseif VUHDO_GROUP_TYPE_PARTY == tGroupType then
-		return  UnitIsGroupLeader(aUnit) and 2 or 0, true;
-	else
-		return 2, true;
-	end
+	elseif VUHDO_GROUP_TYPE_PARTY == tGroupType then return  UnitIsGroupLeader(aUnit) and 2 or 0, true;
+	else return 2, true; end
 end
 
 
@@ -386,9 +353,7 @@ function VUHDO_getPlayerRaidUnit()
 	if VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() then
 		for tCnt = 1, 40 do
 			tRaidUnit = format("raid%d", tCnt);
-			if UnitIsUnit("player", tRaidUnit) then
-				return tRaidUnit;
-			end
+			if UnitIsUnit("player", tRaidUnit) then return tRaidUnit; end
 		end
 	end
 	return "player";
@@ -410,8 +375,7 @@ function VUHDO_getUnitZoneName(aUnit)
 	tInfo = VUHDO_RAID[aUnit];
 	if not tInfo then return; end
 
-	if "player" == aUnit or tInfo["visible"] then
-		tZone = GetRealZoneText();
+	if "player" == aUnit or tInfo["visible"] then tZone = GetRealZoneText();
 	elseif VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() then
 		tIndex = (VUHDO_RAID[aUnit] or sEmpty)["number"] or 1;
 		_, _, _, _, _, _, tZone = GetRaidRosterInfo(tIndex);
@@ -420,9 +384,7 @@ function VUHDO_getUnitZoneName(aUnit)
 		VuhDoScanTooltip:ClearLines();
 		VuhDoScanTooltip:SetUnit(aUnit)
 		tZone = VuhDoScanTooltipTextLeft3:GetText();
-		if tZone == "PvP" then
-			tZone = VuhDoScanTooltipTextLeft4:GetText();
-		end
+		if tZone == "PvP" then tZone = VuhDoScanTooltipTextLeft4:GetText(); end
 	end
 
 	tMap = GetMapInfo();
@@ -463,8 +425,7 @@ local tHealthMax;
 function VUHDO_getUnitHealthPercent(anInfo)
 	tHealthMax = anInfo["healthmax"];
 	return tHealthMax == 0 and 0
-		or anInfo["health"] < tHealthMax and 100 * anInfo["health"] / tHealthMax
-		or 100;
+		or anInfo["health"] < tHealthMax and 100 * anInfo["health"] / tHealthMax or 100;
 end
 
 
@@ -738,9 +699,7 @@ end
 function VUHDO_isGlyphed(aGlyphId)
 	local tGlyphId;
 	for tCnt = 1, GetNumGlyphs() do
-		if select(4, GetGlyphSocketInfo(tCnt)) == aGlyphId then
-			return true;
-		end
+		if select(4, GetGlyphSocketInfo(tCnt)) == aGlyphId then return true; end
 	end
 
 	return false;
@@ -762,15 +721,11 @@ function VUHDO_getUnitDirection(aUnit)
 	if (tPlayerX or 0) + (tPlayerY or 0) <= 0 then
 		VUHDO_setMapToCurrentZone();
 		tPlayerX, tPlayerY = GetPlayerMapPosition("player");
-		if (tPlayerX or 0) + (tPlayerY or 0) <= 0 then
-			return nil;
-		end
+		if (tPlayerX or 0) + (tPlayerY or 0) <= 0 then return nil; end
 	end
 
 	tUnitX, tUnitY = GetPlayerMapPosition(aUnit);
-	if (tUnitX or 0) + (tUnitY or 0) <= 0 then
-		return nil;
-	end
+	if (tUnitX or 0) + (tUnitY or 0) <= 0 then return nil; end
 
 	tFacing = GetPlayerFacing();
 	tFacing = tFacing < 0 and tFacing + VUHDO_2_PI or tFacing;
@@ -785,17 +740,11 @@ local VUHDO_getUnitDirection = VUHDO_getUnitDirection;
 local tDirection;
 local tConeFactor = 180 / VUHDO_PI;
 function VUHDO_isInConeInFrontOf(aUnit, aDegrees)
-	if aDegrees >= 360 or "player" == aUnit then
-		return true;
-	end
-
+	if aDegrees >= 360 or "player" == aUnit then return true; end
 	tDirection = VUHDO_getUnitDirection(aUnit);
 
-	if not tDirection then
-		return false;
-	elseif tDirection < 0 then
-		tDirection = tDirection + VUHDO_2_PI;
-	end
+	if not tDirection then return false;
+	elseif tDirection < 0 then tDirection = tDirection + VUHDO_2_PI; end
 
 	return aDegrees * 0.5 >= 180 - abs(180 - tConeFactor * tDirection);
 end
@@ -804,19 +753,15 @@ end
 
 --
 function VUHDO_forceBooleanValue(aRawValue)
-	if aRawValue == nil or aRawValue == 0 or aRawValue == false then
-		return false;
-	else
-		return true;
-	end
+	if aRawValue == nil or aRawValue == 0 or aRawValue == false then return false;
+	else return true; end
 end
 
 
 
 function VUHDO_getCurrentKeyModifierString()
-return format("%s%s%s",
+	return format("%s%s%s",
 		IsAltKeyDown() and "alt" or "",
 		IsControlKeyDown() and "ctrl" or "",
-		IsShiftKeyDown() and "shift" or ""
-	);
+		IsShiftKeyDown() and "shift" or "");
 end

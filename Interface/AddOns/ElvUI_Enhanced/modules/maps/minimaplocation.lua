@@ -31,7 +31,7 @@ local function CreateEnhancedMaplocation()
 	panel:Size(320, 22)
 
 	xMap = CreateFrame('Frame', "MapCoordinatesX", panel)
-	xMap:SetTemplate('Default')
+	xMap:SetTemplate('Transparent')
 	xMap:Point('LEFT', panel, 'LEFT', 2, 0)
 	xMap:Size(40, 22)
 	
@@ -40,7 +40,7 @@ local function CreateEnhancedMaplocation()
 	xMap.text:SetAllPoints(xMap)
 
 	location = CreateFrame('Frame', "EnhancedLocationText", panel)
-	location:SetTemplate('Default')
+	location:SetTemplate('Transparent')
 	location:Point('CENTER', panel, 'CENTER', 0, 0)
 	location:Size(200, 22)
 	
@@ -49,7 +49,7 @@ local function CreateEnhancedMaplocation()
 	location.text:SetAllPoints(location)
 
 	yMap = CreateFrame('Frame', "MapCoordinatesY", panel)
-	yMap:SetTemplate('Default')
+	yMap:SetTemplate('Transparent')
 	yMap:Point('RIGHT', panel, 'RIGHT', -2, 0)
 	yMap:Size(40, 22)
 
@@ -94,6 +94,8 @@ hooksecurefunc(M, 'Update_ZoneText', function()
 end)
 
 hooksecurefunc(M, 'UpdateSettings', function()
+	if not E.private.general.minimap.enable then return end
+
 	if not init then
 		init = true
 		CreateEnhancedMaplocation()
@@ -109,7 +111,7 @@ hooksecurefunc(M, 'UpdateSettings', function()
 
 	local holder = _G['MMHolder']
 	panel:SetPoint('BOTTOMLEFT', holder, 'TOPLEFT', -(E.PixelMode and 1 or 2), -(E.PixelMode and 1 or 2))
-	panel:Size(holder:GetWidth() + 2, 22)
+	panel:Size(holder:GetWidth() + (E.PixelMode and 2 or 5), 22)
 	panel:Show()
 	
 	location:Width(holder:GetWidth() - 82)

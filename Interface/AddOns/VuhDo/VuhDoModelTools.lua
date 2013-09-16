@@ -40,9 +40,7 @@ function VUHDO_clearUndefinedModelEntries()
 		local tNewArray = { };
 
 		for _, tModel in ipairs(tModelArray) do
-			if tModel ~= VUHDO_ID_UNDEFINED then
-				tinsert(tNewArray, tModel);
-			end
+			if tModel ~= VUHDO_ID_UNDEFINED then tinsert(tNewArray, tModel); end
 		end
 		VUHDO_PANEL_MODELS[tIndex] = tNewArray;
 	end

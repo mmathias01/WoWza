@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(820, "DBM-ThroneofThunder", nil, 362)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9566 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10106 $"):sub(12, -3))
 mod:SetCreatureID(69017)--69070 Viscous Horror, 69069 good ooze, 70579 bad ooze (patched out of game, :\)
-mod:SetQuestID(32751)
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6, 5, 4, 3, 2, 1)--Although if you have 8 viscous horrors up, you are probably doing fight wrong.
 
@@ -15,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
-	"UNIT_AURA",
+	"UNIT_AURA player",
 	"UNIT_DIED"
 )
 
@@ -38,6 +37,7 @@ local specWarnFullyMutatedFaded		= mod:NewSpecialWarningFades(140546)
 local specWarnCausticGas			= mod:NewSpecialWarningSpell(136216, nil, nil, nil, 2)--All must be in front for this.
 local specWarnVolatilePathogen		= mod:NewSpecialWarningYou(136228)
 local specWarnViscousHorror			= mod:NewSpecialWarningCount("ej6969", mod:IsTank())
+local specWarnEruptingPustules		= mod:NewSpecialWarningTarget(136246, false)
 
 local timerFullyMutated				= mod:NewBuffFadesTimer(120, 140546)
 local timerMalformedBlood			= mod:NewTargetTimer(60, 136050, nil, mod:IsTank() or mod:IsHealer())
@@ -159,6 +159,9 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 136246 then
 		postulesActive = true
 		warnEruptingPustules:Show(args.destName)
+		if self:IsDifficulty("heroic10", "heroic25") then
+			specWarnEruptingPustules:Show(args.destName)
+		end
 		if self.Options.RangeFrame and not acidSpinesActive then--Check if acidSpinesActive is active, if they are, we should already have range 5 up
 			DBM.RangeCheck:Show(3)
 		end
@@ -226,7 +229,6 @@ local bad3 = GetSpellInfo(136185)
 local bad4 = GetSpellInfo(136187)
 
 function mod:UNIT_AURA(uId)
-	if uId ~= "player" then return end
 	local gcnt, gcnt1, gcnt2, gcnt3, gcnt4, bcnt, bcnt1, bcnt2, bcnt3, bcnt4
 	gcnt1 = select(4, UnitDebuff("player", good1)) or 0
 	gcnt2 = select(4, UnitDebuff("player", good2)) or 0

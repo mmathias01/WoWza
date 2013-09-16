@@ -1,9 +1,8 @@
 local mod	= DBM:NewMod(108, "DBM-Party-Cataclysm", 1, 66)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 48 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
 mod:SetCreatureID(39700)
-mod:SetModelID(34433)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

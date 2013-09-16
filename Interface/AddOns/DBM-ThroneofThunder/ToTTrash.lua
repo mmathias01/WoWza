@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("ToTTrash", "DBM-ThroneofThunder")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9361 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 9678 $"):sub(12, -3))
 mod:SetModelID(47785)
 mod:SetZone()
 
@@ -11,7 +11,7 @@ mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_AURA_APPLIED",
 	"UNIT_DIED",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_SPELLCAST_SUCCEEDED target focus"
 )
 
 local warnStormEnergy			= mod:NewTargetAnnounce(139322, 4)
@@ -56,9 +56,9 @@ end
 
 local function SpiritFireTarget(sGUID)
 	local targetname = nil
-	for i=1, DBM:GetNumGroupMembers() do
-		if UnitGUID("raid"..i.."target") == sGUID then
-			targetname = DBM:GetUnitFullName("raid"..i.."targettarget")
+	for uId in DBM:GetGroupMembers() do
+		if UnitGUID(uId.."target") == sGUID then
+			targetname = DBM:GetUnitFullName(uId.."targettarget")
 			break
 		end
 	end

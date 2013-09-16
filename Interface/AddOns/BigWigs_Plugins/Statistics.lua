@@ -11,7 +11,25 @@ if not plugin then return end
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Big Wigs: Plugins")
 local activeDurations = {}
-local difficultyTable = {"5", "5h", "10", "25", "10h", "25h", "lfr"}
+local difficultyTable = {false, false, "10", "25", "10h", "25h", "lfr", false, false, false, false, false, false, "flex"}
+
+--[[
+1."Normal"
+2."Heroic"
+3."10 Player"
+4."25 Player"
+5."10 Player (Heroic)"
+6."25 Player (Heroic)"
+7."Looking For Raid"
+8."Challenge Mode"
+9."40 Player"
+10.nil
+11."Heroic Scenario"
+12."Normal Scenario"
+13.nil
+14."Flexible"
+http://wowpedia.org/API_GetDifficultyInfo
+]]--
 
 -------------------------------------------------------------------------------
 -- Options
@@ -25,6 +43,7 @@ plugin.defaultDB = {
 	printKills = true,
 	printWipes = true,
 	printNewBestKill = true,
+	showBar = true,
 }
 
 local function checkDisabled() return not plugin.db.profile.enabled end
@@ -102,6 +121,13 @@ plugin.subPanelOptions = {
 				disabled = checkDisabled,
 				width = "full",
 			},
+			showBar = {
+				type = "toggle",
+				name = L.createTimeBar,
+				order = 7,
+				disabled = checkDisabled,
+				width = "full",
+			},
 		},
 	},
 }
@@ -127,7 +153,7 @@ end
 --
 
 function plugin:BigWigs_OnBossEngage(event, module, diff)
-	if module.encounterId and diff and diff > 2 and diff < 8 and not module.worldBoss then -- Raid restricted for now
+	if module.encounterId and module.zoneId and diff and difficultyTable[diff] and not module.worldBoss then -- Raid restricted for now
 		activeDurations[module.encounterId] = GetTime()
 
 		local sDB = BigWigsStatisticsDB
@@ -135,6 +161,11 @@ function plugin:BigWigs_OnBossEngage(event, module, diff)
 		if not sDB[module.zoneId][module.encounterId] then sDB[module.zoneId][module.encounterId] = {} end
 		sDB = sDB[module.zoneId][module.encounterId]
 		if not sDB[difficultyTable[diff]] then sDB[difficultyTable[diff]] = {} end
+
+		local best = sDB[difficultyTable[diff]].best
+		if self.db.profile.showBar and best then
+			self:SendMessage("BigWigs_StartBar", self, nil, L.bestTimeBar, best, "Interface\\Icons\\spell_holy_borrowedtime")
+		end
 	end
 end
 

@@ -22,7 +22,6 @@ end
 
 local VUHDO_MACRO_NAME_GROUPS = "VuhDoDCShieldData";
 local VUHDO_MACRO_NAME_NAMES = "VuhDoDCShieldNames";
---local VUHDO_MAX_MACRO_UNITS = 41; -- 40 raid + player (*2 = 82 for pets)
 local VUHDO_EMPTY_SNIPPET = "[x]";
 local VUHDO_IS_DC_TEMP_DISABLE = false;
 
@@ -90,8 +89,7 @@ local function VUHDO_buildSnippetArray()
 			VUHDO_GROUP_SNIPPETS[tMacroIndex] = format("%01d%s%s",
 				tInfo["group"] % 10,
 				VUHDO_CLASS_TO_MACRO[tInfo["classId"]] or "_",
-				VUHDO_ROLE_TO_MACRO[tInfo["role"]] or "_"
-			);
+				VUHDO_ROLE_TO_MACRO[tInfo["role"]] or "_");
 
 			VUHDO_NAME_SNIPPETS[tMacroIndex] = format("%-3.3s", tInfo["name"] or "");
 		end
@@ -105,22 +103,17 @@ local tMacroString, tMacroNames;
 local tIndexGroups, tIndexNames;
 local tNumMacros;
 function VUHDO_mirrorToMacro()
-	if (VUHDO_IS_DC_TEMP_DISABLE) then return; end
+	if VUHDO_IS_DC_TEMP_DISABLE then return; end
 
 	tIndexGroups = GetMacroIndexByName(VUHDO_MACRO_NAME_GROUPS);
 	tIndexNames = GetMacroIndexByName(VUHDO_MACRO_NAME_NAMES);
 
 	if VUHDO_CONFIG["IS_DC_SHIELD_DISABLED"] then
-		if (tIndexGroups or 0) ~= 0 then
-			DeleteMacro(tIndexGroups);
-		end
-
-		if (tIndexNames or 0) ~= 0 then
-			DeleteMacro(tIndexNames);
-		end
-
+		if (tIndexGroups or 0) ~= 0 then DeleteMacro(tIndexGroups); end
+		if (tIndexNames or 0) ~= 0 then DeleteMacro(tIndexNames); end
 		return;
 	end
+
 	tMacroString = VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() and "R" or "P";
 	tMacroNames = "N"; -- Filler
 
@@ -164,9 +157,7 @@ local function VUHDO_buildInfoFromSnippet(aUnit, aSnippet, aName)
 	local tInfo;
 	local tClassId;
 
-	if not VUHDO_RAID[aUnit] then
-		VUHDO_RAID[aUnit] = { };
-	end
+	if not VUHDO_RAID[aUnit] then VUHDO_RAID[aUnit] = { }; end
 
 	tClassId = VUHDO_MACRO_TO_CLASS[strsub(aSnippet, 2, 2)] or VUHDO_ID_PETS;
 
@@ -223,9 +214,7 @@ function VUHDO_buildRaidFromMacro()
 	tIndexGroups = GetMacroIndexByName(VUHDO_MACRO_NAME_GROUPS);
 	tIndexNames = GetMacroIndexByName(VUHDO_MACRO_NAME_NAMES);
 
-	if (tIndexGroups or 0) == 0 or (tIndexNames or 0) == 0 then
-		return false;
-	end
+	if (tIndexGroups or 0) == 0 or (tIndexNames or 0) == 0 then return false; end
 
 	twipe(VUHDO_RAID);
 	tMacroGroups = GetMacroBody(tIndexGroups);
@@ -255,17 +244,13 @@ end
 
 
 --
-local VUHDO_SAFE_PARTY = {
-	"player", "party1",	"party2",	"party3",	"party4"
-};
+local VUHDO_SAFE_PARTY = { "player", "party1",	"party2",	"party3",	"party4" };
 
 
 
 --
 function VUHDO_buildSafeParty()
-	if InCombatLockdown() then
-		return;
-	end
+	if InCombatLockdown() then return; end
 
 	local _, _, _, tSubtypeID = GetLFGProposal();
 	if LFG_SUBTYPEID_RAID == tSubtypeID then
@@ -273,12 +258,8 @@ function VUHDO_buildSafeParty()
 		for tCnt = 0, 25 do
 			tGroup = floor(tCnt / 5) + 1;
 			tUnit = tCnt == 0 and "player" or "raid" .. tCnt;
-			if not VUHDO_GROUPS[tGroup] then
-				VUHDO_GROUPS[tGroup] = {};
-			end
-			if tCnt % 5 == 0 then
-				twipe(VUHDO_GROUPS[tGroup]);
-			end
+			if not VUHDO_GROUPS[tGroup] then VUHDO_GROUPS[tGroup] = { }; end
+			if tCnt % 5 == 0 then twipe(VUHDO_GROUPS[tGroup]); end
 
 			tinsert(VUHDO_GROUPS[tGroup], tUnit);
 		end

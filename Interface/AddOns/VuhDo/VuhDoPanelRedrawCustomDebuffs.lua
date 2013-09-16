@@ -21,13 +21,7 @@ function VUHDO_panelRedrawCustomDebuffsInitBurst()
 	VUHDO_customizeIconText = _G["VUHDO_customizeIconText"];
 
 	sDebuffConfig = VUHDO_CONFIG["CUSTOM_DEBUFF"];
-
-	if "TOPLEFT" == sDebuffConfig["point"] or "BOTTOMLEFT" == sDebuffConfig["point"] then
-		sSign = 1;
-	else
-		sSign = -1;
-	end
-
+	sSign = ("TOPLEFT" == sDebuffConfig["point"] or "BOTTOMLEFT" == sDebuffConfig["point"]) and 1 or -1;
 	sMaxNum = sDebuffConfig["max_num"];
 	sPoint = sDebuffConfig["point"];
 end
@@ -92,58 +86,59 @@ local tIconIdx;
 local tIconName;
 local tButton;
 function VUHDO_initCustomDebuffs()
-	for tCnt = 0, sMaxNum - 1 do
-		tIconIdx = 40 + tCnt;
+	-- Wir brauchen mind. 1 für LastCustomDebuffBouquet
+	if sMaxNum == 0 then VUHDO_getOrCreateCuDeButton(sButton, 40);
+	else
+		for tCnt = 0, sMaxNum - 1 do
+			tIconIdx = 40 + tCnt;
 
-		tButton = VUHDO_getOrCreateCuDeButton(sButton, tIconIdx);
-		tButton:ClearAllPoints();
-		tButton:SetPoint(sPoint, sHealthBar:GetName(), sPoint,
-			 sXOffset + (tCnt * sStep), sYOffset); -- center
-		tButton:SetWidth(sHeight);
-		tButton:SetHeight(sHeight);
-		tButton:SetScale(1);
+			tButton = VUHDO_getOrCreateCuDeButton(sButton, tIconIdx);
+			tButton:ClearAllPoints();
+			tButton:SetPoint(sPoint, sHealthBar:GetName(), sPoint, sXOffset + (tCnt * sStep), sYOffset); -- center
+			tButton:SetWidth(sHeight);
+			tButton:SetHeight(sHeight);
+			tButton:SetScale(1);
 
-		tFrame = VUHDO_getBarIconFrame(sButton, tIconIdx);
-		tFrame:ClearAllPoints();
-		tFrame:SetPoint(sPoint, sHealthBar:GetName(), sPoint,
-			 sXOffset + (tCnt * sStep), sYOffset); -- center
+			tFrame = VUHDO_getBarIconFrame(sButton, tIconIdx);
+			tFrame:ClearAllPoints();
+			tFrame:SetPoint(sPoint, sHealthBar:GetName(), sPoint, sXOffset + (tCnt * sStep), sYOffset); -- center
 
-		if not sIsTooltipCache[tIconIdx] then
-			sIsTooltipCache[tIconIdx] = VUHDO_isMostlyInBounds(tButton, sButton, 0.33);
+			if not sIsTooltipCache[tIconIdx] then
+				sIsTooltipCache[tIconIdx] = VUHDO_isMostlyInBounds(tButton, sButton, 0.33);
+			end
+
+			if VUHDO_CONFIG["DEBUFF_TOOLTIP"] and sIsTooltipCache[tIconIdx] == 1 then
+				tFrame:SetWidth(sHeight);
+				tFrame:SetHeight(sHeight);
+			else
+				tFrame:SetWidth(0.001);
+				tFrame:SetHeight(0.001);
+				--VUHDO_Msg("Removing " .. (tCnt + 1));
+			end
+			tFrame:SetAlpha(0);
+			tFrame:SetScale(VUHDO_CONFIG["CUSTOM_DEBUFF"]["scale"] * 0.7);
+			tFrame:Show();
+
+			tIcon = VUHDO_getBarIcon(sButton, tIconIdx);
+			tIcon:SetAllPoints();
+			tIconName = tIcon:GetName();
+
+			tTimer = VUHDO_getBarIconTimer(sButton, tIconIdx);
+			VUHDO_customizeIconText(tIcon, sHeight, tTimer, VUHDO_CONFIG["CUSTOM_DEBUFF"]["TIMER_TEXT"]);
+			tTimer:Show();
+
+			tCounter = VUHDO_getBarIconCounter(sButton, tIconIdx);
+			VUHDO_customizeIconText(tIcon, sHeight, tCounter, VUHDO_CONFIG["CUSTOM_DEBUFF"]["COUNTER_TEXT"]);
+			tCounter:Show();
+
+			tName = VUHDO_getBarIconName(sButton, tIconIdx);
+			tName:SetPoint("BOTTOM", tIconName, "TOP", 0, 0);
+			tName:SetFont(GameFontNormalSmall:GetFont(), 12, "OUTLINE", "");
+			tName:SetShadowColor(0, 0, 0, 0);
+			tName:SetTextColor(1, 1, 1, 1);
+			tName:SetText("");
+			tName:Show();
 		end
-
-		if VUHDO_CONFIG["DEBUFF_TOOLTIP"] and sIsTooltipCache[tIconIdx] == 1 then
-			tFrame:SetWidth(sHeight);
-			tFrame:SetHeight(sHeight);
-		else
-			tFrame:SetWidth(0.001);
-			tFrame:SetHeight(0.001);
-			--VUHDO_Msg("Removing " .. (tCnt + 1));
-		end
-		tFrame:SetAlpha(0);
-		tFrame:SetScale(VUHDO_CONFIG["CUSTOM_DEBUFF"]["scale"] * 0.7);
-		tFrame:Show();
-
-
-		tIcon = VUHDO_getBarIcon(sButton, tIconIdx);
-		tIcon:SetAllPoints();
-		tIconName = tIcon:GetName();
-
-		tTimer = VUHDO_getBarIconTimer(sButton, tIconIdx);
-		VUHDO_customizeIconText(tIcon, sHeight, tTimer, VUHDO_CONFIG["CUSTOM_DEBUFF"]["TIMER_TEXT"]);
-		tTimer:Show();
-
-		tCounter = VUHDO_getBarIconCounter(sButton, tIconIdx);
-		VUHDO_customizeIconText(tIcon, sHeight, tCounter, VUHDO_CONFIG["CUSTOM_DEBUFF"]["COUNTER_TEXT"]);
-		tCounter:Show();
-
-		tName = VUHDO_getBarIconName(sButton, tIconIdx);
-		tName:SetPoint("BOTTOM", tIconName, "TOP", 0, 0);
-		tName:SetFont(GameFontNormalSmall:GetFont(), 12, "OUTLINE", "");
-		tName:SetShadowColor(0, 0, 0, 0);
-		tName:SetTextColor(1, 1, 1, 1);
-		tName:SetText("");
-		tName:Show();
 	end
 
 	for tCnt = sMaxNum + 40, 44 do

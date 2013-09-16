@@ -40,7 +40,7 @@ L["Waiting until combat ends to finish loading due to Blizzard combat restrictio
 L["Combat has ended, Big Wigs has now finished loading."] = "戰鬥已經結束，Big Wigs現在完成載入。"
 L["Due to Blizzard restrictions the config must first be opened out of combat, before it can be accessed in combat."] = "由於暴雪的限制，要打開選項配置需要離開戰鬥，或是在戰鬥之前。"
 
-L.missingAddOn = "請注意這個區域需要此-[[\124cFF436EEE%s\124r]]- 計時器掛件才能顯示。"
+L.missingAddOn = "請注意這個區域需要此 [\124cFF436EEE%s\124r] 計時器掛件才能顯示。"
 
 L.coreAddonDisabled = "當%s被禁用時，Big Wigs 將無法正常工作。你可以在角色選擇螢幕的插件控制面板開啟它們。"
 
@@ -78,6 +78,8 @@ L.chatMessages = "聊天框體訊息"
 L.chatMessagesDesc = "除了顯示設定，輸出所有 Big Wigs 訊息到預設聊天框體。"
 L.autoRole = "自動更新職責"
 L.autoRoleDesc = "明確所擔任的職責 Big Wigs 將為團隊其他隊友優化警報，此選項將使 Big Wigs 自動更新你的職責。比如，一些模組將檢查玩家是坦克時首領並不會對坦克所施放的技能。\n\n|cffff4411這是與特定的職責不相關的警報並強烈建議開啟此選項！|r"
+L.zoneMessages = "顯示區域訊息"
+L.zoneMessagesDesc = "禁用此項 Big Wigs 在進入新區域時將停止顯示已有計時器。建議不要關閉此選項，因為可能在進入新的區域時需要創建新的計時器，這是非常有幫助的。"
 
 L.slashDescTitle = "|cFFFED000命令行：|r"
 L.slashDescPull = "|cFFFED000/pull:|r 發送拉怪倒數提示到團隊。"
@@ -138,6 +140,7 @@ L.heroic25 = "25人英雄"
 L.norm10 = "10人"
 L.heroic10 = "10人英雄"
 L.lfr = "隨機團隊"
+L.flex = "Flex"
 L.wipes = "團滅："
 L.kills = "擊殺："
 L.bestkill = "最快擊殺："

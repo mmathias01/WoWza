@@ -1,0 +1,10 @@
+
+DamaFontDB = {
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Saphiira - Terenas",
+	},
+	["profiles"] = {
+		["Saphiira - Terenas"] = {
+		},
+	},
+}

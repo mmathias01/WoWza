@@ -150,6 +150,9 @@ function plugin:OnRegister()
 	media:Register(mType, "BigWigs: [DBM] ".. L.Destruction, "Sound\\Creature\\KilJaeden\\KILJAEDEN02.wav")
 	media:Register(mType, "BigWigs: [DBM] ".. L.RunAway, "Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
 
+	-- Ingame sounds used by Blizzard
+	media:Register(mType, "BigWigs: Raid Boss Whisper", "Sound\\Interface\\UI_RaidBossWhisperWarning.ogg")
+
 	soundList = media:List(mType)
 
 	for k, s in next, sounds do
@@ -215,6 +218,7 @@ end
 
 local function customSound(module, key, sound)
 	local sDb = plugin.db.profile[sound]
+	if type(key) == "number" and key > 0 then key = GetSpellInfo(key) end
 	if not module or not key or not sDb or not sDb[module.name] or not sDb[module.name][key] then
 		return false
 	else

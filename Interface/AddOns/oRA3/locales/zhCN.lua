@@ -28,6 +28,8 @@ L.slashCommands = [[
 oRA3 sports a range of slash commands to aid you in fast-paced raiding. In case you weren't around in the old CTRA days, here's a little reference. All of the slash commands have various shorthands and also longer, more descriptive alternatives in some cases, for convenience.
 
 |cff44ff44/radur|r - Opens the durability list.
+|cff44ff44/ragear|r - Opens the gear check list.
+|cff44ff44/ralag|r - Opens the latency list.
 |cff44ff44/razone|r - Opens the zone list.
 |cff44ff44/radisband|r - Instantly disbands the raid with no verification.
 |cff44ff44/raready|r - Performs a ready check.
@@ -76,6 +78,7 @@ L["Invite zone"] = "地区邀请"
 L["Invite everyone in your guild who are in the same zone as you."] = "邀请公会中在指定地区的玩家"
 L["Guild rank invites"] = "会阶邀请"
 L["Clicking any of the buttons below will invite anyone of the selected rank AND HIGHER to your group. So clicking the 3rd button will invite anyone of rank 1, 2 or 3, for example. It will first post a message in either guild or officer chat and give your guild members 10 seconds to leave their groups before doing the actual invites."] = "自动邀请会阶高于等于所选等级的工会成员，按下该按钮会自动在工会和官员频道发送要求10秒内离队待组的消息，10秒后自动开始组人"
+L["Only invite on keyword if in a raid group"] = true
 
 -- Promote module
 L["Demote everyone"] = "降级所有人"
@@ -111,6 +114,7 @@ L["Toggle whether the cooldown display should never show your own cooldowns. For
 L["Cooldowns"] = "冷却"
 L["Right-Click me for options!"] = "右键打开设置"
 L["Bar Settings"] = "计时条设置"
+L["Text Settings"] = true
 L["Spawn test bar"] = "显示测试计时条"
 L["Use class color"] = "使用职业颜色"
 L["Height"] = "高度"
@@ -122,10 +126,14 @@ L["Duration"] = "时间"
 L["Unit name"] = "名字"
 L["Spell name"] = "技能"
 L["Short Spell name"] = "技能缩写"
+L["Label Font"] = true
+L["Label Font Size"] = true
 L["Label Align"] = "标签位置"
 L["Left"] = "左"
 L["Right"] = "右"
 L["Center"] = "中间"
+L["Duration Font"] = true
+L["Duration Font Size"] = true
 L["Grow up"] = "向上递增"
 
 -- Zone module
@@ -153,7 +161,13 @@ L["Show"] = "显示"
 L.showButtonHelp = "在你个人的坦克排列中显示这个坦克. 此项只对本地有效, 不会影响团队中其他人的配置"
 
 -- Latency Module
-L["Latency"] = true
-L["Home"] = true
-L["World"] = true
+L["Latency"] = "Latency"
+L["Home"] = "Home"
+L["World"] = "World"
+
+-- Gear Module
+L["Gear"] = "Gear"
+L["Item Level"] = "Item Level"
+L["Missing Gems"] = "Missing Gems"
+L["Missing Enchants"] = "Missing Enchants"
 

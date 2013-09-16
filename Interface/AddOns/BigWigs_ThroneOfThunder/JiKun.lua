@@ -14,8 +14,8 @@ mod:RegisterEnableMob(69712) -- Ji-Kun
 --------------------------------------------------------------------------------
 -- Locals
 --
-local nestCounter = 0
-local quillCounter = 0
+
+local nestCounter, quillCounter, draftCounter = 0, 0, 0
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -23,6 +23,7 @@ local quillCounter = 0
 
 local L = mod:NewLocale("enUS", true)
 if L then
+	L.first_lower_hatch_trigger = "The eggs in one of the lower nests begin to hatch!"
 	L.lower_hatch_trigger = "The eggs in one of the lower nests begin to hatch!"
 	L.upper_hatch_trigger = "The eggs in one of the upper nests begin to hatch!"
 
@@ -80,8 +81,7 @@ function mod:OnEngage(diff)
 	self:Bar(134380, (diff == 4 or diff == 6) and 42 or 60) -- Quills
 	self:Bar(134370, 90) -- Down Draft
 	self:CDBar(134366, 24) -- Talon Rake
-	nestCounter = 0
-	quillCounter = 0
+	nestCounter, quillCounter, draftCounter = 0, 0, 0
 end
 
 --------------------------------------------------------------------------------
@@ -94,7 +94,8 @@ function mod:Caw(args)
 end
 
 function mod:CHAT_MSG_MONSTER_EMOTE(_, msg)
-	if not msg:find(L["upper_hatch_trigger"], nil, true) and not msg:find(L["lower_hatch_trigger"], nil, true) then return end
+	-- Some locales (Spanish esES) use a custom emote for the very first nest, support it.
+	if not msg:find(L["upper_hatch_trigger"], nil, true) and not msg:find(L["lower_hatch_trigger"], nil, true) and not msg:find(L["first_lower_hatch_trigger"], nil, true) then return end
 
 	local diff = self:Difficulty()
 	nestCounter = nestCounter + 1
@@ -168,7 +169,9 @@ function mod:CHAT_MSG_MONSTER_EMOTE(_, msg)
 			self:Bar("nest", 30, ("(%d) %s"):format(nextNest, L["lower_nest"]), "misc_arrowdown")
 		elseif nestCounter == 3 or nestCounter == 8 or nestCounter == 17 or nestCounter == 19 or nestCounter == 29 then
 			self:Bar("nest", 30, ("(%d)%s+(%d)%s"):format(nextNest, L["down"], nextNest+1, L["up"]), 134347)
-		elseif nestCounter == 13 or nestCounter == 15 or nestCounter == 24 then
+		elseif nestCounter == 15 then
+			self:Bar("nest", 30, ("(%d)%s(%s)+(%d)%s"):format(nextNest, L["up"], L["add"], nextNest+1, L["down"]), 134347)  -- this is intentional, because this is how blizzard announces it too!
+		elseif nestCounter == 13 or nestCounter == 24 then
 			self:Bar("nest", 30, ("(%d)%s+(%d)%s"):format(nextNest, L["up"], nextNest+1, L["down"]), 134347) -- this is intentional, because this is how blizzard announces it too!
 		elseif nestCounter == 7 then
 			self:Bar("nest", 30, ("(%d) %s"):format(nextNest, L["upper_nest"]), "misc_arrowlup")
@@ -185,7 +188,7 @@ function mod:CHAT_MSG_MONSTER_EMOTE(_, msg)
 		elseif nestCounter == 31 then
 			self:Bar("nest", 30, ("(%d)%s+(%d)%s+(%d)%s"):format(nextNest, L["up"], nextNest+1, L["down"], nextNest+2, L["up"]), 134347)
 		end
-		-- big adds at 2, 6, 12, 23, 30 (another upper add in the 38 set, probably 39)
+		-- big adds at 2, 6, 12, 16, 23, 30 (another upper add in the 38 set, probably 39)
 		if nestCounter == 2 or nestCounter == 6 or nestCounter == 23 or nestCounter == 30 then
 			self:Message("nest", "Urgent", "Alert", L["big_add_message"]:format(L["lower_nest"]), 134367)
 		elseif nestCounter == 12 or nestCounter == 16 then
@@ -214,27 +217,31 @@ do
 	end
 end
 
-function mod:UNIT_SPELLCAST_START(_, _, _, _, spellId)
-	-- UNIT event due to combat log range issues
-	if spellId == 134380 then -- Quills
-		self:Message(spellId, "Important", "Warning")
-		self:Flash(spellId)
-		local diff = self:Difficulty()
-		quillCounter = quillCounter + 1
-		if diff == 4 or diff == 6 then -- 25 N/H
-			self:Bar(spellId, 63)
-		else -- 10 N/H + LFR
-			if quillCounter == 4 then
-				self:Bar(spellId, 91)
-			elseif quillCounter > 6 then
-				self:Bar(spellId, 44) -- soft enrage it looks like
-			else
-				self:Bar(spellId, 81)
+do
+	local draftTimes = {97.7, 94, 100, 104}
+	function mod:UNIT_SPELLCAST_START(_, _, _, _, spellId)
+		-- UNIT event due to combat log range issues
+		if spellId == 134380 then -- Quills
+			self:Message(spellId, "Important", "Warning")
+			self:Flash(spellId)
+			local diff = self:Difficulty()
+			quillCounter = quillCounter + 1
+			if diff == 4 or diff == 6 then -- 25 N/H
+				self:Bar(spellId, 63)
+			else -- 10 N/H + LFR
+				if quillCounter == 4 then
+					self:Bar(spellId, 91)
+				elseif quillCounter > 6 then
+					self:Bar(spellId, 44) -- soft enrage it looks like
+				else
+					self:Bar(spellId, 81)
+				end
 			end
+		elseif spellId == 134370 then -- Down Draft
+			self:Message(spellId, "Important", "Long")
+			draftCounter = draftCounter + 1
+			self:Bar(spellId, draftTimes[draftCounter] or 93)
 		end
-	elseif spellId == 134370 then -- Down Draft
-		self:Message(spellId, "Important", "Long")
-		self:Bar(spellId, 93)
 	end
 end
 

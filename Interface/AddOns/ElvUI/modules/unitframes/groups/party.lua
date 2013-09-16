@@ -58,6 +58,7 @@ function UF:Update_PartyHeader(header, db)
 
 	local headerHolder = header:GetParent()
 	headerHolder.db = db
+
 	if not headerHolder.positioned then
 		headerHolder:ClearAllPoints()
 		headerHolder:Point("BOTTOMLEFT", E.UIParent, "BOTTOMLEFT", 4, 195)
@@ -77,6 +78,7 @@ function UF:PartySmartVisibility(event)
 	if not self.db or (self.db and not self.db.enable) or (UF.db and not UF.db.smartRaidFilter) or self.isForced then return; end
 	local inInstance, instanceType = IsInInstance()
 	if event == "PLAYER_REGEN_ENABLED" then self:UnregisterEvent("PLAYER_REGEN_ENABLED") end
+
 	if not InCombatLockdown() then		
 		if inInstance and instanceType == "raid" then
 			UnregisterStateDriver(self, "visibility")
@@ -210,16 +212,28 @@ function UF:Update_PartyFrames(frame, db)
 			health.colorHealth = nil
 			health.colorClass = nil
 			health.colorReaction = nil
-			if self.db['colors'].healthclass ~= true then
+			
+			if db.colorOverride == "FORCE_ON" then
+				health.colorClass = true
+				health.colorReaction = true
+			elseif db.colorOverride == "FORCE_OFF" then
 				if self.db['colors'].colorhealthbyvalue == true then
 					health.colorSmooth = true
 				else
 					health.colorHealth = true
 				end		
 			else
-				health.colorClass = true
-				health.colorReaction = true
-			end	
+				if self.db['colors'].healthclass ~= true then
+					if self.db['colors'].colorhealthbyvalue == true then
+						health.colorSmooth = true
+					else
+						health.colorHealth = true
+					end		
+				else
+					health.colorClass = true
+					health.colorReaction = true
+				end				
+			end
 			
 			--Position
 			health:ClearAllPoints()
@@ -402,6 +416,7 @@ function UF:Update_PartyFrames(frame, db)
 
 			if db.buffs.enable then			
 				buffs:Show()
+				UF:UpdateAuraIconSettings(buffs)
 			else
 				buffs:Hide()
 			end
@@ -437,6 +452,7 @@ function UF:Update_PartyFrames(frame, db)
 
 			if db.debuffs.enable then			
 				debuffs:Show()
+				UF:UpdateAuraIconSettings(debuffs)
 			else
 				debuffs:Hide()
 			end

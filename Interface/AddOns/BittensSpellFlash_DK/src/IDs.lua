@@ -78,6 +78,7 @@ a.TalentIDs = {
 
 a.GlyphIDs = {
 	["Icebound Fortitude"] = 58673,
+	["Loud Horn"] = 146646,
 }
 
 a.EquipmentSets = {

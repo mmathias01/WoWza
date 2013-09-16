@@ -28,6 +28,7 @@ L.slashCommands = [[
 oRA3 sports a range of slash commands to aid you in fast-paced raiding. In case you weren't around in the old CTRA days, here's a little reference. All of the slash commands have various shorthands and also longer, more descriptive alternatives in some cases, for convenience.
 
 |cff44ff44/radur|r - Opens the durability list.
+|cff44ff44/ragear|r - Opens the gear check list.
 |cff44ff44/ralag|r - Opens the latency list.
 |cff44ff44/razone|r - Opens the zone list.
 |cff44ff44/radisband|r - Instantly disbands the raid with no verification.
@@ -83,6 +84,7 @@ L["Invite zone"] = "지역 초대"
 L["Invite everyone in your guild who are in the same zone as you."] = "현재 지역 내의 모든 길드원을 공격대에 초대합니다."
 L["Guild rank invites"] = "길드 등급 초대"
 L["Clicking any of the buttons below will invite anyone of the selected rank AND HIGHER to your group. So clicking the 3rd button will invite anyone of rank 1, 2 or 3, for example. It will first post a message in either guild or officer chat and give your guild members 10 seconds to leave their groups before doing the actual invites."] = "지정된 등급 이상의 모든 길드원을 공격대에 초대합니다."
+L["Only invite on keyword if in a raid group"] = true
 
 -- Promote module
 L["Demote everyone"] = "모두 강등"
@@ -119,6 +121,7 @@ L["Toggle whether the cooldown display should never show your own cooldowns. For
 L["Cooldowns"] = "재사용 대기시간"
 L["Right-Click me for options!"] = "옵션 설정은 우-클릭!"
 L["Bar Settings"] = "바 설정"
+L["Text Settings"] = true
 L["Spawn test bar"] = "테스트 바 표시"
 L["Use class color"] = "직업 색상 사용"
 L["Custom color"] = "사용자 색상"
@@ -131,10 +134,14 @@ L["Duration"] = "지속 시간"
 L["Unit name"] = "유닛 이름"
 L["Spell name"] = "주문 이름"
 L["Short Spell name"] = "짧은 주문 이름"
+L["Label Font"] = true
+L["Label Font Size"] = true
 L["Label Align"] = "Label 정렬"
 L["Left"] = "좌측"
 L["Right"] = "우측"
 L["Center"] = "중앙"
+L["Duration Font"] = true
+L["Duration Font Size"] = true
 L["Grow up"] = "성장 방향"
 
 -- Zone module
@@ -162,7 +169,13 @@ L["Show"] = "표시"
 L.showButtonHelp = "이 탱커를 정렬 탱커 목록에 표시를 합니다. 이 옵션은 당신에게만 적용되며 그룹에서 다른 사람의 탱커가 변경되지 않습니다."
 
 -- Latency Module
-L["Latency"] = true
-L["Home"] = true
-L["World"] = true
+L["Latency"] = "Latency"
+L["Home"] = "Home"
+L["World"] = "World"
+
+-- Gear Module
+L["Gear"] = "Gear"
+L["Item Level"] = "Item Level"
+L["Missing Gems"] = "Missing Gems"
+L["Missing Enchants"] = "Missing Enchants"
 

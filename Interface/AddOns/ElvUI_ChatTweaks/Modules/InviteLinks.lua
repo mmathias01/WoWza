@@ -69,21 +69,23 @@ function Module:ChatFrame_MessageEventHandler(frame, event, ...)
 end
 
 function Module:SetItemRef(link, text, button)
-	local linkType = sub(link, 1, link:find(":") - 1)
-	if IsAltKeyDown() and not IsControlKeyDown() and linkType == "player" and db.altClickToInvite then
-		local name = match(link, "player:([^:]+)")
-		InviteUnit(name)
-		return nil	
-	elseif linkType == "guildinvite" then
-		local name = sub(link, link:find(":") + 1)
-		if not name or UnitIsInMyGuild(name) then return end
-		local inGuild, _, _ = GetGuildInfo(name)
-		if not inGuild then GuildInvite(name) end
-		return nil
-	elseif linkType == "groupinvite" then
-		local name = sub(link, link:find(":") + 1)
-		InviteUnit(name)
-		return nil
+	if link:find(":") then
+		local linkType = sub(link, 1, link:find(":") - 1)
+		if IsAltKeyDown() and not IsControlKeyDown() and linkType == "player" and db.altClickToInvite then
+			local name = match(link, "player:([^:]+)")
+			InviteUnit(name)
+			return nil	
+		elseif linkType == "guildinvite" then
+			local name = sub(link, link:find(":") + 1)
+			if not name or UnitIsInMyGuild(name) then return end
+			local inGuild, _, _ = GetGuildInfo(name)
+			if not inGuild then GuildInvite(name) end
+			return nil
+		elseif linkType == "groupinvite" then
+			local name = sub(link, link:find(":") + 1)
+			InviteUnit(name)
+			return nil
+		end
 	end
 	return self.hooks.SetItemRef(link, text, button)
 end

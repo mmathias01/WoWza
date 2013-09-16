@@ -1,14 +1,11 @@
--- Camealion's Functions File
--- Added ccolor for class coloring. - Azilroka
--- Restructured Functions file. - Azilroka
--- Added Skinning features for ease of skinning and smaller size skins. - Azilroka
-
-local addon = select(1,...)
-local E, L, V, P, G,_ = unpack(ElvUI)
-local AS = E:NewModule('AddOnSkins','AceTimer-3.0','AceEvent-3.0')
+local AddOnName = select(1, ...)
+local E, L, V, P, G, _ = unpack(ElvUI)
+local AS = E:NewModule('AddOnSkins', 'AceTimer-3.0', 'AceEvent-3.0')
 local S = E:GetModule('Skins')
-local LSM = LibStub("LibSharedMedia-3.0")
-local EP = LibStub("LibElvUIPlugin-1.0")
+local LSM, EP = LibStub('LibSharedMedia-3.0'), LibStub('LibElvUIPlugin-1.0')
+
+local tinsert, pairs, ipairs, unpack, pcall, select = tinsert, pairs, ipairs, unpack, pcall, select
+local format, gsub, strfind, strmatch = format, gsub, strfind, strmatch
 
 E.AddOnSkins = AS
 
@@ -18,26 +15,32 @@ AS.embeds = {}
 AS.events = {}
 AS.register = {}
 AS.addOnWatch = {}
-AS.ccolor = E.myclass
 AS.FrameLocks = {}
-E.private.skins.addons = {}
-AS.sle = IsAddOnLoaded("ElvUI_SLE")
+E.private.addonskins = {}
 
-AS.Version = GetAddOnMetadata(addon,"Version")
+AS.SLE = IsAddOnLoaded('ElvUI_SLE')
+AS.Title = select(2, GetAddOnInfo(AddOnName))
+AS.Version = GetAddOnMetadata(AddOnName, 'Version')
+AS.TicketTracker = 'http://www.tukui.org/tickets/elvuiskins/'
+AS.TexCoords = E.TexCoords
+AS.Locale = L
+AS.MyClass = E.myclass
+AS.MyName = E.myname
+AS.MyRealm = E.myrealm
+AS.Noop = function() return end
 
 local function GenerateEventFunction(event)
-	local eventHandler = function(self,event,...)
-		for skin,funcs in pairs(self.skins) do
+	local eventHandler = function(self, event, ...)
+		for skin, funcs in pairs(self.skins) do
 			if AS:CheckOption(skin) and self.events[event][skin] then
-				-- pack event args
 				local args = {}
-				for i = 1,select('#',...) do
-					local arg = select(i,...)
+				for i = 1, select('#', ...) do
+					local arg = select(i, ...)
 					if not arg then break end
-					tinsert(args,arg)
+					tinsert(args, arg)
 				end
-				for _,func in ipairs(funcs) do
-					AS:Call_(skin,func,event,unpack(args))
+				for _, func in ipairs(funcs) do
+					AS:CallSkin(skin, func, event, unpack(args))
 				end
 			end
 		end
@@ -45,80 +48,35 @@ local function GenerateEventFunction(event)
 	return eventHandler
 end
 
-function AS:Call_(skin,func,event,...)
-	-- pack event args
-	local args = {}
-	for i = 1,select('#',...) do
-		local arg = select(i,...)
-		if not arg then break end
-		tinsert(args,arg)
-	end
-	if not pcall(func,self,event,unpack(args)) then
-		local message = "|cff1784d1ElvUI |rAddOnSkins: |cffff0000There was an error in the|r |cff0affff%s|r |cffff0000skin|r.  Please report this to the developers immediately."
-		print(message:format(skin:gsub("Skin","")))
-	end
-end
-
-function AS:Initialize()
-	if self.initialized then return end -- In case this gets called twice as can sometimes happen with ElvUI
-
-	EP:RegisterPlugin(addon, AS.GenerateOptions)
-
-	if not E.private.skins.addons.enable then return end
-
-	E.private.skins.addons['AlwaysTrue'] = true
-
-	self.font = LSM:Fetch("font",E.db.general.font)
-	self.pixelFont = IsAddOnLoaded("DSM") and LSM:Fetch("font","Tukui Pixel") or LSM:Fetch("font","ElvUI Pixel")
-	self.datatext_font = LSM:Fetch("font",E.db.datatexts.font)
-
-	self:RegisterEvent("PET_BATTLE_CLOSE", 'AddNonPetBattleFrames')
-	self:RegisterEvent('PET_BATTLE_OPENING_START', "RemoveNonPetBattleFrames")
-	self:RegisterEvent('PLAYER_REGEN_DISABLED', 'EmbedEnterCombat')
-	self:RegisterEvent('PLAYER_ENTER_COMBAT','EmbedEnterCombat')
-	self:RegisterEvent('PLAYER_REGEN_ENABLED','EmbedExitCombat')
-	self:RegisterEvent('PLAYER_LEAVE_COMBAT','EmbedExitCombat')
-	
-	for skin,alldata in pairs(self.register) do
-		for _,data in pairs(alldata) do
-			local addon
-			local sdata = self.Skins[skin]
-			if sdata and sdata.addon then
-				addon = sdata.addon
-			else
-				addon = skin:gsub("Skin","")
-			end
-			if skin == "AlwaysTrue" or IsAddOnLoaded(addon) then
-				self:RegisterSkin_(skin,data.priority,data.func,data.events)
-			end
+function AS:RegisterSkin(skinName, skinFunc, ...)
+	local events = {}
+	local priority = 1
+	for i = 1, select('#', ...) do
+		local event = select(i, ...)
+		if not event then break end
+		if type(event) == 'number' then
+			priority = event
+		else
+			events[event] = true
 		end
 	end
-
-	self:EmbedInit()
-
-	for skin,funcs in pairs(AS.skins) do
-		if AS:CheckOption(skin) then
-			for _,func in ipairs(funcs) do
-				AS:Call_(skin,func,"PLAYER_ENTERING_WORLD")
-			end
-		end
-	end
-
-	self.initialized = true
+	local registerMe = { func = skinFunc, events = events, priority = priority }
+	if not self.register[skinName] then self.register[skinName] = {} end
+	self.register[skinName][skinFunc] = registerMe
 end
 
-function AS:RegisterSkin_(skinName,priority,func,events)
+function AS:RegisteredSkin(skinName, priority, func, events)
 	local events = events
-	for c,_ in pairs(events) do
-		if string.find(c,'%[') then
-			local conflict = string.match(c,'%[([!%w_]+)%]')
+	for c, _ in pairs(events) do
+		if strfind(c, '%[') then
+			local conflict = strmatch(c, '%[([!%w_]+)%]')
 			if IsAddOnLoaded(conflict) then return end
 		end
 	end
 	if not self.skins[skinName] then self.skins[skinName] = {} end
 	self.skins[skinName][priority] = func
-	for event,_ in pairs(events) do
-		if not string.find(event,'%[') then
+	for event, _ in pairs(events) do
+		if not strfind(event, '%[') then
 			if not self.events[event] then
 				self[event] = GenerateEventFunction(event)
 				self:RegisterEvent(event); 
@@ -129,13 +87,79 @@ function AS:RegisterSkin_(skinName,priority,func,events)
 	end
 end
 
-function AS:UnregisterEvent(skinName,event)
+function AS:CallSkin(skin, func, event, ...)
+	local pass, error = pcall(func, self, event, ...)
+	if not pass then
+		local message = '%s: |cffff0000There was an error in the|r |cff0affff%s|r |cffff0000skin|r.  Please report this to Azilroka immediately @ %s'
+		local errormessage = '%s Error: %s'
+		AS:Print(format(message, AS.Version, gsub(skin, 'Skin', ''), AS:PrintURL(AS.TicketTracker)))
+		AS:Print(format(errormessage, gsub(skin, 'Skin', ''), error))
+	end
+end
+
+function AS:UpdateMedia()
+	AS.Blank = LSM:Fetch('background', 'ElvUI Blank')
+	AS.Font = LSM:Fetch("font", E.db.general.font)
+	AS.PixelFont = LSM:Fetch('font', 'ElvUI Pixel')
+	AS.NormTex = LSM:Fetch('statusbar', E.private.general.normTex)
+	AS.GlossTex = LSM:Fetch("statusbar", E.private.general.glossTex)
+	AS.BackdropColor = E['media'].backdropcolor
+	AS.BorderColor = E['media'].bordercolor
+	AS.UIScale = UIParent:GetScale()
+end
+
+function AS:Initialize()
+	if self.initialized then return end
+	self.initialized = true
+
+	EP:RegisterPlugin(AddOnName, AS.GenerateOptions)
+	self:CheckConflicts()
+
+	hooksecurefunc(E, 'UpdateMedia', AS.UpdateMedia)
+	E:UpdateMedia()
+
+	E.private.addonskins['MiscFixes'] = true
+
+	self:RegisterEvent('PET_BATTLE_CLOSE', 'AddNonPetBattleFrames')
+	self:RegisterEvent('PET_BATTLE_OPENING_START', 'RemoveNonPetBattleFrames')
+	self:RegisterEvent('PLAYER_REGEN_DISABLED', 'EmbedEnterCombat')
+	self:RegisterEvent('PLAYER_REGEN_ENABLED', 'EmbedExitCombat')
+
+	-- Register Only Skins that AddOn's are loaded for.
+	for skin, alldata in pairs(self.register) do
+		for _, data in pairs(alldata) do
+			local addon
+			local sdata = self.Skins[skin]
+			if sdata and sdata.addon then
+				addon = sdata.addon
+			else
+				addon = gsub(skin, 'Skin', '')
+			end
+			if skin == 'MiscFixes' or IsAddOnLoaded(addon) then
+				self:RegisteredSkin(skin, data.priority, data.func, data.events)
+			end
+		end
+	end
+
+	-- Need to check PLAYER_LOGIN - If it works it will speed it up and will prevent double calling.
+	for skin, funcs in pairs(AS.skins) do
+		if AS:CheckOption(skin) then
+			for _, func in ipairs(funcs) do
+				AS:CallSkin(skin, func, 'PLAYER_ENTERING_WORLD')
+			end
+		end
+	end
+
+	self:EmbedInit()
+end
+
+function AS:UnregisterEvent(skinName, event)
 	if not self.events[event] then return end
 	if not self.events[event][skinName] then return end
 
 	self.events[event][skinName] = nil
 	local found = false
-	for skin,_ in pairs(self.events[event]) do
+	for skin, _ in pairs(self.events[event]) do
 		if skin then
 			found = true
 			break
@@ -152,128 +176,8 @@ function AS:RegisterForPetBattleHide(frame)
 	end
 end
 
-function AS:SkinFrame(frame, template, override)
-	if not template then template = 'Transparent' end
-	if not override then frame:StripTextures(true) end
-
-	frame:SetTemplate(template)
-
-	self:RegisterForPetBattleHide(frame)
-end
-
-function AS:SkinBackdropFrame(frame, template, override)
-	if not template then template = "Transparent" end
-	if not override then frame:StripTextures(true) end
-
-	frame:CreateBackdrop(template)
-
-	self:RegisterForPetBattleHide(frame)
-end
-
-function AS:SkinStatusBar(bar, ClassColor)
-	bar:StripTextures(true)
-	bar:SetStatusBarTexture(LSM:Fetch("statusbar",E.private.general.normTex))
-
-	if ClassColor then
-		AS:SkinBackdropFrame(bar, "ClassColor")
-		local color = RAID_CLASS_COLORS[AS.ccolor]
-		bar:SetStatusBarColor(color.r, color.g, color.b)
-	else
-		AS:SkinBackdropFrame(bar)
-	end
-	bar:SetStatusBarTexture(LSM:Fetch("statusbar",E.private.general.normTex))
-end
-
-function AS:SkinIconButton( iconButton, strip, style, shrinkIcon)
-	if self.isSkinned then return end
-
-	if strip then iconButton:StripTextures() end
-	iconButton:CreateBackdrop("Default", true)
-	if style then iconButton:StyleButton() end
-
-	local icon = iconButton.icon
-	if iconButton:GetName() and _G[iconButton:GetName().."IconTexture"] then
-		icon = _G[iconButton:GetName().."IconTexture"]
-	elseif iconButton:GetName() and _G[iconButton:GetName().."Icon"] then
-		icon = _G[iconButton:GetName().."Icon"]
-	end
-	if icon then
-		icon:SetDrawLayer("OVERLAY")
-		icon:SetTexCoord(.08,.88,.08,.88)
-
-		if shrinkIcon then
-			iconButton.backdrop:SetAllPoints()
-			icon:SetInside(iconButton)
-		else
-			iconButton.backdrop:SetOutside(icon)
-		end
-		icon:SetParent(iconButton.backdrop)
-	end
-	iconButton.isSkinned = true
-end
-
-function AS:SkinTooltip(tooltip)
-	tooltip:HookScript("OnShow", function(self) self:SetTemplate("Transparent") end)
-end
-
-function AS:Desaturate(f, point)
-	for i=1, f:GetNumRegions() do
-		local region = select(i, f:GetRegions())
-		if region:GetObjectType() == "Texture" then
-			region:SetDesaturated(1)
-
-			if region:GetTexture() == "Interface\\DialogFrame\\UI-DialogBox-Corner" then
-				region:Kill()
-			end
-		end
-	end
-
-	if point then
-		f:Point("TOPRIGHT", point, "TOPRIGHT", 2, 2)
-	end
-end
-
-function AS:CheckOption(optionName,...)
-	for i = 1,select('#',...) do
-		local addon = select(i,...)
-		if not addon then break end
-		if not IsAddOnLoaded(addon) then return false end
-	end
-	
-	return E.private.skins.addons[optionName]
-end
-
-function AS:DisableOption(optionName)
-	E.private.skins.addons[optionName] = false
-end
-
-function AS:EnableOption(optionName)
-	E.private.skins.addons[optionName] = true
-end
-
-function AS:ToggleOption(optionName)
-	E.private.skins.addons[optionName] = not E.private.skins.addons[optionName]
-end
-
-function AS:RegisterSkin(skinName,skinFunc,...)
-	local events = {}
-	local priority = 1
-	for i = 1,select('#',...) do
-		local event = select(i,...)
-		if not event then break end
-		if type(event) == 'number' then
-			priority = event
-		else
-			events[event] = true
-		end
-	end
-	local registerMe = { func = skinFunc, events = events, priority = priority }
-	if not self.register[skinName] then self.register[skinName] = {} end
-	self.register[skinName][skinFunc] = registerMe
-end
-
 function AS:AddNonPetBattleFrames()
-	for frame,data in pairs(AS.FrameLocks) do
+	for frame, data in pairs(AS.FrameLocks) do
 		if data.shown then
 			_G[frame]:Show()
 		end
@@ -281,14 +185,217 @@ function AS:AddNonPetBattleFrames()
 end
 
 function AS:RemoveNonPetBattleFrames()
-	for frame,data in pairs(AS.FrameLocks) do
-		if(_G[frame]:IsVisible()) then
+	for frame, data in pairs(AS.FrameLocks) do
+		if _G[frame]:IsVisible() then
 			data.shown = true
 			_G[frame]:Hide()
 		else
 			data.shown = false
 		end
 	end
+end
+
+function AS:OrderedPairs(t, f)
+	local a = {}
+	for n in pairs(t) do tinsert(a, n) end
+	sort(a, f)
+	local i = 0
+	local iter = function()
+		i = i + 1
+		if a[i] == nil then return nil
+			else return a[i], t[a[i]]
+		end
+	end
+	return iter
+end
+
+function AS:Print(string)
+	print(format('%s %s', AS.Title, string))
+end
+
+function AS:PrintURL(url)
+	return format("|cFF00AAFF[|Hurl:%s|h%s|h]|r", url, url)
+end
+
+function AS:Round(num, idp)
+	local mult = 10^(idp or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
+
+function AS:SkinButton(...)
+	S:HandleButton(...)
+end
+
+function AS:SkinScrollBar(...)
+	S:HandleScrollBar(...)
+end
+
+function AS:SkinTab(...)
+	S:HandleTab(...)
+end
+
+function AS:SkinNextPrevButton(...)
+	S:HandleNextPrevButton(...)
+end
+
+function AS:SkinRotateButton(...)
+	S:HandleRotateButton(...)
+end
+
+function AS:SkinDropDownBox(...)
+	S:HandleDropDownBox(...)
+end
+
+function AS:SkinCheckBox(...)
+	S:HandleCheckBox(...)
+end
+
+function AS:SkinCloseButton(...)
+	S:HandleCloseButton(...)
+end
+
+function AS:SkinSlideBar(frame, size)
+	S:HandleSliderFrame(frame)
+	if size then
+		frame:GetThumbTexture():Size(size-2,size-2)
+	end
+end
+
+function AS:SkinIconButton(...)
+	S:HandleItemButton(...)
+end
+
+function AS:Delay(delay, func, ...)
+	E:Delay(delay, func, ...)
+end
+
+function AS:SkinEditBox(frame, width, height)
+	S:HandleEditBox(frame)
+	if width then frame:Width(width) end
+	if height then frame:Height(height) end
+end
+
+function AS:SkinFrame(frame, template, override, kill)
+	if not template then template = 'Transparent' end
+	if not override then frame:StripTextures(kill) end
+	frame:SetTemplate(template)
+	AS:RegisterForPetBattleHide(frame)
+end
+
+function AS:SkinBackdropFrame(frame, template, override, kill, setpoints)
+	if not template then template = 'Transparent' end
+	if not override then frame:StripTextures(kill) end
+	frame:CreateBackdrop(template)
+	if setpoints then frame.backdrop:SetAllPoints() end
+	AS:RegisterForPetBattleHide(frame)
+end
+
+function AS:SkinTitleBar(frame, template, override, kill)
+	if not template then template = 'Transparent' end
+	if not override then frame:StripTextures(kill) end
+	frame:SetTemplate(template, true)
+end
+
+function AS:SkinStatusBar(bar, ClassColor)
+	AS:SkinBackdropFrame(bar, ClassColor and 'ClassColor' or 'Default')
+	bar:SetStatusBarTexture(AS.NormTex)
+	if ClassColor then
+		local color = RAID_CLASS_COLORS[AS.MyClass]
+		bar:SetStatusBarColor(color.r, color.g, color.b)
+	end
+end
+
+function AS:SkinTexture(frame)
+	frame:SetTexCoord(unpack(AS.TexCoords))
+end
+
+function AS:SkinTooltip(tooltip)
+	tooltip:HookScript('OnShow', function(self) self:SetTemplate('Transparent') end)
+end
+
+function AS:Desaturate(frame)
+	for i = 1, frame:GetNumRegions() do
+		local region = select(i, frame:GetRegions())
+		if region:GetObjectType() == 'Texture' then
+			region:SetDesaturated(true)
+
+			if region:GetTexture() == 'Interface\\DialogFrame\\UI-DialogBox-Corner' then
+				region:SetTexture(nil)
+				region:Kill()
+			end
+		end
+	end
+	frame:HookScript('OnUpdate', function(self)
+		if self:GetNormalTexture() then
+			self:GetNormalTexture():SetDesaturated(true)
+		end
+		if self:GetPushedTexture() then
+			self:GetPushedTexture():SetDesaturated(true)
+		end
+		if self:GetHighlightTexture() then
+			self:GetHighlightTexture():SetDesaturated(true)
+		end
+	end)
+end
+
+local AcceptFrame
+function AS:AcceptFrame(MainText, Function)
+	if not AcceptFrame then
+		AcceptFrame = CreateFrame('Frame', nil, UIParent)
+		AcceptFrame:SetTemplate('Transparent')
+		AcceptFrame:SetSize(250, 70)
+		AcceptFrame:SetPoint('CENTER', UIParent, 'CENTER')
+		AcceptFrame:SetFrameStrata('DIALOG')
+		AcceptFrame.Text = AcceptFrame:CreateFontString(nil, "OVERLAY")
+		AcceptFrame.Text:SetFont(AS.Font, 12)
+		AcceptFrame.Text:SetPoint('TOP', AcceptFrame, 'TOP', 0, -10)
+		AcceptFrame.Accept = CreateFrame('Button', nil, AcceptFrame)
+		AS:SkinButton(AcceptFrame.Accept)
+		AcceptFrame.Accept:SetSize(70, 25)
+		AcceptFrame.Accept:SetPoint('RIGHT', AcceptFrame, 'BOTTOM', -10, 20)
+		AcceptFrame.Accept.Text = AcceptFrame.Accept:CreateFontString(nil, "OVERLAY")
+		AcceptFrame.Accept.Text:SetFont(AS.Font, 10)
+		AcceptFrame.Accept.Text:SetPoint('CENTER')
+		AcceptFrame.Accept.Text:SetText(YES)
+		AcceptFrame.Close = CreateFrame('Button', nil, AcceptFrame)
+		AS:SkinButton(AcceptFrame.Close)
+		AcceptFrame.Close:SetSize(70, 25)
+		AcceptFrame.Close:SetPoint('LEFT', AcceptFrame, 'BOTTOM', 10, 20)
+		AcceptFrame.Close:SetScript('OnClick', function(self) self:GetParent():Hide() end)
+		AcceptFrame.Close.Text = AcceptFrame.Close:CreateFontString(nil, "OVERLAY")
+		AcceptFrame.Close.Text:SetFont(AS.Font, 10)
+		AcceptFrame.Close.Text:SetPoint('CENTER')
+		AcceptFrame.Close.Text:SetText(NO)
+	end
+	AcceptFrame.Text:SetText(MainText)
+	AcceptFrame.Accept:SetScript('OnClick', Function)
+	AcceptFrame:Show()
+end
+
+function AS:CheckOption(optionName, ...)
+	for i = 1, select('#', ...) do
+		local addon = select(i, ...)
+		if not addon then break end
+		if not IsAddOnLoaded(addon) then return false end
+	end
+	
+	return E.private.addonskins[optionName]
+end
+
+function AS:SetOption(optionName, value)
+	E.private.addonskins[optionName] = value
+end
+
+function AS:ToggleOption(optionName)
+	E.private.addonskins[optionName] = not E.private.addonskins[optionName]
+end
+
+function AS:DisableOption(optionName)
+	AS:SetOption(optionName, false)
+end
+
+function AS:EnableOption(optionName)
+	AS:SetOption(optionName, true)
 end
 
 E:RegisterModule(AS:GetName())

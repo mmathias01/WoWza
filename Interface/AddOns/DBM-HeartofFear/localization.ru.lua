@@ -67,15 +67,15 @@ L= DBM:GetModLocalization(737)
 
 L:SetWarningLocalization({
 	warnReshapeLife				= "%s на >%s< (%d)",
-	warnReshapeLifeTutor		= "1: Сбить каст/продебаффать цель, 2: Сбить каст себе, 3: Восстановить здоровье/энергию, 4: Выйти",
+	warnReshapeLifeTutor		= "1: Сбить каст/продебаффать цель (используйте это на боссе, чтобы настакать дебафф), 2: Сбить себе каст, когда кастуется Янтарный взрыв, 3: Восстановить силу воли, когда ее мало (используейте в основном на 3 фазе), 4: Выйти (только на 1 и 2 фазе)",
 	warnAmberExplosion			= ">%s< кастует %s",
 	warnAmberExplosionAM		= "Янтарное чудовище кастует Янтарный взрыв - Сбейте!",--personal warning.
 	warnInterruptsAvailable		= "Сбить %s могут: >%s<",
 	warnWillPower				= "Текущая сила воли: %s",
-	specwarnWillPower			= "Низкая сила воли! - осталось 5 секунд",
+	specwarnWillPower			= "Низкая сила воли! - выйдите или поглотите лужу",
 	specwarnAmberExplosionYou	= "Сбейте СВОЙ %s!",--Struggle for Control interrupt.
 	specwarnAmberExplosionAM	= "%s: Interrupt %s!",--Amber Montrosity
-	specwarnAmberExplosionOther	= "%s: Interrupt %s!"--Amber Montrosity
+	specwarnAmberExplosionOther	= "%s: Interrupt %s!"--Mutated Construct
 })
 
 L:SetTimerLocalization{
@@ -95,7 +95,7 @@ L:SetOptionLocalization({
 	specwarnAmberExplosionOther	= "Спец-предупреждение для прерывания $spell:122398 у Мутировавшего организма",
 	timerAmberExplosionAMCD		= "Отсчет времени до следующего $spell:122402 у Янтарного чудовища",
 	InfoFrame					= "Информационное окно для игроков с низким уровнем силы воли",
-	FixNameplates				= "Автоматически отключать мешающие полоски здоровья, когда вы\nв мутировавшем организме (восстанавливает настройку после выхода из боя)"
+	FixNameplates				= "Автоматически отключать мешающие полоски здоровья, когда вы<br/>в мутировавшем организме (восстанавливает настройку после выхода из боя)"
 })
 
 L:SetMiscLocalization({
@@ -108,7 +108,7 @@ L:SetMiscLocalization({
 L= DBM:GetModLocalization(743)
 
 L:SetWarningLocalization({
-	warnAmberTrap	= "Прогресс создания ловушки: (%d/5)",
+	warnAmberTrap	= "Прогресс создания ловушки: (%d/5)"
 })
 
 L:SetOptionLocalization({
@@ -119,4 +119,17 @@ L:SetOptionLocalization({
 L:SetMiscLocalization({
 	PlayerDebuffs	= "Сосредоточение",
 	YellPhase3		= "Больше никаких оправданий, императрица! Избавься от этих кретинов или я сам убью тебя!"
+})
+
+-------------
+--  Trash  --
+-------------
+L = DBM:GetModLocalization("HoFTrash")
+
+L:SetGeneralLocalization({
+	name =	"Трэш мобы Сердца Страха"
+})
+
+L:SetOptionLocalization({
+	UnseenStrikeArrow	= "Показывать стрелку DBM, когда на ком-то $spell:122949"
 })

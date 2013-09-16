@@ -108,13 +108,14 @@ function TOTEMS:Initialize()
 		frame.cooldown = CreateFrame('Cooldown', frame:GetName()..'Cooldown', frame, 'CooldownFrameTemplate')
 		frame.cooldown:SetReverse(true)
 		frame.cooldown:SetInside()
+		E:RegisterCooldown(frame.cooldown)
 		self.bar[i] = frame;
 	end
 	
 	self:ToggleEnable()
 	self:PositionAndSize()
 
-	E:CreateMover(bar, 'TotemBarMover', L['Totems']);
+	E:CreateMover(bar, 'TotemBarMover', L['Class Bar']);
 end
 
 E:RegisterModule(TOTEMS:GetName())

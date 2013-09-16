@@ -1,8 +1,8 @@
 --[[
 Interface: 5.0.1
 Title: LibBalancePowerTracker
-Version: 1.1.4
-Author: Kurohoshi (EU-Minahonda)
+Version: 1.1.5
+Author: Kurohoshi (EU-Minahonda), Tristimdorio (Omega1970)
 
 --INFO
 	LibBalancePowerTracker is a library designed to provide the foresee energy feature to Balance Druids.
@@ -43,6 +43,9 @@ Author: Kurohoshi (EU-Minahonda)
 	While changing from 2nd spec to 1st, UnitPower is wrong --- True in 5.0.4
 
 --CHANGELOG
+v 1.1.5 Removed Soul of the Forest energy bonsu
+		Removed Critter Protection Code (CPU Intensive)
+		Cleanup of unneeded code
 v 1.1.4	Checks eclipse direction more often
 		Balance check uses GetSpecialization()
 		Should be more responsive when casting
@@ -146,9 +149,9 @@ v 1.0.1 Reduced the number of callbacks fired.
 v 1.0.0 Release
 --]]
 
-local version = {1,1,4};
+local version = {1,1,5};
 if (LibBalancePowerTracker and LibBalancePowerTracker.CompareVersion and LibBalancePowerTracker:CompareVersion(version)) then return; end;
-if select(4, GetBuildInfo())<50001 then return; end;
+if select(4, GetBuildInfo())<50001 then return end
 
 --Initialize Global Lib
 LibBalancePowerTracker = {};
@@ -156,19 +159,19 @@ function LibBalancePowerTracker:CompareVersion(versionTable)
 	-- if mine is equal or better than versionTable, return true
 	for i,v in ipairs(versionTable) do
 		if version[i] ~= v then
-			return version[i] > v;
-		end;
-	end;
-	return true;
-end;
+			return version[i] > v
+		end
+	end
+	return true
+end
 
 --Locals
 ----GLOBALS TO LOCALS-------------------------------------------------------------------
-local GetEclipseDirection,UnitPower,SPELL_FAILED_NOT_READY,SPELL_FAILED_SPELL_IN_PROGRESS = GetEclipseDirection,UnitPower,SPELL_FAILED_NOT_READY,SPELL_FAILED_SPELL_IN_PROGRESS;
+local GetEclipseDirection,UnitPower,SPELL_FAILED_NOT_READY,SPELL_FAILED_SPELL_IN_PROGRESS = GetEclipseDirection,UnitPower,SPELL_FAILED_NOT_READY,SPELL_FAILED_SPELL_IN_PROGRESS
 local UnitGUID,UnitBuff,GetTalentInfo,GetSpellInfo = UnitGUID,UnitBuff,GetTalentInfo,GetSpellInfo
 local GetInventoryItemID,abs,pairs,ipairs,tonumber,GetSpecialization,GetTime,select = GetInventoryItemID,abs,pairs,ipairs,tonumber,GetSpecialization,GetTime,select
-local LibBalancePowerTracker = LibBalancePowerTracker;
-local SPELL_POWER_ECLIPSE,UnitCastingInfo,UnitChannelInfo = SPELL_POWER_ECLIPSE,UnitCastingInfo,UnitChannelInfo;
+local LibBalancePowerTracker = LibBalancePowerTracker
+local SPELL_POWER_ECLIPSE,UnitCastingInfo,UnitChannelInfo = SPELL_POWER_ECLIPSE,UnitCastingInfo,UnitChannelInfo
 ----DATA--------------------------------------------------------------------------------
 ------STATIC----------------------------------------------------------------------------
 local data ={
@@ -184,7 +187,6 @@ local data ={
 	LunarEclipse  	= {name = GetSpellInfo(48518) , spellId = 48518 }, -- Lunar eclipse buff id
 	SolarEclipse  	= {name = GetSpellInfo(48517) , spellId = 48517 }, -- Solar eclipse buff id
 	
-	SoulOfTheForest = {talentIndex = 10, bonus = 20},
 	balanceTiersItemId ={ --Pieces of bonus that change things
 		[12]={
 			[1]={ [71108]="n",[71497]="h"},--head
@@ -217,8 +219,6 @@ local vars = {
 	direction = "none",
 	vDirection = "none",
 	
-	bug0ToBeWorkarounded = false,
-
 	tiers = {
 		[1]=false,--head
 		[3]=false,--shoulders
@@ -228,7 +228,7 @@ local vars = {
 		tierPieceCount = setmetatable({}, {__index = function () return 0 end}),
 	}
 }
-local playerGUID,lastCallback,callbacks,number_callbacks = false,0,{},0;
+local playerGUID,lastCallback,callbacks,number_callbacks = false,0,{},0
 ------ENERGY FUNCTIONS------------------------------------------------------------------
 --[[If dir == none then
 ----index is side of bar
@@ -328,13 +328,13 @@ local energizeEventsFromSpell={
 	},
 }
 ----TIMERS-------------------------------------------------------------------------------
-local timers={holder 	= CreateFrame("Frame",nil,UIParent);}
+local timers={holder 	= CreateFrame("Frame",nil,UIParent)}
 timers.broadcastTier 	= CreateFrame("Cooldown",nil,timers.holder)
 timers.delayedUpdate 	= CreateFrame("Cooldown",nil,timers.holder)
 ----FRAME--------------------------------------------------------------------------------
-local frame = CreateFrame("Frame",nil,UIParent); --(loading events & workaround)
-local combatFrame = CreateFrame("Frame",nil,UIParent); --Combat events
-local LBPT = {};
+local frame = CreateFrame("Frame",nil,UIParent) --(loading events & workaround)
+local combatFrame = CreateFrame("Frame",nil,UIParent) --Combat events
+local LBPT = {}
 -----------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------
@@ -353,11 +353,7 @@ local function deleteSpell()
 	vars.spell_casting = 0;
 	vars.spell_num = 0;
 	vars.energize_events_remaining = 0;
-	if vars.bug0ToBeWorkarounded then --need to avoid 0bug 
-		LBPT.RecalcEnergy(vars.energy,vars.direction) 
-	else
-		LBPT.RecalcEnergy()
-	end
+	LBPT.RecalcEnergy()
 end
 local function UpdateEclipseOnEnergyDirection(energy,direction)
 	if abs(energy) == 100 then 		
@@ -479,8 +475,7 @@ do --Loading
 		vars.vEclipse = false
 		vars.direction = "none"
 		vars.vDirection = "none"
-		vars.bug0ToBeWorkarounded = false;
-		vars.celestial_lockout_end = 0;
+		vars.celestial_lockout_end = 0
 		
 		--Propagate values
 		if balanceNow then 	
@@ -526,7 +521,6 @@ do --Talent check/change events
 	function LBPT.UNIT_POWER_FREQUENT(unit,power) 
 		if not power == "ECLIPSE" then return end
 		
-		vars.bug0ToBeWorkarounded = false;
 		local e = UnitPower("player", SPELL_POWER_ECLIPSE)
 		local d = GetEclipseDirection() 
 
@@ -565,11 +559,7 @@ do --Combat events-------------
 			vars.started_in_CA = vars.celestial_lockout_end ~= 0 --To math events left in AC by time
 			UpdateEnergizeAt(channeled)
 			
-			if vars.bug0ToBeWorkarounded then --need to avoid 0bug 
-				LBPT.RecalcEnergy(vars.energy,vars.direction) 
-			else
-				LBPT.RecalcEnergy()
-			end
+			LBPT.RecalcEnergy()
 		end
 	end
 	
@@ -579,11 +569,7 @@ do --Combat events-------------
 	local function delaySpell(unit,num,id,channeled)
 		if unit == "player" and spellsUsed[id] and vars.celestial_lockout_end ~= 0 and vars.spell_num == num and vars.spell_casting == id then
 			UpdateEnergizeAt(channeled)
-			if vars.bug0ToBeWorkarounded then --need to avoid 0bug 
-				LBPT.RecalcEnergy(vars.energy,vars.direction) 
-			else
-				LBPT.RecalcEnergy()
-			end
+			LBPT.RecalcEnergy()
 		end
 	end
 	
@@ -607,8 +593,7 @@ do --Combat events-------------
 	
 	function LBPT.UNIT_POWER(unit,power) --Scheduled energy recheck by combat events (0bug & AC energy update)
 		if unit == "player" and power == "ECLIPSE" then
-			frame:UnregisterEvent("UNIT_POWER");
-			vars.bug0ToBeWorkarounded = false;
+			frame:UnregisterEvent("UNIT_POWER")
 			
 			if vars.isBalance then
 				local e = UnitPower("player",SPELL_POWER_ECLIPSE)
@@ -680,14 +665,9 @@ do --Combat events-------------
 											end
 										end
 										
-										if (energy ~= addEnergy(vars.energy,amount)) or vars.bug0ToBeWorkarounded then --need to check 0bug (and SS)
+										if (energy ~= addEnergy(vars.energy,amount)) then --need to check 0bug (and SS)
 											energy = addEnergy(vars.energy,amount) --predict with the energy we have
 											direction = vars.vDirection;
-											
-											if not vars.bug0ToBeWorkarounded then
-												vars.bug0ToBeWorkarounded = true;
-												frame:RegisterEvent("UNIT_POWER"); --Schedule energy check 
-											end
 										else
 											direction = GetEclipseDirection();
 										end
@@ -731,13 +711,11 @@ do --Combat events-------------
 	do --Direction & energy when teleporting  
 		function LBPT.combat.PLAYER_ENTERING_WORLD()
 			deleteSpell()
-		end; 
+		end
 	end
 end
 
 do --Recalc Energy function	
-	local SotFIndex = data.SoulOfTheForest.talentIndex;
-	local SotFBonus = data.SoulOfTheForest.bonus;
 	local function ExtraEnergy(energy,direction,eclipse) --computes extra energy
 		local newEclipse;
 		local newEnergy;
@@ -748,21 +726,6 @@ do --Recalc Energy function
 			newEnergy = energy + energyFromSpell[vars.spell_casting][direction][((direction == "none") and ((energy>=0 and 100) or -100)) or (eclipse or 0) ];
 		else
 			newEnergy = energy;
-		end
-		
-		--Add SOTF energy
-		if select(5,GetTalentInfo(SotFIndex)) then --SOTF
-			if vars.celestial_lockout_end ~= 0 then --CA 
-				if direction == "moon" then
-					newEnergy = newEnergy -SotFBonus;
-				else
-					newEnergy = newEnergy +SotFBonus;
-				end
-			elseif energy > 0 and newEnergy <=0 then
-				newEnergy = newEnergy -SotFBonus;
-			elseif energy < 0 and newEnergy >=0 then
-				newEnergy = newEnergy +SotFBonus;
-			end
 		end
 		
 		--Set energy boundaries
@@ -779,15 +742,6 @@ do --Recalc Energy function
 		end
 		
 		if energy ~= newEnergy then 
-			--if there's no change in energy, prediction shouln't change eclipse or direction
-			--It should be here, because if you can only get 0 energy from spell, due to being already
-			--at max energy, you won't get eclipse.
-			--Test by reaching eclipse and then spend a "talent point"
-			--CPU effect: 
-				-- +1 asingación
-				-- +2 asignación /ciclo
-				-- +1 comprobación
-			---- total: +2 instrucciones: incremento irrelevante
 			return newEnergy,newDirection,newEclipse;
 		else
 			return energy,direction,eclipse;
@@ -889,93 +843,6 @@ do --Called functions (API)
 		
 			return e,d,vE,vD,vEc
 		end
-	end
-end
-
-do --Energy not gained by critters or wild pets
-	-- DOESN'T WORK IN ALL LOCALIZATIONS -> TRIES TO WORK -> USES GLOBALS
-	-- UnitIsBattlePet without having learned pet training -> always nil -> rely in UnitCreatureType
-	-- CPU increase: 
-	--		Worst case: 80% minimal LBPT CPU increase 		(critter focused and switching mouseover targets like crazy)
-	--		Normal: 0										(no critter focused and moving the mouse avg)
-	--	Well, it uses a lot of CPU compared to LBPT, but that's because LBPT is fairly low on CPU, so even with this enabled,
-	--	addon CPU is still very low, however, if you want to deactivate it, call LibBalancePowerTracker.DisableCritterFiltering()
-	--	you will need to /reload to enable it again (just reload and don't call the function)
-	
-	local UnitIsWildBattlePet,UnitCreatureType,UnitName = UnitIsWildBattlePet,UnitCreatureType,UnitName;
-	LBPT_WILD_BATTLE_PET_LOCALIZED_TRY = strmatch(TOOLTIP_WILDBATTLEPET_LEVEL,"^.*%%s (.*)$");
-	LBPT_CRITTER_LOCALIZED_TRY = BATTLE_PET_NAME_5
-	
-	local combatTable = LBPT.combat
-	local isCritterOrWildPet = {
-		mouseover = false,
-		target = false,
-		focus = false,
-	}
-	local count = 0;
-	local sendTo = {}
-
-	local function Critter(num) 
-		local name = sendTo[num]
-		if not name then return false; end
-
-		for k,v in pairs(isCritterOrWildPet) do
-			if v and UnitName(k) == name then return true end
-		end
-		
-		return false
-	end
-	
-	local function check(unit)
-		local local_type = UnitCreatureType(unit)
-		if (UnitIsWildBattlePet(unit) or (local_type and (local_type == LBPT_CRITTER_LOCALIZED_TRY or local_type == LBPT_WILD_BATTLE_PET_LOCALIZED_TRY))) then
-			if not isCritterOrWildPet[unit] then
-				isCritterOrWildPet[unit] = true;
-				count = count+1;
-				if count == 1 then
-					sendTo = {}
-					combatFrame:RegisterUnitEvent("UNIT_SPELLCAST_SENT", "player");
-					combatTable.UNIT_SPELLCAST_SENT = LBPT.spellcast_sent
-					LBPT.Critter = Critter
-				end
-			end
-		else
-			if isCritterOrWildPet[unit] then
-				isCritterOrWildPet[unit] = nil
-				count = count-1;
-				if count == 0 then
-					combatFrame:UnregisterEvent("UNIT_SPELLCAST_SENT");
-					combatTable.UNIT_SPELLCAST_SENT = nil
-					LBPT.Critter = nil
-				end
-			end
-		end
-	end
-	
-	function combatTable.PLAYER_TARGET_CHANGED()	check("target");	end
-	function combatTable.PLAYER_FOCUS_CHANGED()		check("focus");		end
-	function combatTable.UPDATE_MOUSEOVER_UNIT()	check("mouseover");	end
-
-	function LBPT.spellcast_sent(unit,_,_,target,num)
-		if isCritterOrWildPet.mouseover and not UnitExists("mouseover") then check("mouseover")	end
-		if count>0 then sendTo[num] = target end
-	end
-	
-	local critterFilterEnabled = true
-	function LibBalancePowerTracker.DisableCritterFiltering()
-		combatTable.PLAYER_TARGET_CHANGED = nil
-		combatTable.PLAYER_FOCUS_CHANGED = nil
-		combatTable.UPDATE_MOUSEOVER_UNIT = nil
-		combatTable.UNIT_SPELLCAST_SENT = nil
-		combatFrame:UnregisterEvent("PLAYER_TARGET_CHANGED");
-		combatFrame:UnregisterEvent("PLAYER_FOCUS_CHANGED");
-		combatFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT");
-		combatFrame:UnregisterEvent("UNIT_SPELLCAST_SENT");
-		LBPT.Critter = nil
-		critterFilterEnabled = false
-	end
-	function LibBalancePowerTracker.GetCritterFilteringEnabled()
-		return critterFilterEnabled;
 	end
 end
 

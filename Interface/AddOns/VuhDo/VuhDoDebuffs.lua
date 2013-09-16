@@ -240,10 +240,10 @@ local function VUHDO_initDebuffInfos(aUnit)
 	end
 
 	tUnitDebuffInfo = VUHDO_UNIT_DEBUFF_INFOS[aUnit];
-	tUnitDebuffInfo[VUHDO_DEBUFF_TYPE_POISON][2] = nil;
-	tUnitDebuffInfo[VUHDO_DEBUFF_TYPE_DISEASE][2] = nil;
-	tUnitDebuffInfo[VUHDO_DEBUFF_TYPE_MAGIC][2] = nil;
-	tUnitDebuffInfo[VUHDO_DEBUFF_TYPE_CURSE][2] = nil;
+	tUnitDebuffInfo[1][2] = nil; -- VUHDO_DEBUFF_TYPE_POISON
+	tUnitDebuffInfo[2][2] = nil; -- VUHDO_DEBUFF_TYPE_DISEASE
+	tUnitDebuffInfo[3][2] = nil; -- VUHDO_DEBUFF_TYPE_MAGIC
+	tUnitDebuffInfo[4][2] = nil; -- VUHDO_DEBUFF_TYPE_CURSE
 
 	if not VUHDO_UNIT_CUSTOM_DEBUFFS[aUnit] then VUHDO_UNIT_CUSTOM_DEBUFFS[aUnit] = { }; end
 
@@ -271,14 +271,12 @@ local tDebuffConfig;
 local tIsRelevant;
 local tNow;
 local tUnitDebuffInfo;
+local tType;
 function VUHDO_determineDebuff(aUnit)
 	tInfo = (VUHDO_RAID or sEmpty)[aUnit];
 
-	if not tInfo then
-		return 0, ""; -- VUHDO_DEBUFF_TYPE_NONE
-	elseif VUHDO_CONFIG_SHOW_RAID then
-		return tInfo["debuff"], tInfo["debuffName"];
-	end
+	if not tInfo then	return 0, ""; -- VUHDO_DEBUFF_TYPE_NONE
+	elseif VUHDO_CONFIG_SHOW_RAID then return tInfo["debuff"], tInfo["debuffName"]; end
 
 	tUnitDebuffInfo = VUHDO_initDebuffInfos(aUnit);
 

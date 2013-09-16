@@ -979,18 +979,21 @@ function Event.UNIT_SPELLCAST_SUCCEEDED(event, unit, SpellName, rank, ID)
 	end
 end
 
+local function RegisterGlobalCooldownSpell()
+	if not GLOBAL_COOLDOWN_SPELL and s.HasSpell(GLOBALCOOLDOWNSPELL[CLASS]) then
+		GLOBAL_COOLDOWN_SPELL = GLOBALCOOLDOWNSPELL[CLASS]
+	end
+end
 
 local function RegisterAll()
 	LAST_SPELL_TRAVEL_TIME = a:CreateTable(LAST_SPELL_TRAVEL_TIME, 1)
 	LAST_SPELL_TRAVEL_TIME_END = a:CreateTable(LAST_SPELL_TRAVEL_TIME_END, 1)
-	RegisterSpells()
-	RegisterPetSpells()
-	RegisterTalents()
-	RegisterOtherAuras()
-	a:SetTimer("RegisterOutsideMeleeDistanceSpell", 0.5, 0, RegisterOutsideMeleeDistanceSpell)
-	if not GLOBAL_COOLDOWN_SPELL and s.HasSpell(GLOBALCOOLDOWNSPELL[CLASS]) then
-		GLOBAL_COOLDOWN_SPELL = GLOBALCOOLDOWNSPELL[CLASS]
-	end
+	a:SetTimer("RegisterSpells", 1, 0, RegisterSpells)
+	a:SetTimer("RegisterPetSpells", 1, 0, RegisterPetSpells)
+	a:SetTimer("RegisterTalents", 1, 0, RegisterTalents)
+	a:SetTimer("RegisterOtherAuras", 1, 0, RegisterOtherAuras)
+	a:SetTimer("RegisterOutsideMeleeDistanceSpell", 1, 0, RegisterOutsideMeleeDistanceSpell)
+	a:SetTimer("RegisterGlobalCooldownSpell", 1, 0, RegisterGlobalCooldownSpell)
 end
 
 local function StartUp()

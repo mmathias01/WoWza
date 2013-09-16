@@ -1,0 +1,7 @@
+SET flaggedTutorials "v"
+SET lockActionBars "0"
+SET cameraPitchMoveSpeed "115"
+SET cameraYawMoveSpeed "230"
+SET cameraDistanceMaxFactor "1"
+SET addFriendInfoShown "1"
+SET pendingInviteInfoShown "1"

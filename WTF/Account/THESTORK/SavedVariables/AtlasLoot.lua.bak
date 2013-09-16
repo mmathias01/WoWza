@@ -1,0 +1,21 @@
+
+AtlasLootDB = {
+	["namespaces"] = {
+		["DefaultFrame"] = {
+		},
+		["AtlasLootPanel"] = {
+		},
+		["WishList"] = {
+		},
+		["Filter"] = {
+		},
+	},
+	["showWarning"] = true,
+	["profileKeys"] = {
+		["Saphiira - Terenas"] = "Saphiira - Terenas",
+	},
+	["profiles"] = {
+		["Saphiira - Terenas"] = {
+		},
+	},
+}

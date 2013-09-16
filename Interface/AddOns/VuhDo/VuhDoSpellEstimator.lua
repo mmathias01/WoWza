@@ -109,9 +109,7 @@ function VUHDO_initFromSpellbook()
 		for tCnt = 1, #VUHDO_PLAYER_HOTS do
 			if not (VUHDO_SPELLS[VUHDO_PLAYER_HOTS[tCnt]] or tEmpty)["nodefault"] then
 				tinsert(tHotSlots, VUHDO_PLAYER_HOTS[tCnt]);
-				if #tHotSlots == 10 then
-					break;
-				end
+				if #tHotSlots == 10 then break; end
 			end
 		end
 		tHotSlots[10] = "BOUQUET_" .. VUHDO_I18N_DEF_AOE_ADVICE;
@@ -128,10 +126,7 @@ function VUHDO_initFromSpellbook()
 	for tCnt, tHotName in pairs(tHotSlots) do
 		if not VUHDO_strempty(tHotName) then
 			VUHDO_ACTIVE_HOTS[tHotName] = true;
-
-			if tHotCfg["" .. tCnt]["others"] then
-				VUHDO_ACTIVE_HOTS_OTHERS[tHotName] = true;
-			end
+			if tHotCfg["" .. tCnt]["others"] then VUHDO_ACTIVE_HOTS_OTHERS[tHotName] = true; end
 		end
 	end
 	VUHDO_setKnowsSwiftmend(VUHDO_isSpellKnown(VUHDO_SPELL_ID.SWIFTMEND));

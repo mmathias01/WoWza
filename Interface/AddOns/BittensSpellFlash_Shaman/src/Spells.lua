@@ -6,13 +6,23 @@ local g = BittensGlobalTables
 local c = g.GetTable("BittensSpellFlashLibrary")
 local u = g.GetTable("BittensUtilities")
 
+local GetInventoryItemID = GetInventoryItemID
+local GetItemInfo = GetItemInfo
 local GetTime = GetTime
 local GetTotemInfo = GetTotemInfo
 local IsSwimming = IsSwimming
 local UnitGUID = UnitGUID
 local math = math
+local select = select
+
+local fishingPoleType = select(17, GetAuctionItemSubClasses(1))
 
 local function shouldFlashImbue(buffTooltipName, offhand)
+	local mhID = GetInventoryItemID("player", 16)
+	if mhID == nil or select(7, GetItemInfo(mhID)) == fishingPoleType then
+		return false
+	end
+	
 	local min
 	if s.InCombat() then
 		min = 0
@@ -84,6 +94,8 @@ c.AddOptionalSpell("Water Walking", nil, {
 		return IsSwimming() and c.SelfBuffNeeded("Water Walking")
 	end
 })
+
+c.AddDispel("Purge", nil, "Magic")
 
 c.AddInterrupt("Wind Shear")
 
@@ -162,11 +174,13 @@ c.AddSpell("Flame Shock", "Early", {
 })
 
 c.AddSpell("Lava Burst", nil, {
-	Override = burstCheck,
+	EvenIfNotUsable = true,
+	CheckFirst = burstCheck,
 })
 
 c.AddSpell("Lava Burst", "AoE", {
-	Override = function(z)
+	EvenIfNotUsable = true,
+	CheckFirst = function(z)
 		c.MakeOptional(
 			z, 
 			c.HasGlyph("Chain Lightning") 
@@ -419,13 +433,14 @@ c.AddOptionalSpell("Earth Shield", nil, {
 
 c.AddOptionalSpell("Healing Stream Totem", nil, {
 	CheckFirst = function()
-		return c.IsMissingTotem(3)
+		return c.IsMissingTotem(3) or c.HasTalent("Totemic Persistence")
 	end
 })
 
 c.AddOptionalSpell("Mana Tide Totem", nil, {
 	CheckFirst = function()
-		return c.IsMissingTotem(3) and s.PowerPercent("player") < 75
+		return c.GetPowerPercent() < 75
+			and (c.IsMissingTotem(3) or c.HasTalent("Totemic Persistence"))
 	end
 })
 

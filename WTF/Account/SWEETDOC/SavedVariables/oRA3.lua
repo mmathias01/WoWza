@@ -18,6 +18,8 @@ oRA3DB = {
 		},
 		["Promote"] = {
 		},
+		["LibDualSpec-1.0"] = {
+		},
 	},
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Default",
@@ -25,8 +27,8 @@ oRA3DB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

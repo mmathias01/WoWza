@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(682, "DBM-MogushanVaults", nil, 317)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9469 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 9663 $"):sub(12, -3))
 mod:SetCreatureID(60143)
 mod:SetZone()
 mod:SetUsedIcons(5, 6, 7, 8)
@@ -14,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REFRESH",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_SUCCESS",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
 mod:RegisterEvents(
@@ -42,7 +42,7 @@ local timerBanishmentCD				= mod:NewCDTimer(65, 116272)
 local timerSoulSever				= mod:NewBuffFadesTimer(30, 116278)--Tank version of spirit realm
 local timerCrossedOver				= mod:NewBuffFadesTimer(30, 116161)--Dps version of spirit realm
 local timerSpiritualInnervation		= mod:NewBuffFadesTimer(30, 117549)
-local timerShadowyAttackCD			= mod:NewCDTimer(8, "ej6698", nil, nil, nil, 117222)
+local timerShadowyAttackCD			= mod:NewCDTimer(8, "ej6698", nil, mod:IsTank(), nil, 117222)
 local timerFrailSoul				= mod:NewBuffFadesTimer(30, 117723)
 
 local berserkTimer					= mod:NewBerserkTimer(360)
@@ -245,9 +245,9 @@ function mod:OnSync(msg, guid)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
-	if (spellId == 117215 or spellId == 117218 or spellId == 117219 or spellId == 117222) and self:AntiSpam(2, 1) then--Shadowy Attacks
+	if (spellId == 117215 or spellId == 117218 or spellId == 117219 or spellId == 117222) then--Shadowy Attacks
 		timerShadowyAttackCD:Start()
-	elseif spellId == 116964 and self:AntiSpam(2, 2) then--Summon Totem
+	elseif spellId == 116964 then--Summon Totem
 		if self:LatencyCheck() then
 			self:SendSync("SummonTotem")
 		end
