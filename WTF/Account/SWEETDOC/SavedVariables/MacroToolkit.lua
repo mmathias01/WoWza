@@ -6,93 +6,93 @@ MacroToolkitDB = {
 				{
 					["m"] = {
 						{
-							["icon"] = "SPELL_NATURE_HEALINGWAVEGREATER",
 							["index"] = 37,
 							["name"] = "ChainHeal_M",
+							["icon"] = "SPELL_NATURE_HEALINGWAVEGREATER",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@mouseover,help][@target,help][@targettarget,help][] Chain Heal\n",
 						}, -- [1]
 						{
-							["icon"] = "SPELL_NATURE_EARTHELEMENTAL_TOTEM",
 							["index"] = 38,
 							["name"] = "Earth Elemental",
+							["icon"] = "SPELL_NATURE_EARTHELEMENTAL_TOTEM",
 							["body"] = "#showtooltip\n/cast Earth Elemental Totem\n/cast Reinforce\n",
 						}, -- [2]
 						{
-							["icon"] = "SPELL_FIRE_ELEMENTAL_TOTEM",
 							["index"] = 39,
 							["name"] = "Fire Elemental",
+							["icon"] = "SPELL_FIRE_ELEMENTAL_TOTEM",
 							["body"] = "#showtooltip\n/cast Fire Elemental Totem\n/cast Empower\n",
 						}, -- [3]
 						{
-							["icon"] = "SPELL_NATURE_HEALINGWAVELESSER",
 							["index"] = 40,
 							["name"] = "GHW_M",
+							["icon"] = "SPELL_NATURE_HEALINGWAVELESSER",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@mouseover,help][@target,help][@targettarget,help][] Greater Healing Wave\n",
 						}, -- [4]
 						{
-							["icon"] = "SPELL_NATURE_HEALINGWAY",
 							["index"] = 41,
 							["name"] = "HealingSurge_M",
+							["icon"] = "SPELL_NATURE_HEALINGWAY",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@mouseover,help][@target,help][@targettarget,help][] Healing Surge\n",
 						}, -- [5]
 						{
-							["icon"] = "SPELL_NATURE_MAGICIMMUNITY",
 							["index"] = 42,
 							["name"] = "HealingWave_M",
+							["icon"] = "SPELL_NATURE_MAGICIMMUNITY",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@mouseover,help][@target,help][@targettarget,help][] Healing Wave\n",
 						}, -- [6]
 						{
-							["icon"] = "SPELL_SHAMAN_HEX",
 							["index"] = 43,
 							["name"] = "Hex_M",
+							["icon"] = "SPELL_SHAMAN_HEX",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@focus,exists][@target] Hex\n",
 						}, -- [7]
 						{
-							["icon"] = "SPELL_NATURE_HEALINGWAVELESSER",
 							["index"] = 44,
 							["name"] = "InstantGHW",
+							["icon"] = "SPELL_NATURE_HEALINGWAVELESSER",
 							["body"] = "#showtooltip Greater Healing Wave\n/stopcasting\n/cast Ancestral Swiftness\n/cast [@mouseover,help][@target,help][@targettarget,help][] Greater Healing Wave\n",
 						}, -- [8]
 						{
-							["icon"] = "SPELL_SHAMAN_LAVABURST",
 							["index"] = 45,
 							["name"] = "Lava Burst",
+							["icon"] = "SPELL_SHAMAN_LAVABURST",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@focus,exists][@target] Lava Burst\n",
 						}, -- [9]
 						{
-							["icon"] = "SPELL_SHAMAN_HEX",
 							["index"] = 46,
 							["name"] = "Purge_M",
+							["icon"] = "SPELL_SHAMAN_HEX",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@focus,exists][@target] Hex\n",
 						}, -- [10]
 						{
-							["icon"] = "SPELL_NATURE_RIPTIDE",
 							["index"] = 47,
 							["name"] = "Riptide_M",
+							["icon"] = "SPELL_NATURE_RIPTIDE",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Riptide\n",
 						}, -- [11]
 						{
-							["icon"] = "SPELL_SHAMAN_IMPROVEDSTORMSTRIKE",
 							["index"] = 48,
 							["name"] = "UnleashLife_M",
+							["icon"] = "SPELL_SHAMAN_IMPROVEDSTORMSTRIKE",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@mouseover,help][@target,help][@targettarget,help][] Unleash Elements\n",
 						}, -- [12]
 						{
-							["icon"] = "ABILITY_REPAIR",
 							["index"] = 49,
 							["name"] = "VuhDoDCShieldData",
+							["icon"] = "ABILITY_REPAIR",
 							["body"] = "P[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1SH[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]",
 						}, -- [13]
 						{
-							["icon"] = "ABILITY_REPAIR",
 							["index"] = 50,
 							["name"] = "VuhDoDCShieldNames",
+							["icon"] = "ABILITY_REPAIR",
 							["body"] = "N[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Jol[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]",
 						}, -- [14]
 						{
-							["icon"] = "SPELL_NATURE_CYCLONE",
 							["index"] = 51,
 							["name"] = "Wind Shear",
+							["icon"] = "SPELL_NATURE_CYCLONE",
 							["body"] = "#showtooltip\n/stopcasting\n/cast [@focus,exists][@target] Wind Shear\n",
 						}, -- [15]
 					},
@@ -107,99 +107,99 @@ MacroToolkitDB = {
 				{
 					["m"] = {
 						{
-							["icon"] = "SPELL_HOLY_BLINDINGHEAL",
 							["index"] = 37,
 							["name"] = "BindingHeal_M",
+							["icon"] = "SPELL_HOLY_BLINDINGHEAL",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Binding Heal",
 						}, -- [1]
 						{
-							["icon"] = "ABILITY_PRIEST_CASCADE",
 							["index"] = 38,
 							["name"] = "Cascade_M",
+							["icon"] = "ABILITY_PRIEST_CASCADE",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Cascade\n",
 						}, -- [2]
 						{
-							["icon"] = "SPELL_HOLY_FLASHHEAL",
 							["index"] = 39,
 							["name"] = "FlashHeal_M",
+							["icon"] = "SPELL_HOLY_FLASHHEAL",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Flash Heal\n",
 						}, -- [3]
 						{
-							["icon"] = "SPELL_HOLY_GREATERHEAL",
 							["index"] = 40,
 							["name"] = "GH_M",
+							["icon"] = "SPELL_HOLY_GREATERHEAL",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Greater Heal\n",
 						}, -- [4]
 						{
-							["icon"] = "SPELL_HOLY_LESSERHEAL",
 							["index"] = 41,
 							["name"] = "Heal_M",
+							["icon"] = "SPELL_HOLY_LESSERHEAL",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Heal\n",
 						}, -- [5]
 						{
-							["icon"] = "SPELL_HOLY_SEARINGLIGHT",
 							["index"] = 42,
 							["name"] = "HolyFire_M",
+							["icon"] = "SPELL_HOLY_SEARINGLIGHT",
 							["body"] = "#showtooltip Holy Fire\n/clearfocus [modifier:alt]\n/focus [@focus,noexists]\n/cast [@focus,exists][@target,exists] Holy Fire",
 						}, -- [6]
 						{
-							["icon"] = "SPELL_SHADOW_SOULLEECH_3",
 							["index"] = 43,
 							["name"] = "Mindbender_M",
+							["icon"] = "SPELL_SHADOW_SOULLEECH_3",
 							["body"] = "#showtooltip Mindbender\n/clearfocus [modifier:alt]\n/focus [@focus,noexists]\n/cast [@focus,exists][@target,exists] Mindbender",
 						}, -- [7]
 						{
-							["icon"] = "SPELL_HOLY_PAINSUPRESSION",
 							["index"] = 44,
 							["name"] = "PainSup_M",
+							["icon"] = "SPELL_HOLY_PAINSUPRESSION",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Pain Suppression\n",
 						}, -- [8]
 						{
-							["icon"] = "SPELL_HOLY_PENANCE",
 							["index"] = 45,
 							["name"] = "Penance_M",
+							["icon"] = "SPELL_HOLY_PENANCE",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Penance\n",
 						}, -- [9]
 						{
-							["icon"] = "SPELL_HOLY_PENANCE",
 							["index"] = 46,
 							["name"] = "Pennance_MD",
+							["icon"] = "SPELL_HOLY_PENANCE",
 							["body"] = "#showtooltip Penance\n/clearfocus [modifier:alt]\n/focus [@focus,noexists]\n/cast [@focus,exists][@target,exists] Penance\n",
 						}, -- [10]
 						{
-							["icon"] = "SPELL_HOLY_PRAYEROFHEALING02",
 							["index"] = 47,
 							["name"] = "POH_M",
+							["icon"] = "SPELL_HOLY_PRAYEROFHEALING02",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Healing\n",
 						}, -- [11]
 						{
-							["icon"] = "SPELL_HOLY_PRAYEROFMENDINGTGA",
 							["index"] = 48,
 							["name"] = "POM_M",
+							["icon"] = "SPELL_HOLY_PRAYEROFMENDINGTGA",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Mending\n",
 						}, -- [12]
 						{
-							["icon"] = "SPELL_HOLY_POWERWORDSHIELD",
 							["index"] = 49,
 							["name"] = "PWS_M",
+							["icon"] = "SPELL_HOLY_POWERWORDSHIELD",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Power Word: Shield\n",
 						}, -- [13]
 						{
-							["icon"] = "SPELL_HOLY_RENEW",
 							["index"] = 50,
 							["name"] = "Renew_M",
+							["icon"] = "SPELL_HOLY_RENEW",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Renew\n",
 						}, -- [14]
 						{
-							["icon"] = "SPELL_HOLY_HOLYSMITE",
 							["index"] = 51,
 							["name"] = "Smite_M",
+							["icon"] = "SPELL_HOLY_HOLYSMITE",
 							["body"] = "#showtooltip Smite\n/clearfocus [modifier:alt]\n/focus [@focus,noexists]\n/cast [@focus,exists][@target,exists] Smite",
 						}, -- [15]
 						{
-							["icon"] = "SPELL_PRIEST_VOIDSHIFT",
 							["index"] = 52,
 							["name"] = "VoidShift_M",
+							["icon"] = "SPELL_PRIEST_VOIDSHIFT",
 							["body"] = "#showtooltip\n/cast [@mouseover,help][@target,help][@targettarget,help][] Void Shift",
 						}, -- [16]
 					},

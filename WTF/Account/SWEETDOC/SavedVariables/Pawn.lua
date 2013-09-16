@@ -117,7 +117,7 @@ PawnCommon = {
 		["Resto: Crit (Non Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 45,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 40,
@@ -125,10 +125,10 @@ PawnCommon = {
 				["MetaSocketEffect"] = 16000,
 				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsPlate"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
 				["Spirit"] = 65,
@@ -181,16 +181,6 @@ PawnCommon = {
 							94279, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_CLOAK"] = {
-							371.5916451537198, -- [1]
-							94785, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_SHOULDER"] = {
-							580.4121098333725, -- [1]
-							95299, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_FINGER"] = {
 							417.2499413283267, -- [1]
 							94931, -- [2]
@@ -199,13 +189,23 @@ PawnCommon = {
 							95512, -- [5]
 							0, -- [6]
 						},
+						["INVTYPE_CLOAK"] = {
+							371.5916451537198, -- [1]
+							94785, -- [2]
+							0, -- [3]
+						},
 						["INVTYPE_2HWEAPON"] = {
 							2625.832433701009, -- [1]
 							96092, -- [2]
 							0, -- [3]
 						},
+						["INVTYPE_SHOULDER"] = {
+							580.4121098333725, -- [1]
+							95299, -- [2]
+							0, -- [3]
+						},
 						["INVTYPE_HAND"] = {
-							546.007040600798, -- [1]
+							546.0070406007979, -- [1]
 							95295, -- [2]
 							0, -- [3]
 						},
@@ -326,7 +326,7 @@ PawnCommon = {
 		["Resto: Mastery Build"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 40,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 55,
@@ -334,10 +334,10 @@ PawnCommon = {
 				["MetaSocketEffect"] = 16000,
 				["Spirit"] = 65,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsSword"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
 				["IsPolearm"] = -1000000,
@@ -390,16 +390,6 @@ PawnCommon = {
 							94279, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_CLOAK"] = {
-							350.1069042316258, -- [1]
-							94785, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_SHOULDER"] = {
-							594.9631279386291, -- [1]
-							95299, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_FINGER"] = {
 							432.0098985399654, -- [1]
 							94931, -- [2]
@@ -408,9 +398,19 @@ PawnCommon = {
 							95163, -- [5]
 							0, -- [6]
 						},
+						["INVTYPE_CLOAK"] = {
+							350.1069042316258, -- [1]
+							94785, -- [2]
+							0, -- [3]
+						},
 						["INVTYPE_2HWEAPON"] = {
 							2884.395446671615, -- [1]
 							96092, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_SHOULDER"] = {
+							594.9631279386291, -- [1]
+							95299, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {
@@ -647,7 +647,7 @@ PawnCommon = {
 		["Resto: Crit (Haste Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 45,
 				["HasteRating"] = 35,
 				["MasteryRating"] = 40,
@@ -655,10 +655,10 @@ PawnCommon = {
 				["MetaSocketEffect"] = 16000,
 				["Spirit"] = 65,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsSword"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
 				["IsPolearm"] = -1000000,
@@ -699,16 +699,6 @@ PawnCommon = {
 							94279, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_CLOAK"] = {
-							312.3100426870366, -- [1]
-							94785, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_SHOULDER"] = {
-							492.0166254774208, -- [1]
-							95299, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_FINGER"] = {
 							355.8845203325095, -- [1]
 							94931, -- [2]
@@ -717,9 +707,19 @@ PawnCommon = {
 							95163, -- [5]
 							0, -- [6]
 						},
+						["INVTYPE_CLOAK"] = {
+							312.3100426870366, -- [1]
+							94785, -- [2]
+							0, -- [3]
+						},
 						["INVTYPE_2HWEAPON"] = {
 							2450.438553134127, -- [1]
 							96092, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_SHOULDER"] = {
+							492.0166254774208, -- [1]
+							95299, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {

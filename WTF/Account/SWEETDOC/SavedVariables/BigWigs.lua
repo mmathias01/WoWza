@@ -1,8 +1,6 @@
 
 BigWigs3DB = {
 	["namespaces"] = {
-		["BigWigs_Bosses_Sha of Pride"] = {
-		},
 		["BigWigs_Plugins_Colors"] = {
 		},
 		["BigWigs_Plugins_Raid Icons"] = {
@@ -16,15 +14,15 @@ BigWigs3DB = {
 					["fontSize"] = 11,
 					["scale"] = 0.8,
 					["BigWigsAnchor_y"] = 566.0445015536425,
-					["BigWigsAnchor_x"] = 1129.24507942731,
-					["texture"] = "Minimalist",
+					["BigWigsEmphasizeAnchor_x"] = 571.7333905802843,
 					["barStyle"] = "ElvUI",
+					["font"] = "Vixar",
+					["BigWigsAnchor_x"] = 1129.24507942731,
+					["BigWigsAnchor_width"] = 199.9999084472656,
 					["growup"] = false,
 					["BigWigsEmphasizeAnchor_width"] = 300.0000610351563,
-					["BigWigsEmphasizeAnchor_x"] = 571.7333905802843,
-					["font"] = "Vixar",
-					["BigWigsAnchor_width"] = 199.9999084472656,
 					["emphasizeScale"] = 1.2,
+					["texture"] = "Minimalist",
 				},
 			},
 		},
@@ -38,33 +36,21 @@ BigWigs3DB = {
 		},
 		["BigWigs_Plugins_Sounds"] = {
 		},
-		["BigWigs_Bosses_General Nazgrim"] = {
-		},
 		["BigWigs_Plugins_Statistics"] = {
 		},
 		["BigWigs_Plugins_Proximity"] = {
 			["profiles"] = {
 				["Default"] = {
-					["fontSize"] = 20,
-					["width"] = 202.9999389648438,
 					["objects"] = {
 						["close"] = false,
 						["background"] = false,
 					},
+					["fontSize"] = 20,
+					["posy"] = 484.2667651984448,
+					["height"] = 157.0000305175781,
 					["font"] = "Vixar",
 					["posx"] = 342.7551081259935,
-					["height"] = 157.0000305175781,
-					["posy"] = 484.2667651984448,
-				},
-			},
-		},
-		["BigWigs_Plugins_Messages"] = {
-			["profiles"] = {
-				["Default"] = {
-					["fontSize"] = 20,
-					["font"] = "Vixar",
-					["BWEmphasizeMessageAnchor_y"] = 672.7111708031771,
-					["BWEmphasizeMessageAnchor_x"] = 608.7111692534563,
+					["width"] = 202.9999389648438,
 				},
 			},
 		},
@@ -74,21 +60,29 @@ BigWigs3DB = {
 					["Mocking Banner"] = 0,
 					["Stampeding Roar"] = 2,
 					["Skull Banner"] = 0,
-					["Stormlash Totem"] = 2,
 					["Rallying Cry"] = 0,
-					["feast"] = 0,
 					["Create Soulwell"] = 0,
-					["Ritual of Summoning"] = 0,
-					["portal"] = 0,
-					["rebirth"] = 2,
 					["Bloodlust"] = 2,
-					["Innervate"] = 258,
+					["Stormlash Totem"] = 2,
+					["Ritual of Summoning"] = 0,
+					["feast"] = 0,
+					["portal"] = 0,
 					["Shattering Throw"] = 0,
+					["Innervate"] = 258,
+					["rebirth"] = 2,
 					["Conjure Refreshment Table"] = 0,
 				},
 			},
 		},
-		["BigWigs_Bosses_Norushen"] = {
+		["BigWigs_Plugins_Messages"] = {
+			["profiles"] = {
+				["Default"] = {
+					["BWEmphasizeMessageAnchor_x"] = 608.7111692534563,
+					["fontSize"] = 20,
+					["BWEmphasizeMessageAnchor_y"] = 672.7111708031771,
+					["font"] = "Vixar",
+				},
+			},
 		},
 	},
 	["profileKeys"] = {

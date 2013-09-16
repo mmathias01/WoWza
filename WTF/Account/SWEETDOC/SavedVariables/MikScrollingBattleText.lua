@@ -14,17 +14,17 @@ MSBTProfiles_SavedVars = {
 			["creationVersion"] = "5.7.125",
 			["powerThrottleDuration"] = 4,
 			["scrollAreas"] = {
-				["Notification"] = {
-					["disabled"] = true,
+				["Incoming"] = {
+					["offsetX"] = -300,
 				},
-				["Static"] = {
+				["Notification"] = {
 					["disabled"] = true,
 				},
 				["Outgoing"] = {
 					["offsetX"] = 260,
 				},
-				["Incoming"] = {
-					["offsetX"] = -300,
+				["Static"] = {
+					["disabled"] = true,
 				},
 			},
 			["events"] = {

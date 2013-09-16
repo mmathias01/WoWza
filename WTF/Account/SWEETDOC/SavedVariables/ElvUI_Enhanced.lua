@@ -89,6 +89,8 @@ ElvDB = {
 				},
 			},
 		},
+		["screenwidth"] = 2134.15,
+		["screenheight"] = 1200,
 	},
 	["profiles"] = {
 		["Majandra DPS"] = {
@@ -122,10 +124,10 @@ ElvDB = {
 			},
 			["movers"] = {
 				["ElvUF_TargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-464242",
-				["MinimapButtonAnchor"] = "TOPRIGHTElvUIParentTOPRIGHT-9-166",
+				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM0296",
 				["FarmToolAnchor"] = "TOPLEFTElvUIParentTOPLEFT4-499",
 				["RaidMarkerBarAnchor"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT107223",
-				["PetAB"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-42344",
+				["MinimapButtonAnchor"] = "TOPRIGHTElvUIParentTOPRIGHT-9-166",
 				["ElvAB_1"] = "BOTTOMElvUIParentBOTTOM026",
 				["ElvAB_2"] = "BOTTOMElvUIParentBOTTOM057",
 				["ElvUF_Raid40Mover"] = "BOTTOMElvUIParentBOTTOM073",
@@ -151,7 +153,7 @@ ElvDB = {
 				["ElvUF_Raid25Mover"] = "BOTTOMElvUIParentBOTTOM062",
 				["ElvUF_PartyMover"] = "BOTTOMElvUIParentBOTTOM0105",
 				["AlertFrameMover"] = "BOTTOMElvUIParentBOTTOM0472",
-				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM0296",
+				["PetAB"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-42344",
 				["ElvUF_TargetTargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-465151",
 			},
 			["gridSize"] = 128,
@@ -195,6 +197,15 @@ ElvDB = {
 						["GPSArrow"] = {
 							["onMouseOver"] = false,
 						},
+					},
+					["boss"] = {
+						["castbar"] = {
+							["width"] = 200,
+						},
+						["health"] = {
+							["text_format"] = "[healthcolor][health:current-percent]",
+						},
+						["width"] = 200,
 					},
 					["party"] = {
 						["horizontalSpacing"] = 5,
@@ -241,22 +252,6 @@ ElvDB = {
 							["position"] = "BOTTOMLEFT",
 						},
 					},
-					["player"] = {
-						["restIcon"] = false,
-						["buffs"] = {
-							["useFilter"] = "Blacklist",
-						},
-						["portrait"] = {
-							["overlay"] = true,
-							["rotation"] = 307,
-							["camDistanceScale"] = 2.24,
-							["enable"] = true,
-						},
-						["castbar"] = {
-							["displayTarget"] = true,
-							["width"] = 440,
-						},
-					},
 					["raid40"] = {
 						["roleIcon"] = {
 							["enable"] = true,
@@ -272,6 +267,9 @@ ElvDB = {
 							["frequentUpdates"] = true,
 						},
 					},
+					["assist"] = {
+						["enable"] = false,
+					},
 					["raid25"] = {
 						["height"] = 40,
 						["rdebuffs"] = {
@@ -283,6 +281,12 @@ ElvDB = {
 							["frequentUpdates"] = true,
 						},
 						["healPrediction"] = true,
+					},
+					["arena"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
 					},
 					["target"] = {
 						["name"] = {
@@ -311,23 +315,21 @@ ElvDB = {
 							["attachTo"] = "BUFFS",
 						},
 					},
-					["arena"] = {
-						["width"] = 200,
+					["player"] = {
+						["restIcon"] = false,
+						["buffs"] = {
+							["useFilter"] = "Blacklist",
+						},
+						["portrait"] = {
+							["overlay"] = true,
+							["rotation"] = 307,
+							["camDistanceScale"] = 2.24,
+							["enable"] = true,
+						},
 						["castbar"] = {
-							["width"] = 200,
+							["displayTarget"] = true,
+							["width"] = 440,
 						},
-					},
-					["assist"] = {
-						["enable"] = false,
-					},
-					["boss"] = {
-						["castbar"] = {
-							["width"] = 200,
-						},
-						["health"] = {
-							["text_format"] = "[healthcolor][health:current-percent]",
-						},
-						["width"] = 200,
 					},
 				},
 			},
@@ -372,9 +374,9 @@ ElvDB = {
 					["backdrop"] = true,
 				},
 				["bar5"] = {
-					["mouseover"] = true,
 					["backdrop"] = true,
 					["point"] = "TOPLEFT",
+					["mouseover"] = true,
 					["buttons"] = 12,
 				},
 				["font"] = "ElvUI Font",
@@ -425,10 +427,10 @@ ElvDB = {
 			},
 			["movers"] = {
 				["ElvUF_TargetTargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-465151",
-				["MinimapButtonAnchor"] = "TOPRIGHTElvUIParentTOPRIGHT-9-166",
+				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM0296",
 				["ElvUF_Raid40Mover"] = "BOTTOMElvUIParentBOTTOM073",
 				["RaidMarkerBarAnchor"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT107223",
-				["PetAB"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-42344",
+				["MinimapButtonAnchor"] = "TOPRIGHTElvUIParentTOPRIGHT-9-166",
 				["ElvAB_1"] = "BOTTOMElvUIParentBOTTOM026",
 				["ElvAB_2"] = "BOTTOMElvUIParentBOTTOM060",
 				["FarmToolAnchor"] = "TOPLEFTElvUIParentTOPLEFT4-499",
@@ -454,7 +456,7 @@ ElvDB = {
 				["ElvUF_Raid25Mover"] = "BOTTOMElvUIParentBOTTOM062",
 				["ElvUF_PartyMover"] = "BOTTOMElvUIParentBOTTOM0105",
 				["AlertFrameMover"] = "BOTTOMElvUIParentBOTTOM0472",
-				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM0296",
+				["PetAB"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-42344",
 				["ElvUF_TargetMover"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-464242",
 			},
 			["gridSize"] = 128,
@@ -479,31 +481,16 @@ ElvDB = {
 							["onMouseOver"] = false,
 						},
 					},
-					["target"] = {
-						["portrait"] = {
-							["rotation"] = 307,
-							["enable"] = true,
-							["overlay"] = true,
-							["camDistanceScale"] = 2.24,
+					["assist"] = {
+						["enable"] = false,
+					},
+					["boss"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
 						},
-						["smartAuraDisplay"] = "SHOW_DEBUFFS_ON_FRIENDLIES",
-						["aurabar"] = {
-							["enable"] = false,
-							["attachTo"] = "BUFFS",
-						},
-						["power"] = {
-							["hideonnpc"] = false,
-						},
-						["name"] = {
-							["text_format"] = "[namecolor][name] [difficultycolor][smartlevel] [shortclassification]",
-						},
-						["classicon"] = {
-							["enable"] = false,
-						},
-						["buffs"] = {
-							["playerOnly"] = {
-								["friendly"] = true,
-							},
+						["health"] = {
+							["text_format"] = "[healthcolor][health:current-percent]",
 						},
 					},
 					["party"] = {
@@ -541,22 +528,6 @@ ElvDB = {
 							["initialAnchor"] = "BOTTOM",
 						},
 					},
-					["player"] = {
-						["portrait"] = {
-							["rotation"] = 307,
-							["enable"] = true,
-							["overlay"] = true,
-							["camDistanceScale"] = 2.24,
-						},
-						["restIcon"] = false,
-						["buffs"] = {
-							["useFilter"] = "Blacklist",
-						},
-						["castbar"] = {
-							["width"] = 440,
-							["displayTarget"] = true,
-						},
-					},
 					["raid40"] = {
 						["health"] = {
 							["frequentUpdates"] = true,
@@ -572,6 +543,39 @@ ElvDB = {
 						},
 						["height"] = 36,
 					},
+					["target"] = {
+						["portrait"] = {
+							["rotation"] = 307,
+							["enable"] = true,
+							["overlay"] = true,
+							["camDistanceScale"] = 2.24,
+						},
+						["smartAuraDisplay"] = "SHOW_DEBUFFS_ON_FRIENDLIES",
+						["aurabar"] = {
+							["enable"] = false,
+							["attachTo"] = "BUFFS",
+						},
+						["power"] = {
+							["hideonnpc"] = false,
+						},
+						["name"] = {
+							["text_format"] = "[namecolor][name] [difficultycolor][smartlevel] [shortclassification]",
+						},
+						["classicon"] = {
+							["enable"] = false,
+						},
+						["buffs"] = {
+							["playerOnly"] = {
+								["friendly"] = true,
+							},
+						},
+					},
+					["arena"] = {
+						["castbar"] = {
+							["width"] = 200,
+						},
+						["width"] = 200,
+					},
 					["raid25"] = {
 						["rdebuffs"] = {
 							["xOffset"] = 0,
@@ -584,22 +588,20 @@ ElvDB = {
 						},
 						["height"] = 40,
 					},
-					["arena"] = {
-						["castbar"] = {
-							["width"] = 200,
+					["player"] = {
+						["portrait"] = {
+							["rotation"] = 307,
+							["enable"] = true,
+							["overlay"] = true,
+							["camDistanceScale"] = 2.24,
 						},
-						["width"] = 200,
-					},
-					["assist"] = {
-						["enable"] = false,
-					},
-					["boss"] = {
-						["width"] = 200,
-						["castbar"] = {
-							["width"] = 200,
+						["restIcon"] = false,
+						["buffs"] = {
+							["useFilter"] = "Blacklist",
 						},
-						["health"] = {
-							["text_format"] = "[healthcolor][health:current-percent]",
+						["castbar"] = {
+							["width"] = 440,
+							["displayTarget"] = true,
 						},
 					},
 				},

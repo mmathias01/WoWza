@@ -498,7 +498,7 @@ AmrBankItemsAndCounts = {
 		["link"] = "|cffffffff|Hitem:38426:0:0:0:0:0:0:0:90:0:0|h[Eternium Thread]|h|r",
 	}, -- [56]
 	{
-		["count"] = 5,
+		["count"] = 6,
 		["link"] = "|cff0070dd|Hitem:98619:0:0:0:0:0:0:1309128448:90:0:0|h[Celestial Cloth]|h|r",
 	}, -- [57]
 	{
