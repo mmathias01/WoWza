@@ -1,0 +1,17 @@
+## Interface: 50400
+## Title: HaloPro
+## Version: (v2.5.0)
+## Notes: Range indicator to ensure you are maxing the potential of Halo, like a Pro!
+## SavedVariables: HP_max_alpha_adjust,OffCD_Flag,HP_fadeintimer,Lock_Flag,HP_tcount_time1,HP_width,HP_height,HP_flash_num,Theme_select_Spec1,Theme_Index_Spec1,Theme_select_Spec2,Theme_Index_Spec2,Theme_Icon_Spec1_Flag,Theme_Icon_Spec2_Flag,HP_width_Icon1,HP_width_Icon2,HP_height_Icon1,HP_height_Icon2,HP_Spec1_Width,HP_Spec2_Width,HP_Spec1_Height,HP_Spec2_Height,HP_Strata1,HP_Strata2,HP_Sound,HP_Sound_Flag,HP_Tracking,HP_Tracking_Spec1,HP_Tracking_Spec2,xOfs_Spec1_backup,yOfs_Spec1_backup,Rel_Set_Point_Spec1_backup,Rel_Set_Point_Spec2_backup,xOfs_Spec2_backup,yOfs_Spec2_backup,HP_FadeIn_Disable,HP_InCombatOnly,HP_Strata_Flag,HP_Strata,HP_VertBar_Flag,HP_Always_Show_Flag,HP_Border_Flag,HP_DarkLight,HP_Border_Theme,HP_Border_Background,HP_Border_Thickness,HP_Border_Background_Thickness,HP_Colour_R,HP_Colour_B,HP_Colour_G,HP_Monitor_DS, HP_Monitor_CC,HC_spellName
+## SavedVariablesPerCharacter: 
+## OptionalDeps: SR13-TimeRecord
+
+#@no-lib-strip@
+libs\LibRangeCheck-2.0\LibStub-1.0\LibStub.lua
+libs\LibRangeCheck-2.0\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\LibRangeCheck-2.0\LibRangeCheck-2.0\LibRangeCheck-2.0.lua
+#@end-no-lib-strip@
+
+HaloPro_indicator_frame.lua
+HaloPro.lua
+HaloPro.xml

@@ -19,7 +19,7 @@ local sHotBarConfig;
 local sOrientation;
 
 --
-function VUHDO_panelRedrawHotsInitBurst()
+function VUHDO_panelRedrawHotsInitLocalOverrides()
 	VUHDO_getHealthBar = _G["VUHDO_getHealthBar"];
 	VUHDO_getBarIcon = _G["VUHDO_getBarIcon"];
 	VUHDO_getBarIconTimer = _G["VUHDO_getBarIconTimer"];
@@ -87,7 +87,7 @@ function VUHDO_initHotBars()
 			tHotBar:SetWidth(sHotBarWidth);
 			tHotBar:SetHeight(sHotBarHeight);
 			tHotBar:SetValue(0);
-			tHotBar:SetVuhDoColor(sBarColors[format("HOT%d", tCnt)]);
+			tHotBar:SetVuhDoColor(sBarColors["HOT" .. tCnt]);
 			tHotBar:SetOrientation(sOrientation);
 			tHotBar:SetIsInverted(sHotBarConfig["invertGrowth"]);
 			tHotBar:Show();
@@ -142,7 +142,7 @@ local function VUHDO_initHotIcon(anIndex)
 	local tTimer = VUHDO_getBarIconTimer(sButton, anIndex);
 	local tCounter = VUHDO_getBarIconCounter(sButton, anIndex);
 	local tChargeIcon = VUHDO_getBarIconCharge(sButton, anIndex);
-	local tHotColor = sBarColors[format("HOT%d", anIndex)];
+	local tHotColor = sBarColors["HOT" .. anIndex];
 
 	tHotIcon:SetAlpha(0);
 

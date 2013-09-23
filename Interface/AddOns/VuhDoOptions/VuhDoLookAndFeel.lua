@@ -472,11 +472,11 @@ function VUHDO_lnfUpdateVar(aModel, aValue, aPanelNum)
 				end
 
 				VUHDO_initDebuffs();
-				VUHDO_customHealthInitBurst(); -- For life left colors
+				VUHDO_customHealthInitLocalOverrides(); -- For life left colors
 				VUHDO_timeReloadUI(0.3, true);
 			end
 		end
-		VUHDO_toolboxInitBurst();
+		VUHDO_toolboxInitLocalOverrides();
 	end
 end
 local VUHDO_lnfUpdateVar = VUHDO_lnfUpdateVar;

@@ -271,6 +271,12 @@
 						<Scripts>
 							<OnShow>VUHDO_lnfPatchFont(self, "Title");VUHDO_lnfPatchFont(self, "Value");</OnShow>
 							<OnValueChanged>
+							  if not self._onsetting then
+							    self._onsetting = true;
+							    self:SetValue(self:GetValue());
+							    value = self:GetValue()
+							    self._onsetting = false;
+							  else return; end
 								VUHDO_colorPickerOpacityValueChanged(self:GetParent());
 								VUHDO_lnfSliderOnValueChanged(self:GetParent());
 							</OnValueChanged>

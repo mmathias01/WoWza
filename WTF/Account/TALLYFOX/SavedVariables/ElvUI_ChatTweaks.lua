@@ -441,9 +441,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7843137979507446,
 							["r"] = 0.4627451300621033,
 						},
-						["RAID_LEADER"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
 							["r"] = 1,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -456,9 +456,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["r"] = 1,
 						},
-						["AFK"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
 							["r"] = 1,
 						},
 						["BN_WHISPER"] = {
@@ -835,15 +835,15 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0,
 							["b"] = 0,
 						},
-						["General"] = {
-							["r"] = 0.7647059559822083,
-							["g"] = 0.9019608497619629,
-							["b"] = 0.9098039865493774,
-						},
 						["BN_WHISPER_INFORM"] = {
 							["r"] = 0,
 							["g"] = 1,
 							["b"] = 0.9647059440612793,
+						},
+						["General"] = {
+							["r"] = 0.7647059559822083,
+							["g"] = 0.9019608497619629,
+							["b"] = 0.9098039865493774,
 						},
 						["PET_INFO"] = {
 							["r"] = 0.501960813999176,
@@ -930,10 +930,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["b"] = 0,
 						},
-						["RAID_LEADER"] = {
+						["AFK"] = {
 							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
 						},
 						["BN_WHISPER"] = {
 							["r"] = 0,
@@ -965,10 +965,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 1,
 							["b"] = 0.6235294342041016,
 						},
-						["AFK"] = {
+						["RAID_LEADER"] = {
 							["r"] = 1,
-							["g"] = 0.501960813999176,
-							["b"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
 						},
 						["BN_INLINE_TOAST_CONVERSATION"] = {
 							["r"] = 0.5098039507865906,
@@ -1124,61 +1124,61 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
+						["gilneas"] = false,
 						["theconsortium"] = false,
-						["timbermawhold"] = false,
+						["theleagueofarathor"] = false,
 						["darkmoonfaire"] = false,
 						["gelkisclancentaur"] = false,
-						["cenarionexpedition"] = false,
+						["orderofthecloudserpent"] = false,
 						["everlook"] = false,
+						["shatariskyguard"] = false,
 						["shadopanassault"] = false,
 						["hydraxianwaterlords"] = false,
 						["theaugustcelestials"] = false,
+						["shadopan"] = false,
+						["darnassus"] = false,
 						["theshatar"] = false,
+						["bloodsailbuccaneers"] = false,
+						["kirintoroffensive"] = false,
+						["thesilvercovenant"] = false,
+						["stormwind"] = false,
+						["ironforge"] = false,
+						["exodar"] = false,
+						["theblackprince"] = false,
 						["ginamudclaw"] = false,
+						["honorhold"] = false,
+						["sho"] = false,
 						["tinamudclaw"] = false,
 						["thealdor"] = false,
+						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
+						["thoriumbrotherhood"] = false,
+						["shatteredsunoffensive"] = false,
 						["ratchet"] = false,
 						["thevioleteye"] = false,
 						["lowercity"] = false,
+						["valianceexpedition"] = false,
+						["kurenai"] = false,
+						["cenarionexpedition"] = false,
+						["thescaleofthesands"] = false,
+						["tushuipandaren"] = false,
 						["sporeggar"] = false,
+						["thelorewalkers"] = false,
+						["holycrit"] = false,
+						["keepersoftime"] = false,
 						["gadgetzan"] = false,
+						["silverwingsentinels"] = false,
+						["timbermawhold"] = false,
+						["thescryers"] = false,
+						["argentdawn"] = false,
+						["magramclancentaur"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
+						["pearlfinjinyu"] = false,
 						["ashtonguedeathsworn"] = false,
 						["stormpikeguard"] = false,
-						["theklaxxi"] = false,
-						["thescaleofthesands"] = false,
-						["shatteredsunoffensive"] = false,
-						["ironforge"] = false,
-						["shatariskyguard"] = false,
-						["pearlfinjinyu"] = false,
-						["shadopan"] = false,
-						["holycrit"] = false,
-						["bloodsailbuccaneers"] = false,
-						["thesilvercovenant"] = false,
-						["honorhold"] = false,
-						["sho"] = false,
-						["zandalartribe"] = false,
-						["argentdawn"] = false,
-						["valianceexpedition"] = false,
-						["tushuipandaren"] = false,
-						["gilneas"] = false,
-						["theleagueofarathor"] = false,
-						["keepersoftime"] = false,
-						["kirintoroffensive"] = false,
-						["kurenai"] = false,
-						["orderofthecloudserpent"] = false,
-						["thescryers"] = false,
-						["thelorewalkers"] = false,
-						["magramclancentaur"] = false,
-						["darnassus"] = false,
-						["exodar"] = false,
-						["stormwind"] = false,
-						["theblackprince"] = false,
-						["silverwingsentinels"] = false,
 						["goldenlotus"] = false,
-						["thoriumbrotherhood"] = false,
+						["theklaxxi"] = false,
 						["joguthedrunk"] = false,
 					},
 				},
@@ -1227,23 +1227,23 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Raid"] = false,
-					["Party Leader"] = false,
-					["Yell"] = false,
 					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Yell"] = false,
 					["Officer"] = false,
 				},
 				["Jolobank - Dragonblight"] = {
 					["Guild"] = false,
 					["Raid Leader"] = false,
-					["Yell"] = false,
+					["Instance Chat Leader"] = false,
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Say"] = false,
-					["Party Leader"] = false,
 					["Raid"] = false,
-					["Instance Chat Leader"] = false,
+					["Party Leader"] = false,
+					["Yell"] = false,
+					["Say"] = false,
 					["Officer"] = false,
 				},
 				["Shenlu - Dragonblight"] = {
@@ -1261,11 +1261,11 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["Magic8-Ball"] = {
+		["LootIcons"] = {
 		},
 		["MultipleInviteCommand"] = {
 		},
-		["KeywordSounds"] = {
+		["ATestofValor"] = {
 		},
 		["InviteLinks"] = {
 			["profiles"] = {
@@ -1301,7 +1301,7 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["AuctionMessageFiltering"] = {
+		["AutoDing"] = {
 		},
 		["Companions"] = {
 			["profiles"] = {
@@ -1319,17 +1319,17 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["ATestofValor"] = {
+		["KeywordSounds"] = {
 		},
-		["AutoDing"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["AltNames"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["RerouteAuctionMessages"] = {
+		["AuctionMessageFiltering"] = {
 		},
-		["LootIcons"] = {
+		["Magic8-Ball"] = {
 		},
 		["XPLeftToLevel"] = {
 		},
@@ -1341,23 +1341,23 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Jolokia - Dragonblight"] = {
 					["history"] = {
-						"/raid well damn", -- [1]
-						"/raid I take it back then", -- [2]
-						"/raid oh", -- [3]
-						"/raid this fight gets easier as it goes", -- [4]
-						"/raid the first split is the hardest", -- [5]
-						"/cw Destellar ill try", -- [6]
-						"/raid yah youll see", -- [7]
-						"/raid lets get him to split this time", -- [8]
-						"/raid this is NOT LFR", -- [9]
-						"/raid lol", -- [10]
-						"/raid spread out", -- [11]
-						"/raid try and stay on either side of the blue / green", -- [12]
-						"/raid within 1 section", -- [13]
-						"/raid dps on yellow / either side of blue / green", -- [14]
-						"/raid lets get him to split this time", -- [15]
-						"/raid fuck it let me get back on my priest", -- [16]
-						"/raid im faster on that toon", -- [17]
+						"/cw Destellar ill try", -- [1]
+						"/raid yah youll see", -- [2]
+						"/raid lets get him to split this time", -- [3]
+						"/raid this is NOT LFR", -- [4]
+						"/raid lol", -- [5]
+						"/raid spread out", -- [6]
+						"/raid try and stay on either side of the blue / green", -- [7]
+						"/raid within 1 section", -- [8]
+						"/raid dps on yellow / either side of blue / green", -- [9]
+						"/raid lets get him to split this time", -- [10]
+						"/raid fuck it let me get back on my priest", -- [11]
+						"/raid im faster on that toon", -- [12]
+						"/raid and keep trying to shield people", -- [13]
+						"/raid ffs", -- [14]
+						"/raid im switching", -- [15]
+						"/raid that should help", -- [16]
+						"/raid this toon feels SLOOOOW to me", -- [17]
 						"/raid and keep trying to shield people", -- [18]
 						"/raid ffs", -- [19]
 						"/raid im switching", -- [20]

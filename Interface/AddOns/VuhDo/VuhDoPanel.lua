@@ -1,4 +1,5 @@
-VUHDO_PANEL_UNITS = { {}, {}, {}, {}, {}, {}, {}, {}, {}, {} };
+VUHDO_PANEL_UNITS = { };
+setmetatable(VUHDO_PANEL_UNITS, VUHDO_META_NEW_ARRAY);
 local VUHDO_PANEL_UNITS = VUHDO_PANEL_UNITS;
 
 VUHDO_UNIT_BUTTONS = {};
@@ -31,7 +32,7 @@ local sEmpty = { };
 
 
 --
-function VUHDO_panelInitBurst()
+function VUHDO_panelInitLocalOverrides()
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 	VUHDO_HEADER_TEXTS = _G["VUHDO_HEADER_TEXTS"];
 	VUHDO_GROUPS = _G["VUHDO_GROUPS"];
@@ -135,8 +136,7 @@ function VUHDO_getGroupMembers(anIdentifier, aPanelNum, aModelIndex)
 			and VUHDO_GROUPS[anIdentifier]
 			or VUHDO_cutSubGroup(anIdentifier, aPanelNum, aModelIndex)
 		)
-		or VUHDO_PANEL_UNITS[aPanelNum]
-		or sEmpty;
+		or VUHDO_PANEL_UNITS[aPanelNum];
 end
 local VUHDO_getGroupMembers = VUHDO_getGroupMembers;
 

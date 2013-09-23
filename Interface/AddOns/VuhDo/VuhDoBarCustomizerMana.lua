@@ -20,7 +20,7 @@ local VUHDO_updateBouquetsForEvent;
 local VUHDO_indicatorTextCallback;
 
 local sIsInverted;
-function VUHDO_customManaInitBurst()
+function VUHDO_customManaInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_getUnitButtonsSafe = _G["VUHDO_getUnitButtonsSafe"];
 	VUHDO_IN_RAID_TARGET_BUTTONS = _G["VUHDO_IN_RAID_TARGET_BUTTONS"];
@@ -121,9 +121,7 @@ function VUHDO_manaBarBouquetCallback(aUnit, anIsActive, anIcon, aCurrValue, aCo
 		end
 	end
 
-	if not VUHDO_RAID[aUnit] then
-		return;
-	end
+	if not VUHDO_RAID[aUnit] then return; end
 
 	-- Targets und targets-of-target, die im Raid sind
 	tAllButtons = VUHDO_IN_RAID_TARGET_BUTTONS[VUHDO_RAID[aUnit]["name"]];

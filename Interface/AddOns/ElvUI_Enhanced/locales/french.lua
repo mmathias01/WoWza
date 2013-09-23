@@ -1,13 +1,13 @@
--- French localization file for frFR.
+﻿-- French localization file for frFR.
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("ElvUI", "frFR");
 if not L then return; end
 
--- Translation by: Alex586
+-- Translation by: Alex586, Deadse10
 
 -- Init
 L["ENH_LOGIN_MSG"] = "Vous utilisez |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUi est trop ancienne (requiert v6.44 ou plus). Merci de télécharger une version plus récente sur tukui.org."
+L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUi est trop ancienne (requiert v6.51 ou plus). Merci de télécharger une version plus récente sur tukui.org."
 
 -- Equipment
 L["Equipment"] = "Equipement"
@@ -87,6 +87,11 @@ L['No Anchor Bar'] = "Ne pas ancré à une Barre"
 L['Horizontal Anchor Bar'] = "Ancrer honrizontalement à la Barre"
 L['Vertical Anchor Bar'] = "Ancrer verticalement à la Barre"
 
+L['Layout Direction'] = true
+L['Normal is right to left or top to bottom, or select reversed to switch directions.'] = true
+L['Normal'] = true
+L['Reversed'] = true
+
 -- PvP Autorelease
 L['PvP Autorelease'] = "Libération automatique en PVP"
 L['Automatically release body when killed inside a battleground.'] = "Libère automatiquement votre corps quand vous êtes tué en Champs de Bataille."
@@ -145,18 +150,18 @@ L["The amount of time the unit frames of party / raid members will glow when aff
 L["Glow Color"] = "Couleur de la prédiction"
 
 -- Raid Marker Bar
-L['Raid Marker Bar'] = true
-L['Display a quick action bar for raid targets and world markers.'] = true
-L['Modifier Key'] = true
-L['Set the modifier key for placing world markers.'] = true
-L['Shift Key'] = true
-L['Ctrl Key'] = true
-L['Alt Key'] = true
-L["Raid Markers"] = true
-L["Click to clear the mark."] = true
-L["Click to mark the target."] = true
-L["%sClick to remove all worldmarkers."] = true
-L["%sClick to place a worldmarker."] = true
+L['Raid Marker Bar'] = "Barre d'action de marquage d'icône ou terrain"
+L['Display a quick action bar for raid targets and world markers.'] = "Affiche une barre d'action pour ajouter une icône sur les cibles ou marquer le terrain"
+L['Modifier Key'] = "Touche de marquage de terrain"
+L['Set the modifier key for placing world markers.'] = "Configurez la touche de modification pour placer des marquages de terrain rapidement.|cff1784d1Fonctionne seulement en groupe ou en raid.|r"
+L['Shift Key'] = "Touche MAJ"
+L['Ctrl Key'] = "Touche CTRL"
+L['Alt Key'] = "Touche ALT "
+L["Raid Markers"] = "Icône ou Marquage de terrain"
+L["Click to clear the mark."] = "Cliquez pour supprimer l'icône sur la cible."
+L["Click to mark the target."] = "Cliquez pour placer une icône sur la cible."
+L["%sClick to remove all worldmarkers."] = "%sClic pour supprimer tous les marquages de terrain."
+L["%sClick to place a worldmarker."] = "%sClic pour placer un marqueur de terrain."
 
 -- WatchFrame
 L['WatchFrame'] = "Fenêtre d'objectifs"

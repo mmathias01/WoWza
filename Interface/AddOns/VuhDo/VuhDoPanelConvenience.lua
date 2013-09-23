@@ -7,6 +7,7 @@ local _;
 -- Fast caches
 local VUHDO_BARS_PER_BUTTON = { };
 local VUHDO_BUTTONS_PER_PANEL = { };
+setmetatable(VUHDO_BUTTONS_PER_PANEL, VUHDO_META_NEW_ARRAY);
 local VUHDO_BUFF_SWATCHES = { };
 local VUHDO_BUFF_PANELS = { };
 local VUHDO_HEALTH_BAR_TEXT = { };
@@ -192,27 +193,25 @@ end
 
 --
 function VUHDO_getActionPanelOrStub(aPanelNum)
-	return _G[format("Vd%d", aPanelNum)] or VUHDO_STUB_COMPONENT;
+	return _G["Vd" .. aPanelNum] or VUHDO_STUB_COMPONENT;
 end
 
 
 
 --
 function VUHDO_getActionPanel(aPanelNum)
-	return _G[format("Vd%d", aPanelNum)];
+	return _G["Vd" .. aPanelNum];
 end
 
 
 
 --
-local tPanelName;
 function VUHDO_getOrCreateActionPanel(aPanelNum)
-	tPanelName = format("Vd%d", aPanelNum);
-	if not _G[tPanelName] then
-		VUHDO_ACTION_PANELS[aPanelNum] = CreateFrame("Frame", tPanelName, UIParent, "VuhDoHealPanelTemplate")
+	if not VUHDO_ACTION_PANELS[aPanelNum] then
+		VUHDO_ACTION_PANELS[aPanelNum] = CreateFrame("Frame", format("Vd%d", aPanelNum), UIParent, "VuhDoHealPanelTemplate")
 	end
 
-	return _G[tPanelName];
+	return VUHDO_ACTION_PANELS[aPanelNum];
 end
 
 
@@ -393,13 +392,11 @@ end
 
 --
 function VUHDO_getOrCreateCooldown(aFrame, aButton, anIndex)
-	local tName =	aFrame:GetName() .. "O";
-	if not _G[tName] then
-		CreateFrame("Cooldown", tName, aFrame, "VuhDoHotCooldown");
+	if not VUHDO_BAR_ICON_CLOCKS[aButton][anIndex] then
+		VUHDO_BAR_ICON_CLOCKS[aButton][anIndex] = CreateFrame("Cooldown", aFrame:GetName() .. "O", aFrame, "VuhDoHotCooldown");
 	end
 
-	VUHDO_BAR_ICON_CLOCKS[aButton][anIndex] = _G[tName];
-	return _G[tName];
+	return VUHDO_BAR_ICON_CLOCKS[aButton][anIndex];
 end
 
 
@@ -713,13 +710,4 @@ end
 --
 function VUHDO_getPanelButtons(aPanelNum)
 	return VUHDO_BUTTONS_PER_PANEL[aPanelNum];
-end
-
-
-
---
-function VUHDO_initButtonCache()
-	for tCnt = 1, 10 do -- VUHDO_MAX_PANELS
-		VUHDO_BUTTONS_PER_PANEL[tCnt] = { };
-	end
 end

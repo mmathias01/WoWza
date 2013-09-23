@@ -13,7 +13,7 @@ local VUHDO_getHeaderPos;
 local VUHDO_customizeHeader;
 
 --
-function VUHDO_panelRedrawHeadersInitBurst()
+function VUHDO_panelRedrawHeadersInitLocalOverrides()
 	VUHDO_getHeader = _G["VUHDO_getHeader"];
 	VUHDO_isTableHeaderOrFooter = _G["VUHDO_isTableHeaderOrFooter"];
 	VUHDO_LibSharedMedia = _G["VUHDO_LibSharedMedia"];

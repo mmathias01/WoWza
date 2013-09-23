@@ -22,7 +22,7 @@ do
 	--@end-alpha@
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	releaseRevision = tonumber("11141")
+	releaseRevision = tonumber("11204")
 
 	-- If the releaseRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(releaseRevision) ~= "number" then
@@ -433,6 +433,7 @@ do
 
 		loaderUtilityFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 		loaderUtilityFrame:RegisterEvent("GROUP_ROSTER_UPDATE")
+		loaderUtilityFrame:RegisterEvent("LFG_PROPOSAL_SHOW")
 
 		loaderUtilityFrame:RegisterEvent("CHAT_MSG_ADDON")
 		self:RegisterMessage("BigWigs_AddonMessage")
@@ -468,9 +469,9 @@ end
 
 do
 	-- This is a crapfest mainly because DBM's actual handling of versions is a crapfest, I'll try explain how this works...
-	local DBMdotRevision = "10267" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
-	local DBMdotReleaseRevision = "10267" -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
-	local DBMdotDisplayVersion = "5.4.0" -- Same as above but is changed between alpha and release cycles e.g. "N.N.N" for a release and "N.N.N alpha" for the alpha duration
+	local DBMdotRevision = "10320" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
+	local DBMdotReleaseRevision = "10320" -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
+	local DBMdotDisplayVersion = "5.4.1" -- Same as above but is changed between alpha and release cycles e.g. "N.N.N" for a release and "N.N.N alpha" for the alpha duration
 	function loader:DBM_AddonMessage(channel, sender, prefix, revision, releaseRevision, displayVersion)
 		if prefix == "H" and (BigWigs and BigWigs.db.profile.fakeDBMVersion or self.isFakingDBM) then
 			SendAddonMessage("D4", "V\t"..DBMdotRevision.."\t"..DBMdotReleaseRevision.."\t"..DBMdotDisplayVersion.."\t"..GetLocale(), IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
@@ -545,6 +546,30 @@ end
 loaderUtilityFrame:SetScript("OnEvent", function(_, event, ...)
 	loader[event](loader, ...)
 end)
+
+function loader:LFG_PROPOSAL_SHOW()
+	if not self.LFGFrame then
+		local f = CreateFrame("Frame", nil, LFGDungeonReadyDialog)
+		f:SetPoint("BOTTOM", LFGDungeonReadyDialog, "BOTTOM", 0, -60)
+		f:SetSize(100, 100)
+		f:Show()
+		f.start = GetTime()
+		self.LFGFrame = f
+
+		local text = f:CreateFontString(nil, "OVERLAY")
+		text:SetPoint("CENTER", f, "CENTER")
+		text:SetFont(TextStatusBarText:GetFont(), 11, "OUTLINE")
+		text:SetText(40)
+		f.text = text
+
+		f:SetScript("OnUpdate", function(frame)
+			local t = GetTime() - frame.start
+			frame.text:SetFormattedText("Big Wigs: %.1f", 40-t)
+		end)
+
+		self.LFG_PROPOSAL_SHOW = function() loader.LFGFrame.start = GetTime() end
+	end
+end
 
 function loader:CHAT_MSG_ADDON(prefix, msg, _, sender)
 	if prefix == "BigWigs" then

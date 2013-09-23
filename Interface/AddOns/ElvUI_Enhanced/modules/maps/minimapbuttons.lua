@@ -144,11 +144,18 @@ end
 function MB:UpdateLayout()
 	if not E.minimapbuttons then return end
 	
-	minimapButtonBar:SetPoint("CENTER", minimapButtonBarAnchor, "CENTER", 0, 0)
-	minimapButtonBar:Height(E.minimapbuttons.db.buttonSize + 4)
-	minimapButtonBar:Width(E.minimapbuttons.db.buttonSize + 4)
+	local direction = E.minimapbuttons.db.layoutDirection == 'NORMAL'
+	local offset = direction and -2 or 2
 
+	if E.minimapbuttons.db.skinStyle == 'HORIZONTAL' then
+		minimapButtonBar:SetPoint(direction and 'LEFT' or 'RIGHT', minimapButtonBarAnchor, direction and 'LEFT' or 'RIGHT', -2, 0)
+	else
+		minimapButtonBar:SetPoint(direction and 'TOP' or 'BOTTOM', minimapButtonBarAnchor, direction and 'TOP' or 'BOTTOM', -2, 0)
+	end
+	minimapButtonBar:SetSize(E.minimapbuttons.db.buttonSize + 4, E.minimapbuttons.db.buttonSize + 4)
+	
 	local lastFrame, anchor1, anchor2, offsetX, offsetY
+	
 	for i = 1, #moveButtons do
 		local frame =	_G[moveButtons[i]]
 		
@@ -179,15 +186,15 @@ function MB:UpdateLayout()
 			frame:SetFrameLevel(20)
 			frame:Size(E.minimapbuttons.db.buttonSize)
 			if E.minimapbuttons.db.skinStyle == 'HORIZONTAL' then
-				anchor1 = 'RIGHT'
-				anchor2 = 'LEFT'
-				offsetX = -2
+				anchor1 = direction and 'RIGHT' or 'LEFT'
+				anchor2 = direction and 'LEFT' or 'RIGHT'
+				offsetX = offset
 				offsetY = 0
 			else
-				anchor1 = 'TOP'
-				anchor2 = 'BOTTOM'
+				anchor1 = direction and 'TOP' or 'BOTTOM'
+				anchor2 = direction and 'BOTTOM' or 'TOP'
 				offsetX = 0
-				offsetY = -2
+				offsetY = offset
 			end
 			
 			if not lastFrame then
@@ -201,13 +208,15 @@ function MB:UpdateLayout()
 	
 	if E.minimapbuttons.db.skinStyle ~= 'NOANCHOR' and #moveButtons > 0 then
 		if E.minimapbuttons.db.skinStyle == "HORIZONTAL" then
-			minimapButtonBar:Width((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
+			minimapButtonBar:SetWidth((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
 		else
-			minimapButtonBar:Height((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
+			minimapButtonBar:SetHeight((E.minimapbuttons.db.buttonSize * #moveButtons) + (2 * #moveButtons + 1) + 1)
 		end
 		minimapButtonBarAnchor:SetSize(minimapButtonBar:GetSize())
 		minimapButtonBar:Show()
+		RegisterStateDriver(minimapButtonBarAnchor, "visibility", '[petbattle]hide;show')
 	else
+		UnregisterStateDriver(minimapButtonBarAnchor, "visibility")
 		minimapButtonBar:Hide()
 	end
 	
@@ -245,9 +254,9 @@ function MB:CreateFrames()
 	minimapButtonBarAnchor = CreateFrame("Frame", "MinimapButtonBarAnchor", E.UIParent)
 	
 	if E.db.auras.consolidatedBuffs.enable then
-		minimapButtonBarAnchor:Point("TOPRIGHT", ElvConfigToggle, "BOTTOMRIGHT", -1, -2)
+		minimapButtonBarAnchor:Point("TOPRIGHT", ElvConfigToggle, "BOTTOMRIGHT", 0, -2)
 	else
-		minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", -1, -2)
+		minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", 0, -2)
 	end
 	minimapButtonBarAnchor:Size(200, 32)
 	minimapButtonBarAnchor:SetFrameStrata("BACKGROUND")

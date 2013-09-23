@@ -27,22 +27,21 @@ function TSMAPI:GetPriceSources()
 	return sources
 end
 
-local itemLinkCache = {}
+local itemValueKeyCache = {}
 function TSMAPI:GetItemValue(link, key)
-	local itemLink = itemLinkCache[link]
-	if not itemLink then
-		itemLink = select(2, TSMAPI:GetSafeItemInfo(link))
-		if itemLink then itemLinkCache[link] = itemLink end
-		itemLink = itemLink or link
-	end
-	itemLink = itemLink or link
+	local itemLink = select(2, TSMAPI:GetSafeItemInfo(link)) or link
 	if not itemLink then return end
 
 	-- look in module objects for this key
+	if itemValueKeyCache[key] then
+		local info = itemValueKeyCache[key]
+		return info.callback(itemLink, info.arg)
+	end
 	for _, obj in pairs(moduleObjects) do
 		if obj.priceSources then
 			for _, info in ipairs(obj.priceSources) do
 				if info.key == key then
+					itemValueKeyCache[key] = info
 					return info.callback(itemLink, info.arg)
 				end
 			end

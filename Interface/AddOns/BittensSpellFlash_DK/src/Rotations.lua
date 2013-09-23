@@ -284,9 +284,10 @@ a.Rotations.Blood = {
 			uncontrolledMitigationBuffs,
 			c.COMMON_TANKING_BUFFS,
 			"Death Pact",
-			"Dancing Rune Weapon",
+			"Dancing Rune Weapon for Damage",
 			"Bone Shield",
 			"Vampiric Blood",
+			"Dancing Rune Weapon",
 			"Icebound Fortitude Glyphed",
 			"Raise Dead for Death Pact",
 			"Conversion",
@@ -417,7 +418,8 @@ a.Rotations.Frost = {
 				"Frost Strike for Resources",
 				"Plague Strike unless RE",
 				"Blood Tap",
-				"Plague Leech")
+				"Plague Leech",
+				"Horn of Winter")
 		elseif OffhandHasWeapon() then
 			flashing = c.PriorityFlash(
 				"Frost Strike under KM",

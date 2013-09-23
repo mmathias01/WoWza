@@ -66,7 +66,7 @@ local sIsDistance;
 
 
 
-function VUHDO_bouquetValidatorsInitBurst()
+function VUHDO_bouquetValidatorsInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_USER_CLASS_COLORS = _G["VUHDO_USER_CLASS_COLORS"];
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];

@@ -1,6 +1,5 @@
 local _;
 
-local strlen = strlen;
 local strsub = strsub;
 local InCombatLockdown = InCombatLockdown;
 local twipe = table.wipe;
@@ -30,7 +29,6 @@ local GetPlayerFacing = GetPlayerFacing;
 local GetPlayerMapPosition = GetPlayerMapPosition;
 local GetSpellBookItemInfo = GetSpellBookItemInfo;
 local CheckInteractDistance = CheckInteractDistance;
---local UnitIsTrivial = UnitIsTrivial;
 local UnitIsUnit = UnitIsUnit;
 local IsAltKeyDown = IsAltKeyDown;
 local IsControlKeyDown = IsControlKeyDown;
@@ -40,7 +38,25 @@ local VUHDO_PI, VUHDO_2_PI = math.pi, math.pi * 2;
 local pairs = pairs;
 local type = type;
 local abs = abs;
+
 local sEmpty = { };
+setmetatable(sEmpty, { __newindex = function(aTable, aKey, aValue) VUHDO_xMsg("WARNING: newindex on dummy array: ", aKey, aValue); end });
+
+-- Common meta tables
+
+VUHDO_META_EMPTY_ARRAY = {
+	__index = function (aTable, aKey)
+		return sEmpty;
+	end
+};
+
+VUHDO_META_NEW_ARRAY = {
+	__index = function(aTable, aKey)
+		local tValue = { };
+		rawset(aTable, aKey, tValue);
+		return tValue;
+	end
+};
 
 
 
@@ -54,7 +70,7 @@ function VUHDO_getNumbersFromString(aName, aMaxAnz)
 	tIndex = 0;
 	tIsInNumber = false;
 
-	for tCnt = 1, strlen(aName) do
+	for tCnt = 1, #aName do
 		tDigit = strbyte(aName, tCnt);
 		if tDigit >= 48 and tDigit <= 57 then
 			if tIsInNumber then
@@ -146,7 +162,7 @@ local sZeroRange = "";
 
 --
 local VUHDO_updateBouquetsForEvent;
-function VUHDO_toolboxInitBurst()
+function VUHDO_toolboxInitLocalOverrides()
 	VUHDO_RAID_NAMES = _G["VUHDO_RAID_NAMES"];
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_UNIT_BUTTONS = _G["VUHDO_UNIT_BUTTONS"];
@@ -206,9 +222,8 @@ end
 
 --
 function VUHDO_xMsg(...)
-	local tText;
+	local tText = "";
 
-	tText = "";
 	for tCnt = 1, select('#', ...) do
 		tText = tText .. tCnt .. "=[" .. VUHDO_arg2Text(select(tCnt, ...)) .. "] ";
 	end
@@ -352,7 +367,7 @@ local tRaidUnit;
 function VUHDO_getPlayerRaidUnit()
 	if VUHDO_GROUP_TYPE_RAID == VUHDO_getCurrentGroupType() then
 		for tCnt = 1, 40 do
-			tRaidUnit = format("raid%d", tCnt);
+			tRaidUnit = "raid" .. tCnt;
 			if UnitIsUnit("player", tRaidUnit) then return tRaidUnit; end
 		end
 	end
@@ -474,8 +489,8 @@ end
 
 --
 function VUHDO_getResurrectionSpells()
-	return (VUHDO_RESURRECTION_SPELLS[VUHDO_PLAYER_CLASS] or {})[1],
-		(VUHDO_RESURRECTION_SPELLS[VUHDO_PLAYER_CLASS] or {})[2];
+	return (VUHDO_RESURRECTION_SPELLS[VUHDO_PLAYER_CLASS] or sEmpty)[1],
+		(VUHDO_RESURRECTION_SPELLS[VUHDO_PLAYER_CLASS] or sEmpty)[2];
 end
 
 
@@ -522,14 +537,13 @@ end
 
 
 --
-local tNumBytes, tNumChars;
+local tNumChars;
 local tNumCut;
 local tByte;
 function VUHDO_utf8Cut(aString, aNumChars)
-	tNumBytes = strlen(aString);
 	tNumCut = 1;
 	tNumChars = 0;
-	while tNumCut < tNumBytes and tNumChars < aNumChars do
+	while tNumCut < #aString and tNumChars < aNumChars do
 		tByte = strbyte(aString, tNumCut);
 
 		tNumCut = tNumCut + (
@@ -550,8 +564,8 @@ end
 
 --
 function VUHDO_strempty(aString)
-	if aString then
-		for tCnt = 1, strlen(aString) do
+	if (aString or "") ~= "" then
+		for tCnt = 1, #aString do
 			if strbyte(aString, tCnt) ~= 32 then return false; end
 		end
 	end
@@ -659,6 +673,7 @@ end
 --
 function VUHDO_decompressIfCompressed(aFile)
 	return "string" == type(aFile) and VUHDO_deserializeTable(aFile) or aFile;
+	--return "string" == type(aFile) and VUHDO_deserializeTable(VUHDO_decompressStringHuffman(aFile)) or aFile;
 end
 
 
@@ -666,14 +681,25 @@ end
 --
 function VUHDO_decompressOrCopy(aFile)
 	return "string" == type(aFile) and VUHDO_deserializeTable(aFile) or VUHDO_deepCopyTable(aFile);
+	--return "string" == type(aFile) and VUHDO_deserializeTable(VUHDO_decompressStringHuffman(aFile)) or VUHDO_deepCopyTable(aFile);
 end
 
 
 
 --
 function VUHDO_compressTable(aTable)
-	return type(aTable) == "table" and VUHDO_serializeTable(aTable) or aTable
+	return type(aTable) == "table" and VUHDO_serializeTable(aTable) or aTable;
 end
+
+
+
+--
+function VUHDO_compressAndPackTable(aTable)
+	return type(aTable) == "table" and VUHDO_serializeTable(aTable) or aTable;
+	--return type(aTable) == "table" and VUHDO_compressStringHuffman(VUHDO_serializeTable(aTable)) or aTable;
+end
+
+
 
 
 

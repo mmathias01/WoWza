@@ -138,11 +138,12 @@ function VUHDO_saveKeyLayoutOnClick(aButton)
 	local tEditBox = _G[aButton:GetParent():GetName() .. "SaveAsEditBox"];
 	VUHDO_CURR_LAYOUT = strtrim(tEditBox:GetText());
 
-	if (strlen(VUHDO_CURR_LAYOUT) == 0) then
+	if #VUHDO_CURR_LAYOUT == 0 then
 		VUHDO_Msg(VUHDO_I18N_ENTER_KEY_LAYOUT_NAME, 1, 0.4, 0.4);
 		return;
 	end
-	if (VUHDO_SPELL_LAYOUTS[VUHDO_CURR_LAYOUT] ~= nil) then
+
+	if VUHDO_SPELL_LAYOUTS[VUHDO_CURR_LAYOUT] then
 		VuhDoYesNoFrameText:SetText(format(VUHDO_I18N_OVERWRITE_KEY_LAYOUT_QUESTION, VUHDO_CURR_LAYOUT));
 		VuhDoYesNoFrame:SetAttribute("callback", VUHDO_saveKeyLayoutCallback);
 		VuhDoYesNoFrame:Show();
@@ -156,7 +157,7 @@ end
 --
 function VUHDO_shareCurrentKeyLayout(aUnitName, aKeyLayoutName)
 	local tLayout = VUHDO_SPELL_LAYOUTS[aKeyLayoutName];
-	if (tLayout == nil) then
+	if not tLayout then
 		VUHDO_Msg("There is no key layout named \"" .. (aKeyLayoutName or "") .. "\"", 1, 0.4, 0.4);
 		return;
 	end

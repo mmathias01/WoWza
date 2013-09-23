@@ -14,14 +14,18 @@ if L then
 	L.no_meditative_field = "НЕТ Медитативного поля!"
 
 	L.intermission = "Крайние меры"
-	L.intermission_desc = "Предупреждать, когда боссы готовятся применить Крайние меры"
+	L.intermission_desc = "Предупреждать, когда боссы готовятся применить Крайние меры."
+
+	L.inferno_self = "Адский удар на тебе"
+	L.inferno_self_desc = "Особый отсчет, когда Адский удар на тебе."
+	L.inferno_self_bar = "Ты взорвешься!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "ruRU")
 if L then
 	L.pre_pull = "Подготовка"
 	L.pre_pull_desc = "Полоса отсчета до нападения босса."
-	L.pre_pull_trigger = "Хорошо, я создам поле для удержания порчи."
+	L.pre_pull_trigger = "Хорошо, я создам поле для удерживания порчи."
 
 	L.big_adds = "Большие помощники"
 	L.big_adds_desc = "Предупреждать об убийстве больших помощников снаружи/внутри."
@@ -32,7 +36,7 @@ end
 L = BigWigs:NewBossLocale("Sha of Pride", "ruRU")
 if L then
 	L.custom_off_titan_mark = "Маркировка Дара титанов"
-	L.custom_off_titan_mark_desc = "Чтобы помочь задействовать Силу титанов, люди с Даром титанов будут помечены метками %s%s%s%s%s%s%s%s (игроки с Аурой гордыни не помечаются), но они будут отображаться в окне близости. Требуется быть помощником или лидером."
+	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 
 	L.projection_message = "Бегите по |cFF00FF00ЗЕЛЕНОЙ|r стрелке!"
 	L.projection_explosion = "Проекция взрывается"
@@ -48,6 +52,7 @@ L = BigWigs:NewBossLocale("Galakras", "ruRU")
 if L then
 	L.demolisher = "Разрушитель"
 	L.demolisher_desc = "Таймеры, когда Кор'кронские разрушители вступят в бой."
+
 	L.towers = "Башня"
 	L.towers_desc = "Предупреждать, когда башни ломаются."
 	L.south_tower_trigger = "Дверь южной башни разбита!"
@@ -138,11 +143,11 @@ end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "ruRU")
 if L then
-	L.one = "Ийокук выбирает: Один!"
-	L.two = "Ийокук выбирает: Два!"
-	L.three = "Ийокук выбирает: Три!"
-	L.four = "Ийокук выбирает: Четыре!"
-	L.five = "Ийокук выбирает: Пять!"
+	L.one = "Выбор Ийокука: Один!"
+	L.two = "Выбор Ийокука: Два!"
+	L.three = "Выбор Ийокука: Три!"
+	L.four = "Выбор Ийокука: Четыре!"
+	L.five = "Выбор Ийокука: Пять!"
 	--------------------------------
 	L.edge_message = "Ты в луче"
 	L.custom_off_edge_marks = "Маркировка луча"

@@ -8,11 +8,12 @@ local VUHDO_getHeaderPosHor;
 local VUHDO_getHeaderPosVer;
 local VUHDO_getHealButtonPosHor;
 local VUHDO_getHealButtonPosVer;
+local VUHDO_strempty;
 
-function VUHDO_sizeCalculatorInitBurst()
+function VUHDO_sizeCalculatorInitLocalOverrides()
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
-	VUHDO_sizeCalculatorInitBurstHor();
-	VUHDO_sizeCalculatorInitBurstVer();
+	VUHDO_sizeCalculatorInitLocalOverridesHor();
+	VUHDO_sizeCalculatorInitLocalOverridesVer();
 
 	VUHDO_getHeaderWidthHor = _G["VUHDO_getHeaderWidthHor"];
 	VUHDO_getHeaderWidthVer = _G["VUHDO_getHeaderWidthVer"];
@@ -22,6 +23,7 @@ function VUHDO_sizeCalculatorInitBurst()
 	VUHDO_getHeaderPosVer = _G["VUHDO_getHeaderPosVer"];
 	VUHDO_getHealButtonPosHor = _G["VUHDO_getHealButtonPosHor"];
 	VUHDO_getHealButtonPosVer = _G["VUHDO_getHealButtonPosVer"];
+	VUHDO_strempty = _G["VUHDO_strempty"];
 end
 
 -- BURST CACHE ---------------------------------------------------
@@ -119,13 +121,13 @@ end
 
 --
 function VUHDO_getNumHotSlots(aPanelNum)
-	if VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][10] then
+	if not VUHDO_strempty(VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][10]) then
 		return 7;
-	elseif VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][9] then
+	elseif not VUHDO_strempty(VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][9]) then
 		return 6;
 	else
 		for tCnt = 5, 1, -1 do
-			if VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][tCnt] then
+			if not VUHDO_strempty(VUHDO_PANEL_SETUP["HOTS"]["SLOTS"][tCnt]) then
 				return tCnt;
 			end
 		end

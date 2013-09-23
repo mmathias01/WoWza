@@ -1174,13 +1174,13 @@ ElvUI_ChatTweaksDB = {
 		},
 		["MultipleInviteCommand"] = {
 		},
-		["AutoDing"] = {
+		["AuctionMessageFiltering"] = {
 		},
 		["LootIcons"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["RerouteAuctionMessages"] = {
+		["AutoDing"] = {
 		},
 		["AltNames"] = {
 		},
@@ -1192,7 +1192,7 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["AuctionMessageFiltering"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["KeywordSounds"] = {
 		},
@@ -1234,38 +1234,38 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/g needed DPS for a while", -- [1]
-						"/g it happens", -- [2]
-						"/g ;)", -- [3]
-						"/g anyone have some  |cffffffff|Hitem:74865:0:0:0:0:0:0:172613760:90:0:0|h[Krasarang Paddlefish]|h|r lying around?", -- [4]
-						"/g hey gun", -- [5]
-						"/g :)", -- [6]
-						"/g ill be back in 45 min or so", -- [7]
-						"/g have to watch some TV with the wife to keep her off my back", -- [8]
-						"/g anyone have some  |cffffffff|Hitem:74865:0:0:0:0:0:0:172613760:90:0:0|h[Krasarang Paddlefish]|h|r lying around?", -- [9]
-						"/g hey gun", -- [10]
-						"/g :)", -- [11]
-						"/g ill be back in 45 min or so", -- [12]
-						"/g have to watch some TV with the wife to keep her off my back", -- [13]
-						" ilevel?", -- [14]
-						" what is it", -- [15]
-						" if I can get you in to flex SOO do you want in?", -- [16]
-						" 2 bosses down", -- [17]
-						" ok np", -- [18]
-						" sure thing", -- [19]
-						"/i basicaly 8", -- [20]
-						"/i but we fux up @ 10%", -- [21]
-						"/g I need 5 people (1 tank) to help me do Sha of Doubt after this", -- [22]
-						"/g yes", -- [23]
-						"/cw Aotis lol just 1 shot all 4", -- [24]
-						"/cw Aotis not sure what our rank is now", -- [25]
-						"/cw Aotis we are going after Naz now", -- [26]
-						"/cw Aotis had him @ 5% on Thursday", -- [27]
-						"/g  |cff71d5ff|Hspell:145038|h[Noodle Cart Kit]|h|r", -- [28]
-						"/cw Aaronsbuddy hey can you AOE tank / DPS something for me quick", -- [29]
-						"/cw Aaronsbuddy I need to kill turtles in mass", -- [30]
-						"/cw Aaronsbuddy ok np", -- [31]
-						"/cw Aaronsbuddy np that is what mind sear is for I guess", -- [32]
+						"/i oh....it can lol", -- [1]
+						"/g yo :)", -- [2]
+						"/i not persay", -- [3]
+						"/i just the buffs help obviously", -- [4]
+						"/i and its easy to do in LFR", -- [5]
+						"/i ALL DPS BOSS", -- [6]
+						"/g yo :)", -- [7]
+						"/i not persay", -- [8]
+						"/i just the buffs help obviously", -- [9]
+						"/i and its easy to do in LFR", -- [10]
+						"/i ALL DPS BOSS", -- [11]
+						" im soloing Ony lol", -- [12]
+						" 4.9m she is like a Timeless isle mob lol", -- [13]
+						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [14]
+						"/i and its easy to do in LFR", -- [15]
+						"/i ALL DPS BOSS", -- [16]
+						" im soloing Ony lol", -- [17]
+						" 4.9m she is like a Timeless isle mob lol", -- [18]
+						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [19]
+						"/i and its easy to do in LFR", -- [20]
+						"/i ALL DPS BOSS", -- [21]
+						" im soloing Ony lol", -- [22]
+						" 4.9m she is like a Timeless isle mob lol", -- [23]
+						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [24]
+						" if I can get you in are you interested in any SoO flex?", -- [25]
+						"/raid brb getting a drink and getting on vent", -- [26]
+						"/raid taking out my contacts brb", -- [27]
+						"/raid bacjk", -- [28]
+						"/raid fuck got a bloody nose", -- [29]
+						"/raid this sucks lol", -- [30]
+						"/raid ^^", -- [31]
+						"/raid gonna go grab a tissue and some more coke", -- [32]
 					},
 				},
 				["Jolokia - Dragonblight"] = {

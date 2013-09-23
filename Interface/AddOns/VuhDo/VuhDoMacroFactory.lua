@@ -10,7 +10,6 @@ local GetMacroIndexByName = GetMacroIndexByName;
 local GetMacroInfo = GetMacroInfo;
 local GetSpellBookItemTexture = GetSpellBookItemTexture;
 local VUHDO_replaceMacroTemplates;
-local strlen = strlen;
 local gsub = gsub;
 local twipe = table.wipe;
 local format = format;
@@ -22,7 +21,7 @@ CreateFrame("Button", "VDSTB", nil, "SecureActionButtonTemplate"):SetAttribute("
 local sStopTargetText = "/click VDSTB\n";
 
 
-function VUHDO_macroFactoryInitBurst()
+function VUHDO_macroFactoryInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_RAID_NAMES = _G["VUHDO_RAID_NAMES"];
 	VUHDO_SPELL_CONFIG = _G["VUHDO_SPELL_CONFIG"];
@@ -184,7 +183,7 @@ local function VUHDO_generateTargetMacroText(aTarget, aFriendlyAction, aHostileA
 		tFriendText = "/focus [noharm,@vuhdo]\n";
 	elseif "assist" == tLowerFriendly then
 		tFriendText = "/assist [noharm,@vuhdo]\n";
-	elseif strlen(aFriendlyAction) > 0 and GetSpellInfo(aFriendlyAction) then
+	elseif #aFriendlyAction > 0 and GetSpellInfo(aFriendlyAction) then
 		if (VUHDO_SPELLS[aFriendlyAction] or sEmpty)["nohelp"] then
 			tModiSpell = "[@vuhdo] ";
 			tIsNoHelp = true;
@@ -209,7 +208,7 @@ local function VUHDO_generateTargetMacroText(aTarget, aFriendlyAction, aHostileA
 		tEnemyText = "/focus [harm,@vuhdo]";
 	elseif "assist" == tLowerHostile then
 		tEnemyText = "/assist [harm,@vuhdo]";
-	elseif strlen(aHostileAction) > 0 and GetSpellInfo(aHostileAction) then
+	elseif #aHostileAction > 0 and GetSpellInfo(aHostileAction) then
 		tEnemyText = "/use [harm,@vuhdo] " .. aHostileAction;
 	else
 		tEnemyText = "";
@@ -375,8 +374,8 @@ function VUHDO_buildMacroText(anAction, anIsKeyboard, aTarget)
 
 	tText = VUHDO_replaceMacroTemplates(VUHDO_RAID_MACRO_CACHE[tIndex], aTarget);
 	--VUHDO_DEBUG[tIndex] = tText;
-	if anIsKeyboard and strlen(tText) > 256 then
-		VUHDO_Msg(VUHDO_I18N_MACRO_KEY_ERR_1 .. anAction .. " (" .. strlen(tText) .. VUHDO_I18N_MACRO_KEY_ERR_2, 1, 0.3, 0.3);
+	if anIsKeyboard and #tText > 256 then
+		VUHDO_Msg(VUHDO_I18N_MACRO_KEY_ERR_1 .. anAction .. " (" .. #tText .. VUHDO_I18N_MACRO_KEY_ERR_2, 1, 0.3, 0.3);
 	end
 	return tText;
 end
@@ -458,7 +457,7 @@ function VUHDO_initKeyboardMacros()
 		_G[format("BINDING_NAME_%s%d", tBindPrefix, tCnt)] = tBindingName;
 
 		tKey1, tKey2 = GetBindingKey(tBindPrefix .. tCnt);
-		if strlen(tSpell or "") > 0 and (tKey1 or tKey2) then
+		if not VUHDO_strempty(tSpell) and (tKey1 or tKey2) then
 			tBody = VUHDO_buildMacroText(tSpell, true, nil);
 			tMacroId = VUHDO_createOrUpdateMacro(tCnt, tBody, tSpell);
 			if tMacroId then

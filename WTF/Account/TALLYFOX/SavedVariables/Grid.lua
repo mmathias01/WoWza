@@ -40,9 +40,9 @@ GridDB = {
 		},
 		["GridStatusTarget"] = {
 		},
-		["GridStatusRaidIcons"] = {
+		["GridStatusAbsorbshields"] = {
 		},
-		["GridStatusResurrect"] = {
+		["GridRoster"] = {
 		},
 		["GridStatusRaidDebuff"] = {
 			["profiles"] = {
@@ -51,101 +51,84 @@ GridDB = {
 				},
 			},
 		},
-		["GridStatusHealth"] = {
+		["GridLayout"] = {
+			["profiles"] = {
+				["Default"] = {
+					["hideTab"] = true,
+					["anchorRel"] = "TOPLEFT",
+					["layouts"] = {
+						["solo"] = "None",
+						["raid_25"] = "By Group 25 w/Tanks",
+					},
+					["PosX"] = 541,
+					["PosY"] = -629,
+					["layout"] = "None",
+					["horizontal"] = true,
+				},
+			},
 		},
 		["GridStatusRange"] = {
 		},
-		["GridStatusAuras"] = {
-			["profiles"] = {
-				["Default"] = {
-					["buff_Renew"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
-					},
-					["buff_Riptide"] = {
-						["icon"] = "Interface\\Icons\\spell_nature_riptide",
-					},
-					["buff_PowerWord:Shield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
-					},
-					["buff_LifeCocoon"] = {
-						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
-					},
-					["buff_Rejuvenation"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_Rejuvenation",
-					},
-					["buff_EarthShield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_SkinofEarth",
-					},
-					["buff_Regrowth"] = {
-						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
-					},
-					["buff_BeaconofLight"] = {
-						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
-					},
-					["buff_Lifebloom"] = {
-						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",
-					},
-				},
-			},
+		["GridStatusMana"] = {
 		},
 		["GridStatus"] = {
 			["profiles"] = {
 				["Default"] = {
 					["colors"] = {
-						["HUNTER"] = {
-							["r"] = 0.67,
-							["g"] = 0.83,
-							["b"] = 0.45,
-						},
-						["PALADIN"] = {
-							["r"] = 0.96,
-							["g"] = 0.55,
-							["b"] = 0.73,
+						["SHAMAN"] = {
+							["b"] = 0.87,
+							["g"] = 0.44,
+							["r"] = 0,
 						},
 						["MAGE"] = {
-							["r"] = 0.41,
-							["g"] = 0.8,
 							["b"] = 0.94,
+							["g"] = 0.8,
+							["r"] = 0.41,
 						},
 						["DRUID"] = {
-							["r"] = 1,
-							["g"] = 0.49,
 							["b"] = 0.04,
+							["g"] = 0.49,
+							["r"] = 1,
 						},
 						["MONK"] = {
-							["r"] = 0,
-							["g"] = 1,
 							["b"] = 0.59,
+							["g"] = 1,
+							["r"] = 0,
 						},
 						["DEATHKNIGHT"] = {
-							["r"] = 0.77,
-							["g"] = 0.12,
 							["b"] = 0.23,
+							["g"] = 0.12,
+							["r"] = 0.77,
 						},
 						["PRIEST"] = {
-							["r"] = 1,
-							["g"] = 1,
 							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["PALADIN"] = {
+							["b"] = 0.73,
+							["g"] = 0.55,
+							["r"] = 0.96,
 						},
 						["WARLOCK"] = {
-							["r"] = 0.58,
-							["g"] = 0.51,
 							["b"] = 0.79,
+							["g"] = 0.51,
+							["r"] = 0.58,
+						},
+						["HUNTER"] = {
+							["b"] = 0.45,
+							["g"] = 0.83,
+							["r"] = 0.67,
 						},
 						["WARRIOR"] = {
-							["r"] = 0.78,
-							["g"] = 0.61,
 							["b"] = 0.43,
-						},
-						["SHAMAN"] = {
-							["r"] = 0,
-							["g"] = 0.44,
-							["b"] = 0.87,
+							["g"] = 0.61,
+							["r"] = 0.78,
 						},
 						["ROGUE"] = {
-							["r"] = 1,
-							["g"] = 0.96,
 							["b"] = 0.41,
+							["g"] = 0.96,
+							["r"] = 1,
 						},
 					},
 				},
@@ -159,40 +142,53 @@ GridDB = {
 		},
 		["GridStatusHeals"] = {
 		},
-		["GridStatusMana"] = {
-		},
-		["GridLayout"] = {
+		["GridStatusAuras"] = {
 			["profiles"] = {
 				["Default"] = {
-					["hideTab"] = true,
-					["anchorRel"] = "TOPLEFT",
-					["layouts"] = {
-						["solo"] = "None",
-						["raid_25"] = "By Group 25 w/Tanks",
+					["buff_Renew"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
 					},
-					["PosX"] = 541,
-					["PosY"] = -629,
-					["layout"] = "By Group 5",
-					["horizontal"] = true,
+					["buff_Riptide"] = {
+						["icon"] = "Interface\\Icons\\spell_nature_riptide",
+					},
+					["buff_BeaconofLight"] = {
+						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
+					},
+					["buff_LifeCocoon"] = {
+						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
+					},
+					["buff_Rejuvenation"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_Rejuvenation",
+					},
+					["buff_EarthShield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_SkinofEarth",
+					},
+					["buff_Regrowth"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
+					},
+					["buff_Lifebloom"] = {
+						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",
+					},
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					},
 				},
 			},
+		},
+		["GridStatusHealth"] = {
 		},
 		["GridStatusShield"] = {
 		},
-		["GridRoster"] = {
-			["profiles"] = {
-				["Default"] = {
-					["party_state"] = "party",
-				},
-			},
+		["GridStatusResurrect"] = {
 		},
-		["GridStatusAbsorbshields"] = {
+		["GridStatusRaidIcons"] = {
 		},
 	},
 	["profileKeys"] = {
-		["Jolokya - Dragonblight"] = "Default",
-		["Cellestia - Terenas"] = "Default",
 		["Ziagi - Terenas"] = "Default",
+		["Cellestia - Terenas"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
 	},
 	["profiles"] = {

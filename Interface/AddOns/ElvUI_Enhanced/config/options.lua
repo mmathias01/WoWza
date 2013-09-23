@@ -345,6 +345,7 @@ function EO:MapOptions()
 	E.Options.args.general.args.minimapbar = {
 		order = 4,
 		get = function(info) return E.private.general.minimapbar[ info[#info] ] end,
+		set = function(info, value) E.private.general.minimapbar[ info[#info] ] = value; MB:UpdateLayout() end,
 		type = "group",
 		name = ColorizeSettingName(L["Minimap Button Bar"]),
 		args = {
@@ -360,7 +361,6 @@ function EO:MapOptions()
 				type = 'select',
 				name = L['Skin Style'],
 				desc = L['Change settings for how the minimap buttons are skinned.'],
-				set = function(info, value) E.private.general.minimapbar.skinStyle = value; MB:UpdateLayout() end,
 				disabled = function() return not E.private.general.minimapbar.skinButtons end,
 				values = {
 					['NOANCHOR'] = L['No Anchor Bar'],
@@ -368,24 +368,33 @@ function EO:MapOptions()
 					['VERTICAL'] = L['Vertical Anchor Bar'],
 				},
 			},
-			backdrop = {
-				type = 'toggle',
+			layoutDirection = {
 				order = 3,
-				name = L["Backdrop"],
-				set = function(info, value) E.private.general.minimapbar.backdrop = value; MB:UpdateLayout() end,
-				disabled = function() return not E.private.general.minimapbar.skinButtons end,
-			},			
+				type = 'select',
+				name = L['Layout Direction'],
+				desc = L['Normal is right to left or top to bottom, or select reversed to switch directions.'],
+				disabled = function() return not E.private.general.minimapbar.skinButtons or E.private.general.minimapbar.skinStyle == 'NOANCHOR' end,
+				values = {
+					['NORMAL'] = L['Normal'],
+					['REVERSED'] = L['Reversed'],
+				},
+			},
 			buttonSize = {
 				order = 4,
 				type = 'range',
 				name = L['Button Size'],
 				desc = L['The size of the minimap buttons.'],
 				min = 16, max = 40, step = 1,
-				set = function(info, value) E.private.general.minimapbar.buttonSize = value; MB:UpdateLayout() end,
 				disabled = function() return not E.private.general.minimapbar.skinButtons or E.private.general.minimapbar.skinStyle == 'NOANCHOR' end,
 			},
-			mouseover = {
+			backdrop = {
+				type = 'toggle',
 				order = 5,
+				name = L["Backdrop"],
+				disabled = function() return not E.private.general.minimapbar.skinButtons or E.private.general.minimapbar.skinStyle == 'NOANCHOR' end,
+			},			
+			mouseover = {
+				order = 6,
 				name = L['Mouse Over'],
 				desc = L['The frame is not shown unless you mouse over the frame.'],
 				type = "toggle",

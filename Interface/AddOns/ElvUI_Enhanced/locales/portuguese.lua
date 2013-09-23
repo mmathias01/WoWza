@@ -5,7 +5,7 @@ if not L then return end
 -- Translation by: ubios
 
 L["ENH_LOGIN_MSG"] = "Você está a usar |cff1784d1ElvUI Enhanced|r versão %s%s|r."
-L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = "A sua versão do ElvUI é muita antiga (requerida v6.44 ou superior). Por favor, descarregue a versão mais recente em tukui.org."
+L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = "A sua versão do ElvUI é muita antiga (requerida v6.51 ou superior). Por favor, descarregue a versão mais recente em tukui.org."
 
 -- Equipment
 L["Equipment"] = "Equipamento"
@@ -84,6 +84,11 @@ L['The size of the minimap buttons.'] = "O tamanho dos botões do minimapa."
 L['No Anchor Bar'] = "Sem Ancora de Barra"
 L['Horizontal Anchor Bar'] = "Ancora de Barra Horizontal"
 L['Vertical Anchor Bar'] = "Ancora de Barra Vertical"
+
+L['Layout Direction'] = true
+L['Normal is right to left or top to bottom, or select reversed to switch directions.'] = true
+L['Normal'] = true
+L['Reversed'] = true
 
 -- PvP Autorelease
 L['PvP Autorelease'] = "Auto-libertar em JxJ"

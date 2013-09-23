@@ -17,7 +17,7 @@ local BankUI = TSM:NewModule("BankUI", "AceEvent-3.0")
 local AceGUI = LibStub("AceGUI-3.0") -- load the AceGUI librarie
 
 local ui
-local bankFrame
+local bankFrame, bankType
 local bFrame = nil
 local container = nil
 local registeredModules = {}
@@ -26,12 +26,13 @@ private.bankUiButtons = {}
 
 function BankUI:OnEnable()
 	BankUI:RegisterEvent("GUILDBANKFRAME_OPENED", function(event)
+		bankType = "guild"
 		TSMAPI:CreateTimeDelay("bankUIShowDelay", 0.1, function()
 			bankFrame = BankUI:getBankFrame("guildbank")
 			if TSM.db.profile.isBankui then
 				if #private.bankUiButtons > 0 then
 					if ui then
-						BankUI:resetPoints(bankFrame, ui)
+						BankUI:resetPoints(ui)
 						ui:Show()
 						if TSM.db.global.bankUITab then
 							for index, info in ipairs(private.bankUiButtons) do
@@ -52,12 +53,13 @@ function BankUI:OnEnable()
 	end)
 
 	BankUI:RegisterEvent("BANKFRAME_OPENED", function(event)
+		bankType = "bank"
 		TSMAPI:CreateTimeDelay("bankUIShowDelay", 0.1, function()
 			bankFrame = BankUI:getBankFrame("bank")
 			if TSM.db.profile.isBankui then
 				if #private.bankUiButtons > 0 then
 					if ui then
-						BankUI:resetPoints(bankFrame, ui)
+						BankUI:resetPoints(ui)
 						ui:Show()
 						if TSM.db.global.bankUITab then
 							for index, info in ipairs(private.bankUiButtons) do
@@ -79,10 +81,12 @@ function BankUI:OnEnable()
 
 	BankUI:RegisterEvent("GUILDBANKFRAME_CLOSED", function(event, addon)
 		if ui then ui:Hide() end
+		bankType = nil
 	end)
 
 	BankUI:RegisterEvent("BANKFRAME_CLOSED", function(event)
 		if ui then ui:Hide() end
+		bankType = nil
 	end)
 end
 
@@ -152,45 +156,39 @@ end
 
 function BankUI:getFrame(frameType)
 	bFrame = CreateFrame("Frame", nil, UIParent)
-	TSMAPI.Design:SetFrameBackdropColor(bFrame)
+	bFrame:Hide()
 	--size--
 	bFrame:SetWidth(275)
 	bFrame:SetHeight(470)
+	bFrame:SetPoint("CENTER", UIParent)
 
 	--for moving--
 	bFrame:SetScript("OnMouseDown", bFrame.StartMoving)
-	bFrame:SetScript("OnMouseUp", bFrame.StopMovingOrSizing)
+	bFrame:SetScript("OnMouseUp", function(...) bFrame.StopMovingOrSizing(...)
+	if bankType == "guild" then
+		TSM.db.factionrealm.bankUIGBankFramePosition = { bFrame:GetLeft(), bFrame:GetBottom() }
+	else
+		TSM.db.factionrealm.bankUIBankFramePosition = { bFrame:GetLeft(), bFrame:GetBottom() }
+	end
+	end)
 	bFrame:SetMovable(true)
 	bFrame:EnableMouse(true)
 
-	--clamp to bankframe--
-	if frameType and frameType == (AdiBagsContainer1 or AdiBagsContainer2) and frameType:IsVisible() then
-		bFrame:SetPoint("TOPRIGHT", frameType, "TOPLEFT", -10, 0)
-	elseif frameType and frameType == GuildBankFrame and frameType:IsVisible() then
-		bFrame:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 50, -0)
-	elseif frameType and frameType == BagsFrameBank and frameType:IsVisible() then
-		if BagsFrameBank_Consumables and BagsFrameBank_Consumables:IsVisible() then
-			bFrame:SetPoint("TOPLEFT", BagsFrameBank_Consumables, "TOPRIGHT", 10, -40)
-		elseif BagsFrameBank_Trade and BagsFrameBank_Trade:IsVisible() then
-			bFrame:SetPoint("TOPLEFT", BagsFrameBank_Trade, "TOPRIGHT", 10, -40)
+	bFrame:SetPoint("CENTER", UIParent)
+
+	local function OnFrameShow(self)
+		self:SetFrameLevel(0)
+		self:ClearAllPoints()
+		if bankType == "guild" then
+			self:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.factionrealm.bankUIGBankFramePosition))
 		else
-			bFrame:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 10, -40)
+			self:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.factionrealm.bankUIBankFramePosition))
 		end
-	elseif frameType and frameType == NivayacBniv_Bank and frameType:IsVisible() then
-		if NivayacBniv_BankArmor and NivayacBniv_BankArmor:IsVisible() then
-			bFrame:SetPoint("TOPLEFT", NivayacBniv_BankArmor, "TOPRIGHT", 10, -40)
-		elseif NivayacBniv_BankSets and NivayacBniv_BankSets:IsVisible() then
-			bFrame:SetPoint("TOPLEFT", NivayacBniv_BankSets, "TOPRIGHT", 10, -40)
-		elseif NivayacBniv_BankTrade and NivayacBniv_BankTrade:IsVisible() then
-			bFrame:SetPoint("TOPLEFT", NivayacBniv_BankTrade, "TOPRIGHT", 10, -40)
-		else
-			bFrame:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 10, -40)
-		end
-	elseif frameType and frameType:IsVisible() then
-		bFrame:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 40, 0)
-	else
-		bFrame:SetPoint("TOPLEFT", 500, -100, "TOPRIGHT", 40, 0)
 	end
+
+	TSMAPI.Design:SetFrameBackdropColor(bFrame)
+	bFrame:SetScript("OnShow", OnFrameShow)
+	bFrame:Show()
 
 	local title = TSMAPI.GUI:CreateLabel(bFrame)
 	title:SetPoint("TOPLEFT", 40, -3)
@@ -267,23 +265,11 @@ function BankUI:getFrame(frameType)
 	return bFrame
 end
 
-function BankUI:resetPoints(frameType, container)
-	if frameType and frameType == (AdiBagsContainer1 or AdiBagsContainer2) and frameType:IsVisible() then
-		container:SetPoint("TOPRIGHT", frameType, "TOPLEFT", -10, 0)
-	elseif frameType and frameType == GuildBankFrame and frameType:IsVisible() then
-		container:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 50, -0)
-	elseif frameType and frameType == BagsFrameBank and frameType:IsVisible() then
-		if BagsFrameBank_Consumables and BagsFrameBank_Consumables:IsVisible() then
-			container:SetPoint("TOPLEFT", BagsFrameBank_Consumables, "TOPRIGHT", 10, -40)
-		elseif BagsFrameBank_Trade and BagsFrameBank_Trade:IsVisible() then
-			container:SetPoint("TOPLEFT", BagsFrameBank_Trade, "TOPRIGHT", 10, -40)
-		else
-			container:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 10, -40)
-		end
-	elseif frameType and frameType:IsVisible() then
-		container:SetPoint("TOPLEFT", frameType, "TOPRIGHT", 40, 0)
+function BankUI:resetPoints(container)
+	if bankType == "guild" then
+		container:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.factionrealm.bankUIGBankFramePosition))
 	else
-		container:SetPoint("TOPLEFT", 500, -100, "TOPRIGHT", 40, 0)
+		container:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.factionrealm.bankUIBankFramePosition))
 	end
 end
 
@@ -337,4 +323,13 @@ function TSM:getBankTabs()
 		tabs[info.moduleName] = info.moduleName
 	end
 	return tabs
+end
+
+function TSM:ResetBankUIFramePosition()
+	TSM.db.factionrealm.bankUIGBankFramePosition = { 100, 300 }
+	TSM.db.factionrealm.bankUIBankFramePosition = { 100, 300 }
+	if ui then
+		ui:Hide()
+		ui:Show()
+	end
 end

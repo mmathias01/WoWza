@@ -207,7 +207,7 @@ function VUHDO_saveCustomDebuffOnClick(aButton)
 	local tValue = strtrim(tEditBox:GetText());
 	local tIndex = VUHDO_tableGetKeyFromValue(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED"], tValue);
 
-	if (tIndex == nil and strlen(tValue) > 0) then
+	if (tIndex == nil and #tValue > 0) then
 		tinsert(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED"], tValue);
 		VuhDoNewOptionsDebuffsCustomStorePanelEditBox:SetText(tValue);
 		VuhDoNewOptionsDebuffsCustomStorePanelEditBox:SetTextColor(1, 1, 1);
@@ -270,7 +270,7 @@ function VUHDO_deleteCustomDebuffOnClick(aButton)
 	local tValue = strtrim(tEditBox:GetText());
 	local tIndex = VUHDO_tableGetKeyFromValue(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED"], tValue);
 
-	if (tIndex ~= nil and strlen(tValue) > 0) then
+	if (tIndex ~= nil and #tValue > 0) then
 		tremove(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED"], tIndex);
 		VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED_SETTINGS"][tValue] = nil;
 		VUHDO_Msg("(de)buff " .. tValue .. " removed.", 1, 0.4, 0.4);

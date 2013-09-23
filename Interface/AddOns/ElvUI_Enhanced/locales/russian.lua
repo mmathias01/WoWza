@@ -5,7 +5,7 @@ if not L then return end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "You are using |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = true
+L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = true
 
 -- Equipment
 L["Equipment"] = true
@@ -85,6 +85,11 @@ L['The size of the minimap buttons.'] = true
 L['No Anchor Bar'] = true
 L['Horizontal Anchor Bar'] = true
 L['Vertical Anchor Bar'] = true
+
+L['Layout Direction'] = true
+L['Normal is right to left or top to bottom, or select reversed to switch directions.'] = true
+L['Normal'] = true
+L['Reversed'] = true
 
 -- PvP Autorelease
 L['PvP Autorelease'] = true

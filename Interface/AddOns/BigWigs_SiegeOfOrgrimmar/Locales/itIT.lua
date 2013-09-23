@@ -15,13 +15,17 @@ if L then
 
 	L.intermission = "Misure Disperate"
 	L.intermission_desc = "Avvisa quando ti stai avvicinando ad un boss che sta lanciando Misure Disperate"
+
+	--L.inferno_self = "Inferno Strike on you"
+	--L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
+	--L.inferno_self_bar = "You explode!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "itIT")
 if L then
 	L.pre_pull = "Pre-ingaggio"
 	L.pre_pull_desc = "Barra per la scenetta prima dell'ingaggio del boss"
-	L.pre_pull_trigger = "Very well, I will create a field to keep your corruption quarantined." --need translation
+	L.pre_pull_trigger = "Molto bene, creerò un campo di contenimento per la corruzione che vi affligge."
 
 	L.big_adds = "Add Maggiori"
 	L.big_adds_desc = "Avvisa quando uccidi gli Add Maggiori dentro/fuori"
@@ -32,7 +36,7 @@ end
 L = BigWigs:NewBossLocale("Sha of Pride", "itIT")
 if L then
 	L.custom_off_titan_mark = "Marcatore Potenza dei Titani"
-	L.custom_off_titan_mark_desc = "Per aiutare a trovare gli altri con Potenza dei Titani, evidenzia i giocatori che hanno Potenza dei Titani su di lorocon %s%s%s%s%s%s%s%s (i giocatori con Aura d'Orgoglio non sono evidenziati), richiede capo-incursione o assistente."
+	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 
 	L.projection_message = "Vai verso la freccia |cFF00FF00VERDE|r!"
 	L.projection_explosion = "Proiezione esplosione"

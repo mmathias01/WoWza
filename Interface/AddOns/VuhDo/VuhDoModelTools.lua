@@ -22,7 +22,7 @@ local VUHDO_RAID;
 local VUHDO_ID_MEMBER_TYPES;
 
 local VUHDO_getGroupMembers;
-function VUHDO_modelToolsInitBurst()
+function VUHDO_modelToolsInitLocalOverrides()
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 	VUHDO_GROUPS = _G["VUHDO_GROUPS"];
 	VUHDO_RAID = _G["VUHDO_RAID"];

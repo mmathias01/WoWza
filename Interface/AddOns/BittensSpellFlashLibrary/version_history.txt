@@ -1,3 +1,6 @@
+== Version 50400.1.6
+Updating to this version is not necessary.  It causes flashes for the new Noodle food buffs.
+
 == Version 50400.1.5
 Among other things, this is a bugfix release.  Everyone should update.
 * c.GetChargeInfo() now takes into account whether the spell is currently casting.
@@ -91,8 +94,3 @@ This version supports the latest Druid release.
 * c.IsCastingOrInAir() and c.IsAuraPendingFor() now work for AoE spells that do not have a target.
 * c.FlashAll() and c.PriorityFlash() now automatically assume NotIfActive if Cooldown is defined.
 * Bugfix - the SpecialGCD and NoGCD flags now correctly influence c.GetBusyTime() for spells with sub-names.
-
-== Version 4.8.0
-This version supports the latest Shaman release.
-* New spell tags: Tick and PredictFlash.
-* Added c.AoeColor and c.MovementColor.

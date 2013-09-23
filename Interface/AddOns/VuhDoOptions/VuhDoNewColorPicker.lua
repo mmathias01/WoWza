@@ -243,7 +243,7 @@ local function VUHDO_hexToInt(aHexString)
 	local tValue = 0;
 	local tByte;
 
-	for tCnt = 1, strlen(aHexString) do
+	for tCnt = 1, #aHexString do
 		tValue = tValue * 16;
 		tByte = strbyte(aHexString, tCnt);
 

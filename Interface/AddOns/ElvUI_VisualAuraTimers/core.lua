@@ -37,15 +37,15 @@ function VAT:UpdateAura(button, index)
 	local debuffsvalue = E.db.VAT.threshold.debuffsvalue
 	local showText = E.db.VAT.showText
 	local timeLeft = button.timeLeft
+	local isDebuff
 	
 	local filter = button:GetParent():GetAttribute('filter')
 	local unit = button:GetParent():GetAttribute("unit")
 	local name, _, _, _, dtype, duration, expiration = UnitAura(unit, index, filter)
 	if(name) then
-		local isDebuff
-		if name == select(1,UnitBuff('player',name)) then
+		if UnitBuff('player',name) then
 			isDebuff = false
-		elseif name == select(1,UnitDebuff('player',name)) then
+		elseif UnitDebuff('player',name) then
 			isDebuff = true
 		end
 	

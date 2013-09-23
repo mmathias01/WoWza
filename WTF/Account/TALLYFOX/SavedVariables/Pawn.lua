@@ -164,22 +164,22 @@ PawnCommon = {
 		["Resto: Crit (Non Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["IsWand"] = -1000000,
 				["CritRating"] = 45,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["IsPolearm"] = -1000000,
+				["Spirit"] = 65,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
-				["IsBow"] = -1000000,
-				["IsPlate"] = -1000000,
 				["Intellect"] = 100,
+				["IsBow"] = -1000000,
+				["IsSword"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["Spirit"] = 65,
-				["IsSword"] = -1000000,
+				["IsPolearm"] = -1000000,
+				["IsPlate"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -197,19 +197,9 @@ PawnCommon = {
 							95222, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_LEGS"] = {
-							773.5064935064935, -- [1]
-							95323, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_CLOAK"] = {
 							259.7402597402597, -- [1]
 							86748, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_2HWEAPON"] = {
-							1884.532467532468, -- [1]
-							86893, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_FINGER"] = {
@@ -219,6 +209,16 @@ PawnCommon = {
 							391.7402597402598, -- [4]
 							95514, -- [5]
 							0, -- [6]
+						},
+						["INVTYPE_LEGS"] = {
+							773.5064935064935, -- [1]
+							95323, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_2HWEAPON"] = {
+							1884.532467532468, -- [1]
+							86893, -- [2]
+							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {
 							577.8441558441558, -- [1]
@@ -356,19 +356,9 @@ PawnCommon = {
 							95222, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_LEGS"] = {
-							656.6183155080214, -- [1]
-							95323, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_CLOAK"] = {
 							225.1430481283423, -- [1]
 							86748, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_2HWEAPON"] = {
-							1883.465909090909, -- [1]
-							86893, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_FINGER"] = {
@@ -378,6 +368,16 @@ PawnCommon = {
 							343.3529411764706, -- [4]
 							95514, -- [5]
 							0, -- [6]
+						},
+						["INVTYPE_LEGS"] = {
+							656.6183155080214, -- [1]
+							95323, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_2HWEAPON"] = {
+							1883.465909090909, -- [1]
+							86893, -- [2]
+							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {
 							493.7513368983957, -- [1]
@@ -445,22 +445,22 @@ PawnCommon = {
 		["Resto: Mastery Build"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["IsWand"] = -1000000,
 				["CritRating"] = 40,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 55,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["Spirit"] = 65,
+				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
-				["IsBow"] = -1000000,
-				["IsSword"] = -1000000,
 				["Intellect"] = 100,
+				["IsBow"] = -1000000,
+				["IsPlate"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPolearm"] = -1000000,
-				["IsPlate"] = -1000000,
+				["Spirit"] = 65,
+				["IsSword"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -558,15 +558,15 @@ PawnCommon = {
 							58925, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_SHOULDER"] = {
-							8.786828422876949, -- [1]
-							42952, -- [2]
-							79, -- [3]
-						},
 						["INVTYPE_LEGS"] = {
 							10.66377816291161, -- [1]
 							62026, -- [2]
 							84, -- [3]
+						},
+						["INVTYPE_SHOULDER"] = {
+							8.786828422876949, -- [1]
+							42952, -- [2]
+							79, -- [3]
 						},
 						["INVTYPE_CHEST"] = {
 							11.76429809358752, -- [1]
@@ -592,6 +592,8 @@ PawnCommon = {
 			["PerCharacterOptions"] = {
 				["Jolobank-Dragonblight"] = {
 					["Visible"] = true,
+					["BestItems"] = {
+					},
 				},
 				["Jolokya-Dragonblight"] = {
 					["Visible"] = true,
@@ -610,6 +612,13 @@ PawnCommon = {
 			["PerCharacterOptions"] = {
 				["Jolobank-Dragonblight"] = {
 					["Visible"] = true,
+					["BestItems"] = {
+						["INVTYPE_2HWEAPON"] = {
+							0.5253324369327465, -- [1]
+							3661, -- [2]
+							0, -- [3]
+						},
+					},
 				},
 				["Jolokya-Dragonblight"] = {
 					["Visible"] = true,
@@ -780,6 +789,8 @@ PawnCommon = {
 			["PerCharacterOptions"] = {
 				["Jolobank-Dragonblight"] = {
 					["Visible"] = true,
+					["BestItems"] = {
+					},
 				},
 				["Jolokya-Dragonblight"] = {
 					["Visible"] = true,
@@ -797,22 +808,22 @@ PawnCommon = {
 		["Resto: Crit (Haste Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["IsWand"] = -1000000,
 				["CritRating"] = 45,
 				["HasteRating"] = 35,
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["Spirit"] = 65,
+				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
-				["IsBow"] = -1000000,
-				["IsSword"] = -1000000,
 				["Intellect"] = 100,
+				["IsBow"] = -1000000,
+				["IsPlate"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPolearm"] = -1000000,
-				["IsPlate"] = -1000000,
+				["Spirit"] = 65,
+				["IsSword"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -830,19 +841,9 @@ PawnCommon = {
 							95222, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_LEGS"] = {
-							767.4305555555555, -- [1]
-							95323, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_CLOAK"] = {
 							271.9861111111111, -- [1]
 							86748, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_2HWEAPON"] = {
-							1973.305555555556, -- [1]
-							86893, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_FINGER"] = {
@@ -852,6 +853,16 @@ PawnCommon = {
 							408.3194444444445, -- [4]
 							95139, -- [5]
 							0, -- [6]
+						},
+						["INVTYPE_LEGS"] = {
+							767.4305555555555, -- [1]
+							95323, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_2HWEAPON"] = {
+							1973.305555555556, -- [1]
+							86893, -- [2]
+							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {
 							579.1111111111111, -- [1]
@@ -951,19 +962,9 @@ PawnCommon = {
 							95222, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_LEGS"] = {
-							826.6593309859155, -- [1]
-							95323, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_CLOAK"] = {
 							251.8485915492958, -- [1]
 							86748, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_2HWEAPON"] = {
-							2472.347711267606, -- [1]
-							86893, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_FINGER"] = {
@@ -973,6 +974,16 @@ PawnCommon = {
 							380.6619718309859, -- [4]
 							95514, -- [5]
 							0, -- [6]
+						},
+						["INVTYPE_LEGS"] = {
+							826.6593309859155, -- [1]
+							95323, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_2HWEAPON"] = {
+							2472.347711267606, -- [1]
+							86893, -- [2]
+							0, -- [3]
 						},
 						["INVTYPE_HAND"] = {
 							563.7816901408452, -- [1]
@@ -1017,6 +1028,18 @@ PawnCommon = {
 			["PerCharacterOptions"] = {
 				["Jolobank-Dragonblight"] = {
 					["Visible"] = true,
+					["BestItems"] = {
+						["INVTYPE_LEGS"] = {
+							0.528, -- [1]
+							6124, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_CHEST"] = {
+							0.624, -- [1]
+							6123, -- [2]
+							0, -- [3]
+						},
+					},
 				},
 				["Jolokya-Dragonblight"] = {
 					["Visible"] = true,

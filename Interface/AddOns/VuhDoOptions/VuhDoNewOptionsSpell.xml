@@ -100,23 +100,6 @@
 						</Scripts>
 					</CheckButton>
 
-					<CheckButton name="$parentSmartCastRadioButton" text="VUHDO_I18N_SMART_CAST_OO_COMBAT" inherits="VuhDoTabRadioButtonTemplate">
-						<Anchors>
-							<Anchor point="TOPLEFT">
-								<Offset>
-									<AbsDimension x="3" y="-193" />
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnLoad>
-								self.tabPanel = "VuhDoNewOptionsSpellSmartCast";
-								VUHDO_lnfCheckButtonOnLoad(self);
-								VUHDO_lnfSetTooltip(self, VUHDO_I18N_TT.K358);
-							</OnLoad>
-						</Scripts>
-					</CheckButton>
-
 				</Frames>
 			</Frame>
 
@@ -143,8 +126,6 @@
 					<Frame name="VuhDoNewOptionsSpellFire" hidden="true" setAllPoints="true" inherits="VuhDoNewOptionsSpellFireTemplate">
 					</Frame>
 					<Frame name="VuhDoNewOptionsSpellHostile" hidden="true" setAllPoints="true" inherits="VuhDoNewOptionsSpellHostileTemplate">
-					</Frame>
-					<Frame name="VuhDoNewOptionsSpellSmartCast" hidden="true" setAllPoints="true" inherits="VuhDoNewOptionsSpellSmartCastTemplate">
 					</Frame>
 				</Frames>
 			</Frame>

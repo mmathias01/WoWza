@@ -207,16 +207,16 @@ local function VUHDO_sendPacketedMessage(aUnitName, someData, aDataCommand, anEn
 	local tLength;
 	local tPackets;
 	local tCurPacket = 0;
-	local tMaxLength = sMaxPacketSize - strlen(VUHDO_COMMS_PREFIX) - strlen(aDataCommand) - strlen(sCommandSeparator);
+	local tMaxLength = sMaxPacketSize - #VUHDO_COMMS_PREFIX - #aDataCommand - #sCommandSeparator;
 
-	tPackets = floor(strlen(someData) / (tMaxLength + 1));
+	tPackets = floor(#someData / (tMaxLength + 1));
 	VUHDO_Msg("Sending " .. tPackets .. " packets to " .. aUnitName .. ".");
 
-	while (tIndex < strlen(someData)) do
-		if (tIndex + tMaxLength < strlen(someData)) then
+	while (tIndex < #someData) do
+		if (tIndex + tMaxLength < #someData) then
 			tLength = tMaxLength;
 		else
-			tLength = strlen(someData) - tIndex;
+			tLength = #someData - tIndex;
 		end
 
 		tChunk = strsub(someData, tIndex + 1, tIndex + tLength);
@@ -247,8 +247,8 @@ local function VUHDO_isVersionCompatible(aUnitName)
 		return false;
 	end
 
-	if (VUHDO_COMMS_VERSION < tonumber(tCommsVersion)) then
-		VUHDO_Msg("Aborting: VuhDo comms version too low. Please update VuhDo.", 1, 0.4, 0.4);
+	if (VUHDO_COMMS_VERSION ~= tonumber(tCommsVersion)) then
+		VUHDO_Msg("Aborting: VuhDo comms version mismatch! Please align VuhDo versions.", 1, 0.4, 0.4);
 		tIsCompatible = false;
 	end
 
@@ -259,8 +259,8 @@ local function VUHDO_isVersionCompatible(aUnitName)
 		tMyVersion, tOtherVersion = tostring(VUHDO_VERSION), tostring(tVuhDoVersion);
 	end
 
-	if (tMyVersion < tOtherVersion) then
-		VUHDO_Msg("Aborting: VuhDo version too low. Please update VuhDo to at least " .. tOtherVersion, 1, 0.4, 0.4);
+	if (tMyVersion ~= tOtherVersion) then
+		VUHDO_Msg("Aborting: VuhDo version mismatch. Please align VuhDo versions! (my: " .. tMyVersion .. " / receiver:" .. tOtherVersion .. ")", 1, 0.4, 0.4);
 		tIsCompatible = false;
 	end
 
@@ -304,14 +304,14 @@ end
 
 
 --
-local function VUHDO_compressForSending(aTable)
+function VUHDO_compressForSending(aTable)
 	return VUHDO_compressTable(aTable);
 end
 
 
 
 --
-local function VUHDO_decompressFromSending(aString)
+function VUHDO_decompressFromSending(aString)
 	return VUHDO_decompressIfCompressed(aString);
 end
 
@@ -361,7 +361,7 @@ local function VUHDO_addReplyData(aUnitName, aType, someNewData)
 
 	tReplyData = tReplyData .. someNewData;
 
-	if (strlen(tReplyData) > sMaxReceiveSize) then
+	if (#tReplyData > sMaxReceiveSize) then
 		VUHDO_Msg("Aborting: Received amount of data from " .. aUnitName .. " exceeds max allowed!", 1, 0.4, 0.4);
 		sBlockedSenders[aUnitName] = true;
 		VUHDO_sendMessage(aUnitName, sCmdAbortComms, nil);

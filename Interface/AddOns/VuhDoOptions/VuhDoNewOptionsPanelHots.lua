@@ -38,7 +38,7 @@ local tSortTable = { };
 function VUHDO_initHotBarComboModels()
 	table.wipe(VUHDO_HOT_BAR_MODELS);
 
-	VUHDO_HOT_BAR_MODELS[1] = { nil, "-- " .. VUHDO_I18N_EMPTY_HOTS .. " --" };
+	VUHDO_HOT_BAR_MODELS[1] = { "", "-- " .. VUHDO_I18N_EMPTY_HOTS .. " --" };
 	for tCnt = 1, #VUHDO_PLAYER_HOTS do
 		VUHDO_HOT_BAR_MODELS[tCnt + 1] = { VUHDO_PLAYER_HOTS[tCnt], VUHDO_PLAYER_HOTS[tCnt] };
 	end
@@ -78,10 +78,10 @@ function VUHDO_notifyHotSelect(aComboBox, aValue)
 	tMineBox = _G[tComboName .. "MineCheckBox"];
 	tOthersBox = _G[tComboName .. "OthersCheckBox"];
 	tEditButton = _G[tComboName .. "EditButton"];
-	if (aValue == nil or aValue == "CLUSTER" or aValue == "OTHER" or strsub(aValue, 1, 8) == "BOUQUET_") then
+	if VUHDO_strempty(aValue) or aValue == "CLUSTER" or aValue == "OTHER" or strsub(aValue, 1, 8) == "BOUQUET_" then
 		tMineBox:Hide();
 		tOthersBox:Hide();
-		if (aValue ~= nil and strsub(aValue, 1, 8) == "BOUQUET_") then
+		if not VUHDO_strempty(aValue) and strsub(aValue, 1, 8) == "BOUQUET_" then
 			tEditButton:Show();
 		else
 			tEditButton:Hide();

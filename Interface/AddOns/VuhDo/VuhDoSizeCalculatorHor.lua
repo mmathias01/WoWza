@@ -7,13 +7,14 @@ local VUHDO_isTableFootersShowing;
 local VUHDO_isLooseOrderingShowing;
 local VUHDO_isConfigPanelShowing;
 local VUHDO_isTableHeaderOrFooter;
+local VUHDO_getNumHotSlots;
 
 local ceil = ceil;
 local floor = floor;
 local strfind = strfind;
 local ipairs = ipairs;
 
-function VUHDO_sizeCalculatorInitBurstHor()
+function VUHDO_sizeCalculatorInitLocalOverridesHor()
 	VUHDO_CONFIG = _G["VUHDO_CONFIG"];
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 
@@ -22,6 +23,7 @@ function VUHDO_sizeCalculatorInitBurstHor()
 	VUHDO_isLooseOrderingShowing = _G["VUHDO_isLooseOrderingShowing"];
 	VUHDO_isConfigPanelShowing = _G["VUHDO_isConfigPanelShowing"];
 	VUHDO_isTableHeaderOrFooter = _G["VUHDO_isTableHeaderOrFooter"];
+	VUHDO_getNumHotSlots = _G["VUHDO_getNumHotSlots"];
 end
 
 -- BURST CACHE ---------------------------------------------------

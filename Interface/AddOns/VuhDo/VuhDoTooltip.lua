@@ -30,7 +30,7 @@ local sEmpty = { };
 --
 local VUHDO_getClassColorByModelId;
 local VUHDO_strempty;
-function VUHDO_tooltipInitBurst()
+function VUHDO_tooltipInitLocalOverrides()
 	VUHDO_getClassColorByModelId = _G["VUHDO_getClassColorByModelId"];
 	VUHDO_strempty = _G["VUHDO_strempty"];
 end
@@ -326,7 +326,7 @@ function VUHDO_updateTooltip()
 
 		for tIndex, tButtonName in ipairs(VUHDO_MOUSE_BUTTONS) do
 			tBinding = VUHDO_getSpellTooltip(tModifier, tIndex, tUnit);
-			if strlen(tBinding) ~= 0 then
+			if #tBinding ~= 0 then
 				VUHDO_addTooltipLineLeft(format("%s%s%s", tModifier, tButtonName, tBinding), VUHDO_VALUE_COLOR, 8);
 			end
 		end

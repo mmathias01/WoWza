@@ -78,7 +78,9 @@ function data:unIndexMoveGroupTree(grpInfo, src)
 								newgrp[itemString] = tonumber(q * -1)
 							end
 						else -- move everything
-							newgrp[itemString] = tonumber(totalq * -1)
+							if totalq > 0 then
+								newgrp[itemString] = tonumber(totalq * -1)
+							end
 						end
 					else -- move from bank/gbank to bags
 						if opSettings.moveQtyEnabled and opSettings.keepBankQtyEnabled then -- move specified quantity but keep x in bank
@@ -94,7 +96,9 @@ function data:unIndexMoveGroupTree(grpInfo, src)
 								newgrp[itemString] = tonumber(q)
 							end
 						else -- move everything
-							newgrp[itemString] = tonumber(totalq)
+							if totalq > 0 then
+								newgrp[itemString] = tonumber(totalq)
+							end
 						end
 					end
 				end

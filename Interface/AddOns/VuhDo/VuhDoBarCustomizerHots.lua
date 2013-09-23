@@ -1,5 +1,6 @@
 local _;
 local huge = math.huge;
+local format = format;
 
 local sIsFade;
 local sIsWarnColor;
@@ -16,7 +17,6 @@ local sClipL, sClipR, sClipT, sClipB = 0, 1, 0, 1;
 
 local sIsPlayerKnowsSwiftmend = false;
 local sSwiftmendUnits = { };
-local sEmpty = { };
 
 VUHDO_MY_HOTS = { };
 local VUHDO_MY_HOTS = VUHDO_MY_HOTS;
@@ -45,7 +45,6 @@ local VUHDO_HOT_CFGS = { "HOT1", "HOT2", "HOT3", "HOT4", "HOT5", "HOT6", "HOT7",
 
 
 local floor = floor;
-local strlen = strlen;
 local table = table;
 local UnitBuff = UnitBuff;
 local GetSpellCooldown = GetSpellCooldown;
@@ -83,7 +82,7 @@ local VUHDO_RAID;
 local sIsClusterIcons;
 local sIsOthersHots;
 
-function VUHDO_customHotsInitBurst()
+function VUHDO_customHotsInitLocalOverrides()
 	-- variables
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 	VUHDO_CAST_ICON_DIFF = _G["VUHDO_CAST_ICON_DIFF"];
@@ -416,7 +415,7 @@ end
 
 --
 function VUHDO_removeHots(aUnit)
-	for _, tButton in pairs(VUHDO_getUnitButtons(aUnit) or sEmpty) do
+	for _, tButton in pairs(VUHDO_getUnitButtonsSafe(aUnit)) do
 		VUHDO_removeButtonHots(tButton);
 	end
 end
@@ -619,7 +618,7 @@ end
 --
 local tIcon;
 function VUHDO_swiftmendIndicatorBouquetCallback(aUnit, anIsActive, anIcon, aTimer, aCounter, aDuration, aColor, aBuffName, aBouquetName, anImpact, aTimer2, aClipL, aClipR, aClipT, aClipB)
-	for _, tButton in pairs(VUHDO_getUnitButtons(aUnit) or sEmpty) do
+	for _, tButton in pairs(VUHDO_getUnitButtonsSafe(aUnit)) do
 		if anIsActive and aColor then
 			tIcon = VUHDO_getBarRoleIcon(tButton, 51);
 			tIcon:SetTexture(anIcon);

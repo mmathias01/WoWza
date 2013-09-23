@@ -345,6 +345,12 @@
 				</ThumbTexture>
 				<Scripts>
 					<OnValueChanged>
+					  if not self._onsetting then
+					    self._onsetting = true;
+					    self:SetValue(self:GetValue());
+					    value = self:GetValue()
+					    self._onsetting = false;
+					  else return; end
 						VUHDO_lnfSliderUpdateModel(self);
 						VUHDO_lnfSliderOnValueChanged(self:GetParent());
 					</OnValueChanged>

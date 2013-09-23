@@ -13,7 +13,7 @@ GoingPrice_US_SV = {
 				0, -- [3]
 			},
 			["modifier"] = 4,
-			["date"] = 1374306447,
+			["date"] = 1379838186,
 			["statisticColor"] = {
 				1, -- [1]
 				1, -- [2]

@@ -6,8 +6,8 @@ CliqueDB3 = {
 			["sec_profileKey"] = "Majandra - Dragonblight",
 			["fastooc"] = false,
 			["blacklist"] = {
-				["ElvUF_Target"] = true,
 				["ElvUF_Player"] = true,
+				["ElvUF_Target"] = true,
 			},
 			["specswap"] = false,
 			["downclick"] = false,
@@ -158,7 +158,8 @@ CliqueDB3 = {
 					["spell"] = "Halo",
 					["key"] = "BUTTON2",
 					["sets"] = {
-						["global"] = true,
+						["hovercast"] = true,
+						["friend"] = true,
 					},
 					["icon"] = "Interface\\Icons\\ability_priest_halo",
 					["type"] = "spell",
@@ -167,6 +168,7 @@ CliqueDB3 = {
 					["spell"] = "Cascade",
 					["key"] = "BUTTON2",
 					["sets"] = {
+						["hovercast"] = true,
 						["friend"] = true,
 					},
 					["icon"] = "Interface\\Icons\\ability_priest_cascade",

@@ -30,7 +30,8 @@ local VUHDO_IS_SUSPICIOUS_ROSTER = false;
 local VUHDO_RAID_SORTED = { };
 local VUHDO_MAINTANKS = { };
 local VUHDO_INTERNAL_TOGGLES = { };
-local VUHDO_PANEL_UNITS = { {}, {}, {}, {}, {}, {}, {}, {}, {}, {} };
+local VUHDO_PANEL_UNITS = { };
+setmetatable(VUHDO_PANEL_UNITS, VUHDO_META_NEW_ARRAY);
 
 
 VUHDO_PLAYER_CLASS = nil;
@@ -102,7 +103,6 @@ local strfind = strfind;
 local GetTime = GetTime;
 local pairs = pairs;
 local ipairs = ipairs;
-local format = format;
 local twipe = table.wipe;
 local tsort = table.sort;
 local _;
@@ -110,7 +110,7 @@ local sTrigger;
 local sCurrentMode;
 
 
-function VUHDO_vuhdoInitBurst()
+function VUHDO_vuhdoInitLocalOverrides()
 	VUHDO_CONFIG = _G["VUHDO_CONFIG"];
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_PET_2_OWNER = _G["VUHDO_PET_2_OWNER"];
@@ -746,10 +746,10 @@ function VUHDO_reloadRaidMembers()
 		twipe(VUHDO_RAID_NAMES);
 
 		for tCnt = 1, tMaxMembers do
-			tPlayer = format("%s%d", tUnit, tCnt);
+			tPlayer = tUnit .. tCnt;
 			if UnitExists(tPlayer) and tPlayer ~= VUHDO_PLAYER_RAID_ID then
 				VUHDO_setHealth(tPlayer, 1); -- VUHDO_UPDATE_ALL
-				VUHDO_setHealthSafe(format("%s%d", tPetUnit, tCnt), 1); -- VUHDO_UPDATE_ALL
+				VUHDO_setHealthSafe(tPetUnit .. tCnt, 1); -- VUHDO_UPDATE_ALL
 			end
 		end
 
@@ -803,7 +803,7 @@ function VUHDO_refreshRaidMembers()
 	tMaxMembers = ("raid" == tUnitType) and 40 or ("party" == tUnitType) and 4 or 0;
 
 	for tCnt = 1, tMaxMembers do
-		tPlayer = format("%s%d", tUnitType, tCnt);
+		tPlayer = tUnitType .. tCnt;
 
 		if UnitExists(tPlayer) and tPlayer ~= VUHDO_PLAYER_RAID_ID then
 			tInfo = VUHDO_RAID[tPlayer];
@@ -817,7 +817,7 @@ function VUHDO_refreshRaidMembers()
 				if tIsDcChange then
 					VUHDO_updateBouquetsForEvent(tPlayer, 19); -- VUHDO_UPDATE_DC
 				end
-				VUHDO_setHealthSafe(format("%s%d", tPetUnitType, tCnt), 1); -- VUHDO_UPDATE_ALL
+				VUHDO_setHealthSafe(tPetUnitType .. tCnt, 1); -- VUHDO_UPDATE_ALL
 			end
 
 		elseif VUHDO_RAID[tPlayer] then

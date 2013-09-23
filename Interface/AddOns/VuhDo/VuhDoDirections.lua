@@ -15,7 +15,7 @@ local VUHDO_getDistanceBetween;
 local VUHDO_getUnitDirection;
 
 local VUHDO_RAID = { };
-function VUHDO_directionsInitBurst()
+function VUHDO_directionsInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 
 	sIsDeadOnly = VUHDO_CONFIG["DIRECTION"]["isDeadOnly"];

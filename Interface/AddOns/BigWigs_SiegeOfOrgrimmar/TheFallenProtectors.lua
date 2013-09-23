@@ -26,6 +26,8 @@ local marksUsed = {}
 local darkMeditationTimer
 local intermission = {}
 
+local infernoTarget, infernoTimer = nil, nil
+
 local deathCount = 0
 
 --------------------------------------------------------------------------------
@@ -45,6 +47,11 @@ if L then
 
 	L.intermission = "Desperate Measures"
 	L.intermission_desc = "Warnings for when you are getting close to any of the bosses using Desperate Measures"
+
+	L.inferno_self = "Inferno Strike on you"
+	L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
+	L.inferno_self_icon = 143962
+	L.inferno_self_bar = "You explode!"
 end
 L = mod:GetLocale()
 L.custom_off_bane_marks_desc = L.custom_off_bane_marks_desc:format(
@@ -61,7 +68,7 @@ L.custom_off_bane_marks_desc = L.custom_off_bane_marks_desc:format(
 
 function mod:GetOptions()
 	return {
-		{144396, "TANK"}, {143019, "FLASH"}, 143027, {143007, "DISPEL"}, 143958, {"defile", "TANK"}, {144357, "FLASH"}, {-7959, "SAY", "PROXIMITY"}, -- Rook Stonetoe
+		{144396, "TANK"}, {143019, "FLASH"}, 143027, {143007, "HEALER"}, 143958, {"defile", "TANK"}, {144357, "FLASH"}, {-7959, "FLASH", "SAY", "PROXIMITY", "ICON"}, {"inferno_self", "SAY", "EMPHASIZE"}, -- Rook Stonetoe
 		{143330, "TANK"}, {143292, "FLASH"}, {144367, "FLASH"}, {143840, "FLASH", "PROXIMITY"}, -- He Softfoot
 		143446, 143491, 143546, -- Sun Tenderheart
 		"custom_off_bane_marks",
@@ -78,7 +85,7 @@ end
 function mod:OnBossEnable()
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "CheckBossStatus")
 
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "BossSucceeded", "boss1", "boss2", "boss3")
+	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "BossSucceeded", "boss1", "boss2", "boss3", "boss4", "boss5")
 	self:Log("SPELL_CAST_START", "Heal", 143497)
 	-- Sun Tenderheart
 	self:Log("SPELL_AURA_APPLIED", "DarkMeditationApplied", 143546)
@@ -95,9 +102,9 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "MarkOfAnguishRemoved", 143840)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "LingeringAnguish", 144176)
 	-- Rook Stonetoe
-	self:Log("SPELL_AURA_APPLIED", "VengefulStrikes", 144396)
+	self:Log("SPELL_CAST_SUCCESS", "VengefulStrikes", 144396)
 	self:Log("SPELL_CAST_SUCCESS", "Clash", 143027)
-	self:Log("SPELL_AURA_APPLIED", "CorruptionKick", 143007, 143010) -- XXX double checks spellIds in 10 man
+	self:Log("SPELL_CAST_SUCCESS", "CorruptionKick", 143007)
 	self:Log("SPELL_CAST_SUCCESS", "CorruptionShock", 143958)
 	self:Log("SPELL_DAMAGE", "DefiledGroundDamage", 144357)
 	self:Log("SPELL_CAST_START", "DefiledGround", 144357)
@@ -112,6 +119,7 @@ function mod:OnEngage()
 	wipe(intermission)
 	darkMeditationTimer = nil
 	deathCount = 0
+	infernoTarget, infernoTimer = nil, nil
 	self:OpenProximity("proximity", 5) -- this might not be needed in LFR
 	self:Berserk(900, nil, nil, "Berserk (assumed)") -- XXX assumed, more than 10 min
 	self:Bar(144396, 7) -- VengefulStrikes
@@ -188,7 +196,7 @@ do
 				wipe(marksUsed)
 			end
 			-- no _DOSE for this so gotta get stacks like this:
-			local amount = select(4, UnitDebuff(args.destName, args.spellName))
+			local _, _, _, amount = UnitDebuff(args.destName, args.spellName)
 			if amount and amount == 3 then -- only mark the initial cast
 				markBane(args.destName)
 			end
@@ -249,46 +257,66 @@ function mod:Fixate(args)
 end
 
 function mod:Gouge(args)
+	-- only warn the tank targeted by the mob
 	local unit = mod:GetUnitIdByGUID(args.sourceGUID)
-	local target = unit.."target"
-	-- only warn for the tank targeted by the mob
-	if UnitExists(target) then
-		if self:Me(UnitGUID(target)) then
-			self:Message(args.spellId, "Urgent", "Alarm")
-			self:CDBar(args.spellId, 29)
-		end
+	local guid = UnitGUID(unit.."target")
+	if guid and self:Me(guid) then
+		self:Message(args.spellId, "Urgent", "Alarm")
+		self:CDBar(args.spellId, 29)
 	end
 end
 
 -- Rook Stonetoe
 
 do
-	local target
-	local function checkTarget(sourceGUID)
-		local unit = mod:GetUnitIdByGUID(sourceGUID)
-		if not unit then return end
-		if UnitExists(unit.."target") and unit.."target" ~= target then
-			target = unit.."target"
-			if mod:Me(UnitGUID(target)) then
-				mod:Flash(-7959)
-			else
-				mod:CloseProximity("proximity")
-				mod:OpenProximity(-7959, 8, target, true)
+	local timeLeft = 8
+	local function infernoCountdown()
+		timeLeft = timeLeft - 1
+		if timeLeft < 6 then
+			mod:Say("inferno_self", timeLeft, true)
+			if timeLeft < 2 then
+				mod:CancelTimer(infernoTimer)
+				infernoTimer = nil
 			end
-			mod:TargetBar(-7959, 7, mod:UnitName(target)) -- 9-2
-		else
-			mod:CloseProximity(-7959)
-			mod:OpenProximity("proximity", 5)
+		end
+	end
+	local function checkTarget(sourceGUID)
+		local self = mod
+		for i = 1, 5 do
+			local boss = ("boss%d"):format(i)
+			if UnitGUID(boss) == sourceGUID then
+				local bossTarget = boss.."target"
+				local player = UnitGUID(bossTarget)
+				if player then
+					infernoTarget = self:UnitName(bossTarget)
+					self:TargetMessage(-7959, infernoTarget, "Urgent", "Warning")
+					self:TargetBar(-7959, 8.5, infernoTarget)
+					self:PrimaryIcon(-7959, infernoTarget)
+					if self:Me(player) then
+						self:Flash(-7959)
+						self:Say(-7959)
+						if not self:LFR() then -- Don't spam in LFR
+							timeLeft = 8
+							if infernoTimer then mod:CancelTimer(infernoTimer) end
+							infernoTimer = self:ScheduleRepeatingTimer(infernoCountdown, 1)
+						end
+						-- Emphasized abilities
+						self:StopBar(-7959, infernoTarget)
+						self:TargetMessage("inferno_self", infernoTarget, "Urgent", nil, -7959)
+						self:Bar("inferno_self", 8.5, L["inferno_self_bar"], -7959)
+					elseif not self:Tank() then
+						self:CloseProximity("proximity")
+						self:OpenProximity(-7959, 8, infernoTarget, true)
+					end
+				end
+				break
+			end
 		end
 	end
 	function mod:InfernoStrike(args)
-		-- no debuff, no target no nothing, one gypsy implementation of an ability marked as "Important" in the EJ
-		-- this probably could use that static shock like say countdown once we can actually reliably determine the target maybe
-		if target then
-			self:StopBar(-7959, target)
-		end
 		self:CloseProximity(-7959)
-		self:ScheduleTimer(checkTarget, 2, args.sourceGUID)
+		self:PrimaryIcon(-7959)
+		self:ScheduleTimer(checkTarget, 0.5, args.sourceGUID)
 	end
 end
 
@@ -344,22 +372,8 @@ function mod:CorruptionShock(args)
 	end
 end
 
-do
-	local corrruptionKickTargets, scheduled = mod:NewTargetList(), nil
-	local function warnKick()
-		scheduled = nil
-		mod:TargetMessage(143007, corrruptionKickTargets, "Important", "Alarm")
-	end
-	function mod:CorruptionKick(args)
-		if self:Dispeller("curse", nil, args.spellId) then
-			corrruptionKickTargets[#corrruptionKickTargets+1] = args.destName
-			if not scheduled then
-				scheduled = self:ScheduleTimer(warnKick, 0.2)
-			end
-		elseif self:Me(args.destGUID) then
-			self:TargetMessage(args.spellId, args.destName, "Important", "Alarm")
-		end
-	end
+function mod:CorruptionKick(args)
+	self:Message(args.spellId, "Important", "Alarm")
 end
 
 function mod:Clash(args)
@@ -391,17 +405,26 @@ do
 			if not timer then
 				timer = self:ScheduleRepeatingTimer(warnCorruptedBrewTarget, 0.05, unitId)
 			end
+		elseif spellId == 138175 and self:MobId(UnitGUID(unitId)) == 71481 then -- Despawn Area Triggers
+			self:CloseProximity(-7959)
+			self:OpenProximity("proximity", 5)
+			self:PrimaryIcon(-7959)
+			if infernoTimer then
+				self:CancelTimer(infernoTimer)
+				infernoTimer = nil
+			end
+			if infernoTarget then
+				self:StopBar(-7959, infernoTarget)
+				self:StopBar(L["inferno_self_bar"])
+				infernoTarget = nil
+			end
 		end
 	end
 end
 
 function mod:VengefulStrikes(args)
-	local unit = self:GetUnitIdByGUID(args.sourceGUID)
-	if not unit then return end
-
 	-- only warn for the tank targeted by the mob
-	local target = unit.."target"
-	if UnitExists(target) and self:Me(UnitGUID(target)) then
+	if self:Me(args.destGUID) then
 		self:Message(args.spellId, "Urgent", "Alarm")
 		self:Bar(args.spellId, 3, CL["cast"]:format(args.spellName))
 		self:CDBar(args.spellId, 21)

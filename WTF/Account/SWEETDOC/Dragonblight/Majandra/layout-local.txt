@@ -21,7 +21,7 @@ Y: -92
 W: 210
 H: 175
 Frame: AskMrRobot_Dialog
-FrameLevel: 18
+FrameLevel: 23
 Anchor: TOPRIGHT
 X: -130
 Y: -122
@@ -30,14 +30,7 @@ H: 530
 Frame: RaidUtility_ShowButton
 FrameLevel: 1
 Anchor: TOPLEFT
-X: 101
+X: 100
 Y: 1
 W: 136
 H: 18
-Frame: TSMMainFrame1
-FrameLevel: 26
-Anchor: CENTER
-X: 51
-Y: 91
-W: 823
-H: 686

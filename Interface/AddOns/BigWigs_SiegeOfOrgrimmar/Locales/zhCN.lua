@@ -1,7 +1,7 @@
-﻿local L = BigWigs:NewBossLocale("Immerseus", "zhCN")
+local L = BigWigs:NewBossLocale("Immerseus", "zhCN")
 if not L then return end
 if L then
-	L.win_yell = "Ah, you have done it!"
+	L.win_yell = "啊，你成功了。泉水再一次变得纯净了！"
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "zhCN")
@@ -15,13 +15,17 @@ if L then
 
 	L.intermission = "背水一战"
 	L.intermission_desc = "当任一首领即将使用背水一战时发出警报。"
+
+	L.inferno_self = "自身炼狱打击"
+	L.inferno_self_desc = "当你受到炼狱打击时显示特殊的倒计时条。"
+	L.inferno_self_bar = ">你< 爆炸！"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "zhCN")
 if L then
 	L.pre_pull = "准备开战"
 	L.pre_pull_desc = "准备与首领开始战斗前的计时条。"
-	L.pre_pull_trigger = "Very well, I will create a field to keep your corruption quarantined."
+	L.pre_pull_trigger = "很好，我会制造一个空间来隔离你们的腐蚀。"
 
 	L.big_adds = "大型腐化物"
 	L.big_adds_desc = "当在内心或现实杀死大型腐化物时发出警报。"
@@ -32,7 +36,7 @@ end
 L = BigWigs:NewBossLocale("Sha of Pride", "zhCN")
 if L then
 	L.custom_off_titan_mark = "泰坦之赐标记"
-	L.custom_off_titan_mark_desc = "帮助提示泰坦之赐，给受到泰坦之赐的玩家使用 %s%s%s%s%s%s%s%s 进行标记（受到傲气之环的玩家和坦克不会被标记），但他们仍然在近距离窗口（还不能反转近距离）。需要权限。"
+	L.custom_off_titan_mark_desc = "给受到泰坦之赐的玩家使用 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 进行标记，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。|r"
 
 	L.projection_message = "快到|cFF00FF00绿|r箭头！"
 	L.projection_explosion = "投影爆炸"
@@ -50,9 +54,9 @@ if L then
 	L.demolisher_desc = "库卡隆投石车进入战斗计时条。"
 	L.towers = "塔楼"
 	L.towers_desc = "当塔楼被突破时发出警报。"
-	L.south_tower_trigger = "The door barring the South Tower has been breached!"
+	L.south_tower_trigger = "南塔楼的大门被攻破了！"
 	L.south_tower = "南塔楼"
-	L.north_tower_trigger = "The door barring the North Tower has been breached!"
+	L.north_tower_trigger = "北塔楼的大门被攻破了！"
 	L.north_tower = "北塔楼"
 	L.tower_defender = "塔楼防御者"
 
@@ -84,11 +88,11 @@ if L then
 	L.berserker = "狂暴"
 	L.defensive = "防御"
 
-	L.adds_trigger1 = "Defend the gate!"
+	L.adds_trigger1 = "守住大门！"
 	L.adds_trigger2 = "Rally the forces!"
-	L.adds_trigger3 = "Next squad, to the front!"
-	L.adds_trigger4 = "Warriors, on the double!"
-	L.adds_trigger5 = "Kor'kron, at my side!"
+	L.adds_trigger3 = "下一队，冲上去！"
+	L.adds_trigger4 = "战士们，快过来！"
+	L.adds_trigger5 = "库卡隆，支援我！"
 	L.adds_trigger_extra_wave = "All Kor'kron... under my command... kill them... NOW"
 	L.extra_adds = "额外增援部队"
 
@@ -126,7 +130,7 @@ end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "zhCN")
 if L then
-	L.shredder_engage_trigger = "An Automated Shredder draws near!"
+	L.shredder_engage_trigger = "一台自动伐木机正在靠近！"
 	L.laser_on_you = ">你< 激光 BIU BIU！"
 	L.laser_say = "激光 BIU BIU！"
 

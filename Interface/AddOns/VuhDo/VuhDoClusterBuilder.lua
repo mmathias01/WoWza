@@ -11,8 +11,6 @@ local GetPlayerMapPosition = GetPlayerMapPosition;
 local CheckInteractDistance = CheckInteractDistance;
 local GetMapInfo = GetMapInfo;
 local GetCurrentMapDungeonLevel = GetCurrentMapDungeonLevel;
-local table = table;
-local format = format;
 local WorldMapFrame = WorldMapFrame;
 local GetMouseFocus = GetMouseFocus;
 local pairs = pairs;
@@ -21,8 +19,11 @@ local GetSpellCooldown = GetSpellCooldown;
 local twipe = table.wipe;
 local tsort = table.sort;
 local VUHDO_setMapToCurrentZone;
+local VUHDO_tableUniqueAdd;
 
 local VUHDO_COORD_DELTAS = { };
+setmetatable(VUHDO_COORD_DELTAS, VUHDO_META_NEW_ARRAY);
+
 local VUHDO_MAP_WIDTH = 0;
 local VUHDO_LAST_ZONE = nil;
 
@@ -34,11 +35,12 @@ local VUHDO_MAX_ITERATIONS = 120; -- For a 40 man raid there is a total of +800 
 
 --
 local VUHDO_CLUSTER_BASE_RAID = { };
-function VUHDO_clusterBuilderInitBurst()
+function VUHDO_clusterBuilderInitLocalOverrides()
 	VUHDO_CLUSTER_BASE_RAID = _G["VUHDO_CLUSTER_BASE_RAID"];
 	VUHDO_RAID = _G["VUHDO_RAID"];
 
 	VUHDO_setMapToCurrentZone = _G["VUHDO_setMapToCurrentZone"];
+	VUHDO_tableUniqueAdd = _G["VUHDO_tableUniqueAdd"];
 end
 
 
@@ -93,17 +95,21 @@ local function VUHDO_calibrateMapScale(aUnit, aDeltaX, aDeltaY)
 	for tCnt = 1, 3 do
 		-- Check only if new distance is within bandwidth (= better result than before)
 		if tDistance > VUHDO_INTERACT_MAX_DISTANCES[tCnt] and tDistance < VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] then
-			if CheckInteractDistance(aUnit, tCnt) then VUHDO_INTERACT_MAX_DISTANCES[tCnt] = tDistance;
-			else VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] = tDistance; end
-
+			if CheckInteractDistance(aUnit, tCnt) then
+				VUHDO_INTERACT_MAX_DISTANCES[tCnt] = tDistance;
+			else
+				VUHDO_INTERACT_FAIL_MIN_DISTANCES[tCnt] = tDistance;
+			end
 			VUHDO_clusterBuilderStoreZone(VUHDO_LAST_ZONE);
 		end
 	end
 
 	if tDistance > VUHDO_INTERACT_MAX_DISTANCES[4] and tDistance < VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] then
-		if (VUHDO_RAID[aUnit] or tEmptyUnit)["baseRange"] then VUHDO_INTERACT_MAX_DISTANCES[4] = tDistance;
-		else VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] = tDistance; end
-
+		if (VUHDO_RAID[aUnit] or tEmptyUnit)["baseRange"] then
+			VUHDO_INTERACT_MAX_DISTANCES[4] = tDistance;
+		else
+			VUHDO_INTERACT_FAIL_MIN_DISTANCES[4] = tDistance;
+		end
 		VUHDO_clusterBuilderStoreZone(VUHDO_LAST_ZONE);
 	end
 end
@@ -206,7 +212,7 @@ function VUHDO_updateAllClusters()
 
 	tMapFileName = (GetMapInfo()) or "*";
 	tCurrLevel = GetCurrentMapDungeonLevel() or 0;
-	tCurrentZone = format("%s%d", tMapFileName, tCurrLevel);
+	tCurrentZone = tMapFileName ..  tCurrLevel;
 
 	if VUHDO_LAST_ZONE ~= tCurrentZone then
 		VUHDO_clusterBuilderNewZone(VUHDO_LAST_ZONE, tCurrentZone);
@@ -226,10 +232,6 @@ function VUHDO_updateAllClusters()
 		tInfo = VUHDO_CLUSTER_BASE_RAID[tIndex];
 		tUnit = tInfo["unit"];
 
-		if not VUHDO_COORD_DELTAS[tUnit] then
-			VUHDO_COORD_DELTAS[tUnit] = { };
-		end
-
 		if VUHDO_isValidClusterUnit(tInfo) then
 			for tCnt = tIndex + 1, tNumRaid do
 				tAnotherInfo = VUHDO_CLUSTER_BASE_RAID[tCnt];
@@ -242,7 +244,6 @@ function VUHDO_updateAllClusters()
 						if not VUHDO_COORD_DELTAS[tUnit][tAnotherUnit] then
 							VUHDO_COORD_DELTAS[tUnit][tAnotherUnit] = { };
 						end
-
 						VUHDO_COORD_DELTAS[tUnit][tAnotherUnit][1] = tDeltaX;
 						VUHDO_COORD_DELTAS[tUnit][tAnotherUnit][2] = tDeltaY;
 
@@ -285,7 +286,7 @@ function VUHDO_updateAllClusters()
 
 	-- Otherwise get from heuristic database
 	if (tMaxX or 0) == 0 then
-		if (VUHDO_COORD_DELTAS["player"] ~= nil) then
+		if VUHDO_COORD_DELTAS["player"] then
 			for tUnit, tDeltas in pairs(VUHDO_COORD_DELTAS["player"]) do
 				VUHDO_calibrateMapScale(tUnit, tDeltas[1], tDeltas[2]);
 			end
@@ -443,7 +444,8 @@ VuhDoLine.__index = VuhDoLine;
 --
 local tLine;
 function VuhDoLine.create(aLineNum, aStartX, aStartY, anEndX, anEndY)
-	if not sLines[aLineNum] then
+	--local tLine = { };
+	if (sLines[aLineNum] == nil) then
 		sLines[aLineNum] = { };
 		setmetatable(sLines[aLineNum], VuhDoLine);
 	end
@@ -462,7 +464,7 @@ function VuhDoLine:enthaelt(anX, anY)
 end
 
 function VuhDoLine:hoehe()
-	return self.endY - self.endY;
+	return self.endY - self.startY;
 end
 
 function VuhDoLine:breite()
@@ -501,9 +503,21 @@ local tSchnittX, tSchnittY;
 local tDestCluster = { };
 local tNumFound;
 local tUnit;
-function VUHDO_getUnitsInLinearCluster(aUnit, anArray, aRange, aMaxTargets, anIsHealsPlayer)
+function VUHDO_getUnitsInLinearCluster(aUnit, anArray, aRange, aMaxTargets, anIsHealsPlayer, aCdSpell)
 	twipe(anArray);
 	twipe(tDestCluster);
+
+	if aCdSpell then
+		tStart, tDuration = GetSpellCooldown(aCdSpell);
+		tDuration = tDuration or 0;
+
+		if tDuration > 1.5 then -- Don't remove clusters for gcd
+			tStart = tStart or 0;
+			if tStart + tDuration > GetTime() then
+				return anArray;
+			end
+		end
+	end
 
 	if VUHDO_MAP_WIDTH == 0 or not VUHDO_COORD_DELTAS[aUnit] then return; end
 
@@ -521,14 +535,18 @@ function VUHDO_getUnitsInLinearCluster(aUnit, anArray, aRange, aMaxTargets, anIs
 			tZuPruefenX, tZuPruefenY = VUHDO_getRealPosition(tUnit);
 			if tZuPruefenX then
 
-				tOrthogonale = VuhDoLine.create(2, tZuPruefenX, tZuPruefenY,
+				tOrthogonale = VuhDoLine.create(2,
+					tZuPruefenX - tLineToTarget:hoehe(),
+					tZuPruefenY + tLineToTarget:breite(),
 					tZuPruefenX + tLineToTarget:hoehe(),
 					tZuPruefenY - tLineToTarget:breite());
 
 				tSchnittX, tSchnittY = tOrthogonale:schnittpunkt(tLineToTarget);
 
 				if tLineToTarget:enthaelt(tSchnittX, tSchnittY) then
-					if tOrthogonale:laenge() <= aRange then
+					tOrthoLaenge = VuhDoLine.create(3, tZuPruefenX, tZuPruefenY,
+						tSchnittX, tSchnittY);
+					if tOrthoLaenge:laenge() <= aRange then
 						tDestCluster[#tDestCluster + 1] = aUnit;
 					end
 				end

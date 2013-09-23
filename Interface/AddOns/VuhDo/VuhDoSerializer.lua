@@ -2,12 +2,22 @@ local pairs = pairs;
 local type = type;
 local tostring = tostring;
 local tonumber = tonumber;
-local strlen = strlen;
 local strsub = strsub;
 local strfind = strfind;
 local strbyte = strbyte;
 local floor = floor;
 local format = format;
+local twipe = table.wipe;
+local tinsert = tinsert;
+local tsort = table.sort;
+local strchar = strchar;
+local bor = bit.bor;
+local band = bit.band;
+local tconcat = table.concat;
+local lshift = bit.lshift;
+local rshift = bit.rshift;
+local tremove = tremove;
+local next = next;
 
 -- Sabc=S5+abcde
 -- Sabc=N3+1.3
@@ -77,15 +87,15 @@ function VUHDO_serializeTable(aTable)
 			and format("%sN%d=", tString, tKey) or format("%sS%s=", tString, VUHDO_KEY_TO_ABBREV[tKey] or tKey);
 
 		if "string" == type(tValue) then
-			tString = format("%sS%d+%s", tString, strlen(tValue), tValue);
+			tString = format("%sS%d+%s", tString, #tValue, tValue);
 		elseif "number" == type(tValue) then
 			tStrValue = tostring(floor(tValue * 10000) * 0.0001);
-			tString = format("%sN%d+%s", tString, strlen(tStrValue), tStrValue);
+			tString = format("%sN%d+%s", tString, #tStrValue, tStrValue);
 		elseif "boolean" == type(tValue) then
 			tString = tString .. (tValue and "1" or "0");
 		elseif "table" == type(tValue) then
 			local tNewString = VUHDO_serializeTable(tValue);
-			tString = format("%sT%d+%s", tString, strlen(tNewString), tNewString);
+			tString = format("%sT%d+%s", tString, #tNewString, tNewString);
 		end
 	end
 
@@ -117,7 +127,7 @@ function VUHDO_deserializeTable(aString)
 	local tGleichPos;
 	local tKey, tValue;
 
-	while tIndex <= strlen(aString) do
+	while tIndex <= #aString do
 		tGleichPos = strfind(aString, "=", tIndex + 1, true);
 
 		if tGleichPos then

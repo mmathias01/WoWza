@@ -112,9 +112,7 @@ local function VUHDO_addBuffPanel(aCategorySpec)
 	tIconFrame:SetPoint("TOPLEFT", tBuffPanel:GetName(), "TOPLEFT" , tGap, -tGap);
 
 	if VUHDO_LibButtonFacade then
-		VUHDO_LibButtonFacade:Group("VuhDo", VUHDO_I18N_BUFF_WATCH):AddButton(tIconFrame, {
-			["Icon"] = tTexture,
-		});
+		VUHDO_LibButtonFacade:Group("VuhDo", VUHDO_I18N_BUFF_WATCH):AddButton(tIconFrame, { ["Icon"] = tTexture });
 	end
 
 	VUHDO_IN_PANEL_HEIGHT = 0;
