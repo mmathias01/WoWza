@@ -655,8 +655,8 @@ function VUHDO_bouquetSaveButtonClicked(aPanel)
 	tName = VUHDO_getCurrentBouquetName();
 	tEditBox = _G[aPanel:GetName() .. "BouquetNameEditBox"];
 	tEditText = tEditBox:GetText();
-	if (tEditText ~= nil and strlen(tEditText) > 0 and tName ~= nil) then
-		if (VUHDO_CURRENT_BOUQUET_CHOICE ~= nil and VUHDO_BOUQUETS["STORED"][VUHDO_CURRENT_BOUQUET_CHOICE] ~= nil) then
+	if tEditText and #tEditText > 0 and tName then
+		if (VUHDO_CURRENT_BOUQUET_CHOICE and VUHDO_BOUQUETS["STORED"][VUHDO_CURRENT_BOUQUET_CHOICE]) then
 
 			if (tEditText ~= VUHDO_CURRENT_BOUQUET_CHOICE) then
 				VUHDO_BOUQUETS["STORED"][tEditText] = VUHDO_deepCopyTable(VUHDO_BOUQUETS["STORED"][VUHDO_CURRENT_BOUQUET_CHOICE]);

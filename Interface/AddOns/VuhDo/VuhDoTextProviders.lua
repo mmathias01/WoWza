@@ -5,7 +5,7 @@ local UnitPowerMax = UnitPowerMax;
 local VUHDO_getIncHealOnUnit;
 local VUHDO_getUnitOverallShieldRemain;
 
-function VUHDO_textProvidersInitBurst()
+function VUHDO_textProvidersInitLocalOverrides()
 	VUHDO_getIncHealOnUnit = _G["VUHDO_getIncHealOnUnit"];
 	VUHDO_getUnitOverallShieldRemain = _G["VUHDO_getUnitOverallShieldRemain"];
 end

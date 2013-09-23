@@ -1,7 +1,7 @@
 ----------------------------------------------------
 local UnitGetIncomingHeals = UnitGetIncomingHeals;
 local sIsOthers, sIsOwn, sIsNoInc;
-function VUHDO_healCommAdapterInitBurst()
+function VUHDO_healCommAdapterInitLocalOverrides()
 	sIsOthers = VUHDO_CONFIG["SHOW_INCOMING"];
 	sIsOwn = VUHDO_CONFIG["SHOW_OWN_INCOMING"];
 	sIsNoInc = not sIsOwn and not sIsOthers;

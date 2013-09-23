@@ -211,11 +211,13 @@ do
 
 	-- Cinematic handling
 	local cinematicZones = {
-		[875] = 1, -- Gate of the Setting Sun gate breach
-		[930] = 3, -- Tortos cave entry -- Doesn't work, apparently Blizzard don't want us to skip this..?
-		[930] = 7, -- Ra-Den room opening
-		[953] = 2, -- After Immerseus, entry to Fallen Protectors
+		[875.1] = true, -- Gate of the Setting Sun gate breach
+		[930.3] = true, -- Tortos cave entry -- Doesn't work, apparently Blizzard don't want us to skip this..?
+		[930.7] = true, -- Ra-Den room opening
+		[953.2] = true, -- After Immerseus, entry to Fallen Protectors
+		[953.9] = true, -- Blackfuse room opening
 	}
+
 	function addon:CINEMATIC_START()
 		if self.db.profile.blockmovies then
 			SetMapToCurrentZone()
@@ -225,10 +227,16 @@ do
 			end
 
 			local areaId = GetCurrentMapAreaID() or 0
+			if areaId == 953 then -- Siege of Orgrimmar
+				for i = 105930, 105935 do -- Scan quest items (Vision of Time) that trigger CINEMATIC_START inside the zone
+					local _, _, cd = GetItemCooldown(i)
+					if cd > 0 then return end -- Item has a 1 second cooldown so we know without a doubt that if it's on cooldown it was JUST used.
+				end
+			end
 			local areaLevel = GetCurrentMapDungeonLevel() or 0
-			local zoneFloor = cinematicZones[areaId]
-			if zoneFloor and zoneFloor == areaLevel then
-				local id = tonumber(("%d.%d"):format(areaId, areaLevel))
+			local id = tonumber(("%d.%d"):format(areaId, areaLevel))
+
+			if cinematicZones[id] then
 				if self.db.global.seenmovies[id] then
 					self:Print(L.movieBlocked)
 					CinematicFrame_CancelCinematic()

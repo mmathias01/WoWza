@@ -777,7 +777,7 @@ function GUI:CreateProfessionsTab(parent)
 		else
 			local link = TSM.db.factionrealm.tradeSkills[playerName][profession].link
 			if not link then
-				TSM:Printf(L["Profession data not found for %s on %s. Logging into this player and opening the profression may solve this issue."], profession, playerName)
+				TSM:Printf(L["Profession data not found for %s on %s. Logging into this player and opening the profession may solve this issue."], profession, playerName)
 				return OnValueChanged(_, _, currentSelection)
 			end
 			local tradeString = strsub(select(3, ("|"):split(link)), 2)
@@ -1881,7 +1881,7 @@ function GUI:CreateGatheringFrame()
 	local frame = CreateFrame("Frame")
 	frame:SetFrameStrata("HIGH")
 	frame:SetToplevel(true)
-	frame:SetHeight(300)
+	frame:SetHeight(325)
 	frame:SetWidth(400)
 	frame:SetScale(UIParent:GetScale() * TSM.db.global.frameScale)
 	frame:SetPoint("CENTER", UIParent)
@@ -1920,7 +1920,7 @@ function GUI:CreateGatheringFrame()
 	local containersFrame = CreateFrame("Frame", nil, frame)
 	containersFrame:SetPoint("TOPLEFT", 2, -45)
 	containersFrame:SetPoint("TOPRIGHT", -2, -45)
-	containersFrame:SetPoint("BOTTOMLEFT", 2, 28)
+	containersFrame:SetPoint("BOTTOMLEFT", 2, 53)
 
 	local matsFrame = CreateFrame("Frame", nil, containersFrame)
 	matsFrame:SetPoint("TOPLEFT")
@@ -2009,6 +2009,23 @@ function GUI:CreateGatheringFrame()
 	frame.availableST:SetData({})
 	frame.availableST:DisableSelection(true)
 
+	local checkboxFrame = CreateFrame("Frame", nil, frame)
+	checkboxFrame:SetPoint("TOPLEFT", containersFrame, "BOTTOMLEFT", 2, -2)
+	checkboxFrame:SetPoint("TOPRIGHT", containersFrame, "BOTTOMRIGHT", -2, 2)
+	checkboxFrame:SetPoint("BOTTOMLEFT", 2, 28)
+
+	local checkbox = TSMAPI.GUI:CreateCheckBox(checkboxFrame, L["If checked, only a normal AH search will be performed"])
+	checkbox:SetPoint("CENTER", checkboxFrame, "CENTER")
+	--checkbox:SetPoint("BOTTOMRIGHT", checkboxFrame, "BOTTOMRIGHT")
+	checkbox:SetHeight(18)
+	checkbox:SetValue(TSM.db.factionrealm.gathering.destroyDisable)
+	checkbox:SetLabel(L[" Disable Destroying Search"])
+	checkbox:SetCallback("OnValueChanged", function(_,_,value)
+		TSM.db.factionrealm.gathering.destroyDisable = value
+	end)
+	TSMAPI.Design:SetFrameColor(checkboxFrame)
+
+
 	local btn = TSMAPI.GUI:CreateButton(frame, 18)
 	btn:SetPoint("BOTTOMLEFT", frame, "BOTTOM", 2, 4)
 	btn:SetPoint("BOTTOMRIGHT", -4, 4)
@@ -2028,7 +2045,6 @@ function GUI:CreateGatheringFrame()
 	local btn = TSMAPI.GUI:CreateButton(frame, 18)
 	btn:SetPoint("BOTTOMLEFT", 4, 4)
 	btn:SetPoint("BOTTOMRIGHT", frame, "BOTTOM", -2, 4)
-	btn:SetHeight(20)
 	btn:SetHeight(20)
 	btn:SetText(L["Gather Items"])
 	btn:Disable()
@@ -2212,14 +2228,14 @@ function GUI:UpdateGathering()
 					if not tasksCollapsed then
 						for itemString, quantity in pairs(task.items) do
 							local needQty
-							if source.sourceName == L["Destroying"] or task.taskType == L["Collect Mail"] then
+							if source.sourceName == L["Destroying"] or task.taskType == L["Collect Mail"] or task.taskType == L["Mail Items"] then
 								needQty = quantity
 							else
 								needQty = neededMats[itemString] - (crafterBags[itemString] or 0)
 							end
 							local name = TSMAPI:GetSafeItemInfo(itemString) or itemString
 							local row
-							if task.taskType == L["Search for Mats"] or task.taskType == L["Visit Vendor"] or task.taskType == L["Collect Mail"] then
+							if task.taskType == L["Search for Mats"] or task.taskType == L["Visit Vendor"] or task.taskType == L["Collect Mail"] or task.taskType == L["Mail Items"] then
 								row = {
 									cols = {
 										{
@@ -2371,4 +2387,12 @@ function GUI:GatheringEventHandler(event)
 		GUI.gatheringFrame.gatherButton:Disable()
 	end
 	TSMAPI:CreateTimeDelay("gatheringUpdateThrottle", 0.3, GUI.UpdateGathering)
+end
+
+function GUI:ResetGatheringFramePosition()
+	TSM.db.global.gatheringFramePosition = {100, 300}
+	if GUI.gatheringFrame and GUI.gatheringFrame:IsVisible() then
+		GUI.gatheringFrame:Hide()
+		GUI.gatheringFrame:Show()
+	end
 end

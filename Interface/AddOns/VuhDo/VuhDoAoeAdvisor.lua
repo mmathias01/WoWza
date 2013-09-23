@@ -18,7 +18,7 @@ local VUHDO_AOE_FOR_UNIT = { };
 
 local VUHDO_getCustomDestCluster;
 local VUHDO_RAID;
-function VUHDO_aoeAdvisorInitBurst()
+function VUHDO_aoeAdvisorInitLocalOverrides()
 	VUHDO_getCustomDestCluster = _G["VUHDO_getCustomDestCluster"];
 	sIsIncoming = VUHDO_CONFIG["AOE_ADVISOR"]["subInc"];
 	sIsCooldown = VUHDO_CONFIG["AOE_ADVISOR"]["isCooldown"];
@@ -203,12 +203,12 @@ VUHDO_AOE_SPELLS = {
 		["rangePow"] = 4, -- not POW actually
 		--["isRadial"] = true,
 		["isLinear"] = true,
-		--["isSourcePlayer"] = false,
+		["isSourcePlayer"] = true,
 		["isDestRaid"] = true,
 		["thresh"] = 10000,
 		["isHealsPlayer"] = true,
-		--["cone"] = 360,
-		--["checkCd"] = false,
+		--["cone"] = 15,
+		["checkCd"] = true,
 		["time"] = select(7, GetSpellInfo(VUHDO_SPELL_ID_CB)) or 0,
 	},
 };
@@ -240,7 +240,7 @@ function VUHDO_aoeUpdateSpellAverages()
 
 	for tName, tInfo in pairs(VUHDO_AOE_SPELLS) do
 		if "cb" == tName then
-			tInfo["avg"] = 32800; -- @TODO
+			tInfo["avg"] = 80000; -- @TODO
 		else
 			tSpellModi = tInfo["base"] / tInfo["divisor"];
 			tInfo["avg"] = floor((tInfo["base"] + tBonus * tSpellModi) + 0.5);
@@ -374,7 +374,7 @@ local function VUHDO_getBestUnitForAoeGroup(anAoeInfo, aPlayerModi, aGroup)
 
 		if tInfo["baseRange"] then
 			if tIsLinear then
-				VUHDO_getUnitsInLinearCluster(tInfo["unit"], tCluster, tRangePow, tMaxTargets, tIsHealsPlayer);
+				VUHDO_getUnitsInLinearCluster(tInfo["unit"], tCluster, tRangePow, tMaxTargets, tIsHealsPlayer, tCdSpell);
 			else
 				VUHDO_getCustomDestCluster(tInfo["unit"], tCluster,
 					tIsSourcePlayer, tIsRadial, tRangePow,

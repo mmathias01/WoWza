@@ -1,3 +1,13 @@
+v2.3.1
+* Added /tsm gatherreset to reset gathering frame position
+
+v2.3
+*Added caching to the retrieval of mat item links to greatly speed up opening of professions.
+*Fixed gathering shopping search if no auctions found for item (prints to chat).
+*Fixed an error with manually clicking gathering item for shopping search and no auctions found.
+*Fixed incorrect mailing task quantiies.
+*Added checkbox to gathering window to disable destroying search at AH
+
 v2.2.3
 *Fixed bug with localization.
 

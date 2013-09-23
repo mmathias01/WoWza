@@ -5,9 +5,9 @@ VUHDO_COMBO_MAX_ENTRIES = 10000;
 local floor = floor;
 local mod = mod;
 local tonumber = tonumber;
-local strlen = strlen;
 local strsub = strsub;
 local pairs = pairs;
+local format = format;
 local GetLocale = GetLocale;
 local InCombatLockdown = InCombatLockdown;
 local UnitExists = UnitExists;
@@ -16,7 +16,7 @@ local sIsManaBar;
 local sIsSideBarLeft;
 local sIsSideBarRight;
 local sShowPanels;
-local sHideEmptyAndClickThrough;
+local sIsHideEmptyAndClickThrough;
 local sEmpty = { };
 
 local VUHDO_LibSharedMedia;
@@ -31,7 +31,7 @@ local VUHDO_getUnitButtonsSafe;
 local VUHDO_CONFIG = { };
 local VUHDO_PANEL_SETUP = { };
 local VUHDO_USER_CLASS_COLORS = { };
-function VUHDO_guiToolboxInitBurst()
+function VUHDO_guiToolboxInitLocalOverrides()
 	--VUHDO_getNumbersFromString = _G["VUHDO_getNumbersFromString"];
 
 	VUHDO_CONFIG = _G["VUHDO_CONFIG"];
@@ -47,7 +47,7 @@ function VUHDO_guiToolboxInitBurst()
 	sIsSideBarLeft = VUHDO_INDICATOR_CONFIG["BOUQUETS"]["SIDE_LEFT"] ~= "";
 	sIsSideBarRight = VUHDO_INDICATOR_CONFIG["BOUQUETS"]["SIDE_RIGHT"] ~= "";
 	sShowPanels = VUHDO_CONFIG["SHOW_PANELS"];
-	sHideEmptyAndClickThrough = VUHDO_CONFIG["HIDE_EMPTY_BUTTONS"]
+	sIsHideEmptyAndClickThrough = VUHDO_CONFIG["HIDE_EMPTY_BUTTONS"]
 		and VUHDO_CONFIG["HIDE_EMPTY_PANELS"]
 		and VUHDO_CONFIG["LOCK_CLICKS_THROUGH"];
 end
@@ -66,10 +66,12 @@ local VUHDO_isConfigPanelShowing = VUHDO_isConfigPanelShowing;
 --
 local tUnit;
 local function VUHDO_hasPanelVisibleButtons(aPanelNum)
-	if (not sShowPanels or not VUHDO_IS_SHOWN_BY_GROUP) then
+	if not sShowPanels or not VUHDO_IS_SHOWN_BY_GROUP then
 		return false;
-	elseif (not sHideEmptyAndClickThrough or VUHDO_isConfigPanelShowing()) then
+
+	elseif not sIsHideEmptyAndClickThrough or VUHDO_isConfigPanelShowing() then
 		return true;
+
 	else
 		for _, tButton in pairs(VUHDO_getPanelButtons(aPanelNum)) do
 			tUnit = tButton:GetAttribute("unit");
@@ -454,7 +456,7 @@ end
 
 --
 local function VUHDO_showBlizzRaid()
-	VUHDO_registerOriginalEvents(VUHDO_GROUP_TYPE_SOLO  ~= VUHDO_getCurrentGroupType(), CompactRaidFrameContainer);
+	VUHDO_registerOriginalEvents(VUHDO_GROUP_TYPE_SOLO ~= VUHDO_getCurrentGroupType(), CompactRaidFrameContainer);
 end
 
 

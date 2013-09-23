@@ -9,5 +9,5 @@ AtlasLootCharDB = {
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
-	["AtlasLootVersion"] = "70700",
+	["AtlasLootVersion"] = "70701",
 }

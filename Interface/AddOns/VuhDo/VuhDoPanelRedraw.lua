@@ -40,7 +40,7 @@ local VUHDO_getFont;
 local VUHDO_getHealthBar;
 
 --
-function VUHDO_panelRedrawInitBurst()
+function VUHDO_panelRedrawInitLocalOverrides()
 	VUHDO_CONFIG = _G["VUHDO_CONFIG"];
 	VUHDO_INDICATOR_CONFIG = _G["VUHDO_INDICATOR_CONFIG"];
 	sIsManaBouquet = VUHDO_INDICATOR_CONFIG["BOUQUETS"]["MANA_BAR"] ~= "";
@@ -48,9 +48,9 @@ function VUHDO_panelRedrawInitBurst()
 	VUHDO_getFont = _G["VUHDO_getFont"];
 	VUHDO_getHealthBar = _G["VUHDO_getHealthBar"];
 
-	VUHDO_panelRedrawCustomDebuffsInitBurst();
-	VUHDO_panelRedrawHeadersInitBurst();
-	VUHDO_panelRedrawHotsInitBurst();
+	VUHDO_panelRedrawCustomDebuffsInitLocalOverrides();
+	VUHDO_panelRedrawHeadersInitLocalOverrides();
+	VUHDO_panelRedrawHotsInitLocalOverrides();
 end
 
 

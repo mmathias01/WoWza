@@ -1,4 +1,4 @@
-local _ = _;
+--local _ = _;
 local pairs = pairs;
 
 
@@ -6,7 +6,7 @@ local pairs = pairs;
 
 local VUHDO_RAID;
 
-function VUHDO_textProviderHandlersInitBurst()
+function VUHDO_textProviderHandlersInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 end
 
@@ -15,16 +15,15 @@ end
 --
 VUHDO_TEXT_PROVIDER_COMBO_MODEL = { };
 local VUHDO_REGISTERED_PROVIDERS = { };
+setmetatable(VUHDO_REGISTERED_PROVIDERS, VUHDO_META_NEW_ARRAY);
 local VUHDO_TEXT_INDICATOR_PANEL_NUMS = { };
-local VUHDO_INTERESTED_PROVIDERS = { }
+local VUHDO_INTERESTED_PROVIDERS = { };
+setmetatable(VUHDO_INTERESTED_PROVIDERS, VUHDO_META_NEW_ARRAY);
 
 
 
 --
 local function VUHDO_isTextProviderInterestedInEvent(aProviderName, anEventType)
-	if not VUHDO_INTERESTED_PROVIDERS[aProviderName] then
-		VUHDO_INTERESTED_PROVIDERS[aProviderName] = { };
-	end
 
 	if not VUHDO_INTERESTED_PROVIDERS[aProviderName][anEventType] then
 		VUHDO_INTERESTED_PROVIDERS[aProviderName][anEventType] =
@@ -91,10 +90,6 @@ local function VUHDO_registerIndicatorForProvider(aProviderName, anIndicatorId, 
 	if VUHDO_strempty(aProviderName)
 		or (aPanelNum > 0 and not VUHDO_isPanelPopulated(aPanelNum)) then
 		return;
-	end
-
-	if not VUHDO_REGISTERED_PROVIDERS[aProviderName] then
-		VUHDO_REGISTERED_PROVIDERS[aProviderName] = { };
 	end
 
 	VUHDO_REGISTERED_PROVIDERS[aProviderName][anIndicatorId] = aFunction;

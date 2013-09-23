@@ -128,5 +128,5 @@ L["Options"] = "Einstellungen"
 -- L["% Vendor Price"] = ""
 -- L["Vendor Search Profit: %s"] = ""
 -- L["What to set the default undercut to when posting items with Shopping."] = ""
--- L["When in destroy mode, you simply enter a target item (ink/pigment, enchanting mat, gem, etc) into the search box to search for everything you can destroy to get that item."] = ""
--- L["When in normal mode, you may run simple and filtered searches of the auction house."] = ""
+L["When in destroy mode, you simply enter a target item (ink/pigment, enchanting mat, gem, etc) into the search box to search for everything you can destroy to get that item."] = "Im Zerstörenmodus, gibst du einfach einen Zielgegenstand (Tinte/Pigment, Verzaubermaterial, Edelstein, etc) in das Suchfeld ein um alle Gegenstände zu erhalten, die bei Zerstörung den Zielgegenstand enthalten." -- Needs review
+L["When in normal mode, you may run simple and filtered searches of the auction house."] = "Im Normalmodus, kannst du einfache oder gefilterte Suchen des Auktionshauses durchführen." -- Needs review

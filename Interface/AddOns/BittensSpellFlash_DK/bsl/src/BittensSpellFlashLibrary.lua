@@ -1,7 +1,7 @@
 local g = BittensGlobalTables
 local c = g.GetOrMakeTable("BittensSpellFlashLibrary", 2)
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "MainFile", 34) then
+if u.SkipOrUpgrade(c, "MainFile", 38) then
 	return
 end
 
@@ -17,6 +17,7 @@ local GetTotemInfo = GetTotemInfo
 local IsInRaid = IsInRaid
 local IsItemInRange = IsItemInRange
 local IsMounted = IsMounted
+local GetSpellCharges = GetSpellCharges
 local UnitGetIncomingHeals = UnitGetIncomingHeals
 local UnitIsDeadOrGhost = UnitIsDeadOrGhost
 local UnitGroupRolesAssigned = UnitGroupRolesAssigned
@@ -287,6 +288,25 @@ function c.GetMinCooldown(...)
 	return min, minName
 end
 
+-- returns (number-of-charges, time-until-next-charge, time-until-max-charges)
+function c.GetChargeInfo(name, noGCD)
+	local charges, max, start, duration = GetSpellCharges(c.GetID(name))
+	local untilNext = start + duration - GetTime()
+	local busy = c.GetBusyTime(noGCD)
+	if untilNext <= busy then
+		charges = charges + 1
+		untilNext = untilNext + duration
+	end
+	if c.IsCasting(name) then
+		charges = charges - 1
+	end
+	if charges == max then
+		return charges, 9001, 0
+	else
+		return charges, untilNext, untilNext + duration * (max - charges - 1)
+	end
+end
+
 function c.GetIDs(...)
 	local ids = {}
 	for i = 1, select("#", ...) do
@@ -391,102 +411,144 @@ function c.HasGlyph(name)
 	end
 end
 
-function c.GetCastTime(spellName)
-	return s.CastTime(s.SpellName(c.GetID(spellName)))
+function c.GetCastTime(name)
+	return s.CastTime(s.SpellName(c.GetID(name)))
 end
 
-function c.GetCost(spellName)
-	return s.SpellCost(s.SpellName(c.GetID(spellName)))
+function c.GetCost(name)
+	return s.SpellCost(s.SpellName(c.GetID(name)))
 end
 
-local fullChannels = {}
+local fullChannels = { }
+local channelBuffs = { }
+function c.RegisterForFullChannels(name, unhastedChannelTime, channelViaBuff)
+	local id = c.GetID(name)
+	fullChannels[s.SpellName(id)] = unhastedChannelTime
+	if channelViaBuff then
+		channelBuffs[id] = true
+	end
+end
 
-function c.RegisterForFullChannels(name, unhastedChannelTime)
-	fullChannels[s.SpellName(c.GetID(name))] = unhastedChannelTime
+function c.RegisterBusyDuringBuff(name, unhastedChannelTime)
+	c.RegisterForFullChannels(name, unhastedChannelTime)
+end
+
+local function getChannelTimeRemaining()
+	local remaining = 0
+	if fullChannels[s.ChannelingName(nil, "player")] then
+		remaining = s.GetChanneling(nil, "player")
+	end
+	for buff in u.Keys(channelBuffs) do
+		remaining = math.max(remaining, s.BuffDuration(buff, "player"))
+	end
+	return remaining
+end
+
+local function getCastFinish(info)
+	return info.CastStart + s.CastTime(info.Name)
+end
+
+local function getChannelFinish(info)
+	local time = fullChannels[info.Name]
+	if time then
+		time = c.GetHastedTime(time)
+	else
+		time = 0
+	end
+	return info.CastStart + time
+end
+
+local function getGcdFinish(info)
+	local nextGcd = c.A.SpecialGCDs[info.Name]
+	if nextGcd == nil then
+		nextGcd = c.LastGCD
+	elseif nextGcd == "hasted" then
+		nextGcd = math.max(1, c.GetHastedTime(1.5))
+	end
+	return info.GCDStart + nextGcd
 end
 
 function c.GetBusyTime(noGCD)
+	local busy = 0
 	local info = c.GetQueuedInfo()
-	local gcd, _ = s.GlobalCooldown()
 	if info then
-		local castTime = fullChannels[info.Name]
-		if castTime ~= nil then
-			castTime = c.GetHastedTime(castTime)
-		else
-			castTime = s.CastTime(info.Name)
+		busy = math.max(getCastFinish(info), getChannelFinish(info))
+		if not noGCD then
+			busy = math.max(busy, getGcdFinish(info))
 		end
-		if noGCD then
-			return math.max(0, info.CastStart + castTime - GetTime())
-		else
-			local nextGcd = c.A.SpecialGCDs[info.Name]
-			if nextGcd == nil then
-				nextGcd = c.LastGCD
-			elseif nextGcd == "hasted" then
-				nextGcd = math.max(1, c.GetHastedTime(1.5))
-			end
---c.Debug("GetBusyTime", gcd, nextGcd, castTime)
-			return math.max(
-				gcd,
-				math.max(
-						info.GCDStart + nextGcd, info.CastStart + castTime)
-					- GetTime())
+		busy = math.max(0, busy - GetTime())
+	end
+	if not noGCD then
+		local gcd = s.GlobalCooldown()
+		busy = math.max(busy, gcd)
+	end
+	return math.max(
+		s.GetCasting(nil, "player"), getChannelTimeRemaining(), busy)
+end
+
+local function advancePowerCalc(t, power, newT, regen, max, info, powerType)
+	if newT > t then
+		power = math.min(max, power + regen * (newT - t))
+		t = newT
+	end
+	if info then
+		local cost = info.Cost[powerType]
+		if not cost then
+			cost = s.SpellCost(info.Name, powerType)
 		end
+		power = math.min(max, power - cost)
 	end
-	
-	local remaining
-	if fullChannels[s.ChannelingName(nil, "player")] then
-		remaining = s.GetChanneling(nil, "player")
-	else
-		remaining = s.GetCasting(nil, "player")
-	end
-	if noGCD then
-		return remaining
-	else
-		return math.max(remaining, gcd)
-	end
+	return t, power
 end
 
 -- If you supply a powerType it will not consider any currently casting spell.
 -- But that should be OK, since I can only think of instant cast spells that use
 -- secondary power.
 function c.GetPower(regen, powerType)
-	local power = UnitPower("player", powerType)
-	local max = UnitPowerMax("player", powerType)
-	local t = GetTime()
-	local busy = s.GetCastingOrChanneling(nil, "player")
 	if not regen then
 		regen = select(2, GetPowerRegen())
 	end
-	
---c.Debug("Lib", power, "--------")
-	local info = c.GetCastingInfo()
-	if info and (not powerType or powerType == UnitPowerType("player")) then
-		power = math.min(max, power + busy * regen)
-		power = math.min(max, power - info.Cost)
-		t = t + busy
---c.Debug("Lib", power, info.Name, "cast", busy)
+	if not powerType then
+		powerType = UnitPowerType("player")
 	end
 	
-	info = c.GetQueuedInfo()
-	if info then
-		local castTime = s.CastTime(info.Name)
-		local busy = castTime + (info.CastStart - t)
-		power = math.min(max, power + busy * regen)
-		power = math.min(
-			max, power - (info.Cost or s.SpellCost(info.Name, powerType)))
-		t = t + busy
---c.Debug("Lib", power, info.Name, "queue", busy)
-		
-		busy = math.max(0, info.GCDStart + c.LastGCD - t)
-		power = math.min(max, power + busy * regen)
---c.Debug("Lib", power, "gcd", busy)
-	else
-		local gcd = s.GlobalCooldown()
-		busy = math.max(0, gcd - busy)
-		power = math.min(max, power + busy * regen)
---c.Debug("Lib", power, "gcd", busy)
+	local t = GetTime()
+	local power = UnitPower("player", powerType)
+	local max = UnitPowerMax("player", powerType)
+--c.Debug("GetPower", power, "initial")
+	
+	-- current cast
+	t, power = advancePowerCalc(
+		t, power,
+		GetTime() + s.GetCasting(nil, "player"), regen, max, 
+		c.GetCastingInfo(), powerType)
+--c.Debug("GetPower", power, "After Current Cast")
+	t, power = advancePowerCalc(
+		t, power, GetTime() + getChannelTimeRemaining(), regen, max)
+--c.Debug("GetPower", power, "After Current Channel")
+	
+	-- queued cast
+	local queued = c.GetQueuedInfo()
+	if queued then
+		t, power = advancePowerCalc(
+			t, power, getCastFinish(queued), regen, max, queued, powerType)
+--c.Debug("GetPower", power, "After Queued Cast")
+		t, power = advancePowerCalc(
+			t, power, getChannelFinish(queued), regen, max)
+--c.Debug("GetPower", power, "After Queued Channel")
+		t, power = advancePowerCalc(t, power, getGcdFinish(queued), regen, max)
+--c.Debug("GetPower", power, "After Queued GCD")
 	end
+	
+	-- current gcd
+	t, power = advancePowerCalc(
+		t, power, GetTime() + s.GlobalCooldown(), regen, max)
+--c.Debug("GetPower", power, "After Current GCD")
 	return power
+end
+
+function c.GetPowerPercent()
+	return c.GetPower() / UnitPowerMax("player") * 100
 end
 
 local function convertToIDs(attributes, key, ...)
@@ -685,6 +747,7 @@ local function delayFlash(spell, delay, minDelay, rotation)
 	if minDelay > 0 or delay + (spell.WhiteFlashOffset or 0) > 0 then
 --c.Debug("delayFlash", s.SpellName(spell.ID), delay, minDelay, "green")
 		s.Flash(spell.FlashID or spell.ID, "green", s.FlashSizePercent() / 2)
+		return true
 	else
 --c.Debug("delayFlash", s.SpellName(spell.ID), delay, minDelay, "white")
 		s.Flash(
@@ -750,16 +813,15 @@ function c.DelayPriorityFlash(...)
 		end
 	end
 	if nextSpell then
-		delayFlash(nextSpell, nextDelay, nextSpellMinDelay, rotation)
-		
 		if rotation.ExtraDebugInfo then
 			c.Debug("Flash", 
 				rotation.ExtraDebugInfo(), nextSpellName, nextDelay)
 		else
 			c.Debug("Flash", nextSpellName, nextDelay)
 		end
+		return nextSpellName, 
+			delayFlash(nextSpell, nextDelay, nextSpellMinDelay, rotation)
 	end
-	return nextSpellName
 end
 
 function c.FlashAll(...)

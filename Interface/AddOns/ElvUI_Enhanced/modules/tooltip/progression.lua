@@ -119,12 +119,18 @@ hooksecurefunc(TT, 'ShowInspectInfo', function(self, tt, unit, level, r, g, b, n
 	if not (unit and CanInspect(unit)) then return end
 	
 	local guid = UnitGUID(unit)
-	
 	if not progressCache[guid] or (GetTime() - progressCache[guid].timer) > 600 then
 		if guid == playerGUID then
 			UpdateProgression(guid)
 		else
-			ClearAchievementComparisonUnit()
+			ClearAchievementComparisonUnit()		
+			if not self.loadedComparison and select(2, IsAddOnLoaded("Blizzard_AchievementUI")) then
+				AchievementFrame_DisplayComparison(unit)
+				HideUIPanel(AchievementFrame)
+				ClearAchievementComparisonUnit()
+				self.loadedComparison = true
+			end
+			
 			self.compareGUID = guid
 			if SetAchievementComparisonUnit(unit) then
 				self:RegisterEvent("INSPECT_ACHIEVEMENT_READY")

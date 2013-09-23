@@ -40,7 +40,7 @@ TSM.designDefaults = {
 		category = { 36, 106, 36, 1 },
 		category2 = { 85, 180, 8, 1 },
 		tooltip = { 130, 130, 250, 1 },
-		advanced = {  255, 30, 0, 1 },
+		advanced = { 255, 30, 0, 1 },
 	},
 	edgeSize = 1.5,
 	fonts = {
@@ -64,6 +64,7 @@ local savedDBDefaults = {
 		bankUITab = "Warehousing",
 		chatFrame = "",
 		infoMessage = 1000,
+		bankUIframeScale = 1,
 	},
 	profile = {
 		minimapIcon = {
@@ -112,6 +113,8 @@ local savedDBDefaults = {
 		characters = {},
 		syncAccounts = {},
 		numPagesCache = {},
+		bankUIBankFramePosition = {100, 300},
+		bankUIGBankFramePosition = {100, 300},
 	},
 }
 
@@ -143,7 +146,7 @@ function TSM:OnInitialize()
 	TSM.db.factionrealm.accountKey = TSM.db.factionrealm.accountKey or (GetRealmName() .. random(time()))
 	-- add this character to the list of characters on this realm
 	TSM.db.factionrealm.characters[UnitName("player")] = true
-	
+
 	if not TSM.db.profile.design then
 		TSM:LoadDefaultDesign()
 	end
@@ -188,7 +191,7 @@ function TSM:OnInitialize()
 
 	-- create the main TSM frame
 	TSM:CreateMainFrame()
-	
+
 	-- fix any items with spaces in them
 	for itemString, groupPath in pairs(TSM.db.profile.items) do
 		if strfind(itemString, " ") then
@@ -250,6 +253,7 @@ function TSM:RegisterModule()
 		{ key = "version", label = L["Prints out the version numbers of all installed modules"], callback = function() TSM:Print(L["TSM Version Info:"]) for _, module in ipairs(TSM.Modules:GetInfo()) do print(module.name, "|cff99ffff" .. module.version .. "|r") end end },
 		{ key = "freset", label = L["Resets the position of the main TSM frame to the center of the screen"], callback = function() TSM.Frame.frame:ClearAllPoints() TSM.Frame.frame:SetPoint("CENTER", UIParent, "CENTER") TSM.Frame:SetWidth(823) TSM.Frame:SetHeight(686) TSM.Frame.frame:SetWidth(823) TSM.Frame.frame:SetHeight(686) end },
 		{ key = "bankui", label = L["Toggles the bankui"], callback = "toggleBankUI" },
+		{ key = "bankuireset", label = L["Resets the position of the BankUI frame."], callback = "ResetBankUIFramePosition"},
 		{ key = "sources", label = L["Prints out the available price sources for use in custom price boxes."], callback = "PrintPriceSources" },
 		{ key = "price", label = L["Allows for testing of custom prices."], callback = "TestPriceSource" },
 	}
@@ -333,6 +337,31 @@ function TSM:GetTooltip(itemString, quantity)
 						tinsert(text, { left = "  " .. format(L["Disenchant Value x%s:"], quantity), right = TSMAPI:FormatTextMoney(deValue * quantity, "|cffffffff", true) })
 					else
 						tinsert(text, { left = "  " .. L["Disenchant Value:"], right = TSMAPI:FormatTextMoney(deValue, "|cffffffff", true) })
+					end
+				end
+				local _, itemLink, quality, ilvl, _, iType = TSMAPI:GetSafeItemInfo(itemString)
+				local itemString = TSMAPI:GetItemString(itemLink)
+				local WEAPON, ARMOR = GetAuctionItemClasses()
+
+				for _, data in ipairs(TSMAPI.DisenchantingData.disenchant) do
+					for item, itemData in pairs(data) do
+						if item ~= "desc" and itemData.itemTypes[iType] and itemData.itemTypes[iType][quality] then
+							for _, deData in ipairs(itemData.itemTypes[iType][quality]) do
+								if ilvl >= deData.minItemLevel and ilvl <= deData.maxItemLevel then
+									local matValue = TSM:GetCustomPrice(TSM.db.profile.deValueSource, item)
+									local value = (matValue or 0) * deData.amountOfMats
+									local name, _, matQuality = TSMAPI:GetSafeItemInfo(item)
+									local colorName = format("|c%s%s%s%s|r",select(4,GetItemQualityColor(matQuality)),name, " x ", deData.amountOfMats)
+									if value > 0 then
+										if moneyCoinsTooltip then
+											tinsert(text, { left = "    " .. colorName, right = TSMAPI:FormatTextMoneyIcon(value, "|cffffffff", true) })
+										else
+											tinsert(text, { left = "    " .. colorName, right = TSMAPI:FormatTextMoney(value, "|cffffffff", true) })
+										end
+									end
+								end
+							end
+						end
 					end
 				end
 			end
@@ -451,10 +480,10 @@ end
 
 function TSMAPI:GetChatFrame()
 	local chatFrame = DEFAULT_CHAT_FRAME
-	for i=1, NUM_CHAT_WINDOWS do
+	for i = 1, NUM_CHAT_WINDOWS do
 		local name = strlower(GetChatWindowInfo(i) or "")
 		if name ~= "" and name == strlower(TSM.db.global.chatFrame) then
-			chatFrame = _G["ChatFrame"..i]
+			chatFrame = _G["ChatFrame" .. i]
 			break
 		end
 	end

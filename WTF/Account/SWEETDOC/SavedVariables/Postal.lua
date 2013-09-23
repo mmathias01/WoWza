@@ -32,8 +32,8 @@ Postal3DB = {
 		["Majandra - Dragonblight"] = {
 			["BlackBook"] = {
 				["recent"] = {
-					"Jolokia|Dragonblight|Alliance", -- [1]
-					"Jolobank|Dragonblight|Alliance", -- [2]
+					"Jolobank|Dragonblight|Alliance", -- [1]
+					"Jolokia|Dragonblight|Alliance", -- [2]
 					"Saganredrum|Dragonblight|Alliance", -- [3]
 					"Alpòin|Dragonblight|Alliance", -- [4]
 					"Gunnslave|Dragonblight|Alliance", -- [5]

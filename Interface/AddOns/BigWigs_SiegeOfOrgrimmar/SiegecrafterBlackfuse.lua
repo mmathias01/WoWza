@@ -135,14 +135,14 @@ function mod:Superheated(args)
 	end
 end
 
-function mod:RAID_BOSS_WHISPER(msg, sender)
+function mod:RAID_BOSS_WHISPER(_, msg, sender)
 	if msg:find("Ability_Siege_Engineer_Superheated") then -- laser fixate
 		-- might wanna do syncing to get range message working
 		self:Message(-8208, "Personal", "Info", L.laser_on_you, 144040)
 		self:Flash(-8208)
 		self:Say(-8208, L.laser_say, true)
 	elseif msg:find("Ability_Siege_Engineer_Detonate") then -- mine fixate
-		self:Message(-8212, "Persoanl", "Info", CL["you"]:format(sender))
+		self:Message(-8212, "Personal", "Info", CL["you"]:format(sender))
 		self:Flash(-8212)
 	elseif msg:find("143266") then -- Sawblade
 		-- this is faster than target scanning, hence why we do it

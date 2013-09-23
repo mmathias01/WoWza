@@ -59,10 +59,13 @@ local sMissedEvents = {
 
 
 local VUHDO_SHIELD_LEFT = { };
+setmetatable(VUHDO_SHIELD_LEFT, VUHDO_META_NEW_ARRAY);
 local VUHDO_SHIELD_SIZE = { };
+setmetatable(VUHDO_SHIELD_SIZE, VUHDO_META_NEW_ARRAY);
 local VUHDO_SHIELD_EXPIRY = { };
+setmetatable(VUHDO_SHIELD_EXPIRY, VUHDO_META_NEW_ARRAY);
 local VUHDO_SHIELD_LAST_SOURCE_GUID = { };
-local sEmpty = { };
+setmetatable(VUHDO_SHIELD_LAST_SOURCE_GUID, VUHDO_META_NEW_ARRAY);
 
 
 local VUHDO_PLAYER_SHIELDS = { };
@@ -82,7 +85,7 @@ local GetSpellInfo = GetSpellInfo;
 local VUHDO_PLAYER_GUID = -1;
 local sIsPumpAegis = false;
 local sShowAbsorb = false;
-function VUHDO_shieldAbsorbInitBurst()
+function VUHDO_shieldAbsorbInitLocalOverrides()
 	VUHDO_PLAYER_GUID = UnitGUID("player");
 	sShowAbsorb = VUHDO_PANEL_SETUP["BAR_COLORS"]["HOTS"]["showShieldAbsorb"];
 	sIsPumpAegis = VUHDO_PANEL_SETUP["BAR_COLORS"]["HOTS"]["isPumpDivineAegis"];
@@ -94,10 +97,6 @@ local function VUHDO_initShieldValue(aUnit, aShieldName, anAmount, aDuration)
 	if (anAmount or 0) == 0 then
 		--VUHDO_xMsg("ERROR: Failed to init shield " .. aShieldName .. " on " .. aUnit, anAmount);
 		return;
-	end
-
-	if not VUHDO_SHIELD_LEFT[aUnit] then
-		VUHDO_SHIELD_LEFT[aUnit], VUHDO_SHIELD_SIZE[aUnit], VUHDO_SHIELD_EXPIRY[aUnit], VUHDO_SHIELD_LAST_SOURCE_GUID[aUnit] = {}, {}, {}, {};
 	end
 
 	VUHDO_SHIELD_LEFT[aUnit][aShieldName] = anAmount;
@@ -115,7 +114,7 @@ end
 
 --
 local function VUHDO_updateShieldValue(aUnit, aShieldName, anAmount, aDuration)
-	if not (VUHDO_SHIELD_SIZE[aUnit] or sEmpty)[aShieldName] then
+	if not VUHDO_SHIELD_SIZE[aUnit][aShieldName] then
 		return;
 	end
 
@@ -141,9 +140,7 @@ end
 
 --
 local function VUHDO_removeShield(aUnit, aShieldName)
-	if not (VUHDO_SHIELD_SIZE[aUnit] or sEmpty)[aShieldName] then
-		return;
-	end
+	if not VUHDO_SHIELD_SIZE[aUnit][aShieldName] then return; end
 
 	VUHDO_SHIELD_SIZE[aUnit][aShieldName] = nil;
 	VUHDO_SHIELD_LEFT[aUnit][aShieldName] = nil;
@@ -172,14 +169,14 @@ end
 --
 local tInit, tValue, tSourceGuid;
 function VUHDO_getShieldLeftCount(aUnit, aShield, aMode)
-	tInit = sShowAbsorb and (VUHDO_SHIELD_SIZE[aUnit] or sEmpty)[aShield] or 0;
+	tInit = sShowAbsorb and VUHDO_SHIELD_SIZE[aUnit][aShield] or 0;
 
 	if tInit > 0 then
 		tSourceGuid = VUHDO_SHIELD_LAST_SOURCE_GUID[aUnit][aShield];
 		if aMode == 3 or aMode == 0
 		or (aMode == 1 and tSourceGuid == VUHDO_PLAYER_GUID)
 		or (aMode == 2 and tSourceGuid ~= VUHDO_PLAYER_GUID) then
-			tValue = ceil(4 * ((VUHDO_SHIELD_LEFT[aUnit] or sEmpty)[aShield] or 0) / tInit);
+			tValue = ceil(4 * (VUHDO_SHIELD_LEFT[aUnit][aShield] or 0) / tInit);
 			return tValue > 4 and 4 or tValue;
 		end
 	end
@@ -211,7 +208,7 @@ end
 
 --
 local function VUHDO_getShieldLeftAmount(aUnit, aShieldName)
-	return (VUHDO_SHIELD_LEFT[aUnit] or sEmpty)[aShieldName] or 0;
+	return VUHDO_SHIELD_LEFT[aUnit][aShieldName] or 0;
 end
 
 
@@ -219,10 +216,10 @@ end
 --
 local tInit, tValue;
 function VUHDO_getShieldPerc(aUnit, aShield)
-	tInit = (VUHDO_SHIELD_SIZE[aUnit] or sEmpty)[aShield] or 0;
+	tInit = VUHDO_SHIELD_SIZE[aUnit][aShield] or 0;
 
 	if tInit > 0 then
-		tValue = ceil(100 * ((VUHDO_SHIELD_LEFT[aUnit] or sEmpty)[aShield] or 0) / tInit);
+		tValue = ceil(100 * (VUHDO_SHIELD_LEFT[aUnit][aShield] or 0) / tInit);
 		return tValue > 100 and 100 or tValue;
 	else
 		return 0;

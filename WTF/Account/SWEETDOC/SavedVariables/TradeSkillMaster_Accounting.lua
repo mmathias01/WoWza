@@ -5,9 +5,11 @@ TradeSkillMaster_AccountingDB = {
 	},
 	["global"] = {
 		["itemStrings"] = {
+			["Noodle Soup"] = "item:101616:0:0:0:0:0:0",
 			["Helix-Breaker Gloves"] = "item:94947:0:0:0:0:0:0",
 			["Dew of Eternal Morning"] = "item:103643:0:0:0:0:0:0",
 			["Banquet of the Grill"] = "item:87226:0:0:0:0:0:0",
+			["Windfeather Plume"] = "item:104287:0:0:0:0:0:0",
 			["Redbelly Mandarin"] = "item:74860:0:0:0:0:0:0",
 			["Yak Gauntlets of the Bandit"] = "item:82243:0:0:0:0:0:-40",
 			["Gleaming-Eye Shoulderpads"] = "item:94801:0:0:0:0:0:0",
@@ -23,6 +25,7 @@ TradeSkillMaster_AccountingDB = {
 			["Helm of the Crackling Conqueror"] = "item:95577:0:0:0:0:0:0",
 			["Eternal Blossom Fish"] = "item:74645:0:0:0:0:0:0",
 			["Jade Squash"] = "item:74847:0:0:0:0:0:0",
+			["Void Crystal"] = "item:22450:0:0:0:0:0:0",
 			["Dusty Old Robot"] = "item:97985:0:0:0:0:0:0",
 			["Flask of the Warm Sun"] = "item:76085:0:0:0:0:0:0",
 			["Enchanting Vellum"] = "item:38682:0:0:0:0:0:0",
@@ -30,19 +33,23 @@ TradeSkillMaster_AccountingDB = {
 			["Pearl Milk Tea"] = "item:81414:0:0:0:0:0:0",
 			["Vial of Swirling Mist"] = "item:81200:0:0:0:0:0:0",
 			["Banquet of the Brew"] = "item:87246:0:0:0:0:0:0",
+			["Empty Polyformic Acid Vial"] = "item:85580:0:0:0:0:0:0",
 			["Imperial Amethyst"] = "item:76141:0:0:0:0:0:0",
 			["Timeless Leather Gloves"] = "item:102279:0:0:0:0:0:0",
 			["Cowl of the Exorcist"] = "item:95296:0:0:0:0:0:0",
+			["Potion of Speed"] = "item:40211:0:0:0:0:0:0",
 			["Kirin Tor Beacon"] = "item:95567:0:0:0:0:0:0",
 			["Legwraps of the Exorcist"] = "item:95927:0:0:0:0:0:0",
 			["Krasarang Paddlefish"] = "item:74865:0:0:0:0:0:0",
 			["Timeless Cloth Armor Cache"] = "item:104013:0:0:0:0:0:0",
+			["Vermilion Onyx"] = "item:76140:0:0:0:0:0:0",
 			["Pink Turnip"] = "item:74849:0:0:0:0:0:0",
 			["Inert Elemental Sphere"] = "item:81202:0:0:0:0:0:0",
 			["Banquet of the Oven"] = "item:87242:0:0:0:0:0:0",
 			["Sharp Fangs"] = "item:81194:0:0:0:0:0:0",
 			["Reef Octopus"] = "item:74864:0:0:0:0:0:0",
 			["River's Heart"] = "item:76138:0:0:0:0:0:0",
+			["Abyss Crystal"] = "item:34057:0:0:0:0:0:0",
 			["Red Blossom Leek"] = "item:74844:0:0:0:0:0:0",
 			["Windwool Cloth"] = "item:72988:0:0:0:0:0:0",
 			["Jade Lungfish"] = "item:74856:0:0:0:0:0:0",
@@ -52,126 +59,162 @@ TradeSkillMaster_AccountingDB = {
 			["Fire Spirit Salmon"] = "item:74652:0:0:0:0:0:0",
 			["Emperor Salmon"] = "item:74859:0:0:0:0:0:0",
 			["Hood of Swirling Senses"] = "item:103751:0:0:0:0:0:0",
+			["Salt-Scored Cleaver"] = "item:90812:0:0:0:0:0:0",
 			["Bejeweled Ring of the Elder"] = "item:82228:0:0:0:0:0:-42",
 			["Raw Tiger Steak"] = "item:74833:0:0:0:0:0:0",
 			["Purified Imperial Amethyst"] = "item:76686:0:0:0:0:0:0",
 			["Raw Crocolisk Belly"] = "item:75014:0:0:0:0:0:0",
 			["Timeless Leather Spaulders"] = "item:102282:0:0:0:0:0:0",
 			["Trembling Stone Shard"] = "item:83156:0:0:0:0:0:0",
+			["Banquet of the Wok"] = "item:87230:0:0:0:0:0:0",
 			["Flask of Spring Blossoms"] = "item:76084:0:0:0:0:0:0",
+			["Enchant Boots - Greater Precision"] = "item:74716:0:0:0:0:0:0",
 			["Black Pepper Ribs and Shrimp"] = "item:74646:0:0:0:0:0:0",
 			["Hood of the Crimson Wake"] = "item:94959:0:0:0:0:0:0",
 			["Pandaren Treasure Noodle Cart Kit"] = "item:101662:0:0:0:0:0:0",
 			["Mogu Pumpkin"] = "item:74842:0:0:0:0:0:0",
+			["Ashen Sack of Gems"] = "item:49294:0:0:0:0:0:0",
+			["Shimmering Wyrmling"] = "item:69992:0:0:0:0:0:0",
+			["Super-Heated Oil"] = "item:100739:0:0:0:0:0:0",
 			["Flask of Winter's Bite"] = "item:76088:0:0:0:0:0:0",
+			["Frostweave Cloth"] = "item:33470:0:0:0:0:0:0",
+			["Great Turtle Meat"] = "item:104265:0:0:0:0:0:0",
+			["Waterfall Cowl of the Seer"] = "item:82250:0:0:0:0:0:-37",
 			["Flask of the Earth"] = "item:76087:0:0:0:0:0:0",
+			["Hardened Resin Pendant"] = "item:87358:0:0:0:0:0:0",
 			["Wildfowl Breast"] = "item:74839:0:0:0:0:0:0",
+			["Rime-Rift Shoulders"] = "item:104717:0:0:0:0:0:0",
 			["Black Pepper"] = "item:74661:0:0:0:0:0:0",
 			["Timeless Curio"] = "item:104347:0:0:0:0:0:0",
+			["Ghost Iron Lockbox"] = "item:88567:0:0:0:0:0:0",
+			["Twisted Treasures of the Vale"] = "item:104275:0:0:0:0:0:0",
 			["Raw Turtle Meat"] = "item:74837:0:0:0:0:0:0",
 			["Red Hot Wings"] = "item:19224:0:0:0:0:0:0",
 			["Epoch Stone"] = "item:105715:0:0:0:0:0:0",
 			["Ro'shak's Remembrance"] = "item:95512:0:0:0:0:0:0",
 			["Timeless Mail Gloves"] = "item:102272:0:0:0:0:0:0",
+			["Immaculate Ring of the Eagle"] = "item:82283:0:0:0:0:0:-6",
 			["Flask of Falling Leaves"] = "item:76086:0:0:0:0:0:0",
+			["Haunting Spirit"] = "item:94289:0:0:0:0:0:0",
+			["Noodle Cart Kit"] = "item:101630:0:0:0:0:0:0",
 			["Waterfall Cowl of the Invoker"] = "item:82250:0:0:0:0:0:-39",
+			["Red Beans"] = "item:85585:0:0:0:0:0:0",
+			["Frost-Worn Plate Pants"] = "item:33417:0:0:0:0:0:0",
+			["Elixir of Weaponry"] = "item:76077:0:0:0:0:0:0",
 			["Twin Fish Platter"] = "item:74655:0:0:0:0:0:0",
+			["Giant Mantis Shrimp"] = "item:74857:0:0:0:0:0:0",
+			["Traveler's Backpack"] = "item:4500:0:0:0:0:0:0",
+			["Fresh-Squeezed Limeade"] = "item:44941:0:0:0:0:0:0",
 			["Healthstone"] = "item:5512:0:0:0:0:0:0",
+			["Flying Tiger Gourami"] = "item:86542:0:0:0:0:0:0",
+			["Timeless Plate Spaulders"] = "item:102268:0:0:0:0:0:0",
+			["Mote of Harmony"] = "item:89112:0:0:0:0:0:0",
 			["Runed Adamantite Rod"] = "item:22462:0:0:0:0:0:0",
+			["Battle Standard of Coordination"] = "item:64399:0:0:0:0:0:0",
 			["Pattern: Celestial Cloth and Its Uses"] = "item:100863:0:0:0:0:0:0",
 			["Unerring Vision of Lei Shen"] = "item:94524:0:0:0:0:0:0",
+			["Swirling Mist Soup"] = "item:74644:0:0:0:0:0:0",
 			["Primal Diamond"] = "item:76132:0:0:0:0:0:0",
 			["Golden Carp"] = "item:74866:0:0:0:0:0:0",
 			["Mushan Ribs"] = "item:74834:0:0:0:0:0:0",
+			["Satchel of Cosmic Mysteries"] = "item:104260:0:0:0:0:0:0",
+			["Banquet of the Steamer"] = "item:87238:0:0:0:0:0:0",
+			["Robes of Static Bursts"] = "item:96381:0:0:0:0:0:0",
 			["Potion of the Jade Serpent"] = "item:76093:0:0:0:0:0:0",
 			["Pandaren Plum Wine"] = "item:81415:0:0:0:0:0:0",
 			["Timeless Cloth Bracers"] = "item:102321:0:0:0:0:0:0",
+			["Timeless Plate Boots"] = "item:102264:0:0:0:0:0:0",
 			["Timeless Cloth Gloves"] = "item:102286:0:0:0:0:0:0",
 			["Master Mana Potion"] = "item:76098:0:0:0:0:0:0",
+			["Azure Shell Bracers"] = "item:96060:0:0:0:0:0:0",
+			["Braised Turtle"] = "item:74649:0:0:0:0:0:0",
 			["Sauteed Carrots"] = "item:74643:0:0:0:0:0:0",
 			["Singing Crystal"] = "item:103641:0:0:0:0:0:0",
 			["Timeless Cloth Leggings"] = "item:102288:0:0:0:0:0:0",
-			["Mogu Fish Stew"] = "item:74650:0:0:0:0:0:0",
-			["Timeless Cloth Spaulders"] = "item:102289:0:0:0:0:0:0",
-			["Charbroiled Tiger Steak"] = "item:74642:0:0:0:0:0:0",
-			["Spirit Dust"] = "item:74249:0:0:0:0:0:0",
-			["Red Bean Bun"] = "item:81408:0:0:0:0:0:0",
-			["White Turnip"] = "item:74850:0:0:0:0:0:0",
+			["Deep Fried Candybar"] = "item:19225:0:0:0:0:0:0",
 			["Skewered Peanut Chicken"] = "item:81413:0:0:0:0:0:0",
-			["Noodle Cart Kit"] = "item:101630:0:0:0:0:0:0",
+			["Raw Crab Meat"] = "item:74838:0:0:0:0:0:0",
+			["Shining Spellthread"] = "item:41601:0:0:0:0:0:0",
+			["Charbroiled Tiger Steak"] = "item:74642:0:0:0:0:0:0",
+			["Tome of the Clear Mind"] = "item:79249:0:0:0:0:0:0",
+			["Red Bean Bun"] = "item:81408:0:0:0:0:0:0",
+			["Timeless Cloth Spaulders"] = "item:102289:0:0:0:0:0:0",
+			["White Turnip"] = "item:74850:0:0:0:0:0:0",
+			["Mysterious Essence"] = "item:74250:0:0:0:0:0:0",
+			["Mogu Fish Stew"] = "item:74650:0:0:0:0:0:0",
 			["G91 Landshark"] = "item:77589:0:0:0:0:0:0",
 			["Leggings of Pulsing Blood"] = "item:94923:0:0:0:0:0:0",
 			["Mad Brewer's Breakfast"] = "item:75038:0:0:0:0:0:0",
-			["Ghost Iron Lockbox"] = "item:88567:0:0:0:0:0:0",
-			["Swirling Mist Soup"] = "item:74644:0:0:0:0:0:0",
-			["Deep Fried Candybar"] = "item:19225:0:0:0:0:0:0",
 			["Kyparite"] = "item:72093:0:0:0:0:0:0",
+			["Small Ethereal Shard"] = "item:74252:0:0:0:0:0:0",
 			["Chun Tian Spring Rolls"] = "item:74656:0:0:0:0:0:0",
-			["Sea Mist Rice Noodles"] = "item:74648:0:0:0:0:0:0",
+			["Jewel Danio"] = "item:74863:0:0:0:0:0:0",
+			["Timeless Mail Belt"] = "item:102276:0:0:0:0:0:0",
+			["Rime of the Time-Lost Mariner"] = "item:104294:0:0:0:0:0:0",
 			["Lightningweaver Gauntlets"] = "item:94737:0:0:0:0:0:0",
-			["Giant Mantis Shrimp"] = "item:74857:0:0:0:0:0:0",
-			["Fresh-Squeezed Limeade"] = "item:44941:0:0:0:0:0:0",
-			["Rice Flour"] = "item:74662:0:0:0:0:0:0",
-			["Timeless Plate Spaulders"] = "item:102268:0:0:0:0:0:0",
-			["Battle Standard of Coordination"] = "item:64399:0:0:0:0:0:0",
-			["Banquet of the Wok"] = "item:87230:0:0:0:0:0:0",
+			["Ginseng Tea"] = "item:75026:0:0:0:0:0:0",
+			["Deathclaw Imprint"] = "item:90548:0:0:0:0:0:0",
+			["Timeless Cloth Robes"] = "item:102284:0:0:0:0:0:0",
+			["Exotic Leather"] = "item:72120:0:0:0:0:0:0",
+			["Robes of the Moon Lotus"] = "item:94977:0:0:0:0:0:0",
+			["Shabby Gloves"] = "item:90764:0:0:0:0:0:0",
 			["Faintly-Glowing Herb"] = "item:104289:0:0:0:0:0:0",
-			["Witchberries"] = "item:74846:0:0:0:0:0:0",
-			["Orb of Arcing Lightning"] = "item:94965:0:0:0:0:0:0",
-			["Timeless Plate Boots"] = "item:102264:0:0:0:0:0:0",
+			["Enchant Boots - Pandaren's Step"] = "item:74718:0:0:0:0:0:0",
+			["Rice Flour"] = "item:74662:0:0:0:0:0:0",
+			["Large Prismatic Shard"] = "item:22449:0:0:0:0:0:0",
 			["Crystallized Life"] = "item:37704:0:0:0:0:0:0",
-			["Raw Crab Meat"] = "item:74838:0:0:0:0:0:0",
+			["Green Cabbage"] = "item:74840:0:0:0:0:0:0",
 			["Ginseng"] = "item:74845:0:0:0:0:0:0",
 			["Saddle-Scarred Leggings"] = "item:94966:0:0:0:0:0:0",
 			["Elixir of Perfection"] = "item:76080:0:0:0:0:0:0",
 			["Shrimp Dumplings"] = "item:74651:0:0:0:0:0:0",
 			["Perpetual Leftovers"] = "item:87253:0:0:0:0:0:0",
 			["Wrap of Unity"] = "item:63206:0:0:0:0:0:0",
-			["Rime of the Time-Lost Mariner"] = "item:104294:0:0:0:0:0:0",
-			["Banquet of the Steamer"] = "item:87238:0:0:0:0:0:0",
-			["Robes of Static Bursts"] = "item:94731:0:0:0:0:0:0",
-			["Shining Spellthread"] = "item:41601:0:0:0:0:0:0",
-			["Azure Shell Bracers"] = "item:96060:0:0:0:0:0:0",
-			["Time-Worn Journal"] = "item:103977:0:0:0:0:0:0",
-			["100 Year Soy Sauce"] = "item:74853:0:0:0:0:0:0",
-			["Book of the Ages"] = "item:103642:0:0:0:0:0:0",
-			["Enchant Boots - Greater Precision"] = "item:74716:0:0:0:0:0:0",
-			["Iceweb Spider Silk"] = "item:42253:0:0:0:0:0:0",
-			["Shabby Gloves"] = "item:90764:0:0:0:0:0:0",
-			["Crafted Malevolent Gladiator's Satin Leggings"] = "item:98872:0:0:0:0:0:0",
-			["Ginseng Tea"] = "item:75026:0:0:0:0:0:0",
-			["Mysterious Essence"] = "item:74250:0:0:0:0:0:0",
+			["Timeless Mail Chestpiece"] = "item:102270:0:0:0:0:0:0",
 			["Shattered Golem Fragments"] = "item:93970:0:0:0:0:0:0",
-			["Enchant Boots - Pandaren's Step"] = "item:74718:0:0:0:0:0:0",
+			["Cardinal Ruby"] = "item:36919:0:0:0:0:0:0",
+			["Spirit Dust"] = "item:74249:0:0:0:0:0:0",
+			["Witchberries"] = "item:74846:0:0:0:0:0:0",
+			["Striped Melon"] = "item:74848:0:0:0:0:0:0",
+			["100 Year Soy Sauce"] = "item:74853:0:0:0:0:0:0",
+			["Runic Healing Potion"] = "item:33447:0:0:0:0:0:0",
+			["Bracers of Fragile Bone"] = "item:95762:0:0:0:0:0:0",
+			["Iceweb Spider Silk"] = "item:42253:0:0:0:0:0:0",
+			["Pandaren Treasure Noodle Soup"] = "item:101618:0:0:0:0:0:0",
+			["Mantle of the Exorcist"] = "item:95299:0:0:0:0:0:0",
+			["Enchant Bracer - Mastery"] = "item:74700:0:0:0:0:0:0",
+			["Al'set's Tormented Leggings"] = "item:96379:0:0:0:0:0:0",
+			["Crafted Malevolent Gladiator's Satin Leggings"] = "item:98872:0:0:0:0:0:0",
+			["Book of the Ages"] = "item:103642:0:0:0:0:0:0",
 			["Scallions"] = "item:74843:0:0:0:0:0:0",
 			["Nexus Crystal"] = "item:20725:0:0:0:0:0:0",
-			["Enchant Bracer - Mastery"] = "item:74700:0:0:0:0:0:0",
-			["Red Beans"] = "item:85585:0:0:0:0:0:0",
+			["Orb of Arcing Lightning"] = "item:95786:0:0:0:0:0:0",
+			["Steamed Crab Surprise"] = "item:74653:0:0:0:0:0:0",
 			["Celestial Cloth"] = "item:98619:0:0:0:0:0:0",
-			["Tome of the Clear Mind"] = "item:79249:0:0:0:0:0:0",
-			["Braised Turtle"] = "item:74649:0:0:0:0:0:0",
+			["Wildfowl Roast"] = "item:74654:0:0:0:0:0:0",
+			["Monk's Elixir"] = "item:76083:0:0:0:0:0:0",
 			["Tiger Gourami"] = "item:74861:0:0:0:0:0:0",
 			["Sparkling River's Heart"] = "item:76638:0:0:0:0:0:0",
 			["Peach Pie"] = "item:81411:0:0:0:0:0:0",
 			["Jade Witch Brew"] = "item:75037:0:0:0:0:0:0",
-			["Green Cabbage"] = "item:74840:0:0:0:0:0:0",
+			["Scruffy Cloth Gloves"] = "item:90760:0:0:0:0:0:0",
 			["Bolt of Windwool Cloth"] = "item:82441:0:0:0:0:0:0",
-			["Al'set's Tormented Leggings"] = "item:96379:0:0:0:0:0:0",
-			["Jewel Danio"] = "item:74863:0:0:0:0:0:0",
-			["Robes of the Moon Lotus"] = "item:94977:0:0:0:0:0:0",
+			["Overgrown Lilypad"] = "item:86580:0:0:0:0:0:0",
+			["Shabby Belt"] = "item:90770:0:0:0:0:0:0",
+			["Time-Worn Journal"] = "item:103977:0:0:0:0:0:0",
 			["Fizzy Faire Drink"] = "item:19299:0:0:0:0:0:0",
 			["Mender's Battletags"] = "item:95145:0:0:0:0:0:0",
 			["Damaged Generosity Circuit"] = "item:100738:0:0:0:0:0:0",
-			["Striped Melon"] = "item:74848:0:0:0:0:0:0",
+			["Chilblain Spaulders"] = "item:95740:0:0:0:0:0:0",
 			["Timeless Plate Gloves"] = "item:102265:0:0:0:0:0:0",
-			["Timeless Cloth Robes"] = "item:102284:0:0:0:0:0:0",
-			["Wildfowl Roast"] = "item:74654:0:0:0:0:0:0",
-			["Exotic Leather"] = "item:72120:0:0:0:0:0:0",
+			["Dingy Plate Belt"] = "item:90747:0:0:0:0:0:0",
+			["Sea Mist Rice Noodles"] = "item:74648:0:0:0:0:0:0",
+			["Runic Mana Potion"] = "item:33448:0:0:0:0:0:0",
 			["Sha Crystal"] = "item:74248:0:0:0:0:0:0",
-			["Small Ethereal Shard"] = "item:74252:0:0:0:0:0:0",
+			["Greater Crane Wing Inscription"] = "item:87559:0:0:0:0:0:0",
 			["Juicycrunch Carrot"] = "item:74841:0:0:0:0:0:0",
 			["Timeless Cloth Helm"] = "item:102287:0:0:0:0:0:0",
-			["Steamed Crab Surprise"] = "item:74653:0:0:0:0:0:0",
+			["Spirit of Harmony"] = "item:76061:0:0:0:0:0:0",
 		},
 	},
 	["factionrealm"] = {
@@ -1530,16 +1573,866 @@ TradeSkillMaster_AccountingDB = {
 						["startMinute"] = 22988670,
 					}, -- [270]
 					{
-						["endMinute"] = 22989583,
+						["endMinute"] = 22989900,
 						["copper"] = 9791200,
 						["startMinute"] = 22988675,
 					}, -- [271]
+					{
+						["startMinute"] = 22989901,
+						["copper"] = 9792077,
+						["endMinute"] = 22989904,
+					}, -- [272]
+					{
+						["startMinute"] = 22989905,
+						["copper"] = 9792581,
+						["endMinute"] = 22989907,
+					}, -- [273]
+					{
+						["startMinute"] = 22989908,
+						["copper"] = 10545677,
+						["endMinute"] = 22989911,
+					}, -- [274]
+					{
+						["startMinute"] = 22989912,
+						["copper"] = 10553285,
+						["endMinute"] = 22989923,
+					}, -- [275]
+					{
+						["startMinute"] = 22989924,
+						["copper"] = 10800485,
+						["endMinute"] = 22989924,
+					}, -- [276]
+					{
+						["startMinute"] = 22989925,
+						["copper"] = 10963256,
+						["endMinute"] = 22989929,
+					}, -- [277]
+					{
+						["startMinute"] = 22989930,
+						["copper"] = 10964635,
+						["endMinute"] = 22989930,
+					}, -- [278]
+					{
+						["startMinute"] = 22989931,
+						["copper"] = 11056102,
+						["endMinute"] = 22989931,
+					}, -- [279]
+					{
+						["startMinute"] = 22989932,
+						["copper"] = 11063671,
+						["endMinute"] = 22989933,
+					}, -- [280]
+					{
+						["startMinute"] = 22989934,
+						["copper"] = 11155333,
+						["endMinute"] = 22989935,
+					}, -- [281]
+					{
+						["startMinute"] = 22989936,
+						["copper"] = 11242356,
+						["endMinute"] = 22989937,
+					}, -- [282]
+					{
+						["startMinute"] = 22989938,
+						["copper"] = 11606690,
+						["endMinute"] = 22989941,
+					}, -- [283]
+					{
+						["startMinute"] = 22989942,
+						["copper"] = 11709959,
+						["endMinute"] = 22989942,
+					}, -- [284]
+					{
+						["startMinute"] = 22989943,
+						["copper"] = 11804192,
+						["endMinute"] = 22989946,
+					}, -- [285]
+					{
+						["startMinute"] = 22989947,
+						["copper"] = 12161348,
+						["endMinute"] = 22989949,
+					}, -- [286]
+					{
+						["startMinute"] = 22989950,
+						["copper"] = 12258024,
+						["endMinute"] = 22989951,
+					}, -- [287]
+					{
+						["startMinute"] = 22989952,
+						["copper"] = 12260256,
+						["endMinute"] = 22989952,
+					}, -- [288]
+					{
+						["startMinute"] = 22989953,
+						["copper"] = 12350022,
+						["endMinute"] = 22989953,
+					}, -- [289]
+					{
+						["startMinute"] = 22989954,
+						["copper"] = 12359038,
+						["endMinute"] = 22989954,
+					}, -- [290]
+					{
+						["startMinute"] = 22989955,
+						["copper"] = 12473957,
+						["endMinute"] = 22989955,
+					}, -- [291]
+					{
+						["startMinute"] = 22989956,
+						["copper"] = 12495204,
+						["endMinute"] = 22989956,
+					}, -- [292]
+					{
+						["startMinute"] = 22989957,
+						["copper"] = 12575704,
+						["endMinute"] = 22989957,
+					}, -- [293]
+					{
+						["startMinute"] = 22989958,
+						["copper"] = 12596569,
+						["endMinute"] = 22989958,
+					}, -- [294]
+					{
+						["startMinute"] = 22989959,
+						["copper"] = 12611630,
+						["endMinute"] = 22989959,
+					}, -- [295]
+					{
+						["startMinute"] = 22989960,
+						["copper"] = 12964993,
+						["endMinute"] = 22989964,
+					}, -- [296]
+					{
+						["startMinute"] = 22989965,
+						["copper"] = 13057960,
+						["endMinute"] = 22989965,
+					}, -- [297]
+					{
+						["startMinute"] = 22989966,
+						["copper"] = 13064749,
+						["endMinute"] = 22989970,
+					}, -- [298]
+					{
+						["startMinute"] = 22989971,
+						["copper"] = 13149092,
+						["endMinute"] = 22989972,
+					}, -- [299]
+					{
+						["startMinute"] = 22989973,
+						["copper"] = 13149831,
+						["endMinute"] = 22989973,
+					}, -- [300]
+					{
+						["startMinute"] = 22989974,
+						["copper"] = 13177717,
+						["endMinute"] = 22989974,
+					}, -- [301]
+					{
+						["startMinute"] = 22989975,
+						["copper"] = 13306474,
+						["endMinute"] = 22989975,
+					}, -- [302]
+					{
+						["startMinute"] = 22989976,
+						["copper"] = 13319381,
+						["endMinute"] = 22989977,
+					}, -- [303]
+					{
+						["startMinute"] = 22989978,
+						["copper"] = 13668163,
+						["endMinute"] = 22989978,
+					}, -- [304]
+					{
+						["startMinute"] = 22989979,
+						["copper"] = 14128090,
+						["endMinute"] = 22989981,
+					}, -- [305]
+					{
+						["startMinute"] = 22989982,
+						["copper"] = 14172402,
+						["endMinute"] = 22989984,
+					}, -- [306]
+					{
+						["startMinute"] = 22989985,
+						["copper"] = 14178400,
+						["endMinute"] = 22989987,
+					}, -- [307]
+					{
+						["startMinute"] = 22989988,
+						["copper"] = 14279013,
+						["endMinute"] = 22989988,
+					}, -- [308]
+					{
+						["startMinute"] = 22989989,
+						["copper"] = 14363263,
+						["endMinute"] = 22989990,
+					}, -- [309]
+					{
+						["startMinute"] = 22989991,
+						["copper"] = 14444995,
+						["endMinute"] = 22989992,
+					}, -- [310]
+					{
+						["startMinute"] = 22989993,
+						["copper"] = 14788811,
+						["endMinute"] = 22989997,
+					}, -- [311]
+					{
+						["startMinute"] = 22989998,
+						["copper"] = 14891997,
+						["endMinute"] = 22989998,
+					}, -- [312]
+					{
+						["startMinute"] = 22989999,
+						["copper"] = 14895337,
+						["endMinute"] = 22990003,
+					}, -- [313]
+					{
+						["startMinute"] = 22990004,
+						["copper"] = 15001540,
+						["endMinute"] = 22990005,
+					}, -- [314]
+					{
+						["startMinute"] = 22990006,
+						["copper"] = 15014097,
+						["endMinute"] = 22990006,
+					}, -- [315]
+					{
+						["startMinute"] = 22990007,
+						["copper"] = 15023958,
+						["endMinute"] = 22990007,
+					}, -- [316]
+					{
+						["startMinute"] = 22990008,
+						["copper"] = 15161227,
+						["endMinute"] = 22990009,
+					}, -- [317]
+					{
+						["startMinute"] = 22990010,
+						["copper"] = 15524615,
+						["endMinute"] = 22990015,
+					}, -- [318]
+					{
+						["startMinute"] = 22990016,
+						["copper"] = 15593621,
+						["endMinute"] = 22990016,
+					}, -- [319]
+					{
+						["startMinute"] = 22990017,
+						["copper"] = 16259854,
+						["endMinute"] = 22990030,
+					}, -- [320]
+					{
+						["startMinute"] = 22990031,
+						["copper"] = 16262454,
+						["endMinute"] = 22990031,
+					}, -- [321]
+					{
+						["startMinute"] = 22990032,
+						["copper"] = 16263804,
+						["endMinute"] = 22991238,
+					}, -- [322]
+					{
+						["startMinute"] = 22991239,
+						["copper"] = 16719804,
+						["endMinute"] = 22991242,
+					}, -- [323]
+					{
+						["startMinute"] = 22991243,
+						["copper"] = 16719714,
+						["endMinute"] = 22991249,
+					}, -- [324]
+					{
+						["startMinute"] = 22991250,
+						["copper"] = 15126868,
+						["endMinute"] = 22991255,
+					}, -- [325]
+					{
+						["endMinute"] = 22991258,
+						["copper"] = 10886869,
+						["startMinute"] = 22991256,
+					}, -- [326]
+					{
+						["endMinute"] = 22991259,
+						["copper"] = 10890304,
+						["startMinute"] = 22991259,
+					}, -- [327]
+					{
+						["endMinute"] = 22991264,
+						["copper"] = 10897661,
+						["startMinute"] = 22991260,
+					}, -- [328]
+					{
+						["endMinute"] = 22991265,
+						["copper"] = 10902799,
+						["startMinute"] = 22991265,
+					}, -- [329]
+					{
+						["endMinute"] = 22991279,
+						["copper"] = 10907901,
+						["startMinute"] = 22991266,
+					}, -- [330]
+					{
+						["endMinute"] = 22991289,
+						["copper"] = 10908798,
+						["startMinute"] = 22991280,
+					}, -- [331]
+					{
+						["endMinute"] = 22991300,
+						["copper"] = 11175591,
+						["startMinute"] = 22991290,
+					}, -- [332]
+					{
+						["endMinute"] = 22991301,
+						["copper"] = 11433379,
+						["startMinute"] = 22991301,
+					}, -- [333]
+					{
+						["endMinute"] = 22991319,
+						["copper"] = 11882029,
+						["startMinute"] = 22991302,
+					}, -- [334]
+					{
+						["endMinute"] = 22991332,
+						["copper"] = 12148333,
+						["startMinute"] = 22991320,
+					}, -- [335]
+					{
+						["endMinute"] = 22991333,
+						["copper"] = 12405389,
+						["startMinute"] = 22991333,
+					}, -- [336]
+					{
+						["endMinute"] = 22991336,
+						["copper"] = 12610027,
+						["startMinute"] = 22991334,
+					}, -- [337]
+					{
+						["endMinute"] = 22991337,
+						["copper"] = 12610904,
+						["startMinute"] = 22991337,
+					}, -- [338]
+					{
+						["endMinute"] = 22991339,
+						["copper"] = 12611395,
+						["startMinute"] = 22991338,
+					}, -- [339]
+					{
+						["endMinute"] = 22991341,
+						["copper"] = 12613869,
+						["startMinute"] = 22991340,
+					}, -- [340]
+					{
+						["endMinute"] = 22991342,
+						["copper"] = 12617056,
+						["startMinute"] = 22991342,
+					}, -- [341]
+					{
+						["endMinute"] = 22991343,
+						["copper"] = 12623572,
+						["startMinute"] = 22991343,
+					}, -- [342]
+					{
+						["endMinute"] = 22991360,
+						["copper"] = 12627756,
+						["startMinute"] = 22991344,
+					}, -- [343]
+					{
+						["endMinute"] = 22991369,
+						["copper"] = 12900008,
+						["startMinute"] = 22991361,
+					}, -- [344]
+					{
+						["endMinute"] = 22991370,
+						["copper"] = 13172423,
+						["startMinute"] = 22991370,
+					}, -- [345]
+					{
+						["endMinute"] = 22991381,
+						["copper"] = 13176577,
+						["startMinute"] = 22991371,
+					}, -- [346]
+					{
+						["startMinute"] = 22991382,
+						["copper"] = 13178695,
+						["endMinute"] = 22991382,
+					}, -- [347]
+					{
+						["startMinute"] = 22991383,
+						["copper"] = 13185770,
+						["endMinute"] = 22991383,
+					}, -- [348]
+					{
+						["startMinute"] = 22991384,
+						["copper"] = 13195574,
+						["endMinute"] = 22991384,
+					}, -- [349]
+					{
+						["startMinute"] = 22991385,
+						["copper"] = 13198471,
+						["endMinute"] = 22991385,
+					}, -- [350]
+					{
+						["startMinute"] = 22991386,
+						["copper"] = 13203676,
+						["endMinute"] = 22991386,
+					}, -- [351]
+					{
+						["startMinute"] = 22991387,
+						["copper"] = 13206959,
+						["endMinute"] = 22991387,
+					}, -- [352]
+					{
+						["startMinute"] = 22991388,
+						["copper"] = 13208543,
+						["endMinute"] = 22991388,
+					}, -- [353]
+					{
+						["startMinute"] = 22991389,
+						["copper"] = 13216561,
+						["endMinute"] = 22991389,
+					}, -- [354]
+					{
+						["startMinute"] = 22991390,
+						["copper"] = 13227123,
+						["endMinute"] = 22991390,
+					}, -- [355]
+					{
+						["startMinute"] = 22991391,
+						["copper"] = 13257082,
+						["endMinute"] = 22991391,
+					}, -- [356]
+					{
+						["startMinute"] = 22991392,
+						["copper"] = 13265636,
+						["endMinute"] = 22991392,
+					}, -- [357]
+					{
+						["startMinute"] = 22991393,
+						["copper"] = 13271046,
+						["endMinute"] = 22991393,
+					}, -- [358]
+					{
+						["startMinute"] = 22991394,
+						["copper"] = 13271707,
+						["endMinute"] = 22991445,
+					}, -- [359]
+					{
+						["startMinute"] = 22991446,
+						["copper"] = 13769299,
+						["endMinute"] = 22992718,
+					}, -- [360]
+					{
+						["endMinute"] = 22992721,
+						["copper"] = 13769928,
+						["startMinute"] = 22992719,
+					}, -- [361]
+					{
+						["endMinute"] = 22992723,
+						["copper"] = 13771081,
+						["startMinute"] = 22992722,
+					}, -- [362]
+					{
+						["endMinute"] = 22992724,
+						["copper"] = 13776366,
+						["startMinute"] = 22992724,
+					}, -- [363]
+					{
+						["endMinute"] = 22992725,
+						["copper"] = 13782448,
+						["startMinute"] = 22992725,
+					}, -- [364]
+					{
+						["endMinute"] = 22992726,
+						["copper"] = 13782914,
+						["startMinute"] = 22992726,
+					}, -- [365]
+					{
+						["endMinute"] = 22992729,
+						["copper"] = 13787356,
+						["startMinute"] = 22992727,
+					}, -- [366]
+					{
+						["endMinute"] = 22992730,
+						["copper"] = 13789181,
+						["startMinute"] = 22992730,
+					}, -- [367]
+					{
+						["endMinute"] = 22992731,
+						["copper"] = 13790648,
+						["startMinute"] = 22992731,
+					}, -- [368]
+					{
+						["endMinute"] = 22992732,
+						["copper"] = 13795490,
+						["startMinute"] = 22992732,
+					}, -- [369]
+					{
+						["endMinute"] = 22992733,
+						["copper"] = 13796395,
+						["startMinute"] = 22992733,
+					}, -- [370]
+					{
+						["endMinute"] = 22992741,
+						["copper"] = 13797227,
+						["startMinute"] = 22992734,
+					}, -- [371]
+					{
+						["endMinute"] = 22992744,
+						["copper"] = 14062321,
+						["startMinute"] = 22992742,
+					}, -- [372]
+					{
+						["endMinute"] = 22992745,
+						["copper"] = 14068674,
+						["startMinute"] = 22992745,
+					}, -- [373]
+					{
+						["endMinute"] = 22992746,
+						["copper"] = 14085525,
+						["startMinute"] = 22992746,
+					}, -- [374]
+					{
+						["endMinute"] = 22992747,
+						["copper"] = 14092611,
+						["startMinute"] = 22992747,
+					}, -- [375]
+					{
+						["endMinute"] = 22992748,
+						["copper"] = 14098822,
+						["startMinute"] = 22992748,
+					}, -- [376]
+					{
+						["endMinute"] = 22992749,
+						["copper"] = 14123091,
+						["startMinute"] = 22992749,
+					}, -- [377]
+					{
+						["endMinute"] = 22992750,
+						["copper"] = 14133831,
+						["startMinute"] = 22992750,
+					}, -- [378]
+					{
+						["endMinute"] = 22992751,
+						["copper"] = 14140812,
+						["startMinute"] = 22992751,
+					}, -- [379]
+					{
+						["endMinute"] = 22992752,
+						["copper"] = 14145982,
+						["startMinute"] = 22992752,
+					}, -- [380]
+					{
+						["endMinute"] = 22992753,
+						["copper"] = 14153192,
+						["startMinute"] = 22992753,
+					}, -- [381]
+					{
+						["endMinute"] = 22992848,
+						["copper"] = 14153515,
+						["startMinute"] = 22992754,
+					}, -- [382]
+					{
+						["endMinute"] = 22992849,
+						["copper"] = 14412210,
+						["startMinute"] = 22992849,
+					}, -- [383]
+					{
+						["endMinute"] = 22992850,
+						["copper"] = 14412964,
+						["startMinute"] = 22992850,
+					}, -- [384]
+					{
+						["endMinute"] = 22992851,
+						["copper"] = 14414642,
+						["startMinute"] = 22992851,
+					}, -- [385]
+					{
+						["endMinute"] = 22992857,
+						["copper"] = 14397219,
+						["startMinute"] = 22992852,
+					}, -- [386]
+					{
+						["endMinute"] = 22992941,
+						["copper"] = 14398287,
+						["startMinute"] = 22992858,
+					}, -- [387]
+					{
+						["endMinute"] = 22992946,
+						["copper"] = 16090317,
+						["startMinute"] = 22992942,
+					}, -- [388]
+					{
+						["endMinute"] = 22992952,
+						["copper"] = 16091268,
+						["startMinute"] = 22992947,
+					}, -- [389]
+					{
+						["endMinute"] = 22992965,
+						["copper"] = 16369763,
+						["startMinute"] = 22992953,
+					}, -- [390]
+					{
+						["endMinute"] = 22992981,
+						["copper"] = 16664898,
+						["startMinute"] = 22992966,
+					}, -- [391]
+					{
+						["endMinute"] = 22994154,
+						["copper"] = 16665849,
+						["startMinute"] = 22992982,
+					}, -- [392]
+					{
+						["startMinute"] = 22994155,
+						["copper"] = 16672046,
+						["endMinute"] = 22994155,
+					}, -- [393]
+					{
+						["startMinute"] = 22994156,
+						["copper"] = 16675096,
+						["endMinute"] = 22994158,
+					}, -- [394]
+					{
+						["startMinute"] = 22994159,
+						["copper"] = 16675441,
+						["endMinute"] = 22994247,
+					}, -- [395]
+					{
+						["startMinute"] = 22994248,
+						["copper"] = 16933749,
+						["endMinute"] = 22995577,
+					}, -- [396]
+					{
+						["endMinute"] = 22995578,
+						["copper"] = 17389749,
+						["startMinute"] = 22995578,
+					}, -- [397]
+					{
+						["endMinute"] = 22995588,
+						["copper"] = 17783478,
+						["startMinute"] = 22995579,
+					}, -- [398]
+					{
+						["endMinute"] = 22995591,
+						["copper"] = 17783581,
+						["startMinute"] = 22995589,
+					}, -- [399]
+					{
+						["endMinute"] = 22995604,
+						["copper"] = 17784265,
+						["startMinute"] = 22995592,
+					}, -- [400]
+					{
+						["endMinute"] = 22995616,
+						["copper"] = 17786147,
+						["startMinute"] = 22995605,
+					}, -- [401]
+					{
+						["endMinute"] = 22995617,
+						["copper"] = 17786264,
+						["startMinute"] = 22995617,
+					}, -- [402]
+					{
+						["endMinute"] = 22995645,
+						["copper"] = 17786435,
+						["startMinute"] = 22995618,
+					}, -- [403]
+					{
+						["endMinute"] = 22995648,
+						["copper"] = 18242435,
+						["startMinute"] = 22995646,
+					}, -- [404]
+					{
+						["endMinute"] = 22995650,
+						["copper"] = 18243555,
+						["startMinute"] = 22995649,
+					}, -- [405]
+					{
+						["endMinute"] = 22995651,
+						["copper"] = 18244827,
+						["startMinute"] = 22995651,
+					}, -- [406]
+					{
+						["endMinute"] = 22995653,
+						["copper"] = 18246964,
+						["startMinute"] = 22995652,
+					}, -- [407]
+					{
+						["endMinute"] = 22995664,
+						["copper"] = 18247662,
+						["startMinute"] = 22995654,
+					}, -- [408]
+					{
+						["endMinute"] = 22995686,
+						["copper"] = 18939570,
+						["startMinute"] = 22995665,
+					}, -- [409]
+					{
+						["endMinute"] = 22995687,
+						["copper"] = 19182658,
+						["startMinute"] = 22995687,
+					}, -- [410]
+					{
+						["endMinute"] = 22995893,
+						["copper"] = 19184408,
+						["startMinute"] = 22995688,
+					}, -- [411]
+					{
+						["startMinute"] = 22995894,
+						["copper"] = 19173408,
+						["endMinute"] = 22995894,
+					}, -- [412]
+					{
+						["startMinute"] = 22995895,
+						["copper"] = 19162408,
+						["endMinute"] = 22995898,
+					}, -- [413]
+					{
+						["startMinute"] = 22995899,
+						["copper"] = 19182258,
+						["endMinute"] = 22996372,
+					}, -- [414]
+					{
+						["endMinute"] = 22996373,
+						["copper"] = 19171258,
+						["startMinute"] = 22996373,
+					}, -- [415]
+					{
+						["endMinute"] = 22996374,
+						["copper"] = 19160258,
+						["startMinute"] = 22996374,
+					}, -- [416]
+					{
+						["endMinute"] = 22996384,
+						["copper"] = 19149258,
+						["startMinute"] = 22996375,
+					}, -- [417]
+					{
+						["endMinute"] = 22996415,
+						["copper"] = 19169108,
+						["startMinute"] = 22996385,
+					}, -- [418]
+					{
+						["endMinute"] = 22996439,
+						["copper"] = 19171288,
+						["startMinute"] = 22996416,
+					}, -- [419]
+					{
+						["endMinute"] = 22996460,
+						["copper"] = 19190077,
+						["startMinute"] = 22996440,
+					}, -- [420]
+					{
+						["endMinute"] = 22996461,
+						["copper"] = 19209927,
+						["startMinute"] = 22996461,
+					}, -- [421]
+					{
+						["endMinute"] = 22996756,
+						["copper"] = 19655577,
+						["startMinute"] = 22996462,
+					}, -- [422]
+					{
+						["startMinute"] = 22996757,
+						["copper"] = 19902777,
+						["endMinute"] = 22996773,
+					}, -- [423]
+					{
+						["startMinute"] = 22996774,
+						["copper"] = 20900761,
+						["endMinute"] = 22996786,
+					}, -- [424]
+					{
+						["startMinute"] = 22996787,
+						["copper"] = 20901886,
+						["endMinute"] = 22996788,
+					}, -- [425]
+					{
+						["startMinute"] = 22996789,
+						["copper"] = 20902976,
+						["endMinute"] = 22996789,
+					}, -- [426]
+					{
+						["startMinute"] = 22996790,
+						["copper"] = 20903702,
+						["endMinute"] = 22996791,
+					}, -- [427]
+					{
+						["startMinute"] = 22996792,
+						["copper"] = 20904333,
+						["endMinute"] = 22996801,
+					}, -- [428]
+					{
+						["startMinute"] = 22996802,
+						["copper"] = 21360333,
+						["endMinute"] = 22996802,
+					}, -- [429]
+					{
+						["startMinute"] = 22996803,
+						["copper"] = 23119185,
+						["endMinute"] = 22997257,
+					}, -- [430]
+					{
+						["endMinute"] = 22997266,
+						["copper"] = 23281232,
+						["startMinute"] = 22997260,
+					}, -- [431]
+					{
+						["endMinute"] = 22997268,
+						["copper"] = 23280935,
+						["startMinute"] = 22997267,
+					}, -- [432]
+					{
+						["endMinute"] = 22997269,
+						["copper"] = 23280638,
+						["startMinute"] = 22997269,
+					}, -- [433]
+					{
+						["endMinute"] = 22997272,
+						["copper"] = 23280539,
+						["startMinute"] = 22997270,
+					}, -- [434]
+					{
+						["endMinute"] = 22997278,
+						["copper"] = 23279972,
+						["startMinute"] = 22997273,
+					}, -- [435]
+					{
+						["endMinute"] = 22997279,
+						["copper"] = 23282524,
+						["startMinute"] = 22997279,
+					}, -- [436]
+					{
+						["endMinute"] = 22997283,
+						["copper"] = 23282762,
+						["startMinute"] = 22997280,
+					}, -- [437]
+					{
+						["endMinute"] = 22997287,
+						["copper"] = 23381800,
+						["startMinute"] = 22997284,
+					}, -- [438]
+					{
+						["endMinute"] = 22997291,
+						["copper"] = 23381770,
+						["startMinute"] = 22997288,
+					}, -- [439]
+					{
+						["endMinute"] = 22997297,
+						["copper"] = 23381440,
+						["startMinute"] = 22997292,
+					}, -- [440]
+					{
+						["endMinute"] = 22997302,
+						["copper"] = 23414059,
+						["startMinute"] = 22997298,
+					}, -- [441]
 				},
 			},
-			["csvBuys"] = "itemString,itemName,stackSize,quantity,price,seller,player,time,source\nitem:74864:0:0:0:0:0:0,Reef Octopus,20,20,54995,Dencit,Majandra,1379267920.0742,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,50,50,35000,Diadelmorte,Majandra,1379267987.936,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,42,42,34000,Sysia,Majandra,1379285878.0149,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,50,200,35000,Diadelmorte,Majandra,1379285873.071,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,11,11,18182,Cellestral,Majandra,1378866815.0823,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,9,9,16667,Cheep,Majandra,1378866814.9287,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,16,16,16200,Mìstress,Majandra,1378866810.9736,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,3,3,16000,Gerias,Majandra,1378866810.9849,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,24552,Primèr,Majandra,1379285820.0745,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,24800,Dionesis,Majandra,1379285820.0745,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,20,20,27500,Mizhepzibah,Majandra,1379285818.9321,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,2,2,20893,Penair,Majandra,1379302187.9277,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,2,2,20000,Devilsdodad,Majandra,1379302184.9727,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,19800,Maersk,Majandra,1379302182.9951,Auction\nitem:74863:0:0:0:0:0:0,Jewel Danio,3,3,27600,Ringer,Majandra,1379302224.0066,Auction\nitem:87662:0:0:0:0:0:0,Empty Wildfowl Breast Container,1,8,15000,Merchant,Majandra,1379283860,Vendor\nitem:74845:0:0:0:0:0:0,Ginseng,7,7,35000,Merchant,Majandra,1379266833,Vendor\nitem:74845:0:0:0:0:0:0,Ginseng,1,5,35000,Merchant,Majandra,1379316354,Vendor\nitem:42253:0:0:0:0:0:0,Iceweb Spider Silk,1,1,14906,Themule,Majandra,1378625776.9924,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,10,10,31935,Earlgrey,Majandra,1379285857.9324,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,10,10,29055,Bankatorn,Majandra,1379285854.9773,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,100,200,31935,Earlgrey,Majandra,1379285847.0671,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,34,34,29800,Hotglue,Majandra,1379302251.0105,Auction\nitem:87683:0:0:0:0:0:0,Empty Jewel Danio Container,1,2,15000,Merchant,Majandra,1379267437,Vendor\nitem:74849:0:0:0:0:0:0,Pink Turnip,51,51,20600,Sysia,Majandra,1379302315.0596,Auction\nitem:87686:0:0:0:0:0:0,Empty Golden Carp Container,1,1,15000,Merchant,Majandra,1379267445,Vendor\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,38889,Optimistical,Majandra,1379285761.958,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,12,12,38805,Bankatorn,Majandra,1379285760.9805,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,4,4,38600,Kitoshi,Majandra,1379285759.9917,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,41,41,35000,Mizhepzibah,Majandra,1379285753.0815,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,100,100,20000,Whitewitch,Majandra,1379285726.0552,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,19500,Cairpre,Majandra,1379285712.0588,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,19400,Krueno,Majandra,1379285711.0701,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,19200,Sysia,Majandra,1379285711.0813,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,37,37,19000,Sysia,Majandra,1379285704.9839,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,4,4,39800,Nurass,Majandra,1379302272.0706,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,38754,Rmhatrt,Majandra,1379302265.9844,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,2,2,38366,Agentdan,Majandra,1379302262.0293,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,10238,Feitholder,Majandra,1379302261.0518,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,10500,Blewitoffya,Majandra,1379302259.0742,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,1,1,157500,Papacristo,Majandra,1379285283.9917,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,20,40,149998,Getmurked,Majandra,1379285282.0254,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,1,2,157500,Papacristo,Majandra,1379302160.9238,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,3,3,102500,Sparlok,Majandra,1379302150.0586,Auction\nitem:37704:0:0:0:0:0:0,Crystallized Life,10,10,9100,Gillanna,Majandra,1378625762.9961,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,4,4,40400,Ræu,Majandra,1379285217.01,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,1,8,40000,Devilsdodad,Majandra,1379285197.0698,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,9,9,37538,Bankatorn,Majandra,1379285193.9836,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,1,1,37400,Fractalina,Majandra,1379285192.0061,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,2,2,36200,Subtleti,Majandra,1379285191.0286,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,17,17,39600,Maersk,Majandra,1379285172.0771,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,2,2,46200,Ceynna,Majandra,1379285789.9395,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,5,5,39400,Sysia,Majandra,1379285790.9395,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,3,3,46000,Subtleti,Majandra,1379285789.9507,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,20,20,49120,Mcydbvk,Majandra,1379285784.0181,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,44200,Kitoshi,Majandra,1379285780.0742,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,40000,Devilsdodad,Majandra,1379285778.9207,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,39600,Nurass,Majandra,1379285778.9319,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,2,2,44200,Mehnirva,Majandra,1379302238.9917,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,3,3,43956,Agentdan,Majandra,1379302238.0029,Auction\nitem:74848:0:0:0:0:0:0,Striped Melon,100,100,20000,Thermsbank,Majandra,1379268004.0747,Auction\nitem:74716:0:0:0:0:0:0,Enchant Boots - Greater Precision,1,1,126471,Nebethet,Majandra,1378869796.9924,Auction\nitem:74843:0:0:0:0:0:0,Scallions,10,60,35000,Pibjab,Majandra,1379267958.9321,Auction\nitem:74843:0:0:0:0:0:0,Scallions,3,3,11667,Pibjab,Majandra,1379267943.9695,Auction\nitem:74843:0:0:0:0:0:0,Scallions,5,5,49400,Sysia,Majandra,1379302210.9878,Auction\nitem:74843:0:0:0:0:0:0,Scallions,20,20,44947,Mcydbvk,Majandra,1379302198.969,Auction\nitem:74865:0:0:0:0:0:0,Krasarang Paddlefish,14,14,46779,Agentdan,Majandra,1379297940.0168,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,9,9,50000,Mizhepzibah,Majandra,1379285830.9285,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,2,2,49900,Phamilyman,Majandra,1379285829.9397,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,20,20,59925,Dencit,Majandra,1379285826.9846,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,20,20,49900,Phamilyman,Majandra,1379285825.0071,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,8,8,57915,Agentdan,Majandra,1379302280.9695,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,21,21,21000,Mìstress,Majandra,1378866695.958,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,88,88,21200,Wyl,Majandra,1378866692.0142,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,27,27,26000,Erlaya,Majandra,1379266563.9734,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,1,6,32520,Litre,Majandra,1379285268.0291,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,20,40,65000,Firebane,Majandra,1379285250.0776,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,2,2,58315,Ribslice,Majandra,1379285243.0027,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,4,4,33082,Primèr,Majandra,1379285242.0139,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,8,8,58000,Hotglue,Majandra,1379285243.0139,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,1,1,32400,Sysia,Majandra,1379285231.9951,Auction\nitem:75014:0:0:0:0:0:0,Raw Crocolisk Belly,20,20,134999,Getmurked,Majandra,1379285808.0557,Auction\nitem:75014:0:0:0:0:0:0,Raw Crocolisk Belly,20,20,134500,Bishey,Majandra,1379285797.0256,Auction\nitem:74718:0:0:0:0:0:0,Enchant Boots - Pandaren's Step,1,1,850000,Ghøstrider,Majandra,1379182225.0454,Auction\nitem:38682:0:0:0:0:0:0,Enchanting Vellum,3,3,850,Merchant,Majandra,1378869581,Vendor\nitem:74840:0:0:0:0:0:0,Green Cabbage,10,10,42500,Bankatorn,Majandra,1379285308.0405,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,100,200,60000,Krzy,Majandra,1379285300.9656,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,41,41,42000,Sysia,Majandra,1379285322.0518,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,5,5,44031,Katelyne,Majandra,1379302290.022,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,19,19,42400,Meliekki,Majandra,1379302290.0332,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,100,100,24600,Sysia,Majandra,1379285375.9248,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,7,7,30000,Mizhepzibah,Majandra,1379302350.9512,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,2,2,29600,Dionesis,Majandra,1379302349.9736,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,25000,Extortion,Majandra,1379302347.9961,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,24800,Dorfbank,Majandra,1379302348.0073,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,24200,Sugrdaddy,Majandra,1379302347.0186,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,13,13,24400,Sysia,Majandra,1379302343.0747,Auction\nitem:87658:0:0:0:0:0:0,Empty Raw Tiger Steak Container,1,1,15000,Merchant,Majandra,1379200626,Vendor\nitem:76638:0:0:0:0:0:0,Sparkling River's Heart,1,1,285000,Apolexious,Majandra,1378883449.9363,Auction\nitem:74861:0:0:0:0:0:0,Tiger Gourami,5,5,109000,Hotglue,Majandra,1379302295.9546,Auction\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,1,55000,Chillwind,Majandra,1379182275.9221,Auction\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,7,54500,Jendoriel,Majandra,1379182273.9558,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,100,100,60000,Krzy,Majandra,1379268016.9287,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,20,20,153112,Mcydbvk,Majandra,1379285320.0593,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,100,200,60000,Krzy,Majandra,1379285319.0818,Auction",
-			["csvSales"] = "itemString,itemName,stackSize,quantity,price,buyer,player,time,source\nitem:87600:0:0:0:0:0:0,Marshsong Gloves,1,1,98780,Merchant,Majandra,1379316239,Vendor\nitem:81408:0:0:0:0:0:0,Red Bean Bun,1,1,1300,Merchant,Majandra,1379320465,Vendor\nitem:87686:0:0:0:0:0:0,Empty Golden Carp Container,1,1,3750,Merchant,Majandra,1379320479,Vendor\nitem:81413:0:0:0:0:0:0,Skewered Peanut Chicken,3,3,1300,Merchant,Majandra,1378869325,Vendor\nitem:19225:0:0:0:0:0:0,Deep Fried Candybar,3,3,200,Merchant,Majandra,1378793034,Vendor\nitem:100738:0:0:0:0:0:0,Damaged Generosity Circuit,5,5,30000,Merchant,Majandra,1378866329,Vendor\nitem:81414:0:0:0:0:0:0,Pearl Milk Tea,2,2,1300,Merchant,Majandra,1378869326,Vendor\nitem:81414:0:0:0:0:0:0,Pearl Milk Tea,1,1,1300,Merchant,Majandra,1379283805,Vendor\nitem:81415:0:0:0:0:0:0,Pandaren Plum Wine,1,1,6400,Merchant,Majandra,1379283803,Vendor\nitem:81070:0:0:0:0:0:0,Serpentstrike Shoulderpads,1,1,173849,Merchant,Majandra,1379316233,Vendor\nitem:41601:0:0:0:0:0:0,Shining Spellthread,1,1,20000,Merchant,Majandra,1378951870,Vendor\nitem:90558:0:0:0:0:0:0,Extreme Back Scratcher,1,1,25000,Merchant,Majandra,1378866329,Vendor\nitem:93970:0:0:0:0:0:0,Shattered Golem Fragments,1,1,700,Merchant,Majandra,1379280833,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,2,2,350,Merchant,Majandra,1379280833,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,2,2,350,Merchant,Majandra,1379316226,Vendor\nitem:44941:0:0:0:0:0:0,Fresh-Squeezed Limeade,2,2,425,Merchant,Majandra,1379320462,Vendor\nitem:81411:0:0:0:0:0:0,Peach Pie,2,2,1300,Merchant,Majandra,1379283804,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,1,1,951,Merchant,Majandra,1379046719,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,18,18,951,Merchant,Majandra,1379316226,Vendor\nitem:90764:0:0:0:0:0:0,Shabby Gloves,1,1,19387,Merchant,Majandra,1379143197,Vendor\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,1,129962,Jakdeath,Majandra,1379187903.9834,Auction\nitem:98872:0:0:0:0:0:0,Crafted Malevolent Gladiator's Satin Leggings,1,1,8550000,Icebanc,Majandra,1378963316.0381,Auction\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,20,20,299,Merchant,Majandra,1379317804,Vendor\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,12,12,299,Merchant,Majandra,1379317805,Vendor\nitem:83156:0:0:0:0:0:0,Trembling Stone Shard,2,2,144,Merchant,Majandra,1379280833,Vendor\nitem:83156:0:0:0:0:0:0,Trembling Stone Shard,2,2,144,Merchant,Majandra,1379316226,Vendor\nitem:19224:0:0:0:0:0:0,Red Hot Wings,2,2,50,Merchant,Majandra,1379320467,Vendor",
+			["csvBuys"] = "itemString,itemName,stackSize,quantity,price,seller,player,time,source\nitem:74864:0:0:0:0:0:0,Reef Octopus,20,20,54995,Dencit,Majandra,1379267920.0742,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,50,50,35000,Diadelmorte,Majandra,1379267987.936,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,42,42,34000,Sysia,Majandra,1379285878.0149,Auction\nitem:74846:0:0:0:0:0:0,Witchberries,50,200,35000,Diadelmorte,Majandra,1379285873.071,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,11,11,18182,Cellestral,Majandra,1378866815.0823,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,9,9,16667,Cheep,Majandra,1378866814.9287,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,16,16,16200,Mìstress,Majandra,1378866810.9736,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,3,3,16000,Gerias,Majandra,1378866810.9849,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,24552,Primèr,Majandra,1379285820.0745,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,24800,Dionesis,Majandra,1379285820.0745,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,20,20,27500,Mizhepzibah,Majandra,1379285818.9321,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,2,2,20893,Penair,Majandra,1379302187.9277,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,2,2,20000,Devilsdodad,Majandra,1379302184.9727,Auction\nitem:74837:0:0:0:0:0:0,Raw Turtle Meat,1,1,19800,Maersk,Majandra,1379302182.9951,Auction\nitem:74863:0:0:0:0:0:0,Jewel Danio,3,3,27600,Ringer,Majandra,1379302224.0066,Auction\nitem:87662:0:0:0:0:0:0,?,1,8,15000,Merchant,Majandra,1379283860,Vendor\nitem:74845:0:0:0:0:0:0,Ginseng,7,7,35000,Merchant,Majandra,1379266833,Vendor\nitem:74845:0:0:0:0:0:0,Ginseng,1,5,35000,Merchant,Majandra,1379316354,Vendor\nitem:74850:0:0:0:0:0:0,White Turnip,10,10,31935,Earlgrey,Majandra,1379285857.9324,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,10,10,29055,Bankatorn,Majandra,1379285854.9773,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,100,200,31935,Earlgrey,Majandra,1379285847.0671,Auction\nitem:74850:0:0:0:0:0:0,White Turnip,34,34,29800,Hotglue,Majandra,1379302251.0105,Auction\nitem:87683:0:0:0:0:0:0,?,1,2,15000,Merchant,Majandra,1379267437,Vendor\nitem:87559:0:0:0:0:0:0,?,1,1,4239999,Paintcan,Majandra,1379475338.9475,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,1,1,157500,Papacristo,Majandra,1379285283.9917,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,20,40,149998,Getmurked,Majandra,1379285282.0254,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,1,2,157500,Papacristo,Majandra,1379302160.9238,Auction\nitem:74857:0:0:0:0:0:0,Giant Mantis Shrimp,3,3,102500,Sparlok,Majandra,1379302150.0586,Auction\nitem:74849:0:0:0:0:0:0,Pink Turnip,51,51,20600,Sysia,Majandra,1379302315.0596,Auction\nitem:87686:0:0:0:0:0:0,?,1,1,15000,Merchant,Majandra,1379267445,Vendor\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,2,2,46200,Ceynna,Majandra,1379285789.9395,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,5,5,39400,Sysia,Majandra,1379285790.9395,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,3,3,46000,Subtleti,Majandra,1379285789.9507,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,20,20,49120,Mcydbvk,Majandra,1379285784.0181,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,44200,Kitoshi,Majandra,1379285780.0742,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,40000,Devilsdodad,Majandra,1379285778.9207,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,1,1,39600,Nurass,Majandra,1379285778.9319,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,2,2,44200,Mehnirva,Majandra,1379302238.9917,Auction\nitem:74838:0:0:0:0:0:0,Raw Crab Meat,3,3,43956,Agentdan,Majandra,1379302238.0029,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,38889,Optimistical,Majandra,1379285761.958,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,12,12,38805,Bankatorn,Majandra,1379285760.9805,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,4,4,38600,Kitoshi,Majandra,1379285759.9917,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,41,41,35000,Mizhepzibah,Majandra,1379285753.0815,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,100,100,20000,Whitewitch,Majandra,1379285726.0552,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,19500,Cairpre,Majandra,1379285712.0588,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,19400,Krueno,Majandra,1379285711.0701,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,19200,Sysia,Majandra,1379285711.0813,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,37,37,19000,Sysia,Majandra,1379285704.9839,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,4,4,39800,Nurass,Majandra,1379302272.0706,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,20,20,38754,Rmhatrt,Majandra,1379302265.9844,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,2,2,38366,Agentdan,Majandra,1379302262.0293,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,10238,Feitholder,Majandra,1379302261.0518,Auction\nitem:74844:0:0:0:0:0:0,Red Blossom Leek,1,1,10500,Blewitoffya,Majandra,1379302259.0742,Auction\nitem:74861:0:0:0:0:0:0,Tiger Gourami,5,5,109000,Hotglue,Majandra,1379302295.9546,Auction\nitem:37704:0:0:0:0:0:0,Crystallized Life,10,10,9100,Gillanna,Majandra,1378625762.9961,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,4,4,40400,Ræu,Majandra,1379285217.01,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,1,8,40000,Devilsdodad,Majandra,1379285197.0698,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,9,9,37538,Bankatorn,Majandra,1379285193.9836,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,1,1,37400,Fractalina,Majandra,1379285192.0061,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,2,2,36200,Subtleti,Majandra,1379285191.0286,Auction\nitem:74839:0:0:0:0:0:0,Wildfowl Breast,17,17,39600,Maersk,Majandra,1379285172.0771,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,9,9,50000,Mizhepzibah,Majandra,1379285830.9285,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,2,2,49900,Phamilyman,Majandra,1379285829.9397,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,20,20,59925,Dencit,Majandra,1379285826.9846,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,20,20,49900,Phamilyman,Majandra,1379285825.0071,Auction\nitem:74860:0:0:0:0:0:0,Redbelly Mandarin,8,8,57915,Agentdan,Majandra,1379302280.9695,Auction\nitem:74848:0:0:0:0:0:0,Striped Melon,100,100,20000,Thermsbank,Majandra,1379268004.0747,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,1,6,32520,Litre,Majandra,1379285268.0291,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,20,40,65000,Firebane,Majandra,1379285250.0776,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,2,2,58315,Ribslice,Majandra,1379285243.0027,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,4,4,33082,Primèr,Majandra,1379285242.0139,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,8,8,58000,Hotglue,Majandra,1379285243.0139,Auction\nitem:74859:0:0:0:0:0:0,Emperor Salmon,1,1,32400,Sysia,Majandra,1379285231.9951,Auction\nitem:74843:0:0:0:0:0:0,Scallions,10,60,35000,Pibjab,Majandra,1379267958.9321,Auction\nitem:74843:0:0:0:0:0:0,Scallions,3,3,11667,Pibjab,Majandra,1379267943.9695,Auction\nitem:74843:0:0:0:0:0:0,Scallions,5,5,49400,Sysia,Majandra,1379302210.9878,Auction\nitem:74843:0:0:0:0:0:0,Scallions,20,20,44947,Mcydbvk,Majandra,1379302198.969,Auction\nitem:74865:0:0:0:0:0:0,Krasarang Paddlefish,14,14,46779,Agentdan,Majandra,1379297940.0168,Auction\nitem:75014:0:0:0:0:0:0,Raw Crocolisk Belly,20,20,134999,Getmurked,Majandra,1379285808.0557,Auction\nitem:75014:0:0:0:0:0:0,Raw Crocolisk Belly,20,20,134500,Bishey,Majandra,1379285797.0256,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,21,21,21000,Mìstress,Majandra,1378866695.958,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,88,88,21200,Wyl,Majandra,1378866692.0142,Auction\nitem:74841:0:0:0:0:0:0,Juicycrunch Carrot,27,27,26000,Erlaya,Majandra,1379266563.9734,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,10,10,42500,Bankatorn,Majandra,1379285308.0405,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,100,200,60000,Krzy,Majandra,1379285300.9656,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,41,41,42000,Sysia,Majandra,1379285322.0518,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,5,5,44031,Katelyne,Majandra,1379302290.022,Auction\nitem:74840:0:0:0:0:0:0,Green Cabbage,19,19,42400,Meliekki,Majandra,1379302290.0332,Auction\nitem:38682:0:0:0:0:0:0,Enchanting Vellum,3,3,850,Merchant,Majandra,1378869581,Vendor\nitem:74718:0:0:0:0:0:0,Enchant Boots - Pandaren's Step,1,1,850000,Ghøstrider,Majandra,1379182225.0454,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,100,100,24600,Sysia,Majandra,1379285375.9248,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,7,7,30000,Mizhepzibah,Majandra,1379302350.9512,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,2,2,29600,Dionesis,Majandra,1379302349.9736,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,25000,Extortion,Majandra,1379302347.9961,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,24800,Dorfbank,Majandra,1379302348.0073,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,1,1,24200,Sugrdaddy,Majandra,1379302347.0186,Auction\nitem:74842:0:0:0:0:0:0,Mogu Pumpkin,13,13,24400,Sysia,Majandra,1379302343.0747,Auction\nitem:74716:0:0:0:0:0:0,Enchant Boots - Greater Precision,1,1,126471,Nebethet,Majandra,1378869796.9924,Auction\nitem:76638:0:0:0:0:0:0,Sparkling River's Heart,1,1,285000,Apolexious,Majandra,1378883449.9363,Auction\nitem:76638:0:0:0:0:0:0,Sparkling River's Heart,1,2,530949,Bankmeplease,Majandra,1379474965.9587,Auction\nitem:76638:0:0:0:0:0:0,Sparkling River's Heart,1,1,530948,Nebethet,Majandra,1379474961.0149,Auction\nitem:87658:0:0:0:0:0:0,?,1,1,15000,Merchant,Majandra,1379200626,Vendor\nitem:42253:0:0:0:0:0:0,Iceweb Spider Silk,1,1,14906,Themule,Majandra,1378625776.9924,Auction\nitem:79249:0:0:0:0:0:0,Tome of the Clear Mind,1,4,5000,Merchant,Majandra,1379571114,Vendor\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,1,55000,Chillwind,Majandra,1379182275.9221,Auction\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,7,54500,Jendoriel,Majandra,1379182273.9558,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,100,100,60000,Krzy,Majandra,1379268016.9287,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,20,20,153112,Mcydbvk,Majandra,1379285320.0593,Auction\nitem:74847:0:0:0:0:0:0,Jade Squash,100,200,60000,Krzy,Majandra,1379285319.0818,Auction",
+			["csvSales"] = "itemString,itemName,stackSize,quantity,price,buyer,player,time,source\nitem:87600:0:0:0:0:0:0,?,1,1,98780,Merchant,Majandra,1379316239,Vendor\nitem:4500:0:0:0:0:0:0,Traveler's Backpack,1,1,8750,Merchant,Majandra,1379837851,Vendor\nitem:100739:0:0:0:0:0:0,Super-Heated Oil,25,25,1,Merchant,Majandra,1379835444,Vendor\nitem:19299:0:0:0:0:0:0,?,2,2,25,Merchant,Majandra,1379401863,Vendor\nitem:81408:0:0:0:0:0:0,Red Bean Bun,1,1,1300,Merchant,Majandra,1379320465,Vendor\nitem:98872:0:0:0:0:0:0,Crafted Malevolent Gladiator's Satin Leggings,1,1,8550000,Icebanc,Majandra,1378963316.0381,Auction\nitem:90764:0:0:0:0:0:0,?,1,1,19387,Merchant,Majandra,1379143197,Vendor\nitem:90548:0:0:0:0:0:0,Deathclaw Imprint,1,1,140000,Merchant,Majandra,1379835444,Vendor\nitem:90747:0:0:0:0:0:0,Dingy Plate Belt,1,1,19169,Merchant,Majandra,1379835444,Vendor\nitem:90770:0:0:0:0:0:0,?,1,1,18955,Merchant,Majandra,1379398903,Vendor\nitem:81413:0:0:0:0:0:0,Skewered Peanut Chicken,3,3,1300,Merchant,Majandra,1378869325,Vendor\nitem:81413:0:0:0:0:0:0,Skewered Peanut Chicken,2,2,1300,Merchant,Majandra,1379401859,Vendor\nitem:33417:0:0:0:0:0:0,Frost-Worn Plate Pants,1,1,23869,Merchant,Majandra,1379837836,Vendor\nitem:87686:0:0:0:0:0:0,?,1,1,3750,Merchant,Majandra,1379320479,Vendor\nitem:19225:0:0:0:0:0:0,?,3,3,200,Merchant,Majandra,1378793034,Vendor\nitem:100738:0:0:0:0:0:0,?,5,5,30000,Merchant,Majandra,1378866329,Vendor\nitem:81414:0:0:0:0:0:0,Pearl Milk Tea,2,2,1300,Merchant,Majandra,1378869326,Vendor\nitem:81414:0:0:0:0:0:0,Pearl Milk Tea,1,1,1300,Merchant,Majandra,1379283805,Vendor\nitem:81414:0:0:0:0:0:0,Pearl Milk Tea,1,1,1300,Merchant,Majandra,1379401859,Vendor\nitem:81415:0:0:0:0:0:0,Pandaren Plum Wine,1,1,6400,Merchant,Majandra,1379283803,Vendor\nitem:81070:0:0:0:0:0:0,?,1,1,173849,Merchant,Majandra,1379316233,Vendor\nitem:41601:0:0:0:0:0:0,Shining Spellthread,1,1,20000,Merchant,Majandra,1378951870,Vendor\nitem:90558:0:0:0:0:0:0,?,1,1,25000,Merchant,Majandra,1378866329,Vendor\nitem:93970:0:0:0:0:0:0,?,1,1,700,Merchant,Majandra,1379280833,Vendor\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,20,20,299,Merchant,Majandra,1379317804,Vendor\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,12,12,299,Merchant,Majandra,1379317805,Vendor\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,19,19,299,Merchant,Majandra,1379398903,Vendor\nitem:81202:0:0:0:0:0:0,Inert Elemental Sphere,3,3,299,Merchant,Majandra,1379476750,Vendor\nitem:44941:0:0:0:0:0:0,?,2,2,425,Merchant,Majandra,1379320462,Vendor\nitem:81411:0:0:0:0:0:0,Peach Pie,2,2,1300,Merchant,Majandra,1379283804,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,1,1,951,Merchant,Majandra,1379046719,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,18,18,951,Merchant,Majandra,1379316226,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,8,8,951,Merchant,Majandra,1379394665,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,4,4,951,Merchant,Majandra,1379400906,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,4,4,951,Merchant,Majandra,1379482226,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,1,1,951,Merchant,Majandra,1379576818,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,1,1,951,Merchant,Majandra,1379578902,Vendor\nitem:81200:0:0:0:0:0:0,Vial of Swirling Mist,3,3,951,Merchant,Majandra,1379835444,Vendor\nitem:90812:0:0:0:0:0:0,?,1,1,64770,Merchant,Majandra,1379400906,Vendor\nitem:74700:0:0:0:0:0:0,Enchant Bracer - Mastery,1,1,129962,Jakdeath,Majandra,1379187903.9834,Auction\nitem:19224:0:0:0:0:0:0,?,2,2,50,Merchant,Majandra,1379320467,Vendor\nitem:83156:0:0:0:0:0:0,?,2,2,144,Merchant,Majandra,1379280833,Vendor\nitem:83156:0:0:0:0:0:0,?,2,2,144,Merchant,Majandra,1379316226,Vendor\nitem:83156:0:0:0:0:0:0,?,3,3,144,Merchant,Majandra,1379400906,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,2,2,350,Merchant,Majandra,1379280833,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,2,2,350,Merchant,Majandra,1379316226,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,1,1,350,Merchant,Majandra,1379482226,Vendor\nitem:81194:0:0:0:0:0:0,Sharp Fangs,5,5,350,Merchant,Majandra,1379741227,Vendor\nitem:90760:0:0:0:0:0:0,?,1,1,19676,Merchant,Majandra,1379398903,Vendor",
 			["csvIncome"] = "type,amount,source,player,time\nMoney Transfer,40000000,Jolokia,Majandra,1379284879.0513\nMoney Transfer,40000000,Jolokia,Majandra,1379285557.9587",
-			["csvExpense"] = "type,amount,destination,player,time\nPostage,90,Saganredrum,Majandra,1378869268\nPostage,360,Jolobank,Majandra,1379183186\nPostage,270,Jolokia,Majandra,1379316467\nRepair Bill,1510973,Merchant,Majandra,1378878863\nRepair Bill,1304967,Merchant,Majandra,1378882786\nRepair Bill,1751516,Merchant,Majandra,1378964960\nRepair Bill,1110512,Merchant,Majandra,1378969145\nRepair Bill,1031796,Merchant,Majandra,1379046719\nRepair Bill,1437120,Merchant,Majandra,1379050638\nRepair Bill,201363,Merchant,Majandra,1379053725\nRepair Bill,1515312,Merchant,Majandra,1379143197\nRepair Bill,2108064,Merchant,Majandra,1379199289\nRepair Bill,55000,Merchant,Majandra,1379225798\nRepair Bill,1308357,Merchant,Majandra,1379234852\nRepair Bill,1318953,Merchant,Majandra,1379313990",
+			["csvExpense"] = "type,amount,destination,player,time\nPostage,90,Saganredrum,Majandra,1378869268\nPostage,360,Jolobank,Majandra,1379183186\nPostage,270,Jolokia,Majandra,1379316467\nPostage,90,Jolokia,Majandra,1379474566\nPostage,360,Jolobank,Majandra,1379837229\nRepair Bill,1510973,Merchant,Majandra,1378878863\nRepair Bill,1304967,Merchant,Majandra,1378882786\nRepair Bill,1751516,Merchant,Majandra,1378964960\nRepair Bill,1110512,Merchant,Majandra,1378969145\nRepair Bill,1031796,Merchant,Majandra,1379046719\nRepair Bill,1437120,Merchant,Majandra,1379050638\nRepair Bill,201363,Merchant,Majandra,1379053725\nRepair Bill,1515312,Merchant,Majandra,1379143197\nRepair Bill,2108064,Merchant,Majandra,1379199289\nRepair Bill,55000,Merchant,Majandra,1379225798\nRepair Bill,1308357,Merchant,Majandra,1379234852\nRepair Bill,1318953,Merchant,Majandra,1379313990\nRepair Bill,1260,Merchant,Majandra,1379836562",
 			["csvCancelled"] = "itemString,itemName,stackSize,quantity,player,time",
 		},
 	},

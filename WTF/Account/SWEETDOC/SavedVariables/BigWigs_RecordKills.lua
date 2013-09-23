@@ -45,23 +45,41 @@ RKDatabase = {
 				["Siege of Orgrimmar"] = {
 					["Galakras"] = {
 						[3] = 524,
-					},
-					["Kor'kron Dark Shaman"] = {
-						[3] = 393,
-					},
-					["General Nazgrim"] = {
-						[3] = 437,
+						[14] = 562,
 					},
 					["Sha of Pride"] = {
-						[3] = 420,
-						[14] = 333,
-					},
-					["Iron Juggernaut"] = {
-						[3] = 406,
+						[14] = 304,
+						[7] = 490,
+						[3] = 382,
 					},
 					["Norushen"] = {
-						[3] = 417,
-						[14] = 315,
+						[14] = 277,
+						[7] = 514,
+						[3] = 358,
+					},
+					["Kor'kron Dark Shaman"] = {
+						[3] = 338,
+					},
+					["Malkorok"] = {
+						[3] = 310,
+					},
+					["Immerseus"] = {
+						[14] = 297,
+						[7] = 529,
+						[3] = 390,
+					},
+					["General Nazgrim"] = {
+						[3] = 410,
+						[14] = 447,
+					},
+					["Iron Juggernaut"] = {
+						[3] = 389,
+						[14] = 338,
+					},
+					["The Fallen Protectors"] = {
+						[14] = 351,
+						[7] = 845,
+						[3] = 431,
 					},
 				},
 				["Throne of Thunder"] = {
@@ -118,8 +136,10 @@ RKDatabase = {
 				},
 			},
 			["firstLoad"] = false,
-			["diffShown"] = 5,
-			["prevDiffShown"] = 5,
+			["diffShown"] = 7,
+			["prevDiffShown"] = 7,
+			["prevTierShown"] = 15,
+			["tierShown"] = 15,
 		},
 	},
 }

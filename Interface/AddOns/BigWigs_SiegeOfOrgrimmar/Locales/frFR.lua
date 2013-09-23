@@ -15,6 +15,10 @@ if L then
 
 	L.intermission = "Mesures désespérées"
 	L.intermission_desc = "Prévient quand l'un des boss est sur le point d'utiliser ses Mesures désespérées."
+
+	--L.inferno_self = "Inferno Strike on you"
+	--L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
+	--L.inferno_self_bar = "You explode!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "frFR")
@@ -32,7 +36,7 @@ end
 L = BigWigs:NewBossLocale("Sha of Pride", "frFR")
 if L then
 	L.custom_off_titan_mark = "Marquage Don des titans"
-	L.custom_off_titan_mark_desc = "Afin d'aider à repérer les joueurs ayant Don des titans, marque ces derniers avec %s%s%s%s%s%s%s%s (les joueurs ayant Aura d'orgeuil et les tanks ne sont pas marqués). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 
 	L.projection_message = "Allez sur la flèche |cFF00FF00VERTE|r !"
 	L.projection_explosion = "Explosion de la projection"
@@ -48,6 +52,7 @@ L = BigWigs:NewBossLocale("Galakras", "frFR")
 if L then
 	L.demolisher = "Démolisseur"
 	L.demolisher_desc = "Délais avant que les Démolisseurs kor’kron ne se joignent au combat."
+
 	L.towers = "Tours"
 	L.towers_desc = "Alertes quand les portes des tours sont détruites."
 	L.south_tower_trigger = "La porte qui barrait l'accès à la tour sud a été détruite !" -- to check
@@ -86,11 +91,11 @@ if L then
 	L.defensive = "Défensive"
 
 	L.adds_trigger1 = "Défendez les portes !" -- to check
-	L.adds_trigger2 = "Ralliez les troupes !" -- to check
+	L.adds_trigger2 = "Ralliez les troupes !"
 	L.adds_trigger3 = "Escouade suivante, au front !" -- to check
-	L.adds_trigger4 = "Guerriers, au pas de course !" -- to check
-	L.adds_trigger5 = "Kor'krons, avec moi !" -- to check
-	L.adds_trigger_extra_wave = "Tous les Kor'krons sous mon commandement, tuez-les, maintenant !" -- to check
+	L.adds_trigger4 = "Guerriers, au pas de course !"
+	L.adds_trigger5 = "Kor’krons, avec moi !"
+	L.adds_trigger_extra_wave = "Tous les Kor’krons sous mon commandement, tuez-les, maintenant !"
 	L.extra_adds = "Renforts supplémentaires"
 
 	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
@@ -108,9 +113,9 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "frFR")
 if L then
-	L.win_trigger = "System resetting. Don't turn the power off, or the whole thing will probably explode."
+	L.win_trigger = "Système en cours de réinitialisation. Veuillez ne pas le débrancher, ou il pourrait vous sauter à la figure." -- to check
 
-	L.enable_zone = "Entrepôt de l'Artéfact" -- to check
+	L.enable_zone = "Entrepôt de l’Artéfact"
 	L.matter_scramble_explosion = "Explosion Brouillage de la matière" -- shorten maybe?
 
 	L.custom_off_mark_brewmaster = "Marquage Maître brasseur"
@@ -127,11 +132,11 @@ end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "frFR")
 if L then
-	L.shredder_engage_trigger = "Un déchireur automatisé approche !" -- to check
+	L.shredder_engage_trigger = "Un déchiqueteur automatisé approche !"
 	L.laser_on_you = "Laser sur vous PIOU PIOU !"
 	L.laser_say = "Laser PIOU PIOU !"
 
-	L.assembly_line_trigger = "Des armes non terminées commencent à avancer sur la chaîne d'assemblage." -- to check
+	L.assembly_line_trigger = "Des armes non terminées commencent à avancer sur la chaîne d’assemblage."
 	L.assembly_line_message = "Armes non terminées (%d)"
 
 	L.shockwave_missile_trigger = "Presenting... the beautiful new ST-03 Shockwave missile turret!" -- to translate
@@ -141,11 +146,11 @@ L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "frFR")
 if L then
 	-- for getting all those calculate emotes:
 	-- cat Transcriptor.lua | sed "s/\t//g" | grep -E "(CHAT_MSG_RAID_BOSS_EMOTE].*Iyyokuk)" | sed "s/.*EMOTE//" | sed "s/#/\"/" | sed "s/#.*/\"/" | sort | uniq
-	L.one = "Iyyokuk selects: One!"
-	L.two = "Iyyokuk selects: Two!"
-	L.three = "Iyyokuk selects: Three!"
-	L.four = "Iyyokuk selects: Four!"
-	L.five = "Iyyokuk selects: Five!"
+	L.one = "Iyyokuk selects: One !"
+	L.two = "Iyyokuk selects: Two !"
+	L.three = "Iyyokuk selects: Three !"
+	L.four = "Iyyokuk selects: Four !"
+	L.five = "Iyyokuk selects: Five !"
 	--------------------------------
 	L.edge_message = "Vous êtes un edge"
 	L.custom_off_edge_marks = "Marquages Edge"
@@ -164,7 +169,7 @@ if L then
 	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
 	L.chain_heal_bar = "Focalisation : Salve de guérison"
 
-	L.farseer_trigger = "Farseers, mend our wounds!" -- to translate
+	L.farseer_trigger = "Long-voyants, soignez nos blessures !" -- to check
 	L.custom_off_shaman_marker = "Marquage Chevaucheur de loup long-voyant"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chevaucheurs de loup long-voyant avec %s%s%s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
 

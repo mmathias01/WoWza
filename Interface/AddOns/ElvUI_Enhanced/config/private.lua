@@ -14,6 +14,7 @@ V.general.minimapbar = {
 	['skinButtons'] = true,
 	['skinStyle'] = 'HORIZONTAL',
 	['backdrop'] = false,
+	['layoutDirection'] = 'NORMAL',
 	['buttonSize'] = 28,
 	['mouseover'] = false,
 }

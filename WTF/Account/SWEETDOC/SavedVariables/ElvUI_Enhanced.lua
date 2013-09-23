@@ -10,7 +10,7 @@ ElvDB = {
 	},
 	["gold"] = {
 		["Dragonblight"] = {
-			["Majandra"] = 9791200,
+			["Majandra"] = 24658114,
 		},
 	},
 	["namespaces"] = {
@@ -89,8 +89,6 @@ ElvDB = {
 				},
 			},
 		},
-		["screenwidth"] = 2134.15,
-		["screenheight"] = 1200,
 	},
 	["profiles"] = {
 		["Majandra DPS"] = {
@@ -434,7 +432,7 @@ ElvDB = {
 				["ElvAB_1"] = "BOTTOMElvUIParentBOTTOM026",
 				["ElvAB_2"] = "BOTTOMElvUIParentBOTTOM060",
 				["FarmToolAnchor"] = "TOPLEFTElvUIParentTOPLEFT4-499",
-				["BossButton"] = "BOTTOMElvUIParentBOTTOM0103",
+				["BossButton"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-565150",
 				["ElvAB_4"] = "BOTTOMRIGHTElvUIParentBOTTOMRIGHT-5185",
 				["ElvUF_Raid10Mover"] = "BOTTOMElvUIParentBOTTOM0190",
 				["AltPowerBarMover"] = "TOPElvUIParentTOP0-36",
@@ -471,14 +469,25 @@ ElvDB = {
 				["fontSize"] = 11,
 				["units"] = {
 					["raid10"] = {
+						["debuffs"] = {
+							["sizeOverride"] = 12,
+							["enable"] = true,
+						},
 						["roleIcon"] = {
 							["enable"] = false,
 						},
+						["GPSArrow"] = {
+							["onMouseOver"] = false,
+						},
+						["healPrediction"] = true,
 						["health"] = {
 							["frequentUpdates"] = true,
 						},
-						["GPSArrow"] = {
-							["onMouseOver"] = false,
+						["buffs"] = {
+							["countFontSize"] = 7,
+							["fontSize"] = 8,
+							["numrows"] = 2,
+							["sizeOverride"] = 12,
 						},
 					},
 					["assist"] = {
@@ -676,7 +685,6 @@ ElvDB = {
 				["bar5"] = {
 					["point"] = "TOPLEFT",
 					["buttons"] = 12,
-					["mouseover"] = true,
 					["backdrop"] = true,
 				},
 				["font"] = "ElvUI Font",
@@ -931,6 +939,7 @@ ElvPrivateDB = {
 				},
 				["normTex"] = "Aluminium",
 				["autorepchange"] = false,
+				["lootRoll"] = false,
 				["glossTex"] = "Aluminium",
 			},
 			["bags"] = {

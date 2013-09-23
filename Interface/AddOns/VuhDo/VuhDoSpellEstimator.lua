@@ -22,11 +22,7 @@ VUHDO_GCD_SPELLS = {
 
 
 local twipe = table.wipe;
-local GetSpellBookItemName = GetSpellBookItemName;
-local GetSpellInfo = GetSpellInfo;
 local pairs = pairs;
-local strlen = strlen;
-local BOOKTYPE_SPELL = BOOKTYPE_SPELL;
 
 
 
@@ -84,7 +80,6 @@ local VUHDO_SPELLS = VUHDO_SPELLS;
 
 -- initializes some dynamic information into VUHDO_SPELLS
 function VUHDO_initFromSpellbook()
-	local tEmpty = {};
 
 	twipe(VUHDO_PLAYER_HOTS);
 
@@ -107,7 +102,7 @@ function VUHDO_initFromSpellbook()
 		tHotSlots["firstFlood"] = nil;
 
 		for tCnt = 1, #VUHDO_PLAYER_HOTS do
-			if not (VUHDO_SPELLS[VUHDO_PLAYER_HOTS[tCnt]] or tEmpty)["nodefault"] then
+			if not (VUHDO_SPELLS[VUHDO_PLAYER_HOTS[tCnt]] or { })["nodefault"] then
 				tinsert(tHotSlots, VUHDO_PLAYER_HOTS[tCnt]);
 				if #tHotSlots == 10 then break; end
 			end

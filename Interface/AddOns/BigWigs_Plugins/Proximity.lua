@@ -557,7 +557,7 @@ do
 		if range <= activeRange*1.1 then -- add 10% because of mapData inaccuracies, e.g. 6 yards actually testing for 5.5 on chimaeron = ouch
 			anchor.rangeCircle:SetVertexColor(1, 0, 0)
 			local t = GetTime()
-			if t > (lastplayed + 1) then
+			if t > (lastplayed + 1) and not UnitIsDead("player") and InCombatLockdown() then
 				lastplayed = t
 				plugin:SendMessage("BigWigs_Sound", db.soundName, true)
 			end
@@ -606,10 +606,50 @@ do
 		else
 			anchor.rangeCircle:SetVertexColor(1, 0, 0)
 			local t = GetTime()
-			if t > (lastplayed + 1) then
+			if t > (lastplayed + 1) and not UnitIsDead("player") and InCombatLockdown() then
 				lastplayed = t
 				plugin:SendMessage("BigWigs_Sound", db.soundName, true)
 			end
+		end
+	end
+
+	function reverseMultiTargetProximity()
+		local srcX, srcY = GetPlayerMapPosition("player")
+		if srcX == 0 and srcY == 0 then
+			SetMapToCurrentZone()
+			srcX, srcY = GetPlayerMapPosition("player")
+		end
+
+		local currentFloor = GetCurrentMapDungeonLevel()
+		if currentFloor == 0 then currentFloor = 1 end
+		local id = activeMap and activeMap[currentFloor]
+
+		if not id then
+			print("No floor id, closing proximity.")
+			plugin:Close()
+			return
+		end
+
+		local anyoneClose = 0
+
+		for i = 1, #proximityPlayerTable do
+			local player = proximityPlayerTable[i]
+			local unitX, unitY = GetPlayerMapPosition(player)
+			local dx = (unitX - srcX) * id[1]
+			local dy = (unitY - srcY) * id[2]
+			local range = (dx * dx + dy * dy) ^ 0.5
+			setDot(dx, dy, blipList[player])
+			if range <= activeRange then
+				anyoneClose = anyoneClose + 1
+			end
+		end
+
+		anchor.title:SetFormattedText(L.proximityTitle, activeRange, anyoneClose)
+
+		if anyoneClose == 0 then
+			anchor.rangeCircle:SetVertexColor(1, 0, 0)
+		else
+			anchor.rangeCircle:SetVertexColor(0, 1, 0)
 		end
 	end
 
@@ -641,7 +681,7 @@ do
 		else
 			anchor.rangeCircle:SetVertexColor(1, 0, 0)
 			local t = GetTime()
-			if t > (lastplayed + 1) then
+			if t > (lastplayed + 1) and not UnitIsDead("player") and InCombatLockdown() then
 				lastplayed = t
 				plugin:SendMessage("BigWigs_Sound", db.soundName, true)
 			end
@@ -1127,7 +1167,11 @@ function plugin:Open(range, module, key, player, isReverse)
 					end
 				end
 			end
-			updater:SetScript("OnLoop", multiTargetProximity)
+			if isReverse then
+				updater:SetScript("OnLoop", reverseMultiTargetProximity)
+			else
+				updater:SetScript("OnLoop", multiTargetProximity)
+			end
 		else
 			for i = 1, GetNumGroupMembers() do
 				if UnitIsUnit(player, raidList[i]) then

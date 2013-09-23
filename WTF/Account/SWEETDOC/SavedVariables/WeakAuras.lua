@@ -388,27 +388,27 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["icon"] = true,
-			["borderOffset"] = 4,
-			["border"] = true,
-			["borderEdge"] = "Square Outline",
-			["regionType"] = "aurabar",
-			["stacks"] = false,
-			["frameStrata"] = 1,
-			["icon_side"] = "RIGHT",
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["border"] = true,
+			["borderEdge"] = "Square Outline",
+			["regionType"] = "aurabar",
+			["stacks"] = false,
+			["frameStrata"] = 1,
+			["icon_side"] = "RIGHT",
+			["stacksFont"] = "Friz Quadrata TT",
 			["additional_triggers"] = {
 			},
-			["timerSize"] = 15,
+			["auto"] = true,
 			["texture"] = "Graphite",
 			["textFont"] = "DorisPP",
-			["stacksFont"] = "Friz Quadrata TT",
+			["borderOffset"] = 4,
+			["timerSize"] = 15,
 			["displayTextRight"] = "%p",
-			["auto"] = true,
 			["id"] = "Rapture",
 			["timerFont"] = "DorisPP",
 			["alpha"] = 1,
@@ -589,10 +589,10 @@ WeakAurasSaved = {
 				["use_remaining"] = false,
 				["type"] = "aura",
 				["subeventSuffix"] = "_CAST_START",
-				["use_unit"] = true,
+				["subeventPrefix"] = "SPELL",
 				["use_inverse"] = false,
 				["event"] = "Cooldown Progress (Spell)",
-				["unit"] = "player",
+				["use_unit"] = true,
 				["use_spellName"] = true,
 				["remaining"] = "0",
 				["names"] = {
@@ -600,7 +600,7 @@ WeakAurasSaved = {
 				},
 				["unevent"] = "auto",
 				["debuffType"] = "HELPFUL",
-				["subeventPrefix"] = "SPELL",
+				["unit"] = "player",
 				["remaining_operator"] = "<=",
 				["spellName"] = 47540,
 			},
@@ -696,13 +696,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
+				["use_unit"] = true,
+				["unevent"] = "auto",
 				["names"] = {
 				},
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
 				["remaining_operator"] = "<=",
 				["event"] = "Cooldown Progress (Spell)",
-				["use_unit"] = true,
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -820,13 +820,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = false,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = false,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -929,16 +929,16 @@ WeakAurasSaved = {
 				"Evangelism", -- [10]
 			},
 			["animate"] = true,
+			["anchorPoint"] = "CENTER",
+			["xOffset"] = 0,
+			["borderOffset"] = 16,
+			["border"] = "None",
+			["yOffset"] = -196.0000915527344,
 			["sortHybridTable"] = {
 				[3] = true,
 				[4] = true,
 				[5] = true,
 			},
-			["xOffset"] = 0,
-			["radius"] = 200,
-			["border"] = "None",
-			["yOffset"] = -196.0000915527344,
-			["regionType"] = "dynamicgroup",
 			["actions"] = {
 				["start"] = {
 				},
@@ -946,13 +946,13 @@ WeakAurasSaved = {
 				},
 			},
 			["sort"] = "none",
-			["borderOffset"] = 16,
+			["backgroundInset"] = 0,
 			["space"] = 8,
 			["background"] = "None",
 			["expanded"] = false,
 			["constantFactor"] = "RADIUS",
 			["selfPoint"] = "CENTER",
-			["backgroundInset"] = 0,
+			["radius"] = 200,
 			["additional_triggers"] = {
 			},
 			["animation"] = {
@@ -969,6 +969,16 @@ WeakAurasSaved = {
 					["type"] = "none",
 				},
 			},
+			["align"] = "CENTER",
+			["untrigger"] = {
+			},
+			["frameStrata"] = 1,
+			["width"] = 423.9999389648438,
+			["rotation"] = 0,
+			["stagger"] = 0,
+			["numTriggers"] = 1,
+			["id"] = "Cooldowns Disc",
+			["height"] = 35.20010375976563,
 			["trigger"] = {
 				["type"] = "aura",
 				["subeventPrefix"] = "SPELL",
@@ -979,16 +989,6 @@ WeakAurasSaved = {
 				["event"] = "Health",
 				["unit"] = "player",
 			},
-			["untrigger"] = {
-			},
-			["frameStrata"] = 1,
-			["width"] = 423.9999389648438,
-			["rotation"] = 0,
-			["stagger"] = 0,
-			["numTriggers"] = 1,
-			["align"] = "CENTER",
-			["height"] = 35.20010375976563,
-			["id"] = "Cooldowns Disc",
 			["load"] = {
 				["class"] = {
 					["multi"] = {
@@ -1007,7 +1007,7 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["anchorPoint"] = "CENTER",
+			["regionType"] = "dynamicgroup",
 		},
 		["Lightwell"] = {
 			["color"] = {
@@ -1038,13 +1038,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = false,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = false,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -1166,13 +1166,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = false,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = false,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["use_spellName"] = true,
 				["unit"] = "player",
@@ -1523,16 +1523,12 @@ WeakAurasSaved = {
 				"Serendipity (Holy)", -- [9]
 			},
 			["animate"] = true,
-			["anchorPoint"] = "CENTER",
+			["regionType"] = "dynamicgroup",
 			["xOffset"] = 0,
-			["borderOffset"] = 16,
+			["backgroundInset"] = 0,
 			["border"] = "None",
 			["yOffset"] = -196.0000915527344,
-			["sortHybridTable"] = {
-				[3] = true,
-				[4] = true,
-				[5] = true,
-			},
+			["anchorPoint"] = "CENTER",
 			["actions"] = {
 				["start"] = {
 				},
@@ -1540,13 +1536,13 @@ WeakAurasSaved = {
 				},
 			},
 			["sort"] = "none",
-			["backgroundInset"] = 0,
+			["radius"] = 200,
 			["space"] = 8,
 			["background"] = "None",
 			["expanded"] = true,
 			["constantFactor"] = "RADIUS",
 			["selfPoint"] = "CENTER",
-			["radius"] = 200,
+			["borderOffset"] = 16,
 			["additional_triggers"] = {
 			},
 			["animation"] = {
@@ -1563,7 +1559,7 @@ WeakAurasSaved = {
 					["type"] = "none",
 				},
 			},
-			["align"] = "CENTER",
+			["id"] = "Cooldowns Holy",
 			["untrigger"] = {
 			},
 			["frameStrata"] = 1,
@@ -1571,8 +1567,6 @@ WeakAurasSaved = {
 			["rotation"] = 0,
 			["stagger"] = 0,
 			["numTriggers"] = 1,
-			["id"] = "Cooldowns Holy",
-			["height"] = 35.20010375976563,
 			["trigger"] = {
 				["type"] = "aura",
 				["subeventPrefix"] = "SPELL",
@@ -1583,6 +1577,8 @@ WeakAurasSaved = {
 				["event"] = "Health",
 				["unit"] = "player",
 			},
+			["height"] = 35.20010375976563,
+			["align"] = "CENTER",
 			["load"] = {
 				["class"] = {
 					["multi"] = {
@@ -1601,7 +1597,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["regionType"] = "dynamicgroup",
+			["sortHybridTable"] = {
+				[3] = true,
+				[4] = true,
+				[5] = true,
+			},
 		},
 		["Cascade"] = {
 			["color"] = {
@@ -1761,13 +1761,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = true,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = true,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -1939,26 +1939,26 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["borderSize"] = 17,
-			["stacksColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
+			["stacksFont"] = "Friz Quadrata TT",
 			["border"] = true,
 			["borderEdge"] = "Square Outline",
 			["regionType"] = "aurabar",
 			["stacks"] = false,
 			["alpha"] = 1,
 			["icon_side"] = "RIGHT",
-			["stacksFont"] = "Friz Quadrata TT",
+			["borderOffset"] = 4,
 			["id"] = "Global",
-			["auto"] = true,
+			["displayTextRight"] = "%p",
 			["texture"] = "Blizzard",
 			["textFont"] = "DorisPP",
-			["borderOffset"] = 4,
+			["stacksColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["auto"] = true,
 			["timerSize"] = 15,
-			["displayTextRight"] = "%p",
 			["additional_triggers"] = {
 			},
 			["timerFont"] = "DorisPP",
@@ -2021,13 +2021,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["remaining_operator"] = "<=",
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["remaining_operator"] = "<=",
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["use_spellName"] = true,
 				["unit"] = "player",
@@ -2143,13 +2143,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["subeventPrefix"] = "SPELL",
+				["use_unit"] = true,
 				["unevent"] = "auto",
-				["names"] = {
-				},
+				["subeventPrefix"] = "SPELL",
 				["use_inverse"] = false,
 				["event"] = "Cooldown Progress (Spell)",
-				["use_unit"] = true,
+				["names"] = {
+				},
 				["subeventSuffix"] = "_CAST_START",
 				["use_spellName"] = true,
 				["unit"] = "player",
@@ -2269,13 +2269,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = false,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = false,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -2502,14 +2502,14 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "aura",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["remaining_operator"] = "<=",
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 					"Divine Insight", -- [1]
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["remaining_operator"] = "<=",
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["use_spellName"] = true,
 				["unit"] = "player",
@@ -2611,13 +2611,13 @@ WeakAurasSaved = {
 			["trigger"] = {
 				["debuffType"] = "HELPFUL",
 				["type"] = "status",
-				["use_unit"] = true,
-				["unevent"] = "auto",
-				["subeventPrefix"] = "SPELL",
-				["use_inverse"] = false,
-				["event"] = "Cooldown Progress (Spell)",
 				["names"] = {
 				},
+				["unevent"] = "auto",
+				["use_unit"] = true,
+				["use_inverse"] = false,
+				["event"] = "Cooldown Progress (Spell)",
+				["subeventPrefix"] = "SPELL",
 				["subeventSuffix"] = "_CAST_START",
 				["remaining"] = "0",
 				["unit"] = "player",
@@ -2740,15 +2740,15 @@ WeakAurasSaved = {
 				["use_inverse"] = false,
 				["remaining_operator"] = "<=",
 				["event"] = "Cooldown Progress (Spell)",
-				["names"] = {
-				},
+				["use_unit"] = true,
 				["use_spellName"] = true,
 				["remaining"] = "0",
 				["spellName"] = 14914,
 				["unit"] = "player",
 				["subeventSuffix"] = "_CAST_START",
-				["use_unit"] = true,
 				["subeventPrefix"] = "SPELL",
+				["names"] = {
+				},
 				["debuffType"] = "HELPFUL",
 			},
 			["desaturate"] = false,

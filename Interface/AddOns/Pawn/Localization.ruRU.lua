@@ -269,7 +269,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		Heroic = "^Героический$",
 		HeroicElite = "^Героический %(элитный%)$",
 		HeroicThunderforged = "^Создано в Кузне Грома %(героич%.%)$",
-		HeroicWarforged = "^Heroic Warforged$", -- Requires localization
+		HeroicWarforged = "^Предмет закален в бою %(героич%.%)$",
 		Hit = "^%+?([%d%.,]+) к меткости$",
 		Hit2 = "^%+?([%d%.,]+) к показателю меткости$",
 		Hit3 = "^UNUSED$",
@@ -325,7 +325,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		UpgradeLevel = "^Уровень улучшения:",
 		Use = "Используется:",
 		Wand = "^Жезл$",
-		Warforged = "^Warforged$", -- Requires localization
+		Warforged = "^Предмет закален в бою$",
 		WeaponDamage = "^Урон: ([%d%.,]+) %- ([%d%.,]+)$",
 		WeaponDamageArcane = "^%+?([%d%.,]+) %- ([%d%.,]+) ед%. урона от тайной магии$",
 		WeaponDamageEnchantment = "^%+?([%d%.,]+) к урону оружием$",

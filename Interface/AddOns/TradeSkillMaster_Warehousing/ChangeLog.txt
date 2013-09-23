@@ -1,3 +1,6 @@
+v2.0.6
+*Fixed an issue with calculating quantity to move.
+
 v2.0.5
 *Added support for cargBags Nivaya.
 

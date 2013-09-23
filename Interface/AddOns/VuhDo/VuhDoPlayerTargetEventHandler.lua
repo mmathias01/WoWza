@@ -14,13 +14,11 @@ local VUHDO_removeHots;
 local VUHDO_removeAllDebuffIcons;
 local VUHDO_updateTargetBars;
 local VUHDO_updateHealthBarsFor;
-local VUHDO_updateAllRaidBars;
-local VUHDO_initAllEventBouquets;
 local VUHDO_getUnitButtonsSafe;
 local VUHDO_getPlayerTargetFrame;
 
 --
-function VUHDO_playerTargetEventHandlerInitBurst()
+function VUHDO_playerTargetEventHandlerInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_INTERNAL_TOGGLES = _G["VUHDO_INTERNAL_TOGGLES"];
 
@@ -31,8 +29,6 @@ function VUHDO_playerTargetEventHandlerInitBurst()
 	VUHDO_removeAllDebuffIcons = _G["VUHDO_removeAllDebuffIcons"];
 	VUHDO_updateTargetBars = _G["VUHDO_updateTargetBars"];
 	VUHDO_updateHealthBarsFor = _G["VUHDO_updateHealthBarsFor"];
-	VUHDO_updateAllRaidBars = _G["VUHDO_updateAllRaidBars"];
-	VUHDO_initAllEventBouquets = _G["VUHDO_initAllEventBouquets"];
 	VUHDO_getUnitButtonsSafe = _G["VUHDO_getUnitButtonsSafe"];
 	VUHDO_getPlayerTargetFrame = _G["VUHDO_getPlayerTargetFrame"];
 end

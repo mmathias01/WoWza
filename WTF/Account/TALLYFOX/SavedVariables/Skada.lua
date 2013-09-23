@@ -34,24 +34,24 @@ SkadaDB = {
 						["texture"] = "Graphite",
 					},
 					["point"] = "LEFT",
-					["mode"] = "Damage",
-					["background"] = {
-						["height"] = 131.0000152587891,
-						["color"] = {
-							["a"] = 0.7800000011920929,
-							["b"] = 0,
-						},
-					},
-					["spark"] = false,
-					["bartexture"] = "Smooth",
-					["barwidth"] = 197.0000610351563,
 					["barbgcolor"] = {
 						["a"] = 0,
 						["b"] = 0,
 						["g"] = 0,
 						["r"] = 0,
 					},
+					["mode"] = "Damage",
+					["spark"] = false,
+					["bartexture"] = "Smooth",
+					["barwidth"] = 197.0000610351563,
 					["barfontsize"] = 10,
+					["background"] = {
+						["height"] = 132.0000152587891,
+						["color"] = {
+							["a"] = 0.7800000011920929,
+							["b"] = 0,
+						},
+					},
 					["x"] = 61.64853668212891,
 				}, -- [1]
 				{
@@ -101,7 +101,7 @@ SkadaDB = {
 					["name"] = "Skada 2",
 					["background"] = {
 						["borderthickness"] = 0,
-						["height"] = 133.0000152587891,
+						["height"] = 134.0000152587891,
 						["color"] = {
 							["a"] = 0.2,
 							["b"] = 0.5,

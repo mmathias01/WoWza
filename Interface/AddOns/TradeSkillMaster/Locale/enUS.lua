@@ -301,6 +301,7 @@ L["Replace"] = true
 L["Reset Profile"] = true
 L["Reset the current profile back to its default values, in case your configuration is broken, or you simply want to start over."] = true
 L["Resets the position of the main TSM frame to the center of the screen"] = true
+L["Resets the position of the BankUI frame."] = true
 L["Resources:"] = true
 L["Restore Default Colors"] = true
 L["Restores all the color settings below to their default values."] = true

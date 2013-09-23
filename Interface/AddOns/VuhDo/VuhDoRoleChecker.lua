@@ -31,7 +31,7 @@ local VUHDO_MANUAL_ROLES;
 local VUHDO_RAID_NAMES;
 local VUHDO_RAID;
 
-function VUHDO_roleCheckerInitBurst()
+function VUHDO_roleCheckerInitLocalOverrides()
 	VUHDO_MANUAL_ROLES = _G["VUHDO_MANUAL_ROLES"];
 	VUHDO_RAID_NAMES = _G["VUHDO_RAID_NAMES"];
 	VUHDO_RAID = _G["VUHDO_RAID"];

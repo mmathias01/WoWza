@@ -4,8 +4,8 @@ LUI: disabled
 Masque_Darion: disabled
 Masque: disabled
 ButtonFacade: disabled
-_NPCScan: enabled
-_NPCScan.Overlay: enabled
+_NPCScan: disabled
+_NPCScan.Overlay: disabled
 Auctionator: enabled
 Bartender4: enabled
 !BugGrabber: enabled
@@ -181,7 +181,7 @@ BigWigs_ThroneOfThunder: enabled
 ArkInventory: enabled
 CoolLine: disabled
 Cecile_MeterOverlay: enabled
-TradeSkillMaster: enabled
+TradeSkillMaster: disabled
 TradeSkillMaster_Accounting: enabled
 TradeSkillMaster_Additions: enabled
 TradeSkillMaster_AuctionDB: enabled
@@ -193,3 +193,5 @@ TradeSkillMaster_Mailing: enabled
 TradeSkillMaster_Shopping: enabled
 TradeSkillMaster_Warehousing: disabled
 TradeSkillMaster_WoWuction: disabled
+HaloPro: disabled
+XPStat: disabled

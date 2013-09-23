@@ -70,6 +70,7 @@ function Util:ScanCurrentProfession()
 
 	local usedItems = {}
 	local presetGroupInfo = {}
+	local reagentLinkCache = {}
 	for index=1, GetNumTradeSkills() do
 		local itemLink = GetTradeSkillItemLink(index)
 		local spellLink = GetTradeSkillRecipeLink(index)
@@ -112,10 +113,16 @@ function Util:ScanCurrentProfession()
 				
 				local isValid = true
 				for i=1, GetTradeSkillNumReagents(index) do
-					local link = GetTradeSkillReagentItemLink(index, i)
-					local matID = TSMAPI:GetItemString(link)
-					local name, _, quantity = GetTradeSkillReagentInfo(index, i)
-					if not name or not matID then
+					local name, texture, quantity = GetTradeSkillReagentInfo(index, i)
+					if not name then
+						isValid = false
+						break
+					end
+					if not reagentLinkCache[name.."\001"..texture] then
+						reagentLinkCache[name.."\001"..texture] = GetTradeSkillReagentItemLink(index, i)
+					end
+					local matID = TSMAPI:GetItemString(reagentLinkCache[name.."\001"..texture])
+					if not matID then
 						isValid = false
 						break
 					end
@@ -193,6 +200,7 @@ function Util.ScanSyncedProfessionThread(self)
 	if not ready then return end
 	
 	local newCrafts = {}
+	local reagentLinkCache = {}
 	local _, playerName = IsTradeSkillLinked()
 	local currentTradeSkill = GetTradeSkillLine()
 	if playerName ~= TSM.isSyncing.player then return end
@@ -229,10 +237,16 @@ function Util.ScanSyncedProfessionThread(self)
 				
 				local isValid = true
 				for i=1, GetTradeSkillNumReagents(index) do
-					local link = GetTradeSkillReagentItemLink(index, i)
-					local matID = TSMAPI:GetItemString(link)
-					local name, _, quantity = GetTradeSkillReagentInfo(index, i)
-					if not name or not matID then
+					local name, texture, quantity = GetTradeSkillReagentInfo(index, i)
+					if not name then
+						isValid = false
+						break
+					end
+					if not reagentLinkCache[name.."\001"..texture] then
+						reagentLinkCache[name.."\001"..texture] = GetTradeSkillReagentItemLink(index, i)
+					end
+					local matID = TSMAPI:GetItemString(reagentLinkCache[name.."\001"..texture])
+					if not matID then
 						isValid = false
 						break
 					end

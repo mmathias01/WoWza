@@ -9,7 +9,7 @@
 - Makros aus Keys=>Local and Mausbuttons in spells=>mouse binden
 - BuffWatch: Buff-Wechsel mit Wheel
 - Verbleibende Dauer Totems BuffWatch
-- Statusbar bouquet item "Overshielded"
+- Mage T90 Talente in BuffWatch
 
 1. Health     3
 2. Mana       1

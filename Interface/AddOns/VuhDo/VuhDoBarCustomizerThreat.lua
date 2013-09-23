@@ -4,7 +4,7 @@
 --
 local tTexture;
 function VUHDO_threatIndicatorsBouquetCallback(aUnit, anIsActive, anIcon, aTimer, aCounter, aDuration, aColor, aBuffName, aBouquetName)
-	for _, sButton in pairs(VUHDO_getUnitButtonsSafe(aUnit) or sEmpty) do
+	for _, sButton in pairs(VUHDO_getUnitButtonsSafe(aUnit)) do
 		tTexture = VUHDO_getAggroTexture(VUHDO_getHealthBar(sButton, 1));
 		if anIsActive then
 			tTexture:SetVertexColor(VUHDO_backColor(aColor));
@@ -27,7 +27,7 @@ function VUHDO_threatBarBouquetCallback(aUnit, anIsActive, anIcon, aCurrValue, a
 		or (aMaxValue or 0) > 1 and aCurrValue / aMaxValue
 		or 0;
 
-	for _, sButton in pairs(VUHDO_getUnitButtonsSafe(aUnit) or sEmpty) do
+	for _, sButton in pairs(VUHDO_getUnitButtonsSafe(aUnit)) do
 		if tQuota > 0 then
 			tBar = VUHDO_getHealthBar(sButton, 7);
 			tBar:SetValue(tQuota);

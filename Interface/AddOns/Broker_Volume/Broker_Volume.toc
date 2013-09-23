@@ -1,11 +1,11 @@
-﻿## Interface: 50300
+﻿## Interface: 50400
 ## Title: Broker Volume
 ## Notes: A volume control for Data Broker.
 ## Author: Shenton
 ## SavedVariables: BrokerVolumeDB
-## Version: 1.3.1
+## Version: 1.3.2
 ## OptionalDeps: Ace3
-## X-Curse-Packaged-Version: v1.3.1
+## X-Curse-Packaged-Version: v1.3.2
 ## X-Curse-Project-Name: Data Broker Volume Control
 ## X-Curse-Project-ID: data-broker-volume-controle
 ## X-Curse-Repository-ID: wow/data-broker-volume-controle/mainline

@@ -695,6 +695,12 @@ c.AddOptionalSpell("Dancing Rune Weapon", nil, {
 	Melee = true,
 })
 
+c.AddOptionalSpell("Dancing Rune Weapon", "for Damage", {
+	NoGCD = true,
+	Melee = true,
+	CheckFirst = c.InDamageMode,
+})
+
 c.AddOptionalSpell("Bone Shield", nil, {
 	CheckFirst = function()
 		if s.InCombat() then

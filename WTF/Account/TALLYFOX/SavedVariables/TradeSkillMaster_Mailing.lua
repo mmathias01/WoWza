@@ -2,6 +2,7 @@
 TradeSkillMaster_MailingDB = {
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
 	},
 	["global"] = {
@@ -13,9 +14,9 @@ TradeSkillMaster_MailingDB = {
 			},
 			["scrollvalue"] = 0,
 			["fullwidth"] = 782.9999389648438,
-			["selected"] = 1,
-			["treewidth"] = 175,
 			["treesizable"] = true,
+			["treewidth"] = 175,
+			["selected"] = 1,
 		},
 	},
 }

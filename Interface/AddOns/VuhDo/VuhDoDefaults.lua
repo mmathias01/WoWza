@@ -744,7 +744,7 @@ function VUHDO_loadDefaultConfig()
 	VUHDO_CONFIG["BLIZZ_UI_HIDE_RAID_MGR"] = VUHDO_convertToTristate(VUHDO_CONFIG["BLIZZ_UI_HIDE_RAID_MGR"], 3, 2);
 
 	VUHDO_CONFIG = VUHDO_ensureSanity("VUHDO_CONFIG", VUHDO_CONFIG, VUHDO_DEFAULT_CONFIG);
-	VUHDO_DEFAULT_CONFIG = VUHDO_compressTable(VUHDO_DEFAULT_CONFIG);
+	VUHDO_DEFAULT_CONFIG = VUHDO_compressAndPackTable(VUHDO_DEFAULT_CONFIG);
 
 	if ((VUHDO_CONFIG["VERSION"] or 1) < 4) then
 		VUHDO_CONFIG["IS_SHARE"] = true;
@@ -904,6 +904,7 @@ function VUHDO_loadDefaultConfig()
 		129189, --Sha Globe
 		119086, --Penetrating Bolt
 		119775  --Reaching Attack
+
 	);
 
 
@@ -1027,6 +1028,93 @@ function VUHDO_loadDefaultConfig()
 		--Ra-den
 	);
 
+	-- Siege of Orgrimmar
+	VUHDO_addCustomSpellIds(22,
+		--Trash
+		143828,
+		146452,
+		--Immerseus
+		143436,
+		143298,
+		--The Fallen Protectors
+		143962,
+		144397,
+		143009,
+		143198,
+		1776,
+		144365,
+		144176,
+		147383,
+		143424,
+		--Sha of Pride
+		144358,
+		144574,
+		--Galakras
+		147200,
+		146763,
+		147705,
+		147029,
+		--Iron Juggernaut
+		144459,
+		144467,
+		144498,
+		146325,
+		--Kor'kron Dark Shaman
+		17153,
+		144215,
+		144089,
+		143993,
+		144331,
+		144328,
+		144089,
+		--General Nazgrim
+		143494,
+		143638,
+		143480,
+		143882,
+		--Malkorok
+		142990,
+		142862,
+		142861,
+		143919,
+		--Spoils of Pandaria
+		145993,
+		144853,
+		142524,
+		146217,
+		145712,
+		--Thok the Bloodthirsty
+		143766,
+		143428,
+		143445,
+		143780,
+		143773,
+		143800,
+		143767,
+		143783,
+		--Siegecrafter Blackfuse
+		143385,
+		145444,
+		143856,
+		144466,
+		--Paragons of the Klaxxi
+		142931,
+		34940,
+		142315,
+		142929,
+		142668,
+		143974,
+		143735,
+		143275,
+		143278,
+		143339,
+		142948,
+		143702,
+		143358,
+		142808
+		--Garrosh Hellscream
+	);
+
 	for _, tName in pairs(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED"]) do
 		VUHDO_customDebuffsAddDefaultSettings(tName);
 		VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED_SETTINGS"][tName] = VUHDO_ensureSanity(
@@ -1040,7 +1128,7 @@ function VUHDO_loadDefaultConfig()
 		VUHDO_POWER_TYPE_COLORS = VUHDO_decompressOrCopy(VUHDO_DEFAULT_POWER_TYPE_COLORS);
 	end
 	VUHDO_POWER_TYPE_COLORS = VUHDO_ensureSanity("VUHDO_POWER_TYPE_COLORS", VUHDO_POWER_TYPE_COLORS, VUHDO_DEFAULT_POWER_TYPE_COLORS);
-	VUHDO_DEFAULT_POWER_TYPE_COLORS = VUHDO_compressTable(VUHDO_DEFAULT_POWER_TYPE_COLORS);
+	VUHDO_DEFAULT_POWER_TYPE_COLORS = VUHDO_compressAndPackTable(VUHDO_DEFAULT_POWER_TYPE_COLORS);
 end
 
 
@@ -1501,8 +1589,8 @@ function VUHDO_loadDefaultPanelSetup()
 	end
 
 	VUHDO_PANEL_SETUP = VUHDO_ensureSanity("VUHDO_PANEL_SETUP", VUHDO_PANEL_SETUP, VUHDO_DEFAULT_PANEL_SETUP);
-	VUHDO_DEFAULT_PANEL_SETUP = VUHDO_compressTable(VUHDO_DEFAULT_PANEL_SETUP);
-	VUHDO_DEFAULT_PER_PANEL_SETUP = VUHDO_compressTable(VUHDO_DEFAULT_PER_PANEL_SETUP);
+	VUHDO_DEFAULT_PANEL_SETUP = VUHDO_compressAndPackTable(VUHDO_DEFAULT_PANEL_SETUP);
+	VUHDO_DEFAULT_PER_PANEL_SETUP = VUHDO_compressAndPackTable(VUHDO_DEFAULT_PER_PANEL_SETUP);
 
 	VUHDO_fixHotSettings();
 end
@@ -1580,7 +1668,7 @@ function VUHDO_initClassColors()
 		VUHDO_USER_CLASS_COLORS = VUHDO_decompressOrCopy(VUHDO_DEFAULT_USER_CLASS_COLORS);
 	end
 	VUHDO_USER_CLASS_COLORS = VUHDO_ensureSanity("VUHDO_USER_CLASS_COLORS", VUHDO_USER_CLASS_COLORS, VUHDO_DEFAULT_USER_CLASS_COLORS);
-	VUHDO_DEFAULT_USER_CLASS_COLORS = VUHDO_compressTable(VUHDO_DEFAULT_USER_CLASS_COLORS);
+	VUHDO_DEFAULT_USER_CLASS_COLORS = VUHDO_compressAndPackTable(VUHDO_DEFAULT_USER_CLASS_COLORS);
 end
 
 
@@ -1637,7 +1725,7 @@ function VUHDO_initBuffSettings()
 	end
 
 	VUHDO_BUFF_SETTINGS["CONFIG"] = VUHDO_ensureSanity("VUHDO_BUFF_SETTINGS.CONFIG", VUHDO_BUFF_SETTINGS["CONFIG"], VUHDO_DEFAULT_BUFF_CONFIG);
-	VUHDO_DEFAULT_BUFF_CONFIG = VUHDO_compressTable(VUHDO_DEFAULT_BUFF_CONFIG);
+	VUHDO_DEFAULT_BUFF_CONFIG = VUHDO_compressAndPackTable(VUHDO_DEFAULT_BUFF_CONFIG);
 
 	local _, tPlayerClass = UnitClass("player");
 	for tCategSpec, _ in pairs(VUHDO_CLASS_BUFFS[tPlayerClass]) do

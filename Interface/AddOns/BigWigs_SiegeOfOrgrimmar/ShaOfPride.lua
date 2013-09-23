@@ -1,7 +1,3 @@
---[[
-TODO:
-	do some intelligent proximity meter ( would need multi target reverse proximity )
-]]--
 
 --------------------------------------------------------------------------------
 -- Module Declaration
@@ -18,7 +14,6 @@ mod:RegisterEnableMob(71734)
 local titans, titanCounter = {}, 1
 local auraOfPride, auraOfPrideGroup, auraOfPrideOnMe =  mod:SpellName(146817), {}, nil
 local swellingPrideCounter = 1
-local bigAddTimer = nil
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -27,7 +22,8 @@ local bigAddTimer = nil
 local L = mod:NewLocale("enUS", true)
 if L then
 	L.custom_off_titan_mark = "Gift of the Titans marker"
-	L.custom_off_titan_mark_desc = "To help spotting others with Gift of the Titans, mark the people who have Gift of the Titans on them with %s%s%s%s%s%s%s%s (players with Aura of Pride are not marked), but they are still included in the proximity window (not reverse proximity yet). Requires promoted or leader."
+	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_titan_mark_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_8"
 
 	L.projection_message = "Go to |cFF00FF00GREEN|r arrow!"
 	L.projection_explosion = "Projection explosion"
@@ -39,16 +35,6 @@ if L then
 	L.titan_pride = "Titan+Pride: %s"
 end
 L = mod:GetLocale()
-L.custom_off_titan_mark_desc = L.custom_off_titan_mark_desc:format(
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_2.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_3.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_4.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_5.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_6.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_8.blp:15\124t"
-)
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -58,7 +44,7 @@ function mod:GetOptions()
 	return {
 		145215, 147207,
 		"custom_off_titan_mark",
-		{146595, "PROXIMITY"}, 144400, -8257, {-8258, "FLASH"}, {146817, "FLASH", "PROXIMITY"}, -8270, {144351, "DISPEL"}, {144358, "TANK", "FLASH"}, -8262, 144800, 144563, -8349,
+		{146595, "PROXIMITY"}, 144400, -8257, {-8258, "FLASH"}, {146817, "FLASH", "PROXIMITY"}, -8270, {144351, "DISPEL"}, {144358, "TANK", "FLASH", "EMPHASIZE"}, -8262, 144800, 144563, -8349,
 		"berserk", "bosskill",
 	}, {
 		[145215] = "heroic",
@@ -74,6 +60,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "WeakenedResolveOver", 147207)
 	self:Log("SPELL_AURA_APPLIED", "Banishment", 145215)
 	-- normal
+	self:Log("SPELL_CAST_START", "UnleashedStart", 144832)
 	self:Log("SPELL_CAST_SUCCESS", "Unleashed", 144832)
 	self:Log("SPELL_AURA_APPLIED", "ImprisonApplied", 144574, 144684, 144683, 144636)
 	self:Log("SPELL_CAST_START", "Imprison", 144563)
@@ -98,15 +85,18 @@ function mod:OnEngage()
 	auraOfPrideOnMe = nil
 	self:Bar(146595, 7) -- Titan Gift
 	self:Bar(144400, 77, CL["count"]:format(self:SpellName(144400), swellingPrideCounter)) -- Swelling Pride
-	self:CDBar(144358, 11) -- Wounded Pride
 	self:Bar(-8262, 60, L["big_add_bar"], 144379) -- signature ability icon
-	bigAddTimer = self:ScheduleTimer("Message", 55, -8262, "Urgent", nil, L["big_add_spawning"], 144379)
+	self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 	self:Bar(144800, 25, L["small_adds"])
 	self:Bar(144563, 50) -- Imprison
 	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
 	if self:Heroic() then
 		self:Bar(145215, 37) -- Banishment
 	end
+	if not self:LFR() then
+		self:CDBar(144358, 11) -- Wounded Pride
+	end
+	self:Berserk(600)
 end
 
 --------------------------------------------------------------------------------
@@ -136,13 +126,16 @@ do
 end
 
 -- normal
-function mod:Unleashed()
-	self:CancelAllTimers()
+function mod:UnleashedStart()
+	self:CDBar(144358, 11) -- Wounded Pride
+end
+
+function mod:Unleashed() -- Final Gift
+	self:StopBar(146595) -- Gift of the Titans
 	self:Message(-8349, "Neutral", "Info")
 	self:Bar(144400, 77) -- Swelling Pride
 	self:Bar(-8262, 60, L["big_add_bar"], 144379)
-	self:CancelTimer(bigAddTimer)
-	bigAddTimer = self:ScheduleTimer("Message", 55, -8262, "Urgent", nil, L["big_add_spawning"], 144379)
+	self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 	self:Bar(144800, 16, L["small_adds"])
 	self:Bar(144563, 42) -- Imprison
 end
@@ -220,8 +213,9 @@ do
 	local prev = 0
 	local mindcontrolled = mod:NewTargetList()
 	function mod:SwellingPrideSuccess(args)
+		self:CDBar(144358, 10.5) -- Wounded Pride, 10-11.2
 		self:Bar(-8262, 60, L["big_add_bar"], 144379) -- when the add is actually up
-		bigAddTimer = self:ScheduleTimer("Message", 55, -8262, "Urgent", nil, L["big_add_spawning"], 144379)
+		self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 		-- lets do some fancy stuff
 		local playerPower = UnitPower("player", 10)
 		if playerPower > 24 and playerPower < 50 then
@@ -255,31 +249,36 @@ function mod:SwellingPride(args)
 end
 
 do
+	local isOnMe = nil
 	local function titansCasted()
-		mod:OpenProximity(146595, 8, titans) -- XXX this should be multi target reverse proximity, but for now we use it so we know how many are in range
+		if isOnMe then
+			mod:OpenProximity(146595, 8, titans, true)
+			isOnMe = nil
+		end
 		titanCounter = 1
 		wipe(titans)
 	end
 	function mod:TitanGiftRemoved(args)
+		self:CloseProximity(146595)
 		if self.db.profile.custom_off_titan_mark then
 			SetRaidTarget(args.destName, 0)
-			self:CloseProximity(146595)
 		end
 	end
 	function mod:TitanGiftApplied(args)
-		local prideExpires = select(7, UnitDebuff(args.destName, auraOfPride)) -- this is to check if the person has aura of pride then later spawn remaining duration bar
+		local _, _, _, _, _, _, prideExpires = UnitDebuff(args.destName, auraOfPride) -- this is to check if the person has aura of pride then later spawn remaining duration bar
 		if self:Me(args.destGUID) then
-			if prideExpires then  -- Aura of Pride 5 yard aoe
-				self:Message(146595, "Natural", "Long", CL["you"]:format(("%s + %s"):format(args.spellName,auraOfPride)))
+			isOnMe = true
+			if prideExpires then -- Aura of Pride 5 yard aoe
+				self:Message(146595, "Neutral", "Long", CL["you"]:format(("%s + %s"):format(args.spellName,auraOfPride)))
 				self:Flash(146817) -- Aura of Pride flash
 			else
 				self:Message(146595, "Positive", "Long", CL["you"]:format(args.spellName))
 			end
+		else
+			titans[#titans+1] = args.destName
 		end
+
 		if self.db.profile.custom_off_titan_mark then
-			if not self:Me(args.destGUID) then
-				titans[#titans+1] = args.destName
-			end
 			if prideExpires then
 				self:TargetBar(146595, prideExpires-GetTime(), args.destName, L["titan_pride"])
 			else
@@ -290,10 +289,7 @@ do
 	end
 	function mod:TitanGiftSuccess(args)
 		self:Bar(args.spellId, 25)
-		if self.db.profile.custom_off_titan_mark then
-			self:ScheduleTimer(titansCasted, 0.3)
-		end
+		self:ScheduleTimer(titansCasted, 0.3)
 	end
 end
-
 

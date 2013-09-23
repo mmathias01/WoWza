@@ -48,7 +48,7 @@ local VUHDO_isTargetInRange;
 
 local sOOROpacity;
 
-function VUHDO_customTargetInitBurst()
+function VUHDO_customTargetInitLocalOverrides()
 	VUHDO_CUSTOM_INFO = _G["VUHDO_CUSTOM_INFO"];
 	VUHDO_CLASS_IDS = _G["VUHDO_CLASS_IDS"];
 

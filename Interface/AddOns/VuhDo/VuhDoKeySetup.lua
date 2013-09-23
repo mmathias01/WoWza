@@ -25,13 +25,12 @@ local GetCursorInfo = GetCursorInfo;
 local GetShapeshiftForm = GetShapeshiftForm;
 local InCombatLockdown = InCombatLockdown;
 local pairs = pairs;
-local strlen = strlen;
 local strlower = strlower;
 local format = format;
 
 local sIsCliqueCompat;
 
-function VUHDO_keySetupInitBurst()
+function VUHDO_keySetupInitLocalOverrides()
 	VUHDO_RAID_NAMES = _G["VUHDO_RAID_NAMES"];
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_BUFF_REMOVAL_SPELLS = _G["VUHDO_BUFF_REMOVAL_SPELLS"];
@@ -224,7 +223,7 @@ local function VUHDO_getWheelDefString()
 		tFriendSpell = VUHDO_SPELLS_KEYBOARD["HOSTILE_WHEEL"][tAssignIdx][3];
 		tHostSpell = VUHDO_SPELLS_KEYBOARD["WHEEL"][tAssignIdx][3];
 
-		if strlen(tFriendSpell) > 0 or strlen(tHostSpell) > 0 then
+		if #tFriendSpell > 0 or #tHostSpell > 0 then
 			tString = format("%sself:SetBindingClick(0, \"%s\", self:GetName(), \"w%d\");", tString, tValue, tIndex);
 		end
 	end
@@ -291,7 +290,7 @@ function VUHDO_setupAllHealButtonAttributes(aButton, aUnit, anIsDisable, aForceT
 	tIsWheel = false;
 	for tIndex, tSpellDescr in pairs(VUHDO_SPELLS_KEYBOARD["WHEEL"]) do
 		tHostSpell = VUHDO_SPELLS_KEYBOARD["HOSTILE_WHEEL"][tIndex][3];
-		if strlen(tSpellDescr[3]) > 0 or strlen(tHostSpell) > 0 then
+		if #tSpellDescr[3] > 0 or #tHostSpell > 0 then
 			tIsWheel = true;
 			VUHDO_setupHealButtonAttributes("", tSpellDescr[2], tSpellDescr[3], aButton, anIsTgButton, tIndex);
 		end

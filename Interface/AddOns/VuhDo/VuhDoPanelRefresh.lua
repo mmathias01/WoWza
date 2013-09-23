@@ -39,7 +39,7 @@ local VUHDO_positionTableHeaders;
 local sLastDebuffIcon;
 local sShowPanels;
 
-function VUHDO_panelRefreshInitBurst()
+function VUHDO_panelRefreshInitLocalOverrides()
 	VUHDO_CONFIG = _G["VUHDO_CONFIG"];
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 	VUHDO_RAID = _G["VUHDO_RAID"];

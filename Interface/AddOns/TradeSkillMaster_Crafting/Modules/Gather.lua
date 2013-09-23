@@ -40,8 +40,11 @@ function Gather:gatherItems(source, task)
 		Gather:MailItems(items)
 	elseif source == L["Auction House"] then
 		if TSMAPI:AHTabIsVisible("Shopping") then
-			private.shoppingItems = CopyTable(items)
-			Gather:ShoppingSearch(next(private.shoppingItems))
+			private.shoppingItems = {}
+			for itemString, quantity in pairs(items) do
+				tinsert(private.shoppingItems, { itemString = itemString, quantity = quantity })
+			end
+			Gather:ShoppingSearch(private.shoppingItems[1].itemString, private.shoppingItems[1].quantity)
 		else
 			TSM:Printf(L["Please switch to the Shopping Tab to perform the gathering search."])
 		end
@@ -90,49 +93,59 @@ function Gather:MailItems(neededItems)
 end
 
 local function ShoppingNextSearch()
-	local items = TSM.db.factionrealm.gathering.availableMats
-	private.shoppingItems = CopyTable(items)
-
 	if next(private.shoppingItems) then
-		Gather:ShoppingSearch(next(private.shoppingItems))
+		Gather:ShoppingSearch(private.shoppingItems[1].itemString, private.shoppingItems[1].quantity)
 	end
 end
 
 local function ShoppingCallback(remainingQty, boughtItem, stackSize)
-	--TSM:Print(TSM.Inventory.gatherItem, remainingQty, "remaining")
-	TSM.Inventory.gatherQuantity = remainingQty
-	if TSM.Inventory.gatherItem and boughtItem ~= TSM.Inventory.gatherItem then
-		for itemString, data in pairs(TSMAPI.Conversions[TSM.Inventory.gatherItem] or {}) do
-			if itemString == boughtItem then
-				TSM.db.factionrealm.gathering.destroyingMats[boughtItem] = (TSM.db.factionrealm.gathering.destroyingMats[boughtItem] or 0) + stackSize
+	if not boughtItem then
+		if next(private.shoppingItems) then
+			local name = TSMAPI:GetSafeItemInfo(private.shoppingItems[1].itemString)
+			TSM:Print("No Auctions found for", name)
+			tremove(private.shoppingItems, 1)
+			TSMAPI:CreateTimeDelay("shoppingSearchThrottle", 0.5, ShoppingNextSearch)
+		end
+	else
+		TSM.Inventory.gatherQuantity = remainingQty
+		if TSM.Inventory.gatherItem and boughtItem ~= TSM.Inventory.gatherItem then
+			for itemString, data in pairs(TSMAPI.Conversions[TSM.Inventory.gatherItem] or {}) do
+				if itemString == boughtItem then
+					TSM.db.factionrealm.gathering.destroyingMats[boughtItem] = (TSM.db.factionrealm.gathering.destroyingMats[boughtItem] or 0) + stackSize
+				end
 			end
 		end
-	end
-
-	if max(TSM.Inventory.gatherQuantity, 0) == 0 then
-		TSMAPI:CreateTimeDelay("shoppingSearchThrottle", 0.5, ShoppingNextSearch)
+		if max(TSM.Inventory.gatherQuantity, 0) == 0 and next(private.shoppingItems) then
+			tremove(private.shoppingItems, 1)
+			TSMAPI:CreateTimeDelay("shoppingSearchThrottle", 0.5, ShoppingNextSearch)
+		end
 	end
 end
 
 function Gather:ShoppingSearch(itemString, need)
 	TSM.Inventory.gatherQuantity = nil
 	local matPrice = TSMAPI:FormatTextMoney(TSM.Cost:GetMatCost(itemString))
-	if TSMAPI.InkConversions[itemString] then
-		TSM.Inventory.gatherItem = itemString
-		TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
-	elseif TSMAPI:GetDisenchantData(itemString) then
-		TSM.Inventory.gatherItem = itemString
-		TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
-	elseif TSMAPI.Conversions[itemString] then
-		TSM.Inventory.gatherItem = itemString
-		local convertSource
-		for _, data in pairs(TSMAPI.Conversions[itemString]) do
-			convertSource = data.source
-			break
-		end
-		if convertSource == "mill" or convertSource == "prospect" then
+	if not TSM.db.factionrealm.gathering.destroyDisable then
+		if TSMAPI.InkConversions[itemString] then
+			TSM.Inventory.gatherItem = itemString
 			TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+		elseif TSMAPI:GetDisenchantData(itemString) then
+			TSM.Inventory.gatherItem = itemString
+			TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
+		elseif TSMAPI.Conversions[itemString] then
+			TSM.Inventory.gatherItem = itemString
+			local convertSource
+			for _, data in pairs(TSMAPI.Conversions[itemString]) do
+				convertSource = data.source
+				break
+			end
+			if convertSource == "mill" or convertSource == "prospect" then
+				TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+			else
+				TSMAPI:ModuleAPI("Shopping", "runSearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
+			end
 		else
+			TSM.Inventory.gatherItem = nil
 			TSMAPI:ModuleAPI("Shopping", "runSearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
 		end
 	else

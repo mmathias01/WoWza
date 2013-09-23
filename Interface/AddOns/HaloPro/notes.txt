@@ -1,0 +1,46 @@
+HaloPro v2.0 is ready for release.
+
+New features
+
+Borders
+- Borders can match ElvUI and other dark UI's perfectly
+- Added borders to the graphic making it look a lot nicer
+- Border options can be found on the theme panel in options
+- Borders can have a glow effect, thin line, or solid look
+- Borders thickness can be scaled up or down and work with custom graphics
+- Borders can have their colour adjusted with a colour wheel
+- Borders have a dark and light theme to choose from (auto selects light when choosing colours as they will not show on dark themes)
+
+Additional Talents
+- HaloPro now has the option to monitor Divine Star and Cascade in addition to Halo
+- Each spell can be turned on and off with toggle buttons in the main options panel
+
+Divine Star
+- Shows in the middle (green), up to 30 yards
+- Shows far yellow at 30-35 yards
+- Shows red for 35+ yards
+
+So green will always hit twice, yellow will almost always hit twice if careful, red may hit, but probably once only if at all.
+Due to the very short cooldown of Divine Star, fading out on cast is auto disabled as it's too quick to be useful (that's what she said?)
+Sound notification is also disabled when using Divine Star as it is essentially, just an "in range" check
+
+Cascade
+- Shows left red at 0-30 yards
+- Shows left yellow at 30-35 yards
+- Shows centre green at 35-40 yards
+- Shows right yellow at 40-45 yards
+- Shows right red at 45+ yards
+
+So it will always be in range and do the best damage or heal in green.  Far yellow you will not be able to cast, so position in green and always get a max return on Cascade.
+
+Notifications
+- Splashes a notification when changing talents to let you know what HaloPro is now monitoring
+
+Menus
+- Fixed up the meus slightly and added a backdrop priest image in the options panel when HaloPro is locked as it was too empty and plain
+
+Bugfixes
+- Fixed an issue that could cause HaloPro to not work even when listed in the addons button on login
+- Fixed an issue that could happen when casting shadowfiend or mindbender causing CompactRaidFrame.lua errors
+- Fixed an issue that could cause the border animation of auto cast pet spells like shadowcrawl to appear as a white dot
+- Further optimized memory usage and set a garbage collection when locking HaloPro

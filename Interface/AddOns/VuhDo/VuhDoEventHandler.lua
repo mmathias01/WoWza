@@ -67,7 +67,7 @@ local sAoeRefreshSecs = 1.3;
 local sBuffsRefreshSecs;
 local VuhDoDirectionFrame;
 
-local function VUHDO_eventHandlerInitBurst()
+local function VUHDO_eventHandlerInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 
@@ -217,41 +217,41 @@ end
 
 --
 function VUHDO_initAllBurstCaches()
-	VUHDO_tooltipInitBurst();
-	VUHDO_modelToolsInitBurst();
-	VUHDO_toolboxInitBurst();
-	VUHDO_guiToolboxInitBurst();
-	VUHDO_vuhdoInitBurst();
-	VUHDO_spellEventHandlerInitBurst();
-	VUHDO_macroFactoryInitBurst();
-	VUHDO_keySetupInitBurst();
-	VUHDO_combatLogInitBurst();
-	VUHDO_eventHandlerInitBurst();
-	VUHDO_customHealthInitBurst();
-	VUHDO_customManaInitBurst();
-	VUHDO_customTargetInitBurst();
-	VUHDO_customClustersInitBurst();
-	VUHDO_panelInitBurst();
-	VUHDO_panelRedrawInitBurst();
-	VUHDO_panelRefreshInitBurst();
-	VUHDO_roleCheckerInitBurst();
-	VUHDO_sizeCalculatorInitBurst();
-	VUHDO_customHotsInitBurst();
-	VUHDO_customDebuffIconsInitBurst();
-	VUHDO_debuffsInitBurst();
-	VUHDO_healCommAdapterInitBurst();
-	VUHDO_buffWatchInitBurst();
-	VUHDO_clusterBuilderInitBurst();
-	VUHDO_aoeAdvisorInitBurst();
-	VUHDO_bouquetValidatorsInitBurst();
-	VUHDO_bouquetsInitBurst();
-	VUHDO_textProvidersInitBurst();
-	VUHDO_textProviderHandlersInitBurst();
-	VUHDO_actionEventHandlerInitBurst();
-	VUHDO_directionsInitBurst();
-	VUHDO_dcShieldInitBurst();
-	VUHDO_shieldAbsorbInitBurst();
-	VUHDO_playerTargetEventHandlerInitBurst();
+	VUHDO_tooltipInitLocalOverrides();
+	VUHDO_modelToolsInitLocalOverrides();
+	VUHDO_toolboxInitLocalOverrides();
+	VUHDO_guiToolboxInitLocalOverrides();
+	VUHDO_vuhdoInitLocalOverrides();
+	VUHDO_spellEventHandlerInitLocalOverrides();
+	VUHDO_macroFactoryInitLocalOverrides();
+	VUHDO_keySetupInitLocalOverrides();
+	VUHDO_combatLogInitLocalOverrides();
+	VUHDO_eventHandlerInitLocalOverrides();
+	VUHDO_customHealthInitLocalOverrides();
+	VUHDO_customManaInitLocalOverrides();
+	VUHDO_customTargetInitLocalOverrides();
+	VUHDO_customClustersInitLocalOverrides();
+	VUHDO_panelInitLocalOverrides();
+	VUHDO_panelRedrawInitLocalOverrides();
+	VUHDO_panelRefreshInitLocalOverrides();
+	VUHDO_roleCheckerInitLocalOverrides();
+	VUHDO_sizeCalculatorInitLocalOverrides();
+	VUHDO_customHotsInitLocalOverrides();
+	VUHDO_customDebuffIconsInitLocalOverrides();
+	VUHDO_debuffsInitLocalOverrides();
+	VUHDO_healCommAdapterInitLocalOverrides();
+	VUHDO_buffWatchInitLocalOverrides();
+	VUHDO_clusterBuilderInitLocalOverrides();
+	VUHDO_aoeAdvisorInitLocalOverrides();
+	VUHDO_bouquetValidatorsInitLocalOverrides();
+	VUHDO_bouquetsInitLocalOverrides();
+	VUHDO_textProvidersInitLocalOverrides();
+	VUHDO_textProviderHandlersInitLocalOverrides();
+	VUHDO_actionEventHandlerInitLocalOverrides();
+	VUHDO_directionsInitLocalOverrides();
+	VUHDO_dcShieldInitLocalOverrides();
+	VUHDO_shieldAbsorbInitLocalOverrides();
+	VUHDO_playerTargetEventHandlerInitLocalOverrides();
 end
 
 
@@ -306,7 +306,6 @@ local function VUHDO_init()
 
 	if not VUHDO_RAID then VUHDO_RAID = { }; end
 
-	VUHDO_initButtonCache();
 	VUHDO_loadDefaultProfile(); -- 1. Diese Reihenfolge scheint wichtig zu sein, erzeugt
 	VUHDO_loadVariables(); -- 2. umgekehrt undefiniertes Verhalten (VUHDO_CONFIG ist nil etc.)
 	VUHDO_initAllBurstCaches();
@@ -343,19 +342,11 @@ end
 
 
 
---VUHDO_EVENT_TIMES = { };
 --
 local tEmptyRaid = { };
 local tInfo;
 function VUHDO_OnEvent(_, anEvent, anArg1, anArg2, anArg3, anArg4, anArg5, anArg6, anArg7, anArg8, anArg9, anArg10, anArg11, anArg12, anArg13, anArg14, anArg15, anArg16, anArg17)
 
-	--[[if (VUHDO_EVENT_TIMES["all"] == nil) then
-		VUHDO_EVENT_TIMES["all"] = 0;
-	end
-	if (VUHDO_EVENT_TIMES[anEvent] == nil) then
-		VUHDO_EVENT_TIMES[anEvent] = { 0, 0, 0, 0, 0, 0 };
-	end
-	local tDuration = GetTime();]]
 	--VUHDO_Msg(anEvent);
 	if "COMBAT_LOG_EVENT_UNFILTERED" == anEvent then
 		if VUHDO_VARIABLES_LOADED then
@@ -452,6 +443,9 @@ function VUHDO_OnEvent(_, anEvent, anArg1, anArg2, anArg3, anArg4, anArg5, anArg
 		VUHDO_TIMERS["CUSTOMIZE"] = 0.1;
 
 	elseif "GROUP_ROSTER_UPDATE" == anEvent then
+		--VUHDO_CURR_LAYOUT = VUHDO_SPEC_LAYOUTS["selected"];
+		--VUHDO_CURRENT_PROFILE = VUHDO_CONFIG["CURRENT_PROFILE"];
+
 		if VUHDO_FIRST_RELOAD_UI then
 			VUHDO_normalRaidReload(true);
 			if VUHDO_TIMERS["RELOAD_ROSTER"] < 0.4 then VUHDO_TIMERS["RELOAD_ROSTER"] = 0.6; end
@@ -574,16 +568,8 @@ function VUHDO_OnEvent(_, anEvent, anArg1, anArg2, anArg3, anArg4, anArg5, anArg
 	elseif "PET_BATTLE_CLOSE" == anEvent then
 		VUHDO_setPetBattle(false);
 	else
-		VUHDO_xMsg("Error: Unexpected event: " .. anEvent);
+		VUHDO_Msg("Error: Unexpected event: " .. anEvent);
 	end
-
-	--[[tDuration = GetTime() - tDuration;
-	if (tDuration > VUHDO_EVENT_TIMES[anEvent][1]) then
-		VUHDO_EVENT_TIMES[anEvent][1] = tDuration;
-	end
-	VUHDO_EVENT_TIMES[anEvent][2] = VUHDO_EVENT_TIMES[anEvent][2] + tDuration;
-	VUHDO_EVENT_TIMES[anEvent][3] = VUHDO_EVENT_TIMES[anEvent][3] + 1;
-	VUHDO_EVENT_TIMES["all"] = VUHDO_EVENT_TIMES["all"] + tDuration;]]
 end
 
 
@@ -620,7 +606,7 @@ function VUHDO_slashCmd(aCommand)
 			VUHDO_Msg(VUHDO_I18N_OPTIONS_NOT_LOADED, 1, 0.4, 0.4);
 		end
 	elseif tCommandWord == "pt" then
-		if (tParsedTexts[2] ~= nil) then
+		if tParsedTexts[2] then
 			local tTokens = VUHDO_splitString(tParsedTexts[2], ",");
 			if "clear" == tTokens[1] then
 				table.wipe(VUHDO_PLAYER_TARGETS);
@@ -646,7 +632,7 @@ function VUHDO_slashCmd(aCommand)
 
 	elseif tCommandWord == "load" and tParsedTexts[2] then
 		local tTokens = VUHDO_splitString(tParsedTexts[2] .. (tParsedTexts[3] or ""), ",");
-		if #tTokens >= 2 and strlen(strtrim(tTokens[2])) > 0 then
+		if #tTokens >= 2 and not VUHDO_strempty(tTokens[2]) > 0 then
 			local tName = strtrim(tTokens[2]);
 			if (VUHDO_SPELL_LAYOUTS[tName] ~= nil) then
 				VUHDO_activateLayout(tName);
@@ -654,7 +640,7 @@ function VUHDO_slashCmd(aCommand)
 				VUHDO_Msg(VUHDO_I18N_SPELL_LAYOUT_NOT_EXIST_1 .. tName .. VUHDO_I18N_SPELL_LAYOUT_NOT_EXIST_2, 1, 0.4, 0.4);
 			end
 		end
-		if #tTokens >= 1 and strlen(strtrim(tTokens[1])) > 0 then
+		if #tTokens >= 1 and not VUHDO_strempty(tTokens[1]) then
 			VUHDO_loadProfile(strtrim(tTokens[1]));
 		end
 	elseif strfind(tCommandWord, "res") then
@@ -720,26 +706,18 @@ function VUHDO_slashCmd(aCommand)
 		table.wipe(VUHDO_CONFIG["CUSTOM_DEBUFF"]["STORED_SETTINGS"]);
 		collectgarbage("collect");]]
 
-	--[[elseif tCommandWord == "test" then
+	elseif tCommandWord == "test" then
 		table.wipe(VUHDO_DEBUG);
-		collectgarbage("collect");]]
-	--[[elseif strfind(tCommandWord, "lfg1") then
-		VUHDO_OnEvent(_, "LFG_PROPOSAL_SHOW");
-	elseif strfind(tCommandWord, "lfg2") then
-		VUHDO_OnEvent(_, "LFG_PROPOSAL_FAILED");
-	elseif strfind(tCommandWord, "lfg3") then
-		VUHDO_OnEvent(_, "LFG_PROPOSAL_SUCCEEDED");]]
-	--[[elseif strfind(tCommandWord, "debug") then
-		VUHDO_DEBUG_AUTO_PROFILE = tonumber(tParsedTexts[2]);]]
-	--elseif (strfind(tCommandWord, "test")) then
-	--[[ elseif tCommandWord == "find" then
-		local tName = gsub(tParsedTexts[2], "_", " ");
-		for tCnt = 1, 100000 do
-			if (GetSpellInfo(tCnt) == tName) then
-				VUHDO_Msg(GetSpellInfo(tCnt) .. ": " .. tCnt);
-			end
-		end
-	]]
+		collectgarbage("collect");
+
+		--[[local _, tProfile = VUHDO_getProfileNamedCompressed("Buh!");
+		tProfile = VUHDO_compressTable(tProfile);
+		local tCompressed = VUHDO_compressStringHuffman(VUHDO_compressTable(tProfile));
+		local tUnCompressed = VUHDO_decompressIfCompressed(VUHDO_decompressStringHuffman(tCompressed));
+
+		VUHDO_xMsg(#tProfile, #tCompressed);]]
+
+
 	elseif aCommand == "?" or strfind(tCommandWord, "help")	or aCommand == "" then
 		local tLines = VUHDO_splitString(VUHDO_I18N_COMMAND_LIST, "§");
 		for _, tCurLine in ipairs(tLines) do VUHDO_MsgC(tCurLine); end

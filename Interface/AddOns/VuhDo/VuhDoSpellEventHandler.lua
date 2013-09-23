@@ -18,7 +18,7 @@ local sFirstRes, sSecondRes;
 local sEmpty = { };
 
 
-function VUHDO_spellEventHandlerInitBurst()
+function VUHDO_spellEventHandlerInitLocalOverrides()
 	VUHDO_updateAllHoTs = _G["VUHDO_updateAllHoTs"];
 	VUHDO_updateAllCyclicBouquets = _G["VUHDO_updateAllCyclicBouquets"];
 	VUHDO_initGcd = _G["VUHDO_initGcd"];
@@ -120,15 +120,6 @@ function VUHDO_spellcastSent(aUnit, aSpellName, aSpellRank, aTargetName)
 				SendChatMessage((gsub(VUHDO_CONFIG["RES_ANNOUNCE_TEXT"], "[Vv][Uu][Hh][Dd][Oo]", aTargetName)), tChannel);
 			end
 
-			--[[local tText = gsub(VUHDO_CONFIG["RES_ANNOUNCE_TEXT"], "[Vv][Uu][Hh][Dd][Oo]", aTargetName);
-
-			if UnitInBattleground("player") or HasLFGRestrictions() then
-				SendChatMessage(tText, "INSTANCE_CHAT");
-			elseif IsInRaid() then
-				SendChatMessage(tText, "RAID");
-			elseif IsInGroup() then
-				SendChatMessage(tText, "PARTY");
-			end]]
 		end
 		return;
 	end

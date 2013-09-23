@@ -272,6 +272,10 @@ function private:ScanComplete()
 		local postPrice = TSM:GetMaxPrice(TSM.db.global.normalPostPrice, private.searchItem) or 0
 		TSMAPI.AuctionControl:SetNoResultItem(private.searchItem, postPrice)
 	end
+	
+	if #private.searchFrame.rt.auctionData == 0 and TSM.moduleAPICallback then
+		TSM.moduleAPICallback()
+	end
 	private.callback("done", private.auctions)
 end
 

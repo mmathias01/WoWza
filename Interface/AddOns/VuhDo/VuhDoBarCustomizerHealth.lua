@@ -42,7 +42,6 @@ local VUHDO_INTERNAL_TOGGLES;
 
 local abs = abs;
 local floor = floor;
-local strlen = strlen;
 local strfind = strfind;
 local strbyte = strbyte;
 local GetRaidTargetIndex = GetRaidTargetIndex;
@@ -56,7 +55,7 @@ local sIsInvertGrowth;
 local sLifeColor;
 
 
-function VUHDO_customHealthInitBurst()
+function VUHDO_customHealthInitLocalOverrides()
 	VUHDO_PANEL_SETUP = _G["VUHDO_PANEL_SETUP"];
 	VUHDO_BUTTON_CACHE = _G["VUHDO_BUTTON_CACHE"];
 	VUHDO_RAID = _G["VUHDO_RAID"];
@@ -380,8 +379,7 @@ function VUHDO_customizeText(aButton, aMode, anIsTarget)
 	if tIsName then
 
 	  tOwnerInfo = VUHDO_RAID[tInfo["ownerUnit"]];
-	  tIndex = format("%s%s%d", tInfo["name"], tInfo["ownerUnit"] or "", tPanelNum);
-	  --tIndex = tInfo["name"] .. (tInfo["ownerUnit"] or "") .. tPanelNum;
+	  tIndex = tInfo["name"] .. (tInfo["ownerUnit"] or "") .. tPanelNum;
 		if not VUHDO_NAME_TEXTS[tIndex] then
 
 	  	if tSetup["ID_TEXT"]["showName"] then
@@ -400,7 +398,7 @@ function VUHDO_customizeText(aButton, aMode, anIsTarget)
 	  	end
 	  	tMaxChars = tSetup["PANEL_COLOR"]["TEXT"]["maxChars"];
 
-	  	if tMaxChars > 0 and strlen(tTextString) > tMaxChars then
+	  	if tMaxChars > 0 and #tTextString > tMaxChars then
 	  		tTextString = VUHDO_utf8Cut(tTextString, tMaxChars);
 	  	end
 	  	VUHDO_NAME_TEXTS[tIndex] = tTextString;
@@ -644,9 +642,7 @@ local VUHDO_customizeHealButton = VUHDO_customizeHealButton;
 --
 local tInfo, tAlpha, tIcon;
 local function VUHDO_customizeDebuffIconsRange(aButton)
-	if sIsNoRangeFade then
-		return;
-	end
+	if sIsNoRangeFade then return; end
 
 	_, tInfo = VUHDO_getDisplayUnit(aButton);
 
@@ -751,18 +747,11 @@ end
 
 
 --
-local function VUHDO_internalUpdateAllPanelBars(aPanelNum)
+function VUHDO_updateAllPanelBars(aPanelNum)
 	for _, tButton in pairs(VUHDO_getPanelButtons(aPanelNum)) do
 		if not tButton:GetAttribute("unit") then break; end
 		VUHDO_customizeHealButton(tButton);
 	end
-end
-
-
-
---
-function VUHDO_updateAllPanelBars(aPanelNum)
-	VUHDO_internalUpdateAllPanelBars(aPanelNum);
 
 	for tUnit, _ in pairs(VUHDO_RAID) do
 		VUHDO_updateIncHeal(tUnit); -- Trotzdem wichtig um Balken zu verstecken bei neuen Units
@@ -777,7 +766,12 @@ end
 VUHDO_REMOVE_HOTS = true;
 function VUHDO_updateAllRaidBars()
 	for tCnt = 1, 10 do -- VUHDO_MAX_PANELS
-		if VUHDO_isPanelVisible(tCnt) then VUHDO_internalUpdateAllPanelBars(tCnt); end
+		if VUHDO_isPanelVisible(tCnt) then
+			for _, tButton in pairs(VUHDO_getPanelButtons(tCnt)) do
+				if not tButton:GetAttribute("unit") then break; end
+				VUHDO_customizeHealButton(tButton);
+			end
+		end
 	end
 
 	for tUnit, _ in pairs(VUHDO_RAID) do

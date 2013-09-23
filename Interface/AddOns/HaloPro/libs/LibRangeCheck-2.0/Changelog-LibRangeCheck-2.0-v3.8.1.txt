@@ -1,0 +1,13 @@
+------------------------------------------------------------------------
+r137 | mitch0 | 2013-04-15 09:12:30 +0000 (Mon, 15 Apr 2013) | 1 line
+Changed paths:
+   A /tags/v3.8.1 (from /trunk:136)
+
+Tagging as v3.8.1
+------------------------------------------------------------------------
+r136 | mitch0 | 2013-04-15 06:43:50 +0000 (Mon, 15 Apr 2013) | 1 line
+Changed paths:
+   M /trunk/LibRangeCheck-2.0/LibRangeCheck-2.0.lua
+
+disable Feral Charge, maybe that's causing the reported issue in Moonkin and Travel form
+------------------------------------------------------------------------

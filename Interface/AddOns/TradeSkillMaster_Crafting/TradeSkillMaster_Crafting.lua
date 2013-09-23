@@ -39,7 +39,7 @@ local savedDBDefaults = {
 		mats = {},
 		queueStatus = { collapsed = {} },
 		sourceStatus = { collapsed = {} },
-		gathering = { crafter = nil, professions = {}, neededMats = {}, availableMats = {}, gatheredMats = false, gatherAll = false, destroyingMats = {} },
+		gathering = { crafter = nil, professions = {}, neededMats = {}, availableMats = {}, gatheredMats = false, gatherAll = false, destroyingMats = {}, destroyDisable = false },
 		craftingCostCache = {}
 	},
 }
@@ -102,6 +102,7 @@ function TSM:RegisterModule()
 	TSM.slashCommands = {
 		{ key = "profession", label = L["Opens the Crafting window to the first profession."], callback = "CraftingGUI:OpenFirstProfession" },
 		{ key = "profreset", label = L["Resets the position of the profession frame."], callback = "CraftingGUI:ResetFramePosition" },
+		{ key = "gatherreset", label = L["Resets the position of the profession frame."], callback = "CraftingGUI:ResetGatheringFramePosition" },
 	}
 	TSM.sync = { callback = "Sync:Callback" }
 	TSMAPI:NewModule(TSM)

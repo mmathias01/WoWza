@@ -13,7 +13,7 @@ local _;
 local format = format;
 
 local VUHDO_RAID;
-function VUHDO_dcShieldInitBurst()
+function VUHDO_dcShieldInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 end
 -----------------------------------------------------------------------------------
@@ -231,7 +231,7 @@ function VUHDO_buildRaidFromMacro()
 			tUnit = tCnt == 41 and "player"
 				or tCnt == 82 and "pet"
 				or tCnt > 41 and format("%spet%d", tPrefix, tCnt - 41)
-				or format("%s%d", tPrefix, tCnt);
+				or tPrefix .. tCnt;
 
 			tName = strsub(tMacroNames, tStrIdx, tStrIdx + 2);
 			VUHDO_buildInfoFromSnippet(tUnit, tSnippet, tName);

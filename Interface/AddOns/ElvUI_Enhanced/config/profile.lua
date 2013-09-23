@@ -40,8 +40,10 @@ P['unitframe']['units']['focus']['gps']= {
 -- Nameplates
 P['nameplate'].showthreat = true
 P['nameplate'].targetcount = true
-P['nameplate'].auras.stretchTexture = false
-P['nameplate'].auras.numAuras = 6
+P['nameplate'].buffs.stretchTexture = false
+P['nameplate'].buffs.numAuras = 6
+P['nameplate'].debuffs.stretchTexture = false
+P['nameplate'].debuffs.numAuras = 6
 
 
 -- DataTexts

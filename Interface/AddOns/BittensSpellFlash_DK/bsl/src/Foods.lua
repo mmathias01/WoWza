@@ -1,7 +1,7 @@
 local g = BittensGlobalTables
 local c = g.GetTable("BittensSpellFlashLibrary")
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "Foods", 2) then
+if u.SkipOrUpgrade(c, "Foods", 3) then
 	return
 end
 
@@ -115,6 +115,17 @@ local foods = {
 			81411, -- Peach Pie
 		},
 	},
+	Smart = {
+		[250] = {
+			101616, -- Noodle Soup
+		},
+		[275] = {
+			101617, -- Deluxe Noodle Soup
+		},
+		[300] = {
+			101618, -- Pandaren Treasure Noodle Soup
+		},
+	},
 	Spirit = {
 		[250] = {
 			74651, -- Shrimp Dumplings
@@ -180,6 +191,7 @@ function c.FlashFoods(stats)
 	
 	flashFoods("Mastery")
 	flashFoods("Stats")
+	flashFoods("Smart")
 	
 	for _, stat in pairs(stats) do
 		if stat == "Spell Hit" then

@@ -13,7 +13,7 @@ local sTopSpacing;
 local sBottomSpacing;
 local sIsTooltipCache = { };
 
-function VUHDO_panelRedrawCustomDebuffsInitBurst()
+function VUHDO_panelRedrawCustomDebuffsInitLocalOverrides()
 	VUHDO_getBarIcon = _G["VUHDO_getBarIcon"];
 	VUHDO_getBarIconTimer = _G["VUHDO_getBarIconTimer"];
 	VUHDO_getBarIconCounter = _G["VUHDO_getBarIconCounter"];

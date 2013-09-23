@@ -6,7 +6,7 @@ if not L then return end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "您正在使用 |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v6.44 or higher). Please, download the latest version from tukui.org."] = "您的ElvUI版本過低(需要 v6.44 或更高), 請前往tukui.org下載最新版本."
+L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = "您的ElvUI版本過低(需要 v6.51 或更高), 請前往tukui.org下載最新版本."
 
 -- Equipment
 L["Equipment"] = "自動換裝"
@@ -86,6 +86,11 @@ L['The size of the minimap buttons.'] = "小地圖圖標尺寸."
 L['No Anchor Bar'] = "沒有錨點"
 L['Horizontal Anchor Bar'] = "水平狀"
 L['Vertical Anchor Bar'] = "垂直狀"
+
+L['Layout Direction'] = true
+L['Normal is right to left or top to bottom, or select reversed to switch directions.'] = true
+L['Normal'] = true
+L['Reversed'] = true
 
 -- PvP Autorelease
 L['PvP Autorelease'] = "PVP自動釋放靈魂"

@@ -31,7 +31,7 @@ local VUHDO_getUnitButtonsSafe;
 local VUHDO_CONFIG;
 local VUHDO_INTERNAL_TOGGLES;
 local VUHDO_RAID;
-function VUHDO_actionEventHandlerInitBurst()
+function VUHDO_actionEventHandlerInitLocalOverrides()
 	VUHDO_updateBouquetsForEvent = _G["VUHDO_updateBouquetsForEvent"];
 	VUHDO_highlightClusterFor = _G["VUHDO_highlightClusterFor"];
 	VUHDO_showTooltip = _G["VUHDO_showTooltip"];
@@ -72,7 +72,7 @@ local function VUHDO_placePlayerIcon(aButton, anIconNo, anIndex)
 
 	local anIcon = VUHDO_getBarIcon(aButton, anIconNo);
 	anIcon:ClearAllPoints();
-	if anIndex == 2 then
+	if 2 == anIndex then
 		anIcon:SetPoint("CENTER", aButton:GetName(), "TOPRIGHT", -5, -10);
 	else
 		if anIndex > 2 then anIndex = anIndex - 1; end

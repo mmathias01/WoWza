@@ -30,7 +30,7 @@ local sStaticConfig;
 
 local sEmpty = { };
 
-function VUHDO_customDebuffIconsInitBurst()
+function VUHDO_customDebuffIconsInitLocalOverrides()
 	-- functions
 	VUHDO_getUnitButtons = _G["VUHDO_getUnitButtons"];
 	VUHDO_getBarIconTimer = _G["VUHDO_getBarIconTimer"];

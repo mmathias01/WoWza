@@ -39,6 +39,10 @@ END
 VER 3 0000000000000008 "GET ON ME" "INV_PET_BATTLEPETTRAINING"
 /say GET ON ME
 END
+VER 3 0000000000000014 "Halo_M" "INV_Misc_QuestionMark"
+#showtooltip
+/cast  Halo
+END
 VER 3 000000000000000B "HW_M" "INV_Misc_QuestionMark"
 #showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][@target] Holy Word: Chastise

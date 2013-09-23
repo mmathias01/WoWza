@@ -71,7 +71,7 @@ local sRebuffPerc;
 local sGermanOrEnglish = GetLocale() == "deDE" or GetLocale() == "enGB" or GetLocale() == "enUS";
 
 -----------------------------------------------------------------------------
-function VUHDO_buffWatchInitBurst()
+function VUHDO_buffWatchInitLocalOverrides()
 	VUHDO_RAID = _G["VUHDO_RAID"];
 	VUHDO_RAID_NAMES = _G["VUHDO_RAID_NAMES"];
 
@@ -165,9 +165,7 @@ end
 --
 --local tModiKey, tButtonId;
 function VUHDO_setupAllBuffButtonsTo(aButton, aBuffName, aUnit, aTargetType)
-	if InCombatLockdown() then
-		return;
-	end
+	if InCombatLockdown() then return; end
 
 	VUHDO_setupAllBuffButtonUnits(aButton, aUnit);
 	for _, tWithMinus in pairs(VUHDO_MODIFIER_KEYS) do
@@ -289,11 +287,9 @@ function VUHDO_buffSelectDropdownFilterSelected(_, aCategName, aFilterValue)
 			twipe(tAllFilters);
 			tAllFilters[VUHDO_ID_ALL] = true;
 		else
-			if tAllFilters[aFilterValue] then
-				tAllFilters[aFilterValue] = nil;
-			else
-				tAllFilters[aFilterValue] = true;
-			end
+			if tAllFilters[aFilterValue] then tAllFilters[aFilterValue] = nil;
+			else tAllFilters[aFilterValue] = true; end
+
 			tAllFilters[VUHDO_ID_ALL] = nil;
 		end
 
@@ -352,7 +348,7 @@ function VUHDO_getAllUniqueSpells()
 
 	for tCategName, tCategBuffs in pairs(VUHDO_getPlayerClassBuffs()) do
 		local tSpellName = tCategBuffs[1][1];
-		if VUHDO_BUFFS[tSpellName] ~= nil and VUHDO_BUFF_TARGET_UNIQUE == tCategBuffs[1][2] then
+		if VUHDO_BUFFS[tSpellName] and VUHDO_BUFF_TARGET_UNIQUE == tCategBuffs[1][2] then
 			tUniqueBuffs[#tUniqueBuffs + 1] = tSpellName;
 			tUniqueCategs[tSpellName] = tCategName;
 		end
@@ -852,7 +848,7 @@ function VUHDO_updateBuffSwatch(aSwatch)
 		aSwatch:SetAttribute("goodtarget", tGoodTarget);
 	end
 
-	VUHDO_NUM_LOWS[tSwatchName] = #(tLowGroup or {}) + #(tMissGroup or {});
+	VUHDO_NUM_LOWS[tSwatchName] = #(tLowGroup or sEmpty) + #(tMissGroup or sEmpty);
 end
 
 

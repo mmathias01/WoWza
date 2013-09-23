@@ -45,13 +45,13 @@ GoingPrice_US_SV = {
 		["checked"] = true,
 		["next"] = "Std Deviation",
 	},
+	["_lastKey"] = "Buy From Vendor",
+	["_lib_minor_version"] = 7,
 	["Buy From Vendor"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["prev"] = "Std Deviation",
 	},
-	["_lib_minor_version"] = 7,
-	["_lastKey"] = "Buy From Vendor",
 	["_lib_major_version"] = 2,
 	["Std Deviation"] = {
 		["prev"] = "Market Mean",

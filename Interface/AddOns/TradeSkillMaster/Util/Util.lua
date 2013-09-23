@@ -63,6 +63,7 @@ end
 function TSMAPI:FormatTextMoney(money, color, pad, trim, disabled)
 	local money = tonumber(money)
 	if not money then return end
+	
 	local isNegative = money < 0
 	money = abs(money)
 	local gold = floor(money / COPPER_PER_GOLD)
@@ -307,7 +308,15 @@ end
 -- @param callback The function to be called after the duration expires.
 -- @param repeatDelay If you want this delay to repeat until canceled, after the initial duration expires, will restart the callback with this duration. Passing nil means no repeating.
 -- @return Returns an error message as the second return value on error.
-function TSMAPI:CreateTimeDelay(label, duration, callback, repeatDelay)
+function TSMAPI:CreateTimeDelay(...)
+	local label, duration, callback, repeatDelay
+	if type(select(1, ...)) == "number" then
+		-- use empty string as placeholder label if none specified
+		label = ""
+		duration, callback, repeatDelay = ...
+	else
+		label, duration, callback, repeatDelay = ...
+	end
 	if not label or type(duration) ~= "number" or type(callback) ~= "function" then return nil, "invalid args", label, duration, callback, repeatDelay end
 
 	local frameNum
@@ -338,7 +347,7 @@ end
 -- @param callback The function to be called every OnUpdate.
 -- @return Returns an error message as the second return value on error.
 function TSMAPI:CreateFunctionRepeat(label, callback)
-	if not label or type(callback) ~= "function" then return nil, "invalid args", label, callback end
+	if not label or label == "" or type(callback) ~= "function" then return nil, "invalid args", label, callback end
 
 	local frameNum
 	for i, frame in ipairs(delays) do
@@ -365,6 +374,7 @@ end
 -- Frames are automatically recycled to avoid memory leaks.
 -- @param label The label of the frame you want to cancel.
 function TSMAPI:CancelFrame(label)
+	if label == "" then return end
 	local delayFrame
 	if type(label) == "table" then
 		delayFrame = label
@@ -500,24 +510,30 @@ function TSMAPI:GetBaseItemString(itemString, doGroupLookup)
 	end
 end
 
+local itemInfoCache = {}
 function TSMAPI:GetSafeItemInfo(link)
 	if type(link) ~= "string" then return end
 	
-	if strmatch(link, "battlepet:") then
-		local _, speciesID, level, quality, health, power, speed, petID = strsplit(":", link)
-		if not speciesID then return end
-		level, quality, health, power, speed, petID = level or 0, quality or 0, health or 0, power or 0, speed or 0, petID or "0"
-		
-		local name, texture = C_PetJournal.GetPetInfoBySpeciesID(speciesID)
-		level, quality = tonumber(level), tonumber(quality)
-		petID = strsub(petID, 1, (strfind(petID, "|") or #petID)-1)
-		link = ITEM_QUALITY_COLORS[quality].hex.."|Hbattlepet:"..speciesID..":"..level..":"..quality..":"..health..":"..power..":"..speed..":"..petID.."|h["..name.."]|h|r"
-		local minLvl, iType, _, stackSize, _, _, vendorPrice = select(5, GetItemInfo(82800))
-		local subType, equipLoc = 0, ""
-		return name, link, quality, level, minLvl, iType, subType, stackSize, equipLoc, texture, vendorPrice
-	elseif strmatch(link, "item:") then
-		return GetItemInfo(link)
+	if not itemInfoCache[link] then
+		if strmatch(link, "battlepet:") then
+			local _, speciesID, level, quality, health, power, speed, petID = strsplit(":", link)
+			if not speciesID then return end
+			level, quality, health, power, speed, petID = level or 0, quality or 0, health or 0, power or 0, speed or 0, petID or "0"
+			
+			local name, texture = C_PetJournal.GetPetInfoBySpeciesID(speciesID)
+			level, quality = tonumber(level), tonumber(quality)
+			petID = strsub(petID, 1, (strfind(petID, "|") or #petID)-1)
+			link = ITEM_QUALITY_COLORS[quality].hex.."|Hbattlepet:"..speciesID..":"..level..":"..quality..":"..health..":"..power..":"..speed..":"..petID.."|h["..name.."]|h|r"
+			local minLvl, iType, _, stackSize, _, _, vendorPrice = select(5, GetItemInfo(82800))
+			local subType, equipLoc = 0, ""
+			itemInfoCache[link] = {name, link, quality, level, minLvl, iType, subType, stackSize, equipLoc, texture, vendorPrice}
+		elseif strmatch(link, "item:") then
+			itemInfoCache[link] = {GetItemInfo(link)}
+		end
+		if itemInfoCache[link] and #itemInfoCache[link] == 0 then itemInfoCache[link] = nil end
 	end
+	if not itemInfoCache[link] then return end
+	return unpack(itemInfoCache[link])
 end
 
 
