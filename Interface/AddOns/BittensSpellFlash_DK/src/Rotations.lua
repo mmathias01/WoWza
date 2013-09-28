@@ -203,6 +203,18 @@ function a.PreFlash()
 		else
 			a.RP = a.RP + getBump(info.Name, a.FreezingFog, a.CrimsonScourge)
 		end
+		if c.IsQueued("Empower Rune Weapon") then
+			for i = 1, 6 do
+				a.Runes[i] = 0
+			end
+		else
+			if c.IsQueued("Blood Tap") then
+				a.PendingDeathRunes = a.PendingDeathRunes + 1
+			end
+			if c.IsQueued("Plague Leech") then
+				a.PendingDeathRunes = a.PendingDeathRunes + 2
+			end
+		end
 		local cost = a.Costs[info.Name]
 		if s.Buff(c.GetID("Crimson Scourge"), "player") 
 			and c.InfoMatches(info, "Blood Boil", "Death and Decay") then
@@ -237,6 +249,7 @@ function a.PreFlash()
 			death = consumeRune(6, death)
 			death = consumeRune(3, death)
 			death = consumeRune(4, death)
+			a.PendingDeathRunes = a.PendingDeathRunes - death
 		end
 		if consumesKM(info) then
 			a.KillingMachine = false
@@ -245,12 +258,6 @@ function a.PreFlash()
 			and c.IsQueued("Howling Blast", "Icy Touch") then
 			
 			a.FreezingFog = a.FreezingFog - 1
-		end
-		if c.IsQueued("Blood Tap") then
-			a.PendingDeathRunes = a.PendingDeathRunes + 1
-		end
-		if c.IsQueued("Plague Leech") then
-			a.PendingDeathRunes = a.PendingDeathRunes + 2
 		end
 	end
 	
@@ -284,7 +291,7 @@ a.Rotations.Blood = {
 			uncontrolledMitigationBuffs,
 			c.COMMON_TANKING_BUFFS,
 			"Death Pact",
-			"Dancing Rune Weapon for Damage",
+			"Dancing Rune Weapon Prime",
 			"Bone Shield",
 			"Vampiric Blood",
 			"Dancing Rune Weapon",

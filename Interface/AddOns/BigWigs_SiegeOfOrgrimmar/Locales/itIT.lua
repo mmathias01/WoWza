@@ -16,9 +16,9 @@ if L then
 	L.intermission = "Misure Disperate"
 	L.intermission_desc = "Avvisa quando ti stai avvicinando ad un boss che sta lanciando Misure Disperate"
 
-	--L.inferno_self = "Inferno Strike on you"
-	--L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
-	--L.inferno_self_bar = "You explode!"
+	L.inferno_self = "Assalto dell'Inferno su di te"
+	L.inferno_self_desc = "Countdown Speciale quando Assalto dell'nferno è su di te."
+	L.inferno_self_bar = "Stai Esplodendo!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "itIT")
@@ -29,14 +29,14 @@ if L then
 
 	L.big_adds = "Add Maggiori"
 	L.big_adds_desc = "Avvisa quando uccidi gli Add Maggiori dentro/fuori"
-	L.big_add = "Add Maggiore! (%d)"
+	L.big_add = "Add Maggiore (%d)"
 	L.big_add_killed = "Add Maggiore ucciso! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "itIT")
 if L then
 	L.custom_off_titan_mark = "Marcatore Potenza dei Titani"
-	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_titan_mark_desc = "Evidenzia i giocatori con Dono dei Titani con  {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, richiede capoincursione o assistente.\n|cFFFF0000Soltanto 1 dei giocatori nell'incursione dovrebbe tenere abilitata questa opzione per evitare conflitti di marcamento.|r"
 
 	L.projection_message = "Vai verso la freccia |cFF00FF00VERDE|r!"
 	L.projection_explosion = "Proiezione esplosione"
@@ -88,7 +88,7 @@ if L then
 	L.berserker = "Berserker"
 	L.defensive = "Difesa"
 
-	L.adds_trigger1 = "Difendete il cancello!" --all triggers need verify
+	L.adds_trigger1 = "Difendete il cancello!" --all triggers verified
 	L.adds_trigger2 = "Radunate le forze!"
 	L.adds_trigger3 = "Prossima squadra, al fronte!"
 	L.adds_trigger4 = "Guerrieri, in marcia!"
@@ -169,7 +169,7 @@ if L then
 
 	L.farseer_trigger = "Chiaroveggenti, guarite le nostre ferite!"
 	L.custom_off_shaman_marker = "Marcatore Chiaroveggenti"
-	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzioni. evidenzia i Cavalcalupi Chiaroveggenti con %s%s%s%s%s%s%s (in questo ordine)(non tutti i simboli possono essere usati), richiede capo incursione o assistente."
+	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzioni, evidenzia i Cavalcalupi Chiaroveggenti con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (in questo ordine, non tutti i simboli possono essere usati), richiede capo incursione o assistente."
 
 	L.focus_only = "|cffff0000Avvisi solo dei bersagli focus.|r "
 end

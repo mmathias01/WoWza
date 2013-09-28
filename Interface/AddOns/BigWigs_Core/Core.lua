@@ -95,8 +95,8 @@ end
 local function shouldReallyEnable(unit, moduleName, mobId)
 	local module = addon.bossCore:GetModule(moduleName)
 	if not module or module:IsEnabled() then return end
-	-- If we pass the Verify Enable func (or it doesn't exist) and it's been > 5 seconds since the module was disabled, then enable it.
-	if (not module.VerifyEnable or module:VerifyEnable(unit, mobId)) and (not module.lastKill or (GetTime() - module.lastKill) > 5) then
+	-- If we pass the Verify Enable func (or it doesn't exist) and it's been > 150 seconds since the module was disabled, then enable it.
+	if (not module.VerifyEnable or module:VerifyEnable(unit, mobId)) and (not module.lastKill or (GetTime() - module.lastKill) > 150) then
 		enableBossModule(module)
 	end
 end
@@ -249,22 +249,6 @@ do
 end
 
 -------------------------------------------------------------------------------
--- Role Updating
---
-
-function addon:UpdateRole()
-	if self.db.profile.autoRole and not InCombatLockdown() and not UnitAffectingCombat("player") and (IsInRaid() or IsInGroup()) and not IsPartyLFG() then
-		local tree = GetSpecialization()
-		if not tree then return end -- No spec selected
-		local role = GetSpecializationRole(tree)
-		if UnitGroupRolesAssigned("player") ~= role then
-			UnitSetRole("player", role)
-			self:Print(L.roleUpdate)
-		end
-	end
-end
-
--------------------------------------------------------------------------------
 -- Testing
 --
 
@@ -335,7 +319,7 @@ local function coreSync(sync, moduleName, sender)
 	elseif sync == "Death" then
 		local mod = addon:GetBossModule(moduleName, true)
 		if mod and mod:IsEnabled() then
-			mod:Message("bosskill", "Positive", "Victory", L["%s has been defeated"]:format(mod.displayName), false)
+			mod:Message("bosskill", "Positive", "Victory", L.defeated:format(mod.displayName), false)
 			if mod.OnWin then mod:OnWin() end
 			mod.lastKill = GetTime() -- Add the kill time for the enable check.
 			mod:SendMessage("BigWigs_OnBossWin", mod)
@@ -461,20 +445,17 @@ end
 function addon:OnEnable()
 	self:RegisterMessage("BigWigs_AddonMessage", chatMsgAddon)
 	self:RegisterEvent("ZONE_CHANGED_NEW_AREA", zoneChanged)
-	self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED", "UpdateRole")
 	self:RegisterEvent("CINEMATIC_START")
 
 	self.pluginCore:Enable()
 	self.bossCore:Enable()
 
 	zoneChanged()
-	self:UpdateRole()
 	self:SendMessage("BigWigs_CoreEnabled")
 end
 
 function addon:OnDisable()
 	self:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
-	self:UnregisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
 	self:UnregisterEvent("CINEMATIC_START")
 	self:UnregisterMessage("BigWigs_AddonMessage")
 

@@ -9,10 +9,10 @@
 ## OptionalDeps: GoingPrice, EnhTooltip
 ## SavedVariables: GoingPrice_US_SV
 ##
-## Version: 5.4.1379808000
+## Version: 5.4.1380240000
 ## X-Website: http://goingpriceaddon.com/
 ##
-## X-Curse-Packaged-Version: 5.4.1379808000
+## X-Curse-Packaged-Version: 5.4.1380240000
 ## X-Curse-Project-Name: GoingPrice_US
 ## X-Curse-Project-ID: goingprice_us
 ## X-Curse-Repository-ID: wow/goingprice_us/mainline

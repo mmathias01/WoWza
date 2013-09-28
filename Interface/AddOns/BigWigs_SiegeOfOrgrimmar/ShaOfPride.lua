@@ -88,7 +88,7 @@ function mod:OnEngage()
 	self:Bar(-8262, 60, L["big_add_bar"], 144379) -- signature ability icon
 	self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 	self:Bar(144800, 25, L["small_adds"])
-	self:Bar(144563, 50) -- Imprison
+	self:Bar(144563, 52.5) -- Imprison
 	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
 	if self:Heroic() then
 		self:Bar(145215, 37) -- Banishment
@@ -113,7 +113,6 @@ end
 do
 	local banishmentList, scheduled = mod:NewTargetList(), nil
 	local function warnBanishment(spellId)
-		mod:Bar(spellId, 77)
 		mod:TargetMessage(spellId, banishmentList, "Attention")
 		scheduled = nil
 	end
@@ -127,17 +126,28 @@ end
 
 -- normal
 function mod:UnleashedStart()
-	self:CDBar(144358, 11) -- Wounded Pride
+	if not self:LFR() then
+		self:CDBar(144358, 11) -- Wounded Pride
+		self:StopBar(144400) -- Swelling Pride
+		self:StopBar(144563) -- Imprison
+		self:StopBar(145215) -- Banishment
+		self:StopBar(L["small_adds"])
+		self:StopBar(L["big_add_bar"])
+		self:CancelDelayedMessage(L["big_add_spawning"])
+	end
 end
 
 function mod:Unleashed() -- Final Gift
 	self:StopBar(146595) -- Gift of the Titans
 	self:Message(-8349, "Neutral", "Info")
-	self:Bar(144400, 77) -- Swelling Pride
+	self:Bar(144400, 74) -- Swelling Pride
 	self:Bar(-8262, 60, L["big_add_bar"], 144379)
 	self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
-	self:Bar(144800, 16, L["small_adds"])
-	self:Bar(144563, 42) -- Imprison
+	self:Bar(144800, 16.3, L["small_adds"])
+	self:Bar(144563, 43.6) -- Imprison
+	if self:Heroic() then
+		self:Bar(145215, 29) -- Banishment
+	end
 end
 
 function mod:UNIT_HEALTH_FREQUENT(unitId)
@@ -164,12 +174,10 @@ end
 
 function mod:Imprison(args)
 	self:Message(args.spellId, "Neutral", nil, CL["casting"]:format(args.spellName))
-	self:Bar(args.spellId, 77)
 end
 
 function mod:SelfReflection(args)
 	self:Message(args.spellId, "Important", nil, L["small_adds"])
-	self:Bar(args.spellId, 77, L["small_adds"])
 end
 
 function mod:WoundedPride(args)
@@ -213,8 +221,15 @@ do
 	local prev = 0
 	local mindcontrolled = mod:NewTargetList()
 	function mod:SwellingPrideSuccess(args)
-		self:CDBar(144358, 10.5) -- Wounded Pride, 10-11.2
+		if not self:LFR() then
+			self:CDBar(144358, 10.5) -- Wounded Pride, 10-11.2
+		end
+		if self:Heroic() then
+			self:Bar(145215, 37.4) -- Banishment
+		end
+		self:Bar(144563, 53) -- Imprison
 		self:Bar(-8262, 60, L["big_add_bar"], 144379) -- when the add is actually up
+		self:Bar(144800, 25.6, L["small_adds"])
 		self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 		-- lets do some fancy stuff
 		local playerPower = UnitPower("player", 10)
@@ -252,14 +267,16 @@ do
 	local isOnMe = nil
 	local function titansCasted()
 		if isOnMe then
-			mod:OpenProximity(146595, 8, titans, true)
 			isOnMe = nil
+			mod:OpenProximity(146595, 8, titans, true)
 		end
 		titanCounter = 1
 		wipe(titans)
 	end
 	function mod:TitanGiftRemoved(args)
-		self:CloseProximity(146595)
+		if self:Me(args.destGUID) then
+			self:CloseProximity(146595)
+		end
 		if self.db.profile.custom_off_titan_mark then
 			SetRaidTarget(args.destName, 0)
 		end

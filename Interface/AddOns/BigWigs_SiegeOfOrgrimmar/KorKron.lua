@@ -9,7 +9,7 @@ TODO:
 
 local mod, CL = BigWigs:NewBoss("Kor'kron Dark Shaman", 953, 856)
 if not mod then return end
-mod:RegisterEnableMob(71859, 71858) -- Earthbreaker Haromm, Wavebinder Kardris
+mod:RegisterEnableMob(71859, 71858, 71923, 71921) -- Earthbreaker Haromm, Wavebinder Kardris, Bloodclaw, Darkfang
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -66,8 +66,7 @@ function mod:OnBossEnable()
 	-- Earthbreaker Haromm
 	self:Log("SPELL_AURA_APPLIED", "ToxicMistApplied", 144089)
 	self:Log("SPELL_AURA_REMOVED", "ToxicMistRemoved", 144089)
-	self:Log("SPELL_CAST_START", "FoulStream", 137399, 144090) -- SUCCESS has destName but is way too late, and "boss1target" should be reliable for it
-	self:Log("SPELL_CAST_SUCCESS", "FoulStreamFallback", 137399, 144090)
+	self:Log("SPELL_CAST_START", "FoulStream", 144090) -- SUCCESS has destName but is way too late, and "boss1target" should be reliable for it
 	self:Log("SPELL_AURA_APPLIED_DOSE", "FroststormStrike", 144215)
 	self:Log("SPELL_CAST_START", "AshenWall", 144070)
 	-- Wavebinder Kardris
@@ -100,14 +99,14 @@ function mod:IronTomb(args)
 end
 
 do
-	local function ironPrisonOverSoon(spellId)
-		mod:Message(spellId, "Attention", "Warning", CL["soon"]:format(CL["removed"]:format(mod:SpellName(spellId))))
+	local function ironPrisonOverSoon(spellId, spellName)
+		mod:Message(spellId, "Attention", "Warning", CL["soon"]:format(CL["removed"]:format(spellName)))
 		mod:Flash(spellId)
 	end
 	function mod:IronPrison(args)
 		if self:Me(args.destGUID) then
 			self:Bar(args.spellId, 60)
-			self:ScheduleTimer(ironPrisonOverSoon, 57)
+			self:ScheduleTimer(ironPrisonOverSoon, 57, args.spellId, args.spellName)
 		end
 	end
 end
@@ -143,51 +142,26 @@ do
 end
 
 do
-	local timer, foulStreamTarget = nil, nil
-	local function warnFoulStream(player, guid)
-		mod:PrimaryIcon(-8132, player)
-		if mod:Me(guid) then
-			mod:Say(-8132)
+	local function printTarget(self, name, guid)
+		self:PrimaryIcon(-8132, name)
+		if self:Me(guid) then
+			self:Say(-8132)
+			self:Flash(-8132)
+		elseif self:Range(name) < 8 then -- 8 is assumed, also a circular distance check is not the best for this
+			self:RangeMessage(-8132)
+			return
 		end
-		if mod:Range(player) < 8 then -- 8 is assumed, also a circular distance check is not the best for this
-			mod:RangeMessage(-8132)
-			mod:Flash(-8132)
-		else
-			mod:TargetMessage(-8132, player, "Positive", "Alarm")
-		end
-	end
-	local function checkFoulStream()
-		local boss = mod:MobId(UnitGUID("boss1")) == 71859 and "boss1" or "boss2"
-		local player = mod:UnitName(boss.."target")
-		if player and (not UnitDetailedThreatSituation(boss.."target", boss) and not mod:Tank(boss.."target")) then -- assuming tanks can't get it
-			foulStreamTarget = UnitGUID(boss.."target")
-			warnFoulStream(player, foulStreamTarget)
-			mod:CancelTimer(timer)
-			timer = nil
-		end
+		self:TargetMessage(-8132, name, "Positive", "Alarm")
 	end
 	function mod:FoulStream(args)
 		self:CDBar(-8132, 32)
-		foulStreamTarget = nil
-		if not timer then
-			timer = self:ScheduleRepeatingTimer(checkFoulStream, 0.05)
-		end
-	end
-	function mod:FoulStreamFallback(args)
-		if timer then
-			self:CancelTimer(timer)
-			timer = nil
-		end
-		 -- don't do anything if we warned for the target already
-		if args.destGUID ~= foulStreamTarget then
-			warnFoulStream(args.destName, args.destGUID)
-		end
+		self:GetBossTarget(printTarget, 0.4, args.sourceGUID)
 	end
 end
 
 function mod:FroststormStrike(args)
 	if args.amount > 3 then
-		self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
+		self:StackMessage(args.spellId, args.destName, args.amount, "Attention", args.amount > 4 and "Warning")
 	end
 end
 
@@ -236,9 +210,14 @@ do
 	end
 end
 
-function mod:ToxicStorm(args)
-	self:Message(args.spellId, "Urgent")
-	self:Bar(args.spellId, 32)
+do
+	local function printTarget(self, name)
+		self:TargetMessage(144005, name, "Urgent", "Alert")
+	end
+	function mod:ToxicStorm(args)
+		self:Bar(args.spellId, 32)
+		self:GetBossTarget(printTarget, 0.2, args.sourceGUID)
+	end
 end
 
 -- General

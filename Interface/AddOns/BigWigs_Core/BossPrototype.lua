@@ -7,6 +7,7 @@ local L = AL:GetLocale("Big Wigs: Common")
 local UnitExists = UnitExists
 local UnitAffectingCombat = UnitAffectingCombat
 local GetSpellInfo = GetSpellInfo
+local UnitGUID = UnitGUID
 local format = string.format
 local type = type
 local next = next
@@ -145,6 +146,8 @@ function boss:OnDisable()
 	end
 
 	self.scheduledMessages = nil
+	self.scheduledScans = nil
+	self.scheduledScansCounter = nil
 	self.isWiping = nil
 	self.isEngaged = nil
 
@@ -512,6 +515,39 @@ do
 		self:Sync("Death", self.moduleName)
 		wipe(icons) -- Wipe icon cache
 		wipe(spells)
+	end
+end
+
+do
+	local UnitDetailedThreatSituation = UnitDetailedThreatSituation
+	local function bossScanner(self, func, tankCheckExpiry, guid, t)
+		local elapsed = self.scheduledScansCounter[t] + 0.05
+		self.scheduledScansCounter[t] = elapsed
+		if elapsed > 0.8 then self:CancelTimer(self.scheduledScans[t]) end
+
+		for i = 1, 5 do
+			local boss = format("boss%d", i)
+			if UnitGUID(boss) == guid then
+				local bossTarget = boss.."target"
+				local playerGUID = UnitGUID(bossTarget)
+				if playerGUID and ((not UnitDetailedThreatSituation(bossTarget, boss) and not self:Tank(bossTarget)) or elapsed > tankCheckExpiry) then
+					self:CancelTimer(self.scheduledScans[t])
+					func(self, self:UnitName(bossTarget), playerGUID, elapsed)
+				end
+				break
+			end
+		end
+	end
+	function boss:GetBossTarget(func, tankCheckExpiry, guid)
+		if not self.scheduledScans then self.scheduledScans = {} self.scheduledScansCounter = {} end
+
+		local t = GetTime()
+		if self.scheduledScans[t] then -- Safety check, should never happen
+			self:CancelTimer(self.scheduledScans[t])
+			core:Print("Detected a timer with the same id already running whilst trying to schedule a new one, tell the Big Wigs authors!")
+		end
+		self.scheduledScansCounter[t] = 0
+		self.scheduledScans[t] = self:ScheduleRepeatingTimer(bossScanner, 0.05, self, func, tankCheckExpiry, guid, t)
 	end
 end
 

@@ -134,6 +134,11 @@ function private:LoadStatusPage(parent)
 						},
 						{
 							type = "Label",
+							text = TSMAPI.Design:ColorText("Logo / Graphic Designer:", "link") .. " Pwnstein",
+							relativeWidth = 1,
+						},
+						{
+							type = "Label",
 							text = TSMAPI.Design:ColorText(L["Testers (Special Thanks):"], "link") .. " Cryan, GoblinRaset, Mithrildar, PhatLewts, WoWProfitz",
 							relativeWidth = 1,
 						},

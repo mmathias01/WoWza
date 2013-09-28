@@ -236,12 +236,12 @@ c.AddOptionalSpell("Empower Rune Weapon", "when low", {
 	NoGCD = true,
 	FlashSize = s.FlashSizePercent() / 2,
 	CheckFirst = function()
-		return not runeAvailable(1)
-			and not runeAvailable(2)
-			and not runeAvailable(5)
-			and not runeAvailable(6)
-			and not runeAvailable(3)
-			and not runeAvailable(4)
+		return not (runeAvailable(1)
+				or runeAvailable(2)
+				or runeAvailable(5)
+				or runeAvailable(6)
+				or runeAvailable(3)
+				or runeAvailable(4))
 			and a.PendingDeathRunes == 0
 			and a.RP < 32
 	end
@@ -693,12 +693,22 @@ c.AddOptionalSpell("Rune Tap", nil, {
 c.AddOptionalSpell("Dancing Rune Weapon", nil, {
 	NoGCD = true,
 	Melee = true,
+	CheckFirst = function()
+		return not c.WearingSet(4, "BloodT16")
+	end,
 })
 
-c.AddOptionalSpell("Dancing Rune Weapon", "for Damage", {
+c.AddOptionalSpell("Dancing Rune Weapon", "Prime", {
 	NoGCD = true,
 	Melee = true,
-	CheckFirst = c.InDamageMode,
+	CheckFirst = function()
+		return (c.WearingSet(4, "BloodT16")
+				and (not (runeAvailable(1)
+					or runeAvailable(2)
+					or runeAvailable(3)
+					or runeAvailable(4))))
+			or c.InDamageMode()
+	end,
 })
 
 c.AddOptionalSpell("Bone Shield", nil, {
@@ -714,9 +724,12 @@ c.AddOptionalSpell("Bone Shield", nil, {
 
 c.AddOptionalSpell("Vampiric Blood", nil, {
 	NoGCD = true,
+	CheckFirst = function()
+		return not c.IsSolo() or sufficientResources(c.GetID("Death Strike"))
+	end,
 	ShouldHold = function()
 		return s.HealthPercent("player") > 85
-	end
+	end,
 })
 
 c.AddOptionalSpell("Death Pact", nil, {
@@ -867,12 +880,12 @@ c.AddSpell("Blood Tap", "for OB KM", {
 		return a.KillingMachine
 			and a.BloodCharges >= 5
 			and (a.PendingDeathRunes > 0
-				or runeAvailable(1, 0)
-				or runeAvailable(2, 0)
-				or runeAvailable(5, 0)
-				or runeAvailable(6, 0)
-				or runeAvailable(3, 0)
-				or runeAvailable(4, 0))
+				or runeAvailable(1)
+				or runeAvailable(2)
+				or runeAvailable(5)
+				or runeAvailable(6)
+				or runeAvailable(3)
+				or runeAvailable(4))
 	end
 })
 

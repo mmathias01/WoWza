@@ -688,6 +688,8 @@ function TSM:areBanksVisible()
 		return true
 	elseif NivayacBniv_Bank and NivayacBniv_Bank:IsVisible() then
 		return true
+	elseif DufUIBank and DufUIBank:IsVisible() then
+		return true
 	end
 	return nil
 end

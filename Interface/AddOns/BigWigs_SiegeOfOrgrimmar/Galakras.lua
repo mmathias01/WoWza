@@ -12,7 +12,7 @@ TODO:
 local mod, CL = BigWigs:NewBoss("Galakras", 953, 868)
 if not mod then return end
 mod:RegisterEnableMob(
-	72249, -- Galakras
+	72249, 72358, -- Galakras, Kor'kron Cannon
 	72560, 72561, 73909, -- Horde: Lor'themar Theron, Lady Sylvanas Windrunner, Archmage Aethas Sunreaver
 	72311, 72302, 73910 -- Alliance: King Varian Wrynn, Lady Jaina Proudmoore, Vereesa Windrunner
 )
@@ -25,8 +25,6 @@ mod:RegisterEnableMob(
 local markableMobs = {}
 local marksUsed = {}
 local markTimer = nil
-
-local lastKill = 0
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -84,18 +82,8 @@ function mod:GetOptions()
 	}
 end
 
-function mod:VerifyEnable()
-	if GetTime() - lastKill > 120 then -- Prevent re-enabling after kill
-		return true
-	end
-end
-
-function mod:OnWin()
-	lastKill = GetTime()
-end
-
 function mod:OnBossEnable()
-	if GetTime() - lastKill < 120 then -- Temp for outdated users enabling us
+	if self.lastKill and (GetTime() - self.lastKill) < 120 then -- Temp for outdated users enabling us
 		self:ScheduleTimer("Disable", 5)
 		return
 	end
@@ -162,9 +150,9 @@ end
 
 --Galakras
 function mod:FlamesOfGalakrondStacking(args)
-	if args.amount > 3 then
+	if args.amount > 2 then
 		if self:Me(args.destGUID) or (self:Tank() and self:Tank(args.destName)) then
-			self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
+			self:StackMessage(147068, args.destName, args.amount, "Attention", nil, 71393, args.spellId) -- 71393 = "Flames"
 		end
 	end
 end
@@ -178,7 +166,7 @@ end
 
 function mod:FlamesOfGalakrondApplied(args)
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessage(args.spellId, args.destName, "Important", "Warning")
+	self:TargetMessage(args.spellId, args.destName, "Important", "Warning", 88986, args.spellId) -- 88986 = "Fireball"
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 8)
 		self:Flash(args.spellId)

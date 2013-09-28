@@ -11,3 +11,10 @@ if L then
 	L.engage_yell = "Bringt mir ihre Leichen!"
 end
 
+L = BigWigs:NewBossLocale("Ordos", "deDE")
+if L then
+	L.engage_yell = "Ihr werdet meinen Platz in den ewigen Flammen einnehmen."
+
+	L.burning_soul_bar = "Explosionen"
+end
+

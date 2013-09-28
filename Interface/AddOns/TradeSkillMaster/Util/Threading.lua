@@ -17,20 +17,14 @@ local MAX_QUANTUM = 50
 
 local ThreadPrototype = {
 	Resume = function(self, runTime)
-		self._runTime = runTime
-		self._random = random(1, 1000)
-		self._ticks = 0
-		debugprofilestop() -- make sure no debug profile is running
-		debugprofilestart()
+		self._endTime = debugprofilestop() + runTime
 		local status = self:_func(self._param)
-		debugprofilestop()
 		return status
 	end,
 
 	Yield = function(self, force)
-		self._ticks = self._ticks + debugprofilestop()
-		debugprofilestart()
-		if force or self._ticks > self._runTime then
+		local currentTime = debugprofilestop()
+		if force or currentTime > self._endTime then
 			coroutine.yield(STATUS_YIELD)
 		end
 	end,
@@ -99,15 +93,15 @@ end
 
 -- EXAMPLE USAGE:
 
--- local function TestFunc(self, letter)
-	-- for i = 1, 10 do
-		-- self:Sleep(1)
-		-- print(letter, i)
-	-- end
--- end
+local function TestFunc(self, letter)
+	for i = 1, 10 do
+		self:Sleep(1)
+		print(letter, i)
+	end
+end
 
--- function TSMTest()
-	-- local start = GetTime()
-	-- TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "A")
-	-- TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "B")
--- end
+function TSMTest()
+	local start = GetTime()
+	TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "A")
+	TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "B")
+end

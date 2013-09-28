@@ -29,14 +29,14 @@ if L then
 
 	L.big_adds = "Große Adds"
 	L.big_adds_desc = "Warnungen für das Besiegen der großen Adds (Drinnen/Draußen)"
-	L.big_add = "Großes Add! (%d)"
+	L.big_add = "Großes Add (%d)"
 	L.big_add_killed = "Großes Add getötet! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "deDE")
 if L then
 	L.custom_off_titan_mark = "Gabe der Titanen markieren"
-	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_titan_mark_desc = "Markiert Spieler, die von Gabe der Titanen betroffen sind, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 
 	L.projection_message = "Gehe zum |cFF00FF00GRÜNEN|r Pfeil!"
 	L.projection_explosion = "Projektion Explosion"
@@ -94,7 +94,7 @@ if L then
 	L.adds_trigger3 = "Nächste Staffel, nach vorn!"
 	L.adds_trigger4 = "Krieger, im Laufschritt!"
 	L.adds_trigger5 = "Kor'kron, zu mir!"
-	L.adds_trigger_extra_wave = "Alle Kor'kron... unter meinem Befehl... tötet sie... JETZT"
+	L.adds_trigger_extra_wave = "Alle Kor'kron unter meinem Befehl, tötet sie! Jetzt!"
 	L.extra_adds = "Zusätzliche Adds"
 
 	L.chain_heal_message = "Dein Fokusziel wirkt Kettenheilung!"
@@ -112,7 +112,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "deDE")
 if L then
-	L.win_trigger = "System resetting. Don't turn the power off, or the whole thing will probably explode."
+	L.win_trigger = "System wird neu gestartet. Die Energieversorgung muss stabil bleiben, sonst fliegt die ganze Chose in die Luft."
 
 	L.enable_zone = "Artefaktlagerraum"
 	L.matter_scramble_explosion = "Materiewirbel Explosion"
@@ -168,7 +168,7 @@ if L then
 
 	L.farseer_trigger = "Scharfseher, heilt unsere Wunden!"
 	L.custom_off_shaman_marker = "Scharfseher markieren"
-	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Scharfseherwolfsreiter mit %s%s%s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Scharfseherwolfsreiter mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
 
 	L.focus_only = "|cffff0000Nur Meldungen für Fokusziele.|r "
 end

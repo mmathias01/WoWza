@@ -29,16 +29,16 @@ if L then
 
 	L.big_adds = "Большие помощники"
 	L.big_adds_desc = "Предупреждать об убийстве больших помощников снаружи/внутри."
-	L.big_add = "Большой помощник! (%d)"
+	L.big_add = "Большой помощник (%d)"
 	L.big_add_killed = "Большой помощник убит! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "ruRU")
 if L then
 	L.custom_off_titan_mark = "Маркировка Дара титанов"
-	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_titan_mark_desc = "Отмечать людей с Даром титанов метками {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 
-	L.projection_message = "Бегите по |cFF00FF00ЗЕЛЕНОЙ|r стрелке!"
+	L.projection_message = "Бегите к |cFF00FF00ЗЕЛЕНОЙ|r стрелке!"
 	L.projection_explosion = "Проекция взрывается"
 
 	L.big_add_bar = "Большой помощник"
@@ -168,7 +168,7 @@ if L then
 
 	L.farseer_trigger = "Исцелите наши раны!"
 	L.custom_off_shaman_marker = "Маркировка Предсказателей"
-	L.custom_off_shaman_marker_desc = "Чтобы помочь с прерыванием, Предсказатели - всадники на волках будет помечены метками %s%s%s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_shaman_marker_desc = "Чтобы помочь с прерыванием, Предсказатели - всадники на волках будет помечены метками {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (в этой последовательности, не все метки могут быть использованы), требуется быть помощником или лидером."
 
 	L.focus_only = "|cffff0000Оповещения только для фокуса.|r "
 end

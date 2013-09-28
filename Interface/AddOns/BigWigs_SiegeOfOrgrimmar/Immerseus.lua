@@ -12,6 +12,12 @@ if not mod then return end
 mod:RegisterEnableMob(71543)
 
 --------------------------------------------------------------------------------
+-- Locals
+--
+
+local blastCounter = 1
+
+--------------------------------------------------------------------------------
 -- Localization
 --
 
@@ -27,8 +33,8 @@ L = mod:GetLocale()
 
 function mod:GetOptions()
 	return {
-		143574,
-		{143295, "FLASH"}, 143309, -7992, 143469, 143436,
+		143574, {143579, "FLASH"},
+		{143295, "FLASH"}, 143309, 143020, 143469, 143436,
 		"berserk", "bosskill",
 	}, {
 		[143574] = "heroic",
@@ -48,6 +54,7 @@ function mod:OnBossEnable()
 	-- heroic
 	self:Log("SPELL_AURA_APPLIED", "SwellingCorruption", 143574)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "SwellingCorruption", 143574)
+	self:Log("SPELL_AURA_APPLIED_DOSE", "ShaCorruption", 143579)
 	-- normal
 	self:Log("SPELL_CAST_START", "CorrosiveBlast", 143436) -- not tank only so people know when to not walk in front of the boss
 	self:Log("SPELL_AURA_APPLIED", "CorrosiveBlastStack", 143436)
@@ -66,7 +73,9 @@ function mod:OnEngage()
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "KillCheck")
 	self:RegisterEvent("UPDATE_MOUSEOVER_UNIT", "KillCheckMouseOver")
 
-	self:Berserk(600, nil, nil, "Berserk (assumed)") -- XXX Assumed
+	blastCounter = 1
+
+	self:Berserk(600)
 	self:Bar(143309, 20.8) -- Swirl
 	self:Bar(143436, 10) -- Corrosive Blast
 	if self:Heroic() then
@@ -97,12 +106,23 @@ function mod:SwellingCorruption(args)
 	self:CDBar(args.spellId, 77)
 end
 
--- add personal too high stack warning
+function mod:ShaCorruption(args)
+	if self:Me(args.destGUID) and args.amount > 2 then
+		self:Message(args.spellId, "Personal", "Info", CL["count"]:format(args.spellName, args.amount))
+		if args.amount > 5 then
+			self:Flash(args.spellId)
+		end
+	end
+end
 
 -- normal
-function mod:CorrosiveBlast(args)
-	self:Message(args.spellId, "Urgent", self:Tank() and "Warning")
-	self:CDBar(args.spellId, 35)
+do
+	local blastTimers = { 34, 23, 30 } -- 23s cd, reset with swirl it seems
+	function mod:CorrosiveBlast(args)
+		self:Message(args.spellId, "Urgent", "Alarm")
+		self:CDBar(args.spellId, blastTimers[blastCounter] or 23)
+		blastCounter = blastCounter + 1
+	end
 end
 
 function mod:CorrosiveBlastStack(args)
@@ -115,11 +135,12 @@ function mod:Splits()
 	self:StopBar(143309) -- Swirl
 	self:StopBar(143436) -- Corrosive Blast
 	self:StopBar(143574) -- Swelling Corruption
-	self:Message(-7992, "Neutral")
+	self:Message(143020, "Neutral")
 end
 
 function mod:Reform()
-	self:Message(143469, "Neutral")
+	blastCounter = 1
+	self:Message(143469, "Neutral", nil, ("%s (%d%%)"):format(self:SpellName(143469), UnitPower("boss1")))
 	self:Bar(143309, 24) -- Swirl 24.1 - 24.9
 	self:Bar(143436, 14) -- Corrosive Blast 13.6 - 15.2
 	if self:Heroic() then
@@ -129,7 +150,8 @@ end
 
 function mod:Swirl(args)
 	self:Message(args.spellId, "Important", "Long")
-	self:Bar(args.spellId, 48) -- Most people probably never encounter one before split
+	--self:Bar(args.spellId, 13, CL["cast"]:format(args.spellName))
+	self:Bar(args.spellId, 53)
 end
 
 do

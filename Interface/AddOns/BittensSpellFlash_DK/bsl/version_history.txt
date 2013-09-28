@@ -1,3 +1,6 @@
+== Version 50400.1.7
+Updating to this version is not necessary.  It causes flashes for the more new food buffs.
+
 == Version 50400.1.6
 Updating to this version is not necessary.  It causes flashes for the new Noodle food buffs.
 
@@ -86,11 +89,3 @@ This version supports the latest Paladin release.
 == Version 4.9.1
 This version supports the latest Warlock release.
 * c.HasMyDebuff() and c.HasBuff() now work on auras without a duration.
-
-== Version 4.9.0
-This version supports the latest Druid release.
-* Added c.PredictFlash()
-* c.RegisterForEvents() has a new callback: AutoAttack.
-* c.IsCastingOrInAir() and c.IsAuraPendingFor() now work for AoE spells that do not have a target.
-* c.FlashAll() and c.PriorityFlash() now automatically assume NotIfActive if Cooldown is defined.
-* Bugfix - the SpecialGCD and NoGCD flags now correctly influence c.GetBusyTime() for spells with sub-names.

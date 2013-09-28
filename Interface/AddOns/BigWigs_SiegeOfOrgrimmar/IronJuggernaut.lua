@@ -21,7 +21,6 @@ local markableMobs = {}
 local marksUsed = {}
 local markTimer = nil
 local mineCounter = 1
-local crawlerMine = mod:SpellName(144673)
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -47,14 +46,16 @@ L.custom_off_mine_marks_desc = L.custom_off_mine_marks_desc:format(
 
 function mod:GetOptions()
 	return {
-		{-8179, "FLASH"}, {144459, "HEALER"}, {144467, "TANK"}, -- Assaukt mode
+		{-8179, "FLASH"}, {144459, "HEALER"}, {144467, "TANK"}, -- Assault mode
 		144485, {-8190, "FLASH", "ICON"}, {144498, "FLASH"}, -- Siege mode
 		"custom_off_mine_marks",
+		-8181,
 		"stages", -8183, "berserk", "bosskill",
 	}, {
 		[-8179] = -8177,
 		[144485] = -8178,
 		["custom_off_mine_marks"] = L.custom_off_mine_marks,
+		[-8181] = "heroic",
 		["stages"] = "general",
 	}
 end
@@ -79,7 +80,7 @@ function mod:OnBossEnable()
 end
 
 function mod:OnEngage()
-	self:Berserk(450)
+	self:Berserk(self:Heroic() and 450 or 600)
 	-- no need to start bars here we do it at regeneration
 	phase = 1
 	if self.db.profile.custom_off_mine_marks then
@@ -190,9 +191,16 @@ function mod:IgniteArmor(args)
 	self:CDBar(args.spellId, 9)
 end
 
-function mod:LaserBurn(args)
-	self:Bar(args.spellId, 11) -- is there even a point for this?
-	self:Message(args.spellId, "Important")
+do
+	local prev = 0
+	function mod:LaserBurn(args)
+		local t = GetTime()
+		if t-prev > 2 then
+			prev = t
+			self:Bar(args.spellId, 11) -- is there even a point for this?
+			self:Message(args.spellId, "Important")
+		end
+	end
 end
 
 do
@@ -234,8 +242,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 		if self:Healer() then
 			self:CDBar(144459, 8)
 		end
+		self:StopBar(CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		mineCounter = 1
-		self:Bar(-8183, 30, CL["count"]:format(crawlerMine, mineCounter)) -- Crawler Mine
+		self:Bar(-8183, 30, CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		self:CDBar(-8179, 19) -- Borer Drill
 		self:StopBar(144485) -- Shock Pulse
 		self:StopBar(-8179) -- Napalm Oil
@@ -244,14 +253,17 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 		phase = 2
 		self:Message("stages", "Neutral", "Long", CL["phase"]:format(phase), false)
 		self:Bar("stages", 64, CL["phase"]:format(1), 144464) -- maybe should use UNIT_POWER to adjust timer since there seems to be a 6 sec variance
+		self:StopBar(CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		mineCounter = 1
-		self:CDBar(-8183, 18, CL["count"]:format(crawlerMine, mineCounter)) -- Crawler Mine
+		self:CDBar(-8183, 23, CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
+		self:Bar(144485, 15.5) -- Shock Pulse, 15.6 - 15.8
 		self:CDBar(-8179, 10) -- Napalm Oil
-		self:Bar(144485 ,18) -- Shock Pulse
 		self:StopBar(144459) -- Laser Burn
 		self:StopBar(-8179) -- Borer Drill
 		self:StopBar(144467) -- Ignite Armor
 		self:StopBar(CL["phase"]:format(2)) -- in case it overruns
+	elseif spellName == self:SpellName(144356) then -- Ricochet
+		self:CDBar(-8181, 15) -- Ricochet, 15-18?
 	end
 end
 

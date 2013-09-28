@@ -70,7 +70,7 @@ function mod:GetOptions()
 	return {
 		{144396, "TANK"}, {143019, "FLASH"}, 143027, {143007, "HEALER"}, 143958, {"defile", "TANK"}, {144357, "FLASH"}, {-7959, "FLASH", "SAY", "PROXIMITY", "ICON"}, {"inferno_self", "SAY", "EMPHASIZE"}, -- Rook Stonetoe
 		{143330, "TANK"}, {143292, "FLASH"}, {144367, "FLASH"}, {143840, "FLASH", "PROXIMITY"}, -- He Softfoot
-		143446, 143491, 143546, -- Sun Tenderheart
+		143446, 143491, 143546, {143423, "SAY"}, -- Sun Tenderheart
 		"custom_off_bane_marks",
 		143497, "intermission", "berserk", "proximity", "bosskill",
 	}, {
@@ -94,8 +94,9 @@ function mod:OnBossEnable()
 	self:Log("SPELL_CAST_SUCCESS", "Bane", 143446)
 	self:Log("SPELL_AURA_APPLIED", "BaneApplied", 143434)
 	self:Log("SPELL_AURA_REMOVED", "BaneRemoved", 143434)
+	self:Log("SPELL_AURA_APPLIED", "ShaSear", 143423)
 	-- He Softfoot
-	self:Log("SPELL_CAST_START", "Gouge", 143330)
+	self:RegisterEvent("RAID_BOSS_WHISPER", "Gouge")
 	self:Log("SPELL_AURA_APPLIED", "Fixate", 143292)
 	self:Log("SPELL_DAMAGE", "NoxiousPoisonDamage", 144367)
 	self:Log("SPELL_AURA_APPLIED", "MarkOfAnguishApplied", 143840)
@@ -121,7 +122,7 @@ function mod:OnEngage()
 	deathCount = 0
 	infernoTarget, infernoTimer = nil, nil
 	self:OpenProximity("proximity", 5) -- this might not be needed in LFR
-	self:Berserk(900, nil, nil, "Berserk (assumed)") -- XXX assumed, more than 10 min
+	self:Berserk(900)
 	self:Bar(144396, 7) -- VengefulStrikes
 	self:Bar(143019, 16) -- Corrupted Brew
 	self:CDBar(143027, 44) -- Clash
@@ -211,6 +212,14 @@ function mod:Bane(args)
 	end
 end
 
+function mod:ShaSear(args)
+	if infernoTarget and self:Me(args.destGUID) then -- Only during Inferno Strike phase (when people are hugging)
+		self:Say(args.spellId)
+		self:TargetMessage(args.spellId, args.destName, "Personal", "Warning")
+		self:TargetBar(args.spellId, 5, args.destName)
+	end
+end
+
 -- He Softfoot
 
 function mod:LingeringAnguish(args)
@@ -256,13 +265,11 @@ function mod:Fixate(args)
 	self:TargetMessage(args.spellId, args.destName, "Attention", "Long")
 end
 
-function mod:Gouge(args)
-	-- only warn the tank targeted by the mob
-	local unit = mod:GetUnitIdByGUID(args.sourceGUID)
-	local guid = UnitGUID(unit.."target")
-	if guid and self:Me(guid) then
-		self:Message(args.spellId, "Urgent", "Alarm")
-		self:CDBar(args.spellId, 29)
+function mod:Gouge(_, msg)
+	-- only warn the tank targeted by the mob by using _WHISPER
+	if msg:find("143330", nil, true) then
+		self:Message(143330, "Urgent", "Alarm")
+		self:CDBar(143330, 29)
 	end
 end
 
@@ -382,29 +389,21 @@ function mod:Clash(args)
 end
 
 do
-	local timer
-	local function warnCorruptedBrewTarget(unitId)
-		local target = unitId.."target"
-		if not UnitExists(target) or mod:Tank(target) or UnitDetailedThreatSituation(target, unitId) then return end
-		if mod:Me(UnitGUID(target)) then
-			mod:Flash(143019)
-			mod:Message(143019, "Personal", "Info", CL["you"]:format(mod:SpellName(143019)))
-		elseif mod:Range(target) < 5 then
-			mod:RangeMessage(143019)
-			mod:Flash(143019)
-		else
-			mod:TargetMessage(143019, mod:UnitName(target), "Personal", "Info")
+	local function printTarget(self, name, guid)
+		if self:Me(guid) then
+			self:Flash(143019)
+		elseif self:Range(name) < 5 then
+			self:RangeMessage(143019)
+			self:Flash(143019)
+			return
 		end
-		mod:CancelTimer(timer)
-		timer = nil
+		self:TargetMessage(143019, name, "Personal", "Info")
 	end
 	function mod:BossSucceeded(unitId, spellName, _, _, spellId)
 		if spellId == 143019 then -- Corrupted Brew
 			-- timer is all over the place, need to figure out if something delays it or what
 			self:CDBar(spellId, 11) -- not sure if there is a point for this like this
-			if not timer then
-				timer = self:ScheduleRepeatingTimer(warnCorruptedBrewTarget, 0.05, unitId)
-			end
+			self:GetBossTarget(printTarget, 0.2, UnitGUID(unitId))
 		elseif spellId == 138175 and self:MobId(UnitGUID(unitId)) == 71481 then -- Despawn Area Triggers
 			self:CloseProximity(-7959)
 			self:OpenProximity("proximity", 5)
