@@ -1,17 +1,11 @@
 
 BigWigs3DB = {
 	["namespaces"] = {
-		["BigWigs_Bosses_Kor'kron Dark Shaman"] = {
-		},
-		["BigWigs_Bosses_General Nazgrim"] = {
+		["BigWigs_Bosses_Siegecrafter Blackfuse"] = {
 		},
 		["LibDualSpec-1.0"] = {
 		},
-		["BigWigs_Bosses_Galakras"] = {
-		},
 		["BigWigs_Plugins_Sounds"] = {
-		},
-		["BigWigs_Bosses_Iron Juggernaut"] = {
 		},
 		["BigWigs_Plugins_Statistics"] = {
 		},
@@ -22,18 +16,18 @@ BigWigs3DB = {
 		["BigWigs_Plugins_Bars"] = {
 			["profiles"] = {
 				["Default"] = {
+					["BigWigsEmphasizeAnchor_y"] = 630.0443728950268,
 					["fontSize"] = 11,
-					["BigWigsAnchor_width"] = 199.9999084472656,
+					["scale"] = 0.8,
 					["BigWigsAnchor_y"] = 566.0445015536425,
 					["BigWigsAnchor_x"] = 1129.24507942731,
 					["texture"] = "Minimalist",
 					["barStyle"] = "ElvUI",
-					["scale"] = 0.8,
 					["growup"] = false,
-					["BigWigsEmphasizeAnchor_width"] = 300.0000610351563,
+					["BigWigsEmphasizeAnchor_width"] = 299.9999694824219,
 					["BigWigsEmphasizeAnchor_x"] = 571.7333905802843,
 					["font"] = "Vixar",
-					["BigWigsEmphasizeAnchor_y"] = 630.0443728950268,
+					["BigWigsAnchor_width"] = 199.9999389648438,
 					["emphasizeScale"] = 1.2,
 				},
 			},
@@ -46,10 +40,13 @@ BigWigs3DB = {
 				},
 			},
 		},
+		["BigWigs_Bosses_Spoils of Pandaria"] = {
+		},
+		["BigWigs_Bosses_Thok the Bloodthirsty"] = {
+		},
 		["BigWigs_Plugins_Proximity"] = {
 			["profiles"] = {
 				["Default"] = {
-					["posx"] = 342.7551081259935,
 					["fontSize"] = 20,
 					["width"] = 202.9999389648438,
 					["objects"] = {
@@ -57,6 +54,7 @@ BigWigs3DB = {
 						["background"] = false,
 					},
 					["font"] = "Vixar",
+					["posx"] = 342.7551081259935,
 					["height"] = 157.0000305175781,
 					["posy"] = 484.2667651984448,
 				},
@@ -93,13 +91,13 @@ BigWigs3DB = {
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Majandra - Dragonblight"] = "Default",
-	},
 	["global"] = {
 		["seenmovies"] = {
-			[953.2000000000001] = true,
+			[953.2] = true,
 		},
+	},
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -200,26 +198,26 @@ BigWigsStatisticsDB = {
 			},
 		},
 		[820] = {
-			["10"] = {
-				["best"] = 248.8760000000002,
-				["kills"] = 12,
-			},
 			["lfr"] = {
 				["kills"] = 7,
 				["best"] = 160.1700000000001,
 				["wipes"] = 1,
 			},
+			["10"] = {
+				["best"] = 248.8760000000002,
+				["kills"] = 12,
+			},
 		},
 		[824] = {
-			["10"] = {
-				["kills"] = 12,
-				["wipes"] = 7,
-				["best"] = 209,
-			},
 			["lfr"] = {
 				["kills"] = 7,
 				["best"] = 213.6539999999986,
 				["wipes"] = 4,
+			},
+			["10"] = {
+				["kills"] = 12,
+				["wipes"] = 7,
+				["best"] = 209,
 			},
 		},
 		[828] = {
@@ -271,13 +269,13 @@ BigWigsStatisticsDB = {
 			},
 		},
 		[821] = {
-			["lfr"] = {
-				["best"] = 437.5429999999469,
-				["kills"] = 5,
-			},
 			["10"] = {
 				["best"] = 339.3669999999984,
 				["kills"] = 11,
+			},
+			["lfr"] = {
+				["best"] = 437.5429999999469,
+				["kills"] = 5,
 			},
 		},
 		[825] = {
@@ -312,38 +310,38 @@ BigWigsStatisticsDB = {
 			},
 		},
 		[829] = {
-			["lfr"] = {
-				["kills"] = 5,
-				["best"] = 405.0229999999865,
-				["wipes"] = 1,
-			},
 			["10"] = {
 				["kills"] = 10,
 				["best"] = 392.4389999999994,
 				["wipes"] = 2,
 			},
+			["lfr"] = {
+				["kills"] = 5,
+				["best"] = 405.0229999999865,
+				["wipes"] = 1,
+			},
 		},
 		[816] = {
+			["lfr"] = {
+				["best"] = 359.060000000005,
+				["kills"] = 3,
+			},
 			["10"] = {
 				["kills"] = 12,
 				["best"] = 230.1000000000058,
 				["wipes"] = 3,
 			},
-			["lfr"] = {
-				["best"] = 359.060000000005,
-				["kills"] = 3,
-			},
 		},
 		[832] = {
-			["10"] = {
-				["kills"] = 7,
-				["wipes"] = 33,
-				["best"] = 466.2359999999999,
-			},
 			["lfr"] = {
 				["kills"] = 7,
 				["best"] = 496.2949999999983,
 				["wipes"] = 4,
+			},
+			["10"] = {
+				["kills"] = 7,
+				["wipes"] = 33,
+				["best"] = 466.2359999999999,
 			},
 		},
 	},
@@ -363,14 +361,14 @@ BigWigsStatisticsDB = {
 	},
 	[953] = {
 		[850] = {
+			["10"] = {
+				["kills"] = 3,
+				["wipes"] = 9,
+				["best"] = 392.3000000000029,
+			},
 			["flex"] = {
 				["best"] = 447.4459999999963,
 				["kills"] = 1,
-			},
-			["10"] = {
-				["kills"] = 2,
-				["wipes"] = 9,
-				["best"] = 410.3729999999923,
 			},
 		},
 		[867] = {
@@ -383,7 +381,7 @@ BigWigsStatisticsDB = {
 				["kills"] = 1,
 			},
 			["10"] = {
-				["kills"] = 2,
+				["kills"] = 3,
 				["wipes"] = 4,
 				["best"] = 382.2949999999837,
 			},
@@ -396,14 +394,14 @@ BigWigsStatisticsDB = {
 			},
 		},
 		[864] = {
+			["10"] = {
+				["kills"] = 3,
+				["wipes"] = 4,
+				["best"] = 388.9049999999988,
+			},
 			["flex"] = {
 				["best"] = 338.2919999999867,
 				["kills"] = 1,
-			},
-			["10"] = {
-				["kills"] = 2,
-				["wipes"] = 3,
-				["best"] = 388.9049999999988,
 			},
 		},
 		[866] = {
@@ -416,37 +414,31 @@ BigWigsStatisticsDB = {
 				["kills"] = 2,
 			},
 			["10"] = {
-				["kills"] = 2,
+				["kills"] = 3,
 				["wipes"] = 7,
 				["best"] = 358.2050000000163,
 			},
 		},
 		[868] = {
-			["flex"] = {
-				["kills"] = 1,
-				["wipes"] = 1,
-				["best"] = 562.0169999999926,
-			},
 			["10"] = {
-				["kills"] = 2,
+				["kills"] = 3,
 				["wipes"] = 16,
 				["best"] = 523.9000000000233,
 			},
-		},
-		[852] = {
 			["flex"] = {
 				["kills"] = 1,
-				["wipes"] = 2,
-				["best"] = 297.0229999999865,
+				["wipes"] = 1,
+				["best"] = 562.0169999999925,
 			},
-			["lfr"] = {
-				["best"] = 529.280999999959,
-				["kills"] = 1,
-			},
+		},
+		[865] = {
 			["10"] = {
-				["kills"] = 1,
-				["wipes"] = 3,
-				["best"] = 390.3040000000037,
+				["wipes"] = 14,
+			},
+		},
+		[851] = {
+			["10"] = {
+				["wipes"] = 22,
 			},
 		},
 		[849] = {
@@ -466,14 +458,25 @@ BigWigsStatisticsDB = {
 		},
 		[846] = {
 			["10"] = {
-				["kills"] = 1,
-				["wipes"] = 11,
-				["best"] = 309.9529999999795,
+				["kills"] = 2,
+				["wipes"] = 14,
+				["best"] = 297.6469999999972,
 			},
 		},
-		[851] = {
+		[852] = {
+			["flex"] = {
+				["kills"] = 1,
+				["wipes"] = 2,
+				["best"] = 297.0229999999865,
+			},
+			["lfr"] = {
+				["best"] = 529.280999999959,
+				["kills"] = 1,
+			},
 			["10"] = {
-				["wipes"] = 10,
+				["kills"] = 2,
+				["wipes"] = 3,
+				["best"] = 375.3759999999993,
 			},
 		},
 	},

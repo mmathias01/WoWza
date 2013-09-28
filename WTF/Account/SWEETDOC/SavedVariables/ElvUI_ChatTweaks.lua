@@ -214,9 +214,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0.7529412508010864,
 						},
 						["Trade"] = {
-							["r"] = 0.9098039865493774,
+							["r"] = 0.9098039269447327,
 							["g"] = 0.6196078658103943,
-							["b"] = 0.4745098352432251,
+							["b"] = 0.4745098054409027,
 						},
 						["MONSTER_WHISPER"] = {
 							["r"] = 1,
@@ -379,9 +379,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 0,
 						},
 						["General"] = {
-							["r"] = 0.7647059559822083,
-							["g"] = 0.9019608497619629,
-							["b"] = 0.9098039865493774,
+							["r"] = 0.7647058963775635,
+							["g"] = 0.9019607901573181,
+							["b"] = 0.9098039269447327,
 						},
 						["Instance Leader"] = {
 							["r"] = 1,
@@ -410,8 +410,8 @@ ElvUI_ChatTweaksDB = {
 						},
 						["LookingForGroup"] = {
 							["r"] = 1,
-							["g"] = 0.7529412508010864,
-							["b"] = 0.7529412508010864,
+							["g"] = 0.7529411911964417,
+							["b"] = 0.7529411911964417,
 						},
 						["BG_SYSTEM_ALLIANCE"] = {
 							["r"] = 0,
@@ -443,10 +443,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["b"] = 0,
 						},
-						["AFK"] = {
+						["RAID_LEADER"] = {
 							["r"] = 1,
-							["g"] = 0.501960813999176,
-							["b"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
 						},
 						["BN_WHISPER"] = {
 							["r"] = 0,
@@ -473,10 +473,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.4980392456054688,
 							["b"] = 0,
 						},
-						["RAID_LEADER"] = {
+						["AFK"] = {
 							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
 						},
 						["BN_WHISPER_INFORM"] = {
 							["r"] = 0,
@@ -489,9 +489,9 @@ ElvUI_ChatTweaksDB = {
 							["b"] = 1,
 						},
 						["LocalDefense"] = {
-							["r"] = 0.9098039865493774,
-							["g"] = 0.8941177129745483,
-							["b"] = 0.4745098352432251,
+							["r"] = 0.9098039269447327,
+							["g"] = 0.8941176533699036,
+							["b"] = 0.4745098054409027,
 						},
 						["BN_INLINE_TOAST_BROADCAST"] = {
 							["r"] = 0.5098039507865906,
@@ -917,10 +917,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["b"] = 0,
 						},
-						["AFK"] = {
+						["RAID_LEADER"] = {
 							["r"] = 1,
-							["g"] = 0.501960813999176,
-							["b"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
 						},
 						["RESTRICTED"] = {
 							["r"] = 1,
@@ -952,10 +952,10 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 1,
 							["b"] = 0.9647059440612793,
 						},
-						["RAID_LEADER"] = {
+						["AFK"] = {
 							["r"] = 1,
-							["g"] = 0.2823529541492462,
-							["b"] = 0.03529411926865578,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
 						},
 						["BN_INLINE_TOAST_CONVERSATION"] = {
 							["r"] = 0.5098039507865906,
@@ -1055,9 +1055,9 @@ ElvUI_ChatTweaksDB = {
 						["kirintoroffensive"] = false,
 						["pearlfinjinyu"] = false,
 						["silverwingsentinels"] = false,
-						["thoriumbrotherhood"] = false,
-						["sho"] = false,
 						["tinamudclaw"] = false,
+						["sho"] = false,
+						["thoriumbrotherhood"] = false,
 						["thealdor"] = false,
 						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
@@ -1170,19 +1170,23 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["Magic8-Ball"] = {
+		["LootIcons"] = {
 		},
 		["MultipleInviteCommand"] = {
 		},
 		["AuctionMessageFiltering"] = {
 		},
-		["LootIcons"] = {
+		["Magic8-Ball"] = {
 		},
 		["ChannelSpam"] = {
 		},
 		["AutoDing"] = {
 		},
 		["AltNames"] = {
+		},
+		["KeywordSounds"] = {
+		},
+		["RerouteAuctionMessages"] = {
 		},
 		["ATestofValor"] = {
 			["profiles"] = {
@@ -1191,10 +1195,6 @@ ElvUI_ChatTweaksDB = {
 					["gains"] = false,
 				},
 			},
-		},
-		["RerouteAuctionMessages"] = {
-		},
-		["KeywordSounds"] = {
 		},
 		["XPLeftToLevel"] = {
 		},
@@ -1234,38 +1234,38 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/i oh....it can lol", -- [1]
-						"/g yo :)", -- [2]
-						"/i not persay", -- [3]
-						"/i just the buffs help obviously", -- [4]
-						"/i and its easy to do in LFR", -- [5]
-						"/i ALL DPS BOSS", -- [6]
-						"/g yo :)", -- [7]
-						"/i not persay", -- [8]
-						"/i just the buffs help obviously", -- [9]
-						"/i and its easy to do in LFR", -- [10]
-						"/i ALL DPS BOSS", -- [11]
-						" im soloing Ony lol", -- [12]
-						" 4.9m she is like a Timeless isle mob lol", -- [13]
-						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [14]
-						"/i and its easy to do in LFR", -- [15]
-						"/i ALL DPS BOSS", -- [16]
-						" im soloing Ony lol", -- [17]
-						" 4.9m she is like a Timeless isle mob lol", -- [18]
-						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [19]
-						"/i and its easy to do in LFR", -- [20]
-						"/i ALL DPS BOSS", -- [21]
-						" im soloing Ony lol", -- [22]
-						" 4.9m she is like a Timeless isle mob lol", -- [23]
-						"  |cffa335ee|Hitem:49295:0:0:0:0:0:0:19660800:90:0:0|h[Enlarged Onyxia Hide Backpack]|h|r just cuz", -- [24]
-						" if I can get you in are you interested in any SoO flex?", -- [25]
-						"/raid brb getting a drink and getting on vent", -- [26]
-						"/raid taking out my contacts brb", -- [27]
-						"/raid bacjk", -- [28]
-						"/raid fuck got a bloody nose", -- [29]
-						"/raid this sucks lol", -- [30]
-						"/raid ^^", -- [31]
-						"/raid gonna go grab a tissue and some more coke", -- [32]
+						"/raid ^^", -- [1]
+						"/raid gonna go grab a tissue and some more coke", -- [2]
+						"/raid bacjk", -- [3]
+						"/raid fuck got a bloody nose", -- [4]
+						"/raid this sucks lol", -- [5]
+						"/raid ^^", -- [6]
+						"/raid gonna go grab a tissue and some more coke", -- [7]
+						"/raid bacjk", -- [8]
+						"/raid fuck got a bloody nose", -- [9]
+						"/raid this sucks lol", -- [10]
+						"/raid ^^", -- [11]
+						"/raid gonna go grab a tissue and some more coke", -- [12]
+						" do you have the ability to / desire to tank for us in normal?", -- [13]
+						" lol so no ;) and just noticed that", -- [14]
+						"/raid ......mommy......", -- [15]
+						"/g but we got pride down", -- [16]
+						"/g which was kinda impressive", -- [17]
+						"/g with the messiest group ever", -- [18]
+						" lol so no ;) and just noticed that", -- [19]
+						"/raid ......mommy......", -- [20]
+						"/g but we got pride down", -- [21]
+						"/g which was kinda impressive", -- [22]
+						"/g with the messiest group ever", -- [23]
+						" lol so no ;) and just noticed that", -- [24]
+						"/raid ......mommy......", -- [25]
+						"/g but we got pride down", -- [26]
+						"/g which was kinda impressive", -- [27]
+						"/g with the messiest group ever", -- [28]
+						" someone offered me a job paying 250k today", -- [29]
+						" so if im a bit giddy I apologize", -- [30]
+						"/raid 1", -- [31]
+						"/raid re-rez ><", -- [32]
 					},
 				},
 				["Jolokia - Dragonblight"] = {

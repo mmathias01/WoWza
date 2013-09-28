@@ -214,26 +214,26 @@ MacroToolkitDB = {
 			},
 		},
 	},
+	["global"] = {
+		["extended"] = {
+			["1"] = {
+				["icon"] = "SPELL_MAGIC_MANAGAIN",
+				["name"] = "Beams",
+				["body"] = "/i --- How to Survive the \"Maze\" ---\n/i 1) Just before the phase starts run to the front of the boss (there should be a giant beam coming out of his eye)\n/i 2) Watch the floor, it should have \"glowing\" lines on ore side of the beam, this is going to be the  \"safe side\"\n/i 3) There are three paths you can take (close, mid, far) pick the path you are most comfortable with or follow someone else, stand out of the purple mist, don't get caught by the beam",
+			},
+		},
+		["backups"] = {
+		},
+		["ebackups"] = {
+		},
+	},
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "profile",
 		["Cellestia - Terenas"] = "profile",
 		["Jolokya - Dragonblight"] = "profile",
+		["Shenlu - Dragonblight"] = "profile",
 		["Jolobank - Dragonblight"] = "profile",
 		["Majandra - Dragonblight"] = "profile",
-		["Shenlu - Dragonblight"] = "profile",
-	},
-	["global"] = {
-		["extended"] = {
-			["1"] = {
-				["name"] = "Beams",
-				["icon"] = "SPELL_MAGIC_MANAGAIN",
-				["body"] = "/i --- How to Survive the \"Maze\" ---\n/i 1) Just before the phase starts run to the front of the boss (there should be a giant beam coming out of his eye)\n/i 2) Watch the floor, it should have \"glowing\" lines on ore side of the beam, this is going to be the  \"safe side\"\n/i 3) There are three paths you can take (close, mid, far) pick the path you are most comfortable with or follow someone else, stand out of the purple mist, don't get caught by the beam",
-			},
-		},
-		["ebackups"] = {
-		},
-		["backups"] = {
-		},
 	},
 	["profiles"] = {
 		["profile"] = {

@@ -61,15 +61,15 @@ RKDatabase = {
 						[3] = 338,
 					},
 					["Malkorok"] = {
-						[3] = 310,
+						[3] = 298,
 					},
 					["Immerseus"] = {
 						[14] = 297,
 						[7] = 529,
-						[3] = 390,
+						[3] = 375,
 					},
 					["General Nazgrim"] = {
-						[3] = 410,
+						[3] = 392,
 						[14] = 447,
 					},
 					["Iron Juggernaut"] = {
@@ -97,17 +97,17 @@ RKDatabase = {
 						[7] = 317,
 						[5] = 582,
 					},
-					["Iron Qon"] = {
-						[3] = 548,
-						[7] = 405,
+					["Durumu the Forgotten"] = {
+						[3] = 342,
+						[7] = 171,
 					},
 					["Dark Animus"] = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Council of Elders"] = {
-						[3] = 324,
-						[7] = 359,
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -125,21 +125,17 @@ RKDatabase = {
 						[3] = 482,
 						[7] = 500,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
+					["Council of Elders"] = {
+						[3] = 324,
+						[7] = 359,
 					},
-					["Durumu the Forgotten"] = {
-						[3] = 342,
-						[7] = 171,
+					["Iron Qon"] = {
+						[3] = 548,
+						[7] = 405,
 					},
 				},
 			},
 			["firstLoad"] = false,
-			["diffShown"] = 7,
-			["prevDiffShown"] = 7,
-			["prevTierShown"] = 15,
-			["tierShown"] = 15,
 		},
 	},
 }

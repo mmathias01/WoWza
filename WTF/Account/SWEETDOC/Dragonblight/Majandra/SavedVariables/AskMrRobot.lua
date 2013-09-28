@@ -209,10 +209,10 @@ AmrEquipedItems = {
 	["3"] = "|cffa335ee|Hitem:95299:4806:4637:4602:0:0:0:0:90:167:467|h[Mantle of the Exorcist]|h|r",
 	["2"] = "|cffa335ee|Hitem:94980:0:4589:0:0:0:0:1524412288:90:145:465|h[Passionfire Choker]|h|r",
 	["5"] = "|cffa335ee|Hitem:96381:4419:4602:4602:0:0:0:1222494592:90:167:467|h[Robes of Static Bursts]|h|r",
-	["14"] = "|cffa335ee|Hitem:94514:0:0:0:0:0:0:925183872:90:0:467|h[Horridon's Last Gasp]|h|r",
+	["9"] = "|cffa335ee|Hitem:94804:4414:4602:0:0:0:-340:1205929587:90:148:465|h[Frostborn Wristwraps]|h|r",
 	["7"] = "|cffa335ee|Hitem:94966:0:4589:4589:0:0:0:716199680:90:0:465|h[Saddle-Scarred Leggings]|h|r",
 	["6"] = "|cffa335ee|Hitem:94970:0:4637:4602:4589:0:0:1318453632:90:145:467|h[Quet'zal's Crackling Cord]|h|r",
-	["9"] = "|cffa335ee|Hitem:94804:4414:4602:0:0:0:-340:1205929587:90:148:465|h[Frostborn Wristwraps]|h|r",
+	["14"] = "|cffa335ee|Hitem:94514:0:0:0:0:0:0:925183872:90:0:467|h[Horridon's Last Gasp]|h|r",
 	["15"] = "|cffa335ee|Hitem:94785:4892:0:0:0:0:0:104856960:90:162:467|h[Shimmershell Cape]|h|r",
 	["16"] = "|cffa335ee|Hitem:96092:4442:4589:4589:0:0:0:1890876160:90:0:467|h[Giorgio's Caduceus of Pure Moods]|h|r",
 	["8"] = "|cffa335ee|Hitem:94279:4429:4589:4589:0:0:0:1703867136:90:0:467|h[Falling Blossom Sandals]|h|r",
@@ -229,8 +229,8 @@ AmrIconInfo = {
 AmrCurrencies = {
 	[395] = 4000,
 	[396] = 2520,
-	[402] = 12,
 	[392] = 758,
+	[402] = 12,
 }
 AmrProfessions = {
 	["Cooking"] = 600,
@@ -500,7 +500,7 @@ AmrBankItemsAndCounts = {
 		["link"] = "|cffffffff|Hitem:38426:0:0:0:0:0:0:0:90:0:0|h[Eternium Thread]|h|r",
 	}, -- [57]
 	{
-		["count"] = 12,
+		["count"] = 15,
 		["link"] = "|cff0070dd|Hitem:98619:0:0:0:0:0:0:1309128448:90:0:0|h[Celestial Cloth]|h|r",
 	}, -- [58]
 	{
