@@ -9,16 +9,16 @@ if L then
 	L.defile = "Defiled Ground cast"
 
 	L.custom_off_bane_marks = "Shadow Word: Bane marker"
-	L.custom_off_bane_marks_desc = "To help dispelling assignments, mark the inital people who have Shadow Word: Bane on them with %s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_bane_marks_desc = "To help dispelling assignments, mark the inital people who have Shadow Word: Bane on them with {rt1}{rt2}{rt3}{rt4}{rt5} (in that order, not all marks may be used), requires promoted or leader."
 
 	L.no_meditative_field = "NO Meditative Field!"
 
 	L.intermission = "Desperate Measures"
 	L.intermission_desc = "Warnings for when you are getting close to any of the bosses using Desperate Measures"
 
-	--L.inferno_self = "Inferno Strike on you"
-	--L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
-	--L.inferno_self_bar = "You explode!"
+	L.inferno_self = "Inferno Strike on you"
+	L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
+	L.inferno_self_bar = "You explode!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "zhTW")
@@ -106,7 +106,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "zhTW")
 if L then
 	L.custom_off_energy_marks = "Displaced Energy marker"
-	L.custom_off_energy_marks_desc = "To help dispelling assignments, mark the people who have Displaced Energy on them with %s%s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_energy_marks_desc = "To help dispelling assignments, mark the people who have Displaced Energy on them with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "zhTW")
@@ -122,6 +122,9 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhTW")
 if L then
+	L.adds = "Heroic adds"
+	L.adds_desc = "Warnings for when the heroic only adds enter the fight"
+
 	L.tank_debuffs = "Tank debuffs"
 	L.tank_debuffs_desc = "Warnings for the different types of tank debuffs associated with Fearsome Roar"
 

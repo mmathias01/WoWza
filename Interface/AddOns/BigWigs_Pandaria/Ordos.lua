@@ -74,7 +74,7 @@ do
 	function mod:PoolOfFireDamage(args)
 		if self:Me(args.destGUID) then
 			local t = GetTime()
-			if t-prev > 2 then
+			if t-prev > 4 then
 				prev = t
 				self:Message(144692, "Personal", "Info", CL["underyou"]:format(args.spellName))
 			end
@@ -92,7 +92,7 @@ do
 	function mod:AncientFlameDamage(args)
 		if self:Me(args.destGUID) then
 			local t = GetTime()
-			if t-prev > 2 then
+			if t-prev > 4 then
 				prev = t
 				self:Message(144695, "Personal", "Info", CL["near"]:format(args.spellName))
 			end
@@ -101,13 +101,19 @@ do
 end
 
 do
-	local burningSoulList, isOnMe, scheduled = mod:NewTargetList(), nil, nil
+	local coloredNames, burningSoulList, isOnMe, scheduled = mod:NewTargetList(), {}, nil, nil
 	local function warnBurningSoul(spellId)
+		mod:CDBar(spellId, 24) -- 23.8 - 41.4
+		mod:Bar(spellId, 10, L.burning_soul_bar)
 		if not isOnMe then
 			mod:OpenProximity(spellId, 8, burningSoulList)
 		end
-		mod:TargetMessage(spellId, burningSoulList, "Urgent", "Alert", nil, true)
+		for i,v in ipairs(burningSoulList) do
+			coloredNames[i] = v
+		end
+		mod:TargetMessage(spellId, coloredNames, "Urgent", "Alert", nil, nil, true)
 		scheduled = nil
+		wipe(burningSoulList)
 	end
 
 	function mod:BurningSoulRemoved(args)
@@ -116,8 +122,6 @@ do
 	end
 
 	function mod:BurningSoul(args)
-		self:CDBar(args.spellId, 24) -- 23.8 - 41.4
-		self:Bar(args.spellId, 10, L.burning_soul_bar)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
@@ -127,7 +131,7 @@ do
 
 		burningSoulList[#burningSoulList+1] = args.destName
 		if not scheduled then
-			scheduled = self:ScheduleTimer(warnBurningSoul, 0.3, args.spellId)
+			scheduled = self:ScheduleTimer(warnBurningSoul, 0.1, args.spellId)
 		end
 	end
 end

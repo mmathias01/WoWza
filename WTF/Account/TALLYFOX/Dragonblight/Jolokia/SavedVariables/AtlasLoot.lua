@@ -5,8 +5,8 @@ AtlasLootCharDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
-	["AtlasLootVersion"] = "70700",
+	["AtlasLootVersion"] = "70701",
 }

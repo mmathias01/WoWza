@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
+	["session"] = 784,
 	["lastSanitation"] = 3,
-	["session"] = 751,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",
@@ -1073,5 +1073,12 @@ BugGrabberDB = {
 			["session"] = 736,
 			["counter"] = 585,
 		}, -- [146]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"ArkInventory\" tried to call the protected function \"SecureStateDriverManager:SetAttribute()\".",
+			["time"] = "2013/09/28 17:57:26",
+			["stack"] = "!BugGrabber-r194\\BugGrabber.lua:587: in function <!BugGrabber\\BugGrabber.lua:587>\n<in C code>\nFrameXML\\SecureStateDriver.lua:10: in function <FrameXML\\SecureStateDriver.lua:8>\n(tail call): ?\nElvUI_Enhanced-2.09\\modules\\maps\\minimapbuttons.lua:217: in function <ElvUI_Enhanced\\modules\\maps\\minimapbuttons.lua:144>\n<in C code>",
+			["session"] = 755,
+			["counter"] = 4,
+		}, -- [147]
 	},
 }

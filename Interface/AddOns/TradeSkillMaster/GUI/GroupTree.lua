@@ -145,13 +145,11 @@ local methods = {
 	end,
 	
 	GetSelectedGroupInfo = function(self, rowNum)
-		if not self.module then return end
-		
 		local groupInfo = {}
 		for _, data in ipairs(self.rowData) do
 			if data.isSelected then
 				groupInfo[data.groupPath] = {operations=TSM:GetGroupOperations(data.groupPath, self.module), items=TSM:GetGroupItems(data.groupPath)}
-				if not groupInfo[data.groupPath].operations then
+				if self.module and not groupInfo[data.groupPath].operations then
 					groupInfo[data.groupPath] = nil
 				end
 			end

@@ -13,7 +13,24 @@ MSBTProfiles_SavedVars = {
 			["dotThrottleDuration"] = 4,
 			["creationVersion"] = "5.7.125",
 			["powerThrottleDuration"] = 4,
+			["scrollAreas"] = {
+				["Incoming"] = {
+					["offsetX"] = -300,
+				},
+				["Notification"] = {
+					["disabled"] = true,
+				},
+				["Outgoing"] = {
+					["offsetX"] = 260,
+				},
+				["Static"] = {
+					["disabled"] = true,
+				},
+			},
 			["groupNumbers"] = true,
+			["critFontName"] = "MSBT Adventure",
+			["cooldownThreshold"] = 10,
+			["normalFontName"] = "Vixar",
 			["events"] = {
 				["NOTIFICATION_BUFF_FADE"] = {
 					["scrollArea"] = "Notification",
@@ -82,7 +99,7 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_POWER_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_REP_GAIN"] = {
+				["NOTIFICATION_DEBUFF"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_ENEMY_BUFF"] = {
@@ -94,10 +111,10 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_EXTRA_ATTACK"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_PET_COOLDOWN"] = {
-					["disabled"] = true,
+				["NOTIFICATION_ITEM_BUFF"] = {
+					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
+				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_CP_GAIN"] = {
@@ -106,31 +123,14 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_SKILL_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
+				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_ITEM_BUFF"] = {
-					["scrollArea"] = "Notification",
-				},
-				["NOTIFICATION_DEBUFF"] = {
-					["scrollArea"] = "Notification",
-				},
-			},
-			["critFontName"] = "MSBT Adventure",
-			["cooldownThreshold"] = 10,
-			["normalFontName"] = "Vixar",
-			["scrollAreas"] = {
-				["Incoming"] = {
-					["offsetX"] = -300,
-				},
-				["Notification"] = {
+				["NOTIFICATION_PET_COOLDOWN"] = {
 					["disabled"] = true,
 				},
-				["Outgoing"] = {
-					["offsetX"] = 260,
-				},
-				["Static"] = {
-					["disabled"] = true,
+				["NOTIFICATION_REP_GAIN"] = {
+					["scrollArea"] = "Notification",
 				},
 			},
 			["normalFontSize"] = 15,

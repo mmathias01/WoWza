@@ -1,3 +1,8 @@
+v2.1.10
+*Fixed issue with '/tsm bankui' creating duplicate windows.
+*Fixed bug with auction result sorting.
+*Fixed some memory leaks.
+
 v2.1.9
 *Added new !AccurateTime library and fixed some issues around debugprofilestart/stop usage.
 *Cleaned up .toc file a bit.

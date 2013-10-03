@@ -21,10 +21,10 @@ Y: -92
 W: 210
 H: 175
 Frame: AskMrRobot_Dialog
-FrameLevel: 21
+FrameLevel: 23
 Anchor: TOPRIGHT
-X: -130
-Y: -122
+X: -101
+Y: -92
 W: 600
 H: 530
 Frame: RaidUtility_ShowButton

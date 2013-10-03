@@ -22,7 +22,7 @@ L["Remove"] = true
 L["Temporarily removes the bar and all associated messages."] = true
 L["Remove other"] = true
 L["Temporarily removes all other bars (except this one) and associated messages."] = true
-L["Disable"] = true
+L.disable = "Disable"
 L["Permanently disables the boss encounter ability option that spawned this bar."] = true
 
 L["Emphasize at... (seconds)"] = true
@@ -44,7 +44,7 @@ L["Time"] = true
 L["Whether to show or hide the time left on the bars."] = true
 L["Icon"] = true
 L["Shows or hides the bar icons."] = true
-L["Font"] = true
+L.font = "Font"
 L["Restart"] = true
 L["Restarts emphasized bars so they start from the beginning and count from 10."] = true
 L["Fill"] = true
@@ -67,27 +67,23 @@ L["Invalid time specified. <time> can be either a number in seconds, a M:S pair,
 L["This function can't be used during an encounter."] = true
 L["Pull timer cancelled by %s."] = true
 
-L.customBarSlashPrint = "This functionality has been renamed. Use /raidbar to send a custom bar to your raid or /localbar for a bar only you can see."
-
 -----------------------------------------------------------------------
 -- Colors.lua
 --
 
-L.Colors = "Colors"
+L.colors = "Colors"
 
-L.Messages = "Messages"
-L.Bars = "Bars"
-L.Background = "Background"
-L.Text = "Text"
-L.TextShadow = "Text Shadow"
-L.Flash = "Flash"
-L.Normal = "Normal"
-L.Emphasized = "Emphasized"
+L.bars = "Bars"
+L.text = "Text"
+L.textShadow = "Text Shadow"
+L.flash = "Flash"
+L.normal = "Normal"
+L.emphasized = "Emphasized"
 
-L.Reset = "Reset"
-L["Resets the above colors to their defaults."] = true
-L["Reset all"] = true
-L["If you've customized colors for any boss encounter settings, this button will reset ALL of them so the colors defined here will be used instead."] = true
+L.reset = "Reset"
+L.resetDesc = "Resets the above colors to their defaults."
+L.resetAll = "Reset all"
+L.resetAllDesc = "If you've customized colors for any boss encounter settings, this button will reset ALL of them so the colors defined here will be used instead."
 
 L.Important = "Important"
 L.Personal = "Personal"
@@ -100,14 +96,14 @@ L.Neutral = "Neutral"
 -- Emphasize.lua
 --
 
-L["Super Emphasize"] = true
+L.superEmphasize = "Super Emphasize"
 L.superEmphasizeDesc = "Boosts related messages or bars of a specific boss encounter ability.\n\nHere you configure exactly what should happen when you toggle on the Super Emphasize option in the advanced section for a boss encounter ability.\n\n|cffff4411Note that Super Emphasize is off by default for all abilities.|r\n"
-L["UPPERCASE"] = true
-L["Uppercases all messages related to a super emphasized option."] = true
-L["Double size"] = true
-L["Doubles the size of super emphasized bars and messages."] = true
-L["Countdown"] = true
-L["If a related timer is longer than 5 seconds, a vocal and visual countdown will be added for the last 5 seconds. Imagine someone counting down \"5... 4... 3... 2... 1... COUNTDOWN!\" and big numbers in the middle of your screen."] = true
+L.uppercase = "UPPERCASE"
+L.uppercaseDesc = "Uppercases all messages related to a super emphasized option."
+L.doubleSize = "Double size"
+L.doubleSizeDesc = "Doubles the size of super emphasized bars and messages."
+L.countdown = "Countdown"
+L.countdownDesc = "If a related timer is longer than 5 seconds, a vocal and visual countdown will be added for the last 5 seconds. Imagine someone counting down \"5... 4... 3... 2... 1... COUNTDOWN!\" and big numbers in the middle of your screen."
 
 -----------------------------------------------------------------------
 -- Messages.lua
@@ -117,99 +113,87 @@ L.sinkDescription = "Route output from this addon through the Big Wigs message d
 L.emphasizedSinkDescription = "Route output from this addon through the Big Wigs Emphasized message display. This display supports text and colors, and can only show one message at a time."
 L.emphasizedCountdownSinkDescription = "Route output from this addon through the Big Wigs Emphasized Countdown message display. This display supports text and colors, and can only show one message at a time."
 
-L["Big Wigs Emphasized"] = true
-L["Messages"] = true
-L["Normal messages"] = true
-L["Emphasized messages"] = true
-L["Output"] = true
-L["Emphasized countdown"] = true
+L.bwEmphasized = "Big Wigs Emphasized"
+L.messages = "Messages"
+L.normalMessages = "Normal messages"
+L.emphasizedMessages = "Emphasized messages"
+L.output = "Output"
+L.emphasizedCountdown = "Emphasized countdown"
 
-L["Use colors"] = true
-L["Toggles white only messages ignoring coloring."] = true
+L.useColors = "Use colors"
+L.useColorsDesc = "Toggles white only messages ignoring coloring."
+L.useIcons = "Use icons"
+L.useIconsDesc = "Show icons next to messages."
+L.classColors = "Class colors"
+L.classColorsDesc = "Colors player names by their class."
 
-L["Use icons"] = true
-L["Show icons next to messages, only works for Raid Warning."] = true
+L.fontSize = "Font size"
+L.none = "None"
+L.thin = "Thin"
+L.thick = "Thick"
+L.outline = "Outline"
+L.monochrome = "Monochrome"
+L.monochromeDesc = "Toggles the monochrome flag on all messages, removing any smoothing of the font edges."
+L.fontColor = "Font color"
 
-L["Class colors"] = true
-L["Colors player names in messages by their class."] = true
-
-L["Font size"] = true
-L["None"] = true
-L["Thin"] = true
-L["Thick"] = true
-L["Outline"] = true
-L["Monochrome"] = true
-L["Toggles the monochrome flag on all messages, removing any smoothing of the font edges."] = true
-L["Font color"] = true
-
-L["Display time"] = true
-L["How long to display a message, in seconds"] = true
-L["Fade time"] = true
-L["How long to fade out a message, in seconds"] = true
+L.displayTime = "Display time"
+L.displayTimeDesc = "How long to display a message, in seconds"
+L.fadeTime = "Fade time"
+L.fadeTimeDesc = "How long to fade out a message, in seconds"
 
 -----------------------------------------------------------------------
 -- Proximity.lua
 --
 
-L["Custom range indicator"] = true
+L.customRange = "Custom range indicator"
 L.proximityTitle = "%d yd / %d |4player:players;" -- yd = yards (short)
-L["Proximity"] = true
+L.proximity = "Proximity"
 L.sound = "Sound"
-L["Disabled"] = true
-L["Disable the proximity display for all modules that use it."] = true
-L["The proximity display will show next time. To disable it completely for this encounter, you need to toggle it off in the encounter options."] = true
-L["Sound delay"] = true
-L["Specify how long Big Wigs should wait between repeating the specified sound when someone is too close to you."] = true
+L.disabled = "Disabled"
+L.disabledDesc = "Disable the proximity display for all modules that use it."
+L.toggleProximityPrint = "The proximity display will show next time. To disable it completely for this encounter, you need to toggle it off in the encounter options."
+L.soundDelay = "Sound delay"
+L.soundDelayDesc = "Specify how long Big Wigs should wait between repeating the specified sound when someone is too close to you."
 
 L.proximity = "Proximity display"
 L.proximity_desc = "Show the proximity window when appropriate for this encounter, listing players who are standing too close to you."
 
-L["Close"] = true
-L["Closes the proximity display.\n\nTo disable it completely for any encounter, you have to go into the options for the relevant boss module and toggle the 'Proximity' option off."] = true
-L["Lock"] = true
-L["Locks the display in place, preventing moving and resizing."] = true
-L["Title"] = true
-L["Shows or hides the title."] = true
-L["Background"] = true
-L["Shows or hides the background."] = true
-L["Toggle sound"] = true
-L["Toggle whether or not the proximity window should beep when you're too close to another player."] = true
-L["Sound button"] = true
-L["Shows or hides the sound button."] = true
-L["Close button"] = true
-L["Shows or hides the close button."] = true
-L["Show/hide"] = true
-L["Ability name"] = true
-L["Shows or hides the ability name above the window."] = true
-L["Tooltip"] = true
-L["Shows or hides a spell tooltip if the Proximity display is currently tied directly to a boss encounter ability."] = true
+L.close = "Close"
+L.closeProximityDesc = "Closes the proximity display.\n\nTo disable it completely for any encounter, you have to go into the options for the relevant boss module and toggle the 'Proximity' option off."
+L.lock = "Lock"
+L.lockDesc = "Locks the display in place, preventing moving and resizing."
+L.title = "Title"
+L.titleDesc = "Shows or hides the title."
+L.background = "Background"
+L.backgroundDesc = "Shows or hides the background."
+L.toggleSound = "Toggle sound"
+L.toggleSoundDesc = "Toggle whether or not the proximity window should beep when you're too close to another player."
+L.soundButton = "Sound button"
+L.soundButtonDesc = "Shows or hides the sound button."
+L.closeButton = "Close button"
+L.closeButtonDesc = "Shows or hides the close button."
+L.showHide = "Show/hide"
+L.abilityName = "Ability name"
+L.abilityNameDesc = "Shows or hides the ability name above the window."
+L.tooltip = "Tooltip"
+L.tooltipDesc = "Shows or hides a spell tooltip if the Proximity display is currently tied directly to a boss encounter ability."
 
 -----------------------------------------------------------------------
 -- RaidIcon.lua
 --
 
-L["Icons"] = true
-
-L.raidIconsDescription = "Some encounters might include elements such as bomb-type abilities targetted on a specific player, a player being chased, or a specific player might be of interest in other ways. Here you can customize which raid icons should be used to mark these players.\n\nIf an encounter only has one ability that is worth marking for, only the first icon will be used. One icon will never be used for two different abilities on the same encounter, and any given ability will always use the same icon next time.\n\n|cffff4411Note that if a player has already been marked manually, Big Wigs will never change his icon.|r"
-L["Primary"] = true
-L["The first raid target icon that a encounter script should use."] = true
-L["Secondary"] = true
-L["The second raid target icon that a encounter script should use."] = true
-
-L["Star"] = true
-L["Circle"] = true
-L["Diamond"] = true
-L["Triangle"] = true
-L["Moon"] = true
-L["Square"] = true
-L["Cross"] = true
-L["Skull"] = true
-L["|cffff0000Disable|r"] = true
+L.icons = "Icons"
+L.raidIconsDescription = "Some encounters might include elements such as bomb-type abilities targetted on a specific player, a player being chased, or a specific player might be of interest in other ways. Here you can customize which raid icons should be used to mark these players.\n\nIf an encounter only has one ability that is worth marking for, only the first icon will be used. One icon will never be used for two different abilities on the same encounter, and any given ability will always use the same icon next time.\n\n|cffff4411Note that if a player has already been marked manually, Big Wigs will never change their icon.|r"
+L.primary = "Primary"
+L.primaryDesc = "The first raid target icon that a encounter script should use."
+L.secondary = "Secondary"
+L.secondaryDesc = "The second raid target icon that a encounter script should use."
 
 -----------------------------------------------------------------------
 -- Sound.lua
 --
 
+L.defaultOnly = "Default only"
 L.soundDefaultDescription = "With this option set, Big Wigs will only use the default Blizzard raid warning sound for messages that come with a sound alert. Note that only some messages from encounter scripts will trigger a sound alert."
 
 L.Sounds = "Sounds"
@@ -226,9 +210,6 @@ L.FlagTaken = "Flag Taken (PvP)"
 L.Destruction = "Destruction (Kil'jaeden)"
 L.RunAway = "Run Away Little Girl (Big Bad Wolf)"
 
-L["Set the sound to use for %q.\n\nCtrl-Click a sound to preview."] = true
-L["Default only"] = true
-
 L.customSoundDesc = "Play the selected custom sound instead of the one supplied by the module"
 L.resetAllCustomSound = "If you've customized sounds for any boss encounter settings, this button will reset ALL of them so the sounds defined here will be used instead."
 
@@ -236,19 +217,19 @@ L.resetAllCustomSound = "If you've customized sounds for any boss encounter sett
 -- Statistics.lua
 --
 
-L.bossKillDurationPrint = "Defeated '%s' after %s."
+L.bossDefeatDurationPrint = "Defeated '%s' after %s."
 L.bossWipeDurationPrint = "Wiped on '%s' after %s."
-L.newBestKill = "New best time!"
+L.newBestTime = "New best time!"
 L.bossStatistics = "Boss Statistics"
 L.bossStatsDescription = "Recording of various boss-related statistics such as the amount of times a boss had been killed, the amount of wipes, total time that combat lasted, or the fastest boss kill. These statistics can be viewed on each boss's configuration screen, but will be hidden for bosses that have no recorded statistics."
 L.enableStats = "Enable Statistics"
 L.chatMessages = "Chat Messages"
-L.printBestKillOption = "Best Kill Notification"
-L.printKillOption = "Kill Time"
+L.printBestTimeOption = "Best Time Notification"
+L.printDefeatOption = "Defeat Time"
 L.printWipeOption = "Wipe Time"
-L.countKills = "Count Kills"
+L.countDefeats = "Count Defeats"
 L.countWipes = "Count Wipes"
-L.recordBestKills = "Remember Best Kills"
+L.recordBestTime = "Remember Best Time"
 L.createTimeBar = "Show 'Best Time' bar"
 L.bestTimeBar = "Best Time"
 

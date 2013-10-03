@@ -1281,6 +1281,32 @@ data.disenchant = {
 				},
 			},
 		},
+		["item:52720:0:0:0:0:0:0"] = {
+			-- Small Heavenly Shard
+			name = GetItemInfo("item:52720:0:0:0:0:0:0"),
+			minLevel = 78,
+			maxLevel = 85,
+			itemTypes = {
+				[ARMOR] = {
+					[3] = {
+						{
+							minItemLevel = 282,
+							maxItemLevel = 316,
+							amountOfMats = 1
+						},
+					},
+				},
+				[WEAPON] = {
+					[3] = {
+						{
+							minItemLevel = 282,
+							maxItemLevel = 316,
+							amountOfMats = 1
+						},
+					},
+				},
+			},
+		},
 		["item:52721:0:0:0:0:0:0"] = {
 			-- Heavenly Shard
 			name = GetItemInfo("item:52721:0:0:0:0:0:0"),
@@ -1290,13 +1316,13 @@ data.disenchant = {
 				[ARMOR] = {
 					[3] = {
 						{
-							minItemLevel = 201,
+							minItemLevel = 282,
 							maxItemLevel = 316,
 							amountOfMats = 0.33
 						},
 						{
 							minItemLevel = 317,
-							maxItemLevel = 375,
+							maxItemLevel = 377,
 							amountOfMats = 1
 						},
 					},
@@ -1304,13 +1330,13 @@ data.disenchant = {
 				[WEAPON] = {
 					[3] = {
 						{
-							minItemLevel = 201,
+							minItemLevel = 282,
 							maxItemLevel = 316,
 							amountOfMats = 0.33
 						},
 						{
 							minItemLevel = 317,
-							maxItemLevel = 375,
+							maxItemLevel = 377,
 							amountOfMats = 1
 						},
 					},

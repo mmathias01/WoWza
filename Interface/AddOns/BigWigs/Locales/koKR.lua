@@ -2,11 +2,15 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "koKR")
 if not L then return end
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "정보"
-L["activeBossModules"] = "사용중인 보스 모듈:"
+L["activeBossModules"] = "사용 중인 보스 모듈:" -- Needs review
 L["advanced"] = "고급 옵션"
-L["alphaRelease"] = "Big Wigs %s (revision %d) 의 알파 릴리스가 실행중입니다."
+L["allRightsReserved"] = "모든 권리 보유" -- Needs review
+L["alphaOutdated"] = "사용 중인 Big Wigs 알파 버전의 날짜가 만료되었습니다." -- Needs review
+L["alphaRelease"] = "Big Wigs %s (revision %d) 의 알파 릴리스가 실행 중입니다." -- Needs review
 L["already_registered"] = "|cffff0000경고:|r |cff00ff00%s|r (|cffffff00%d|r) 이미 Big Wigs 에서 보스 모듈로 존재하지만, 다시 등록이 필요합니다 (revision에 |cffffff00%d|r). 이 것은 일반적으로 애드온 업데이트 실패로 인하여 이 모듈이 당신의 애드온 폴더에 두개의 사본이 있는 것을 뜻합니다. 당신이 가지고 있는 Big Wigs 폴더의 삭제와 재설치를 권장합니다."
 L["autoRole"] = "자동 역할 업데이트"
+L["autoRoleDesc"] = [=[레이드에서 자신의 역할을 알리면 다른 사람들을 위해 Big Wigs 경고를 향상시킵니다. 이 옵션은 Big Wigs가 자동으로 당신의 역할을 업데이트하도록 합니다. 예를 들어 플레이어가 탱커이고, 우두머리의 능력이 탱커에게 영향을 미치지 않는 경우, 일부 모듈을 확인합니다.
+|cffff4411이것은 역할별 특정 경고와 관련이 없으며, 이 옵션을 켜두도록 강력히 권장합니다!|r]=] -- Needs review
 L["back"] = "<< 뒤로"
 L["BAR"] = "바"
 L["BAR_desc"] = "일부 기술에 대하여 적절한 바를 생성하여 표시합니다. 만약 옵션에서 체크를 해제하면 표시하지 않습니다. 크기 위치등 형태에 관한 설정은 '설정...'을 통하여 하실수 있습니다."
@@ -61,7 +65,7 @@ L["license"] = "라이센스"
 L["listAbilities"] = "대화창에 스킬 목록 표시"
 L["ME_ONLY"] = "자신일 때만"
 L["ME_ONLY_desc"] = "이 옵션이 활성화되면 당신에게 영향을 주는 능력의 메시지를 표시합니다. 예를 들어, 자신일 경우 '폭발: 플레이어'로 표시합니다."
-L["MESSAGE"] = "메세지"
+L["MESSAGE"] = "메시지" -- Needs review
 L["MESSAGE_desc"] = "Big Wigs에서 기술에 대하여 게임 화면에 메세지를 표시합니다. 만약 옵션에서 체크를 해제하면 표시하지 않습니다. 크기 위치등 형태에 관한 설정은 '설정...'을 통하여 하실수 있습니다."
 L["minimapIcon"] = "미니맵 아이콘"
 L["minimapToggle"] = "미니맵 아이콘을 표시하거나 숨깁니다."
@@ -77,7 +81,7 @@ L["outOfDate"] = "구 버전"
 L["profiles"] = "프로필"
 L["PROXIMITY"] = "근접 표시"
 L["PROXIMITY_desc"] = "스킬에 대한 거리 측정이 필요합니다. 근접 표시는 당신이 안전한지 여부에 한 눈에를 알수있도록 기능이 특별히 설정됩니다."
-L["PULSE"] = "맥박"
+L["PULSE"] = "깜박임" -- Needs review
 L["PULSE_desc"] = "화면을 깜박이는 외에도 일시적으로 사용자의 관심을 사로잡기 위해 화면 중앙에 표시되는 특정 능력에 관련된 아이콘을 표시 할 수 있습니다."
 L["raidIcons"] = "공격대 아이콘"
 L["raidIconsDesc"] = [=[일부 '폭탄'과 같은 중요한 경고에 대하여 플레이어에게 공격대 전술을 지정합니다.

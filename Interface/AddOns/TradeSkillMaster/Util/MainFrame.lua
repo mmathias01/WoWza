@@ -18,6 +18,7 @@ local lib = TSMAPI
 
 --- Opens the main TSM window.
 function TSMAPI:OpenFrame()
+	if not TSM.Frame then return end
 	TSM.Frame:Show()
 	if #TSM.Frame.children > 0 then
 		TSM.Frame:ReleaseChildren()

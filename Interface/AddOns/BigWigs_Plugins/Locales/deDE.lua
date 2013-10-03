@@ -23,7 +23,7 @@ L["Remove"] = "Entfernen"
 L["Temporarily removes the bar and all associated messages."] = "Entfernt zeitweilig die Leiste und alle zugehörigen Nachrichten aus der Anzeige."
 L["Remove other"] = "Andere entfernen"
 L["Temporarily removes all other bars (except this one) and associated messages."] = "Entfernt zeitweilig alle anderen Leisten (außer der Angeklickten) und zugehörigen Nachrichten aus der Anzeige."
-L["Disable"] = "Deaktivieren"
+L.disable = "Deaktivieren"
 L["Permanently disables the boss encounter ability option that spawned this bar."] = "Deaktiviert die Option, die diese Leiste erzeugt hat, zukünftig permanent."
 
 L["Emphasize at... (seconds)"] = "Hervorheben bei... (Sekunden)"
@@ -45,7 +45,7 @@ L["Time"] = "Zeit"
 L["Whether to show or hide the time left on the bars."] = "Bestimmt, ob die verbleibende Zeit auf den Leisten angezeigt wird."
 L["Icon"] = "Symbol"
 L["Shows or hides the bar icons."] = "Zeigt oder versteckt die Symbole auf den Leisten."
-L["Font"] = "Schriftart"
+L.font = "Schriftart"
 L["Restart"] = "Neu starten"
 L["Restarts emphasized bars so they start from the beginning and count from 10."] = "Startet die hervorgehobenen Leisten neu, so dass sie bis 10 hochzählen anstatt von 10 herunter."
 L["Fill"] = "Füllen"
@@ -68,188 +68,135 @@ L["Invalid time specified. <time> can be either a number in seconds, a M:S pair,
 L["This function can't be used during an encounter."] = "Diese Funktion kann während des Bosskampfes nicht genutzt werden."
 L["Pull timer cancelled by %s."] = "Pull-Timer von %s abgebrochen."
 
-L.customBarSlashPrint = "Diese Funktion wurde umbenannt. Verwende /raidbar um eine Custombar an den Raid zu senden oder /localbar um die Leiste nur bei Dir anzuzeigen."
 
------------------------------------------------------------------------
--- Colors.lua
---
+-- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
+L["abilityName"] = "Fähigkeitsname"
+L["abilityNameDesc"] = "Zeigt oder versteckt den Fähigkeitsnamen über dem Fenster."
+L["Alarm"] = "Alarm"
+L["Alert"] = "Warnung"
+L["Attention"] = "Achtung"
+L["background"] = "Hintergrund"
+L["backgroundDesc"] = "Zeigt oder versteckt den Hintergrund der Anzeige."
+L["bars"] = "Leisten"
+L["bestTimeBar"] = "Rekordzeit"
+L["Beware"] = "Hütet Euch (Algalon)"
+L["bossDefeatDurationPrint"] = "'%s' wurde nach %s besiegt."
+L["bossStatistics"] = "Boss-Statistiken"
+L["bossStatsDescription"] = "Zeichnet verschiedene Statistiken der Bossbegegnungen wie die Anzahl der Siege und Niederlagen, sowie die Kampfdauer oder die Rekordzeiten auf. Diese Statistiken können, falls vorhanden, in der Konfiguration der einzelnen Bosse eingesehen werden. Andernfalls werden diese ausgeblendet."
+L["bossWipeDurationPrint"] = "An '%s' nach %s gescheitert."
+L["bwEmphasized"] = "Big Wigs-Hervorgehobene Einstellungen"
+L["chatMessages"] = "Chatnachrichten"
+L["classColors"] = "Klassenfarben"
+L["classColorsDesc"] = "Färbt Spielernamen nach deren Klasse ein."
+L["close"] = "Schließen"
+L["closeButton"] = "Schließen-Button"
+L["closeButtonDesc"] = "Zeigt oder versteckt den Schließen-Button."
+L["closeProximityDesc"] = [=[Schließt die Anzeige naher Spieler.
 
-L.Colors = "Farben"
+Falls du die Anzeige für alle Bosse deaktivieren willst, musst du die Option 'Nähe' seperat in den jeweiligen Bossmodulen ausschalten.]=]
+L["colors"] = "Farben"
+L["countDefeats"] = "Siege zählen"
+L["countdown"] = "Countdown"
+L["countdownDesc"] = "Falls ein zugehöriger Timer länger als 5 Sekunden dauert, wird ein visueller und auditiver Countdown die letzten 5 Sekunden begleiten. Stell dir vor, jemand würde \"5... 4... 3... 2... 1... COUNTDOWN!\" herunterzählen und große Nummern in die Mitte des Bildschirm setzen."
+L["countWipes"] = "Niederlagen zählen"
+L["createTimeBar"] = "'Rekordzeit'-Timer anzeigen"
+L["customRange"] = "Eigene Reichweitenanzeige"
+L["customSoundDesc"] = "Den speziell gewählten Sound anstatt des vom Modul bereitgestellten abspielen"
+L["defaultOnly"] = "Nur Standards"
+L["Destruction"] = "Zerstörung (Kil'jaeden)"
+L["disabled"] = "Deaktivieren"
+L["disabledDesc"] = "Deaktiviert die Anzeige naher Spieler für alle Module, die sie benutzen."
+L["displayTime"] = "Anzeigedauer"
+L["displayTimeDesc"] = "Bestimmt, wie lange (in Sekunden) Nachrichten angezeigt werden."
+L["doubleSize"] = "Doppelte Größe"
+L["doubleSizeDesc"] = "Verdoppelt die Größe von 'Stark hervorgehobenen' Leisten und Nachrichten."
+L["emphasized"] = "Hervorgehoben"
+L["emphasizedCountdown"] = "Hervorgehobener Countdown"
+L["emphasizedCountdownSinkDescription"] = "Sendet Ausgaben dieses Addons durch Big Wigs 'stark hervorgehobene' Countdown Nachrichtenanzeige. Hierbei werden Text sowie Farben unterstützt und es wird immer nur eine Zeile gleichzeitig angezeigt."
+L["emphasizedMessages"] = "Hervorgehobene Nachrichten"
+L["emphasizedSinkDescription"] = "Sendet die Big Wigs Ausgabe durch Big Wigs 'stark hervorgehobene' Nachrichtenanzeige. Diese Anzeige unterstützt Text und Farbe und kann nur eine Nachricht gleichzeitig anzeigen."
+L["enableStats"] = "Statistiken aktivieren"
+L["fadeTime"] = "Ausblendedauer"
+L["fadeTimeDesc"] = "Bestimmt, wie lange (in Sekunden) das Ausblenden der Nachrichten dauert."
+L["FlagTaken"] = "Flagge aufgenommen (PvP)"
+L["flash"] = "Aufleuchten"
+L["fontColor"] = "Schriftfarbe"
+L["fontSize"] = "Schriftgröße"
+L["icons"] = "Symbole"
+L["Important"] = "Wichtig"
+L["Info"] = "Info"
+L["lock"] = "Sperren"
+L["lockDesc"] = "Sperrt die Anzeige und verhindert weiteres Verschieben und Anpassen der Größe."
+L["Long"] = "Lang"
+L["messages"] = "Nachrichten"
+L["monochrome"] = "Monochrom"
+L["monochromeDesc"] = "Schaltet den Monochrom-Filter in allen Nachrichten an/aus, der die Schriftenkantenglättung entfernt."
+L["Neutral"] = "Neutral"
+L["newBestTime"] = "Neue Rekordzeit!"
+L["none"] = "Nichts"
+L["normal"] = "Normal"
+L["normalMessages"] = "Normale Nachrichten"
+L["outline"] = "Kontur"
+L["output"] = "Ausgabe"
+L["Personal"] = "Persönlich"
+L["Positive"] = "Positiv"
+L["primary"] = "Erstes Symbol"
+L["primaryDesc"] = "Das erste Schlachtzugs-Symbol, das verwendet wird."
+L["printBestTimeOption"] = "Benachrichtigung über Bestzeit"
+L["printDefeatOption"] = "Siegesdauer"
+L["printWipeOption"] = "Niederlagendauer"
+L["proximity"] = "Nähe"
+L["proximity_desc"] = "Zeigt das Fenster für nahe Spieler an. Es listet alle Spieler auf, die dir zu nahe stehen."
+L["proximityTitle"] = "%d m / %d Spieler"
+L["raidIconsDescription"] = [=[Einige Begegnungen schließen Elemente wie 'Bomben'-Fähigkeiten ein, die einen bestimmten Spieler zum Ziel haben, ihn verfolgen oder er ist in sonst einer Art und Weise interessant. Hier kannst du bestimmen, welche Schlachtzugs-Symbole benutzt werden sollen, um die Spieler zu markieren.
 
-L.Messages = "Nachrichten"
-L.Bars = "Leisten"
-L.Background = "Hintergrund"
-L.Text = "Text"
-L.TextShadow = "Textschatten"
-L.Flash = "Aufleuchten"
-L.Normal = "Normal"
-L.Emphasized = "Hervorgehoben"
+Falls nur ein Symbol benötigt wird, wird nur das erste benutzt. Ein Symbol wird niemals für zwei verschiedene Fähigkeiten innerhalb einer Begegnung benutzt.
 
-L.Reset = "Zurücksetzen"
-L["Resets the above colors to their defaults."] = "Setzt die obenstehenden Farben auf ihre Ausgangswerte zurück."
-L["Reset all"] = "Alle zurücksetzen"
-L["If you've customized colors for any boss encounter settings, this button will reset ALL of them so the colors defined here will be used instead."] = "Falls du veränderte Farbeinstellungen für Bosse benutzt, wird dieser Button ALLE zurücksetzen, so dass erneut die hier festgelegten Farben verwendet werden."
+|cffff4411Beachte, dass ein manuell markierter Spieler von Big Wigs nicht ummarkiert wird.|r]=]
+L["recordBestTime"] = "Bestzeiten speichern"
+L["reset"] = "Zurücksetzen"
+L["resetAll"] = "Alle zurücksetzen"
+L["resetAllCustomSound"] = "Wenn Du die Sounds für Bossbegegnungen geändert hast, werden diese ALLE über diese Schaltfläche zurückgesetzt, sodass stattdessen die hier gewählten genutzt werden."
+L["resetAllDesc"] = "Falls du veränderte Farbeinstellungen für Bosse benutzt, wird dieser Button ALLE zurücksetzen, so dass erneut die hier festgelegten Farben verwendet werden."
+L["resetDesc"] = "Setzt die obenstehenden Farben auf ihre Ausgangswerte zurück."
+L["RunAway"] = "Lauf kleines Mädchen, lauf (Der große böse Wolf)"
+L["secondary"] = "Zweites Symbol"
+L["secondaryDesc"] = "Das zweite Schlachtzugs-Symbol, das verwendet wird."
+L["showHide"] = "Zeigen/Verstecken"
+L["sinkDescription"] = "Sendet die Big Wigs Ausgabe durch die normale Big Wigs Nachrichtenanzeige. Diese Anzeige unterstützt Symbole, Farben und kann 4 Nachrichten gleichzeitig anzeigen. Neuere Nachrichten werden größer und schrumpfen dann wieder schnell, um die Aufmerksamkeit dementsprechend zu lenken."
+L["sound"] = "Sound"
+L["soundButton"] = "Sound-Button"
+L["soundButtonDesc"] = "Zeigt oder versteckt den Sound-Button."
+L["soundDefaultDescription"] = "Falls diese Option aktiviert ist, wird Big Wigs nur die Standard-Raidsounds von Blizzard für Nachrichten benutzen. Beachte, dass nicht alle Nachrichten einer Begegnung einen Sound auslösen."
+L["soundDelay"] = "Soundverzögerung"
+L["soundDelayDesc"] = "Gibt an, wie lange Big Wigs zwischen den Soundwiederholungen wartet, wenn jemand zu nahe steht."
+L["Sounds"] = "Sounds"
+L["superEmphasize"] = "Stark hervorheben"
+L["superEmphasizeDesc"] = [=[Verstärkt zugehörige Nachrichten oder Leisten einer bestimmten Begegnung.
 
-L.Important = "Wichtig"
-L.Personal = "Persönlich"
-L.Urgent = "Dringend"
-L.Attention = "Achtung"
-L.Positive = "Positiv"
-L.Neutral = "Neutral"
+Hier kannst du genau bestimmen, was passieren soll, wenn du in den erweiterten Optionen einer Bossfähigkeit 'Stark hervorheben' aktivierst.
 
------------------------------------------------------------------------
--- Emphasize.lua
---
+|cffff4411Beachte, dass 'Stark hervorheben' standardmäßig für alle Fähigkeiten deaktiviert ist.|r
+]=]
+L["text"] = "Text"
+L["textShadow"] = "Textschatten"
+L["thick"] = "Dick"
+L["thin"] = "Dünn"
+L["title"] = "Titel"
+L["titleDesc"] = "Zeigt oder versteckt den Titel der Anzeige."
+L["toggleProximityPrint"] = "Die Anzeige naher Spieler wird beim nächsten Mal angezeigt werden. Um sie für diesen Boss vollständig zu deaktivieren, musst du die Option 'Nähe' im Bossmodul ausschalten."
+L["toggleSound"] = "Sound an/aus"
+L["toggleSoundDesc"] = "Schaltet den Sound ein oder aus, der gespielt wird, wenn du zu nahe an einem anderen Spieler stehst."
+L["tooltip"] = "Tooltip"
+L["tooltipDesc"] = "Zeigt oder versteckt den Zaubertooltip, wenn die Näheanzeige direkt an eine Bossfähigkeit gebunden ist."
+L["uppercase"] = "GROSSBUCHSTABEN"
+L["uppercaseDesc"] = "Schreibt alle Nachrichten in Großbuchstaben, die die zugehörige 'Stark hervorheben'-Option aktiviert haben."
+L["Urgent"] = "Dringend"
+L["useColors"] = "Farben verwenden"
+L["useColorsDesc"] = "Wählt, ob Nachrichten farbig oder weiß angezeigt werden."
+L["useIcons"] = "Symbole benutzen"
+L["useIconsDesc"] = "Zeigt Symbole neben Nachrichten an."
+L["Victory"] = "Sieg"
+L["Warning"] = "Warnung"
 
-L["Super Emphasize"] = "Stark hervorheben"
-L.superEmphasizeDesc = "Verstärkt zugehörige Nachrichten oder Leisten einer bestimmten Begegnung.\n\nHier kannst du genau bestimmen, was passieren soll, wenn du in den erweiterten Optionen einer Bossfähigkeit 'Stark hervorheben' aktivierst.\n\n|cffff4411Beachte, dass 'Stark hervorheben' standardmäßig für alle Fähigkeiten deaktiviert ist.|r\n"
-L["UPPERCASE"] = "GROSSBUCHSTABEN"
-L["Uppercases all messages related to a super emphasized option."] = "Schreibt alle Nachrichten in Großbuchstaben, die die zugehörige 'Stark hervorheben'-Option aktiviert haben."
-L["Double size"] = "Doppelte Größe"
-L["Doubles the size of super emphasized bars and messages."] = "Verdoppelt die Größe von 'Stark hervorgehobenen' Leisten und Nachrichten."
-L["Countdown"] = "Countdown"
-L["If a related timer is longer than 5 seconds, a vocal and visual countdown will be added for the last 5 seconds. Imagine someone counting down \"5... 4... 3... 2... 1... COUNTDOWN!\" and big numbers in the middle of your screen."] = "Falls ein zugehöriger Timer länger als 5 Sekunden dauert, wird ein visueller und auditiver Countdown die letzten 5 Sekunden begleiten. Stell dir vor, jemand würde \"5... 4... 3... 2... 1... COUNTDOWN!\" herunterzählen und große Nummern in die Mitte des Bildschirm setzen."
-
------------------------------------------------------------------------
--- Messages.lua
---
-
-L.sinkDescription = "Sendet die Big Wigs Ausgabe durch die normale Big Wigs Nachrichtenanzeige. Diese Anzeige unterstützt Symbole, Farben und kann 4 Nachrichten gleichzeitig anzeigen. Neuere Nachrichten werden größer und schrumpfen dann wieder schnell, um die Aufmerksamkeit dementsprechend zu lenken."
-L.emphasizedSinkDescription = "Sendet die Big Wigs Ausgabe durch Big Wigs 'stark hervorgehobene' Nachrichtenanzeige. Diese Anzeige unterstützt Text und Farbe und kann nur eine Nachricht gleichzeitig anzeigen."
-L.emphasizedCountdownSinkDescription = "Sendet Ausgaben dieses Addons durch Big Wigs 'stark hervorgehobene' Countdown Nachrichtenanzeige. Hierbei werden Text sowie Farben unterstützt und es wird immer nur eine Zeile gleichzeitig angezeigt."
-
-L["Big Wigs Emphasized"] = "Big Wigs-Hervorgehobene Einstellungen"
-L["Messages"] = "Nachrichten"
-L["Normal messages"] = "Normale Nachrichten"
-L["Emphasized messages"] = "Hervorgehobene Nachrichten"
-L["Output"] = "Ausgabe"
-L["Emphasized countdown"] = "Hervorgehobener Countdown"
-
-L["Use colors"] = "Farben verwenden"
-L["Toggles white only messages ignoring coloring."] = "Wählt, ob Nachrichten farbig oder weiß angezeigt werden."
-
-L["Use icons"] = "Symbole benutzen"
-L["Show icons next to messages, only works for Raid Warning."] = "Zeigt Symbole neben Nachrichten an."
-
-L["Class colors"] = "Klassenfarben"
-L["Colors player names in messages by their class."] = "Färbt Spielernamen in Nachrichten nach deren Klasse ein."
-
-L["Font size"] = "Schriftgröße"
-L["None"] = "Nichts"
-L["Thin"] = "Dünn"
-L["Thick"] = "Dick"
-L["Outline"] = "Kontur"
-L["Monochrome"] = "Monochrom"
-L["Toggles the monochrome flag on all messages, removing any smoothing of the font edges."] = "Schaltet den Monochrom-Filter in allen Nachrichten an/aus, der die Schriftenkantenglättung entfernt."
-L["Font color"] = "Schriftfarbe"
-
-L["Display time"] = "Anzeigedauer"
-L["How long to display a message, in seconds"] = "Bestimmt, wie lange (in Sekunden) Nachrichten angezeigt werden."
-L["Fade time"] = "Ausblendedauer"
-L["How long to fade out a message, in seconds"] = "Bestimmt, wie lange (in Sekunden) das Ausblenden der Nachrichten dauert."
-
------------------------------------------------------------------------
--- Proximity.lua
---
-
-L["Custom range indicator"] = "Eigene Reichweitenanzeige"
-L.proximityTitle = "%d m / %d Spieler"
-L["Proximity"] = "Nähe"
-L.sound = "Sound"
-L["Disabled"] = "Deaktivieren"
-L["Disable the proximity display for all modules that use it."] = "Deaktiviert die Anzeige naher Spieler für alle Module, die sie benutzen."
-L["The proximity display will show next time. To disable it completely for this encounter, you need to toggle it off in the encounter options."] = "Die Anzeige naher Spieler wird beim nächsten Mal angezeigt werden. Um sie für diesen Boss vollständig zu deaktivieren, musst du die Option 'Nähe' im Bossmodul ausschalten."
-L["Sound delay"] = "Soundverzögerung"
-L["Specify how long Big Wigs should wait between repeating the specified sound when someone is too close to you."] = "Gibt an, wie lange Big Wigs zwischen den Soundwiederholungen wartet, wenn jemand zu nahe steht."
-
-L.proximity = "Nähe"
-L.proximity_desc = "Zeigt das Fenster für nahe Spieler an. Es listet alle Spieler auf, die dir zu nahe stehen."
-
-L["Close"] = "Schließen"
-L["Closes the proximity display.\n\nTo disable it completely for any encounter, you have to go into the options for the relevant boss module and toggle the 'Proximity' option off."] = "Schließt die Anzeige naher Spieler.\n\nFalls du die Anzeige für alle Bosse deaktivieren willst, musst du die Option 'Nähe' seperat in den jeweiligen Bossmodulen ausschalten."
-L["Lock"] = "Sperren"
-L["Locks the display in place, preventing moving and resizing."] = "Sperrt die Anzeige und verhindert weiteres Verschieben und Anpassen der Größe."
-L["Title"] = "Titel"
-L["Shows or hides the title."] = "Zeigt oder versteckt den Titel der Anzeige."
-L["Background"] = "Hintergrund"
-L["Shows or hides the background."] = "Zeigt oder versteckt den Hintergrund der Anzeige."
-L["Toggle sound"] = "Sound an/aus"
-L["Toggle whether or not the proximity window should beep when you're too close to another player."] = "Schaltet den Sound ein oder aus, der gespielt wird, wenn du zu nahe an einem anderen Spieler stehst."
-L["Sound button"] = "Sound-Button"
-L["Shows or hides the sound button."] = "Zeigt oder versteckt den Sound-Button."
-L["Close button"] = "Schließen-Button"
-L["Shows or hides the close button."] = "Zeigt oder versteckt den Schließen-Button."
-L["Show/hide"] = "Zeigen/Verstecken"
-L["Ability name"] = "Fähigkeitsname"
-L["Shows or hides the ability name above the window."] = "Zeigt oder versteckt den Fähigkeitsnamen über dem Fenster."
-L["Tooltip"] = "Tooltip"
-L["Shows or hides a spell tooltip if the Proximity display is currently tied directly to a boss encounter ability."] = "Zeigt oder versteckt den Zaubertooltip, wenn die Näheanzeige direkt an eine Bossfähigkeit gebunden ist."
-
------------------------------------------------------------------------
--- RaidIcon.lua
---
-
-L["Icons"] = "Symbole"
-
-L.raidIconsDescription = "Einige Begegnungen schließen Elemente wie 'Bomben'-Fähigkeiten ein, die einen bestimmten Spieler zum Ziel haben, ihn verfolgen oder er ist in sonst einer Art und Weise interessant. Hier kannst du bestimmen, welche Schlachtzugs-Symbole benutzt werden sollen, um die Spieler zu markieren.\n\nFalls nur ein Symbol benötigt wird, wird nur das erste benutzt. Ein Symbol wird niemals für zwei verschiedene Fähigkeiten innerhalb einer Begegnung benutzt.\n\n|cffff4411Beachte, dass ein manuell markierter Spieler von Big Wigs nicht ummarkiert wird.|r"
-L["Primary"] = "Erstes Symbol"
-L["The first raid target icon that a encounter script should use."] = "Das erste Schlachtzugs-Symbol, das verwendet wird."
-L["Secondary"] = "Zweites Symbol"
-L["The second raid target icon that a encounter script should use."] = "Das zweite Schlachtzugs-Symbol, das verwendet wird."
-
-L["Star"] = "Stern"
-L["Circle"] = "Kreis"
-L["Diamond"] = "Diamant"
-L["Triangle"] = "Dreieck"
-L["Moon"] = "Mond"
-L["Square"] = "Quadrat"
-L["Cross"] = "Kreuz"
-L["Skull"] = "Totenkopf"
-L["|cffff0000Disable|r"] = "|cffff0000Deaktiviert|r"
-
------------------------------------------------------------------------
--- Sound.lua
---
-
-L.soundDefaultDescription = "Falls diese Option aktiviert ist, wird Big Wigs nur die Standard-Raidsounds von Blizzard für Nachrichten benutzen. Beachte, dass nicht alle Nachrichten einer Begegnung einen Sound auslösen."
-
-L.Sounds = "Sounds"
-
-L.Alarm = "Alarm"
-L.Info = "Info"
-L.Alert = "Warnung"
-L.Long = "Lang"
-L.Warning = "Warnung"
-L.Victory = "Sieg"
-
-L.Beware = "Hütet Euch (Algalon)"
-L.FlagTaken = "Flagge aufgenommen (PvP)"
-L.Destruction = "Zerstörung (Kil'jaeden)"
-L.RunAway = "Lauf kleines Mädchen, lauf (Der große böse Wolf)"
-
-L["Set the sound to use for %q.\n\nCtrl-Click a sound to preview."] = "Legt den Sound fest, der für %q verwendet wird.\n\nStrg-Klicken, um reinzuhören."
-L["Default only"] = "Nur Standards"
-
-L.customSoundDesc = "Den speziell gewählten Sound anstatt des vom Modul bereitgestellten abspielen"
-L.resetAllCustomSound = "Wenn Du die Sounds für Bossbegegnungen geändert hast, werden diese ALLE über diese Schaltfläche zurückgesetzt, sodass stattdessen die hier gewählten genutzt werden."
-
------------------------------------------------------------------------
--- Statistics.lua
---
-
-L.bossKillDurationPrint = "'%s' wurde nach %s besiegt."
-L.bossWipeDurationPrint = "An '%s' nach %s gescheitert."
-L.newBestKill = "Neue Rekordzeit!"
-L.bossStatistics = "Boss-Statistiken"
-L.bossStatsDescription = "Zeichnet verschiedene Statistiken der Bossbegegnungen wie die Anzahl der Siege und Niederlagen, sowie die Kampfdauer oder die Rekordzeiten auf. Diese Statistiken können, falls vorhanden, in der Konfiguration der einzelnen Bosse eingesehen werden. Andernfalls werden diese ausgeblendet."
-L.enableStats = "Statistiken aktivieren"
-L.chatMessages = "Chatnachrichten"
-L.printBestKillOption = "Benachrichtigung über besten Kill"
-L.printKillOption = "Siegesdauer"
-L.printWipeOption = "Niederlagendauer"
-L.countKills = "Siege zählen"
-L.countWipes = "Niederlagen zählen"
-L.recordBestKills = "Beste Siege speichern"
-L.createTimeBar = "'Rekordzeit'-Timer anzeigen"
-L.bestTimeBar = "Rekordzeit"
 

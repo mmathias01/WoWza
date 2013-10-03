@@ -19,6 +19,7 @@ SkadaDB = {
 				{
 					["barheight"] = 17,
 					["barslocked"] = true,
+					["hidden"] = true,
 					["y"] = 76.11843872070313,
 					["barfont"] = "ElvUI Font",
 					["title"] = {
@@ -61,7 +62,7 @@ SkadaDB = {
 					["clickthrough"] = false,
 					["wipemode"] = "",
 					["set"] = "current",
-					["hidden"] = false,
+					["hidden"] = true,
 					["y"] = 27.9998779296875,
 					["barfont"] = "Accidental Presidency",
 					["title"] = {

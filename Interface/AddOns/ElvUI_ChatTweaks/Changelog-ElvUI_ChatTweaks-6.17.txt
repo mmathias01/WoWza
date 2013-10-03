@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+r167 | lockslap | 2013-09-28 18:10:47 +0000 (Sat, 28 Sep 2013) | 1 line
+Changed paths:
+   A /tags/6.17 (from /trunk:166)
+
+Released as version 6.17.
+------------------------------------------------------------------------
+r166 | lockslap | 2013-09-28 18:10:19 +0000 (Sat, 28 Sep 2013) | 1 line
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.toc
+   M /trunk/Modules/PlayerNames.lua
+
+Update TOC to patch 5.4.
+------------------------------------------------------------------------

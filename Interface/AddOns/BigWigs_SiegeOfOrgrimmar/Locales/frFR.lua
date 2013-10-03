@@ -9,21 +9,21 @@ if L then
 	L.defile = "Incant. de Sol profané"
 
 	L.custom_off_bane_marks = "Marquage Mot de l'ombre : Plaie"
-	L.custom_off_bane_marks_desc = "Afin d'aider à l'attribution des dissipations, marque les personnes initialement touchées par Mot de l'ombre : Plaie avec %s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_bane_marks_desc = "Afin d'aider à l'attribution des dissipations, marque les personnes initialement touchées par Mot de l'ombre : Plaie avec {rt1}{rt2}{rt3}{rt4}{rt5} (dans cet ordre, il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
 
 	L.no_meditative_field = "PAS de Champ de méditation !"
 
 	L.intermission = "Mesures désespérées"
 	L.intermission_desc = "Prévient quand l'un des boss est sur le point d'utiliser ses Mesures désespérées."
 
-	--L.inferno_self = "Inferno Strike on you"
-	--L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
-	--L.inferno_self_bar = "You explode!"
+	L.inferno_self = "Frappe du feu d'enfer"
+	L.inferno_self_desc = "Compte à rebours spécial quand la Frappe du feu d'enfer est sur vous."
+	L.inferno_self_bar = "Vous explosez !"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "frFR")
 if L then
-	L.pre_pull = "Pre pull"
+	L.pre_pull = "Début du combat"
 	L.pre_pull_desc = "Barre de délai de l'événement RP avant l'engagement du boss."
 	L.pre_pull_trigger = "Très bien, je vais créer un champ de force qui contiendra votre corruption."
 
@@ -36,7 +36,7 @@ end
 L = BigWigs:NewBossLocale("Sha of Pride", "frFR")
 if L then
 	L.custom_off_titan_mark = "Marquage Don des titans"
-	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_titan_mark_desc = "Marque les joueurs sous l'effet de Don des titans avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 
 	L.projection_message = "Allez sur la flèche |cFF00FF00VERTE|r !"
 	L.projection_explosion = "Explosion de la projection"
@@ -55,9 +55,9 @@ if L then
 
 	L.towers = "Tours"
 	L.towers_desc = "Alertes quand les portes des tours sont détruites."
-	L.south_tower_trigger = "La porte qui barrait l'accès à la tour sud a été détruite !" -- to check
+	L.south_tower_trigger = "La porte qui barrait l’accès à la tour sud a été détruite !"
 	L.south_tower = "Tour sud"
-	L.north_tower_trigger = "La porte qui barrait l'accès à la tour nord a été détruite !" -- to check
+	L.north_tower_trigger = "La porte qui barrait l’accès à la tour nord a été détruite !"
 	L.north_tower = "Tour nord"
 	L.tower_defender = "Défenseur de la tour"
 
@@ -90,9 +90,9 @@ if L then
 	L.berserker = "Berserker"
 	L.defensive = "Défensive"
 
-	L.adds_trigger1 = "Défendez les portes !" -- to check
+	L.adds_trigger1 = "Défendez les portes !"
 	L.adds_trigger2 = "Ralliez les troupes !"
-	L.adds_trigger3 = "Escouade suivante, au front !" -- to check
+	L.adds_trigger3 = "Escouade suivante, au front !"
 	L.adds_trigger4 = "Guerriers, au pas de course !"
 	L.adds_trigger5 = "Kor’krons, avec moi !"
 	L.adds_trigger_extra_wave = "Tous les Kor’krons sous mon commandement, tuez-les, maintenant !"
@@ -108,7 +108,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "frFR")
 if L then
 	L.custom_off_energy_marks = "Marquage Énergie déplacée"
-	L.custom_off_energy_marks_desc = "Afin d'aider à l'attribution des dissipations, marque les joueurs ayant Énergie déplacée avec %s%s%s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_energy_marks_desc = "To help dispelling assignments, mark the people who have Displaced Energy on them with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "frFR")
@@ -144,17 +144,15 @@ end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "frFR")
 if L then
-	-- for getting all those calculate emotes:
-	-- cat Transcriptor.lua | sed "s/\t//g" | grep -E "(CHAT_MSG_RAID_BOSS_EMOTE].*Iyyokuk)" | sed "s/.*EMOTE//" | sed "s/#/\"/" | sed "s/#.*/\"/" | sort | uniq
-	L.one = "Iyyokuk selects: One !"
-	L.two = "Iyyokuk selects: Two !"
-	L.three = "Iyyokuk selects: Three !"
-	L.four = "Iyyokuk selects: Four !"
-	L.five = "Iyyokuk selects: Five !"
+	L.one = "Iyyokuk sélectionne : Un !" -- to check
+	L.two = "Iyyokuk sélectionne : Deux !" -- to check
+	L.three = "Iyyokuk sélectionne : Trois !" -- to check
+	L.four = "Iyyokuk sélectionne : Quatre !" -- to check
+	L.five = "Iyyokuk sélectionne : Cinq !" -- to check
 	--------------------------------
-	L.edge_message = "Vous êtes un edge"
-	L.custom_off_edge_marks = "Marquages Edge"
-	L.custom_off_edge_marks_desc = "Marque les joueurs qui seront les edges based on the calculations %s%s%s%s%s%s. Nécessite d'être assistant ou chef de raid."
+	L.edge_message = "Vous êtes un sommet"
+	L.custom_off_edge_marks = "Marquages Tranchant enflammé"
+	L.custom_off_edge_marks_desc = "Marque les joueurs qui seront les sommets des Tranchants enflammés selon les calculs avec %s%s%s%s%s%s. Nécessite d'être assistant ou chef de raid."
 	L.injection_over_soon = "Injection bientôt terminée (%s) !"
 	L.custom_off_mutate_marks = "Marquage Mutation : scorpion d'ambre"
 	L.custom_off_mutate_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs ayant Mutation : scorpion d'ambre avec %s%s%s. Nécessite d'être assistant ou chef de raid."
@@ -169,7 +167,7 @@ if L then
 	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
 	L.chain_heal_bar = "Focalisation : Salve de guérison"
 
-	L.farseer_trigger = "Long-voyants, soignez nos blessures !" -- to check
+	L.farseer_trigger = "Long-voyants, soignez nos blessures !"
 	L.custom_off_shaman_marker = "Marquage Chevaucheur de loup long-voyant"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chevaucheurs de loup long-voyant avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
 

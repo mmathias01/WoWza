@@ -312,8 +312,16 @@ end
 
 function TSM:toggleBankUI()
 	if TSM:areBanksVisible() then
-		ui = BankUI:getFrame(bankFrame)
-		TSM.db.profile.isBankui = true
+		if ui then
+			if ui:IsShown() then
+				ui:Hide()
+			else
+				ui:Show()
+			end
+		else
+			ui = BankUI:getFrame(bankFrame)
+			TSM.db.profile.isBankui = true
+		end
 	else
 		TSM:Print(L["There are no visible banks."])
 	end

@@ -22,6 +22,7 @@ local sounds = {
 	Victory = "BigWigs: Victory",
 }
 local L = LibStub("AceLocale-3.0"):GetLocale("Big Wigs: Plugins")
+local BigWigs, GetSpellInfo, PlaySoundFile, PlaySound = BigWigs, GetSpellInfo, PlaySoundFile, PlaySound
 
 local colorize = nil
 do
@@ -53,7 +54,7 @@ plugin.defaultDB = {
 
 plugin.pluginOptions = {
 	type = "group",
-	name = L["Sounds"],
+	name = L.Sounds,
 	get = function(info)
 		for i, v in next, soundList do
 			if v == plugin.db.profile.media[info[#info]] then
@@ -69,7 +70,7 @@ plugin.pluginOptions = {
 	args = {
 		default = {
 			type = "toggle",
-			name = colorize[L["Default only"]],
+			name = colorize[L.defaultOnly],
 			desc = L.soundDefaultDescription,
 			get = function(info) return plugin.db.profile.defaultonly end,
 			set = function(info, v) plugin.db.profile.defaultonly = v end,
@@ -79,7 +80,7 @@ plugin.pluginOptions = {
 		},
 		resetAll = {
 			type = "execute",
-			name = L["Reset all"],
+			name = L.resetAll,
 			desc = L.resetAllCustomSound,
 			func = function() plugin.db:ResetProfile() end,
 			order = 3,
@@ -89,7 +90,7 @@ plugin.pluginOptions = {
 
 local soundOptions = {
 	type = "group",
-	name = L["Sounds"],
+	name = L.Sounds,
 	handler = plugin,
 	inline = true,
 	args = {
@@ -222,7 +223,7 @@ local function customSound(module, key, sound)
 	if not module or not key or not sDb or not sDb[module.name] or not sDb[module.name][key] then
 		return false
 	else
-		return plugin.db.profile[sound][module.name][key]
+		return sDb[module.name][key]
 	end
 end
 
@@ -232,7 +233,7 @@ function plugin:BigWigs_Message(event, module, key, text, color, sound)
 end
 
 function plugin:BigWigs_Sound(event, sound, overwrite)
-	if not BigWigs.db.profile.sound or not sound then return end
+	if not sound or not BigWigs.db.profile.sound then return end
 	play(sound, overwrite)
 end
 

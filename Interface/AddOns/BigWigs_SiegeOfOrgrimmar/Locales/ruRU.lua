@@ -9,7 +9,7 @@ if L then
 	L.defile = "Чтение Оскверненной земли"
 
 	L.custom_off_bane_marks = "Маркировка Слово Тьмы: Погибель"
-	L.custom_off_bane_marks_desc = "Чтобы помочь с рассеиванием, люди со Словом Тьмы: Погибель будут помечены метками %s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_bane_marks_desc = "Чтобы помочь с рассеиванием, люди со Словом Тьмы: Погибель будут помечены метками {rt1}{rt2}{rt3}{rt4}{rt5} (в этой последовательности, не все метки могут быть использованы), требуется быть помощником или лидером."
 
 	L.no_meditative_field = "НЕТ Медитативного поля!"
 
@@ -107,7 +107,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "ruRU")
 if L then
 	L.custom_off_energy_marks = "Маркировка Блуждающей энергии"
-	L.custom_off_energy_marks_desc = "Чтобы помочь с рассеиванием, люди с Блуждающей энергией будут помечены метками %s%s%s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_energy_marks_desc = "Чтобы помочь с рассеиванием, люди с Блуждающей энергией будут помечены метками {rt1}{rt2}{rt3}{rt4}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "ruRU")
@@ -138,7 +138,7 @@ if L then
 	L.assembly_line_trigger = "На сборочную линию начинает поступать незаконченное оружие."
 	L.assembly_line_message = "Незаконченное оружие (%d)"
 
-	-- L.shockwave_missile_trigger = "Presenting... the beautiful new ST-03 Shockwave missile turret!"
+	L.shockwave_missile_trigger = "Представляю вам прекрасную ударно-волновую турель УТ-03!"
 end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "ruRU")

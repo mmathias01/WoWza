@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
 	["lastSanitation"] = 3,
-	["session"] = 465,
+	["session"] = 469,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",
@@ -652,5 +652,13 @@ BugGrabberDB = {
 			["session"] = 460,
 			["counter"] = 15,
 		}, -- [90]
+		{
+			["message"] = "_NPCScan\\_NPCScan-v5.1-1-g89a1c46.lua:602: attempt to index field \"Achievements\" (a nil value)",
+			["time"] = "2013/10/02 01:31:21",
+			["locals"] = "self = <unnamed> {\n ACHIEVEMENT_EARNED = <func> @..\\_NPCScan.lua:1002\n ZONE_CHANGED_NEW_AREA = <func> @..\\_NPCScan.lua:1008\n PLAYER_ENTERING_WORLD = <func> @..\\_NPCScan.lua:949\n OnEvent = <func> @..\\_NPCScan.lua:1015\n 0 = <userdata>\n CRITERIA_UPDATE = <func> @..\\_NPCScan.lua:732\n PLAYER_UPDATE_RESTING = <func> @..\\_NPCScan.lua:618\n PLAYER_LEAVING_WORLD = <func> @..\\_NPCScan.lua:988\n}\nEvent = \"PLAYER_LOGIN\"\nOptions = <table> {\n NPCs = <table> {}\n Version = 5.1\n NPCWorldIDs = <table> {}\n}\nOptionsCharacter = <table> {\n NPCs = <table> {}\n Version = \"5.0.0.5\"\n NPCWorldIDs = <table> {}\n}\nNS = <table> {\n Overlay = <table> {}\n RareMobData = <table> {}\n SetAchievementsAddFound = <func> @..\\_NPCScan.lua:501\n OptionsCharacterDefault = <table> {}\n Achievements = <table> {}\n TamableIDs = <table> {}\n SetCacheWarnings = <func> @..\\_NPCScan.lua:481\n OptionsCharacter = <table> {}\n Synchronize = <func> @..\\_NPCScan.lua:563\n NPCAdd = <func> @..\\_NPCScan.lua:367\n Config = <unnamed> {}\n TestID = <func> @..\\_NPCScan.lua:213\n Frame = <unnamed> {}\n NpcIDMax = 1048575\n Overlays = <table> {}\n SetAlertSoundUnmute = <func> @..\\_NPCScan.lua:516\n Print = <func> @..\\_NPCScan.lua:196\n NPCIsActive = <func> @..\\_NPCScan.lua:358\n Button = _NPCScanButton {}\n AchievementRemove = <func> @..\\_NPCScan.lua:463\n AchievementAdd = <func> @..\\_NPCScan.lua:446\n ContinentIDs = <table> {}\n Options = <table> {}\n TamableNames = <table> {}\n AchievementNPCIsActive = <func> @..\\_NPCScan.lua:440\n SetAlertSound = <func> @..\\_NPCScan.lua:526\n SlashCommand = <func> @..\\_NPCScan.lua:1025\n SetBlockFlightScan = <func> @..\\_NPCScan.lua:538\n CacheListPrint = <func> @..\\_NPCScan.lua:273\n L = <table> {}\n Version = 5.1\n OptionsDefault = <table> {}\n ContinentNames = <table> {}\n Updater = <unnamed> {}\n NPCRemove = <func> @..\\_NPCScan.lua:383\n SetPrintTime = <func> @..\\_NPCScan.lua:491\n}\n",
+			["stack"] = "_NPCScan\\_NPCScan-v5.1-1-g89a1c46.lua:602: in function \"Synchronize\"\n_NPCScan\\_NPCScan-v5.1-1-g89a1c46.lua:944: in function <_NPCScan\\_NPCScan.lua:801>\n(tail call): ?",
+			["session"] = 468,
+			["counter"] = 1,
+		}, -- [91]
 	},
 }

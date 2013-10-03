@@ -1,4 +1,4 @@
-local L = BigWigs:NewBossLocale("Immerseus", "deDE")
+﻿local L = BigWigs:NewBossLocale("Immerseus", "deDE")
 if not L then return end
 if L then
 	L.win_yell = "Ah, Ihr habt es geschafft!"
@@ -9,7 +9,7 @@ if L then
 	L.defile = "Geschändeter Boden"
 
 	L.custom_off_bane_marks = "Schattenwort: Unheil markieren"
-	L.custom_off_bane_marks_desc = "Um bei der Einteilung zum Bannen zu helfen, werden die anfangs von Schattenwort: Unheil betroffenen Spieler mit %s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_bane_marks_desc = "Um bei der Einteilung zum Bannen zu helfen, werden die anfangs von Schattenwort: Unheil betroffenen Spieler mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert (in dieser Reihenfolge, vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
 
 	L.no_meditative_field = "KEIN Meditationsfeld!"
 
@@ -107,7 +107,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "deDE")
 if L then
 	L.custom_off_energy_marks = "Verdrängte Energie markieren"
-	L.custom_off_energy_marks_desc = "Um bei der Einteilung zum Bannen zu helfen, werden Spieler mit Verdrängter Energie mit %s%s%s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_energy_marks_desc = "Um bei der Einteilung zum Bannen zu helfen, werden Spieler mit Verdrängter Energie mit {rt1}{rt2}{rt3}{rt4} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "deDE")
@@ -123,6 +123,9 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "deDE")
 if L then
+	L.adds = "Heroische Adds"
+	L.adds_desc = "Warnungen für den Kampfeintritt der heroischen Adds."
+
 	L.tank_debuffs = "Tank Schwächungszauber"
 	L.tank_debuffs_desc = "Warnungen für die verschiedenen Typen von Schwächungszaubern auf den Tanks in Verbindung mit Fürchterlichem Brüllen"
 
@@ -143,11 +146,11 @@ end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "deDE")
 if L then
-	L.one = "Iyyokuk wählt: Eins!"
-	L.two = "Iyyokuk wählt: Zwei!"
-	L.three = "Iyyokuk wählt: Drei!"
-	L.four = "Iyyokuk wählt: Vier!"
-	L.five = "Iyyokuk wählt: Fünf!"
+	L.one = "Iyyokuk wählt aus: Eins!"
+	L.two = "Iyyokuk wählt aus: Zwei!"
+	L.three = "Iyyokuk wählt aus: Drei!"
+	L.four = "Iyyokuk wählt aus: Vier!"
+	L.five = "Iyyokuk wählt aus: Fünf!"
 	--------------------------------
 	L.edge_message = "Brennendes Band auf Dir"
 	L.custom_off_edge_marks = "Brennendes Band markieren"

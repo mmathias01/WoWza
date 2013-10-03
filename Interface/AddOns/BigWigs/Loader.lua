@@ -22,7 +22,7 @@ do
 	--@end-alpha@
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	releaseRevision = tonumber("11269")
+	releaseRevision = tonumber("11319")
 
 	-- If the releaseRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(releaseRevision) ~= "number" then
@@ -399,7 +399,7 @@ do
 			BigWigs_NoPluginWarnings = "BigWigs",
 		}
 
-		-- XXX hopefully remove this some day, try to teach people not to force load our modules.
+		-- Try to teach people not to force load our modules.
 		for i = 1, GetNumAddOns() do
 			local name, _, _, enabled = GetAddOnInfo(i)
 			if enabled and not IsAddOnLoadOnDemand(i) then
@@ -425,10 +425,27 @@ do
 			end
 
 			-- XXX disable addons that break us
-			if name == "ReckonersProMending" then -- Unfortunately the author isn't responding and it looks abandoned, luckily the addon has next to 0 popularity
+			if name == "ReckonersProMending" then -- Dead addon is dead.
 				DisableAddOn("ReckonersProMending")
-				print("The AddOn 'Reckoner's ProMending' has been disabled due to incompatibility, please ask the author to fix it.")
+				AutoCompleteInfoDelayer:HookScript("OnFinished", function()
+					print("The AddOn 'Reckoner's ProMending' has been disabled due to incompatibility, please remove it.")
+				end)
 			end
+		end
+
+		local L = GetLocale() -- XXX temp
+		if L == "ptBR" then
+			AutoCompleteInfoDelayer:HookScript("OnFinished", function()
+				print("Think you can translate Big Wigs into Brazilian Portuguese (ptBR)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			end)
+		elseif L == "koKR" then
+			AutoCompleteInfoDelayer:HookScript("OnFinished", function()
+				print("Think you can translate Big Wigs into Korean (koKR)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			end)
+		elseif L == "esMX" then
+			AutoCompleteInfoDelayer:HookScript("OnFinished", function()
+				print("Think you can translate Big Wigs into Latin American Spanish (esMX)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			end)
 		end
 
 		loaderUtilityFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
@@ -795,6 +812,7 @@ do
 			SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VQ:%d" or "VQA:%d"):format(BIGWIGS_RELEASE_REVISION), groupType == 3 and "INSTANCE_CHAT" or "RAID")
 			SendAddonMessage("D4", "H\t", groupType == 3 and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
 			self:ZONE_CHANGED_NEW_AREA()
+			self:ACTIVE_TALENT_GROUP_CHANGED() -- Force role check
 		elseif grouped and not groupType then
 			grouped = nil
 			wipe(usersRelease)
@@ -828,8 +846,6 @@ function loader:BigWigs_CoreEnabled()
 		SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VQ:%d" or "VQA:%d"):format(BIGWIGS_RELEASE_REVISION), IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
 		SendAddonMessage("D4", "H\t", IsInGroup(2) and "INSTANCE_CHAT" or "RAID") -- Also request DBM versions
 	end
-
-	self:ACTIVE_TALENT_GROUP_CHANGED() -- Force role check
 
 	-- Core is loaded, nil these to force checking BigWigs.db.profile.option
 	self.isFakingDBM = nil

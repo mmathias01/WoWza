@@ -2,7 +2,7 @@
 ## Title: |cff1784d1ElvUI|r Enhanced
 ## Author: Tristimdorio (Omega1970)
 ## X-Credits: Azilroka, Lockslap, Sortokk, Repooc, moresunders
-## Version: 2.09
+## Version: 2.10
 ## Notes: Plugin-Enhancements for |cff1784d1ElvUI|r.
 ## X-Category: Plugins
 ## URL: http://www.tukui.org/addons/index.php?act=view&id=161

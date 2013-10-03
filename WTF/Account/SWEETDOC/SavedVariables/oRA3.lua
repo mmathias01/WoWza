@@ -16,9 +16,9 @@ oRA3DB = {
 		},
 		["ReadyCheck"] = {
 		},
-		["LibDualSpec-1.0"] = {
-		},
 		["Promote"] = {
+		},
+		["LibDualSpec-1.0"] = {
 		},
 	},
 	["profileKeys"] = {
@@ -26,9 +26,9 @@ oRA3DB = {
 		["Ziagi - Terenas"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
+		["Cellestia - Terenas"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
-		["Cellestia - Terenas"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -37,13 +37,13 @@ oRA3DB = {
 				["oRA3ReadyCheck"] = {
 				},
 				["oRA3CooldownFrame"] = {
-					["Height"] = 147.9999389648438,
-					["PosX"] = 784.2696699702065,
-					["PosY"] = 661.3424852178432,
-					["Width"] = 200.0000762939453,
+					["Height"] = 147.9999084472656,
+					["Width"] = 200.0000610351563,
+					["PosY"] = 661.3424639306686,
+					["PosX"] = 784.2696370461636,
 				},
 			},
-			["lastSelectedPanel"] = "Tanks",
+			["lastSelectedPanel"] = "Checks",
 		},
 	},
 }

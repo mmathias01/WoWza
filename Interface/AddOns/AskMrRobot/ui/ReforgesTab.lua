@@ -1,3 +1,7 @@
+--------------------------------------------------------------------
+-- Local Reforge Utility Code
+--------------------------------------------------------------------
+
 StaticPopupDialogs["REFORGE_TAB_PLEASE_OPEN"] = {
 	text = "You need to open the reforge window for this to work",
 	button1 = "Ok",
@@ -6,9 +10,6 @@ StaticPopupDialogs["REFORGE_TAB_PLEASE_OPEN"] = {
 	hideOnEscape = true,
 	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
-
--- initialize the ReforgesTab class
-AskMrRobot.ReforgesTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
 --from LibReforge
 local SPI = 1
@@ -59,7 +60,7 @@ local REFORGE_TABLE = {
 --------------- returns the index into the REFORGE_TABLE or nil
 -- returns the reforge id or 0
 local function GetReforgeIdForItem(item)
-  local id = tonumber (item:match ("item:%d+:%d+:%d+:%d+:%d+:%d+:%-?%d+:%-?%d+:%d+:(%d+)"))
+  local id = tonumber(item:match("item:%d+:%d+:%d+:%d+:%d+:%d+:%-?%d+:%-?%d+:%d+:(%d+)"))
   return (id and id ~= 0 and id or 0)
 end
 
@@ -71,39 +72,11 @@ local function GetReforgeIdFromStats(fromStat, toStat)
 	end
 end
 
-local function GetReforgeString(fromId, toId)
-	if toId == 0 then
-		return "Restore"
-	end
-	local pair = REFORGE_TABLE[toId - REFORGE_TABLE_BASE]
 
-	local text = _G[StatToString[pair[1]]] .. ' -> ' .. _G[StatToString[pair[2]]]
-	--print('from ' .. fromId)
-	if fromId == 0 then
-		return text
-	end
-	return 'Restore, then ' .. text
-end
-
-
-function AskMrRobot.ReforgesTab:AddToReforgeQueue(itemSlot, reforgeId)
-	local item = GetInventoryItemLink("player", AskMrRobot.slotIds[itemSlot])
-	if item == nil then 
-		--print ('no item')
-		return 
-	end
-	local current = GetReforgeIdForItem(item)
-	--print('current reforge is ' .. current)
-	if current ~= reforgeId then
-		if current ~= 0 and reforgeId ~= 0 then
-			tinsert(self.reforgequeue, {itemSlot, 0})
-			--print('inserting ' .. itemSlot .. ' 0')
-		end
-
-		tinsert(self.reforgequeue, {itemSlot, reforgeId})
-		--print('inserting ' .. itemSlot .. ' ' .. reforgeId)
-	end
-end
+--------------------------------------------------------------------
+-- Initialization
+--------------------------------------------------------------------
+AskMrRobot.ReforgesTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
 function AskMrRobot.ReforgesTab:new(parent)
 
@@ -137,7 +110,6 @@ function AskMrRobot.ReforgesTab:new(parent)
 	tab.reforgeButton:SetWidth(140)
 	tab.reforgeButton:SetHeight(20)
 	tab.reforgeButton:SetScript("OnClick", function()
-		--print("ON CLICK")
 		tab:OnReforge()
 	end)
 
@@ -155,6 +127,7 @@ function AskMrRobot.ReforgesTab:new(parent)
 	tab.reforgeHeader:SetText("Optimal Reforge")
 	tab.reforgeHeader:SetPoint("TOPLEFT", tab.slotHeader, "TOPLEFT", 100, 0)
 
+	-- pre-allocate a visual element for all possible slots; showBadReforges will set text and show the number that are needed, and hide the rest
 	tab.slots = {}
 	tab.optimized = {}
 
@@ -168,8 +141,6 @@ function AskMrRobot.ReforgesTab:new(parent)
 		tab.optimized[i]:Hide()
 	end
 
-	tab.inProgress = false
-
 	tab:RegisterEvent("FORGE_MASTER_ITEM_CHANGED")
 	tab:RegisterEvent("FORGE_MASTER_SET_ITEM")
 	tab:RegisterEvent("FORGE_MASTER_OPENED")
@@ -179,33 +150,47 @@ function AskMrRobot.ReforgesTab:new(parent)
 		tab:OnEvent(...)
 	end)
 
-	tab.pendingItemSlot = nil
-	tab.pendingReforge = -1
-	tab.currentItem = nil
+
+	-- initialize stat required for performing the reforges
+	tab.state = {}
+	tab:ResetState()
+
 
 	return tab
 end
 
 
-function AskMrRobot.ReforgesTab:showBadReforges()
-	--print('show bad reforges')
-	self.reforgequeue = {}
+--------------------------------------------------------------------
+-- Rendering
+--------------------------------------------------------------------
+
+local function GetReforgeString(fromId, toId)
+	if toId == 0 then
+		return "Restore"
+	end
+	local pair = REFORGE_TABLE[toId - REFORGE_TABLE_BASE]
+
+	local text = _G[StatToString[pair[1]]] .. ' -> ' .. _G[StatToString[pair[2]]]
+	--print('from ' .. fromId)
+	if fromId == 0 then
+		return text
+	end
+	return 'Restore, then ' .. text
+end
+
+-- draw all of the reforges that still need to be performed
+function AskMrRobot.ReforgesTab:Render()
 
 	local reforges = AskMrRobot.itemDiffs.reforges
-
 	local i = 1
-
 	local cost = 0
 
 	-- for all the bad items
 	for slotNum, badReforge in AskMrRobot.sortSlots(reforges) do
-		--print('reforge on ' .. slotNum .. ' as ' .. badReforge.optimized)
-
 
 		self.optimized[i]:SetText(GetReforgeString(badReforge.current, badReforge.optimized))
 		self.optimized[i]:Show()
 
-		--print(_G[strupper(AskMrRobot.slotNames[slotNum])])
 		self.slots[i]:SetText(_G[strupper(AskMrRobot.slotNames[slotNum])])
 		self.slots[i]:Show()
 
@@ -216,9 +201,6 @@ function AskMrRobot.ReforgesTab:showBadReforges()
 			cost = cost + (itemLink and select (11, GetItemInfo(itemLink)) or 0)
 		end
 
-		--self.badEnchantOptimized[i]:SetEnchantId(badEnchant.optimized)
-		--print("calling AddToReforgeQueue " .. slotNum .. ',' .. badReforge.optimized)
-		self:AddToReforgeQueue(slotNum, badReforge.optimized);
 		i = i + 1
 	end
 
@@ -246,225 +228,261 @@ function AskMrRobot.ReforgesTab:showBadReforges()
 		self.optimized[i]:Hide()
 		self.slots[i]:Hide()
 		i = i + 1
-	end		
+	end
 end
 
+--------------------------------------------------------------------
+-- Reforge Logic
+--------------------------------------------------------------------
+
+-- reset state for a fresh pass at automatic reforging
+function AskMrRobot.ReforgesTab:ResetState()
+
+	self.state.queue = {}           -- list of all reforges actions that still need to be performed
+	self.state.currentItem = nil    -- the current item we are trying to reforge
+	self.state.pendingSlot = nil    -- the slot that we have requested to place into the reforger
+	self.state.currentSlot = nil    -- the current slot in the reforger
+	self.state.pendingReforge = -1  -- the reforge that we have requested to perform on the current item
+end
+
+-- refresh the queue of reforges that still need to be performed
+function AskMrRobot.ReforgesTab:RefreshQueue()
+
+	-- clear the queue
+	self.state.queue = {}
+
+	local reforges = AskMrRobot.itemDiffs.reforges
+
+	-- add all reforges that need updating to the reforge queue
+	for slotNum, badReforge in AskMrRobot.sortSlots(reforges) do
+		self:AddToReforgeQueue(slotNum, badReforge.optimized);
+	end
+end
+
+function AskMrRobot.ReforgesTab:AddToReforgeQueue(itemSlot, reforgeId)
+
+	-- the game's slot id, not the same as the ids that we use on our servers
+	local gameSlot = AskMrRobot.slotIds[itemSlot]
+	
+	local item = GetInventoryItemLink("player", gameSlot)
+	if item == nil then 
+		--print ('no item')
+		return 
+	end
+
+	local current = GetReforgeIdForItem(item)
+
+	if current ~= reforgeId then
+		-- restore first
+		if current ~= 0 and reforgeId ~= 0 then
+			tinsert(self.state.queue, { ["slot"] = gameSlot, ["reforge"] = 0 })
+		end
+
+		-- then reforge to the specified reforge
+		tinsert(self.state.queue, { ["slot"] = gameSlot, ["reforge"] = reforgeId })
+	end
+end
+
+function AskMrRobot.ReforgesTab:IsQueueEmpty()
+	return self.state.queue == nil or #self.state.queue == 0 or self.state.queue == {};
+end
+
+-- returns true if we are waiting on the game to finish a pending async reforge operation
 function AskMrRobot.ReforgesTab:HasPendingOperation()
-	if self.pendingItemSlot then
-		--print('pending item slot')
+
+	-- waiting for an item to be placed into the reforger
+	if self.state.pendingSlot then
 		return true
 	end
 
-	if self.pendingReforge > 0 then
-		--print('pending reforge')
+	-- waiting for a reforge to be completed
+	if self.state.pendingReforge ~= -1 then
 		return true
 	end
 
 	return false
 end
 
-function AskMrRobot.ReforgesTab:CheckReforge()
-
-	--print('Checking reforge')
-
-	if self.reforgequeue == nil or #self.reforgequeue == 0 or self.reforgequeue == {} then
-		return
-	end
-
-	for k, v in pairs(self.reforgequeue) do
-	--Pick up the item and place it in the reforge window
-		if self.pendingReforge then
-			--print('pendingreforge1, checking whats in the reforge window')
-			local currentReforge, icon, name, quality, bound, cost = GetReforgeItemInfo();
-			-- if currentReforge then
-			-- 	print('currentReforge = ' .. currentReforge)
-			-- else
-			-- 	print('currentReforge = ' .. nil)
-			-- end
-			if currentReforge == self.pendingReforge then
-				--print('Done with ' .. self.currentItem)
-				tremove(self.reforgequeue, 1)
-
-			 	self.pendingReforge = 0
-			 	self.currentSlot = -1
-			 	self.currentItem = nil
-
-			 	ClearCursor()
-			 	SetReforgeFromCursorItem() -- pick up the old item
-			 	ClearCursor() --get rid of it	
-
-				AskMrRobot_ReforgeFrame:OnUpdate()
-				self:OnReforge()
-			else
-				--try again
-				ReforgeItem(self.pendingReforge)
-				AskMrRobot.wait(0.250, AskMrRobot.ReforgesTab.CheckReforge, self)
-			end
-			return
-		end
-
-		local itemSlot = v[1]
-		itemSlot = AskMrRobot.slotIds[itemSlot]
-
-		local item = GetInventoryItemLink("player", AskMrRobot.slotIds[itemSlot])
-
-		local reforgeId = GetReforgeIdForItem(item)
-
-		if reforgeId == v[2] then
-			--print('Done with ' .. self.currentItem)
-			tremove(self.reforgequeue, 1)
-
-			AskMrRobot_ReforgeFrame:validateInput(AskMrRobot_ReforgeFrame.importTab.scrollFrame.EditBox:GetText())
-			self:showBadReforges()
-			self:OnReforge()
- 			return
- 		end
- 	end
-
-end
-
+-- put the next item in the reforge queue into the game's reforge UI
 function AskMrRobot.ReforgesTab:PutNextItemInForge()
-	if (self.reforgequeue == nil or #self.reforgequeue == 0 or self.reforgequeue == {}) then
-		return
-	end
 
-	if self:HasPendingOperation() then
+	if self:IsQueueEmpty() or self:HasPendingOperation() then
 		return
 	end
 	
-	for k, v in pairs(self.reforgequeue) do
-		--Pick up the item and place it in the reforge window
-		local itemSlot = v[1]
-		itemSlot = AskMrRobot.slotIds[itemSlot]
-		--print("slot " .. itemSlot)
+	-- get the first action in the queue
+	local currentAction = self.state.queue[1]
+	local itemSlot = currentAction.slot
 
-		local item = GetInventoryItemLink("player", itemSlot)
-		self.currentItem = item
-		if self.currentSlot ~= itemSlot then
-			ClearCursor()
-			SetReforgeFromCursorItem() -- pick up the old item
-			ClearCursor() --get rid of it
-			PickupInventoryItem(itemSlot)
+	local item = GetInventoryItemLink("player", itemSlot)
+		
+	-- set current item that we are trying to reforge
+	self.state.currentItem = item
 
- 			--print("Placing " .. item .. " in the reforge window.")
- 			self.pendingItemSlot = itemSlot
- 			--print("setting pendingItemSlot = " .. self.pendingItemSlot)
+	-- if this item isn't already in the reforger, put it in
+	if self.state.currentSlot ~= itemSlot then
+		ClearCursor()                 -- make sure no item is selected
+		SetReforgeFromCursorItem()    -- pick up the old item (calling this with an item already in the reforger will put it back on the mouse cursor)
+		ClearCursor()                 -- clear the cursor to finish removing any current item from the game reforge UI
+		PickupInventoryItem(itemSlot) -- pick up the right equipped item
 
-			SetReforgeFromCursorItem()
- 			return
- 		end
- 		return
+		-- pending, listen for an event from the game to complete setting this item into the reforger
+		self.state.pendingSlot = itemSlot
+
+		SetReforgeFromCursorItem()    -- put the item into the reforger, and wait for the FORGE_MASTER_SET_ITEM event, which calls DoReforge
  	end
+
 end
 
-function AskMrRobot.ReforgesTab:ReforgeItem()
-	if self.reforgequeue == nil or #self.reforgequeue == 0 or self.reforgequeue == {} then
+-- an item is in the reforger, ready to be reforged, so do it
+function AskMrRobot.ReforgesTab:DoReforge()
+
+	if self:IsQueueEmpty() or self:HasPendingOperation() then
 		return
 	end
 
-	if self:HasPendingOperation() then
-		return
+	local currentAction = self.state.queue[1]
+	local desiredReforge = currentAction.reforge
+
+	-- the index that needs to be provided to WoW's ReforgeItem method, corresponds to one of the options in the game reforge UI
+	local reforgeIndex = -1
+
+	if desiredReforge ~= 0 then
+		local targetFrom = REFORGE_TABLE[desiredReforge - REFORGE_TABLE_BASE][1];
+		local targetTo = REFORGE_TABLE[desiredReforge - REFORGE_TABLE_BASE][2];
+
+		for i=1, GetNumReforgeOptions() do
+			local from, _, _, to, _, _ = GetReforgeOptionInfo(i)
+	 		--print(i .. ': ' .. from .. " -> " .. to)
+			if StatNames[targetFrom] == from and StatNames[targetTo] == to then
+				reforgeIndex = i
+				break
+			end
+		end
+	else
+		reforgeIndex = 0
 	end
 
-	--local currentReforge, icon, name, quality, bound, cost = GetReforgeItemInfo();
-	--print('... currentReforge ' .. currentReforge)
+	if reforgeIndex == -1 then
+		-- we couldn't do this reforge... we either had a bad reforge (wrong stats on an item), or the game had no options in the UI for some reason
 
-	for k, v in pairs(self.reforgequeue) do
-		local reforgeID = 0;
-		if v[2] ~= 0 then
-			local targetFrom = REFORGE_TABLE[v[2] - REFORGE_TABLE_BASE][1];
-			local targetTo = REFORGE_TABLE[v[2] - REFORGE_TABLE_BASE][2];
-			--print ('num reforge options: ' .. GetNumReforgeOptions())
-			for i=1, GetNumReforgeOptions() do
-				local from, _, _, to, _, _ = GetReforgeOptionInfo(i)
-	 			--print(i .. ': ' .. from .. " -> " .. to)
-				if StatNames[targetFrom] == from and StatNames[targetTo] == to then
-					reforgeID = i
-					break
-				end
-			end
-			if reforgeID == 0 then
-				print('Could not find reforge')
-			end
-		end
+		-- remove the item from the reforge window
+		ClearCursor()
+		SetReforgeFromCursorItem()
+		ClearCursor()
 
-		local currentReforgeID = GetReforgeIdForItem(self.currentItem);
-		--print("Reforging " .. self.currentItem .. ' current: ' .. currentReforgeID)
-		if currentReforgeID ~= 0 then
-			--print('reforging to: ' .. reforgeID .. ': ' .. targetFrom .. ' -> ' .. targetTo);
-		end
-		if currentReforgeID == v[2] then
-			--print('Done with ' .. self.currentItem)
-			tremove(self.reforgequeue, 1)
+		-- reset state and quit reforging (clears the queue)
+		self:ResetState()
+
+	else
+
+		local currentReforge = GetReforgeIdForItem(self.state.currentItem);
+		if currentReforge == desiredReforge then
+			-- we already have this reforge on the item... probably shouldn't ever happen, but if it does, recalculate and start over
+			tremove(self.state.queue, 1)
+
+			-- remove the item from the reforge window
 			ClearCursor()
-			SetReforgeFromCursorItem() -- pick up the old item
-			ClearCursor() --get rid of it
-			self.currentSlot = -1
-			--AmrUpdateQueueText();
-			--self:showBadReforges()
-			AskMrRobot_ReforgeFrame:validateInput(AskMrRobot_ReforgeFrame.importTab.scrollFrame.EditBox:GetText())
+			SetReforgeFromCursorItem()
+			ClearCursor()
+
+			-- update the state of the entire UI, and start again with the next required reforge
+			AskMrRobot_ReforgeFrame:OnUpdate()
+			self:OnReforge()
+
 		else
-			if reforgeID == 0 then
-				--print('restoring reforge')
-			else
-				local targetFrom = REFORGE_TABLE[v[2] - REFORGE_TABLE_BASE][1];
-				local targetTo = REFORGE_TABLE[v[2] - REFORGE_TABLE_BASE][2];
-				--print('reforging to: ' .. reforgeID .. ': ' .. StatNames[targetFrom] .. ' -> ' .. StatNames[targetTo]);
-			end
-			self.pendingReforge = reforgeID
-			ReforgeItem(reforgeID)
-			AskMrRobot.wait(0.250, AskMrRobot.ReforgesTab.CheckReforge, self)
+			-- we have a reforge (or restore) to do, kick it off and wait for CheckReforge to respond to completion
+			self:TryReforge(reforgeIndex)
 		end
-		--self:RetryReforge()
-		return
+
 	end
+
 end
 
-function AskMrRobot.ReforgesTab:OnReforge(event)
+-- wraps WoW API call to ReforgeItem, fires a manual timeout in case the UI does not raise an event
+function AskMrRobot.ReforgesTab:TryReforge(reforgeIndex)
+
+	-- we have a reforge (or restore) to do, kick it off and wait for FORGE_MASTER_ITEM_CHANGED, which calls CheckReforge
+	self.state.pendingReforge = reforgeIndex
+	ReforgeItem(reforgeIndex)
+
+	-- sometimes the game doesn't send the FORGE_MASTER_ITEM_CHANGED event, so also check after a delay also
+	AskMrRobot.wait(0.250, AskMrRobot.ReforgesTab.CheckReforge, self)
+
+end
+
+-- check that a requested reforge has been completed
+function AskMrRobot.ReforgesTab:CheckReforge()
+
+	if self:IsQueueEmpty() or self.state.pendingReforge == -1 then
+
+		-- responding to a reforge that the user has manually performed, update the UI and terminate any automatic process that is going on
+		AskMrRobot_ReforgeFrame:OnUpdate()
+		self:ResetState()
+
+	else
+		-- responding to a reforge that we have initiated
+
+		local currentReforge, icon, name, quality, bound, cost = GetReforgeItemInfo();
+		if currentReforge == self.state.pendingReforge then
+			tremove(self.state.queue, 1)
+
+			-- remove the item from the reforge window
+			ClearCursor()
+			SetReforgeFromCursorItem()
+			ClearCursor()
+
+			-- update the state of the entire UI, and start again with the next required reforge
+			AskMrRobot_ReforgeFrame:OnUpdate()
+			self:OnReforge()
+		else
+			-- try again
+			self:TryReforge(self.state.pendingReforge)
+		end
+	end
+
+end
+
+
+--------------------------------------------------------------------
+-- Event Handling
+--------------------------------------------------------------------
+
+-- event called when the Mr. Robot Reforge button is clicked, kicks off automatic reforge
+function AskMrRobot.ReforgesTab:OnReforge()
+
+	-- need to be at a reforger for this to work
 	if not self.isReforgeOpen then
 		StaticPopup_Show("REFORGE_TAB_PLEASE_OPEN")
 		return
 	end
 
-	self.currentSlot = -1
-	--print("resetting pendingItemSlot")
-	self.pendingItemSlot = nil
+	-- reset state and refresh the queue of reforges that still need to be done
+	self:ResetState()
+	self:RefreshQueue()
+
+	-- get goin, put the first item in the reforger
 	self:PutNextItemInForge()
 end
 
 function AskMrRobot.ReforgesTab:On_FORGE_MASTER_SET_ITEM()
-	if self.pendingItemSlot then
-		--print('self.pendingItemSlot = ' .. self.pendingItemSlot)
-		--printtable(self)
-		-- indicate that the pending item is now the item in the UI
-		self.currentSlot = self.pendingItemSlot
+
+	if self.state.pendingSlot then
+		
+		-- we have successfully finished placing an item into the reforger
+		self.state.currentSlot = self.state.pendingSlot
+
 		-- indicate that we are no longer waiting for an item
-		self.pendingItemSlot = nil
-		--self:ReforgeIt()
-		self:ReforgeItem()
+		self.state.pendingSlot = nil
+
+		-- now reforge it
+		self:DoReforge()
 	end 
+
 end
 
 function AskMrRobot.ReforgesTab:On_FORGE_MASTER_ITEM_CHANGED()
-	if self.pendingReforge then
-	 	--print('processing pending reforge')
-	-- 	-- indicate the item is done
-	-- 	self.pendingReforge = false
-	-- 	self.currentSlot = -1
-	-- 	self.currentItem = nil
-
-	-- 	ClearCursor()
-	-- 	SetReforgeFromCursorItem() -- pick up the old item
-	-- 	ClearCursor() --get rid of it		
-
-	 	self:CheckReforge()
-	-- 	--self:ReforgeItem();
-	-- 	--self:ReforgeIt()
-	-- 	--self:showBadReforges()
-	-- 	--self:OnReforge()
-	-- 	--if #self.reforgequeue > 1
-	-- 	--end
-	end
+	self:CheckReforge()
 end
 
 function AskMrRobot.ReforgesTab:On_FORGE_MASTER_OPENED()

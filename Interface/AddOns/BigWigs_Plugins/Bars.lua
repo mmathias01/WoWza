@@ -340,7 +340,7 @@ plugin.defaultDB = {
 local clickOptions = {
 	emphasize = {
 		type = "toggle",
-		name = colorize[L["Super Emphasize"]],
+		name = colorize[L.superEmphasize],
 		desc = L["Temporarily Super Emphasizes the bar and any messages associated with it for the duration."],
 		descStyle = "inline",
 		order = 1,
@@ -368,7 +368,7 @@ local clickOptions = {
 	},
 	disable = {
 		type = "toggle",
-		name = colorize[L["Disable"]],
+		name = colorize[L.disable],
 		desc = L["Permanently disables the boss encounter ability option that spawned this bar."],
 		descStyle = "inline",
 		order = 5,
@@ -495,7 +495,7 @@ do
 				args = {
 					font = {
 						type = "select",
-						name = L["Font"],
+						name = L.font,
 						order = 1,
 						values = media:List("font"),
 						--width = "full",
@@ -503,18 +503,18 @@ do
 					},
 					outline = {
 						type = "select",
-						name = L["Outline"],
+						name = L.outline,
 						order = 2,
 						values = {
-							NONE = L["None"],
-							OUTLINE = L["Thin"],
-							THICKOUTLINE = L["Thick"],
+							NONE = L.none,
+							OUTLINE = L.thin,
+							THICKOUTLINE = L.thick,
 						},
 						--width = "full",
 					},
 					fontSize = {
 						type = "range",
-						name = L["Font size"],
+						name = L.fontSize,
 						order = 3,
 						max = 40,
 						min = 6,
@@ -821,7 +821,7 @@ local function createAnchor(frameName, title)
 end
 
 local function createAnchors()
-	normalAnchor = createAnchor("BigWigsAnchor", L["Bars"])
+	normalAnchor = createAnchor("BigWigsAnchor", L.bars)
 	emphasizeAnchor = createAnchor("BigWigsEmphasizeAnchor", L["Emphasized bars"])
 
 	createAnchors = nil
@@ -1418,9 +1418,4 @@ SlashCmdList.BIGWIGSPULL = function(input)
 	end
 end
 SLASH_BIGWIGSPULL1 = "/pull"
-
-SlashCmdList.BWLCB_SHORTHAND = function() BigWigs:Print(L.customBarSlashPrint) end
-SLASH_BWLCB_SHORTHAND1 = "/bwlcb"
-SlashCmdList.BWCB_SHORTHAND = function() BigWigs:Print(L.customBarSlashPrint) end
-SLASH_BWCB_SHORTHAND1 = "/bwcb"
 

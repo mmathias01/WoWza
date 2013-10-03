@@ -31,7 +31,7 @@ function AskMrRobot.AmrUI:displayImportItems()
 	else
 		self.gemTab:showBadGems()
 		self.enchantTab:showBadEnchants()
-		self.reforgeTab:showBadReforges()
+		self.reforgeTab:Render()
 		self.shoppingTab:Update()
 	end
 end
@@ -55,9 +55,12 @@ function AskMrRobot.AmrUI:showImportWarning(text, ...)
 end
 
 function AskMrRobot.AmrUI:validateInput(input)
+
 	self.importedItems = nil
 	self.mostlySuccess = false
+
 	local parsed = AskMrRobot.parseAmr(input)
+
 	if not parsed.realm then
 		self:showImportError("Oops, you didn't have proper import text", "Please go back to AskMrRobot.com and grab optimizations for this character")
 	elseif not AskMrRobot.validateCharacterName(parsed.name) then

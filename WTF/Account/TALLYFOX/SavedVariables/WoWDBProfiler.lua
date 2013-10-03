@@ -1,432 +1,11 @@
 
 WoWDBProfilerData = {
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
+	},
 	["version"] = 18,
+	["build_num"] = 17399,
 	["global"] = {
-		["items"] = {
-			[89067] = {
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["stamina"] = 958,
-						["haste"] = 444,
-						["spirit"] = 394,
-						["intellect"] = 638,
-					},
-				},
-			},
-			[86748] = {
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 566,
-						["stamina"] = 849,
-						["spirit"] = 394,
-						["critical_strike"] = 349,
-					},
-				},
-			},
-			[86630] = {
-				["durability"] = 55,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 805,
-						["reforge_id"] = "119",
-						["mastery"] = 188,
-						["haste"] = 576,
-						["spirit"] = 283,
-						["stamina"] = 1208,
-					},
-				},
-			},
-			[95643] = {
-				["durability"] = 80,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["stamina"] = 1441,
-						["haste"] = 499,
-						["spirit"] = 657,
-						["intellect"] = 881,
-					},
-				},
-			},
-			[86764] = {
-				["durability"] = 120,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 566,
-						["reforge_id"] = "152",
-						["stamina"] = 849,
-						["haste"] = 237,
-						["spirit"] = 349,
-						["critical_strike"] = 157,
-					},
-				},
-			},
-			[95714] = {
-				["durability"] = 55,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 801,
-						["reforge_id"] = "166",
-						["mastery"] = 327,
-						["critical_strike"] = 217,
-						["spirit"] = 570,
-						["stamina"] = 1441,
-					},
-				},
-			},
-			[95222] = {
-				["durability"] = 80,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 1158,
-						["stamina"] = 1736,
-						["critical_strike"] = 772,
-						["mastery"] = 772,
-					},
-				},
-			},
-			[86800] = {
-				["durability"] = 100,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 674,
-						["reforge_id"] = "119",
-						["mastery"] = 165,
-						["haste"] = 492,
-						["spirit"] = 248,
-						["stamina"] = 1131,
-					},
-				},
-			},
-			[95695] = {
-				["durability"] = 100,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 881,
-						["reforge_id"] = "152",
-						["stamina"] = 1441,
-						["haste"] = 462,
-						["spirit"] = 682,
-						["critical_strike"] = 184,
-					},
-				},
-			},
-			[86690] = {
-				["durability"] = 120,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 1004,
-						["reforge_id"] = "162",
-						["mastery"] = 399,
-						["critical_strike"] = 694,
-						["spirit"] = 265,
-						["stamina"] = 1626,
-					},
-				},
-			},
-			[86631] = {
-				["durability"] = 100,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 844,
-						["reforge_id"] = "145",
-						["mastery"] = 645,
-						["haste"] = 212,
-						["critical_strike"] = 319,
-						["stamina"] = 1626,
-					},
-				},
-			},
-			[94514] = {
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 1467,
-					},
-				},
-			},
-			[6124] = {
-				["durability"] = 40,
-			},
-			[85352] = {
-				["durability"] = 55,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 909,
-						["reforge_id"] = "152",
-						["stamina"] = 1363,
-						["haste"] = 390,
-						["spirit"] = 532,
-						["critical_strike"] = 260,
-					},
-				},
-			},
-			[86805] = {
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["spirit"] = 956,
-					},
-				},
-			},
-			[86691] = {
-				["durability"] = 100,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["reforge_id"] = "166",
-						["intellect"] = 844,
-						["mastery"] = 362,
-						["critical_strike"] = 241,
-						["spirit"] = 603,
-						["stamina"] = 1626,
-					},
-				},
-			},
-			[3661] = {
-				["durability"] = 25,
-			},
-			[94767] = {
-				["durability"] = 55,
-				["upgrades"] = {
-					[465] = {
-						["stamina"] = 1302,
-						["spirit"] = 858,
-						["intellect"] = 788,
-					},
-				},
-				["upgrade_id"] = 465,
-				["suffix_id"] = -343,
-				["unique_id"] = 1651,
-			},
-			[6123] = {
-				["durability"] = 55,
-			},
-			[86900] = {
-				["durability"] = 55,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 725,
-						["reforge_id"] = "119",
-						["mastery"] = 177,
-						["haste"] = 528,
-						["spirit"] = 267,
-						["stamina"] = 1208,
-					},
-				},
-			},
-			[95145] = {
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 868,
-						["stamina"] = 1302,
-						["spirit"] = 480,
-						["critical_strike"] = 637,
-					},
-				},
-			},
-			[86862] = {
-				["durability"] = 80,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["reforge_id"] = "152",
-						["intellect"] = 384,
-						["critical_strike"] = 113,
-						["stamina"] = 697,
-						["haste"] = 170,
-						["spirit"] = 247,
-						["spell_power"] = 6206,
-					},
-				},
-			},
-			[95514] = {
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["stamina"] = 1302,
-						["intellect"] = 868,
-						["spirit"] = 660,
-						["mastery"] = 440,
-					},
-				},
-			},
-			[95673] = {
-				["durability"] = 55,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 640,
-						["stamina"] = 1081,
-						["haste"] = 428,
-						["spirit"] = 284,
-						["reforge_id"] = "148",
-					},
-				},
-				["upgrade_id"] = 465,
-				["suffix_id"] = -340,
-				["unique_id"] = 1370,
-			},
-			[90907] = {
-				["durability"] = 80,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 754,
-						["reforge_id"] = "162",
-						["mastery"] = 315,
-						["critical_strike"] = 465,
-						["spirit"] = 210,
-						["stamina"] = 1131,
-					},
-				},
-			},
-			[86693] = {
-				["durability"] = 165,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 924,
-						["reforge_id"] = "119",
-						["mastery"] = 270,
-						["haste"] = 589,
-						["spirit"] = 405,
-						["stamina"] = 1626,
-					},
-				},
-			},
-			[89834] = {
-				["durability"] = 165,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 1063,
-						["stamina"] = 1835,
-						["spirit"] = 735,
-						["critical_strike"] = 735,
-					},
-				},
-			},
-			[95311] = {
-				["durability"] = 55,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["stamina"] = 1736,
-						["haste"] = 666,
-						["spirit"] = 774,
-						["intellect"] = 1078,
-					},
-				},
-			},
-			[86873] = {
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 604,
-						["reforge_id"] = "119",
-						["mastery"] = 141,
-						["haste"] = 432,
-						["spirit"] = 212,
-						["stamina"] = 906,
-					},
-				},
-			},
-			[95139] = {
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["stamina"] = 1302,
-						["haste"] = 522,
-						["spirit"] = 613,
-						["intellect"] = 868,
-					},
-				},
-			},
-			[95323] = {
-				["durability"] = 120,
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 1398,
-						["reforge_id"] = "148",
-						["stamina"] = 2338,
-						["haste"] = 491,
-						["spirit"] = 326,
-						["critical_strike"] = 1060,
-					},
-				},
-			},
-			[94509] = {
-				["upgrade_id"] = 465,
-				["upgrades"] = {
-					[465] = {
-						["intellect"] = 1467,
-					},
-				},
-			},
-			[86826] = {
-				["durability"] = 55,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 604,
-						["reforge_id"] = "154",
-						["mastery"] = 165,
-						["haste"] = 249,
-						["spirit"] = 383,
-						["stamina"] = 906,
-					},
-				},
-			},
-			[86893] = {
-				["durability"] = 120,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["reforge_id"] = "148",
-						["intellect"] = 1084,
-						["critical_strike"] = 669,
-						["stamina"] = 1626,
-						["haste"] = 453,
-						["spirit"] = 302,
-						["spell_power"] = 6208,
-					},
-				},
-			},
-			[79330] = {
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 1157,
-					},
-				},
-			},
-			[89977] = {
-				["durability"] = 55,
-				["upgrade_id"] = 445,
-				["upgrades"] = {
-					[445] = {
-						["intellect"] = 754,
-						["stamina"] = 1131,
-						["spirit"] = 560,
-						["critical_strike"] = 405,
-					},
-				},
-			},
-		},
 		["npcs"] = {
 			[42177] = {
 				["battle_pet_data"] = {
@@ -558,6 +137,31 @@ WoWDBProfilerData = {
 					},
 				},
 			},
+			[8719] = {
+				["is_pvp"] = true,
+				["genders"] = {
+					["MALE"] = true,
+				},
+				["faction"] = "Stormwind",
+				["auctioneer"] = true,
+				["class"] = "WARRIOR",
+				["encounter_data"] = {
+					["NONE:0:false"] = {
+						["stats"] = {
+							["level_90"] = {
+								["locations"] = {
+									["Stormwind City:301"] = {
+										["0:614:714"] = true,
+										["0:612:708"] = true,
+									},
+								},
+								["max_health"] = 1181823,
+							},
+						},
+					},
+				},
+				["reaction"] = "90:Alliance:FRIENDLY",
+			},
 			[63832] = {
 				["battle_pet_data"] = {
 					["Rare"] = {
@@ -592,12 +196,12 @@ WoWDBProfilerData = {
 					},
 				},
 			},
-			[67233] = {
+			[15705] = {
 				["battle_pet_data"] = {
 					["Uncommon"] = {
 						["level_1"] = {
 							["speed"] = 10,
-							["max_health"] = 160,
+							["max_health"] = 151,
 							["attack"] = 10,
 						},
 					},
@@ -610,73 +214,6 @@ WoWDBProfilerData = {
 							["speed"] = 9,
 							["max_health"] = 156,
 							["attack"] = 10,
-						},
-					},
-				},
-			},
-			[36871] = {
-				["battle_pet_data"] = {
-					["Rare"] = {
-						["level_5"] = {
-							["speed"] = 42,
-							["max_health"] = 405,
-							["attack"] = 64,
-						},
-					},
-				},
-			},
-			[15698] = {
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 10,
-							["max_health"] = 151,
-							["attack"] = 10,
-						},
-					},
-				},
-			},
-			[21010] = {
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 10,
-							["max_health"] = 154,
-							["attack"] = 10,
-						},
-					},
-				},
-			},
-			[61081] = {
-				["wild_pet"] = true,
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 11,
-							["max_health"] = 151,
-							["attack"] = 10,
-						},
-					},
-				},
-			},
-			[15705] = {
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 10,
-							["max_health"] = 151,
-							["attack"] = 10,
-						},
-					},
-				},
-			},
-			[10598] = {
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 10,
-							["max_health"] = 147,
-							["attack"] = 11,
 						},
 					},
 				},
@@ -708,17 +245,6 @@ WoWDBProfilerData = {
 					},
 				},
 			},
-			[15706] = {
-				["battle_pet_data"] = {
-					["Uncommon"] = {
-						["level_1"] = {
-							["speed"] = 10,
-							["max_health"] = 151,
-							["attack"] = 10,
-						},
-					},
-				},
-			},
 			[61071] = {
 				["wild_pet"] = true,
 				["battle_pet_data"] = {
@@ -731,20 +257,83 @@ WoWDBProfilerData = {
 					},
 				},
 			},
-		},
-		["quests"] = {
-			[33137] = {
+			[61081] = {
+				["wild_pet"] = true,
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 11,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
 			},
-			[31727] = {
-				["can_share"] = true,
+			[36871] = {
+				["battle_pet_data"] = {
+					["Rare"] = {
+						["level_5"] = {
+							["speed"] = 42,
+							["max_health"] = 405,
+							["attack"] = 64,
+						},
+					},
+				},
 			},
-			[31175] = {
-				["can_share"] = true,
+			[10598] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 147,
+							["attack"] = 11,
+						},
+					},
+				},
 			},
-			[31605] = {
+			[21010] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 154,
+							["attack"] = 10,
+						},
+					},
+				},
 			},
-			[32505] = {
-				["can_share"] = true,
+			[15698] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
+			},
+			[15706] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 151,
+							["attack"] = 10,
+						},
+					},
+				},
+			},
+			[67233] = {
+				["battle_pet_data"] = {
+					["Uncommon"] = {
+						["level_1"] = {
+							["speed"] = 10,
+							["max_health"] = 160,
+							["attack"] = 10,
+						},
+					},
+				},
 			},
 		},
 		["objects"] = {
@@ -757,20 +346,453 @@ WoWDBProfilerData = {
 					},
 				},
 			},
-			[202592] = {
-				["NONE:0:false"] = {
-					["locations"] = {
-						["Shadowglen:888"] = {
-							["0:512:664"] = true,
-						},
+		},
+		["quests"] = {
+			[31605] = {
+			},
+			[29464] = {
+			},
+			[31471] = {
+				["can_share"] = true,
+			},
+			[31730] = {
+				["can_share"] = true,
+			},
+			[32248] = {
+			},
+			[31727] = {
+				["can_share"] = true,
+			},
+			[33137] = {
+			},
+			[32474] = {
+				["can_share"] = true,
+			},
+			[31023] = {
+				["can_share"] = true,
+			},
+			[32505] = {
+				["can_share"] = true,
+			},
+			[31175] = {
+				["can_share"] = true,
+			},
+		},
+		["items"] = {
+			[89067] = {
+				["upgrades"] = {
+					[445] = {
+						["stamina"] = 958,
+						["haste"] = 444,
+						["spirit"] = 394,
+						["intellect"] = 638,
+					},
+				},
+				["upgrade_id"] = 445,
+			},
+			[86748] = {
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 566,
+						["spirit"] = 394,
+						["critical_strike"] = 349,
+						["stamina"] = 849,
+					},
+				},
+				["upgrade_id"] = 445,
+			},
+			[86630] = {
+				["durability"] = 55,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 805,
+						["mastery"] = 188,
+						["stamina"] = 1208,
+						["haste"] = 576,
+						["spirit"] = 283,
+						["reforge_id"] = "119",
 					},
 				},
 			},
+			[95643] = {
+				["durability"] = 80,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["stamina"] = 1441,
+						["haste"] = 499,
+						["spirit"] = 657,
+						["intellect"] = 881,
+					},
+				},
+			},
+			[86764] = {
+				["durability"] = 120,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 566,
+						["spirit"] = 349,
+						["stamina"] = 849,
+						["haste"] = 237,
+						["critical_strike"] = 157,
+						["reforge_id"] = "152",
+					},
+				},
+			},
+			[95714] = {
+				["durability"] = 55,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 801,
+						["mastery"] = 327,
+						["stamina"] = 1441,
+						["spirit"] = 570,
+						["critical_strike"] = 217,
+						["reforge_id"] = "166",
+					},
+				},
+			},
+			[95222] = {
+				["durability"] = 80,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 1158,
+						["mastery"] = 772,
+						["critical_strike"] = 772,
+						["stamina"] = 1736,
+					},
+				},
+			},
+			[86800] = {
+				["durability"] = 100,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 674,
+						["mastery"] = 165,
+						["stamina"] = 1131,
+						["haste"] = 492,
+						["spirit"] = 248,
+						["reforge_id"] = "119",
+					},
+				},
+			},
+			[95695] = {
+				["durability"] = 100,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 881,
+						["spirit"] = 682,
+						["stamina"] = 1441,
+						["haste"] = 462,
+						["critical_strike"] = 184,
+						["reforge_id"] = "152",
+					},
+				},
+			},
+			[86690] = {
+				["durability"] = 120,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 1004,
+						["mastery"] = 399,
+						["stamina"] = 1626,
+						["spirit"] = 265,
+						["critical_strike"] = 694,
+						["reforge_id"] = "162",
+					},
+				},
+			},
+			[86631] = {
+				["durability"] = 100,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 844,
+						["mastery"] = 645,
+						["stamina"] = 1626,
+						["haste"] = 212,
+						["critical_strike"] = 319,
+						["reforge_id"] = "145",
+					},
+				},
+			},
+			[94514] = {
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 1467,
+					},
+				},
+				["upgrade_id"] = 465,
+			},
+			[85352] = {
+				["durability"] = 55,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 909,
+						["spirit"] = 532,
+						["stamina"] = 1363,
+						["haste"] = 390,
+						["critical_strike"] = 260,
+						["reforge_id"] = "152",
+					},
+				},
+			},
+			[86805] = {
+				["upgrades"] = {
+					[445] = {
+						["spirit"] = 956,
+					},
+				},
+				["upgrade_id"] = 445,
+			},
+			[86691] = {
+				["durability"] = 100,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["reforge_id"] = "166",
+						["mastery"] = 362,
+						["stamina"] = 1626,
+						["spirit"] = 603,
+						["critical_strike"] = 241,
+						["intellect"] = 844,
+					},
+				},
+			},
+			[94767] = {
+				["durability"] = 55,
+				["upgrades"] = {
+					[465] = {
+						["stamina"] = 1302,
+						["spirit"] = 858,
+						["intellect"] = 788,
+					},
+				},
+				["upgrade_id"] = 465,
+				["unique_id"] = 1651,
+				["suffix_id"] = -343,
+			},
+			[86900] = {
+				["durability"] = 55,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 725,
+						["mastery"] = 177,
+						["stamina"] = 1208,
+						["haste"] = 528,
+						["spirit"] = 267,
+						["reforge_id"] = "119",
+					},
+				},
+			},
+			[89977] = {
+				["durability"] = 55,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 754,
+						["spirit"] = 560,
+						["critical_strike"] = 405,
+						["stamina"] = 1131,
+					},
+				},
+			},
+			[79330] = {
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 1157,
+					},
+				},
+				["upgrade_id"] = 445,
+			},
+			[95514] = {
+				["upgrades"] = {
+					[465] = {
+						["stamina"] = 1302,
+						["mastery"] = 440,
+						["spirit"] = 660,
+						["intellect"] = 868,
+					},
+				},
+				["upgrade_id"] = 465,
+			},
+			[95673] = {
+				["durability"] = 55,
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 640,
+						["stamina"] = 1081,
+						["haste"] = 428,
+						["spirit"] = 284,
+						["reforge_id"] = "148",
+					},
+				},
+				["upgrade_id"] = 465,
+				["unique_id"] = 1370,
+				["suffix_id"] = -340,
+			},
+			[86873] = {
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 604,
+						["mastery"] = 141,
+						["stamina"] = 906,
+						["haste"] = 432,
+						["spirit"] = 212,
+						["reforge_id"] = "119",
+					},
+				},
+				["upgrade_id"] = 445,
+			},
+			[90907] = {
+				["durability"] = 80,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 754,
+						["mastery"] = 315,
+						["stamina"] = 1131,
+						["spirit"] = 210,
+						["critical_strike"] = 465,
+						["reforge_id"] = "162",
+					},
+				},
+			},
+			[94509] = {
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 1467,
+					},
+				},
+				["upgrade_id"] = 465,
+			},
+			[95311] = {
+				["durability"] = 55,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["stamina"] = 1736,
+						["haste"] = 666,
+						["spirit"] = 774,
+						["intellect"] = 1078,
+					},
+				},
+			},
+			[89834] = {
+				["durability"] = 165,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 1063,
+						["spirit"] = 735,
+						["critical_strike"] = 735,
+						["stamina"] = 1835,
+					},
+				},
+			},
+			[95139] = {
+				["upgrades"] = {
+					[465] = {
+						["stamina"] = 1302,
+						["haste"] = 522,
+						["spirit"] = 613,
+						["intellect"] = 868,
+					},
+				},
+				["upgrade_id"] = 465,
+			},
+			[95323] = {
+				["durability"] = 120,
+				["upgrade_id"] = 465,
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 1398,
+						["spirit"] = 326,
+						["stamina"] = 2338,
+						["haste"] = 491,
+						["critical_strike"] = 1060,
+						["reforge_id"] = "148",
+					},
+				},
+			},
+			[86693] = {
+				["durability"] = 165,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 924,
+						["mastery"] = 270,
+						["stamina"] = 1626,
+						["haste"] = 589,
+						["spirit"] = 405,
+						["reforge_id"] = "119",
+					},
+				},
+			},
+			[86826] = {
+				["durability"] = 55,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["intellect"] = 604,
+						["mastery"] = 165,
+						["stamina"] = 906,
+						["haste"] = 249,
+						["spirit"] = 383,
+						["reforge_id"] = "154",
+					},
+				},
+			},
+			[86893] = {
+				["durability"] = 120,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["reforge_id"] = "148",
+						["spirit"] = 302,
+						["haste"] = 453,
+						["stamina"] = 1626,
+						["spell_power"] = 6208,
+						["critical_strike"] = 669,
+						["intellect"] = 1084,
+					},
+				},
+			},
+			[86862] = {
+				["durability"] = 80,
+				["upgrade_id"] = 445,
+				["upgrades"] = {
+					[445] = {
+						["reforge_id"] = "152",
+						["spirit"] = 247,
+						["haste"] = 170,
+						["stamina"] = 697,
+						["spell_power"] = 6206,
+						["critical_strike"] = 113,
+						["intellect"] = 384,
+					},
+				},
+			},
+			[95145] = {
+				["upgrades"] = {
+					[465] = {
+						["intellect"] = 868,
+						["spirit"] = 480,
+						["critical_strike"] = 637,
+						["stamina"] = 1302,
+					},
+				},
+				["upgrade_id"] = 465,
+			},
 		},
-	},
-	["build_num"] = 17371,
-	["profileKeys"] = {
-		["Jolobank - Dragonblight"] = "Default",
-		["Jolokia - Dragonblight"] = "Default",
 	},
 }

@@ -1,3 +1,7 @@
+v2.0.7
+*Fixed an issue where the operation summary description was incorrect
+*Added support for DufUIBank
+
 v2.0.6
 *Fixed an issue with calculating quantity to move.
 

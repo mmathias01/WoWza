@@ -2,42 +2,43 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
+	["_5000000"] = 10000,
+	["LOG_DE_DATA_X"] = true,
+	["_1000000"] = 2500,
 	["_10000"] = 200,
 	["_500"] = 5,
-	["_1000000"] = 2500,
-	["_200000"] = 1000,
 	["STARTING_DISCOUNT"] = 5,
-	["LOG_DE_DATA_X"] = true,
-	["_5000000"] = 10000,
+	["_200000"] = 1000,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 }
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"100 year", -- [1]
-			"turtle", -- [2]
-			"jew", -- [3]
-			"raw crab", -- [4]
-			"kras", -- [5]
-			"mantis sh", -- [6]
-			"Golden lotus", -- [7]
-			"fool's cap", -- [8]
-			"jade squash", -- [9]
-			"wildfowl", -- [10]
-			"Salmon", -- [11]
-			"juicycrunch", -- [12]
-			"raw turtle meat", -- [13]
-			"Silkweed", -- [14]
-			"Armor/Miscellaneous", -- [15]
-			"Snow", -- [16]
-			"Snow lilly", -- [17]
-			"Green tea", -- [18]
-			"fool", -- [19]
-			"fools cap", -- [20]
-			"Scallions", -- [21]
-			"Steamed Crab Surprise", -- [22]
-			"Steamed Crab Suprise", -- [23]
+			"belt buck", -- [1]
+			"100 year", -- [2]
+			"turtle", -- [3]
+			"jew", -- [4]
+			"raw crab", -- [5]
+			"kras", -- [6]
+			"mantis sh", -- [7]
+			"Golden lotus", -- [8]
+			"fool's cap", -- [9]
+			"jade squash", -- [10]
+			"wildfowl", -- [11]
+			"Salmon", -- [12]
+			"juicycrunch", -- [13]
+			"raw turtle meat", -- [14]
+			"Silkweed", -- [15]
+			"Armor/Miscellaneous", -- [16]
+			"Snow", -- [17]
+			"Snow lilly", -- [18]
+			"Green tea", -- [19]
+			"fool", -- [20]
+			"fools cap", -- [21]
+			"Scallions", -- [22]
+			"Steamed Crab Surprise", -- [23]
+			"Steamed Crab Suprise", -- [24]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -464,6 +465,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82280:-37",
 			["cc"] = 2,
 		},
+		["Eternal Belt Buckle"] = {
+			["mr"] = 780000,
+			["cc"] = 4,
+			["H1052"] = 780000,
+			["id"] = "41611",
+			["sc"] = 6,
+		},
 		["Wildfowl Breast"] = {
 			["mr"] = 36200,
 			["cc"] = 6,
@@ -842,6 +850,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "74649",
 			["H1035"] = 209000,
 			["sc"] = 1,
+		},
+		["Ebonsteel Belt Buckle"] = {
+			["mr"] = 1993898,
+			["cc"] = 4,
+			["H1052"] = 1993898,
+			["id"] = "55054",
+			["sc"] = 6,
 		},
 		["Bejeweled Ring of the Flameblaze"] = {
 			["mr"] = 220000,
@@ -1256,6 +1271,14 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "25052:-40",
 			["cc"] = 2,
 		},
+		["Shadowfire Necklace of the Windstorm"] = {
+			["H918"] = 1747499,
+			["mr"] = 271999,
+			["sc"] = 1,
+			["id"] = "83794:-137",
+			["L918"] = 271999,
+			["cc"] = 2,
+		},
 		["Tome of Polymorph: Turtle"] = {
 			["mr"] = 19999998,
 			["cc"] = 7,
@@ -1361,13 +1384,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 200000,
 			["sc"] = 1,
 		},
-		["Ornate Band of the Flameblaze"] = {
-			["H918"] = 2329995,
-			["mr"] = 707970,
-			["sc"] = 1,
-			["id"] = "83793:-114",
-			["L918"] = 707970,
-			["cc"] = 2,
+		["Bejeweled Spellblade of the Whale"] = {
+			["mr"] = 1260865,
+			["cc"] = 1,
+			["id"] = "82230:-8",
+			["H1035"] = 1260865,
+			["sc"] = 13,
 		},
 		["Malachite Pendant"] = {
 			["H918"] = 20000,
@@ -1376,12 +1398,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "25438",
 			["cc"] = 2,
 		},
-		["Bejeweled Spellblade of the Whale"] = {
-			["mr"] = 1260865,
-			["cc"] = 1,
-			["id"] = "82230:-8",
-			["H1035"] = 1260865,
-			["sc"] = 13,
+		["Ornate Band of the Flameblaze"] = {
+			["H918"] = 2329995,
+			["mr"] = 707970,
+			["sc"] = 1,
+			["id"] = "83793:-114",
+			["L918"] = 707970,
+			["cc"] = 2,
 		},
 		["Jasper Ring of the Seer"] = {
 			["H918"] = 999999,
@@ -1678,12 +1701,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52306:-118",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Feverflare"] = {
-			["H918"] = 1893019,
-			["mr"] = 294419,
-			["sc"] = 1,
-			["id"] = "83794:-138",
-			["L918"] = 294419,
+		["Snowy Shield of the Sorcerer"] = {
+			["H918"] = 333333,
+			["mr"] = 333333,
+			["sc"] = 7,
+			["id"] = "82184:-36",
 			["cc"] = 2,
 		},
 		["Roguestone Shadowband"] = {
@@ -1743,11 +1765,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 39400,
 			["cc"] = 6,
 		},
-		["Jasper Ring of the Fireflash"] = {
-			["H918"] = 999999,
-			["mr"] = 999999,
+		["Alicite Pendant of the Mercenary"] = {
+			["H918"] = 1202348,
+			["mr"] = 1202348,
 			["sc"] = 1,
-			["id"] = "52306:-130",
+			["id"] = "52307:-139",
 			["cc"] = 2,
 		},
 		["Gemmed Ring of the Bear"] = {
@@ -1778,11 +1800,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82063:-139",
 			["cc"] = 2,
 		},
-		["Relic of Niuzao"] = {
-			["H918"] = 88990000,
-			["mr"] = 88990000,
+		["Aquamarine Signet of the Wolf"] = {
+			["H918"] = 298281,
+			["mr"] = 298281,
 			["sc"] = 1,
-			["id"] = "79329",
+			["id"] = "20964:-13",
 			["cc"] = 2,
 		},
 		["Relic of Xuen"] = {
@@ -1806,18 +1828,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "19288",
 			["cc"] = 2,
 		},
-		["Alicite Pendant of the Mercenary"] = {
-			["H918"] = 1202348,
-			["mr"] = 1202348,
+		["Shadowfire Necklace of the Zephyr"] = {
+			["H918"] = 1950000,
+			["mr"] = 1950000,
 			["sc"] = 1,
-			["id"] = "52307:-139",
+			["id"] = "90905:-136",
 			["cc"] = 2,
 		},
-		["Aquamarine Signet of the Wolf"] = {
-			["H918"] = 298281,
-			["mr"] = 298281,
+		["Relic of Niuzao"] = {
+			["H918"] = 88990000,
+			["mr"] = 88990000,
 			["sc"] = 1,
-			["id"] = "20964:-13",
+			["id"] = "79329",
 			["cc"] = 2,
 		},
 		["Shadowfire Necklace of the Mountainbed"] = {
@@ -1827,11 +1849,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-124",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Zephyr"] = {
-			["H918"] = 1950000,
-			["mr"] = 1950000,
+		["Ornate Band of the Zephyr"] = {
+			["H918"] = 1999997,
+			["mr"] = 1999997,
 			["sc"] = 1,
-			["id"] = "90905:-136",
+			["id"] = "90904:-136",
 			["cc"] = 2,
 		},
 		["Ornate Band of the Bedrock"] = {
@@ -1869,13 +1891,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "55419:-139",
 			["cc"] = 2,
 		},
-		["Signet of the Scorned"] = {
-			["H918"] = 20000000,
-			["mr"] = 20000000,
-			["sc"] = 1,
-			["id"] = "87442",
-			["cc"] = 2,
-		},
 		["White Turnip"] = {
 			["H895"] = 19800,
 			["mr"] = 19800,
@@ -1883,13 +1898,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "74850",
 			["cc"] = 6,
 		},
-		["Shadowfire Necklace of the Windstorm"] = {
-			["H918"] = 1747499,
-			["mr"] = 271999,
+		["Ornate Band of the Feverflare"] = {
+			["H918"] = 1999999,
+			["mr"] = 199000,
 			["sc"] = 1,
-			["id"] = "83794:-137",
-			["L918"] = 271999,
+			["id"] = "83793:-138",
+			["L918"] = 199000,
 			["cc"] = 2,
+		},
+		["Living Steel Belt Buckle"] = {
+			["mr"] = 4930000,
+			["cc"] = 4,
+			["H1052"] = 4930000,
+			["id"] = "90046",
+			["sc"] = 6,
 		},
 		["Snowman Kit"] = {
 			["H918"] = 1250000,
@@ -1955,18 +1977,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82060:-91",
 			["cc"] = 2,
 		},
+		["Shadowfire Necklace of the Wavecrest"] = {
+			["H918"] = 1999973,
+			["mr"] = 1999973,
+			["sc"] = 1,
+			["id"] = "90905:-132",
+			["cc"] = 2,
+		},
 		["Diamond Focus Ring"] = {
 			["H918"] = 75000,
 			["mr"] = 75000,
 			["sc"] = 1,
 			["id"] = "30422",
-			["cc"] = 2,
-		},
-		["Gemmed Amulet of the Bear"] = {
-			["H918"] = 2950000,
-			["mr"] = 2950000,
-			["sc"] = 1,
-			["id"] = "82060:-7",
 			["cc"] = 2,
 		},
 		["Tiny Snowman"] = {
@@ -2019,18 +2041,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "43127",
 			["cc"] = 6,
 		},
+		["Gemmed Amulet of the Bear"] = {
+			["H918"] = 2950000,
+			["mr"] = 2950000,
+			["sc"] = 1,
+			["id"] = "82060:-7",
+			["cc"] = 2,
+		},
 		["Rituals of the New Moon"] = {
 			["H918"] = 15000000,
 			["mr"] = 15000000,
 			["sc"] = 1,
 			["id"] = "45850",
-			["cc"] = 2,
-		},
-		["Shadowfire Necklace of the Wavecrest"] = {
-			["H918"] = 1999973,
-			["mr"] = 1999973,
-			["sc"] = 1,
-			["id"] = "90905:-132",
 			["cc"] = 2,
 		},
 		["Heavy Jade Ring"] = {
@@ -2089,19 +2111,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52307:-122",
 			["cc"] = 2,
 		},
+		["Signet of the Scorned"] = {
+			["H918"] = 20000000,
+			["mr"] = 20000000,
+			["sc"] = 1,
+			["id"] = "87442",
+			["cc"] = 2,
+		},
 		["Six Demon Bag"] = {
 			["H918"] = 2135552,
 			["mr"] = 2135552,
 			["sc"] = 1,
 			["id"] = "7734",
-			["cc"] = 2,
-		},
-		["Ornate Band of the Feverflare"] = {
-			["H918"] = 1999999,
-			["mr"] = 199000,
-			["sc"] = 1,
-			["id"] = "83793:-138",
-			["L918"] = 199000,
 			["cc"] = 2,
 		},
 		["Fool's Cap"] = {
@@ -2111,18 +2132,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "79011",
 			["cc"] = 6,
 		},
+		["Shamanic Ring of the Monkey"] = {
+			["H918"] = 1344659,
+			["mr"] = 1344659,
+			["sc"] = 1,
+			["id"] = "82118:-5",
+			["cc"] = 2,
+		},
 		["Gerp's Perfect Arrow"] = {
 			["H918"] = 25000000,
 			["mr"] = 25000000,
 			["sc"] = 1,
 			["id"] = "87495",
-			["cc"] = 2,
-		},
-		["Ornate Band of the Zephyr"] = {
-			["H918"] = 1999997,
-			["mr"] = 1999997,
-			["sc"] = 1,
-			["id"] = "90904:-136",
 			["cc"] = 2,
 		},
 		["Book of Clever Tricks"] = {
@@ -2153,6 +2174,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-133",
 			["cc"] = 2,
 		},
+		["Jasper Ring of the Fireflash"] = {
+			["H918"] = 999999,
+			["mr"] = 999999,
+			["sc"] = 1,
+			["id"] = "52306:-130",
+			["cc"] = 2,
+		},
 		["Ornate Band of the Bouldercrag"] = {
 			["H918"] = 1999996,
 			["mr"] = 1999996,
@@ -2172,13 +2200,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 140000,
 			["sc"] = 1,
 			["id"] = "82228:-41",
-			["cc"] = 2,
-		},
-		["Snowy Shield of the Sorcerer"] = {
-			["H918"] = 333333,
-			["mr"] = 333333,
-			["sc"] = 7,
-			["id"] = "82184:-36",
 			["cc"] = 2,
 		},
 		["Shamanic Amulet of the Champion"] = {
@@ -2202,19 +2223,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82063:-114",
 			["cc"] = 2,
 		},
+		["Shadowfire Necklace of the Feverflare"] = {
+			["H918"] = 1893019,
+			["mr"] = 294419,
+			["sc"] = 1,
+			["id"] = "83794:-138",
+			["L918"] = 294419,
+			["cc"] = 2,
+		},
 		["Shadowfire Necklace of the Windflurry"] = {
 			["H918"] = 1990000,
 			["mr"] = 1800703,
 			["sc"] = 1,
 			["id"] = "83794:-135",
 			["L918"] = 1800703,
-			["cc"] = 2,
-		},
-		["Shamanic Ring of the Monkey"] = {
-			["H918"] = 1344659,
-			["mr"] = 1344659,
-			["sc"] = 1,
-			["id"] = "82118:-5",
 			["cc"] = 2,
 		},
 		["Shadowfire Necklace of the Earthfall"] = {

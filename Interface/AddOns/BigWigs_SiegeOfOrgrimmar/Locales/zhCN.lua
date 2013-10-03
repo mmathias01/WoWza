@@ -9,7 +9,7 @@ if L then
 	L.defile = "施放大地污染"
 
 	L.custom_off_bane_marks = "暗言术：蛊标记"
-	L.custom_off_bane_marks_desc = "帮助驱散分配，给最初受到暗言术：蛊的玩家使用 %s%s%s%s%s 进行标记（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_bane_marks_desc = "帮助驱散分配，给最初受到暗言术：蛊的玩家使用 {rt1}{rt2}{rt3}{rt4}{rt5} 进行标记（按照这个顺序，不是所有标记会被用到），需要权限。"
 
 	L.no_meditative_field = "没有黑暗冥想！"
 
@@ -106,7 +106,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "zhCN")
 if L then
 	L.custom_off_energy_marks = "散逸能量标记"
-	L.custom_off_energy_marks_desc = "帮助驱散分配，给受到散逸能量的玩家使用 %s%s%s%s%s%s%s 进行标记（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_energy_marks_desc = "帮助驱散分配，给受到散逸能量的玩家使用 {rt1}{rt2}{rt3}{rt4} 进行标记，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "zhCN")
@@ -122,6 +122,9 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhCN")
 if L then
+	L.adds = "英雄难度增援"
+	L.adds_desc = "当只在英雄难度出现的增援进入战斗时发出警报。"
+
 	L.tank_debuffs = "坦克减益"
 	L.tank_debuffs_desc = "当坦克受到不同类型的恐惧咆哮减益时发出警报。"
 

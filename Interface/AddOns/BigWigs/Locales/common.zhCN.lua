@@ -2,8 +2,10 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs: Common", "zhCN")
 if not L then return end
 -- Prototype.lua common words
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
+L["add"] = "增援"
 L["add_killed"] = "小怪已击杀！（%d/%d）"
 L["add_remaining"] = "小怪已击杀，%d剩余"
+L["adds"] = "增援"
 L["add_spawned"] = "小怪刷新！"
 L["cast"] = "<施放：%s>"
 L["casting"] = "正在施放 >%s<！"

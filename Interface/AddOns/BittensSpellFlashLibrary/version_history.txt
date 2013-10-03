@@ -1,3 +1,9 @@
+== Version 50400.2.0
+This version supports the latest Hunter release.
+* c.Flashing{} now contains an entry for every spell that is flashing.
+* c.IsTanking() now accepts a "unit" argument.
+* Removed c.CheckFirstForTaunts().
+
 == Version 50400.1.7
 Updating to this version is not necessary.  It causes flashes for the more new food buffs.
 

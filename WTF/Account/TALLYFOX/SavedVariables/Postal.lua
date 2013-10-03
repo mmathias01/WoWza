@@ -33,6 +33,11 @@ Postal3DB = {
 			},
 		},
 		["Jolobank - Dragonblight"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Majandra|Dragonblight|Alliance", -- [1]
+				},
+			},
 		},
 		["Cellestia - Terenas"] = {
 			["BlackBook"] = {

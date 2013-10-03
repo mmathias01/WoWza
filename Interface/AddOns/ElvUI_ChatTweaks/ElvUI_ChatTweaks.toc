@@ -1,12 +1,12 @@
-## Interface: 50300
+## Interface: 50400
 ## Author: Lockslap
 ## Title: |cff1784d1ElvUI|r Chat Tweaks
-## Version: 6.15
+## Version: 6.17
 ## Notes: Provides various tweaks to the Chat windows.
 ## RequiredDeps: ElvUI
 ## OptionalDeps: SharedMedia
 ## SavedVariables: ElvUI_ChatTweaksDB
-## X-Curse-Packaged-Version: 6.15
+## X-Curse-Packaged-Version: 6.17
 ## X-Curse-Project-Name: ElvUI Chat Tweaks
 ## X-Curse-Project-ID: elvui_chattweaks
 ## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline

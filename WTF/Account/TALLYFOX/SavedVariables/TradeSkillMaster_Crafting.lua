@@ -15,13 +15,13 @@ TradeSkillMaster_CraftingDB = {
 			["selected"] = 1,
 		},
 		["framePosition"] = {
-			942.0003051757813, -- [1]
-			440.9998779296875, -- [2]
+			792.0001831054688, -- [1]
+			423, -- [2]
 		},
 		["frameQueueOpen"] = true,
 		["gatheringFramePosition"] = {
-			429.0006713867188, -- [1]
-			197.9999694824219, -- [2]
+			1191.00146484375, -- [1]
+			431.0001220703125, -- [2]
 		},
 		["priceColumn"] = 3,
 	},
@@ -330,8 +330,8 @@ TradeSkillMaster_CraftingDB = {
 				["item:23112:0:0:0:0:0:0"] = {
 					["name"] = "Golden Draenite",
 				},
-				["item:15416:0:0:0:0:0:0"] = {
-					["name"] = "Black Dragonscale",
+				["item:30183:0:0:0:0:0:0"] = {
+					["name"] = "Nether Vortex",
 				},
 				["item:785:0:0:0:0:0:0"] = {
 					["name"] = "Mageroyal",
@@ -342,8 +342,8 @@ TradeSkillMaster_CraftingDB = {
 				["item:23117:0:0:0:0:0:0"] = {
 					["name"] = "Azure Moonstone",
 				},
-				["item:30183:0:0:0:0:0:0"] = {
-					["name"] = "Nether Vortex",
+				["item:14227:0:0:0:0:0:0"] = {
+					["name"] = "Ironweb Spider Silk",
 				},
 				["item:783:0:0:0:0:0:0"] = {
 					["name"] = "Light Hide",
@@ -516,8 +516,8 @@ TradeSkillMaster_CraftingDB = {
 				["item:13463:0:0:0:0:0:0"] = {
 					["name"] = "Dreamfoil",
 				},
-				["item:14227:0:0:0:0:0:0"] = {
-					["name"] = "Ironweb Spider Silk",
+				["item:15416:0:0:0:0:0:0"] = {
+					["name"] = "Black Dragonscale",
 				},
 				["item:2605:0:0:0:0:0:0"] = {
 					["name"] = "Green Dye",
@@ -554,42 +554,39 @@ TradeSkillMaster_CraftingDB = {
 				},
 			},
 			["craftingCostCache"] = {
-				["item:25868:0:0:0:0:0:0"] = 4090371,
-				["item:23571:0:0:0:0:0:0"] = 1681424,
-				["item:13423:0:0:0:0:0:0"] = 4387,
-				["item:118:0:0:0:0:0:0"] = 58693,
-				["item:87872:0:0:0:0:0:0"] = 28302,
-				["item:76140:0:0:0:0:0:0"] = 1232069,
+				["item:25868:0:0:0:0:0:0"] = 3474337,
+				["item:23571:0:0:0:0:0:0"] = 1589620,
+				["item:13423:0:0:0:0:0:0"] = 10391,
+				["item:118:0:0:0:0:0:0"] = 4183,
+				["item:87872:0:0:0:0:0:0"] = 31419,
+				["item:76140:0:0:0:0:0:0"] = 1071812,
 				["item:2319:0:0:0:0:0:0"] = 142980,
-				["item:13503:0:0:0:0:0:0"] = 15208142,
-				["item:40195:0:0:0:0:0:0"] = 2500,
-				["item:25867:0:0:0:0:0:0"] = 1348842,
+				["item:13503:0:0:0:0:0:0"] = 13245371,
+				["item:40195:0:0:0:0:0:0"] = 5051,
+				["item:25867:0:0:0:0:0:0"] = 1367764,
 				["item:4234:0:0:0:0:0:0"] = 339160,
-				["item:76141:0:0:0:0:0:0"] = 1158594,
+				["item:76141:0:0:0:0:0:0"] = 1076636,
 				["item:4236:0:0:0:0:0:0"] = 99101,
 				["item:8172:0:0:0:0:0:0"] = 12526,
-				["item:9149:0:0:0:0:0:0"] = 807769,
+				["item:9149:0:0:0:0:0:0"] = 341426,
 				["item:21887:0:0:0:0:0:0"] = 252415,
-				["item:72163:0:0:0:0:0:0"] = 1320700,
+				["item:72163:0:0:0:0:0:0"] = 1530200,
 				["item:4231:0:0:0:0:0:0"] = 101790,
-				["item:76139:0:0:0:0:0:0"] = 1121119,
-				["item:98617:0:0:0:0:0:0"] = 169365916,
-				["item:72095:0:0:0:0:0:0"] = 722650,
+				["item:76139:0:0:0:0:0:0"] = 1072903,
+				["item:98617:0:0:0:0:0:0"] = 31104377,
+				["item:72095:0:0:0:0:0:0"] = 812210,
 				["item:2318:0:0:0:0:0:0"] = 161031,
 				["item:4304:0:0:0:0:0:0"] = 542112,
 				["item:4246:0:0:0:0:0:0"] = 215324,
 				["item:23793:0:0:0:0:0:0"] = 232480,
 				["item:8170:0:0:0:0:0:0"] = 341730,
-				["item:72120:0:0:0:0:0:0"] = 131825,
+				["item:72120:0:0:0:0:0:0"] = 79475,
 				["item:4233:0:0:0:0:0:0"] = 40776,
 				["item:56516:0:0:0:0:0:0"] = 244060,
 			},
 			["gathering"] = {
 				["professions"] = {
 					["Alchemy"] = true,
-				},
-				["availableMats"] = {
-					["item:3371:0:0:0:0:0:0"] = 38,
 				},
 			},
 			["crafts"] = {
@@ -3815,17 +3812,19 @@ TradeSkillMaster_CraftingDB = {
 						["item:3821:0:0:0:0:0:0"] = 1,
 					},
 				},
-				[137829] = {
+				[32463] = {
 					["players"] = {
 						["Jolokia"] = true,
 					},
 					["numResult"] = 1,
 					["profession"] = "Leatherworking",
-					["itemID"] = "item:93479:0:0:0:0:0:0",
-					["name"] = "Crafted Dreadful Gladiator's Wyrmhide Spaulders",
+					["itemID"] = "item:25655:0:0:0:0:0:0",
+					["name"] = "Felscale Boots",
 					["queued"] = 0,
 					["mats"] = {
-						["item:72163:0:0:0:0:0:0"] = 1,
+						["item:25700:0:0:0:0:0:0"] = 1,
+						["item:21887:0:0:0:0:0:0"] = 8,
+						["item:14341:0:0:0:0:0:0"] = 2,
 					},
 				},
 				[32455] = {
@@ -3841,18 +3840,17 @@ TradeSkillMaster_CraftingDB = {
 						["item:21887:0:0:0:0:0:0"] = 5,
 					},
 				},
-				[114777] = {
+				[137829] = {
 					["players"] = {
 						["Jolokia"] = true,
 					},
 					["numResult"] = 1,
-					["profession"] = "Alchemy",
-					["itemID"] = "item:76141:0:0:0:0:0:0",
-					["name"] = "Imperial Amethyst",
+					["profession"] = "Leatherworking",
+					["itemID"] = "item:93479:0:0:0:0:0:0",
+					["name"] = "Crafted Dreadful Gladiator's Wyrmhide Spaulders",
 					["queued"] = 0,
 					["mats"] = {
-						["item:72238:0:0:0:0:0:0"] = 1,
-						["item:76135:0:0:0:0:0:0"] = 1,
+						["item:72163:0:0:0:0:0:0"] = 1,
 					},
 				},
 				[32471] = {
@@ -3927,19 +3925,18 @@ TradeSkillMaster_CraftingDB = {
 						["item:2321:0:0:0:0:0:0"] = 1,
 					},
 				},
-				[32463] = {
+				[114777] = {
 					["players"] = {
 						["Jolokia"] = true,
 					},
 					["numResult"] = 1,
-					["profession"] = "Leatherworking",
-					["itemID"] = "item:25655:0:0:0:0:0:0",
-					["name"] = "Felscale Boots",
+					["profession"] = "Alchemy",
+					["itemID"] = "item:76141:0:0:0:0:0:0",
+					["name"] = "Imperial Amethyst",
 					["queued"] = 0,
 					["mats"] = {
-						["item:25700:0:0:0:0:0:0"] = 1,
-						["item:21887:0:0:0:0:0:0"] = 8,
-						["item:14341:0:0:0:0:0:0"] = 2,
+						["item:72238:0:0:0:0:0:0"] = 1,
+						["item:76135:0:0:0:0:0:0"] = 1,
 					},
 				},
 				[3766] = {
@@ -3952,9 +3949,9 @@ TradeSkillMaster_CraftingDB = {
 					["name"] = "Dark Leather Belt",
 					["queued"] = 0,
 					["mats"] = {
-						["item:4246:0:0:0:0:0:0"] = 1,
 						["item:2321:0:0:0:0:0:0"] = 2,
 						["item:4233:0:0:0:0:0:0"] = 1,
+						["item:4246:0:0:0:0:0:0"] = 1,
 						["item:4340:0:0:0:0:0:0"] = 1,
 					},
 				},
@@ -4065,9 +4062,9 @@ TradeSkillMaster_CraftingDB = {
 					["name"] = "Redeemer's Alchemist Stone",
 					["queued"] = 0,
 					["mats"] = {
-						["item:13503:0:0:0:0:0:0"] = 1,
 						["item:30183:0:0:0:0:0:0"] = 2,
 						["item:21886:0:0:0:0:0:0"] = 6,
+						["item:13503:0:0:0:0:0:0"] = 1,
 					},
 				},
 				[114778] = {
@@ -4427,12 +4424,12 @@ TradeSkillMaster_CraftingDB = {
 				},
 				["Jolokia"] = {
 					["Alchemy"] = {
-						["prompted"] = true,
+						["maxLevel"] = 600,
 						["link"] = "|cffffd000|Htrade:180000004F3C6BB:105206:171|h[Alchemy]|h|r",
 						["isSecondary"] = false,
 						["level"] = 600,
 						["accountKey"] = "Dragonblight803115249",
-						["maxLevel"] = 600,
+						["prompted"] = true,
 					},
 					["Leatherworking"] = {
 						["maxLevel"] = 600,

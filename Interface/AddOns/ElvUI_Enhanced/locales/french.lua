@@ -7,15 +7,15 @@ if not L then return; end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "Vous utilisez |cff1784d1ElvUI Enhanced|r version %s%s|r."
-L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUi est trop ancienne (requiert v6.51 ou plus). Merci de télécharger une version plus récente sur tukui.org."
+L["Your version of ElvUI is to old (required v6.51 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUI est trop ancienne (requiert v6.51 ou plus). Merci de télécharger une version plus récente sur tukui.org."
 
 -- Equipment
-L["Equipment"] = "Equipement"
-L["EQUIPMENT_DESC"] = "Adjust the settings for switching your gear set when you change specialization or enter a battleground."
+L["Equipment"] = "Équipement"
+L["EQUIPMENT_DESC"] = "Ajustez les réglages pour passer d'un équipement à l'autre lorsque vous changez de spécialisation ou lorsque que vous effectuez un Champs de Bataille."
 L["No Change"] = "Ne pas changer"
 
 L["Specialization"] = "Spécialisation"
-L["Enable/Disable the specialization switch."] = "Activer / Désactiver la fonction changement de spécialisation."
+L["Enable/Disable the specialization switch."] = "Activer / Désactiver la fonction du changement d'équipement lorsque vous changez de spécialisation."
 
 L["Primary Talent"] = "Spécialisation principale"
 L["Choose the equipment set to use for your primary specialization."] = "Choisissez le set d'équipement à utiliser pour votre spécialisation principale."
@@ -24,36 +24,36 @@ L["Secondary Talent"] = "Spécialisaion secondaire"
 L["Choose the equipment set to use for your secondary specialization."] = "Choisissez le set d'équipement à utiliser pour votre spécialisation secondaire."
 
 L["Battleground"] = "Champs de Bataille"
-L['Enable/Disable the battleground switch.'] = "Activer / Désactiver la fonction du changement de Champs de Bataille"
+L['Enable/Disable the battleground switch.'] = "Activer / Désactiver la fonction du changement d'équipement lorsque vous entrez dans un Champs de Bataille ou une Arène."
 
-L["Equipment Set"] = "Set d'équpement"
-L["Choose the equipment set to use when you enter a battleground or arena."] = "Choisissez le set d'équipement à utiliser quans vous entrez dans un Champs de Bataille ou une arène."
+L["Equipment Set"] = "Set d'équipement"
+L["Choose the equipment set to use when you enter a battleground or arena."] = "Choisissez le set d'équipement à utiliser quant vous entrez dans un Champs de Bataille ou une Arène."
 
-L["You have equipped equipment set: "] = "Vous avez équipez le set d'équipement"
+L["You have equipped equipment set: "] = "Vous avez équipez le set d'équipement: "
 
-L["DURABILITY_DESC"] = "Ajustez les réglages pour la duralité sur la feuille du personnage."
-L['Enable/Disable the display of durability information on the character screen.'] = "Active / Désactive l'affichage des informations de durabilité sur la feuille du personnage."
+L["DURABILITY_DESC"] = "Ajustez les réglages pour afficher la durabilité sur l'écran d'infos de personnage."
+L['Enable/Disable the display of durability information on the character screen.'] = "Activer / Désactiver l'affichage des informations de durabilité sur l'écran d'infos de personnage."
 L["Damaged Only"] = "Dégâts seulement"
-L["Only show durabitlity information for items that are damaged."] = "Afficher la durailité seulement quand l'équipement est endommagé."
+L["Only show durabitlity information for items that are damaged."] = "Afficher la durabilité seulement quand l'équipement est endommagé."
 
-L["ITEMLEVEL_DESC"] = "Adjust the settings for the item level information on the character screen."
-L["Enable/Disable the display of item levels on the character screen."] = true
+L["ITEMLEVEL_DESC"] = "Réglez les paramètres pour afficher le niveau d'objet sur l'écran d'infos de personnage."
+L["Enable/Disable the display of item levels on the character screen."] = "Activer / Désactiver l'affichage des informations du niveau d'objet sur l'écran d'infos de personnage."
 
-L["Miscellaneous"] = true
-L['Equipment Set Overlay'] = true
-L['Show the associated equipment sets for the items in your bags (or bank).'] = true
+L["Miscellaneous"] = "Divers"
+L['Equipment Set Overlay'] = "Nom du set d'équipement"
+L['Show the associated equipment sets for the items in your bags (or bank).'] = "Affiche le nom associés au set d'équipement sur vos objets dans vos sacs et votre banque."
 
 -- Movers
-L["Mover Transparency"] = "Transparence des Movers"
-L["Changes the transparency of all the movers."] = "Chance la transparence des Movers"
+L["Mover Transparency"] = "Transparence des Ancres"
+L["Changes the transparency of all the movers."] = "Change la transparence des Ancres"
 
 -- Automatic Role Assignment
 L['Automatic Role Assignment'] = "Assigner automatiquement le rôle"
-L['Enables the automatic role assignment based on specialization for party / raid members (only work when you are group leader or group assist).'] = "Active l'assignation automatique des rôles des membres selon la spécialisation dans le group/ Raid (Fonctionne seulement quans vous êtes le leader ou que vous possédez une assist.)"
+L['Enables the automatic role assignment based on specialization for party / raid members (only work when you are group leader or group assist).'] = "Active l'assignation automatique des rôles des membres selon la spécialisation dans le Groupe / Raid (Fonctionne seulement quand vous êtes le leader ou que vous possédez une assiste.)"
 
 -- Auto Hide Role Icons in combat
-L['Hide Role Icon in combat'] = true
-L['All role icons (Damage/Healer/Tank) on the unit frames are hidden when you go into combat.'] = true
+L['Hide Role Icon in combat'] = "Cachez les icônes de rôle en combat"
+L['All role icons (Damage/Healer/Tank) on the unit frames are hidden when you go into combat.'] = "Cachez toutes les icônes de rôle (Dommages/Healer/Tank) sur les cadres d'unité quand vous serait en combat."
 
 -- GPS module
 L['GPS'] = "GPS"
@@ -61,7 +61,7 @@ L['Show the direction and distance to the selected party or raid member.'] = "Af
 
 -- Attack Icon
 L['Attack Icon'] = "Icône d'Attaque"
-L['Show attack icon for units that are not tapped by you or your group, but still give kill credit when attacked.'] = "Affiche un icône d'attaque sur les unités que vous ou votre groupe n'avez pas encore tapé mais dont vous pouvez revendiquer la paternité."
+L['Show attack icon for units that are not tapped by you or your group, but still give kill credit when attacked.'] = "Affiche une icône d'attaque sur les unités que vous ou votre groupe n'avez pas encore tapé, mais dont vous pouvez revendiquer la paternité."
 
 -- Class Icon
 L['Show class icon for units.'] = true
@@ -81,7 +81,7 @@ L['Skin Buttons'] = "Boutons Skin"
 L['Skins the minimap buttons in Elv UI style.'] = "Habillez les boutons de la minicarte avec le style ElvUI."
 L['Skin Style'] = "Skin Style"
 L['Change settings for how the minimap buttons are skinned.'] = "Change les réglages pour comment sont habillés les boutons."
-L['The size of the minimap buttons.'] = "Taille des buotons de la minicarte."
+L['The size of the minimap buttons.'] = "Taille des boutons de la minicarte."
 
 L['No Anchor Bar'] = "Ne pas ancré à une Barre"
 L['Horizontal Anchor Bar'] = "Ancrer honrizontalement à la Barre"
@@ -105,11 +105,11 @@ L['Select Quest Reward'] = "Sélection de la récompense de quête"
 L['Automatically select the quest reward with the highest vendor sell value.'] = "Sélectionne automatiquement la récompense de quête qui vaut la plus chère chez le vendeur."
 
 -- Item Level Datatext
-L['Item Level'] = true
+L['Item Level'] = "Niveau d'objet"
 
 -- Range Datatext
 L['Target Range'] = true
-L['Distance'] = true
+L['Distance'] = "Distance"
 
 -- Extra Datatexts
 L['Actionbar1DataPanel'] = "Barre d'actions 1"
@@ -123,18 +123,18 @@ L["Tilled Soil"] = "Terre labourée"
 L['Right-click to drop the item.'] = "Clique droit pour lacher l'objet."
 
 L['Farmer'] = "Ferme"
-L["FARMER_DESC"] = "Adjust the settings for the tools that help you farm more efficiently on Sunsong Ranch."
-L['Farmer Bars'] = "Barre d'agriculteur" --huhu nice joke
+L["FARMER_DESC"] = "Réglez les paramètres des outils qui vous aideront à pratiquer une agriculture plus efficace avec votre Ferme (Ferme Chant du Soleil)."
+L['Farmer Bars'] = "Barre d'agriculture"
 L['Farmer Portal Bar'] = "Barre des portails"
 L['Farmer Seed Bar'] = "Barre des graines"
 L['Farmer Tools Bar'] = "Barre des outils"
-L['Enable/Disable the farmer bars.'] = "Activer / Désactiver la barre d'agriculteur" --second try :p
+L['Enable/Disable the farmer bars.'] = "Activer / Désactiver la barre d'agriculture"
 L['Only active buttons'] = "Seulement les boutons actifs"
 L['Only show the buttons for the seeds, portals, tools you have in your bags.'] = "Affiche seulement les boutons pour les graines, portails et outils que vous avez dans vos sacs."
 L['Drop Tools'] = "Jeter les outils"
-L['Automatically drop tools from your bags when leaving the farming area.'] = "Jète automatiquement les outils de votre sac après avoir quité la ferme."
-L['Seed Bar Direction'] = "Direction de la barre de graine."
-L['The direction of the seed bar buttons (Horizontal or Vertical).'] = "La direction de la barre de graine (Horizontal ou Vertical)."
+L['Automatically drop tools from your bags when leaving the farming area.'] = "Jeter automatiquement les outils de votre sac après avoir quitté la ferme."
+L['Seed Bar Direction'] = "Direction de la barre des graines."
+L['The direction of the seed bar buttons (Horizontal or Vertical).'] = "Sélectionnez la direction de la barre de graine (Horizontal ou Vertical)."
 
 -- Nameplates
 L["Threat Text"] = "Texte de menace"
@@ -165,7 +165,7 @@ L["%sClick to place a worldmarker."] = "%sClic pour placer un marqueur de terrai
 
 -- WatchFrame
 L['WatchFrame'] = "Fenêtre d'objectifs"
-L['WATCHFRAME_DESC'] = "Adjust the settings for the visibility of the watchframe (questlog) to your personal preference."
+L['WATCHFRAME_DESC'] = "Réglez les paramètres pour la visibilité de la fenêtre d'objectifs (journal de quête) avec vos préférences personnelles."
 L['Hidden'] = "Caché"
 L['Collapsed'] = "Replié"
 L['Settings'] = "Paramètres"
@@ -176,5 +176,5 @@ L['Party'] = "Groupe"
 L['Raid'] = "Raid"
 
 -- Tooltips
-L['Progression Info'] = true
-L['Display the players raid progression in the tooltip, this may not immediately update when mousing over a unit.'] = true
+L['Progression Info'] = "Information de progression"
+L['Display the players raid progression in the tooltip, this may not immediately update when mousing over a unit.'] = "Affiche la progression (Raid) du joueur dans une infos-bulle (ne peut être mis à jour immédiatement lorsque la souris survole une unité)."

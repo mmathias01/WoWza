@@ -2,10 +2,11 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs: Common", "koKR")
 if not L then return end
 -- Prototype.lua common words
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
-L["add_killed"] = "죽음 추가! (%d/%d)"
-L["add_remaining"] = "죽음 추가, %d 남음"
+L["add_killed"] = "추가 죽음! (%d/%d)" -- Needs review
+L["add_remaining"] = "추가 죽음까지 %d 남음" -- Needs review
 L["add_spawned"] = "추가 생성!"
-L["cast"] = "<%s 시전중>"
+L["cast"] = "<%s 시전>" -- Needs review
+L["casting"] = "%s 시전 중!" -- Needs review
 L["count"] = "%s (%d)"
 L["custom_end"] = "%s - %s!"
 L["custom_min"] = "%2$d분 후 %1$s"
@@ -17,7 +18,7 @@ L["general"] = "일반 경고"
 L["hard"] = "도전 모드"
 L["heroic"] = "영웅(하드) 모드"
 L["incoming"] = "%s 곧 돌아옴!"
-L["interrupted"] = "%s 차단"
+L["interrupted"] = "%s 차단됨" -- Needs review
 L["mob_killed"] = "%s 죽음! (%d/%d)"
 L["mob_remaining"] = "%s 죽음, %d 남음"
 L["near"] = "당신가 가까움 %s!"
@@ -26,7 +27,7 @@ L["normal"] = "일반 모드"
 L["on"] = "%s - %s"
 L["onboss"] = "우두머리에게 %s!"
 L["other"] = "%s: %s"
-L["over"] = "%s 초과!"
+L["over"] = "%s 종료!" -- Needs review
 L["phase"] = "%d 단계"
 L["removed"] = "%s 사라짐"
 L["say"] = "나에게 %s!"

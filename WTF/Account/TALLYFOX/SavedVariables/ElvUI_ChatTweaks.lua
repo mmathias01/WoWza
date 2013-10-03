@@ -1124,61 +1124,61 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
-						["gilneas"] = false,
 						["theconsortium"] = false,
-						["theleagueofarathor"] = false,
+						["timbermawhold"] = false,
 						["darkmoonfaire"] = false,
 						["gelkisclancentaur"] = false,
-						["orderofthecloudserpent"] = false,
+						["cenarionexpedition"] = false,
 						["everlook"] = false,
-						["shatariskyguard"] = false,
 						["shadopanassault"] = false,
 						["hydraxianwaterlords"] = false,
 						["theaugustcelestials"] = false,
-						["shadopan"] = false,
-						["darnassus"] = false,
 						["theshatar"] = false,
-						["bloodsailbuccaneers"] = false,
-						["kirintoroffensive"] = false,
-						["thesilvercovenant"] = false,
-						["stormwind"] = false,
-						["ironforge"] = false,
-						["exodar"] = false,
-						["theblackprince"] = false,
 						["ginamudclaw"] = false,
-						["honorhold"] = false,
-						["sho"] = false,
 						["tinamudclaw"] = false,
 						["thealdor"] = false,
-						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
-						["thoriumbrotherhood"] = false,
-						["shatteredsunoffensive"] = false,
 						["ratchet"] = false,
 						["thevioleteye"] = false,
 						["lowercity"] = false,
-						["valianceexpedition"] = false,
-						["kurenai"] = false,
-						["cenarionexpedition"] = false,
-						["thescaleofthesands"] = false,
-						["tushuipandaren"] = false,
 						["sporeggar"] = false,
-						["thelorewalkers"] = false,
-						["holycrit"] = false,
-						["keepersoftime"] = false,
 						["gadgetzan"] = false,
-						["silverwingsentinels"] = false,
-						["timbermawhold"] = false,
-						["thescryers"] = false,
-						["argentdawn"] = false,
-						["magramclancentaur"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
-						["pearlfinjinyu"] = false,
 						["ashtonguedeathsworn"] = false,
 						["stormpikeguard"] = false,
-						["goldenlotus"] = false,
 						["theklaxxi"] = false,
+						["thescaleofthesands"] = false,
+						["shatteredsunoffensive"] = false,
+						["ironforge"] = false,
+						["shatariskyguard"] = false,
+						["pearlfinjinyu"] = false,
+						["shadopan"] = false,
+						["holycrit"] = false,
+						["bloodsailbuccaneers"] = false,
+						["thesilvercovenant"] = false,
+						["honorhold"] = false,
+						["sho"] = false,
+						["zandalartribe"] = false,
+						["argentdawn"] = false,
+						["valianceexpedition"] = false,
+						["tushuipandaren"] = false,
+						["gilneas"] = false,
+						["theleagueofarathor"] = false,
+						["keepersoftime"] = false,
+						["kirintoroffensive"] = false,
+						["kurenai"] = false,
+						["orderofthecloudserpent"] = false,
+						["thescryers"] = false,
+						["thelorewalkers"] = false,
+						["magramclancentaur"] = false,
+						["darnassus"] = false,
+						["theblackprince"] = false,
+						["stormwind"] = false,
+						["exodar"] = false,
+						["silverwingsentinels"] = false,
+						["goldenlotus"] = false,
+						["thoriumbrotherhood"] = false,
 						["joguthedrunk"] = false,
 					},
 				},
@@ -1227,10 +1227,10 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Say"] = false,
-					["Party Leader"] = false,
 					["Raid"] = false,
+					["Party Leader"] = false,
 					["Yell"] = false,
+					["Say"] = false,
 					["Officer"] = false,
 				},
 				["Jolobank - Dragonblight"] = {
@@ -1240,10 +1240,10 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Raid"] = false,
-					["Party Leader"] = false,
-					["Yell"] = false,
 					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Yell"] = false,
 					["Officer"] = false,
 				},
 				["Shenlu - Dragonblight"] = {
@@ -1301,7 +1301,7 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["AutoDing"] = {
+		["AuctionMessageFiltering"] = {
 		},
 		["Companions"] = {
 			["profiles"] = {
@@ -1321,13 +1321,13 @@ ElvUI_ChatTweaksDB = {
 		},
 		["KeywordSounds"] = {
 		},
-		["RerouteAuctionMessages"] = {
+		["AutoDing"] = {
 		},
 		["AltNames"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["AuctionMessageFiltering"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["Magic8-Ball"] = {
 		},
@@ -1339,42 +1339,6 @@ ElvUI_ChatTweaksDB = {
 		},
 		["EditboxHistory"] = {
 			["char"] = {
-				["Jolokia - Dragonblight"] = {
-					["history"] = {
-						"/cw Destellar ill try", -- [1]
-						"/raid yah youll see", -- [2]
-						"/raid lets get him to split this time", -- [3]
-						"/raid this is NOT LFR", -- [4]
-						"/raid lol", -- [5]
-						"/raid spread out", -- [6]
-						"/raid try and stay on either side of the blue / green", -- [7]
-						"/raid within 1 section", -- [8]
-						"/raid dps on yellow / either side of blue / green", -- [9]
-						"/raid lets get him to split this time", -- [10]
-						"/raid fuck it let me get back on my priest", -- [11]
-						"/raid im faster on that toon", -- [12]
-						"/raid and keep trying to shield people", -- [13]
-						"/raid ffs", -- [14]
-						"/raid im switching", -- [15]
-						"/raid that should help", -- [16]
-						"/raid this toon feels SLOOOOW to me", -- [17]
-						"/raid and keep trying to shield people", -- [18]
-						"/raid ffs", -- [19]
-						"/raid im switching", -- [20]
-						"/raid that should help", -- [21]
-						"/raid this toon feels SLOOOOW to me", -- [22]
-						"/raid and keep trying to shield people", -- [23]
-						"/raid ffs", -- [24]
-						"/raid im switching", -- [25]
-						"/raid that should help", -- [26]
-						"/raid this toon feels SLOOOOW to me", -- [27]
-						"/raid and keep trying to shield people", -- [28]
-						"/raid ffs", -- [29]
-						"/raid im switching", -- [30]
-						"/raid that should help", -- [31]
-						"/raid this toon feels SLOOOOW to me", -- [32]
-					},
-				},
 				["Shenlu - Dragonblight"] = {
 					["history"] = {
 						"/g night!", -- [1]
@@ -1409,6 +1373,42 @@ ElvUI_ChatTweaksDB = {
 						"/p ok so it is JUST Maj's account", -- [30]
 						"/p ok", -- [31]
 						"/p yup cannot do it", -- [32]
+					},
+				},
+				["Jolokia - Dragonblight"] = {
+					["history"] = {
+						"/raid ffs", -- [1]
+						"/raid im switching", -- [2]
+						"/raid that should help", -- [3]
+						"/raid this toon feels SLOOOOW to me", -- [4]
+						"/raid and keep trying to shield people", -- [5]
+						"/raid ffs", -- [6]
+						"/raid im switching", -- [7]
+						"/raid that should help", -- [8]
+						"/raid this toon feels SLOOOOW to me", -- [9]
+						"/raid and keep trying to shield people", -- [10]
+						"/raid ffs", -- [11]
+						"/raid im switching", -- [12]
+						"/raid that should help", -- [13]
+						"/raid this toon feels SLOOOOW to me", -- [14]
+						"/raid and keep trying to shield people", -- [15]
+						"/raid ffs", -- [16]
+						"/raid im switching", -- [17]
+						"/raid that should help", -- [18]
+						"/raid this toon feels SLOOOOW to me", -- [19]
+						" yup, just making some potions", -- [20]
+						" wow lol ok sorry", -- [21]
+						" damn we get started early these days", -- [22]
+						"/raid that should help", -- [23]
+						"/raid this toon feels SLOOOOW to me", -- [24]
+						" yup, just making some potions", -- [25]
+						" wow lol ok sorry", -- [26]
+						" damn we get started early these days", -- [27]
+						"/raid that should help", -- [28]
+						"/raid this toon feels SLOOOOW to me", -- [29]
+						" yup, just making some potions", -- [30]
+						" wow lol ok sorry", -- [31]
+						" damn we get started early these days", -- [32]
 					},
 				},
 			},

@@ -103,58 +103,58 @@ function TSM:GetOperationInfo(name)
 	TSMAPI:UpdateOperation("Warehousing", name)
 	local settings = TSM.operations[name]
 	if not settings then return end
-	if (settings.keepBagQuantity or settings.keepBankQuantity) and not settings.moveQuantity then
-		if settings.keepBagQuantity then
-			if settings.keepBankQuantity then
-				if settings.restockQuantity then
+	if (settings.keepBagQtyEnabled or settings.keepBankQtyEnabled) and not settings.moveQtyEnabled then
+		if settings.keepBagQtyEnabled then
+			if settings.keepBankQtyEnabled then
+				if settings.restockQtyEnabled then
 					return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bags > bank/gbank, %d of each item back when bank/gbank > bags. Restock will maintain %d items in your bags."], settings.keepBagQuantity, settings.keepBankQuantity, settings.restockQuantity)
 				else
 					return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bags > bank/gbank, %d of each item back when bank/gbank > bags."], settings.keepBagQuantity, settings.keepBankQuantity)
 				end
 			else
-				if settings.restockQuantity then
+				if settings.restockQtyEnabled then
 					return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bags > bank/gbank. Restock will maintain %d items in your bags."], settings.keepBagQuantity, settings.restockQuantity)
 				else
 					return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bags > bank/gbank."], settings.keepBagQuantity)
 				end
 			end
 		else
-			if settings.restockQuantity then
+			if settings.restockQtyEnabled then
 				return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bank/gbank > bags. Restock will maintain %d items in your bags."], settings.keepBankQuantity, settings.restockQuantity)
 			else
 				return format(L["Warehousing will move all of the items in this group keeping %d of each item back when bank/gbank > bags."], settings.keepBankQuantity)
 			end
 		end
-	elseif (settings.keepBagQuantity or settings.keepBankQuantity) and settings.moveQuantity then
-		if settings.keepBagQuantity then
-			if settings.keepBankQuantity then
-				if settings.restockQuantity then
+	elseif (settings.keepBagQtyEnabled or settings.keepBankQtyEnabled) and settings.moveQtyEnabled then
+		if settings.keepBagQtyEnabled then
+			if settings.keepBankQtyEnabled then
+				if settings.restockQtyEnabled then
 					return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bags > bank/gbank, %d of each item back when bank/gbank > bags. Restock will maintain %d items in your bags."], settings.moveQuantity, settings.keepBagQuantity, settings.keepBankQuantity, settings.restockQuantity)
 				else
 					return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bags > bank/gbank, %d of each item back when bank/gbank > bags."], settings.moveQuantity, settings.keepBagQuantity, settings.keepBankQuantity)
 				end
 			else
-				if settings.restockQuantity then
+				if settings.restockQtyEnabled then
 					return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bags > bank/gbank. Restock will maintain %d items in your bags."], settings.keepBankQuantity, settings.restockQuantity)
 				else
 					return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bags > bank/gbank."], settings.keepBankQuantity)
 				end
 			end
 		else
-			if settings.restockQuantity then
+			if settings.restockQtyEnabled then
 				return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bank/gbank > bags. Restock will maintain %d items in your bags."], settings.moveQuantity, settings.keepBankQuantity, settings.restockQuantity)
 			else
 				return format(L["Warehousing will move a max of %d of each item in this group keeping %d of each item back when bank/gbank > bags."], settings.moveQuantity, settings.keepBankQuantity)
 			end
 		end
-	elseif settings.moveQuantity then
-		if settings.restockQuantity then
+	elseif settings.moveQtyEnabled then
+		if settings.restockQtyEnabled then
 			return format(L["Warehousing will move a max of %d of each item in this group. Restock will maintain %d items in your bags."], settings.moveQuantity, settings.restockQuantity)
 		else
 			return format(L["Warehousing will move a max of %d of each item in this group."], settings.moveQuantity)
 		end
 	else
-		if settings.restockQuantity then
+		if settings.restockQtyEnabled then
 			return format(L["Warehousing will move all of the items in this group. Restock will maintain %d items in your bags."], settings.restockQuantity)
 		else
 			return L["Warehousing will move all of the items in this group."]

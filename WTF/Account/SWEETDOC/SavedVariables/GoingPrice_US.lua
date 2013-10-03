@@ -13,7 +13,7 @@ GoingPrice_US_SV = {
 				0, -- [3]
 			},
 			["modifier"] = 4,
-			["date"] = 1379838186,
+			["date"] = 1380771980,
 			["statisticColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -37,26 +37,26 @@ GoingPrice_US_SV = {
 		["Buy From Vendor"] = 3,
 		["Market Mean"] = 1,
 	},
-	["_discard"] = {
-		["checked"] = false,
+	["Std Deviation"] = {
+		["next"] = "Buy From Vendor",
+		["keep"] = true,
+		["checked"] = true,
+		["prev"] = "Market Mean",
 	},
 	["Market Mean"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["next"] = "Std Deviation",
 	},
+	["_lib_major_version"] = 2,
+	["_lib_minor_version"] = 7,
 	["Buy From Vendor"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["prev"] = "Std Deviation",
 	},
-	["_lib_minor_version"] = 7,
 	["_lastKey"] = "Buy From Vendor",
-	["_lib_major_version"] = 2,
-	["Std Deviation"] = {
-		["prev"] = "Market Mean",
-		["keep"] = true,
-		["checked"] = true,
-		["next"] = "Buy From Vendor",
+	["_discard"] = {
+		["checked"] = false,
 	},
 }

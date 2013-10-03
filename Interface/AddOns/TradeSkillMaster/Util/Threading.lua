@@ -37,9 +37,9 @@ local ThreadPrototype = {
 
 
 
+local quantums = {}
 function private.RunScheduler(_, elapsed)
 	-- deal with sleeping threads and try and assign requested quantums
-	local quantums = {}
 	local totalTime = min(elapsed * 1000, MAX_QUANTUM)
 	local usedTime = 0
 	for i, thread in ipairs(private.threads) do
@@ -84,24 +84,21 @@ function TSMAPI.Threading:Start(func, percent, callback, param)
 end
 
 do
-	private.frame = CreateFrame("Frame")
-	private.frame:Hide()
-	private.frame:SetScript("OnUpdate", private.RunScheduler)
-	private.frame:Show()
-	private.index = 1
+	local frame = CreateFrame("Frame")
+	frame:SetScript("OnUpdate", private.RunScheduler)
 end
 
 -- EXAMPLE USAGE:
 
-local function TestFunc(self, letter)
-	for i = 1, 10 do
-		self:Sleep(1)
-		print(letter, i)
-	end
-end
+-- local function TestFunc(self, letter)
+	-- for i = 1, 10 do
+		-- self:Sleep(1)
+		-- print(letter, i)
+	-- end
+-- end
 
-function TSMTest()
-	local start = GetTime()
-	TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "A")
-	TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "B")
-end
+-- function TSMTest()
+	-- local start = GetTime()
+	-- TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "A")
+	-- TSMAPI.Threading:Start(TestFunc, 1, function() print("DONE", GetTime()-start) end, "B")
+-- end

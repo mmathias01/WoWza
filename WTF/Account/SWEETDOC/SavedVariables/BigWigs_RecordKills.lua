@@ -8,15 +8,15 @@ RKDatabase = {
 			["recordTimes"] = {
 				["Mogu'shan Vaults"] = {
 					["Gara'jal the Spiritbinder"] = {
-						[7] = 202,
+						[7] = 145,
 						[5] = 159,
 					},
 					["Feng the Accursed"] = {
-						[7] = 311,
+						[7] = 291,
 						[5] = 320,
 					},
 					["The Stone Guard"] = {
-						[7] = 194,
+						[7] = 176,
 						[5] = 237,
 					},
 				},
@@ -49,16 +49,17 @@ RKDatabase = {
 					},
 					["Sha of Pride"] = {
 						[14] = 304,
-						[7] = 490,
+						[7] = 368,
 						[3] = 382,
 					},
 					["Norushen"] = {
 						[14] = 277,
-						[7] = 514,
+						[7] = 355,
 						[3] = 358,
 					},
 					["Kor'kron Dark Shaman"] = {
-						[3] = 338,
+						[3] = 335,
+						[7] = 471,
 					},
 					["Malkorok"] = {
 						[3] = 298,
@@ -69,8 +70,9 @@ RKDatabase = {
 						[3] = 375,
 					},
 					["General Nazgrim"] = {
-						[3] = 392,
 						[14] = 447,
+						[7] = 486,
+						[3] = 392,
 					},
 					["Iron Juggernaut"] = {
 						[3] = 389,
@@ -85,7 +87,7 @@ RKDatabase = {
 				["Throne of Thunder"] = {
 					["Twin Consorts"] = {
 						[3] = 444,
-						[7] = 405,
+						[7] = 3,
 					},
 					["Jin'rokh the Breaker"] = {
 						[3] = 184,
@@ -97,17 +99,17 @@ RKDatabase = {
 						[7] = 317,
 						[5] = 582,
 					},
-					["Durumu the Forgotten"] = {
-						[3] = 342,
-						[7] = 171,
+					["Iron Qon"] = {
+						[3] = 548,
+						[7] = 405,
 					},
 					["Dark Animus"] = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
+					["Council of Elders"] = {
+						[3] = 324,
+						[7] = 359,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -121,17 +123,17 @@ RKDatabase = {
 						[7] = 496,
 						[3] = 542,
 					},
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
+					},
 					["Horridon"] = {
 						[3] = 482,
 						[7] = 500,
 					},
-					["Council of Elders"] = {
-						[3] = 324,
-						[7] = 359,
-					},
-					["Iron Qon"] = {
-						[3] = 548,
-						[7] = 405,
+					["Durumu the Forgotten"] = {
+						[3] = 342,
+						[7] = 171,
 					},
 				},
 			},

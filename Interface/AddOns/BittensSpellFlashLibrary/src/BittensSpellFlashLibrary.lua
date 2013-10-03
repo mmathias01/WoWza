@@ -1,7 +1,7 @@
 local g = BittensGlobalTables
 local c = g.GetOrMakeTable("BittensSpellFlashLibrary", 2)
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "MainFile", 38) then
+if u.SkipOrUpgrade(c, "MainFile", 39) then
 	return
 end
 
@@ -38,6 +38,9 @@ local string = string
 local table = table
 local type = type
 local unpack = unpack
+local wipe = wipe
+
+c.Flashing = { }
 
 function c.Init(a)
 	c.A = a
@@ -95,7 +98,7 @@ local function getFlashColor(spell, rotation)
 		or (c.AoE and (rotation and rotation.AoEColor or c.AoeColor))
 end
 
-local function flashSingle(spell, rotation)
+local function flashSingle(spell, name, rotation)
 	if spell.RunFirst then
 		spell:RunFirst()
 	end
@@ -188,6 +191,9 @@ local function flashSingle(spell, rotation)
 	if spell.PredictFlashID then
 		c.PredictFlash(spell.PredictFlashID)
 	end
+	if name then
+		c.Flashing[name] = true
+	end
 	return true
 end
 
@@ -214,6 +220,7 @@ function c.RegisterAddon()
 			return
 		end
 		
+		wipe(c.Flashing)
 		if a.PreFlash then
 			a.PreFlash()
 		end
@@ -344,34 +351,21 @@ local tankingByTarget = {
 	[2938] = true, -- lost name.  a scenario "boss".
 }
 
-function c.IsTanking()
+function c.IsTanking(unit)
+	if not unit then
+		unit = "player"
+	end
 	
 	-- Gara'jal (the Spiritbinder) does not attack his primary threat target
 	-- most of the time.  Instead he attacks the person he put the voodoo thing
 	-- on.
 	local _, targetID = s.UnitInfo()
 	if tankingByTarget[targetID] then 
-		return UnitIsUnit("targettarget", "player")
+		return UnitIsUnit("targettarget", unit)
 	else
-		local status = UnitThreatSituation("player", "target")
+		local status = UnitThreatSituation(unit, "target")
 		return status == 2 or status == 3
 	end
-end
-
-function c.CheckFirstForTaunts(z)
-	local primaryTarget = s.GetPrimaryThreatTarget()
-	if not primaryTarget or UnitIsUnit(primaryTarget, "player") then
-		return false
-	end
-	
-	if UnitGroupRolesAssigned(primaryTarget) == "TANK" then
-		z.FlashSize = s.FlashSizePercent() / 2
-		z.FlashColor = "yellow"
-	else
-		z.FlashSize = nil
-		z.FlashColor = "red"
-	end
-	return true
 end
 
 function c.WearingSet(number, name)
@@ -641,7 +635,21 @@ end
 
 function c.AddTaunt(name, tag, attributes)
 	local spell = c.AddOptionalSpell(name, tag, attributes)
-	spell.CheckFirst = c.CheckFirstForTaunts
+	spell.CheckFirst = function(z)
+		local primaryTarget = s.GetPrimaryThreatTarget()
+		if not primaryTarget or UnitIsUnit(primaryTarget, "player") then
+			return false
+		end
+		
+		if UnitGroupRolesAssigned(primaryTarget) == "TANK" then
+			z.FlashSize = s.FlashSizePercent() / 2
+			z.FlashColor = "yellow"
+		else
+			z.FlashSize = nil
+			z.FlashColor = "red"
+		end
+		return true
+	end
 	return spell
 end
 
@@ -666,7 +674,7 @@ function c.PriorityFlash(...)
 			canCastWhileMoving = c.GetCastTime(spell.ID) == 0
 		end
 		if (canCastWhileMoving or not moving or overrideColor == nil)
-			and flashSingle(spell, rotation) then
+			and flashSingle(spell, name, rotation) then
 			
 			flashed = name
 			if not spell.Continue then
@@ -827,7 +835,8 @@ end
 function c.FlashAll(...)
 	local flashed = false
 	for i = 1, select("#", ...) do
-		if flashSingle(c.GetSpell(select(i, ...))) then
+		local name = select(i, ...)
+		if flashSingle(c.GetSpell(name), name) then
 			flashed = true
 		end
 	end

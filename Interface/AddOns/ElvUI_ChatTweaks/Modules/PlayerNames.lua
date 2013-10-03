@@ -258,8 +258,8 @@ function Module:UpdateSaveData(v)
 end
 
 local function fixLogin(head, id, misc, who, extra, colon)
-	local left, right
-	if Module.db.profile.bnetBrackets then
+	local left, right = "", ""
+	if not Module.db.profile.bnetBrackets then
 		left = Module.db.profile.leftBracket or "["
 		right = Module.db.profile.rightBracket or "]"
 	end

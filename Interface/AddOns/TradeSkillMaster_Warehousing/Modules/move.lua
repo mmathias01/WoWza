@@ -148,6 +148,8 @@ function move:areBanksVisible()
 		return true
 	elseif NivayacBniv_Bank and NivayacBniv_Bank:IsVisible() then
 		return true
+	elseif DufUIBank and DufUIBank:IsVisble() then
+		return true
 	end
 	TSM:Print(L["Canceled"])
 	return nil

@@ -143,6 +143,12 @@ end
 
 function MB:UpdateLayout()
 	if not E.minimapbuttons then return end
+	if InCombatLockdown() then
+		MB:RegisterEvent("PLAYER_REGEN_ENABLED", "UpdateLayout")	
+		return
+	else
+		MB:UnregisterEvent("PLAYER_REGEN_ENABLED")
+ 	end
 	
 	local direction = E.minimapbuttons.db.layoutDirection == 'NORMAL'
 	local offset = direction and -2 or 2
@@ -214,9 +220,9 @@ function MB:UpdateLayout()
 		end
 		minimapButtonBarAnchor:SetSize(minimapButtonBar:GetSize())
 		minimapButtonBar:Show()
-		RegisterStateDriver(minimapButtonBarAnchor, "visibility", '[petbattle]hide;show')
+		RegisterStateDriver(minimapButtonBar, "visibility", '[petbattle]hide;show')
 	else
-		UnregisterStateDriver(minimapButtonBarAnchor, "visibility")
+		UnregisterStateDriver(minimapButtonBar, "visibility")
 		minimapButtonBar:Hide()
 	end
 	

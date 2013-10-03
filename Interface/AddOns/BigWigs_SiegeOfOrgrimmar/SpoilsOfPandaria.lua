@@ -58,7 +58,7 @@ function mod:GetOptions()
 	}
 end
 
-function mod:OnRegister()
+function mod:OnRegister() -- XXX check out replacing this the chest id
 	-- Kel'Thuzad v3
 	local f = CreateFrame("Frame")
 	local func = function()
@@ -94,7 +94,6 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "SetToBlowRemoved", 145987)
 
 	self:Yell("Win", L.win_trigger)
-	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 end
 
 function mod:OnEngage()
@@ -102,6 +101,10 @@ function mod:OnEngage()
 	self:OpenProximity("proximity", 3)
 	remaining = nil
 	brewmasterMarked = nil
+	-- Sometimes there's a long delay between the last IEEU and IsEncounterInProgress being false so use this as a backup.
+	self:StopWipeCheck()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "StartWipeCheck")
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "StopWipeCheck")
 end
 
 --------------------------------------------------------------------------------
@@ -136,7 +139,7 @@ do
 		if self.db.profile.custom_off_mark_brewmaster and not timer then
 			timer = self:ScheduleRepeatingTimer(markBrewmaster, 0.1, args.sourceGUID)
 		end
-		local debuffed =  UnitDebuff("player", self:SpellName(146217)) -- Keg Toss
+		local debuffed = UnitDebuff("player", self:SpellName(146217)) -- Keg Toss
 		self:Message(args.spellId, "Attention", debuffed and "Long")
 		if debuffed then
 			self:Flash(146217) -- flash again

@@ -239,8 +239,8 @@ local methods = {
 		wipe(rt.displayRows)
 		
 		local function RowSort(a, b)
-			local aPct = a[rt.sortInfo.column].args[1] or 0
-			local bPct = b[rt.sortInfo.column].args[1] or 0
+			local aPct = tonumber(a[rt.sortInfo.column].args[1]) or 0
+			local bPct = tonumber(b[rt.sortInfo.column].args[1]) or 0
 			if aPct == bPct then
 				-- make this a stable sort (abitrarily) by using table reference strings
 				return tostring(a) < tostring(b)

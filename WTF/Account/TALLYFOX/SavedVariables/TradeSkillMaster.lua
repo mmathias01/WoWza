@@ -2,20 +2,20 @@
 TradeSkillMasterDB = {
 	["factionrealm"] = {
 		["Alliance - Dragonblight"] = {
+			["numPagesCache"] = {
+				["Flask of~85~85~0~Consumable~Flask~nil~1"] = {
+					["lastScan"] = 1380685745,
+					["confidence"] = 0,
+					["avg"] = 5.5,
+					["numScans"] = 2,
+				},
+			},
 			["characters"] = {
 				["Jolobank"] = true,
 				["Shenlu"] = true,
 				["Jolokia"] = true,
 			},
 			["accountKey"] = "Dragonblight803115249",
-			["numPagesCache"] = {
-				["Flask of~85~85~0~Consumable~Flask~nil~1"] = {
-					["lastScan"] = 1379042121,
-					["confidence"] = 0,
-					["avg"] = 8,
-					["numScans"] = 1,
-				},
-			},
 		},
 	},
 	["profileKeys"] = {
@@ -25,7 +25,15 @@ TradeSkillMasterDB = {
 	},
 	["global"] = {
 		["vendorItems"] = {
-			["item:3371:0:0:0:0:0:0"] = 70,
+			["item:2139:0:0:0:0:0:0"] = 55,
+			["item:2479:0:0:0:0:0:0"] = 103,
+			["item:2480:0:0:0:0:0:0"] = 69,
+			["item:3371:0:0:0:0:0:0"] = 90,
+			["item:2132:0:0:0:0:0:0"] = 98,
+			["item:2131:0:0:0:0:0:0"] = 52,
+			["item:1194:0:0:0:0:0:0"] = 100,
+			["item:2134:0:0:0:0:0:0"] = 79,
+			["item:2130:0:0:0:0:0:0"] = 52,
 		},
 		["infoMessage"] = 1001,
 	},
