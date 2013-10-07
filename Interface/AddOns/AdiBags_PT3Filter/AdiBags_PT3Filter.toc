@@ -1,0 +1,23 @@
+## Interface: 50200
+## X-Curse-Packaged-Version: v1.3-5.2
+## X-Curse-Project-Name: AdiBags_PT3Filter
+## X-Curse-Project-ID: adibags-pt3filter
+## X-Curse-Repository-ID: wow/adibags-pt3filter/mainline
+
+## Title: AdiBags - PT3 filter
+## Notes: LibPeriodicTable-3.1 item filters for AdiBags.
+## Author: Adirelle
+## Version: v1.3-5.2
+## X-Date: 2013-03-28T19:56:54Z
+## Dependencies: AdiBags
+## OptionalDeps: LibPeriodicTable-3.1
+
+# LibStub is provided by AdiBags
+#@no-lib-strip@
+libs\LibPeriodicTable-3.1\LibPeriodicTable-3.1\LibPeriodicTable-3.1.lua
+libs\LibPeriodicTable-3.1\modules.xml
+#@end-no-lib-strip@
+
+Localization.lua
+AdiBags_PT3Filter.lua
+

@@ -1,0 +1,14 @@
+tag v1.6.9
+2efe7e8319c00659edf1a902f7d13dcee97f1eba
+Adirelle <adirelle@gmail.com>
+2013-09-14 10:40:31 +0200
+
+Tagging as v1.6.9.
+
+
+--------------------
+
+Adirelle:
+	- Locales updated.
+	- Add another color scheme to the ItemLevel module.
+	- Removed ProfessionsVault support.

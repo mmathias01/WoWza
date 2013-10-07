@@ -1,0 +1,209 @@
+
+BagSyncDB = {
+	["Dragonblight"] = {
+		["Majandra"] = {
+			["bag"] = {
+				{
+					[24] = "74249,18",
+					[8] = "22446,2",
+					[16] = "105715,29",
+					[17] = "97985",
+					[18] = "104286",
+					[19] = "79249,13",
+					[20] = "103977",
+					[21] = "95567",
+					[6] = "21877,3",
+					[23] = "74249,20",
+					[22] = "6948",
+				}, -- [1]
+				{
+					"74839,8", -- [1]
+					"74844", -- [2]
+					"74833,3", -- [3]
+					"74838,2", -- [4]
+					"74834", -- [5]
+					"38426,2", -- [6]
+					"72988,3", -- [7]
+					"82441,4", -- [8]
+					"89112", -- [9]
+					"76085,5", -- [10]
+					"76086,11", -- [11]
+					"76093,16", -- [12]
+					"76092,2", -- [13]
+					"76098,20", -- [14]
+					"76098,15", -- [15]
+					"76097,18", -- [16]
+					"101618,3", -- [17]
+					"81413,2", -- [18]
+					"87246,3", -- [19]
+					"86542", -- [20]
+					"104334", -- [21]
+					"104336", -- [22]
+				}, -- [2]
+				{
+					"104230", -- [1]
+					"74250", -- [2]
+					"104287,2", -- [3]
+					"104294", -- [4]
+					"86584", -- [5]
+					"104038", -- [6]
+					"76651", -- [7]
+					"76686,2", -- [8]
+					"76638,3", -- [9]
+					"80433,2", -- [10]
+					"22462", -- [11]
+					"74247,20", -- [12]
+					"63206", -- [13]
+					"74248,11", -- [14]
+					"64399", -- [15]
+					"94965", -- [16]
+					"94785", -- [17]
+					"79330", -- [18]
+					"94524", -- [19]
+					"95163", -- [20]
+				}, -- [3]
+				{
+					"94737", -- [1]
+					"94947", -- [2]
+					"95295", -- [3]
+					"105828", -- [4]
+					"103752", -- [5]
+					"94804", -- [6]
+					"95927", -- [7]
+					"94966", -- [8]
+					"94923", -- [9]
+					"96379", -- [10]
+					"94970", -- [11]
+					"95928", -- [12]
+					"94977", -- [13]
+					"96381", -- [14]
+					"103923", -- [15]
+					"94801", -- [16]
+					"95299", -- [17]
+					"95296", -- [18]
+					"94959", -- [19]
+					"105043", -- [20]
+				}, -- [4]
+				[0] = {
+					"21840,8", -- [1]
+					"21885,2", -- [2]
+					"32897,20", -- [3]
+					"104697", -- [4]
+					"21840,20", -- [5]
+					"22445,20", -- [6]
+					"22446,10", -- [7]
+					"22578,8", -- [8]
+					[11] = "32428,13",
+					[13] = "21840,20",
+					[14] = "22445,14",
+				},
+			},
+			["guild"] = "Mayor Carlos Danger",
+			["gold"] = 13677652,
+			["equip"] = {
+				[0] = {
+					"103751", -- [1]
+					"103881", -- [2]
+					"104717", -- [3]
+					nil, -- [4]
+					"99119", -- [5]
+					"98608", -- [6]
+					"101893", -- [7]
+					"94279", -- [8]
+					"96060", -- [9]
+					"99023", -- [10]
+					"95512", -- [11]
+					"94931", -- [12]
+					"94509", -- [13]
+					"94514", -- [14]
+					"102247", -- [15]
+					"96092", -- [16]
+				},
+			},
+			["class"] = "PRIEST",
+			["faction"] = "Alliance",
+		},
+	},
+}
+BagSyncOpt = {
+	["enableAuction"] = true,
+	["showGuildNames"] = false,
+	["tooltipOnlySearch"] = false,
+	["enableTooltips"] = true,
+	["enableMailbox"] = true,
+	["enableFaction"] = true,
+	["enableGuild"] = true,
+	["dbversion"] = "7.6",
+	["enableTooltipSeperator"] = true,
+	["showTotal"] = true,
+	["enableUnitClass"] = false,
+	["enableMinimap"] = true,
+}
+BagSyncGUILD_DB = {
+	["Dragonblight"] = {
+	},
+}
+BagSyncTOKEN_DB = {
+	["Dragonblight"] = {
+		["Elder Charm of Good Fortune"] = {
+			["Majandra"] = 13,
+			["header"] = "Mists of Pandaria",
+			["icon"] = "Interface\\Icons\\inv_misc_coin_17",
+		},
+		["Honor Points"] = {
+			["Majandra"] = 344,
+			["header"] = "Unused",
+			["icon"] = "Interface\\Icons\\PVPCurrency-Honor-Alliance",
+		},
+		["Lesser Charm of Good Fortune"] = {
+			["Majandra"] = 203,
+			["header"] = "Mists of Pandaria",
+			["icon"] = "Interface\\Icons\\inv_misc_coin_18",
+		},
+		["Conquest Points"] = {
+			["Majandra"] = 150,
+			["header"] = "Unused",
+			["icon"] = "Interface\\Icons\\PVPCurrency-Conquest-Alliance",
+		},
+		["Valor Points"] = {
+			["Majandra"] = 2555,
+			["header"] = "Dungeon and Raid",
+			["icon"] = "Interface\\Icons\\pvecurrency-valor",
+		},
+		["Warforged Seal"] = {
+			["Majandra"] = 0,
+			["header"] = "Mists of Pandaria",
+			["icon"] = "Interface\\Icons\\inv_arcane_orb",
+		},
+		["Timeless Coin"] = {
+			["Majandra"] = 22042,
+			["header"] = "Mists of Pandaria",
+			["icon"] = "Interface\\Icons\\timelesscoin",
+		},
+		["Ironpaw Token"] = {
+			["Majandra"] = 12,
+			["header"] = "Miscellaneous",
+			["icon"] = "Interface\\Icons\\inv_relics_idolofferocity",
+		},
+		["Justice Points"] = {
+			["Majandra"] = 4000,
+			["header"] = "Dungeon and Raid",
+			["icon"] = "Interface\\Icons\\pvecurrency-justice",
+		},
+		["Mogu Rune of Fate"] = {
+			["Majandra"] = 0,
+			["header"] = "Mists of Pandaria",
+			["icon"] = "Interface\\Icons\\archaeology_5_0_mogucoin",
+		},
+	},
+}
+BagSyncCRAFT_DB = {
+	["Dragonblight"] = {
+		["Majandra"] = {
+		},
+	},
+}
+BagSyncBLACKLIST_DB = {
+	["Dragonblight"] = {
+	},
+}

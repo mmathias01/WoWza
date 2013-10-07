@@ -1,0 +1,12 @@
+tag 5.4.1381017600
+2847d176d71b2c9e2e2054b9a47c4d8c625e7b04
+Nick Tolomiczenko <nick@debian.(none)>
+2013-10-06 01:30:50 -0700
+
+Tagging version 5.4.1381017600
+
+
+--------------------
+
+Nick Tolomiczenko:
+	- Updated to version 5.4.1381017600

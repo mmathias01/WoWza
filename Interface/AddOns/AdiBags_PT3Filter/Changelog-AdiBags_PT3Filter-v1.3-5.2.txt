@@ -1,0 +1,12 @@
+tag v1.3-5.2
+35492b6552e2a7c85b08591f71768d366c6d68b4
+Adirelle <adirelle@gmail.com>
+2013-03-28 20:57:23 +0100
+
+Tagging for 5.2.
+
+
+--------------------
+
+Adirelle:
+	- TOC bump.

@@ -1,0 +1,15 @@
+## Interface: 50001
+## X-Curse-Packaged-Version: v1.3
+## X-Curse-Project-Name: AdiBags_Bound
+## X-Curse-Project-ID: adibags_bound
+## X-Curse-Repository-ID: wow/adibags_bound/mainline
+
+## Title: AdiBags - Filter for BoE/BoA
+## Notes: Adds BoE/BoA filters to AdiBags.
+## Author: Outroot
+## Version: v1.0
+## X-Date: 2012-10-07T22:09:23Z
+
+## Dependencies: AdiBags
+
+AdiBags_Bound.lua
