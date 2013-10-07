@@ -18,7 +18,7 @@ L["Activation Settings: 2/5"] = "激活配置: 2/5"
 L["Activation Settings: 3/5"] = "激活配置: 3/5"
 L["Activation Settings: 4/5"] = "激活配置: 4/5"
 L["Activation Settings: 5/5"] = "激活配置: 5/5"
-L["Activation Settings Text"] = "如果你的职业是 %s, 你可以启用 玩家职业选项 并选择 %s." -- Needs review
+L["Activation Settings Text"] = "如果你的职业是 %s, 你可以启用 玩家职业选项 并选择 %s."
 L["Auto-cloning: 1/10"] = "自动克隆: 1/10"
 L["Auto-cloning 1/10 Text"] = "在|cFF8800FF1.4|r版本中, 加入的最大的功能是 |cFFFF0000自动克隆|r.  |cFFFF0000自动克隆|r允许你的图示自动的复制自己, 来显示多个目标身上的法术信息. 当把它加入到一动态群组时, 将允许你可以创建丰富的动态信息集。"
 L["Beginners Finished Text"] = [=[这是一个为初学者设计的教程, 然而, 仅仅触碰到 |cFF8800FFWeakAuras|r' 所能做到的表面, 对于一个初次使用的人也是很困难的.
@@ -48,7 +48,7 @@ L["Dynamic Group Options 2/4 Text"] = [=[动态群组最大的改进是提供了
 -- L["Dynamic Group Options 4/4 Text"] = ""
 -- L["Finished"] = ""
 -- L["Full-scan Auras: 2/10"] = ""
-L["Full-scan Auras 2/10 Text"] = "首先，启用完全扫描功能" -- Needs review
+L["Full-scan Auras 2/10 Text"] = "首先，启用完全扫描功能"
 -- L["Full-scan Auras: 3/10"] = ""
 -- L["Full-scan Auras 3/10 Text"] = ""
 -- L["Full-scan Auras: 4/10"] = ""

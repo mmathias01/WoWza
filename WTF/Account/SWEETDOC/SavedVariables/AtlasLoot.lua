@@ -1,6 +1,45 @@
 
 AtlasLootDB = {
 	["namespaces"] = {
+		["DefaultFrame"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						178.9999237060547, -- [4]
+						123.0000076293945, -- [5]
+					},
+					["instance"] = "ThroneofThunder",
+				},
+				["Majandra - Dragonblight"] = {
+					["instance"] = "SiegeofOrgrimmar",
+					["NEWpoint"] = {
+						"TOP", -- [1]
+						nil, -- [2]
+						"TOP", -- [3]
+						68.50005340576172, -- [4]
+						-39.00002670288086, -- [5]
+					},
+					["module"] = "AtlasLootMoP",
+				},
+				["Cellestia - Terenas"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						26.99994468688965, -- [4]
+						122, -- [5]
+					},
+					["instance"] = "MoguShanVaults",
+				},
+			},
+		},
+		["AtlasLootPanel"] = {
+		},
 		["WishList"] = {
 			["global"] = {
 				["data"] = {
@@ -165,45 +204,6 @@ AtlasLootDB = {
 				},
 			},
 		},
-		["AtlasLootPanel"] = {
-		},
-		["DefaultFrame"] = {
-			["profiles"] = {
-				["Jolokia - Dragonblight"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						178.9999237060547, -- [4]
-						123.0000076293945, -- [5]
-					},
-					["instance"] = "ThroneofThunder",
-				},
-				["Majandra - Dragonblight"] = {
-					["instance"] = "SiegeofOrgrimmar",
-					["NEWpoint"] = {
-						"TOP", -- [1]
-						nil, -- [2]
-						"TOP", -- [3]
-						68.50005340576172, -- [4]
-						-39.00002670288086, -- [5]
-					},
-					["module"] = "AtlasLootMoP",
-				},
-				["Cellestia - Terenas"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						26.99994468688965, -- [4]
-						122, -- [5]
-					},
-					["instance"] = "MoguShanVaults",
-				},
-			},
-		},
 		["Filter"] = {
 			["profiles"] = {
 				["Majandra - Dragonblight"] = {
@@ -225,17 +225,17 @@ AtlasLootDB = {
 							["#w1#"] = false,
 							["#w10#"] = false,
 						},
+						["WeaponsRanged"] = {
+							["#w3#"] = false,
+							["#w2#"] = false,
+							["#w5#"] = false,
+						},
 						["WeaponsMeele"] = {
 							["#w13#"] = false,
 							["#w1#"] = false,
 							["#w8#"] = false,
 							["#w7#"] = false,
 							["#w10#"] = false,
-						},
-						["WeaponsRanged"] = {
-							["#w3#"] = false,
-							["#w2#"] = false,
-							["#w5#"] = false,
 						},
 					},
 					["enable"] = true,
@@ -246,9 +246,9 @@ AtlasLootDB = {
 							["PARRY_RATING"] = false,
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
+							["EXPERTISE_RATING"] = false,
 							["STRENGTH"] = false,
 							["AGILITY"] = false,
-							["EXPERTISE_RATING"] = false,
 						},
 						["Armor"] = {
 							["#a2#"] = false,
@@ -258,15 +258,15 @@ AtlasLootDB = {
 						["WeaponsMeeleTwoHand"] = {
 							["#w10#"] = false,
 						},
-						["WeaponsMeele"] = {
-							["#w7#"] = false,
-							["#w10#"] = false,
-						},
 						["WeaponsRanged"] = {
 							["#w3#"] = false,
 							["#w2#"] = false,
 							["#w5#"] = false,
 							["#w12#"] = false,
+						},
+						["WeaponsMeele"] = {
+							["#w7#"] = false,
+							["#w10#"] = false,
 						},
 					},
 					["enable"] = true,
@@ -274,16 +274,16 @@ AtlasLootDB = {
 			},
 		},
 	},
+	["showWarning"] = true,
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
-	["showWarning"] = true,
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
 			["LootTableType"] = "RaidFinder",
@@ -295,6 +295,11 @@ AtlasLootDB = {
 		},
 		["Jolokya - Dragonblight"] = {
 		},
+		["Jolobank - Dragonblight"] = {
+		},
+		["Majandra - Dragonblight"] = {
+			["UseGameTooltip"] = true,
+		},
 		["Cellestia - Terenas"] = {
 			["LootTableType"] = "RaidFinder",
 			["LastSearch"] = "firescri",
@@ -303,11 +308,6 @@ AtlasLootDB = {
 			["CompareFrame"] = {
 				["showExtraSort"] = false,
 			},
-		},
-		["Majandra - Dragonblight"] = {
-			["UseGameTooltip"] = true,
-		},
-		["Jolobank - Dragonblight"] = {
 		},
 	},
 }

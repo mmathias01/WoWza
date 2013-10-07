@@ -2,6 +2,7 @@
 _NPCScanOptionsCharacter = {
 	["NPCWorldIDs"] = {
 	},
+	["CacheWarnings"] = true,
 	["FlightSupress"] = true,
 	["Achievements"] = {
 		[7317] = true,
@@ -13,7 +14,7 @@ _NPCScanOptionsCharacter = {
 	},
 	["ModulesSaved"] = {
 	},
-	["Version"] = 5.1,
+	["Version"] = "5.1.3",
 	["ShowAll"] = false,
 	["ModulesExtra"] = {
 	},

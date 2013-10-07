@@ -69,15 +69,17 @@ GridDB = {
 							["Dancing Steel"] = 120032,
 							["Stormlash Totem"] = 120676,
 						},
-						["Stormstout Brewery"] = {
-							["Blackout Drunk"] = 106857,
-							["Brew Explosion"] = 106648,
+						["Temple of the Jade Serpent"] = {
+							["Purified Water"] = 118714,
+							["Shattered Resolve"] = 110125,
+							["Sha Residue"] = 106653,
+							["Lorewalkers' Alacrity"] = 122714,
 							["Jade Spirit"] = 104993,
-							["Explosive Brew"] = 114291,
-							["Blackout Brew"] = 106851,
-							["Water Strike"] = 107046,
-							["Wall of Suds"] = 114466,
-							["Brew Bolt"] = 114548,
+							["Serrated Slash"] = 128051,
+							["Blessing of the Waterspeaker"] = 121483,
+							["Tempus Repit"] = 137590,
+							["Shadows of Doubt"] = 110099,
+							["Touch of Nothingness"] = 106113,
 						},
 						["Vale of Eternal Blossoms"] = {
 							["Heart of Y'Shaarj"] = 142154,
@@ -91,11 +93,15 @@ GridDB = {
 							["Restoration"] = 132958,
 							["Stone Rain"] = 142139,
 						},
-						["Thunder King's Citadel"] = {
-							["Web"] = 140642,
-							["Lightning Surge"] = 139805,
+						["Stormstout Brewery"] = {
+							["Blackout Drunk"] = 106857,
+							["Brew Explosion"] = 106648,
 							["Jade Spirit"] = 104993,
-							["Stone Smash"] = 139777,
+							["Explosive Brew"] = 114291,
+							["Blackout Brew"] = 106851,
+							["Water Strike"] = 107046,
+							["Wall of Suds"] = 114466,
+							["Brew Bolt"] = 114548,
 						},
 						["The Secrets of Ragefire"] = {
 							["Jade Spirit"] = 104993,
@@ -196,17 +202,11 @@ GridDB = {
 							["Swiftmend"] = 142423,
 							["Spirit Mend"] = 90361,
 						},
-						["Temple of the Jade Serpent"] = {
-							["Purified Water"] = 118714,
-							["Shattered Resolve"] = 110125,
-							["Sha Residue"] = 106653,
-							["Lorewalkers' Alacrity"] = 122714,
+						["Thunder King's Citadel"] = {
+							["Web"] = 140642,
+							["Lightning Surge"] = 139805,
 							["Jade Spirit"] = 104993,
-							["Serrated Slash"] = 128051,
-							["Blessing of the Waterspeaker"] = 121483,
-							["Tempus Repit"] = 137590,
-							["Shadows of Doubt"] = 110099,
-							["Touch of Nothingness"] = 106113,
+							["Stone Smash"] = 139777,
 						},
 					},
 					["isFirst"] = false,
@@ -348,7 +348,7 @@ GridDB = {
 					["PosX"] = -1151,
 					["anchor"] = "TOPRIGHT",
 					["PosY"] = -489,
-					["layout"] = "By Group 10",
+					["layout"] = "None",
 					["anchorRel"] = "TOPRIGHT",
 					["horizontal"] = true,
 					["Padding"] = 2,
@@ -360,11 +360,6 @@ GridDB = {
 		["GridStatusShield"] = {
 		},
 		["GridRoster"] = {
-			["profiles"] = {
-				["Default"] = {
-					["party_state"] = "raid_10",
-				},
-			},
 		},
 		["GridStatusAbsorbshields"] = {
 		},

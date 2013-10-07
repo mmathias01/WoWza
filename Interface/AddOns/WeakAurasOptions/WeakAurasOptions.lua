@@ -66,11 +66,11 @@ do
   dynFrame.frame:Hide();
   dynFrame.frame:SetScript("OnUpdate", function(self, elapsed)
     -- Start timing
-    debugprofilestart();
+    local start = debugprofilestop();
     local hasData = true;
     
     -- Resume as often as possible (Limit to 16ms per frame -> 60 FPS)
-    while (debugprofilestop() < 16 and hasData) do
+    while (debugprofilestop() - start < 16 and hasData) do
       -- Stop loop without data
       hasData = false;
       
@@ -1070,11 +1070,6 @@ loadedFrame:SetScript("OnEvent", function(self, event, addon)
       local _, build = GetBuildInfo();
       local locale = GetLocale();
       local version = WeakAuras.versionString
-      
-      -- Check for 4.0 to 4.1 upgrade to give warning about Combat Log Event Unfiltered change
-      if((tonumber(odb.build) or 0) <= 14007 and (tonumber(build) or 0) > 14007) then
-        WeakAuras.CombatEventWarning(true);
-      end
       
       local num = 0;
       for i,v in pairs(odb.iconCache) do
@@ -4996,7 +4991,7 @@ function WeakAuras.ReloadTriggerOptions(data)
       order = 16,
       multiline = true,
       width = "normal",
-      hidden = function() return not (trigger.type == "custom" and (trigger.custom_hide ~= "timed")) end,
+      hidden = function() return not (trigger.type == "custom" and (trigger.custom_type == "status" or trigger.custom_hide ~= "timed")) end,
       get = function() return trigger.customDuration end,
       set = function(info, v)
         trigger.customDuration = v;
@@ -5013,12 +5008,12 @@ function WeakAuras.ReloadTriggerOptions(data)
       func = function()
         WeakAuras.TextEditor(data, appendToTriggerPath("customDuration"))
       end,
-      hidden = function() return not (trigger.type == "custom" and (trigger.custom_hide ~= "timed")) end,
+      hidden = function() return not (trigger.type == "custom" and (trigger.custom_type == "status" or trigger.custom_hide ~= "timed")) end,
     },
     custom_duration_error = {
       type = "description",
       name = function()
-        if not(trigger.customDuration and trigger.customDuration ~= "") then
+        if not(trigger.type == "custom" and (trigger.custom_type == "status" or trigger.custom_hide ~= "timed") and trigger.customDuration and trigger.customDuration ~= "") then
           return "";
         end
         local _, errorString = loadstring("return "..(trigger.customDuration or ""));

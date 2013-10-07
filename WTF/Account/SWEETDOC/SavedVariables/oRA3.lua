@@ -27,8 +27,8 @@ oRA3DB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -43,7 +43,7 @@ oRA3DB = {
 					["PosX"] = 784.2696370461636,
 				},
 			},
-			["lastSelectedPanel"] = "Checks",
+			["lastSelectedPanel"] = "Invite",
 		},
 	},
 }

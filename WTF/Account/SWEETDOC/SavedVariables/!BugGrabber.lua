@@ -1,6 +1,6 @@
 
 BugGrabberDB = {
-	["session"] = 784,
+	["session"] = 800,
 	["lastSanitation"] = 3,
 	["errors"] = {
 		{
@@ -1080,5 +1080,21 @@ BugGrabberDB = {
 			["session"] = 755,
 			["counter"] = 4,
 		}, -- [147]
+		{
+			["message"] = "<string>:\"UnitAura\":1: \"=\" expected near \"<eof>\"",
+			["time"] = "2013/10/04 22:51:17",
+			["locals"] = "msg = \"UnitAura\"\n",
+			["stack"] = "<in C code>\nFrameXML\\ChatFrame.lua:2036: in function \"?\"\nFrameXML\\ChatFrame.lua:4316: in function \"ChatEdit_ParseText\"\nFrameXML\\ChatFrame.lua:3962: in function \"ChatEdit_SendText\"\nFrameXML\\ChatFrame.lua:4008: in function <FrameXML\\ChatFrame.lua:3997>\n<in C code>\n<string>:\"*:OnEnterPressed\":1: in function <string>:\"*:OnEnterPressed\":1",
+			["session"] = 800,
+			["counter"] = 1,
+		}, -- [148]
+		{
+			["message"] = "<string>:\"print(UnitAura{\"player\", 1))\":1: \"}\" expected near \")\"",
+			["time"] = "2013/10/04 22:53:04",
+			["locals"] = "msg = \"print(UnitAura{\"player\", 1))\"\n",
+			["stack"] = "<in C code>\nFrameXML\\ChatFrame.lua:2036: in function \"?\"\nFrameXML\\ChatFrame.lua:4316: in function \"ChatEdit_ParseText\"\nFrameXML\\ChatFrame.lua:3962: in function \"ChatEdit_SendText\"\nFrameXML\\ChatFrame.lua:4008: in function <FrameXML\\ChatFrame.lua:3997>\n<in C code>\n<string>:\"*:OnEnterPressed\":1: in function <string>:\"*:OnEnterPressed\":1",
+			["session"] = 800,
+			["counter"] = 1,
+		}, -- [149]
 	},
 }

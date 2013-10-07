@@ -275,7 +275,7 @@ do
 				end
 				addon:Print(L.test .." - ".. (pulseColor or "") ..L.FLASH.. (pulseColor and "|r" or "") .." - ".. L.PULSE ..": |T".. messages[key] ..":15:15:0:0:64:64:4:60:4:60|t")
 			end
-			if sound then addon:Print(L.test .." - ".. L.Sound ..": ".. sound) end
+			if sound then addon:Print(L.test .." - ".. L.sound ..": ".. sound) end
 			addon:SendMessage("BigWigs_Message", addon, key, color..": "..key, color, sound, messages[key])
 			messages[key] = nil
 		end
@@ -317,6 +317,7 @@ local function coreSync(sync, moduleName, sender)
 		if not module then return end
 		enableBossModule(module, true)
 	elseif sync == "Death" then
+		if moduleName == "Paragons of the Klaxxi" and not UnitIsUnit(sender, "player") then return end -- XXX temp till WoW v6.x
 		local mod = addon:GetBossModule(moduleName, true)
 		if mod and mod:IsEnabled() then
 			mod:Message("bosskill", "Positive", "Victory", L.defeated:format(mod.displayName), false)

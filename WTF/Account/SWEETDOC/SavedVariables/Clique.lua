@@ -137,31 +137,14 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [2]
 				{
-					["spell"] = "Halo",
+					["spell"] = "Divine Star",
 					["key"] = "BUTTON2",
 					["sets"] = {
 						["friend"] = true,
 					},
-					["icon"] = "Interface\\Icons\\ability_priest_halo",
+					["icon"] = "Interface\\Icons\\spell_priest_divinestar",
 					["type"] = "spell",
 				}, -- [3]
-				{
-					["spell"] = "Cascade",
-					["key"] = "BUTTON2",
-					["sets"] = {
-					},
-					["icon"] = "Interface\\Icons\\ability_priest_cascade",
-					["type"] = "spell",
-				}, -- [4]
-				{
-					["spell"] = "Purify",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
-					["type"] = "spell",
-				}, -- [5]
 				{
 					["spell"] = "Prayer of Mending",
 					["key"] = "BUTTON1",
@@ -170,7 +153,16 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
 					["type"] = "spell",
-				}, -- [6]
+				}, -- [4]
+				{
+					["spell"] = "Halo",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_halo",
+					["type"] = "spell",
+				}, -- [5]
 				{
 					["spell"] = "Dispel Magic",
 					["key"] = "BUTTON3",
@@ -179,7 +171,24 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
 					["type"] = "spell",
+				}, -- [6]
+				{
+					["spell"] = "Purify",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
+					["type"] = "spell",
 				}, -- [7]
+				{
+					["spell"] = "Cascade",
+					["key"] = "BUTTON2",
+					["sets"] = {
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_cascade",
+					["type"] = "spell",
+				}, -- [8]
 			},
 		},
 		["Cellestia - Windrunner"] = {

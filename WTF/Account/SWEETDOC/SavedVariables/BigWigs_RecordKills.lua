@@ -74,13 +74,16 @@ RKDatabase = {
 						[7] = 486,
 						[3] = 392,
 					},
+					["Thok the Bloodthirsty"] = {
+						[3] = 430,
+					},
 					["Iron Juggernaut"] = {
 						[3] = 389,
 						[14] = 338,
 					},
 					["The Fallen Protectors"] = {
 						[14] = 351,
-						[7] = 845,
+						[7] = 496,
 						[3] = 431,
 					},
 				},
@@ -123,13 +126,13 @@ RKDatabase = {
 						[7] = 496,
 						[3] = 542,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
-					},
 					["Horridon"] = {
 						[3] = 482,
 						[7] = 500,
+					},
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
 					},
 					["Durumu the Forgotten"] = {
 						[3] = 342,
@@ -138,6 +141,7 @@ RKDatabase = {
 				},
 			},
 			["firstLoad"] = false,
+			["diffShown"] = 7,
 		},
 	},
 }

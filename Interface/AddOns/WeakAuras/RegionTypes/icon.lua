@@ -196,8 +196,10 @@ local function modify(parent, region, data)
         end
         
         if(stacks.displayStacks ~= textStr) then
-            stacks:SetText(textStr);
-            stacks.displayStacks = textStr;
+            if stacks:GetFont() then
+                stacks:SetText(textStr);
+                stacks.displayStacks = textStr;
+            else end
         end
     end
     

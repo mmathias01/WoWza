@@ -10,11 +10,12 @@ RecountDB = {
 				["Position"] = {
 					["y"] = -430.4998512268066,
 					["x"] = 749.9998168945313,
-					["w"] = 406.0003356933594,
+					["w"] = 406.0005187988281,
 					["h"] = 157.0000152587891,
 				},
 				["HideTotalBar"] = false,
 			},
+			["MainWindowMode"] = 5,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -28,6 +29,8 @@ RecountDB = {
 			["DetailWindowY"] = 0,
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["LastInstanceName"] = "Siege of Orgrimmar",
 			["RealtimeWindows"] = {
 				["Realtime_!RAID_DAMAGE"] = {
 					"!RAID", -- [1]
@@ -41,7 +44,6 @@ RecountDB = {
 				},
 			},
 			["CurDataSet"] = "OverallData",
-			["MainWindowMode"] = 5,
 			["MainWindowWidth"] = 292.9998779296875,
 			["MainWindowHeight"] = 212.9999389648438,
 		},

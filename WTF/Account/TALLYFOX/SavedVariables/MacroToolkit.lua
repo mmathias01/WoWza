@@ -1,10 +1,6 @@
 
 MacroToolkitDB = {
 	["char"] = {
-		["Cellestia - Terenas"] = {
-			["backups"] = {
-			},
-		},
 		["Jolokia - Dragonblight"] = {
 			["backups"] = {
 				{
@@ -106,6 +102,16 @@ MacroToolkitDB = {
 			},
 			["lastbackup"] = "Apr 16 01:24:44",
 		},
+		["Cellestia - Terenas"] = {
+			["backups"] = {
+			},
+		},
+	},
+	["global"] = {
+		["backups"] = {
+		},
+		["ebackups"] = {
+		},
 	},
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "profile",
@@ -113,12 +119,6 @@ MacroToolkitDB = {
 		["Jolokya - Dragonblight"] = "profile",
 		["Jolobank - Dragonblight"] = "profile",
 		["Shenlu - Dragonblight"] = "profile",
-	},
-	["global"] = {
-		["ebackups"] = {
-		},
-		["backups"] = {
-		},
 	},
 	["profiles"] = {
 		["profile"] = {

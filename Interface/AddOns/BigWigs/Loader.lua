@@ -16,13 +16,13 @@ do
 	local releaseType = RELEASE
 	local releaseRevision = nil
 	local releaseString = nil
-	--@alpha@
+	--[===[@alpha@
 	-- The following code will only be present in alpha ZIPs.
 	releaseType = ALPHA
-	--@end-alpha@
+	--@end-alpha@]===]
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	releaseRevision = tonumber("11319")
+	releaseRevision = tonumber("11332")
 
 	-- If the releaseRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(releaseRevision) ~= "number" then
@@ -454,7 +454,6 @@ do
 
 		-- Role Updating
 		loaderUtilityFrame:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
-		loaderUtilityFrame:RegisterEvent("GROUP_JOINED")
 		RolePollPopup:UnregisterEvent("ROLE_POLL_BEGIN")
 
 		loaderUtilityFrame:RegisterEvent("CHAT_MSG_ADDON")
@@ -589,7 +588,6 @@ function loader:ACTIVE_TALENT_GROUP_CHANGED()
 		end
 	end
 end
-loader.GROUP_JOINED = loader.ACTIVE_TALENT_GROUP_CHANGED
 
 -- LFG/R Timer
 function loader:LFG_PROPOSAL_SHOW()

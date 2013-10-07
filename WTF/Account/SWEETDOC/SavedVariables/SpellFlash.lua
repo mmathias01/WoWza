@@ -31,7 +31,7 @@ SpellFlashAddonConfig = {
 							},
 						},
 						["Majandra"] = {
-							["selected_class_module"] = "BittensSpellFlash_Priest",
+							["selected_class_module"] = "BittensSpellFlash_Atonement",
 							["MODULE"] = {
 								["BittensSpellFlash_Priest"] = {
 								},

@@ -15,30 +15,34 @@ AUCTIONATOR_PRICING_HISTORY = {
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"belt buck", -- [1]
-			"100 year", -- [2]
-			"turtle", -- [3]
-			"jew", -- [4]
-			"raw crab", -- [5]
-			"kras", -- [6]
-			"mantis sh", -- [7]
-			"Golden lotus", -- [8]
-			"fool's cap", -- [9]
-			"jade squash", -- [10]
-			"wildfowl", -- [11]
-			"Salmon", -- [12]
-			"juicycrunch", -- [13]
-			"raw turtle meat", -- [14]
-			"Silkweed", -- [15]
-			"Armor/Miscellaneous", -- [16]
-			"Snow", -- [17]
-			"Snow lilly", -- [18]
-			"Green tea", -- [19]
-			"fool", -- [20]
-			"fools cap", -- [21]
-			"Scallions", -- [22]
-			"Steamed Crab Surprise", -- [23]
-			"Steamed Crab Suprise", -- [24]
+			"mysterious", -- [1]
+			"misty", -- [2]
+			"Smooth sun", -- [3]
+			"potent", -- [4]
+			"belt buck", -- [5]
+			"100 year", -- [6]
+			"turtle", -- [7]
+			"jew", -- [8]
+			"raw crab", -- [9]
+			"kras", -- [10]
+			"mantis sh", -- [11]
+			"Golden lotus", -- [12]
+			"fool's cap", -- [13]
+			"jade squash", -- [14]
+			"wildfowl", -- [15]
+			"Salmon", -- [16]
+			"juicycrunch", -- [17]
+			"raw turtle meat", -- [18]
+			"Silkweed", -- [19]
+			"Armor/Miscellaneous", -- [20]
+			"Snow", -- [21]
+			"Snow lilly", -- [22]
+			"Green tea", -- [23]
+			"fool", -- [24]
+			"fools cap", -- [25]
+			"Scallions", -- [26]
+			"Steamed Crab Surprise", -- [27]
+			"Steamed Crab Suprise", -- [28]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -198,11 +202,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Jade Squash"] = {
+			["mr"] = 6600,
+			["sc"] = 5,
+			["id"] = "74847",
 			["H919"] = 6600,
 			["cc"] = 6,
-			["id"] = "74847",
-			["sc"] = 5,
-			["mr"] = 6600,
 		},
 		["Bouquet Ring of the Champion"] = {
 			["H918"] = 464541,
@@ -226,11 +230,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Golden Lotus"] = {
-			["mr"] = 535274,
-			["sc"] = 6,
-			["id"] = "72238",
 			["H958"] = 535274,
 			["cc"] = 6,
+			["id"] = "72238",
+			["sc"] = 6,
+			["mr"] = 535274,
 		},
 		["High-Powered Bolt Gun"] = {
 			["H918"] = 50000,
@@ -267,6 +271,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82227:-8",
 			["cc"] = 2,
 		},
+		["Smooth Sunstone"] = {
+			["mr"] = 90000,
+			["cc"] = 8,
+			["id"] = "76565",
+			["sc"] = 3,
+			["H1053"] = 90000,
+		},
 		["Jasper Ring of the Champion"] = {
 			["H918"] = 1233951,
 			["mr"] = 1233951,
@@ -301,6 +312,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["sc"] = 1,
 			["id"] = "83793:-130",
 			["cc"] = 2,
+		},
+		["Smooth Sun's Radiance"] = {
+			["mr"] = 1249900,
+			["cc"] = 8,
+			["id"] = "76697",
+			["sc"] = 3,
+			["H1053"] = 1249900,
 		},
 		["Bejeweled Amulet of the Elder"] = {
 			["H918"] = 500000,
@@ -363,8 +381,8 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 199499,
 			["sc"] = 1,
 			["id"] = "83793:-133",
-			["L918"] = 199499,
 			["cc"] = 2,
+			["L918"] = 199499,
 		},
 		["Amulet of Truesight"] = {
 			["H918"] = 240000,
@@ -413,8 +431,8 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 1967499,
 			["sc"] = 1,
 			["id"] = "90904:-122",
-			["L918"] = 1967499,
 			["cc"] = 2,
+			["L918"] = 1967499,
 		},
 		["Jasper Ring of the Bear"] = {
 			["H918"] = 999000,
@@ -704,11 +722,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Silkweed"] = {
+			["mr"] = 23000,
+			["sc"] = 6,
+			["id"] = "72235",
 			["H919"] = 23000,
 			["cc"] = 6,
-			["id"] = "72235",
-			["sc"] = 6,
-			["mr"] = 23000,
 		},
 		["Black Tuxedo Pants"] = {
 			["H918"] = 249000,
@@ -718,19 +736,19 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Green Tea Leaf"] = {
-			["mr"] = 20000,
-			["sc"] = 6,
-			["id"] = "72234",
 			["H919"] = 20000,
 			["cc"] = 6,
+			["id"] = "72234",
+			["sc"] = 6,
+			["mr"] = 20000,
 		},
 		["Shadowfire Necklace of the Undertow"] = {
 			["H918"] = 1994995,
 			["mr"] = 271000,
 			["sc"] = 1,
 			["id"] = "83794:-131",
-			["L918"] = 271000,
 			["cc"] = 2,
+			["L918"] = 271000,
 		},
 		["Shamanic Ring of the Earthfall"] = {
 			["H918"] = 1344659,
@@ -817,11 +835,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Scallions"] = {
+			["H919"] = 34600,
+			["sc"] = 5,
+			["id"] = "74843",
 			["mr"] = 34600,
 			["cc"] = 6,
-			["id"] = "74843",
-			["sc"] = 5,
-			["H919"] = 34600,
 		},
 		["Alicite Pendant of the Whale"] = {
 			["H918"] = 1202349,
@@ -936,11 +954,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["cc"] = 2,
 		},
 		["Juicycrunch Carrot"] = {
+			["mr"] = 37400,
+			["sc"] = 5,
+			["id"] = "74841",
 			["H919"] = 37400,
 			["cc"] = 6,
-			["id"] = "74841",
-			["sc"] = 5,
-			["mr"] = 37400,
 		},
 		["Soulsurge Necklace"] = {
 			["H918"] = 1600000,
@@ -1053,6 +1071,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["sc"] = 1,
 			["id"] = "82060:-120",
 			["cc"] = 2,
+		},
+		["Mysterious Roguestone"] = {
+			["mr"] = 236765,
+			["cc"] = 8,
+			["id"] = "76553",
+			["sc"] = 4,
+			["H1053"] = 236765,
 		},
 		["Immaculate Amulet of the Fireflash"] = {
 			["H918"] = 500000,
@@ -1187,12 +1212,33 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-128",
 			["cc"] = 2,
 		},
+		["Perfect Mysterious Roguestone"] = {
+			["mr"] = 149500,
+			["cc"] = 8,
+			["id"] = "76619",
+			["sc"] = 4,
+			["H1053"] = 149500,
+		},
+		["Mysterious Twilight Opal"] = {
+			["mr"] = 400000,
+			["cc"] = 8,
+			["id"] = "40028",
+			["sc"] = 4,
+			["H1053"] = 400000,
+		},
 		["Nightstone Choker of the Elder"] = {
 			["H918"] = 330743,
 			["mr"] = 330743,
 			["sc"] = 1,
 			["id"] = "52309:-42",
 			["cc"] = 2,
+		},
+		["Mysterious Essence"] = {
+			["mr"] = 89500,
+			["cc"] = 6,
+			["id"] = "74250",
+			["sc"] = 7,
+			["H1053"] = 89500,
 		},
 		["Brown Linen Shirt"] = {
 			["H918"] = 1500,
@@ -1229,12 +1275,27 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82007:-39",
 			["cc"] = 2,
 		},
+		["Mysterious Grimoire"] = {
+			["mr"] = 1500000,
+			["cc"] = 10,
+			["id"] = "71637",
+			["sc"] = 0,
+			["H1053"] = 1500000,
+		},
+		["Mysterious Fortune Card"] = {
+			["mr"] = 99999,
+			["cc"] = 6,
+			["id"] = "60838",
+			["sc"] = 13,
+			["H1053"] = 99999,
+		},
 		["Record of Mysterious Deeds"] = {
 			["H918"] = 6480000,
-			["mr"] = 6480000,
+			["mr"] = 3999999,
 			["sc"] = 1,
 			["id"] = "87457",
 			["cc"] = 2,
+			["H1053"] = 3999999,
 		},
 		["Draconic Choker of Ferocity"] = {
 			["H918"] = 701532,
@@ -1250,12 +1311,26 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "55399:-8",
 			["cc"] = 2,
 		},
+		["Mysterious Imperial Amethyst"] = {
+			["mr"] = 88500,
+			["cc"] = 8,
+			["id"] = "76685",
+			["sc"] = 4,
+			["H1053"] = 88500,
+		},
 		["Bejeweled Wand of the Flameblaze"] = {
 			["mr"] = 1085720,
 			["cc"] = 1,
 			["id"] = "82231:-114",
 			["H1035"] = 1085720,
 			["sc"] = 16,
+		},
+		["Lovely Black Dress"] = {
+			["H918"] = 2997500,
+			["mr"] = 2997500,
+			["sc"] = 1,
+			["id"] = "22279",
+			["cc"] = 2,
 		},
 		["Intricate Amulet of the Elder"] = {
 			["H918"] = 2950000,
@@ -1271,12 +1346,26 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "25052:-40",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Windstorm"] = {
-			["H918"] = 1747499,
-			["mr"] = 271999,
+		["Misty Wild Jade"] = {
+			["mr"] = 848998,
+			["cc"] = 8,
+			["id"] = "76640",
+			["sc"] = 5,
+			["H1053"] = 848998,
+		},
+		["Shadowfire Necklace of the Faultline"] = {
+			["H918"] = 1982499,
+			["mr"] = 272000,
 			["sc"] = 1,
-			["id"] = "83794:-137",
-			["L918"] = 271999,
+			["id"] = "83794:-118",
+			["cc"] = 2,
+			["L918"] = 272000,
+		},
+		["Jasper Ring of the Earthshaker"] = {
+			["H918"] = 1294509,
+			["mr"] = 1294509,
+			["sc"] = 1,
+			["id"] = "52306:-120",
 			["cc"] = 2,
 		},
 		["Tome of Polymorph: Turtle"] = {
@@ -1286,6 +1375,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 19999998,
 			["sc"] = 1,
 		},
+		["Sishir Ring of the Fireflash"] = {
+			["H918"] = 1498612,
+			["mr"] = 1498612,
+			["sc"] = 1,
+			["id"] = "55418:-130",
+			["cc"] = 2,
+		},
 		["Gemmed Amulet of the Seer"] = {
 			["H918"] = 2940000,
 			["mr"] = 2940000,
@@ -1293,12 +1389,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82060:-37",
 			["cc"] = 2,
 		},
-		["Turtle Meat"] = {
-			["mr"] = 24200,
-			["cc"] = 6,
-			["id"] = "3712",
-			["H1035"] = 24200,
-			["sc"] = 5,
+		["Heavy Adamantite Ring"] = {
+			["H918"] = 40087,
+			["mr"] = 40087,
+			["sc"] = 1,
+			["id"] = "24078",
+			["cc"] = 2,
 		},
 		["Noise Machine"] = {
 			["H918"] = 397000,
@@ -1335,19 +1431,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["sc"] = 5,
 			["H1034"] = 199999,
 		},
-		["Tarnished Silver Ring"] = {
-			["H918"] = 8000000,
-			["mr"] = 8000000,
+		["Intricate Ring of the Galeburst"] = {
+			["H918"] = 2214245,
+			["mr"] = 2214245,
 			["sc"] = 1,
-			["id"] = "33855",
+			["id"] = "82005:-134",
 			["cc"] = 2,
 		},
-		["Amberjewel"] = {
-			["mr"] = 58499,
-			["cc"] = 8,
-			["id"] = "52195",
-			["H1035"] = 58499,
-			["sc"] = 3,
+		["Ornate Band of the Wildfire"] = {
+			["H918"] = 1982498,
+			["mr"] = 1979999,
+			["sc"] = 1,
+			["id"] = "90904:-129",
+			["cc"] = 2,
+			["L918"] = 1979999,
 		},
 		["Mindbender Loop"] = {
 			["H918"] = 50000,
@@ -1356,13 +1453,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "5009",
 			["cc"] = 2,
 		},
-		["Bejeweled Amulet of the Eagle"] = {
-			["mr"] = 2499999,
-			["cc"] = 2,
-			["id"] = "82225:-6",
-			["H1035"] = 2499999,
-			["sc"] = 1,
-		},
 		["Bejeweled Amulet of the Bear"] = {
 			["mr"] = 340000,
 			["cc"] = 2,
@@ -1370,12 +1460,19 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 340000,
 			["sc"] = 1,
 		},
-		["Bejeweled Amulet of the Rockslab"] = {
-			["mr"] = 2499999,
-			["cc"] = 2,
-			["id"] = "82225:-128",
-			["H1035"] = 2499999,
+		["Frostbridge Orb"] = {
+			["H918"] = 90000,
+			["mr"] = 90000,
 			["sc"] = 1,
+			["id"] = "37364",
+			["cc"] = 2,
+		},
+		["Moonbrook Ring of the Seer"] = {
+			["H918"] = 1791647,
+			["mr"] = 1791647,
+			["sc"] = 1,
+			["id"] = "55416:-37",
+			["cc"] = 2,
 		},
 		["Bejeweled Ring of the Earthshaker"] = {
 			["mr"] = 200000,
@@ -1384,12 +1481,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 200000,
 			["sc"] = 1,
 		},
-		["Bejeweled Spellblade of the Whale"] = {
-			["mr"] = 1260865,
-			["cc"] = 1,
-			["id"] = "82230:-8",
-			["H1035"] = 1260865,
-			["sc"] = 13,
+		["Noble's Monocle"] = {
+			["H918"] = 15025370,
+			["mr"] = 15025370,
+			["sc"] = 1,
+			["id"] = "34827",
+			["cc"] = 2,
 		},
 		["Malachite Pendant"] = {
 			["H918"] = 20000,
@@ -1403,8 +1500,8 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 707970,
 			["sc"] = 1,
 			["id"] = "83793:-114",
-			["L918"] = 707970,
 			["cc"] = 2,
+			["L918"] = 707970,
 		},
 		["Jasper Ring of the Seer"] = {
 			["H918"] = 999999,
@@ -1462,18 +1559,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 2499999,
 			["sc"] = 1,
 		},
-		["Disciple's Stein of Intellect"] = {
-			["H918"] = 5000000,
-			["mr"] = 5000000,
+		["Solid Bronze Ring"] = {
+			["H918"] = 130000,
+			["mr"] = 130000,
 			["sc"] = 1,
-			["id"] = "15932:-19",
-			["cc"] = 2,
-		},
-		["Anaxo's Multi-Layered Seal"] = {
-			["H918"] = 14999998,
-			["mr"] = 14999998,
-			["sc"] = 1,
-			["id"] = "87437",
+			["id"] = "20907",
 			["cc"] = 2,
 		},
 		["Immaculate Amulet of the Bear"] = {
@@ -1481,6 +1571,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 450000,
 			["sc"] = 1,
 			["id"] = "82280:-7",
+			["cc"] = 2,
+		},
+		["Antique Silver Cufflinks"] = {
+			["H918"] = 1000000,
+			["mr"] = 1000000,
+			["sc"] = 1,
+			["id"] = "34828",
 			["cc"] = 2,
 		},
 		["Astralaan Orb of Intellect"] = {
@@ -1504,19 +1601,19 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 3989200,
 			["sc"] = 1,
 		},
-		["Krasarang Paddlefish"] = {
-			["mr"] = 35000,
-			["cc"] = 6,
-			["id"] = "74865",
-			["H1035"] = 35000,
-			["sc"] = 5,
-		},
-		["Wildfowl Roast"] = {
-			["mr"] = 139999,
-			["cc"] = 4,
-			["id"] = "74654",
-			["H1035"] = 139999,
+		["Lionsfall Ring"] = {
+			["H918"] = 6020000,
+			["mr"] = 6020000,
 			["sc"] = 1,
+			["id"] = "83800",
+			["cc"] = 2,
+		},
+		["Astrylian's Cheerful Charm"] = {
+			["H918"] = 34990000,
+			["mr"] = 34990000,
+			["sc"] = 1,
+			["id"] = "87469",
+			["cc"] = 2,
 		},
 		["Gossamer Rod of the Owl"] = {
 			["H918"] = 32500,
@@ -1539,27 +1636,27 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52307:-7",
 			["cc"] = 2,
 		},
-		["Emperor Salmon"] = {
-			["H919"] = 27400,
-			["cc"] = 6,
-			["id"] = "74859",
-			["sc"] = 5,
-			["mr"] = 27400,
+		["Sapphire Pendant of Winter Night"] = {
+			["H918"] = 150000,
+			["mr"] = 150000,
+			["sc"] = 1,
+			["id"] = "21790",
+			["cc"] = 2,
 		},
 		["Ornate Band of the Faultline"] = {
 			["H918"] = 1982499,
 			["mr"] = 199000,
 			["sc"] = 1,
 			["id"] = "83793:-118",
+			["cc"] = 2,
 			["L918"] = 199000,
-			["cc"] = 2,
 		},
-		["Bejeweled Amulet of the Seer"] = {
-			["mr"] = 2499999,
-			["cc"] = 2,
-			["id"] = "82225:-37",
-			["H1035"] = 2499999,
+		["Blazing Citrine Ring"] = {
+			["H918"] = 30000,
+			["mr"] = 30000,
 			["sc"] = 1,
+			["id"] = "20958",
+			["cc"] = 2,
 		},
 		["Immaculate Br'etc Signet"] = {
 			["H918"] = 3500000,
@@ -1568,39 +1665,40 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "66942",
 			["cc"] = 2,
 		},
-		["Fire Spirit Salmon"] = {
-			["H919"] = 69499,
-			["cc"] = 4,
-			["id"] = "74652",
+		["Ornate Band of the Galeburst"] = {
+			["H918"] = 4246250,
+			["mr"] = 1997499,
 			["sc"] = 1,
-			["mr"] = 69499,
+			["id"] = "90904:-134",
+			["cc"] = 2,
+			["L918"] = 1997499,
 		},
-		["Hauyne Ring of the Whale"] = {
-			["H918"] = 400000,
-			["mr"] = 400000,
+		["Elementium Dragonling"] = {
+			["H918"] = 1285000,
+			["mr"] = 1285000,
 			["sc"] = 1,
-			["id"] = "25052:-8",
+			["id"] = "60403",
 			["cc"] = 2,
 		},
-		["Intricate Amulet of the Sorcerer"] = {
-			["H918"] = 3151155,
-			["mr"] = 3151155,
+		["Nightstone Choker of the Sorcerer"] = {
+			["H918"] = 400502,
+			["mr"] = 400502,
 			["sc"] = 1,
-			["id"] = "82007:-36",
+			["id"] = "52309:-36",
 			["cc"] = 2,
 		},
-		["Glacial Salmon"] = {
-			["H919"] = 7598,
-			["cc"] = 6,
-			["id"] = "41809",
-			["sc"] = 5,
-			["mr"] = 7598,
-		},
-		["Assault Band"] = {
-			["H918"] = 1800000,
-			["mr"] = 1800000,
+		["Darkmoon Card: Berserker!"] = {
+			["H918"] = 10000000,
+			["mr"] = 10000000,
 			["sc"] = 1,
-			["id"] = "13095",
+			["id"] = "42989",
+			["cc"] = 2,
+		},
+		["Simple Opal Ring"] = {
+			["H918"] = 100000,
+			["mr"] = 100000,
+			["sc"] = 1,
+			["id"] = "21767",
 			["cc"] = 2,
 		},
 		["Crystal Chalcedony Amulet"] = {
@@ -1610,25 +1708,25 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "43245",
 			["cc"] = 2,
 		},
-		["Hessonite Band of the Windstorm"] = {
-			["H918"] = 340709,
-			["mr"] = 340709,
+		["Engraved Truesilver Ring"] = {
+			["H918"] = 90000,
+			["mr"] = 90000,
 			["sc"] = 1,
-			["id"] = "52308:-137",
+			["id"] = "20960",
 			["cc"] = 2,
 		},
-		["Bejeweled Amulet of the Mercenary"] = {
-			["mr"] = 2499999,
+		["Ornate Band of the Earthshaker"] = {
+			["H918"] = 1995000,
+			["mr"] = 1995000,
+			["sc"] = 1,
+			["id"] = "90904:-120",
 			["cc"] = 2,
-			["id"] = "82225:-139",
-			["H1035"] = 2499999,
-			["sc"] = 1,
 		},
-		["Heavy Silver Ring of the Bear"] = {
-			["H918"] = 50000,
-			["mr"] = 50000,
+		["Gemmed Amulet of the Invoker"] = {
+			["H918"] = 2950000,
+			["mr"] = 2950000,
 			["sc"] = 1,
-			["id"] = "20826:-68",
+			["id"] = "82060:-39",
 			["cc"] = 2,
 		},
 		["Titanium Brain-Gear of the Sorcerer"] = {
@@ -1645,19 +1743,21 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "55262",
 			["cc"] = 2,
 		},
-		["Red Linen Shirt"] = {
-			["H918"] = 1500,
-			["mr"] = 1500,
+		["Shadowfire Necklace of the Windflurry"] = {
+			["H918"] = 1990000,
+			["mr"] = 1800703,
 			["sc"] = 1,
-			["id"] = "2575",
+			["id"] = "83794:-135",
 			["cc"] = 2,
+			["L918"] = 1800703,
 		},
-		["Jasper Ring of the Earthshaker"] = {
-			["H918"] = 1294509,
-			["mr"] = 1294509,
+		["Shadowfire Necklace of the Feverflare"] = {
+			["H918"] = 1893019,
+			["mr"] = 294419,
 			["sc"] = 1,
-			["id"] = "52306:-120",
+			["id"] = "83794:-138",
 			["cc"] = 2,
+			["L918"] = 294419,
 		},
 		["Bejeweled Wand of the Feverflare"] = {
 			["mr"] = 270000,
@@ -1666,18 +1766,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 270000,
 			["sc"] = 16,
 		},
-		["Lovely Black Dress"] = {
-			["H918"] = 2997500,
-			["mr"] = 2997500,
+		["Gemmed Ring of the Flameblaze"] = {
+			["H918"] = 2977804,
+			["mr"] = 2977804,
 			["sc"] = 1,
-			["id"] = "22279",
+			["id"] = "82063:-114",
 			["cc"] = 2,
 		},
-		["Widow Chain"] = {
-			["H918"] = 3692500,
-			["mr"] = 3692500,
+		["Hessonite Band of the Faultline"] = {
+			["H918"] = 1800430,
+			["mr"] = 1800430,
 			["sc"] = 1,
-			["id"] = "83804",
+			["id"] = "52316:-118",
 			["cc"] = 2,
 		},
 		["Intricate Ring of the Fireflash"] = {
@@ -1694,18 +1794,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "35594",
 			["cc"] = 2,
 		},
-		["Jasper Ring of the Faultline"] = {
-			["H918"] = 1233951,
-			["mr"] = 1233951,
-			["sc"] = 1,
-			["id"] = "52306:-118",
+		["Zom's Misty Hood"] = {
+			["mr"] = 16000000,
 			["cc"] = 2,
+			["id"] = "87452",
+			["sc"] = 3,
+			["H1053"] = 16000000,
 		},
-		["Snowy Shield of the Sorcerer"] = {
-			["H918"] = 333333,
-			["mr"] = 333333,
-			["sc"] = 7,
-			["id"] = "82184:-36",
+		["Bejeweled Ring of the Beast"] = {
+			["H918"] = 140000,
+			["mr"] = 140000,
+			["sc"] = 1,
+			["id"] = "82228:-41",
 			["cc"] = 2,
 		},
 		["Roguestone Shadowband"] = {
@@ -1736,26 +1836,25 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "29160",
 			["cc"] = 2,
 		},
-		["Ornate Band of the Landslide"] = {
-			["H918"] = 1982494,
-			["mr"] = 1982493,
+		["Band of Blood"] = {
+			["H918"] = 6030000,
+			["mr"] = 6030000,
 			["sc"] = 1,
-			["id"] = "90904:-121",
-			["L918"] = 1982493,
+			["id"] = "83801",
 			["cc"] = 2,
 		},
-		["Alicite Pendant of the Sorcerer"] = {
-			["H918"] = 1000000,
-			["mr"] = 1000000,
+		["Ornate Band of the Bouldercrag"] = {
+			["H918"] = 1999996,
+			["mr"] = 1999996,
 			["sc"] = 1,
-			["id"] = "52307:-36",
+			["id"] = "90904:-127",
 			["cc"] = 2,
 		},
-		["Amulet of the Moon"] = {
-			["H918"] = 60000,
-			["mr"] = 60000,
+		["Jasper Ring of the Fireflash"] = {
+			["H918"] = 999999,
+			["mr"] = 999999,
 			["sc"] = 1,
-			["id"] = "20830",
+			["id"] = "52306:-130",
 			["cc"] = 2,
 		},
 		["Raw Crab Meat"] = {
@@ -1765,11 +1864,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H1035"] = 39400,
 			["cc"] = 6,
 		},
-		["Alicite Pendant of the Mercenary"] = {
-			["H918"] = 1202348,
-			["mr"] = 1202348,
+		["Scabripper Necklace"] = {
+			["H918"] = 29631450,
+			["mr"] = 29631450,
 			["sc"] = 1,
-			["id"] = "52307:-139",
+			["id"] = "87470",
 			["cc"] = 2,
 		},
 		["Gemmed Ring of the Bear"] = {
@@ -1786,25 +1885,25 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "83793:-131",
 			["cc"] = 2,
 		},
-		["Gemmed Ring of the Eagle"] = {
-			["H918"] = 2507499,
-			["mr"] = 2507499,
+		["Orb of Deception"] = {
+			["H918"] = 45379999,
+			["mr"] = 45379999,
 			["sc"] = 1,
-			["id"] = "82063:-6",
+			["id"] = "1973",
 			["cc"] = 2,
 		},
-		["Gemmed Ring of the Mercenary"] = {
-			["H918"] = 2920500,
-			["mr"] = 2920500,
+		["Alicite Pendant of the Mercenary"] = {
+			["H918"] = 1202348,
+			["mr"] = 1202348,
 			["sc"] = 1,
-			["id"] = "82063:-139",
+			["id"] = "52307:-139",
 			["cc"] = 2,
 		},
-		["Aquamarine Signet of the Wolf"] = {
-			["H918"] = 298281,
-			["mr"] = 298281,
+		["Gerp's Perfect Arrow"] = {
+			["H918"] = 25000000,
+			["mr"] = 25000000,
 			["sc"] = 1,
-			["id"] = "20964:-13",
+			["id"] = "87495",
 			["cc"] = 2,
 		},
 		["Relic of Xuen"] = {
@@ -1828,18 +1927,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "19288",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Zephyr"] = {
-			["H918"] = 1950000,
-			["mr"] = 1950000,
+		["Ornate Band of the Zephyr"] = {
+			["H918"] = 1999997,
+			["mr"] = 1999997,
 			["sc"] = 1,
-			["id"] = "90905:-136",
+			["id"] = "90904:-136",
 			["cc"] = 2,
 		},
-		["Relic of Niuzao"] = {
-			["H918"] = 88990000,
-			["mr"] = 88990000,
+		["Six Demon Bag"] = {
+			["H918"] = 2135552,
+			["mr"] = 2135552,
 			["sc"] = 1,
-			["id"] = "79329",
+			["id"] = "7734",
 			["cc"] = 2,
 		},
 		["Shadowfire Necklace of the Mountainbed"] = {
@@ -1849,11 +1948,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-124",
 			["cc"] = 2,
 		},
-		["Ornate Band of the Zephyr"] = {
-			["H918"] = 1999997,
-			["mr"] = 1999997,
+		["Relic of Niuzao"] = {
+			["H918"] = 88990000,
+			["mr"] = 88990000,
 			["sc"] = 1,
-			["id"] = "90904:-136",
+			["id"] = "79329",
 			["cc"] = 2,
 		},
 		["Ornate Band of the Bedrock"] = {
@@ -1870,11 +1969,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-129",
 			["cc"] = 2,
 		},
-		["Tiger Opal Pendant"] = {
-			["H918"] = 3989996,
-			["mr"] = 3989996,
+		["Signet of the Scorned"] = {
+			["H918"] = 20000000,
+			["mr"] = 20000000,
 			["sc"] = 1,
-			["id"] = "83806",
+			["id"] = "87442",
 			["cc"] = 2,
 		},
 		["Nightstone Choker of the Landslide"] = {
@@ -1891,20 +1990,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "55419:-139",
 			["cc"] = 2,
 		},
+		["Ornate Band of the Feverflare"] = {
+			["H918"] = 1999999,
+			["mr"] = 199000,
+			["sc"] = 1,
+			["id"] = "83793:-138",
+			["cc"] = 2,
+			["L918"] = 199000,
+		},
 		["White Turnip"] = {
 			["H895"] = 19800,
 			["mr"] = 19800,
 			["sc"] = 5,
 			["id"] = "74850",
 			["cc"] = 6,
-		},
-		["Ornate Band of the Feverflare"] = {
-			["H918"] = 1999999,
-			["mr"] = 199000,
-			["sc"] = 1,
-			["id"] = "83793:-138",
-			["L918"] = 199000,
-			["cc"] = 2,
 		},
 		["Living Steel Belt Buckle"] = {
 			["mr"] = 4930000,
@@ -1913,19 +2012,19 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90046",
 			["sc"] = 6,
 		},
-		["Snowman Kit"] = {
-			["H918"] = 1250000,
-			["mr"] = 1250000,
-			["sc"] = 3,
-			["id"] = "21309",
-			["cc"] = 9,
+		["Steamed Crab Surprise"] = {
+			["mr"] = 79000,
+			["sc"] = 1,
+			["id"] = "74653",
+			["cc"] = 4,
+			["H913"] = 79000,
 		},
-		["Snowshoe Rabbit"] = {
-			["H918"] = 30000,
-			["mr"] = 30000,
-			["sc"] = 0,
-			["id"] = "BP_72:2",
-			["cc"] = 11,
+		["Heart of the Earth"] = {
+			["H918"] = 6030000,
+			["mr"] = 6030000,
+			["sc"] = 1,
+			["id"] = "83796",
+			["cc"] = 2,
 		},
 		["Intricate Amulet of the Fireflash"] = {
 			["H918"] = 2950000,
@@ -1934,40 +2033,39 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82007:-130",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Faultline"] = {
-			["H918"] = 1982499,
-			["mr"] = 272000,
+		["Immaculate Ring of the Invoker"] = {
+			["H918"] = 300000,
+			["mr"] = 300000,
 			["sc"] = 1,
-			["id"] = "83794:-118",
-			["L918"] = 272000,
+			["id"] = "82283:-39",
 			["cc"] = 2,
 		},
-		["Impetuous Query"] = {
-			["H918"] = 5000000,
-			["mr"] = 5000000,
+		["White Tuxedo Shirt"] = {
+			["H918"] = 161999,
+			["mr"] = 161999,
 			["sc"] = 1,
-			["id"] = "55881",
+			["id"] = "6833",
 			["cc"] = 2,
 		},
-		["Intricate Amulet of the Seer"] = {
-			["H918"] = 2950000,
-			["mr"] = 2950000,
-			["sc"] = 1,
-			["id"] = "82007:-37",
+		["Snowy Breastplate of the Sorcerer"] = {
+			["H918"] = 444444,
+			["mr"] = 444444,
+			["sc"] = 5,
+			["id"] = "82177:-36",
 			["cc"] = 2,
 		},
-		["Amulet of Sanctification"] = {
-			["H918"] = 95500,
-			["mr"] = 95500,
+		["Heavy Jade Ring"] = {
+			["H918"] = 9900,
+			["mr"] = 9900,
 			["sc"] = 1,
-			["id"] = "31196",
+			["id"] = "30420",
 			["cc"] = 2,
 		},
-		["Vicious Ruby Signet"] = {
-			["H918"] = 6222222,
-			["mr"] = 6222222,
+		["Rituals of the New Moon"] = {
+			["H918"] = 15000000,
+			["mr"] = 15000000,
 			["sc"] = 1,
-			["id"] = "75071",
+			["id"] = "45850",
 			["cc"] = 2,
 		},
 		["Gemmed Amulet of the Marksman"] = {
@@ -1991,19 +2089,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "30422",
 			["cc"] = 2,
 		},
-		["Tiny Snowman"] = {
-			["H918"] = 30000000,
-			["mr"] = 2708300,
-			["sc"] = 0,
-			["id"] = "BP_117:2",
-			["L918"] = 2708300,
-			["cc"] = 11,
+		["Snowfall Ink"] = {
+			["H918"] = 250000,
+			["mr"] = 250000,
+			["sc"] = 9,
+			["id"] = "43127",
+			["cc"] = 6,
 		},
-		["Simple Pearl Ring"] = {
-			["H918"] = 150000,
-			["mr"] = 150000,
+		["King's Eyesocket of the Bandit"] = {
+			["H918"] = 3287100,
+			["mr"] = 3287100,
 			["sc"] = 1,
-			["id"] = "20820",
+			["id"] = "44683:-40",
 			["cc"] = 2,
 		},
 		["Rice Flour"] = {
@@ -2027,19 +2124,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52309:-39",
 			["cc"] = 2,
 		},
-		["King's Eyesocket of the Bandit"] = {
-			["H918"] = 3287100,
-			["mr"] = 3287100,
+		["Simple Pearl Ring"] = {
+			["H918"] = 150000,
+			["mr"] = 150000,
 			["sc"] = 1,
-			["id"] = "44683:-40",
+			["id"] = "20820",
 			["cc"] = 2,
 		},
-		["Snowfall Ink"] = {
-			["H918"] = 250000,
-			["mr"] = 250000,
-			["sc"] = 9,
-			["id"] = "43127",
-			["cc"] = 6,
+		["Tiny Snowman"] = {
+			["H918"] = 30000000,
+			["mr"] = 2708300,
+			["sc"] = 0,
+			["id"] = "BP_117:2",
+			["cc"] = 11,
+			["L918"] = 2708300,
 		},
 		["Gemmed Amulet of the Bear"] = {
 			["H918"] = 2950000,
@@ -2048,54 +2146,54 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82060:-7",
 			["cc"] = 2,
 		},
-		["Rituals of the New Moon"] = {
-			["H918"] = 15000000,
-			["mr"] = 15000000,
+		["Vicious Ruby Signet"] = {
+			["H918"] = 6222222,
+			["mr"] = 6222222,
 			["sc"] = 1,
-			["id"] = "45850",
+			["id"] = "75071",
 			["cc"] = 2,
 		},
-		["Heavy Jade Ring"] = {
-			["H918"] = 9900,
-			["mr"] = 9900,
+		["Amulet of Sanctification"] = {
+			["H918"] = 95500,
+			["mr"] = 95500,
 			["sc"] = 1,
-			["id"] = "30420",
+			["id"] = "31196",
 			["cc"] = 2,
 		},
-		["Snowy Breastplate of the Sorcerer"] = {
-			["H918"] = 444444,
-			["mr"] = 444444,
-			["sc"] = 5,
-			["id"] = "82177:-36",
+		["Intricate Amulet of the Seer"] = {
+			["H918"] = 2950000,
+			["mr"] = 2950000,
+			["sc"] = 1,
+			["id"] = "82007:-37",
 			["cc"] = 2,
 		},
-		["White Tuxedo Shirt"] = {
-			["H918"] = 161999,
-			["mr"] = 161999,
+		["Impetuous Query"] = {
+			["H918"] = 5000000,
+			["mr"] = 5000000,
 			["sc"] = 1,
-			["id"] = "6833",
+			["id"] = "55881",
 			["cc"] = 2,
 		},
-		["Immaculate Ring of the Invoker"] = {
-			["H918"] = 300000,
-			["mr"] = 300000,
-			["sc"] = 1,
-			["id"] = "82283:-39",
-			["cc"] = 2,
+		["Potent Flame Spessarite"] = {
+			["mr"] = 30000,
+			["cc"] = 8,
+			["id"] = "23101",
+			["sc"] = 6,
+			["H1053"] = 30000,
 		},
-		["Heart of the Earth"] = {
-			["H918"] = 6030000,
-			["mr"] = 6030000,
-			["sc"] = 1,
-			["id"] = "83796",
-			["cc"] = 2,
+		["Snowshoe Rabbit"] = {
+			["H918"] = 30000,
+			["mr"] = 30000,
+			["sc"] = 0,
+			["id"] = "BP_72:2",
+			["cc"] = 11,
 		},
-		["Steamed Crab Surprise"] = {
-			["mr"] = 79000,
-			["sc"] = 1,
-			["id"] = "74653",
-			["cc"] = 4,
-			["H913"] = 79000,
+		["Snowman Kit"] = {
+			["H918"] = 1250000,
+			["mr"] = 1250000,
+			["sc"] = 3,
+			["id"] = "21309",
+			["cc"] = 9,
 		},
 		["Alicite Pendant of the Feverflare"] = {
 			["H918"] = 1202347,
@@ -2111,18 +2209,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52307:-122",
 			["cc"] = 2,
 		},
-		["Signet of the Scorned"] = {
-			["H918"] = 20000000,
-			["mr"] = 20000000,
+		["Tiger Opal Pendant"] = {
+			["H918"] = 3989996,
+			["mr"] = 3989996,
 			["sc"] = 1,
-			["id"] = "87442",
+			["id"] = "83806",
 			["cc"] = 2,
 		},
-		["Six Demon Bag"] = {
-			["H918"] = 2135552,
-			["mr"] = 2135552,
+		["Shamanic Ring of the Monkey"] = {
+			["H918"] = 1344659,
+			["mr"] = 1344659,
 			["sc"] = 1,
-			["id"] = "7734",
+			["id"] = "82118:-5",
 			["cc"] = 2,
 		},
 		["Fool's Cap"] = {
@@ -2132,18 +2230,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "79011",
 			["cc"] = 6,
 		},
-		["Shamanic Ring of the Monkey"] = {
-			["H918"] = 1344659,
-			["mr"] = 1344659,
+		["Shadowfire Necklace of the Zephyr"] = {
+			["H918"] = 1950000,
+			["mr"] = 1950000,
 			["sc"] = 1,
-			["id"] = "82118:-5",
+			["id"] = "90905:-136",
 			["cc"] = 2,
 		},
-		["Gerp's Perfect Arrow"] = {
-			["H918"] = 25000000,
-			["mr"] = 25000000,
+		["Aquamarine Signet of the Wolf"] = {
+			["H918"] = 298281,
+			["mr"] = 298281,
 			["sc"] = 1,
-			["id"] = "87495",
+			["id"] = "20964:-13",
 			["cc"] = 2,
 		},
 		["Book of Clever Tricks"] = {
@@ -2153,18 +2251,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "43667",
 			["cc"] = 2,
 		},
-		["Orb of Deception"] = {
-			["H918"] = 45379999,
-			["mr"] = 45379999,
+		["Gemmed Ring of the Mercenary"] = {
+			["H918"] = 2920500,
+			["mr"] = 2920500,
 			["sc"] = 1,
-			["id"] = "1973",
+			["id"] = "82063:-139",
 			["cc"] = 2,
 		},
-		["Scabripper Necklace"] = {
-			["H918"] = 29631450,
-			["mr"] = 29631450,
+		["Gemmed Ring of the Eagle"] = {
+			["H918"] = 2507499,
+			["mr"] = 2507499,
 			["sc"] = 1,
-			["id"] = "87470",
+			["id"] = "82063:-6",
 			["cc"] = 2,
 		},
 		["Shadowfire Necklace of the Stormblast"] = {
@@ -2174,32 +2272,33 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "90905:-133",
 			["cc"] = 2,
 		},
-		["Jasper Ring of the Fireflash"] = {
-			["H918"] = 999999,
-			["mr"] = 999999,
+		["Amulet of the Moon"] = {
+			["H918"] = 60000,
+			["mr"] = 60000,
 			["sc"] = 1,
-			["id"] = "52306:-130",
+			["id"] = "20830",
 			["cc"] = 2,
 		},
-		["Ornate Band of the Bouldercrag"] = {
-			["H918"] = 1999996,
-			["mr"] = 1999996,
+		["Alicite Pendant of the Sorcerer"] = {
+			["H918"] = 1000000,
+			["mr"] = 1000000,
 			["sc"] = 1,
-			["id"] = "90904:-127",
+			["id"] = "52307:-36",
 			["cc"] = 2,
 		},
-		["Band of Blood"] = {
-			["H918"] = 6030000,
-			["mr"] = 6030000,
+		["Ornate Band of the Landslide"] = {
+			["H918"] = 1982494,
+			["mr"] = 1982493,
 			["sc"] = 1,
-			["id"] = "83801",
+			["id"] = "90904:-121",
 			["cc"] = 2,
+			["L918"] = 1982493,
 		},
-		["Bejeweled Ring of the Beast"] = {
-			["H918"] = 140000,
-			["mr"] = 140000,
-			["sc"] = 1,
-			["id"] = "82228:-41",
+		["Snowy Shield of the Sorcerer"] = {
+			["H918"] = 333333,
+			["mr"] = 333333,
+			["sc"] = 7,
+			["id"] = "82184:-36",
 			["cc"] = 2,
 		},
 		["Shamanic Amulet of the Champion"] = {
@@ -2209,34 +2308,32 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82115:-45",
 			["cc"] = 2,
 		},
-		["Hessonite Band of the Faultline"] = {
-			["H918"] = 1800430,
-			["mr"] = 1800430,
+		["Jasper Ring of the Faultline"] = {
+			["H918"] = 1233951,
+			["mr"] = 1233951,
 			["sc"] = 1,
-			["id"] = "52316:-118",
+			["id"] = "52306:-118",
 			["cc"] = 2,
 		},
-		["Gemmed Ring of the Flameblaze"] = {
-			["H918"] = 2977804,
-			["mr"] = 2977804,
+		["Widow Chain"] = {
+			["H918"] = 3692500,
+			["mr"] = 3692500,
 			["sc"] = 1,
-			["id"] = "82063:-114",
+			["id"] = "83804",
 			["cc"] = 2,
 		},
-		["Shadowfire Necklace of the Feverflare"] = {
-			["H918"] = 1893019,
-			["mr"] = 294419,
-			["sc"] = 1,
-			["id"] = "83794:-138",
-			["L918"] = 294419,
-			["cc"] = 2,
+		["Potent Vermilion Onyx"] = {
+			["mr"] = 1155000,
+			["cc"] = 8,
+			["id"] = "76660",
+			["sc"] = 6,
+			["H1053"] = 1155000,
 		},
-		["Shadowfire Necklace of the Windflurry"] = {
-			["H918"] = 1990000,
-			["mr"] = 1800703,
+		["Red Linen Shirt"] = {
+			["H918"] = 1500,
+			["mr"] = 1500,
 			["sc"] = 1,
-			["id"] = "83794:-135",
-			["L918"] = 1800703,
+			["id"] = "2575",
 			["cc"] = 2,
 		},
 		["Shadowfire Necklace of the Earthfall"] = {
@@ -2244,8 +2341,8 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 1999992,
 			["sc"] = 1,
 			["id"] = "90905:-122",
-			["L918"] = 1999992,
 			["cc"] = 2,
+			["L918"] = 1999992,
 		},
 		["Nightstone Choker of the Mercenary"] = {
 			["H918"] = 1231740,
@@ -2254,90 +2351,89 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "52309:-139",
 			["cc"] = 2,
 		},
-		["Gemmed Amulet of the Invoker"] = {
-			["H918"] = 2950000,
-			["mr"] = 2950000,
+		["Heavy Silver Ring of the Bear"] = {
+			["H918"] = 50000,
+			["mr"] = 50000,
 			["sc"] = 1,
-			["id"] = "82060:-39",
+			["id"] = "20826:-68",
 			["cc"] = 2,
 		},
-		["Ornate Band of the Earthshaker"] = {
-			["H918"] = 1995000,
-			["mr"] = 1995000,
+		["Hessonite Band of the Windstorm"] = {
+			["H918"] = 340709,
+			["mr"] = 340709,
 			["sc"] = 1,
-			["id"] = "90904:-120",
+			["id"] = "52308:-137",
 			["cc"] = 2,
 		},
-		["Engraved Truesilver Ring"] = {
-			["H918"] = 90000,
-			["mr"] = 90000,
+		["Bejeweled Amulet of the Mercenary"] = {
+			["mr"] = 2499999,
+			["cc"] = 2,
+			["id"] = "82225:-139",
+			["H1035"] = 2499999,
 			["sc"] = 1,
-			["id"] = "20960",
+		},
+		["Assault Band"] = {
+			["H918"] = 1800000,
+			["mr"] = 1800000,
+			["sc"] = 1,
+			["id"] = "13095",
 			["cc"] = 2,
 		},
-		["Simple Opal Ring"] = {
-			["H918"] = 100000,
-			["mr"] = 100000,
+		["Glacial Salmon"] = {
+			["mr"] = 7598,
+			["sc"] = 5,
+			["id"] = "41809",
+			["H919"] = 7598,
+			["cc"] = 6,
+		},
+		["Intricate Amulet of the Sorcerer"] = {
+			["H918"] = 3151155,
+			["mr"] = 3151155,
 			["sc"] = 1,
-			["id"] = "21767",
+			["id"] = "82007:-36",
 			["cc"] = 2,
 		},
-		["Darkmoon Card: Berserker!"] = {
-			["H918"] = 10000000,
-			["mr"] = 10000000,
+		["Fire Spirit Salmon"] = {
+			["mr"] = 69499,
 			["sc"] = 1,
-			["id"] = "42989",
+			["id"] = "74652",
+			["H919"] = 69499,
+			["cc"] = 4,
+		},
+		["Hauyne Ring of the Whale"] = {
+			["H918"] = 400000,
+			["mr"] = 400000,
+			["sc"] = 1,
+			["id"] = "25052:-8",
 			["cc"] = 2,
 		},
-		["Nightstone Choker of the Sorcerer"] = {
-			["H918"] = 400502,
-			["mr"] = 400502,
-			["sc"] = 1,
-			["id"] = "52309:-36",
+		["Bejeweled Amulet of the Seer"] = {
+			["mr"] = 2499999,
 			["cc"] = 2,
+			["id"] = "82225:-37",
+			["H1035"] = 2499999,
+			["sc"] = 1,
 		},
-		["Elementium Dragonling"] = {
-			["H918"] = 1285000,
-			["mr"] = 1285000,
-			["sc"] = 1,
-			["id"] = "60403",
-			["cc"] = 2,
+		["Emperor Salmon"] = {
+			["mr"] = 27400,
+			["sc"] = 5,
+			["id"] = "74859",
+			["H919"] = 27400,
+			["cc"] = 6,
 		},
-		["Ornate Band of the Galeburst"] = {
-			["H918"] = 4246250,
-			["mr"] = 1997499,
+		["Wildfowl Roast"] = {
+			["mr"] = 139999,
+			["cc"] = 4,
+			["id"] = "74654",
+			["H1035"] = 139999,
 			["sc"] = 1,
-			["id"] = "90904:-134",
-			["L918"] = 1997499,
-			["cc"] = 2,
 		},
-		["Blazing Citrine Ring"] = {
-			["H918"] = 30000,
-			["mr"] = 30000,
-			["sc"] = 1,
-			["id"] = "20958",
-			["cc"] = 2,
-		},
-		["Sapphire Pendant of Winter Night"] = {
-			["H918"] = 150000,
-			["mr"] = 150000,
-			["sc"] = 1,
-			["id"] = "21790",
-			["cc"] = 2,
-		},
-		["Astrylian's Cheerful Charm"] = {
-			["H918"] = 34990000,
-			["mr"] = 34990000,
-			["sc"] = 1,
-			["id"] = "87469",
-			["cc"] = 2,
-		},
-		["Lionsfall Ring"] = {
-			["H918"] = 6020000,
-			["mr"] = 6020000,
-			["sc"] = 1,
-			["id"] = "83800",
-			["cc"] = 2,
+		["Krasarang Paddlefish"] = {
+			["mr"] = 35000,
+			["cc"] = 6,
+			["id"] = "74865",
+			["H1035"] = 35000,
+			["sc"] = 5,
 		},
 		["Gemmed Amulet of the Mercenary"] = {
 			["H918"] = 2950000,
@@ -2346,18 +2442,18 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82060:-139",
 			["cc"] = 2,
 		},
-		["Solid Bronze Ring"] = {
-			["H918"] = 130000,
-			["mr"] = 130000,
+		["Anaxo's Multi-Layered Seal"] = {
+			["H918"] = 14999998,
+			["mr"] = 14999998,
 			["sc"] = 1,
-			["id"] = "20907",
+			["id"] = "87437",
 			["cc"] = 2,
 		},
-		["Antique Silver Cufflinks"] = {
-			["H918"] = 1000000,
-			["mr"] = 1000000,
+		["Disciple's Stein of Intellect"] = {
+			["H918"] = 5000000,
+			["mr"] = 5000000,
 			["sc"] = 1,
-			["id"] = "34828",
+			["id"] = "15932:-19",
 			["cc"] = 2,
 		},
 		["Immaculate Ring of the Beast"] = {
@@ -2367,12 +2463,13 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82283:-41",
 			["cc"] = 2,
 		},
-		["Noble's Monocle"] = {
-			["H918"] = 15025370,
-			["mr"] = 15025370,
+		["Shadowfire Necklace of the Windstorm"] = {
+			["H918"] = 1747499,
+			["mr"] = 271999,
 			["sc"] = 1,
-			["id"] = "34827",
+			["id"] = "83794:-137",
 			["cc"] = 2,
+			["L918"] = 271999,
 		},
 		["White Linen Shirt"] = {
 			["H918"] = 1500,
@@ -2381,19 +2478,19 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "2576",
 			["cc"] = 2,
 		},
-		["Moonbrook Ring of the Seer"] = {
-			["H918"] = 1791647,
-			["mr"] = 1791647,
-			["sc"] = 1,
-			["id"] = "55416:-37",
-			["cc"] = 2,
+		["Bejeweled Spellblade of the Whale"] = {
+			["mr"] = 1260865,
+			["cc"] = 1,
+			["id"] = "82230:-8",
+			["H1035"] = 1260865,
+			["sc"] = 13,
 		},
-		["Frostbridge Orb"] = {
-			["H918"] = 90000,
-			["mr"] = 90000,
-			["sc"] = 1,
-			["id"] = "37364",
+		["Bejeweled Amulet of the Rockslab"] = {
+			["mr"] = 2499999,
 			["cc"] = 2,
+			["id"] = "82225:-128",
+			["H1035"] = 2499999,
+			["sc"] = 1,
 		},
 		["Immaculate Ring of the Tiger"] = {
 			["H918"] = 500000,
@@ -2402,34 +2499,33 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "82283:-14",
 			["cc"] = 2,
 		},
-		["Ornate Band of the Wildfire"] = {
-			["H918"] = 1982498,
-			["mr"] = 1979999,
+		["Bejeweled Amulet of the Eagle"] = {
+			["mr"] = 2499999,
+			["cc"] = 2,
+			["id"] = "82225:-6",
+			["H1035"] = 2499999,
 			["sc"] = 1,
-			["id"] = "90904:-129",
-			["L918"] = 1979999,
+		},
+		["Amberjewel"] = {
+			["mr"] = 58499,
+			["cc"] = 8,
+			["id"] = "52195",
+			["H1035"] = 58499,
+			["sc"] = 3,
+		},
+		["Tarnished Silver Ring"] = {
+			["H918"] = 8000000,
+			["mr"] = 8000000,
+			["sc"] = 1,
+			["id"] = "33855",
 			["cc"] = 2,
 		},
-		["Intricate Ring of the Galeburst"] = {
-			["H918"] = 2214245,
-			["mr"] = 2214245,
-			["sc"] = 1,
-			["id"] = "82005:-134",
-			["cc"] = 2,
-		},
-		["Heavy Adamantite Ring"] = {
-			["H918"] = 40087,
-			["mr"] = 40087,
-			["sc"] = 1,
-			["id"] = "24078",
-			["cc"] = 2,
-		},
-		["Sishir Ring of the Fireflash"] = {
-			["H918"] = 1498612,
-			["mr"] = 1498612,
-			["sc"] = 1,
-			["id"] = "55418:-130",
-			["cc"] = 2,
+		["Turtle Meat"] = {
+			["mr"] = 24200,
+			["cc"] = 6,
+			["id"] = "3712",
+			["H1035"] = 24200,
+			["sc"] = 5,
 		},
 		["Charm of the Muse"] = {
 			["H918"] = 555555,
@@ -2448,8 +2544,8 @@ AUCTIONATOR_TOONS = {
 	},
 	["Shenlu"] = {
 		["firstSeen"] = 1373180912,
-		["guid"] = "0x0180000004F3657E",
 		["firstVersion"] = "3.1.4",
+		["guid"] = "0x0180000004F3657E",
 	},
 	["Jolokia"] = {
 		["firstSeen"] = 1367203629,
