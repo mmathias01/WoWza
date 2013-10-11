@@ -92,6 +92,10 @@ VER 3 0000000000000004 "Onyx 3" "Ability_Mount_YakMountWhite"
 /way 70.33, 28.63
 /way 67.06, 30.25
 END
+VER 3 0000000000000015 "spread" "SPELL_MISC_PETHEAL"
+/ra spread
+/say spread
+END
 VER 3 0000000000000012 "test" "INV_Misc_QuestionMark"
 #showtooltip Smite
 /clearfocus [mod:alt]

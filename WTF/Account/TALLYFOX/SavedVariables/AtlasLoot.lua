@@ -1,34 +1,6 @@
 
 AtlasLootDB = {
 	["namespaces"] = {
-		["DefaultFrame"] = {
-			["profiles"] = {
-				["Jolokia - Dragonblight"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						178.9999237060547, -- [4]
-						123.0000076293945, -- [5]
-					},
-					["instance"] = "MoguShanVaults",
-				},
-				["Cellestia - Terenas"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						26.99994468688965, -- [4]
-						122, -- [5]
-					},
-					["instance"] = "MoguShanVaults",
-				},
-			},
-		},
-		["AtlasLootPanel"] = {
-		},
 		["WishList"] = {
 			["global"] = {
 				["data"] = {
@@ -96,8 +68,67 @@ AtlasLootDB = {
 				},
 			},
 		},
+		["AtlasLootPanel"] = {
+		},
+		["DefaultFrame"] = {
+			["profiles"] = {
+				["Cellestia - Terenas"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						26.99994468688965, -- [4]
+						122, -- [5]
+					},
+					["instance"] = "MoguShanVaults",
+				},
+				["Jolokia - Dragonblight"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						178.9999237060547, -- [4]
+						123.0000076293945, -- [5]
+					},
+					["instance"] = "MoguShanVaults",
+				},
+			},
+		},
 		["Filter"] = {
 			["profiles"] = {
+				["Cellestia - Terenas"] = {
+					["filterSlots"] = {
+						["Stats"] = {
+							["PARRY_RATING"] = false,
+							["DODGE_RATING"] = false,
+							["RESILIENCE_RATING"] = false,
+							["AGILITY"] = false,
+							["STRENGTH"] = false,
+							["EXPERTISE_RATING"] = false,
+						},
+						["Armor"] = {
+							["#a2#"] = false,
+							["#a4#"] = false,
+							["#a1#"] = false,
+						},
+						["WeaponsMeeleTwoHand"] = {
+							["#w10#"] = false,
+						},
+						["WeaponsMeele"] = {
+							["#w7#"] = false,
+							["#w10#"] = false,
+						},
+						["WeaponsRanged"] = {
+							["#w3#"] = false,
+							["#w2#"] = false,
+							["#w5#"] = false,
+							["#w12#"] = false,
+						},
+					},
+					["enable"] = true,
+				},
 				["Jolokia - Dragonblight"] = {
 					["enable"] = true,
 					["filterSlots"] = {
@@ -114,36 +145,6 @@ AtlasLootDB = {
 						["WeaponsMeeleTwoHand"] = {
 							["#w10#"] = false,
 						},
-						["WeaponsMeele"] = {
-							["#w7#"] = false,
-							["#w10#"] = false,
-						},
-						["WeaponsRanged"] = {
-							["#w3#"] = false,
-							["#w2#"] = false,
-							["#w5#"] = false,
-							["#w12#"] = false,
-						},
-					},
-				},
-				["Cellestia - Terenas"] = {
-					["filterSlots"] = {
-						["Stats"] = {
-							["PARRY_RATING"] = false,
-							["DODGE_RATING"] = false,
-							["RESILIENCE_RATING"] = false,
-							["EXPERTISE_RATING"] = false,
-							["STRENGTH"] = false,
-							["AGILITY"] = false,
-						},
-						["Armor"] = {
-							["#a2#"] = false,
-							["#a4#"] = false,
-							["#a1#"] = false,
-						},
-						["WeaponsMeeleTwoHand"] = {
-							["#w10#"] = false,
-						},
 						["WeaponsRanged"] = {
 							["#w3#"] = false,
 							["#w2#"] = false,
@@ -155,12 +156,10 @@ AtlasLootDB = {
 							["#w10#"] = false,
 						},
 					},
-					["enable"] = true,
 				},
 			},
 		},
 	},
-	["showWarning"] = true,
 	["profileKeys"] = {
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
@@ -169,6 +168,7 @@ AtlasLootDB = {
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
+	["showWarning"] = true,
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
 			["UseGameTooltip"] = true,

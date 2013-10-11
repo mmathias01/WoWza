@@ -28,7 +28,7 @@ if L then
 	L.pre_pull_trigger = "Très bien, je vais créer un champ de force qui contiendra votre corruption."
 
 	L.big_adds = "Manifestations de la corruption"
-	L.big_adds_desc = "Warning for killing big adds inside/outside"
+	L.big_adds_desc = "Alertes quand des Manifestations de la corruptions sont tuées à l'intérieur/à l'extérieur."
 	L.big_add = "Manifestation de la corruption (%d)"
 	L.big_add_killed = "Manifestation de la corruption tuée ! (%d)"
 end
@@ -45,7 +45,7 @@ if L then
 	L.big_add_spawning = "Apparition d'une Manifestation de l'orgueil !"
 	L.small_adds = "Reflets d'orgueil"
 
-	L.titan_pride = "Titan+Pride : %s"
+	L.titan_pride = "Titan+Orgueil : %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "frFR")
@@ -61,14 +61,14 @@ if L then
 	L.north_tower = "Tour nord"
 	L.tower_defender = "Défenseur de la tour"
 
-	L.custom_off_shaman_marker = "Marquages Chaman des marées"
-	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chamans des marées gueule-de-dragon avec %s%s%s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_shaman_marker = "Marquage Chaman des marées"
+	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chamans des marées gueule-de-dragon avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r\n|cFFADFF2ASTUCE : si le raid a décidé que c'est vous qui devez l'activer, survoler rapidement tous les chamans est le moyen le plus rapide de les marquer.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "frFR")
 if L then
 	L.custom_off_mine_marks = "Marquage Mine rampante"
-	L.custom_off_mine_marks_desc = "Afin d'aider à l'attribution des soaking, tente de marquer les Mines rampantes avec %s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_mine_marks_desc = "Afin d'aider à l'attribution des soaking, marque les Mines rampantes avec {rt1}{rt2}{rt3}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r\n|cFFADFF2FASTUCE : si le raid a décidé que c'est vous qui devez l'activer, survoler rapidement toutes les mines est le moyen le plus rapide de les marquer.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "frFR")
@@ -76,13 +76,13 @@ if L then
 	L.blobs = "Gelées"
 
 	L.custom_off_mist_marks = "Marquage Brume toxique"
-	L.custom_off_mist_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs ayant Brume toxique avec %s%s%s%s%s%s (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées)(les tanks ne sont pas marqués). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_mist_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs subissant Brume toxique avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "frFR")
 if L then
 	L.custom_off_bonecracker_marks = "Marquage Brise-os"
-	L.custom_off_bonecracker_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs ayant Brise-os avec (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
+	L.custom_off_bonecracker_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs subissant Brise-os avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 
 	L.stance_bar = "%s(ACTUELLE : %s)"
 	-- shorten stances so they fit on the bars
@@ -108,7 +108,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "frFR")
 if L then
 	L.custom_off_energy_marks = "Marquage Énergie déplacée"
-	L.custom_off_energy_marks_desc = "To help dispelling assignments, mark the people who have Displaced Energy on them with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_energy_marks_desc = "Afin d'aider à l'attribution des dissipations, marque les joueurs subissant Énergie déplacée avec {rt1}{rt2}{rt3}{rt4}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "frFR")
@@ -117,9 +117,6 @@ if L then
 
 	L.enable_zone = "Entrepôt de l’Artéfact"
 	L.matter_scramble_explosion = "Explosion Brouillage de la matière" -- shorten maybe?
-
-	L.custom_off_mark_brewmaster = "Marquage Maître brasseur"
-	L.custom_off_mark_brewmaster_desc = "Marque l'Esprit d'ancien maître brasseur avec %s."
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "frFR")
@@ -134,7 +131,7 @@ L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "frFR")
 if L then
 	L.shredder_engage_trigger = "Un déchiqueteur automatisé approche !"
 	L.laser_on_you = "Laser sur vous PIOU PIOU !"
-	L.laser_say = "Laser PIOU PIOU !"
+	L.laser_say = "Laser PIOU PIOU"
 
 	L.assembly_line_trigger = "Des armes non terminées commencent à avancer sur la chaîne d’assemblage."
 	L.assembly_line_message = "Armes non terminées (%d)"
@@ -151,11 +148,11 @@ if L then
 	L.five = "Iyyokuk sélectionne : Cinq !" -- to check
 	--------------------------------
 	L.edge_message = "Vous êtes un sommet"
-	L.custom_off_edge_marks = "Marquages Tranchant enflammé"
-	L.custom_off_edge_marks_desc = "Marque les joueurs qui seront les sommets des Tranchants enflammés selon les calculs avec %s%s%s%s%s%s. Nécessite d'être assistant ou chef de raid."
+	L.custom_off_edge_marks = "Marquage Tranchant enflammé"
+	L.custom_off_edge_marks_desc = "Marque les joueurs qui seront les sommets des Tranchants enflammés avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 	L.injection_over_soon = "Injection bientôt terminée (%s) !"
-	L.custom_off_mutate_marks = "Marquage Mutation : scorpion d'ambre"
-	L.custom_off_mutate_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs ayant Mutation : scorpion d'ambre avec %s%s%s. Nécessite d'être assistant ou chef de raid."
+	L.custom_off_parasite_marks = "Marquage Parasite"
+	L.custom_off_parasite_marks_desc = "Afin d'aider à l'attribution des contrôles de foule et des Prendre pour proie, marque les parasites avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "frFR")

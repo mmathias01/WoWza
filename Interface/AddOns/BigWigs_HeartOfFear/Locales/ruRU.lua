@@ -25,6 +25,9 @@ if L then
 	L.unseenstrike_soon = "Удар (%d) через ~5-10 сек!"
 	L.assault_message = "Выпад"
 	L.side_swap = "Смена стороны"
+
+	L.custom_off_windstep = "Маркировка Шага ветра"
+	L.custom_off_windstep_desc = "Чтобы помочь лекарям, на людей с Шагом ветра будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}, требуется быть помощником или лидером."
 end
 
 L = BigWigs:NewBossLocale("Garalon", "ruRU")

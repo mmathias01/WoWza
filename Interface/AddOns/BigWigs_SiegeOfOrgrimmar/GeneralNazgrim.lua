@@ -1,9 +1,7 @@
 --[[
 TODO:
-	look for event for add waves - none atm 10N PTR
 	maybe do target scanning on new waves, to start some short initial bars for add abilities?
 	rethink proximity for different difficulties
-	EJ says 10% new forces, but there is a special yell at 30% too: "Omega squad, kill them now!" look into it during further testing - look into these extra waves
 ]]--
 
 --------------------------------------------------------------------------------
@@ -26,8 +24,9 @@ local marksUsed = {}
 
 local L = mod:NewLocale("enUS", true)
 if L then
-	L.custom_off_bonecracker_marks = "Bonecracker"
-	L.custom_off_bonecracker_marks_desc = "To help healing assignments, mark the people who have Bonecracker on them with %s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_bonecracker_marks = "Bonecracker marker"
+	L.custom_off_bonecracker_marks_desc = "To help healing assignments, mark the people who have Bonecracker on them with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+	L.custom_off_bonecracker_marks_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1"
 
 	L.stance_bar = "%s(NOW:%s)"
 	-- shorten stances so they fit on the bars
@@ -54,16 +53,9 @@ if L then
 	L.focus_only = "|cffff0000Focus target alerts only.|r "
 end
 L = mod:GetLocale()
-L.custom_off_bonecracker_marks_desc = L.custom_off_bonecracker_marks_desc:format( -- XXX cut down the number of marks used once we know the max amount used in 25H
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_2.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_3.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_4.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_5.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_6.blp:15\124t"
-)
 L.chain_heal_desc = L.focus_only..L.chain_heal_desc
 L.arcane_shock_desc = L.focus_only..L.arcane_shock_desc
+
 local stances = {
 	[143589] = L.battle,
 	[143594] = L.berserker,
@@ -99,7 +91,7 @@ function mod:OnBossEnable()
 	-- Adds
 	self:Log("SPELL_CAST_START", "ArcaneShock", 143432)
 	self:Log("SPELL_CAST_START", "ChainHeal", 143473)
-	self:Log("SPELL_AURA_APPLIED", "Fixate", 143431)
+	self:Log("SPELL_AURA_APPLIED", "Magistrike", 143431)
 	self:Log("SPELL_CAST_SUCCESS", "HealingTideTotem", 143474)
 	self:Log("SPELL_CAST_START", "ChainHeal", 143473)
 	self:Log("SPELL_CAST_SUCCESS", "EarthShield", 143475)
@@ -109,7 +101,7 @@ function mod:OnBossEnable()
 	-- Boss
 	self:Log("SPELL_CAST_START", "WarSong", 143503)
 	self:Log("SPELL_CAST_SUCCESS", "Ravager", 143872) -- _START has no destName but boss has target, so that could be better, but since this can target pets, and it takes 2 sec before any damage is done after _SUCCESS I guess we can live with using _SUCCESS over _START here
-	self:Log("SPELL_SUMMON", "Banner", 143501) -- XXX this is a tiny bit faster sometimes than _SUCCESS however it's spellId does not match up with the rest atm, so pay attention in case this breaks
+	self:Log("SPELL_SUMMON", "Banner", 143501)
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "HeroicShockwave", "boss1") -- faster than _SUCCESS
 	self:Log("SPELL_AURA_APPLIED", "CoolingOff", 143484)
 	self:Log("SPELL_AURA_APPLIED", "Stances", 143589, 143594, 143593) -- Battle, Berserker, Defensive
@@ -203,8 +195,8 @@ function mod:Fixate(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(unit)
-	local hp = UnitHealth(unit)/UnitHealthMax(unit) * 100
-	if hp < 20 then
+	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if hp < 17 then
 		self:Message(-7920, "Neutral", "Info", CL["soon"]:format(L["extra_adds"]))
 		self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", unit)
 	end

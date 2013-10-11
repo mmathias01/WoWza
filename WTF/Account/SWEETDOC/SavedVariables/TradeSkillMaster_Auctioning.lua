@@ -1,11 +1,11 @@
 
 TradeSkillMaster_AuctioningDB = {
-	["profiles"] = {
-		["Default"] = {
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["player"] = {
+				["Majandra"] = true,
+			},
 		},
-	},
-	["profileKeys"] = {
-		["Majandra - Dragonblight"] = "Default",
 	},
 	["global"] = {
 		["optionsTreeStatus"] = {
@@ -16,22 +16,22 @@ TradeSkillMaster_AuctioningDB = {
 				["1"] = true,
 				["3Sell Enchants"] = true,
 				["3Post Malevolent Items"] = true,
-				["3Test"] = true,
 				[3] = true,
+				["3Test"] = true,
 				["3Profit"] = true,
 			},
 			["scrollvalue"] = 0,
-			["fullwidth"] = 782.9998779296875,
+			["treesizable"] = true,
 			["selected"] = "3Sell Enchants",
 			["treewidth"] = 175,
-			["treesizable"] = true,
+			["fullwidth"] = 782.9998779296875,
 		},
 	},
-	["factionrealm"] = {
-		["Alliance - Dragonblight"] = {
-			["player"] = {
-				["Majandra"] = true,
-			},
+	["profileKeys"] = {
+		["Majandra - Dragonblight"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
 		},
 	},
 }

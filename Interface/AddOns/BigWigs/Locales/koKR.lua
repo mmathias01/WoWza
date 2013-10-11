@@ -56,8 +56,7 @@ L["heroic10"] = "10h"
 L["heroic25"] = "25h"
 L["ICON"] = "아이콘"
 L["ICON_desc"] = "Big Wigs에서 일부 중요한 기술에 걸린 플레이어에게 전술 아이콘을 지정합니다."
-L["introduction"] = [=[Big Wigs에 오신 것을 환영합니다. 보스와의 전투시 어느 정도의 여유를 드립니다. 귀하의 공격대 그룹을 위하여 새로운 보스와의 조우시 준비에 도움이 됩니다.
-]=]
+L["introduction"] = "Big Wigs에 오신 것을 환영합니다. 보스와의 전투시 어느 정도의 여유를 드립니다. 귀하의 공격대 그룹을 위하여 새로운 보스와의 조우시 준비에 도움이 됩니다."
 L["ircChannel"] = "irc.freenode.net의 #wowace 채널"
 L["kills"] = "Kills:"
 L["lfr"] = "LFR"

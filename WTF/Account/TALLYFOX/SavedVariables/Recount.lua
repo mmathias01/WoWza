@@ -48,10 +48,10 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
-			["MainWindowVis"] = false,
 			["CurDataSet"] = "OverallData",
+			["MainWindowVis"] = false,
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
 		["Shenlu - Dragonblight"] = {
 			["GraphWindowY"] = 0,
@@ -74,8 +74,8 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["MainWindowVis"] = false,
 			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
 		},
 	},
 }

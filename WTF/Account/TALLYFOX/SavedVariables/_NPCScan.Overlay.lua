@@ -1,13 +1,12 @@
 
 _NPCScanOverlayOptions = {
 	["ModulesAlpha"] = {
-		["WorldMap"] = 0.5,
-		["Minimap"] = 0.5,
+		["OmegaMap"] = 0.5,
 		["AlphaMap3"] = 0.5,
 		["BattlefieldMinimap"] = 0.800000011920929,
+		["WorldMap"] = 0.5,
+		["Minimap"] = 0.5,
 	},
-	["Version"] = "5.0.0.3",
-	["ShowAll"] = false,
 	["ModulesExtra"] = {
 		["WorldMap"] = {
 			["RangeRing"] = true,
@@ -16,10 +15,12 @@ _NPCScanOverlayOptions = {
 			["RangeRing"] = true,
 		},
 	},
+	["ShowAll"] = false,
 	["Modules"] = {
-		["WorldMap"] = true,
-		["Minimap"] = true,
+		["OmegaMap"] = true,
 		["AlphaMap3"] = true,
 		["BattlefieldMinimap"] = true,
+		["WorldMap"] = true,
+		["Minimap"] = true,
 	},
 }

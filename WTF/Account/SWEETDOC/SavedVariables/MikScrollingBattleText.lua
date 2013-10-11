@@ -4,33 +4,32 @@ MSBTProfiles_SavedVars = {
 		["Default"] = {
 			["critFontAlpha"] = 80,
 			["normalOutlineIndex"] = 2,
-			["hideFullOverheals"] = true,
-			["normalFontAlpha"] = 65,
+			["normalFontAlpha"] = 75,
 			["shortenNumbers"] = true,
+			["stickyCritsDisabled"] = true,
+			["powerThrottleDuration"] = 4,
 			["hotThrottleDuration"] = 4,
-			["critOutlineIndex"] = 3,
-			["animationSpeed"] = 60,
+			["critOutlineIndex"] = 2,
+			["animationSpeed"] = 30,
+			["cooldownThreshold"] = 10,
 			["dotThrottleDuration"] = 4,
 			["creationVersion"] = "5.7.125",
-			["powerThrottleDuration"] = 4,
+			["critFontSize"] = 22.29510879516602,
 			["scrollAreas"] = {
-				["Notification"] = {
-					["disabled"] = true,
+				["Incoming"] = {
+					["offsetX"] = -300,
 				},
-				["Static"] = {
+				["Notification"] = {
 					["disabled"] = true,
 				},
 				["Outgoing"] = {
 					["offsetX"] = 260,
 				},
-				["Incoming"] = {
-					["offsetX"] = -300,
+				["Static"] = {
+					["disabled"] = true,
 				},
 			},
 			["groupNumbers"] = true,
-			["critFontName"] = "MSBT Adventure",
-			["cooldownThreshold"] = 10,
-			["normalFontName"] = "Vixar",
 			["events"] = {
 				["NOTIFICATION_BUFF_FADE"] = {
 					["scrollArea"] = "Notification",
@@ -74,6 +73,9 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_REP_LOSS"] = {
 					["scrollArea"] = "Notification",
 				},
+				["NOTIFICATION_LOOT"] = {
+					["scrollArea"] = "Notification",
+				},
 				["NOTIFICATION_POWER_LOSS"] = {
 					["scrollArea"] = "Notification",
 				},
@@ -81,6 +83,9 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_DEBUFF_STACK"] = {
+					["scrollArea"] = "Notification",
+				},
+				["NOTIFICATION_REP_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_EXPERIENCE_GAIN"] = {
@@ -99,7 +104,7 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_POWER_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_DEBUFF"] = {
+				["NOTIFICATION_MONEY"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_ENEMY_BUFF"] = {
@@ -111,10 +116,10 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_EXTRA_ATTACK"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_ITEM_BUFF"] = {
-					["scrollArea"] = "Notification",
+				["NOTIFICATION_PET_COOLDOWN"] = {
+					["disabled"] = true,
 				},
-				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
+				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_CP_GAIN"] = {
@@ -123,17 +128,20 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_SKILL_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
+				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_PET_COOLDOWN"] = {
-					["disabled"] = true,
+				["NOTIFICATION_ITEM_BUFF"] = {
+					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_REP_GAIN"] = {
+				["NOTIFICATION_DEBUFF"] = {
 					["scrollArea"] = "Notification",
 				},
 			},
-			["normalFontSize"] = 15,
+			["critFontName"] = "MSBT Cooline",
+			["normalFontName"] = "MSBT Cooline",
+			["hideFullHoTOverheals"] = false,
+			["normalFontSize"] = 15.17127799987793,
 		},
 	},
 }

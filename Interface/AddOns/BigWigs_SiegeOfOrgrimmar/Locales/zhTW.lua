@@ -61,27 +61,27 @@ if L then
 	L.tower_defender = "Tower defender"
 
 	L.custom_off_shaman_marker = "薩滿標記"
-	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with %s%s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over the shamans is the fastest way to mark them.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "zhTW")
 if L then
 	L.custom_off_mine_marks = "Mine marker"
-	L.custom_off_mine_marks_desc = "To help soaking assignments, try and mark the Crawler Mines with %s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_mine_marks_desc = "To help soaking assignments, mark the Crawler Mines with {rt1}{rt2}{rt3}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over all the mines is the fastest way to mark them.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "zhTW")
 if L then
 	L.blobs = "Blobs"
 
-	L.custom_off_mist_marks = "Toxic Mist"
-	L.custom_off_mist_marks_desc = "To help healing assignments, mark the people who have Toxic Mist on them with %s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_mist_marks = "Toxic Mist marker"
+	L.custom_off_mist_marks_desc = "To help healing assignments, mark the people who have Toxic Mist on them with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "zhTW")
 if L then
-	L.custom_off_bonecracker_marks = "Bonecracker"
-	L.custom_off_bonecracker_marks_desc = "To help healing assignments, mark the people who have Bonecracker on them with %s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_bonecracker_marks = "Bonecracker marker"
+	L.custom_off_bonecracker_marks_desc = "To help healing assignments, mark the people who have Bonecracker on them with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 
 	L.stance_bar = "%s(現在:%s)"
 	L.battle = "戰鬥"
@@ -115,9 +115,6 @@ if L then
 
 	L.enable_zone = "Artifact Storage"
 	L.matter_scramble_explosion = "Matter Scramble explosion" -- shorten maybe?
-
-	L.custom_off_mark_brewmaster = "Brewmaster marker"
-	L.custom_off_mark_brewmaster_desc = "Mark the Ancient Brewmaster Spirit with %s"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhTW")
@@ -135,7 +132,7 @@ L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "zhTW")
 if L then
 	L.shredder_engage_trigger = "An Automated Shredder draws near!"
 	L.laser_on_you = "Laser on you PEW PEW!"
-	L.laser_say = "Laser PEW PEW!"
+	L.laser_say = "Laser PEW PEW"
 
 	L.assembly_line_trigger = "Unfinished weapons begin to roll out on the assembly line."
 	L.assembly_line_message = "Unfinished weapons (%d)"
@@ -152,10 +149,10 @@ if L then
 	L.five = "Iyyokuk selects: Five!"
 	L.edge_message = "You're an edge"
 	L.custom_off_edge_marks = "Edge marks"
-	L.custom_off_edge_marks_desc = "Mark the players who will be edges based on the calculations %s%s%s%s%s%s, requires promoted or leader."
+	--L.custom_off_edge_marks_desc = "Mark the players who will be edges based on the calculations {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 	L.injection_over_soon = "Injection over soon (%s)!"
-	L.custom_off_mutate_marks = "Mutate: Mantid Scorpion marks"
-	L.custom_off_mutate_marks_desc = "Mark the players who have Mutate: Mantid Scorpion with %s%s%s to help healing assignments, requires promoted or leader."
+	--L.custom_off_parasite_marks = "Parasite marker"
+	--L.custom_off_parasite_marks_desc = "Mark the parasites for crowd control and Prey assignments with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "zhTW")

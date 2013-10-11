@@ -47,6 +47,10 @@ RKDatabase = {
 						[3] = 524,
 						[14] = 562,
 					},
+					["Kor'kron Dark Shaman"] = {
+						[3] = 335,
+						[7] = 471,
+					},
 					["Sha of Pride"] = {
 						[14] = 304,
 						[7] = 368,
@@ -57,33 +61,42 @@ RKDatabase = {
 						[7] = 355,
 						[3] = 358,
 					},
-					["Kor'kron Dark Shaman"] = {
-						[3] = 335,
-						[7] = 471,
+					["Iron Juggernaut"] = {
+						[14] = 338,
+						[7] = 474,
+						[3] = 389,
+					},
+					["Paragons of the Klaxxi"] = {
+						[3] = 628,
 					},
 					["Malkorok"] = {
-						[3] = 298,
+						[3] = 279,
+						[7] = 346,
+					},
+					["Thok the Bloodthirsty"] = {
+						[3] = 375,
+						[7] = 590,
 					},
 					["Immerseus"] = {
 						[14] = 297,
 						[7] = 529,
 						[3] = 375,
 					},
+					["Spoils of Pandaria"] = {
+						[3] = 481,
+						[7] = 463,
+					},
 					["General Nazgrim"] = {
 						[14] = 447,
 						[7] = 486,
 						[3] = 392,
 					},
-					["Thok the Bloodthirsty"] = {
-						[3] = 430,
-					},
-					["Iron Juggernaut"] = {
-						[3] = 389,
-						[14] = 338,
+					["Siegecrafter Blackfuse"] = {
+						[3] = 305,
 					},
 					["The Fallen Protectors"] = {
 						[14] = 351,
-						[7] = 496,
+						[7] = 474,
 						[3] = 431,
 					},
 				},
@@ -102,17 +115,17 @@ RKDatabase = {
 						[7] = 317,
 						[5] = 582,
 					},
-					["Iron Qon"] = {
-						[3] = 548,
-						[7] = 405,
+					["Durumu the Forgotten"] = {
+						[3] = 342,
+						[7] = 171,
 					},
 					["Dark Animus"] = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Council of Elders"] = {
-						[3] = 324,
-						[7] = 359,
+					["Horridon"] = {
+						[3] = 482,
+						[7] = 500,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -126,22 +139,21 @@ RKDatabase = {
 						[7] = 496,
 						[3] = 542,
 					},
-					["Horridon"] = {
-						[3] = 482,
-						[7] = 500,
-					},
 					["Primordius"] = {
 						[3] = 305,
 						[7] = 160,
 					},
-					["Durumu the Forgotten"] = {
-						[3] = 342,
-						[7] = 171,
+					["Council of Elders"] = {
+						[3] = 324,
+						[7] = 359,
+					},
+					["Iron Qon"] = {
+						[3] = 548,
+						[7] = 405,
 					},
 				},
 			},
 			["firstLoad"] = false,
-			["diffShown"] = 7,
 		},
 	},
 }

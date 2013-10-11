@@ -61,27 +61,27 @@ if L then
 	L.tower_defender = "DIfensore Torre"
 
 	L.custom_off_shaman_marker = "Marcatore Sciamano"
-	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzioni, evidenzia lo Sciamano delle Maree delle Fauci di Drago con %s%s%s%s%s%s%s (in questo ordine)(non tutti i simboli possono essere usati), richiede capo incursione o assistente."
+	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzzioni, evidenzia gli Sciamani delle Maree delle Fauci di Drago con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r\n|cFFADFF2FSUGGERIMENTO: Se l'Incursione ha scelto te per abilitare questa opzione, muovere velocemente il mouse sopra gli sciamani è il modo più rapido per evidenziarli.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "itIT")
 if L then
 	L.custom_off_mine_marks = "Marcatore delle Mine"
-	L.custom_off_mine_marks_desc = "Per aiutare l'assegnazione degli assorbimenti, cerca di evidenziare le Mine Striscianti con %s%s%s%s%s (in questo ordine)(non tutti i simboli possono essere usati), richiede capo incursione o assistente."
+	L.custom_off_mine_marks_desc = "Per aiutare l'assegnazione degli assorbimenti, evidenzia le Mine Striscianti con {rt1}{rt2}{rt3}, richiede capo incursione o assistente.\n|cFFFF0000OSolo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r\n|cFFADFF2FSUGGERIMENTO: Se l'Incursione ha scelto te per abilitare questa opzione, muovere velocemente il mouse sopra tutte le mine è il modo più rapido per evidenziarle.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "itIT")
 if L then
 	L.blobs = "Melme"
 
-	L.custom_off_mist_marks = "Infestazione"
-	L.custom_off_mist_marks_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Infestazione su di loro con %s%s%s%s%s%s%s (in questo ordine)(possono non essere usati tutti i simboli), richiede capo incursione o assistente."
+	L.custom_off_mist_marks = "Marcatore Nebbia Tossica"
+	L.custom_off_mist_marks_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Nebbia Tossica con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "itIT")
 if L then
-	L.custom_off_bonecracker_marks = "Colpo Incrinante"
-	L.custom_off_bonecracker_marks_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Colpo Incrinante su di loro con %s%s%s%s%s%s%s (in questo ordine)(possono non essere usati tutti i simboli), richiede capo incursione o assistente."
+	L.custom_off_bonecracker_marks = "Marcatore Colpo Incrinante"
+	L.custom_off_bonecracker_marks_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Colpo Incrinante su di loro con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r"
 
 	L.stance_bar = "%s (ADESSO: %s)"
 	L.battle = "Battaglia"
@@ -115,9 +115,6 @@ if L then
 
 	L.enable_zone = "Immagazzinamento Artefatti"
 	L.matter_scramble_explosion = "Esplosione Scambio di Materia" -- shorten maybe?
-
-	L.custom_off_mark_brewmaster = "Marcatore Mastro Birraio"
-	L.custom_off_mark_brewmaster_desc = "Evidenzia il Mastro Birraio Antico con %s"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "itIT")
@@ -135,7 +132,7 @@ L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "itIT")
 if L then
 	L.shredder_engage_trigger = "Un Segatronchi Automatizzato si avvicina!" -- needs verify
 	L.laser_on_you = "Laser su di te PEW PEW!"
-	L.laser_say = "Laser PEW PEW!"
+	L.laser_say = "Laser PEW PEW"
 
 	L.assembly_line_trigger = "Unfinished weapons begin to roll out on the assembly line."--need check/translation
 	L.assembly_line_message = "Armi non finite (%d)"
@@ -155,10 +152,10 @@ if L then
 	-------------------------------------
 	L.edge_message = "Sei uno dei limiti"
 	L.custom_off_edge_marks = "Marcatori dei Limiti"
-	L.custom_off_edge_marks_desc = "Evidenzia i giocatori che, dopo i calcoli, saranno i limiti di Confine Ardente con %s%s%s%s%s%s%s (in questo ordine)(possono non essere usati tutti i simboli), richiede capo incursione o assistente."
+	--L.custom_off_edge_marks_desc = "Mark the players who will be edges based on the calculations {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 	L.injection_over_soon = "Fine di Iniezione tra poco (%s)!"
-	L.custom_off_mutate_marks = "Mutazione: Marcatore Scorpione Mantid"
-	L.custom_off_mutate_marks_desc = "Evidenzia il giocatore con Mutazione Scoprione Mantid con %s%s%s per aiutare l'assegnazione delle cure, richiede capo incursione o assistente."
+	--L.custom_off_parasite_marks = "Parasite marker"
+	--L.custom_off_parasite_marks_desc = "Mark the parasites for crowd control and Prey assignments with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "itIT")

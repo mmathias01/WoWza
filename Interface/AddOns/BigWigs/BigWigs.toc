@@ -1,5 +1,5 @@
 ## Interface: 50400
-## X-Curse-Packaged-Version: r11333-release
+## X-Curse-Packaged-Version: r11368-release
 ## X-Curse-Project-Name: BigWigs Bossmods
 ## X-Curse-Project-ID: big-wigs
 ## X-Curse-Repository-ID: wow/big-wigs/mainline
@@ -17,7 +17,7 @@
 ## Notes-itIT: Un approccio modulare, leggero e non intrusivo per gli avvisi ai combattimenti con i boss.
 ## Notes-ptBR: Modular, lightweight, non-intrusive approach to boss encounter warnings.
 ## Author: Funkydude, Maat, Nebula169
-## Version: 4.390
+## Version: 4.395
 ## X-Category: Raid
 
 ## OptionalDeps: Ace3, LibCandyBar-3.0, LibSharedMedia-3.0, LibSink-2.0, LibDBIcon-1.0, LibDDI-1.0, LibChatAnims, LibDualSpec-1.0

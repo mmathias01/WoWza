@@ -23,7 +23,7 @@ local L = mod:NewLocale("enUS", true)
 if L then
 	L.custom_off_titan_mark = "Gift of the Titans marker"
 	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
-	L.custom_off_titan_mark_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_8"
+	L.custom_off_titan_mark_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1"
 
 	L.projection_message = "Go to |cFF00FF00GREEN|r arrow!"
 	L.projection_explosion = "Projection explosion"
@@ -225,7 +225,7 @@ do
 			self:CDBar(144358, 10.5) -- Wounded Pride, 10-11.2
 		end
 		if self:Heroic() then
-			self:Bar(145215, 37.4) -- Banishment
+			self:Bar(145215, 40) -- Banishment -- more frequently 40 than anything else
 		end
 		self:Bar(144563, 53) -- Imprison
 		self:Bar(-8262, 60, L["big_add_bar"], 144379) -- when the add is actually up

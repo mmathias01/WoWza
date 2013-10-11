@@ -9,7 +9,7 @@ PawnCommon = {
 	["ShowReforgingAdvisor"] = true,
 	["ColorTooltipBorder"] = true,
 	["ShowTooltipIcons"] = false,
-	["ShowLootUpgradeAdvisor"] = true,
+	["ShowEnchanted"] = false,
 	["ShowSocketingAdvisor"] = true,
 	["Scales"] = {
 		["\"Wowhead\":ShamanEnhancement"] = {
@@ -117,22 +117,22 @@ PawnCommon = {
 		["Resto: Crit (Non Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 45,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["IsPolearm"] = -1000000,
+				["Spirit"] = 65,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsPlate"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["Spirit"] = 65,
 				["IsSword"] = -1000000,
+				["IsPolearm"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -205,9 +205,9 @@ PawnCommon = {
 		["Ele: Below Hit Cap"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["IsWand"] = -1000000,
 				["CritRating"] = 139,
-				["IsPlate"] = -1000000,
+				["Spirit"] = 180,
 				["HasteRating"] = 165,
 				["MasteryRating"] = 146,
 				["IsCrossbow"] = -1000000,
@@ -216,11 +216,11 @@ PawnCommon = {
 				["IsGun"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsSword"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["HitRating"] = 180,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 312,
-				["Spirit"] = 180,
+				["IsPlate"] = -1000000,
 				["Intellect"] = 374,
 			},
 			["UpgradesFollowSpecialization"] = true,
@@ -258,22 +258,22 @@ PawnCommon = {
 		["Resto: Mastery Build"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 40,
 				["HasteRating"] = 60,
 				["MasteryRating"] = 55,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["Spirit"] = 65,
+				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsSword"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPolearm"] = -1000000,
 				["IsPlate"] = -1000000,
+				["Spirit"] = 65,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -315,11 +315,11 @@ PawnCommon = {
 				["IsPlate"] = -1000000,
 				["IsLeather"] = -1000000,
 				["Spirit"] = 650,
-				["IsAxe"] = -1000000,
+				["Stamina"] = 0.1,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 85,
 				["IsShield"] = -1000000,
-				["Stamina"] = 0.1,
+				["IsAxe"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "ecffec",
@@ -327,9 +327,9 @@ PawnCommon = {
 				["Majandra-Dragonblight"] = {
 					["Visible"] = true,
 					["BestItems"] = {
-						["INVTYPE_SHOULDER"] = {
-							927.9744140689564, -- [1]
-							104717, -- [2]
+						["INVTYPE_LEGS"] = {
+							1358.868169647285, -- [1]
+							99118, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_HEAD"] = {
@@ -347,9 +347,14 @@ PawnCommon = {
 							104697, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_WEAPONMAINHAND"] = {
-							554.6723744669598, -- [1]
-							105043, -- [2]
+						["INVTYPE_CHEST"] = {
+							1391.048924002512, -- [1]
+							99119, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_CLOAK"] = {
+							1108.75984264983, -- [1]
+							102247, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_2HWEAPON"] = {
@@ -357,22 +362,14 @@ PawnCommon = {
 							96092, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_FINGER"] = {
-							561.4856368384516, -- [1]
-							94931, -- [2]
+						["INVTYPE_HAND"] = {
+							1041.493471290205, -- [1]
+							103752, -- [2]
 							0, -- [3]
-							560.9236719447291, -- [4]
-							95512, -- [5]
-							0, -- [6]
 						},
 						["INVTYPE_WRIST"] = {
 							560.5459984793891, -- [1]
 							96060, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_HAND"] = {
-							824.4169448943837, -- [1]
-							99023, -- [2]
 							0, -- [3]
 						},
 						["INVTYPE_WAIST"] = {
@@ -385,126 +382,72 @@ PawnCommon = {
 							103881, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_LEGS"] = {
-							1137.755413044197, -- [1]
-							101893, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_CLOAK"] = {
-							1108.75984264983, -- [1]
-							102247, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_CHEST"] = {
-							1391.048924002512, -- [1]
-							99119, -- [2]
-							0, -- [3]
-						},
-					},
-				},
-			},
-		},
-		["\"Wowhead\":WarlockAffliction"] = {
-			["PerCharacterOptions"] = {
-			},
-			["Color"] = "bca5ff",
-			["LocalizedName"] = "Warlock: affliction",
-			["DoNotShow1HUpgrades"] = false,
-			["NormalizationFactor"] = 1,
-			["DoNotShow2HUpgrades"] = false,
-			["UpgradesFollowSpecialization"] = true,
-			["Provider"] = "Wowhead",
-			["UnenchantedColor"] = "8d7bbf",
-		},
-		["\"Wowhead\":PriestHoly"] = {
-			["PerCharacterOptions"] = {
-				["Majandra-Dragonblight"] = {
-					["Visible"] = true,
-					["BestItems"] = {
 						["INVTYPE_SHOULDER"] = {
-							640.2336055431824, -- [1]
+							927.9744140689564, -- [1]
 							104717, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_HEAD"] = {
-							989.3692155407076, -- [1]
-							103751, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_FEET"] = {
-							620.5632269240286, -- [1]
-							94279, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_WEAPONOFFHAND"] = {
-							536.5456570155902, -- [1]
-							104697, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_WEAPONMAINHAND"] = {
-							1751.804998762682, -- [1]
-							105043, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_2HWEAPON"] = {
-							2884.395446671615, -- [1]
-							96092, -- [2]
-							0, -- [3]
-						},
 						["INVTYPE_FINGER"] = {
-							432.0098985399654, -- [1]
+							561.4856368384516, -- [1]
 							94931, -- [2]
 							0, -- [3]
-							392.0445434298441, -- [4]
+							560.9236719447291, -- [4]
 							95512, -- [5]
 							0, -- [6]
 						},
-						["INVTYPE_WRIST"] = {
-							366.0126206384559, -- [1]
-							96060, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_HAND"] = {
-							624.8445929225439, -- [1]
-							99023, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_WAIST"] = {
-							812.5412026726058, -- [1]
-							98608, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_NECK"] = {
-							559.920564216778, -- [1]
-							103881, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_LEGS"] = {
-							852.2615689185845, -- [1]
-							101893, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_CLOAK"] = {
-							900.9339272457312, -- [1]
-							102247, -- [2]
-							0, -- [3]
-						},
-						["INVTYPE_CHEST"] = {
-							1049.997772828508, -- [1]
-							99119, -- [2]
+						["INVTYPE_WEAPONMAINHAND"] = {
+							554.6723744669598, -- [1]
+							105043, -- [2]
 							0, -- [3]
 						},
 					},
 				},
 			},
-			["Color"] = "00a7e0",
-			["LocalizedName"] = "Priest: holy",
-			["DoNotShow1HUpgrades"] = false,
+		},
+		["\"Wowhead\":DruidFeralTank"] = {
+			["PerCharacterOptions"] = {
+				["Jolobank-Dragonblight"] = {
+					["Visible"] = true,
+				},
+				["Jolokya-Dragonblight"] = {
+					["Visible"] = true,
+				},
+			},
+			["Color"] = "ff7d0a",
+			["LocalizedName"] = "Druid: guardian",
+			["DoNotShow1HUpgrades"] = true,
 			["NormalizationFactor"] = 1,
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = true,
 			["Provider"] = "Wowhead",
-			["UnenchantedColor"] = "007da8",
+			["UnenchantedColor"] = "bf5d07",
+		},
+		["Ele: Above Hit Cap"] = {
+			["NormalizationFactor"] = 1,
+			["Values"] = {
+				["Intellect"] = 374,
+				["IsOffHand"] = -1000000,
+				["IsWand"] = -1000000,
+				["CritRating"] = 139,
+				["IsBow"] = -1000000,
+				["IsSword"] = -1000000,
+				["IsPlate"] = -1000000,
+				["Is2HSword"] = -1000000,
+				["SpellPower"] = 312,
+				["HasteRating"] = 165,
+				["MasteryRating"] = 146,
+				["IsCrossbow"] = -1000000,
+				["MetaSocketEffect"] = 16000,
+				["IsPolearm"] = -1000000,
+				["IsGun"] = -1000000,
+			},
+			["UpgradesFollowSpecialization"] = true,
+			["Color"] = "6e95ff",
+			["PerCharacterOptions"] = {
+				["Jolokia-Dragonblight"] = {
+					["Visible"] = true,
+				},
+			},
 		},
 		["\"Wowhead\":WarlockDemonology"] = {
 			["PerCharacterOptions"] = {
@@ -554,23 +497,17 @@ PawnCommon = {
 			["Provider"] = "Wowhead",
 			["UnenchantedColor"] = "bf5d07",
 		},
-		["\"Wowhead\":DruidFeralDps"] = {
+		["\"Wowhead\":PriestShadow"] = {
 			["PerCharacterOptions"] = {
-				["Jolobank-Dragonblight"] = {
-					["Visible"] = true,
-				},
-				["Jolokya-Dragonblight"] = {
-					["Visible"] = true,
-				},
 			},
-			["Color"] = "ff7d0a",
-			["LocalizedName"] = "Druid: feral",
-			["DoNotShow1HUpgrades"] = true,
+			["Color"] = "e0e0e0",
+			["LocalizedName"] = "Priest: shadow",
+			["DoNotShow1HUpgrades"] = false,
 			["NormalizationFactor"] = 1,
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = true,
 			["Provider"] = "Wowhead",
-			["UnenchantedColor"] = "bf5d07",
+			["UnenchantedColor"] = "a8a8a8",
 		},
 		["\"Wowhead\":HunterMarksman"] = {
 			["PerCharacterOptions"] = {
@@ -698,22 +635,22 @@ PawnCommon = {
 		["Resto: Crit (Haste Capped)"] = {
 			["NormalizationFactor"] = 1,
 			["Values"] = {
-				["IsOffHand"] = -1000000,
+				["Intellect"] = 100,
 				["CritRating"] = 45,
 				["HasteRating"] = 35,
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["Spirit"] = 65,
+				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
-				["IsWand"] = -1000000,
+				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
 				["IsSword"] = -1000000,
-				["Intellect"] = 100,
+				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPolearm"] = -1000000,
 				["IsPlate"] = -1000000,
+				["Spirit"] = 65,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -735,46 +672,7 @@ PawnCommon = {
 			["Provider"] = "Wowhead",
 			["UnenchantedColor"] = "809f56",
 		},
-		["\"Wowhead\":PriestShadow"] = {
-			["PerCharacterOptions"] = {
-			},
-			["Color"] = "e0e0e0",
-			["LocalizedName"] = "Priest: shadow",
-			["DoNotShow1HUpgrades"] = false,
-			["NormalizationFactor"] = 1,
-			["DoNotShow2HUpgrades"] = false,
-			["UpgradesFollowSpecialization"] = true,
-			["Provider"] = "Wowhead",
-			["UnenchantedColor"] = "a8a8a8",
-		},
-		["Ele: Above Hit Cap"] = {
-			["NormalizationFactor"] = 1,
-			["Values"] = {
-				["IsOffHand"] = -1000000,
-				["Intellect"] = 374,
-				["IsWand"] = -1000000,
-				["CritRating"] = 139,
-				["IsBow"] = -1000000,
-				["IsSword"] = -1000000,
-				["IsPlate"] = -1000000,
-				["IsCrossbow"] = -1000000,
-				["MetaSocketEffect"] = 16000,
-				["HasteRating"] = 165,
-				["MasteryRating"] = 146,
-				["Is2HSword"] = -1000000,
-				["SpellPower"] = 312,
-				["IsPolearm"] = -1000000,
-				["IsGun"] = -1000000,
-			},
-			["UpgradesFollowSpecialization"] = true,
-			["Color"] = "6e95ff",
-			["PerCharacterOptions"] = {
-				["Jolokia-Dragonblight"] = {
-					["Visible"] = true,
-				},
-			},
-		},
-		["\"Wowhead\":DruidFeralTank"] = {
+		["\"Wowhead\":DruidFeralDps"] = {
 			["PerCharacterOptions"] = {
 				["Jolobank-Dragonblight"] = {
 					["Visible"] = true,
@@ -784,7 +682,7 @@ PawnCommon = {
 				},
 			},
 			["Color"] = "ff7d0a",
-			["LocalizedName"] = "Druid: guardian",
+			["LocalizedName"] = "Druid: feral",
 			["DoNotShow1HUpgrades"] = true,
 			["NormalizationFactor"] = 1,
 			["DoNotShow2HUpgrades"] = false,
@@ -792,11 +690,113 @@ PawnCommon = {
 			["Provider"] = "Wowhead",
 			["UnenchantedColor"] = "bf5d07",
 		},
+		["\"Wowhead\":PriestHoly"] = {
+			["PerCharacterOptions"] = {
+				["Majandra-Dragonblight"] = {
+					["Visible"] = true,
+					["BestItems"] = {
+						["INVTYPE_LEGS"] = {
+							1026.496164315763, -- [1]
+							99118, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_HEAD"] = {
+							989.3692155407076, -- [1]
+							103751, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_FEET"] = {
+							620.5632269240286, -- [1]
+							94279, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_WEAPONOFFHAND"] = {
+							536.5456570155902, -- [1]
+							104697, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_CHEST"] = {
+							1049.997772828508, -- [1]
+							99119, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_CLOAK"] = {
+							900.9339272457312, -- [1]
+							102247, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_2HWEAPON"] = {
+							2884.395446671615, -- [1]
+							96092, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_HAND"] = {
+							797.0202920069289, -- [1]
+							103752, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_WRIST"] = {
+							366.0126206384559, -- [1]
+							96060, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_WAIST"] = {
+							812.5412026726058, -- [1]
+							98608, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_NECK"] = {
+							559.920564216778, -- [1]
+							103881, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_SHOULDER"] = {
+							640.2336055431824, -- [1]
+							104717, -- [2]
+							0, -- [3]
+						},
+						["INVTYPE_FINGER"] = {
+							432.0098985399654, -- [1]
+							94931, -- [2]
+							0, -- [3]
+							392.0445434298441, -- [4]
+							95512, -- [5]
+							0, -- [6]
+						},
+						["INVTYPE_WEAPONMAINHAND"] = {
+							1751.804998762682, -- [1]
+							105043, -- [2]
+							0, -- [3]
+						},
+					},
+				},
+			},
+			["Color"] = "00a7e0",
+			["LocalizedName"] = "Priest: holy",
+			["DoNotShow1HUpgrades"] = false,
+			["NormalizationFactor"] = 1,
+			["DoNotShow2HUpgrades"] = false,
+			["UpgradesFollowSpecialization"] = true,
+			["Provider"] = "Wowhead",
+			["UnenchantedColor"] = "007da8",
+		},
+		["\"Wowhead\":WarlockAffliction"] = {
+			["PerCharacterOptions"] = {
+			},
+			["Color"] = "bca5ff",
+			["LocalizedName"] = "Warlock: affliction",
+			["DoNotShow1HUpgrades"] = false,
+			["NormalizationFactor"] = 1,
+			["DoNotShow2HUpgrades"] = false,
+			["UpgradesFollowSpecialization"] = true,
+			["Provider"] = "Wowhead",
+			["UnenchantedColor"] = "8d7bbf",
+		},
 	},
-	["Digits"] = 1,
+	["ShownGettingStarted"] = true,
 	["ButtonPosition"] = 2,
 	["LastVersion"] = 1.809,
 	["ShowQuestUpgradeAdvisor"] = true,
-	["ShownGettingStarted"] = true,
-	["ShowEnchanted"] = false,
+	["Digits"] = 1,
+	["ShowLootUpgradeAdvisor"] = true,
 }

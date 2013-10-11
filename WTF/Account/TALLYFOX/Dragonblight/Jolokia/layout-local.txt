@@ -27,8 +27,15 @@ X: -221
 Y: 118
 W: 600
 H: 600
+Frame: BagSync_MinimapButton
+FrameLevel: 3
+Anchor: TOPRIGHT
+X: -145
+Y: -169
+W: 32
+H: 32
 Frame: TSMMainFrame1
-FrameLevel: 27
+FrameLevel: 25
 Anchor: LEFT
 X: 124
 Y: 52
@@ -41,3 +48,10 @@ X: 0
 Y: 128
 W: 150
 H: 42
+Frame: TSMCraftingTradeSkillFrame
+FrameLevel: 0
+Anchor: CENTER
+X: 57
+Y: 133
+W: 450
+H: 500

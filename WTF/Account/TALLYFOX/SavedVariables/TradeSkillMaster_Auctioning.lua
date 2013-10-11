@@ -1,24 +1,7 @@
 
 TradeSkillMaster_AuctioningDB = {
-	["factionrealm"] = {
-		["Alliance - Dragonblight"] = {
-			["player"] = {
-				["Jolobank"] = true,
-				["Shenlu"] = true,
-				["Jolokia"] = true,
-			},
-		},
-	},
-	["global"] = {
-		["optionsTreeStatus"] = {
-			["groups"] = {
-				["1"] = true,
-			},
-			["scrollvalue"] = 0,
-			["treesizable"] = true,
-			["selected"] = 1,
-			["treewidth"] = 175,
-			["fullwidth"] = 782.9999389648438,
+	["profiles"] = {
+		["Default"] = {
 		},
 	},
 	["profileKeys"] = {
@@ -26,8 +9,25 @@ TradeSkillMaster_AuctioningDB = {
 		["Jolobank - Dragonblight"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
 	},
-	["profiles"] = {
-		["Default"] = {
+	["global"] = {
+		["optionsTreeStatus"] = {
+			["groups"] = {
+				["1"] = true,
+			},
+			["scrollvalue"] = 0,
+			["fullwidth"] = 782.9999389648438,
+			["treesizable"] = true,
+			["treewidth"] = 175,
+			["selected"] = 1,
+		},
+	},
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["player"] = {
+				["Jolobank"] = true,
+				["Shenlu"] = true,
+				["Jolokia"] = true,
+			},
 		},
 	},
 }

@@ -61,27 +61,27 @@ if L then
 	L.tower_defender = "塔楼防御者"
 
 	L.custom_off_shaman_marker = "萨满标记"
-	L.custom_off_shaman_marker_desc = "帮助打断分配，使用 %s%s%s%s%s%s%s 标记龙喉潮汐萨满（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over the shamans is the fastest way to mark them.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "zhCN")
 if L then
 	L.custom_off_mine_marks = "地雷标记"
-	L.custom_off_mine_marks_desc = "帮助沙包分配，使用 %s%s%s%s%s 标记蛛形地雷（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_mine_marks_desc = "To help soaking assignments, mark the Crawler Mines with {rt1}{rt2}{rt3}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over all the mines is the fastest way to mark them.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "zhCN")
 if L then
 	L.blobs = "污秽软泥怪"
 
-	L.custom_off_mist_marks = "剧毒之雾"
-	L.custom_off_mist_marks_desc = "帮助治疗分配，给受到剧毒之雾的玩家使用 %s%s%s%s%s%s 进行标记（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_mist_marks = "Toxic Mist marker"
+	L.custom_off_mist_marks_desc = "To help healing assignments, mark the people who have Toxic Mist on them with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "zhCN")
 if L then
-	L.custom_off_bonecracker_marks = "碎骨重锤"
-	L.custom_off_bonecracker_marks_desc = "帮助治疗分配，给受到碎骨重锤的玩家使用 %s%s%s%s%s%s 进行标记（按照这个顺序）（不是所有标记会被用到），需要权限。"
+	L.custom_off_bonecracker_marks = "Bonecracker marker"
+	L.custom_off_bonecracker_marks_desc = "To help healing assignments, mark the people who have Bonecracker on them with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 
 	L.stance_bar = "%s（现在：%s）"
 	L.battle = "战斗"
@@ -115,9 +115,6 @@ if L then
 
 	L.enable_zone = "遗物仓库"
 	L.matter_scramble_explosion = "斗转乾坤爆炸" -- shorten maybe?
-
-	L.custom_off_mark_brewmaster = "酒仙标记"
-	L.custom_off_mark_brewmaster_desc = "使用 %s 标记上古酒仙之灵。"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhCN")
@@ -135,7 +132,7 @@ L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "zhCN")
 if L then
 	L.shredder_engage_trigger = "一台自动伐木机正在靠近！"
 	L.laser_on_you = ">你< 激光 BIU BIU！"
-	L.laser_say = "激光 BIU BIU！"
+	L.laser_say = "激光 BIU BIU"
 
 	L.assembly_line_trigger = "未完成的武器从装配流水线上传送出来了。"
 	L.assembly_line_message = "零散的武器 >%d<"
@@ -152,10 +149,10 @@ if L then
 	L.five = "依约库克选择：五！"
 	L.edge_message = ">你< 炎界"
 	L.custom_off_edge_marks = "炎界标记"
-	L.custom_off_edge_marks_desc = "基于计算给谁将会炎界的玩家使用 %s%s%s%s%s%s 进行标记，需要权限。"
+	--L.custom_off_edge_marks_desc = "Mark the players who will be edges based on the calculations {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 	L.injection_over_soon = "注射即将结束 >%s<！"
-	L.custom_off_mutate_marks = "突变：螳螂巨蝎标记"
-	L.custom_off_mutate_marks_desc = "帮助治疗分配，给受到突变：螳螂巨蝎的玩家使用 %s%s%s 进行标记，需要权限。"
+	--L.custom_off_parasite_marks = "Parasite marker"
+	--L.custom_off_parasite_marks_desc = "Mark the parasites for crowd control and Prey assignments with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "zhCN")

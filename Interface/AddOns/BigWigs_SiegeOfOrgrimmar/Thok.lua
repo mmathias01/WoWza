@@ -23,10 +23,10 @@ local heroicAdd
 local L = mod:NewLocale("enUS", true)
 if L then
 	L.adds = "Heroic adds"
-	L.adds_desc = "Warnings for when the heroic only adds enter the fight"
+	L.adds_desc = "Warnings for when the heroic only adds enter the fight."
 
 	L.tank_debuffs = "Tank debuffs"
-	L.tank_debuffs_desc = "Warnings for the different types of tank debuffs associated with Fearsome Roar"
+	L.tank_debuffs_desc = "Warnings for the different types of tank debuffs associated with Fearsome Roar."
 	L.tank_debuffs_icon = 143766
 
 	L.cage_opened = "Cage opened"
@@ -73,7 +73,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_CAST_SUCCESS", "TailLash", 143428)
 	self:Log("SPELL_AURA_APPLIED", "Acceleration", 143411)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "Acceleration", 143411)
-	self:Log("SPELL_CAST_SUCCESS", "FearsomeRoar", 143426, 143780, 143773, 143767) -- Fearsome Roar, Acid Breath, Freezing Breath, Scorching Breath
+	self:Log("SPELL_CAST_SUCCESS", "TankDebuffCast", 143426, 143780, 143773, 143767) -- Fearsome Roar, Acid Breath, Freezing Breath, Scorching Breath
 	self:Log("SPELL_AURA_APPLIED", "TankDebuff", 143766, 143780, 143773, 143767) -- Panic, Acid Breath, Freezing Breath, Scorching Breath
 	self:Log("SPELL_AURA_APPLIED_DOSE", "TankDebuff", 143766, 143780, 143773, 143767)
 
@@ -88,7 +88,7 @@ function mod:OnEngage()
 	end
 	accCount = 0
 	self:Berserk(600)
-	self:OpenProximity("proximity", 10) -- it is so you know if you are too close to another group -- XXX this is maybe tactic dependant - needed for heroic
+	self:OpenProximity("proximity", 10) -- Too close to another group. Tactic dependant - needed for heroic
 	self:Bar(-7963, 25) -- Deafening Screech
 end
 
@@ -113,7 +113,7 @@ function mod:BloodFrenzy(args)
 end
 
 function mod:Enrage(args)
-	if self:Dispeller("enrage", true, args.spellId) then
+	if self:Tank() or self:Dispeller("enrage", true, args.spellId) then
 		self:TargetMessage(args.spellId, args.destName, "Urgent", "Alert")
 	end
 end
@@ -132,18 +132,25 @@ function mod:SkeletonKey(args)
 	end
 end
 
-function mod:BloodFrenzyOver(args)
-	self:OpenProximity("proximity", 10)
-	self:Message(-7981, "Neutral", "Long", CL["over"]:format(args.spellName))
-	self:Bar(-7963, 25) -- Deafening Screech, not much point for more timers than the initial one since then it is too frequent
-	if self:Heroic() then
+do
+	local function checkPrisonerKilled()
 		if heroicAdd then
 			-- XXX maybe add scheduled message once we know exact timer (videos)
+			-- timer still need verification and still looking for a better event to start bars (don't seem to be any)
 			if heroicAdd == "bats" then
-				self:CDBar("adds", 28, self:SpellName(-8584), 24733) -- bat icon
+				mod:CDBar("adds", 13, mod:SpellName(-8584), 24733) -- bat icon
 			elseif heroicAdd == "yeti" then
-				self:CDBar("adds", 16, self:SpellName(-8582), 26010) -- yeti icon
+				mod:CDBar("adds", 10, mod:SpellName(-8582), 26010) -- yeti icon
+				heroicAdd = nil
 			end
+		end
+	end
+	function mod:BloodFrenzyOver(args)
+		self:OpenProximity("proximity", 10)
+		self:Message(-7981, "Neutral", "Long", CL["over"]:format(args.spellName))
+		self:Bar(-7963, 25) -- Deafening Screech, not much point for more timers than the initial one since then it is too frequent
+		if self:Heroic() then
+			self:ScheduleTimer(checkPrisonerKilled, 10)
 		end
 	end
 end
@@ -218,8 +225,8 @@ function mod:Acceleration(args)
 	end
 end
 
-function mod:FearsomeRoar(args)
-	self:Bar("tank_debuffs", 11, args.spellName, args.spellId)
+function mod:TankDebuffCast(args)
+	self:Bar("tank_debuffs", 11, args.spellName, args.spellId == 143426 and 143766 or args.spellId) -- Spell ID hack for Blizzard giving Fearsome Roar the wrong icon
 end
 
 function mod:TankDebuff(args)

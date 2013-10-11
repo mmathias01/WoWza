@@ -9,7 +9,7 @@ if L then
 	L.defile = "Чтение Оскверненной земли"
 
 	L.custom_off_bane_marks = "Маркировка Слово Тьмы: Погибель"
-	L.custom_off_bane_marks_desc = "Чтобы помочь с рассеиванием, люди со Словом Тьмы: Погибель будут помечены метками {rt1}{rt2}{rt3}{rt4}{rt5} (в этой последовательности, не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_bane_marks_desc = "Чтобы помочь с рассеиванием, на людей со Словом Тьмы: Погибель будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5} (в этой последовательности, не все метки могут быть использованы), требуется быть помощником или лидером."
 
 	L.no_meditative_field = "НЕТ Медитативного поля!"
 
@@ -54,7 +54,7 @@ if L then
 	L.demolisher_desc = "Таймеры, когда Кор'кронские разрушители вступят в бой."
 
 	L.towers = "Башня"
-	L.towers_desc = "Предупреждать, когда башни ломаются."
+	L.towers_desc = "Предупреждать, когда разбиваются двери башен."
 	L.south_tower_trigger = "Дверь южной башни разбита!"
 	L.south_tower = "Южная башня"
 	L.north_tower_trigger = "Дверь северной башни разбита!"
@@ -62,27 +62,27 @@ if L then
 	L.tower_defender = "Защитник башни"
 
 	L.custom_off_shaman_marker = "Маркировка Шаманов"
-	L.custom_off_shaman_marker_desc = "Чтобы помочь с прерыванием, Шаманы приливов будут помечены метками %s%s%s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_shaman_marker_desc = "Чтобы помочь с распределением прерываний, на Шаманов прилива из клана Драконьей Пасти будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r\n|cFFADFF2FСОВЕТ: Если вы выбраны для этой задачи, быстро проведите указателем мыши по шаманам, метки сразу же поставятся.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "ruRU")
 if L then
 	L.custom_off_mine_marks = "Маркировка мин"
-	L.custom_off_mine_marks_desc = "Чтобы помочь с распределением, Ползучие мины будут помечены метками %s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_mine_marks_desc = "Чтобы помочь с подрывом, на Ползучие мины будут поставлены метки {rt1}{rt2}{rt3}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r\n|cFFADFF2FСОВЕТ: Если вы выбраны для этой задачи, быстро проведите указателем мыши по минам, метки сразу же поставятся.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "ruRU")
 if L then
 	L.blobs = "Капли"
 
-	L.custom_off_mist_marks = "Токсичный туман"
-	L.custom_off_mist_marks_desc = "Чтобы помочь лекарям, люди с Токсичным туманом будут помечены метками %s%s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_mist_marks = "Маркировка Токсичного тумана"
+	L.custom_off_mist_marks_desc = "Чтобы помочь лекарям, на людей с Токсичным туманом будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "ruRU")
 if L then
-	L.custom_off_bonecracker_marks = "Костолом"
-	L.custom_off_bonecracker_marks_desc = "Чтобы помочь лекарям, люди с Костоломом будут помечены метками %s%s%s%s%s%s (в этой последовательности)(не все метки могут быть использованы), требуется быть помощником или лидером."
+	L.custom_off_bonecracker_marks = "Маркировка Костолома"
+	L.custom_off_bonecracker_marks_desc = "Чтобы помочь лекарям, на людей с Костоломом будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 
 	L.stance_bar = "%s(СЕЙЧАС:%s)"
 	L.battle = "Бой"
@@ -95,7 +95,7 @@ if L then
 	L.adds_trigger4 = "Воины, бегом!"
 	L.adds_trigger5 = "Кор'крон, ко мне!"
 	L.adds_trigger_extra_wave = "Кор'кронцы... все, кто со мной! Убейте их!"
-	L.extra_adds = "Новые помощники"
+	L.extra_adds = "Дополнительный отряд"
 
 	L.chain_heal_message = "Ваш фокус читает Цепное исцеление!"
 
@@ -107,7 +107,7 @@ end
 L = BigWigs:NewBossLocale("Malkorok", "ruRU")
 if L then
 	L.custom_off_energy_marks = "Маркировка Блуждающей энергии"
-	L.custom_off_energy_marks_desc = "Чтобы помочь с рассеиванием, люди с Блуждающей энергией будут помечены метками {rt1}{rt2}{rt3}{rt4}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
+	L.custom_off_energy_marks_desc = "Чтобы помочь с рассеиванием, на людей с Блуждающей энергией будут поставлены метки {rt1}{rt2}{rt3}{rt4}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "ruRU")
@@ -116,9 +116,6 @@ if L then
 
 	L.enable_zone = "Хранилище артефактов"
 	L.matter_scramble_explosion = "Взрыв материи"
-
-	L.custom_off_mark_brewmaster = "Маркировка Хмелевара"
-	L.custom_off_mark_brewmaster_desc = "Дух древнего хмелевара будет помечен меткой %s"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "ruRU")
@@ -133,7 +130,7 @@ L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "ruRU")
 if L then
 	L.shredder_engage_trigger = "Приближается автоматический крошшер!"
 	L.laser_on_you = "Лазер на тебе ПИУ-ПИУ!"
-	L.laser_say = "Лазер ПИУ-ПИУ!"
+	L.laser_say = "Лазер ПИУ-ПИУ"
 
 	L.assembly_line_trigger = "На сборочную линию начинает поступать незаконченное оружие."
 	L.assembly_line_message = "Незаконченное оружие (%d)"
@@ -143,6 +140,10 @@ end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "ruRU")
 if L then
+	L.catalyst_match = "Катализатор: |c%sСОВПАДЕНИЕ|r"
+	L.you_ate = "Тебя ест паразит!"
+	L.dance = "Танцуем"
+	L.prey_message = "Используй Охоту на паразита"
 	L.one = "Выбор Ийокука: Один!"
 	L.two = "Выбор Ийокука: Два!"
 	L.three = "Выбор Ийокука: Три!"
@@ -151,14 +152,21 @@ if L then
 	--------------------------------
 	L.edge_message = "Ты в луче"
 	L.custom_off_edge_marks = "Маркировка луча"
-	L.custom_off_edge_marks_desc = "Маркировка людей, которые станут лучами, на основе вычислений %s%s%s%s%s%s, требуется быть помощником или лидером."
+	L.custom_off_edge_marks_desc = "Люди, которые станут лучами на основе расчетов, будут отмечены {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 	L.injection_over_soon = "Инъекция заканчивается (%s)!"
-	L.custom_off_mutate_marks = "Мутирование: Янтарный скорпион маркировка"
-	L.custom_off_mutate_marks_desc = "Отмечать игроков, имеющих Мутирование: Янтарный скорпион метками %s%s%s чтобы помочь лекарям, требуется быть помощником или лидером."
+	L.custom_off_parasite_marks = "Маркировка Паразита"
+	L.custom_off_parasite_marks_desc = "Чтобы помочь с распределением контроля и Охоты, на паразитов будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "ruRU")
 if L then
+	-- L.clump_check = "Clump check"
+	-- L.clump_check_desc = "Check every 3 seconds during bombardment for clumped up players, if a clump is found a Kor'kron Iron Star will spawn."
+
+	-- L.bombardment = "Bombardment"
+	-- L.bombardment_desc = "Bombarding Stormwind and leaving fires on the ground. Kor'kron Iron Star can only spawn during bombardment."
+
+	L.spread = "Разбегайтесь!"
 	L.intermission = "Перерыв"
 	L.mind_control = "Контроль разума"
 

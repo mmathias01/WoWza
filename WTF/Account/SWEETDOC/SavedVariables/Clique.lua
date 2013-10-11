@@ -6,21 +6,21 @@ CliqueDB3 = {
 			["sec_profileKey"] = "Majandra - Dragonblight",
 			["fastooc"] = false,
 			["blacklist"] = {
-				["ElvUF_Player"] = true,
 				["ElvUF_Target"] = true,
+				["ElvUF_Player"] = true,
 			},
-			["specswap"] = false,
+			["alerthidden"] = true,
 			["downclick"] = false,
 			["pri_profileKey"] = "Majandra - Dragonblight",
-			["alerthidden"] = true,
+			["specswap"] = false,
 		},
 		["Cellestia - Terenas"] = {
 			["alerthidden"] = true,
 			["sec_profileKey"] = "Cellestia - Terenas",
 			["pri_profileKey"] = "Cellestia - Terenas",
 			["fastooc"] = false,
-			["specswap"] = false,
 			["downclick"] = false,
+			["specswap"] = false,
 		},
 	},
 	["profileKeys"] = {
@@ -34,10 +34,10 @@ CliqueDB3 = {
 		["Ziagi - Terenas"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -53,10 +53,10 @@ CliqueDB3 = {
 		["Cellestia - Terenas"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -100,10 +100,10 @@ CliqueDB3 = {
 		["Jolokya - Dragonblight"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -119,11 +119,11 @@ CliqueDB3 = {
 		["Majandra - Dragonblight"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 						["ooc"] = true,
 					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -140,38 +140,19 @@ CliqueDB3 = {
 					["spell"] = "Divine Star",
 					["key"] = "BUTTON2",
 					["sets"] = {
-						["friend"] = true,
+						["default"] = true,
 					},
 					["icon"] = "Interface\\Icons\\spell_priest_divinestar",
 					["type"] = "spell",
 				}, -- [3]
 				{
-					["spell"] = "Prayer of Mending",
-					["key"] = "BUTTON1",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
-					["type"] = "spell",
-				}, -- [4]
-				{
 					["spell"] = "Halo",
 					["key"] = "BUTTON2",
 					["sets"] = {
-						["friend"] = true,
 					},
 					["icon"] = "Interface\\Icons\\ability_priest_halo",
 					["type"] = "spell",
-				}, -- [5]
-				{
-					["spell"] = "Dispel Magic",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["enemy"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
-					["type"] = "spell",
-				}, -- [6]
+				}, -- [4]
 				{
 					["spell"] = "Purify",
 					["key"] = "BUTTON3",
@@ -180,7 +161,7 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
 					["type"] = "spell",
-				}, -- [7]
+				}, -- [5]
 				{
 					["spell"] = "Cascade",
 					["key"] = "BUTTON2",
@@ -188,16 +169,34 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\ability_priest_cascade",
 					["type"] = "spell",
+				}, -- [6]
+				{
+					["spell"] = "Dispel Magic",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
+					["type"] = "spell",
+				}, -- [7]
+				{
+					["spell"] = "Prayer of Mending",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
+					["type"] = "spell",
 				}, -- [8]
 			},
 		},
 		["Cellestia - Windrunner"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]

@@ -1,7 +1,6 @@
 --[[
 TODO:
-	-- win trigger
-	-- figure out tower add timers for 2nd tower
+	-- figure out tower add timers for 2nd tower -- it is not improved but still need feedback
 	-- maybe try and add wave timers
 ]]--
 
@@ -21,6 +20,7 @@ mod:RegisterEnableMob(
 -- Locals
 --
 
+local towerAddTimer
 -- marking
 local markableMobs = {}
 local marksUsed = {}
@@ -49,18 +49,10 @@ if L then
 	L.drakes_icon = "ability_mount_drake_proto"
 
 	L.custom_off_shaman_marker = "Shaman marker"
-	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with %s%s%s%s%s%s%s (in that order)(not all marks may be used), requires promoted or leader."
+	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over the shamans is the fastest way to mark them.|r"
+	L.custom_off_shaman_marker_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1"
 end
 L = mod:GetLocale()
-L.custom_off_shaman_marker_desc = L.custom_off_shaman_marker_desc:format(
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_2.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_3.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_4.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_5.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_6.blp:15\124t",
-	"\124TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7.blp:15\124t"
-)
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -112,7 +104,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "FlamesOfGalakrondRemoved", 147068)
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "LastPhase", "boss1")
 
-	self:Death("Deaths", 72367) -- Dragonmaw Tidal Shaman
+	self:Death("ShamanDeath", 72367) -- Dragonmaw Tidal Shaman
 	self:Death("Win", 72249) -- Galakras
 end
 
@@ -123,9 +115,11 @@ end
 
 local function firstTowerAdd()
 	mod:Message("towers", "Attention", nil, L["tower_defender"], 85214)
-	-- XXX this gets totally inaccurate at some point
+	-- XXX this gets totally inaccurate at some point -- might be better now for north tower, still need feedback
 	mod:Bar("towers", 60, L["tower_defender"], 85214) -- random orc icon
-	mod:ScheduleRepeatingTimer(warnTowerAdds, 60)
+	if not towerAddTimer then
+		towerAddTimer = mod:ScheduleRepeatingTimer(warnTowerAdds, 60)
+	end
 end
 
 function mod:OnEngage()
@@ -213,8 +207,15 @@ function mod:Towers(msg)
 
 	if self:Heroic() then
 		-- timer needs double checking
-		self:Bar("towers", 40, L["tower_defender"], 85214) -- random orc icon
-		self:ScheduleTimer(firstTowerAdd, 40)
+		self:CancelTimer(towerAddTimer)
+		towerAddTimer = nil
+		self:Bar("towers", 35, L["tower_defender"], 85214) -- random orc icon
+		self:ScheduleTimer(firstTowerAdd, 35)
+		if tower == L["north_tower"] then
+			self:CancelTimer(towerAddTimer)
+			towerAddTimer = nil
+			self:StopBar(L["tower_defender"])
+		end
 	elseif tower == L["south_tower"] then
 		self:Bar("towers", 150, L["north_tower"], "achievement_bg_winsoa") -- XXX verify
 	end
@@ -228,8 +229,8 @@ function mod:ChainHeal(args)
 	end
 end
 
-function mod:HealingTotem()
-	self:Message(146753, "Urgent", "Warning")
+function mod:HealingTotem(args)
+	self:Message(146753, "Urgent", "Warning", args.spellName, 143474) -- Better totem icon
 end
 
 do
@@ -252,22 +253,10 @@ function mod:Fracture(args)
 	self:TargetMessage(146899, args.destName, "Urgent", "Info", nil, nil, true)
 end
 
-function mod:Deaths(args)
-	if args.mobId == 72367 and self.db.profile.custom_off_shaman_marker then
-		for i = 1, 7 do
-			if not marksUsed[i] then
-				marksUsed[i] = nil
-				markableMobs[args.destGUID] = nil
-				return
-			end
-		end
-	end
-end
-
 -- marking
 do
 	local function setMark(unit, guid)
-		for mark = 1, 7 do
+		for mark = 1, 5 do
 			if not marksUsed[mark] then
 				SetRaidTarget(unit, mark)
 				markableMobs[guid] = "marked"
@@ -307,6 +296,18 @@ do
 			markableMobs[args.sourceGUID] = true
 			if self.db.profile.custom_off_shaman_marker and not markTimer then
 				markTimer = self:ScheduleRepeatingTimer(markMobs, 0.2)
+			end
+		end
+	end
+
+	function mod:ShamanDeath(args)
+		if self.db.profile.custom_off_shaman_marker then
+			markableMobs[args.destGUID] = nil
+			for i=1, 5 do
+				if marksUsed[i] == args.destGUID then
+					marksUsed[i] = nil
+					break
+				end
 			end
 		end
 	end

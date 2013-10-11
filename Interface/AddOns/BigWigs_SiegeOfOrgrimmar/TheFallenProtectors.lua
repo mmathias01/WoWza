@@ -1,10 +1,7 @@
 --[[
 TODO:
 	:StopBar
-	look if we can get target for Clash
-	improve timers by checking how they interact with different Desperate Measures
-	look for inferno blast (inferno strike in CLEU) target
-	corruption shock target scanning or at least verify how the mobs targeting works
+	improve timers by checking how they interact with different Desperate Measures -- Sun Tenderheart fixed, other two still need fixing
 ]]--
 
 --------------------------------------------------------------------------------
@@ -42,6 +39,7 @@ if L then
 
 	L.custom_off_bane_marks = "Shadow Word: Bane marker"
 	L.custom_off_bane_marks_desc = "To help dispelling assignments, mark the initial people who have Shadow Word: Bane on them with {rt1}{rt2}{rt3}{rt4}{rt5} (in that order, not all marks may be used), requires promoted or leader."
+	L.custom_off_bane_marks_icon = "Interface\\TARGETINGFRAME\\UI-RaidTargetingIcon_1"
 
 	L.no_meditative_field = "NO Meditative Field!"
 
@@ -141,6 +139,8 @@ do
 	end
 
 	function mod:DarkMeditationRemoved(args)
+		self:CDBar(143491, 30) -- Calamity
+		self:CDBar(143446, 17) -- Bane
 		if not self:Tank() then
 			mod:CancelTimer(darkMeditationTimer)
 		end
@@ -281,53 +281,47 @@ end
 
 do
 	local timeLeft = 8
-	local function infernoCountdown()
+	local function infernoCountdown(self)
 		timeLeft = timeLeft - 1
 		if timeLeft < 6 then
-			mod:Say("inferno_self", timeLeft, true)
+			self:Say("inferno_self", timeLeft, true)
 			if timeLeft < 2 then
-				mod:CancelTimer(infernoTimer)
+				self:CancelTimer(infernoTimer)
 				infernoTimer = nil
 			end
 		end
 	end
-	local function checkTarget(sourceGUID)
-		local self = mod
-		for i = 1, 5 do
-			local boss = ("boss%d"):format(i)
-			if UnitGUID(boss) == sourceGUID then
-				local bossTarget = boss.."target"
-				local player = UnitGUID(bossTarget)
-				if player then
-					infernoTarget = self:UnitName(bossTarget)
-					self:TargetMessage(-7959, infernoTarget, "Urgent", "Warning")
-					self:TargetBar(-7959, 8.5, infernoTarget)
-					self:PrimaryIcon(-7959, infernoTarget)
-					if self:Me(player) then
-						self:Flash(-7959)
-						self:Say(-7959)
-						if not self:LFR() then -- Don't spam in LFR
-							timeLeft = 8
-							if infernoTimer then mod:CancelTimer(infernoTimer) end
-							infernoTimer = self:ScheduleRepeatingTimer(infernoCountdown, 1)
-						end
-						-- Emphasized abilities
-						self:StopBar(-7959, infernoTarget)
-						self:TargetMessage("inferno_self", infernoTarget, "Urgent", nil, -7959)
-						self:Bar("inferno_self", 8.5, L["inferno_self_bar"], -7959)
-					elseif not self:Tank() then
-						self:CloseProximity("proximity")
-						self:OpenProximity(-7959, 8, infernoTarget, true)
-					end
-				end
-				break
+	local function startTimer(self)
+		timeLeft = 8
+		if infernoTimer then self:CancelTimer(infernoTimer) end
+		infernoTimer = self:ScheduleRepeatingTimer(infernoCountdown, 1, self)
+	end
+	local function checkTarget(self, name, guid, elapsed)
+		infernoTarget = name
+		self:CloseProximity("proximity")
+		self:PrimaryIcon(-7959, name)
+		if self:Me(guid) then
+			self:Flash(-7959)
+			self:Say(-7959)
+			if not self:LFR() then -- Don't spam in LFR
+				self:ScheduleTimer(startTimer, 1-elapsed, self)
+			end
+			self:OpenProximity(-7959, 8, nil, true)
+			-- Emphasized abilities
+			self:TargetMessage("inferno_self", name, "Urgent", "Warning", -7959)
+			self:Bar("inferno_self", 9-elapsed, L["inferno_self_bar"], -7959)
+		else
+			self:TargetMessage(-7959, name, "Urgent")
+			self:TargetBar(-7959, 9-elapsed, name)
+			if not self:Tank() then
+				self:OpenProximity(-7959, 8, name, true)
 			end
 		end
 	end
 	function mod:InfernoStrike(args)
 		self:CloseProximity(-7959)
 		self:PrimaryIcon(-7959)
-		self:ScheduleTimer(checkTarget, 0.5, args.sourceGUID)
+		self:GetBossTarget(checkTarget, 0.6, args.sourceGUID)
 	end
 end
 
@@ -352,9 +346,6 @@ function mod:CorruptionShock(args)
 		return
 	end
 
-	-- target scanning probably needs improvement
-	-- alternative method could be to just scan with a repeating timer for target on the mob, because he only has a target when the cast on the ability finishes
-	-- XXX this needs testing and verifying again how the mob changes target
 	local target = unit.."target"
 	if UnitExists(target) then
 		if self:Me(UnitGUID(target)) then
@@ -364,7 +355,8 @@ function mod:CorruptionShock(args)
 			self:RangeMessage(args.spellId)
 			self:Flash(args.spellId)
 		else
-			self:TargetMessage(args.spellId, self:UnitName(target), "Personal", "Info") -- XXX for debug only for now
+			-- Even though the codes seems to work fine, keep this for debugging just to be safe
+			self:TargetMessage(args.spellId, self:UnitName(target), "Personal", "Info")
 		end
 	else
 		self:ScheduleTimer("TargetMessage", 0.1, args.spellId, self:UnitName(target), "Personal", "Info")
@@ -377,7 +369,7 @@ end
 
 function mod:Clash(args)
 	self:Message(args.spellId, "Attention")
-	self:CDBar(args.spellId, 46)
+	self:CDBar(args.spellId, self:Heroic() and 50 or 46)
 end
 
 do
@@ -436,7 +428,7 @@ end
 
 
 function mod:Heal(args)
-	self:Bar(args.spellId, 15, ("%s (%s)"):format(args.spellName, args.sourceName)) -- this is too long for a normal bar, but needed so bars don't overwrite each other
+	self:Bar(args.spellId, 15, CL["cast"]:format(CL["other"]:format(self:SpellName(98417), args.sourceName))) -- use text "Heal" instead of the long one
 	self:Message(args.spellId, "Positive", "Warning")
 end
 

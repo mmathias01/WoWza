@@ -1,3 +1,7 @@
+v2.1.11
+*Added some missing soulbound mats to internal lookup table.
+*AccurateTime will now be embedded instead of standalone.
+
 v2.1.10
 *Fixed issue with '/tsm bankui' creating duplicate windows.
 *Fixed bug with auction result sorting.

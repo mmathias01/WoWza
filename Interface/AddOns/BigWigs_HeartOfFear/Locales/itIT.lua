@@ -25,6 +25,9 @@ if L then
 	L.unseenstrike_soon = "Assalto (%d) tra ~5-10 sec!"
 	L.assault_message = "Assalto"
 	L.side_swap = "Cambio Lato"
+
+	L.custom_off_windstep = "Marcatore Passo del Vento"
+	L.custom_off_windstep_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Passo del Vento con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}, richiede capoincursione o assistente."
 end
 
 L = BigWigs:NewBossLocale("Garalon", "itIT")

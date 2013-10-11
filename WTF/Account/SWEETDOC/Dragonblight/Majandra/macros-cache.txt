@@ -1,165 +1,185 @@
-VER 3 010000000000001A "BindHeal" "INV_MISC_QUESTIONMARK"
-#showtooltip
+VER 3 010000000000001A "BH" "INV_MISC_QUESTIONMARK"
+#showtooltip Binding Heal
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /cast [@mouseover,help][@target,help][@targettarget,help][] Binding Heal
+END
+VER 3 0100000000000020 "Cascade" "INV_MISC_QUESTIONMARK"
+#showtooltip Cascade
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 0100000000000020 "Cascade_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][] Cascade
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
 END
-VER 3 010000000000002A "COH_M" "INV_Misc_QuestionMark"
+VER 3 010000000000002A "COH" "INV_Misc_QuestionMark"
 #showtooltip Circle of Healing
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /cast [@mouseover,help][@target,help][@targettarget,help][] Circle of Healing
+END
+VER 3 0100000000000017 "FH" "INV_MISC_QUESTIONMARK"
+#showtooltip Flash Heal
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 0100000000000017 "FlashHeal_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][] Flash Heal
+END
+VER 3 010000000000001D "GH" "INV_MISC_QUESTIONMARK"
+#showtooltip Greater Heal
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 010000000000001D "GH_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][] Greater Heal
+END
+VER 3 0100000000000029 "GS" "INV_Misc_QuestionMark"
+#showtooltip Guardian Spirit
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 0100000000000029 "GS_M" "INV_Misc_QuestionMark"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][]  Guardian Spirit
 END
-VER 3 010000000000001E "Heal_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
+VER 3 010000000000001E "H" "INV_MISC_QUESTIONMARK"
+#showtooltip Heal
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /cast [@mouseover,help][@target,help][@targettarget,help][] Heal
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
 END
-VER 3 0100000000000024 "HolyFire_M" "INV_Misc_QuestionMark"
+VER 3 0100000000000024 "HF_D" "INV_Misc_QuestionMark"
 #showtooltip Holy Fire
-/clearfocus [mod:alt]
-/focus [@focus,noexists]/[@focus,help]
-/use [@focus,exists][@target,exists] Holy Fire
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
+/focus [@target,nohelp]/[@focus,help]
+/use [@focus,exists][@target,exists] Holy Fire
 END
-VER 3 0100000000000023 "Mindbender_M" "INV_Misc_QuestionMark"
+VER 3 0100000000000023 "MB" "INV_Misc_QuestionMark"
 #showtooltip Mindbender
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /clearfocus [mod:alt]
 /focus [@focus,noexists]/[@focus,help]
 /use [@focus,exists][@target,exists] Mindbender
 END
-VER 3 010000000000001F "PainSup_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
+VER 3 0100000000000016 "P" "INV_MISC_QUESTIONMARK"
+#showtooltip Penance
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
+/cast [@mouseover,help][@target,help][@targettarget,help][] Penance
+END
+VER 3 0100000000000021 "P_D" "INV_MISC_QUESTIONMARK"
+#showtooltip Penance
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
+/focus [@target,nohelp]/[@focus,help]
+/use [@focus,exists][@target,exists] Penance
+END
+VER 3 010000000000001C "POH" "INV_MISC_QUESTIONMARK"
+#showtooltip Prayer of Healing
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
+/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Healing
+END
+VER 3 010000000000001B "POM" "INV_MISC_QUESTIONMARK"
+#showtooltip Prayer of Mending
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
+/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Mending
+END
+VER 3 010000000000001F "PS" "INV_MISC_QUESTIONMARK"
+#showtooltip Pain Suppression
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /cast [@mouseover,help][@target,help][@targettarget,help][] Pain Suppression
 END
-VER 3 0100000000000016 "Penance_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [@mouseover,help][@target,help][@targettarget,help][] Penance
+VER 3 0100000000000018 "PWS" "INV_MISC_QUESTIONMARK"
+#showtooltip Power Word: Shield
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 0100000000000021 "Pennance_MD" "INV_MISC_QUESTIONMARK"
-#showtooltip Penance
-/clearfocus [mod:alt]
-/focus [@focus,noexists]/[@focus,help]
-/use [@focus,exists][@target,exists] Penance
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
-END
-VER 3 010000000000001C "POH_M" "INV_MISC_QUESTIONMARK"
-#showtooltip Prayer of Healing
-/cast Inner Focus
-/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Healing
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
-END
-VER 3 010000000000001B "POM_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [@mouseover,help][@target,help][@targettarget,help][] Prayer of Mending
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
-END
-VER 3 0100000000000018 "PWS_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][] Power Word: Shield
+END
+VER 3 0100000000000019 "R" "INV_MISC_QUESTIONMARK"
+#showtooltip Renew
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
-END
-VER 3 0100000000000019 "Renew_M" "INV_MISC_QUESTIONMARK"
-#showtooltip
 /cast [@mouseover,help][@target,help][@targettarget,help][] Renew
-/mtex
-/mtsx
-/use 13
-/use 14
-/mteo
-/mtso
 END
-VER 3 0100000000000025 "Smite_M" "INV_Misc_QuestionMark"
+VER 3 0100000000000025 "S_D" "INV_Misc_QuestionMark"
 #showtooltip Smite
-/clearfocus [mod:alt]
-/focus [@focus,noexists]/[@focus,help]
-/use [@focus,exists][@target,exists] Smite
 /mtex
 /mtsx
 /use 13
 /use 14
 /mteo
 /mtso
+/focus [@target,nohelp]/[@focus,help]
+/use [@focus,exists][@target,exists] Smite
 END
-VER 3 0100000000000026 "VoidShift_M" "INV_Misc_QuestionMark"
-#showtooltip
+VER 3 0100000000000026 "VS" "INV_Misc_QuestionMark"
+#showtooltip Void Shift
+/mtex
+/mtsx
+/use 13
+/use 14
+/mteo
+/mtso
 /cast [@mouseover,help][@target,help][@targettarget,help][] Void Shift
 END

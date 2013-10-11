@@ -61,8 +61,7 @@ L["heroic10"] = "10 HC"
 L["heroic25"] = "25 HC"
 L["ICON"] = "Symbole"
 L["ICON_desc"] = "Big Wigs kann Spieler durch ein Symbol markieren, die von Fähigkeiten betroffen sind. Das erleichtert das Bemerken."
-L["introduction"] = [=[Willkommen bei Big Wigs, dort, wo die Bossbegegnungen rumschwirren. Bitte legen Sie Ihren Sicherheitsgurt an, stellen Sie die Rückenlehne gerade und genießen Sie den Flug. Wir werden Ihnen und Ihrer Raidgruppe bei der Begegnung mit Bossen zur Hand gehen und sie Ihnen als 7-Gänge-Menü zubereiten.
-]=]
+L["introduction"] = "Willkommen bei Big Wigs, dort, wo die Bossbegegnungen rumschwirren. Bitte legen Sie Ihren Sicherheitsgurt an, stellen Sie die Rückenlehne gerade und genießen Sie den Flug. Wir werden Ihnen und Ihrer Raidgruppe bei der Begegnung mit Bossen zur Hand gehen und sie Ihnen als 7-Gänge-Menü zubereiten."
 L["ircChannel"] = "irc.freenode.net im #wowace Channel"
 L["kills"] = "Siege:"
 L["lfr"] = "LFR"

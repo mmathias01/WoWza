@@ -31,13 +31,14 @@ SpellFlashAddonConfig = {
 							},
 						},
 						["Majandra"] = {
-							["selected_class_module"] = "BittensSpellFlash_Atonement",
 							["MODULE"] = {
 								["BittensSpellFlash_Priest"] = {
 								},
 								["BittensSpellFlash_Atonement"] = {
 								},
 							},
+							["selected_class_module"] = "BittensSpellFlash_Atonement",
+							["use_all_class_modules"] = true,
 						},
 						["Jolokya"] = {
 							["MODULE"] = {

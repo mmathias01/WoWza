@@ -24,11 +24,11 @@ end
 L = BigWigs:NewBossLocale("Norushen", "deDE")
 if L then
 	L.pre_pull = "Boss aktiv"
-	L.pre_pull_desc = "Leiste für das Event, bevor der Boss aktiv wird"
+	L.pre_pull_desc = "Leiste für das Event, bevor der Boss aktiv wird."
 	L.pre_pull_trigger = "Nun gut, ich werde ein Feld erschaffen, das Eure Verderbnis eindämmt."
 
 	L.big_adds = "Große Adds"
-	L.big_adds_desc = "Warnungen für das Besiegen der großen Adds (Drinnen/Draußen)"
+	L.big_adds_desc = "Warnungen für das Besiegen der großen Adds (Drinnen/Draußen)."
 	L.big_add = "Großes Add (%d)"
 	L.big_add_killed = "Großes Add getötet! (%d)"
 end
@@ -62,27 +62,27 @@ if L then
 	L.tower_defender = "Turmverteidiger"
 
 	L.custom_off_shaman_marker = "Schamanen markieren"
-	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Gezeitenschamanen des Drachenmals mit %s%s%s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Gezeitenschamanen des Drachenmals mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Schamanen.|r"
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "deDE")
 if L then
 	L.custom_off_mine_marks = "Minen markieren"
-	L.custom_off_mine_marks_desc = "Um bei der Einteilung zum Einstampfen zu helfen, werden die Kriecherminen mit %s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_mine_marks_desc = "Um bei der Einteilung zum Einstampfen zu helfen, werden die Kriecherminen mit {rt1}{rt2}{rt3} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Minen.|r"
 end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "deDE")
 if L then
 	L.blobs = "Schleim"
 
-	L.custom_off_mist_marks = "Toxischer Nebel"
-	L.custom_off_mist_marks_desc = "Um bei der Einteilung zum Heilen zu helfen, werden Spieler mit Toxischem Nebel mit %s%s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt)(Tanks werden nicht markiert), benötigt Leiter oder Assistent."
+	L.custom_off_mist_marks = "Toxischer Nebel markieren"
+	L.custom_off_mist_marks_desc = "Um bei der Einteilung zum Heilen zu helfen, werden Spieler mit Toxischem Nebel mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 end
 
 L = BigWigs:NewBossLocale("General Nazgrim", "deDE")
 if L then
-	L.custom_off_bonecracker_marks = "Knochenknacker"
-	L.custom_off_bonecracker_marks_desc = "Um bei der Einteilung zum Heilen zu helfen, werden Spieler mit Knochenknacker mit %s%s%s%s%s%s markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_bonecracker_marks = "Knochenknacker markieren"
+	L.custom_off_bonecracker_marks_desc = "Um bei der Einteilung zum Heilen zu helfen, werden die von Knochenknacker betroffenen Spieler mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 
 	L.stance_bar = "%s(JETZT:%s)"
 	L.battle = "Kampf"
@@ -116,9 +116,6 @@ if L then
 
 	L.enable_zone = "Artefaktlagerraum"
 	L.matter_scramble_explosion = "Materiewirbel Explosion"
-
-	L.custom_off_mark_brewmaster = "Braumeister markieren"
-	L.custom_off_mark_brewmaster_desc = "Markiert den Geist eines alten Braumeisters mit %s"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "deDE")
@@ -127,16 +124,25 @@ if L then
 	L.adds_desc = "Warnungen für den Kampfeintritt der heroischen Adds."
 
 	L.tank_debuffs = "Tank Schwächungszauber"
-	L.tank_debuffs_desc = "Warnungen für die verschiedenen Typen von Schwächungszaubern auf den Tanks in Verbindung mit Fürchterlichem Brüllen"
+	L.tank_debuffs_desc = "Warnungen für die verschiedenen Typen von Schwächungszaubern auf den Tanks in Verbindung mit Fürchterlichem Brüllen."
 
 	L.cage_opened = "Käfig geöffnet"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "deDE")
 if L then
+	L.overcharged_crawler_mine = "Überladene Kriechermine"
+	L.custom_off_mine_marker = "Minen markieren"
+	L.custom_off_mine_marker_desc = "Markiert die Minen zum Einteilen der Betäubungen. (Alle Zeichen werden genutzt)"
+
+	L.saw_blade_near_you = "Sägeblatt in der Nähe (nicht auf Dir)"
+	L.saw_blade_near_you_desc = "Du kannst diese Option deaktivieren um Spam und Verwirrung zu vermeiden."
+
+	L.disabled = "Deaktiviert"
+
 	L.shredder_engage_trigger = "Ein automatisierter Schredder nähert sich!"
 	L.laser_on_you = "Laser auf Dir PEW PEW!"
-	L.laser_say = "Laser PEW PEW!"
+	L.laser_say = "Laser PEW PEW"
 
 	L.assembly_line_trigger = "Unfertige Waffen werden auf das Fabrikationsband befördert."
 	L.assembly_line_message = "Unfertige Waffen (%d)"
@@ -146,6 +152,10 @@ end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "deDE")
 if L then
+	L.catalyst_match = "Katalysator: |c%sSTIMMT MIT DIR ÜBEREIN|r"
+	L.you_ate = "Du hast einen Parasiten gegessen!"
+	L.dance = "Tanzen"
+	L.prey_message = "Wirke Beute auf Parasiten"
 	L.one = "Iyyokuk wählt aus: Eins!"
 	L.two = "Iyyokuk wählt aus: Zwei!"
 	L.three = "Iyyokuk wählt aus: Drei!"
@@ -154,14 +164,21 @@ if L then
 	--------------------------------
 	L.edge_message = "Brennendes Band auf Dir"
 	L.custom_off_edge_marks = "Brennendes Band markieren"
-	L.custom_off_edge_marks_desc = "Markiert die Spieler mit Brennendem Band, basierend auf den Kalkulationen, mit %s%s%s%s%s%s, benötigt Leiter oder Assistent."
+	L.custom_off_edge_marks_desc = "Markiert die Spieler mit Brennendem Band, basierend auf den Kalkulationen, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 	L.injection_over_soon = "Injektion bald vorbei (%s)!"
-	L.custom_off_mutate_marks = "Mutation: Bernskorpion markieren"
-	L.custom_off_mutate_marks_desc = "Markiert die Spieler mit Mutation: Bernskorpion mit %s%s%s um bei der Einteilung zum Heilen zu helfen, benötigt Leiter oder Assistent."
+	L.custom_off_parasite_marks = "Parasiten markieren"
+	L.custom_off_parasite_marks_desc = "Markiert die Parasiten für Gruppenkontroll- und Beute-Einteilungen mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "deDE")
 if L then
+	L.clump_check = "Gruppierungsprüfung"
+	L.clump_check_desc = "Prüft alle 3 Sekunden während des Bombardements, ob Spieler eng zusammenstehen, da hierdurch Eiserne Sterne der Kor'kron entstehen."
+
+	L.bombardment = "Bombardement"
+	L.bombardment_desc = "Bombardiert Sturmwind und hinterlässt Feuer auf dem Boden. Eiserne Sterne der Kor'kron können nur während des Bombardements entstehen."
+
+	L.spread = "Verteilen!"
 	L.intermission = "Unterbrechung"
 	L.mind_control = "Gedankenkontrolle"
 
@@ -171,7 +188,10 @@ if L then
 
 	L.farseer_trigger = "Scharfseher, heilt unsere Wunden!"
 	L.custom_off_shaman_marker = "Scharfseher markieren"
-	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Scharfseherwolfsreiter mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} markiert (in dieser Reihenfolge)(vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
+	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Scharfseherwolfsreiter mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Scharfseher.|r"
+
+	L.custom_off_minion_marker = "Diener markerieren"
+	L.custom_off_minion_marker_desc = "Um bei der Unterscheidung der Diener zu helfen, werden diese mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} markiert, benötigt Leiter oder Assistent."
 
 	L.focus_only = "|cffff0000Nur Meldungen für Fokusziele.|r "
 end
