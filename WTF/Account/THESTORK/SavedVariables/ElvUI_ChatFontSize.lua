@@ -1,4 +1,0 @@
-
-ElvChatFontDB = {
-	["fontSize"] = 12,
-}

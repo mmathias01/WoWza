@@ -1,6 +1,0 @@
-
-TukuiDataPerChar = {
-	["ufpos"] = {
-	},
-	["install"] = true,
-}

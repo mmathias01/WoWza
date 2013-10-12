@@ -1,5 +1,0 @@
-
-PandaDBPC = {
-	["knowns"] = {
-	},
-}

@@ -1,4 +1,0 @@
-MACRO64 0000000000000001 "Decursive" "INV_MISC_QUESTIONMARK"
-/stopcasting
-/cast [@mouseover,nomod,exists] Cleanse Spirit;  [@mouseover,exists,mod:ctrl] Purge; [@mouseover,exists,mod:shift] Hex
-END

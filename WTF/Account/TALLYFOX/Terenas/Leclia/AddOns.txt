@@ -1,3 +1,0 @@
-Tukui: disabled
-Tukui_ConfigUI: disabled
-Auc-Advanced: disabled

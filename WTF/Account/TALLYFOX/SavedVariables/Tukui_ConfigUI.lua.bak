@@ -1,7 +1,0 @@
-
-TukuiConfigAll = {
-	["Terenas"] = {
-		["Cellestia"] = false,
-	},
-}
-TukuiConfigPublic = nil
