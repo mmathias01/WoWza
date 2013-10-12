@@ -428,9 +428,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7843137979507446,
 							["r"] = 0.4627451300621033,
 						},
-						["AFK"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
 							["r"] = 1,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -443,9 +443,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["r"] = 1,
 						},
-						["RAID_LEADER"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
 							["r"] = 1,
 						},
 						["BN_WHISPER"] = {
@@ -902,9 +902,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7843137979507446,
 							["r"] = 0.4627451300621033,
 						},
-						["AFK"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
 							["r"] = 1,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -917,9 +917,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["r"] = 1,
 						},
-						["RAID_LEADER"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
 							["r"] = 1,
 						},
 						["BN_WHISPER"] = {
@@ -1059,7 +1059,7 @@ ElvUI_ChatTweaksDB = {
 						["silverwingsentinels"] = false,
 						["stormwind"] = false,
 						["sho"] = false,
-						["tinamudclaw"] = false,
+						["thoriumbrotherhood"] = false,
 						["thealdor"] = false,
 						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
@@ -1085,7 +1085,7 @@ ElvUI_ChatTweaksDB = {
 						["kurenai"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
-						["thoriumbrotherhood"] = false,
+						["tinamudclaw"] = false,
 						["ashtonguedeathsworn"] = false,
 						["kirintoroffensive"] = false,
 						["goldenlotus"] = false,
@@ -1138,7 +1138,7 @@ ElvUI_ChatTweaksDB = {
 		},
 		["ImprovedAuctionMessages"] = {
 		},
-		["SpamLog"] = {
+		["CustomEmotes"] = {
 		},
 		["ATestofValor"] = {
 			["profiles"] = {
@@ -1150,7 +1150,7 @@ ElvUI_ChatTweaksDB = {
 		},
 		["AutoSetRole"] = {
 		},
-		["CustomEmotes"] = {
+		["SpamLog"] = {
 		},
 		["Calculator"] = {
 		},
@@ -1186,10 +1186,6 @@ ElvUI_ChatTweaksDB = {
 		},
 		["AuctionMessageFiltering"] = {
 		},
-		["MultipleInviteCommand"] = {
-		},
-		["LootIcons"] = {
-		},
 		["InviteLinks"] = {
 			["profiles"] = {
 				["Majandra - Dragonblight"] = {
@@ -1214,7 +1210,13 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
+		["LootIcons"] = {
+		},
+		["MultipleInviteCommand"] = {
+		},
 		["DeveloperTools"] = {
+		},
+		["Magic8-Ball"] = {
 		},
 		["Companions"] = {
 			["profiles"] = {
@@ -1228,15 +1230,13 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["Magic8-Ball"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["AutoDing"] = {
 		},
-		["RerouteAuctionMessages"] = {
+		["KeywordSounds"] = {
 		},
 		["ChannelSpam"] = {
-		},
-		["KeywordSounds"] = {
 		},
 		["AltNames"] = {
 		},
@@ -1250,38 +1250,38 @@ ElvUI_ChatTweaksDB = {
 			["char"] = {
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/g ...the fuck", -- [1]
-						"/g yah but one loss was to the broncos", -- [2]
-						"/g do they even count losses to the broncos in the stats anymore?", -- [3]
-						"/g LOL", -- [4]
-						"/random", -- [5]
-						"/cw Misstank can u by chance make me 2 orange crit / int gems?", -- [6]
-						"/g yah but one loss was to the broncos", -- [7]
-						"/g do they even count losses to the broncos in the stats anymore?", -- [8]
-						"/g LOL", -- [9]
-						"/random", -- [10]
-						"/cw Misstank can u by chance make me 2 orange crit / int gems?", -- [11]
-						"/cw Misstank seems to be a common problem", -- [12]
-						"/cw Misstank dont think so", -- [13]
-						"/cw Misstank what about yellow?", -- [14]
-						"/cw Misstank pure crit", -- [15]
-						"/cw Misstank lol", -- [16]
-						"/cw Misstank make me a pure int one too if you can", -- [17]
-						"/cw Misstank 1", -- [18]
-						"/cw Misstank and you got the yellow ones right, can you make pure crit?", -- [19]
-						"/cw Misstank yah", -- [20]
-						"/cw Holywanderer LOL", -- [21]
-						"/cw Holywanderer our tanks our scared?", -- [22]
-						"/cw Holywanderer well 1 of them", -- [23]
-						"/cw Holywanderer lol", -- [24]
-						" LOL we like 4 shot it", -- [25]
-						" we are on Garrosh now!", -- [26]
-						"/cw Holywanderer or that lol", -- [27]
-						"/cw Holywanderer they get a buff", -- [28]
-						"/cw Holywanderer yah and they get a buff", -- [29]
-						"/cw Holywanderer lol", -- [30]
-						"/cw Holywanderer rofl", -- [31]
-						"/cw Misstank if you need pulled just say it ill try", -- [32]
+						"/cw Arkannia stay in kite phase as long as possible", -- [1]
+						"/cw Arkannia do fire over poison", -- [2]
+						"/cw Arkannia posion is harder to heal through", -- [3]
+						"/cw Arkannia do even bother with phase 1 fire", -- [4]
+						"/cw Arkannia wait for 1 pulse, group up and push him into phase 2 again", -- [5]
+						"/cw Arkannia thats how we got him", -- [6]
+						"/cw Arkannia actually sat a tank lol", -- [7]
+						"/cw Arkannia have a good one :)", -- [8]
+						"/cw Arkannia do even bother with phase 1 fire", -- [9]
+						"/cw Arkannia wait for 1 pulse, group up and push him into phase 2 again", -- [10]
+						"/cw Arkannia thats how we got him", -- [11]
+						"/cw Arkannia actually sat a tank lol", -- [12]
+						"/cw Arkannia have a good one :)", -- [13]
+						"/g yes they do lol", -- [14]
+						"/cw Arkannia wait for 1 pulse, group up and push him into phase 2 again", -- [15]
+						"/cw Arkannia thats how we got him", -- [16]
+						"/cw Arkannia actually sat a tank lol", -- [17]
+						"/cw Arkannia have a good one :)", -- [18]
+						"/g yes they do lol", -- [19]
+						"/g L-60 on Terenas", -- [20]
+						"/g but yes", -- [21]
+						"/g srsly", -- [22]
+						"/g I wish I could give you mine", -- [23]
+						"/g yes they do lol", -- [24]
+						"/g L-60 on Terenas", -- [25]
+						"/g but yes", -- [26]
+						"/g srsly", -- [27]
+						"/g I wish I could give you mine", -- [28]
+						"/s charsync", -- [29]
+						"/bagsync", -- [30]
+						"/bgs config", -- [31]
+						"/bgs config", -- [32]
 					},
 				},
 				["Jolokia - Dragonblight"] = {

@@ -10,8 +10,8 @@ SkadaDB = {
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -138,8 +138,10 @@ SkadaDB = {
 			},
 			["feed"] = "Damage: Personal DPS",
 			["report"] = {
-				["channel"] = "guild",
-				["target"] = "Aedaliora",
+				["chantype"] = "whisper",
+				["channel"] = "whisper",
+				["target"] = "Arkannia",
+				["mode"] = "Majandra's Healing",
 			},
 			["icon"] = {
 				["minimapPos"] = 175.399807178303,

@@ -20,7 +20,7 @@ Website: http://www.wowace.com/addons/accuratetime/
 --]]
 
 local _G = _G
-local AT_VERSION = 3
+local AT_VERSION = 4
 
 
 -- Check if we're already loaded
@@ -53,7 +53,7 @@ AccurateTime._debugprofilestart = debugprofilestart
 
 -- key to use for direct, non-library calls to
 -- debugprofilestart/debugprofilestop
-local DEFAULT_KEY = {}
+AccurateTime.DEFAULT_KEY = AccurateTime.DEFAULT_KEY or {}
 
 -- other internal variables
 AccurateTime._errorTime = AccurateTime._errorTime or 0
@@ -90,7 +90,7 @@ end
 -- Removes a timer and returns its current value.
 -- Usage: local value = AccurateTime:StopTimer(key)
 function AccurateTime:StopTimer(key)
-	if key == DEFAULT_KEY and not AccurateTime._timers[key] then
+	if key == AccurateTime.DEFAULT_KEY and not AccurateTime._timers[key] then
 		-- Don't assert if somebody calls debugprofilestop() without starting
 		-- This is a best-effort attempt to give them an accurate time
 		return AccurateTime:GetAbsTime()
@@ -105,8 +105,8 @@ end
 
 
 -- apply hooks
-debugprofilestart = function() AccurateTime:StartTimer(DEFAULT_KEY) end
-debugprofilestop = function() return AccurateTime:StopTimer(DEFAULT_KEY) end
+debugprofilestart = function() AccurateTime:StartTimer(AccurateTime.DEFAULT_KEY) end
+debugprofilestop = function() return AccurateTime:StopTimer(AccurateTime.DEFAULT_KEY) end
 
 
 -- Create an OnUpdate script to detect and attempt to correct other addons

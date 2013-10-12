@@ -4,8 +4,8 @@ FrameLevel: 1
 Anchor: LEFT
 X: 367
 Y: 98
-W: 218
-H: 70
+W: 128
+H: 64
 Frame: ColorPickerFrame
 FrameLevel: 11
 Anchor: CENTER
@@ -27,6 +27,13 @@ X: -19
 Y: 241
 W: 80
 H: 80
+Frame: AskMrRobot_Dialog
+FrameLevel: 34
+Anchor: TOPRIGHT
+X: -297
+Y: -80
+W: 600
+H: 530
 Frame: BagSync_MinimapButton
 FrameLevel: 3
 Anchor: TOPRIGHT

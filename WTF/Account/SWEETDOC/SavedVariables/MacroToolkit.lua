@@ -238,8 +238,8 @@ MacroToolkitDB = {
 		["Cellestia - Terenas"] = "profile",
 		["Jolokya - Dragonblight"] = "profile",
 		["Shenlu - Dragonblight"] = "profile",
-		["Jolobank - Dragonblight"] = "profile",
 		["Majandra - Dragonblight"] = "profile",
+		["Jolobank - Dragonblight"] = "profile",
 	},
 	["profiles"] = {
 		["profile"] = {

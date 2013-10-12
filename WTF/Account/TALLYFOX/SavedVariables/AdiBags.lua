@@ -16,11 +16,11 @@ AdiBagsDB = {
 		},
 		["PT3Filter"] = {
 		},
-		["AdiBags_TooltipInfo"] = {
+		["Equipment"] = {
+		},
+		["TidyBags"] = {
 		},
 		["Bound"] = {
-		},
-		["Equipment"] = {
 		},
 		["ItemSets"] = {
 		},
@@ -28,12 +28,13 @@ AdiBagsDB = {
 		},
 		["DataSource"] = {
 		},
-		["TidyBags"] = {
-		},
 		["Junk"] = {
+		},
+		["AdiBags_TooltipInfo"] = {
 		},
 	},
 	["profileKeys"] = {
+		["Jolobank - Dragonblight"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 	},
 	["profiles"] = {

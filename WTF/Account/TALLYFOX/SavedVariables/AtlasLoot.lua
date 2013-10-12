@@ -72,17 +72,6 @@ AtlasLootDB = {
 		},
 		["DefaultFrame"] = {
 			["profiles"] = {
-				["Cellestia - Terenas"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						26.99994468688965, -- [4]
-						122, -- [5]
-					},
-					["instance"] = "MoguShanVaults",
-				},
 				["Jolokia - Dragonblight"] = {
 					["module"] = "AtlasLootMoP",
 					["NEWpoint"] = {
@@ -94,10 +83,49 @@ AtlasLootDB = {
 					},
 					["instance"] = "MoguShanVaults",
 				},
+				["Cellestia - Terenas"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						26.99994468688965, -- [4]
+						122, -- [5]
+					},
+					["instance"] = "MoguShanVaults",
+				},
 			},
 		},
 		["Filter"] = {
 			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["enable"] = true,
+					["filterSlots"] = {
+						["Stats"] = {
+							["PARRY_RATING"] = false,
+							["DODGE_RATING"] = false,
+							["STRENGTH"] = false,
+						},
+						["Armor"] = {
+							["#a2#"] = false,
+							["#a1#"] = false,
+							["#a4#"] = false,
+						},
+						["WeaponsMeeleTwoHand"] = {
+							["#w10#"] = false,
+						},
+						["WeaponsRanged"] = {
+							["#w3#"] = false,
+							["#w2#"] = false,
+							["#w5#"] = false,
+							["#w12#"] = false,
+						},
+						["WeaponsMeele"] = {
+							["#w7#"] = false,
+							["#w10#"] = false,
+						},
+					},
+				},
 				["Cellestia - Terenas"] = {
 					["filterSlots"] = {
 						["Stats"] = {
@@ -128,34 +156,6 @@ AtlasLootDB = {
 						},
 					},
 					["enable"] = true,
-				},
-				["Jolokia - Dragonblight"] = {
-					["enable"] = true,
-					["filterSlots"] = {
-						["Stats"] = {
-							["PARRY_RATING"] = false,
-							["DODGE_RATING"] = false,
-							["STRENGTH"] = false,
-						},
-						["Armor"] = {
-							["#a2#"] = false,
-							["#a1#"] = false,
-							["#a4#"] = false,
-						},
-						["WeaponsMeeleTwoHand"] = {
-							["#w10#"] = false,
-						},
-						["WeaponsRanged"] = {
-							["#w3#"] = false,
-							["#w2#"] = false,
-							["#w5#"] = false,
-							["#w12#"] = false,
-						},
-						["WeaponsMeele"] = {
-							["#w7#"] = false,
-							["#w10#"] = false,
-						},
-					},
 				},
 			},
 		},

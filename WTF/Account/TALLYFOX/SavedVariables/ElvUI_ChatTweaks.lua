@@ -1124,61 +1124,61 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
+						["thescaleofthesands"] = false,
 						["theconsortium"] = false,
 						["timbermawhold"] = false,
 						["darkmoonfaire"] = false,
 						["gelkisclancentaur"] = false,
-						["orderofthecloudserpent"] = false,
+						["cenarionexpedition"] = false,
 						["everlook"] = false,
+						["shatariskyguard"] = false,
 						["shadopanassault"] = false,
 						["hydraxianwaterlords"] = false,
 						["theaugustcelestials"] = false,
+						["shadopan"] = false,
+						["darnassus"] = false,
 						["theshatar"] = false,
-						["silverwingsentinels"] = false,
+						["bloodsailbuccaneers"] = false,
 						["tinamudclaw"] = false,
+						["thesilvercovenant"] = false,
+						["honorhold"] = false,
+						["ironforge"] = false,
+						["silverwingsentinels"] = false,
+						["exodar"] = false,
+						["ginamudclaw"] = false,
+						["stormwind"] = false,
+						["sho"] = false,
+						["thoriumbrotherhood"] = false,
 						["thealdor"] = false,
+						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
+						["theklaxxi"] = false,
+						["shatteredsunoffensive"] = false,
 						["ratchet"] = false,
 						["thevioleteye"] = false,
 						["lowercity"] = false,
+						["valianceexpedition"] = false,
+						["kurenai"] = false,
+						["thelorewalkers"] = false,
+						["gilneas"] = false,
+						["tushuipandaren"] = false,
 						["sporeggar"] = false,
+						["orderofthecloudserpent"] = false,
+						["holycrit"] = false,
+						["keepersoftime"] = false,
 						["gadgetzan"] = false,
+						["stormpikeguard"] = false,
+						["theleagueofarathor"] = false,
+						["thescryers"] = false,
+						["argentdawn"] = false,
+						["magramclancentaur"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
-						["ashtonguedeathsworn"] = false,
-						["stormpikeguard"] = false,
-						["theklaxxi"] = false,
-						["thescaleofthesands"] = false,
-						["shatteredsunoffensive"] = false,
-						["ironforge"] = false,
-						["shatariskyguard"] = false,
 						["pearlfinjinyu"] = false,
-						["shadopan"] = false,
-						["holycrit"] = false,
-						["bloodsailbuccaneers"] = false,
-						["thesilvercovenant"] = false,
-						["honorhold"] = false,
-						["sho"] = false,
-						["zandalartribe"] = false,
-						["argentdawn"] = false,
-						["thelorewalkers"] = false,
-						["tushuipandaren"] = false,
-						["gilneas"] = false,
-						["theleagueofarathor"] = false,
-						["keepersoftime"] = false,
-						["exodar"] = false,
-						["kurenai"] = false,
+						["ashtonguedeathsworn"] = false,
 						["kirintoroffensive"] = false,
-						["thescryers"] = false,
-						["cenarionexpedition"] = false,
-						["magramclancentaur"] = false,
-						["darnassus"] = false,
-						["theblackprince"] = false,
-						["stormwind"] = false,
-						["ginamudclaw"] = false,
-						["thoriumbrotherhood"] = false,
 						["goldenlotus"] = false,
-						["valianceexpedition"] = false,
+						["theblackprince"] = false,
 						["joguthedrunk"] = false,
 					},
 				},
@@ -1227,10 +1227,10 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Raid"] = false,
-					["Party Leader"] = false,
-					["Yell"] = false,
 					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Yell"] = false,
 					["Officer"] = false,
 				},
 				["Jolobank - Dragonblight"] = {
@@ -1240,10 +1240,10 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Say"] = false,
-					["Party Leader"] = false,
 					["Raid"] = false,
+					["Party Leader"] = false,
 					["Yell"] = false,
+					["Say"] = false,
 					["Officer"] = false,
 				},
 				["Shenlu - Dragonblight"] = {
@@ -1301,7 +1301,7 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["RerouteAuctionMessages"] = {
+		["AutoDing"] = {
 		},
 		["Companions"] = {
 			["profiles"] = {
@@ -1321,13 +1321,13 @@ ElvUI_ChatTweaksDB = {
 		},
 		["KeywordSounds"] = {
 		},
-		["AuctionMessageFiltering"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["AltNames"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["AutoDing"] = {
+		["AuctionMessageFiltering"] = {
 		},
 		["Magic8-Ball"] = {
 		},
@@ -1339,42 +1339,6 @@ ElvUI_ChatTweaksDB = {
 		},
 		["EditboxHistory"] = {
 			["char"] = {
-				["Shenlu - Dragonblight"] = {
-					["history"] = {
-						"/g night!", -- [1]
-						"/cw bandersnack   invite", -- [2]
-						"/gquit", -- [3]
-						" ginvite plz (Maj)", -- [4]
-						"/reloadui", -- [5]
-						"/g night!", -- [6]
-						"/cw bandersnack   invite", -- [7]
-						"/gquit", -- [8]
-						" ginvite plz (Maj)", -- [9]
-						"/reloadui", -- [10]
-						"/target band", -- [11]
-						"/reloadui", -- [12]
-						"/cw bandersnack   invite", -- [13]
-						"/gquit", -- [14]
-						" ginvite plz (Maj)", -- [15]
-						"/reloadui", -- [16]
-						"/target band", -- [17]
-						"/cw Bandersnack try again", -- [18]
-						"/gquit", -- [19]
-						" ginvite plz (Maj)", -- [20]
-						"/reloadui", -- [21]
-						"/target band", -- [22]
-						"/cw Bandersnack try again", -- [23]
-						"/p can you summon me", -- [24]
-						"/p ok so it is JUST Maj's account", -- [25]
-						"/p ok", -- [26]
-						"/target band", -- [27]
-						"/cw Bandersnack try again", -- [28]
-						"/p can you summon me", -- [29]
-						"/p ok so it is JUST Maj's account", -- [30]
-						"/p ok", -- [31]
-						"/p yup cannot do it", -- [32]
-					},
-				},
 				["Jolokia - Dragonblight"] = {
 					["history"] = {
 						" wow lol ok sorry", -- [1]
@@ -1409,6 +1373,42 @@ ElvUI_ChatTweaksDB = {
 						" yup, just making some potions", -- [30]
 						" wow lol ok sorry", -- [31]
 						" damn we get started early these days", -- [32]
+					},
+				},
+				["Shenlu - Dragonblight"] = {
+					["history"] = {
+						"/g night!", -- [1]
+						"/cw bandersnack   invite", -- [2]
+						"/gquit", -- [3]
+						" ginvite plz (Maj)", -- [4]
+						"/reloadui", -- [5]
+						"/g night!", -- [6]
+						"/cw bandersnack   invite", -- [7]
+						"/gquit", -- [8]
+						" ginvite plz (Maj)", -- [9]
+						"/reloadui", -- [10]
+						"/target band", -- [11]
+						"/reloadui", -- [12]
+						"/cw bandersnack   invite", -- [13]
+						"/gquit", -- [14]
+						" ginvite plz (Maj)", -- [15]
+						"/reloadui", -- [16]
+						"/target band", -- [17]
+						"/cw Bandersnack try again", -- [18]
+						"/gquit", -- [19]
+						" ginvite plz (Maj)", -- [20]
+						"/reloadui", -- [21]
+						"/target band", -- [22]
+						"/cw Bandersnack try again", -- [23]
+						"/p can you summon me", -- [24]
+						"/p ok so it is JUST Maj's account", -- [25]
+						"/p ok", -- [26]
+						"/target band", -- [27]
+						"/cw Bandersnack try again", -- [28]
+						"/p can you summon me", -- [29]
+						"/p ok so it is JUST Maj's account", -- [30]
+						"/p ok", -- [31]
+						"/p yup cannot do it", -- [32]
 					},
 				},
 			},

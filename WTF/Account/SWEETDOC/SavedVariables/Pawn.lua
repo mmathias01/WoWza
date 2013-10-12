@@ -123,16 +123,16 @@ PawnCommon = {
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["Spirit"] = 65,
+				["IsPolearm"] = -1000000,
 				["IsGun"] = -1000000,
 				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
-				["IsPlate"] = -1000000,
+				["IsSword"] = -1000000,
 				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsSword"] = -1000000,
-				["IsPolearm"] = -1000000,
+				["IsPlate"] = -1000000,
+				["Spirit"] = 65,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -264,16 +264,16 @@ PawnCommon = {
 				["MasteryRating"] = 55,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["IsPolearm"] = -1000000,
+				["Spirit"] = 65,
 				["IsGun"] = -1000000,
 				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
-				["IsSword"] = -1000000,
+				["IsPlate"] = -1000000,
 				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPlate"] = -1000000,
-				["Spirit"] = 65,
+				["IsSword"] = -1000000,
+				["IsPolearm"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -357,10 +357,13 @@ PawnCommon = {
 							102247, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_2HWEAPON"] = {
-							1272.42643218406, -- [1]
-							96092, -- [2]
+						["INVTYPE_FINGER"] = {
+							561.4856368384516, -- [1]
+							94931, -- [2]
 							0, -- [3]
+							560.9236719447291, -- [4]
+							95512, -- [5]
+							0, -- [6]
 						},
 						["INVTYPE_HAND"] = {
 							1041.493471290205, -- [1]
@@ -387,13 +390,10 @@ PawnCommon = {
 							104717, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_FINGER"] = {
-							561.4856368384516, -- [1]
-							94931, -- [2]
+						["INVTYPE_2HWEAPON"] = {
+							1272.42643218406, -- [1]
+							96092, -- [2]
 							0, -- [3]
-							560.9236719447291, -- [4]
-							95512, -- [5]
-							0, -- [6]
 						},
 						["INVTYPE_WEAPONMAINHAND"] = {
 							554.6723744669598, -- [1]
@@ -641,16 +641,16 @@ PawnCommon = {
 				["MasteryRating"] = 40,
 				["IsCrossbow"] = -1000000,
 				["MetaSocketEffect"] = 16000,
-				["IsPolearm"] = -1000000,
+				["Spirit"] = 65,
 				["IsGun"] = -1000000,
 				["IsOffHand"] = -1000000,
 				["IsBow"] = -1000000,
-				["IsSword"] = -1000000,
+				["IsPlate"] = -1000000,
 				["IsWand"] = -1000000,
 				["Is2HSword"] = -1000000,
 				["SpellPower"] = 75,
-				["IsPlate"] = -1000000,
-				["Spirit"] = 65,
+				["IsSword"] = -1000000,
+				["IsPolearm"] = -1000000,
 			},
 			["UpgradesFollowSpecialization"] = true,
 			["Color"] = "00ff80",
@@ -725,10 +725,13 @@ PawnCommon = {
 							102247, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_2HWEAPON"] = {
-							2884.395446671615, -- [1]
-							96092, -- [2]
+						["INVTYPE_FINGER"] = {
+							432.0098985399654, -- [1]
+							94931, -- [2]
 							0, -- [3]
+							403.0294481563969, -- [4]
+							95163, -- [5]
+							0, -- [6]
 						},
 						["INVTYPE_HAND"] = {
 							797.0202920069289, -- [1]
@@ -755,13 +758,10 @@ PawnCommon = {
 							104717, -- [2]
 							0, -- [3]
 						},
-						["INVTYPE_FINGER"] = {
-							432.0098985399654, -- [1]
-							94931, -- [2]
+						["INVTYPE_2HWEAPON"] = {
+							2884.395446671615, -- [1]
+							96092, -- [2]
 							0, -- [3]
-							392.0445434298441, -- [4]
-							95512, -- [5]
-							0, -- [6]
 						},
 						["INVTYPE_WEAPONMAINHAND"] = {
 							1751.804998762682, -- [1]

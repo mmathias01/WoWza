@@ -13,6 +13,9 @@ RecountDB = {
 					["w"] = 140.0000152587891,
 				},
 			},
+			["DetailWindowX"] = 0,
+			["LastInstanceName"] = "Siege of Orgrimmar",
+			["CurDataSet"] = "OverallData",
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -24,11 +27,8 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["MainWindowVis"] = false,
-			["LastInstanceName"] = "Siege of Orgrimmar",
-			["CurDataSet"] = "OverallData",
 			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
 		},
 		["Jolobank - Dragonblight"] = {
 			["GraphWindowY"] = 0,
@@ -48,10 +48,10 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["MainWindowVis"] = false,
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
 		},
 		["Shenlu - Dragonblight"] = {
 			["GraphWindowY"] = 0,

@@ -2,11 +2,11 @@
 ## Title: |cff00fe00TradeSkillMaster|r
 ## Notes: Core addon for the TradeSkillMaster suite. Does nothing without modules installed.
 ## Author: Sapu94, Bart39
-## Version: v2.1.11
+## Version: v2.1.13
 ## SavedVariables: TradeSkillMasterDB
 ## OptionalDeps: AccurateTime, Ace3, LibDataBroker-1.1, LibDBIcon-1.0, LibExtraTip, TipHelper, LibParse, LibCompress, LibGraph-2.0
 ## X-Embeds: AccurateTime, Ace3, LibDataBroker-1.1, LibDBIcon-1.0, LibExtraTip, TipHelper, LibParse, LibCompress, LibGraph-2.0
-## X-Curse-Packaged-Version: v2.1.11
+## X-Curse-Packaged-Version: v2.1.13
 ## X-Curse-Project-Name: TradeSkillMaster
 ## X-Curse-Project-ID: tradeskill-master
 ## X-Curse-Repository-ID: wow/tradeskill-master/mainline

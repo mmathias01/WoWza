@@ -82,14 +82,14 @@ RKDatabase = {
 						[7] = 529,
 						[3] = 375,
 					},
-					["Spoils of Pandaria"] = {
-						[3] = 481,
-						[7] = 463,
-					},
 					["General Nazgrim"] = {
 						[14] = 447,
 						[7] = 486,
 						[3] = 392,
+					},
+					["Spoils of Pandaria"] = {
+						[3] = 481,
+						[7] = 463,
 					},
 					["Siegecrafter Blackfuse"] = {
 						[3] = 305,
@@ -123,9 +123,9 @@ RKDatabase = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Horridon"] = {
-						[3] = 482,
-						[7] = 500,
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -139,9 +139,9 @@ RKDatabase = {
 						[7] = 496,
 						[3] = 542,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
+					["Horridon"] = {
+						[3] = 482,
+						[7] = 500,
 					},
 					["Council of Elders"] = {
 						[3] = 324,

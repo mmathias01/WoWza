@@ -5,12 +5,12 @@ ElvDB = {
 		["Cellestia - Terenas"] = "Cellestia - Resto",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Majandra - Dragonblight"] = "Majandra",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra",
 	},
 	["gold"] = {
 		["Dragonblight"] = {
-			["Majandra"] = 14758886,
+			["Majandra"] = 42534894,
 		},
 	},
 	["namespaces"] = {
@@ -761,14 +761,14 @@ ElvDB = {
 				["ElvUF_PlayerCastbarMover"] = "BOTTOMElvUIParentBOTTOM042",
 				["ElvAB_1"] = "BOTTOMElvUIParentBOTTOM026",
 				["ElvAB_2"] = "BOTTOMElvUIParentBOTTOM038",
-				["ElvUF_PartyMover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
-				["ElvUF_PlayerMover"] = "BOTTOMElvUIParentBOTTOM-278110",
 				["ElvAB_3"] = "BOTTOMElvUIParentBOTTOM31022",
-				["ElvUF_PetMover"] = "BOTTOMElvUIParentBOTTOM0150",
+				["ElvUF_PlayerMover"] = "BOTTOMElvUIParentBOTTOM-278110",
+				["ElvUF_PartyMover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["ElvUF_Raid10Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
 				["ElvUF_Raid25Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
 				["BossButton"] = "BOTTOMElvUIParentBOTTOM0195",
 				["ElvAB_5"] = "BOTTOMElvUIParentBOTTOM-31022",
-				["ElvUF_Raid10Mover"] = "BOTTOMLEFTElvUIParentBOTTOMLEFT4195",
+				["ElvUF_PetMover"] = "BOTTOMElvUIParentBOTTOM0150",
 				["ElvUF_TargetMover"] = "BOTTOMElvUIParentBOTTOM278110",
 			},
 			["layoutSet"] = "dpsCaster",
@@ -859,8 +859,8 @@ ElvPrivateDB = {
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 	},
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
@@ -939,6 +939,14 @@ ElvPrivateDB = {
 			["theme"] = "class",
 			["install_complete"] = "5.89",
 		},
+		["Jolobank - Dragonblight"] = {
+			["skins"] = {
+				["addons"] = {
+					["AlwaysTrue"] = true,
+				},
+			},
+			["install_complete"] = "5.96",
+		},
 		["Majandra - Dragonblight"] = {
 			["general"] = {
 				["minimapbar"] = {
@@ -986,14 +994,6 @@ ElvPrivateDB = {
 			},
 			["theme"] = "class",
 			["install_complete"] = "5.99",
-		},
-		["Jolobank - Dragonblight"] = {
-			["skins"] = {
-				["addons"] = {
-					["AlwaysTrue"] = true,
-				},
-			},
-			["install_complete"] = "5.96",
 		},
 	},
 }

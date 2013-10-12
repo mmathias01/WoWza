@@ -1,8 +1,6 @@
 
 BigWigs3DB = {
 	["namespaces"] = {
-		["BigWigs_Bosses_Garrosh Hellscream"] = {
-		},
 		["BigWigs_Plugins_Colors"] = {
 		},
 		["BigWigs_Plugins_Raid Icons"] = {
@@ -12,28 +10,28 @@ BigWigs3DB = {
 		["BigWigs_Plugins_Bars"] = {
 			["profiles"] = {
 				["Default"] = {
+					["barStyle"] = "ElvUI",
 					["fontSize"] = 13,
 					["scale"] = 0.6000000000000001,
 					["BigWigsAnchor_y"] = 566.0445015536425,
+					["BigWigsEmphasizeAnchor_x"] = 581.6889463769076,
+					["emphasizeTime"] = 14,
+					["BigWigsAnchor_width"] = 199.9999084472656,
 					["emphasizeGrowup"] = true,
 					["BigWigsAnchor_x"] = 1129.24507942731,
-					["emphasizeTime"] = 14,
-					["barStyle"] = "ElvUI",
-					["texture"] = "Aluminium",
 					["growup"] = false,
-					["BigWigsEmphasizeAnchor_x"] = 581.6889463769076,
 					["font"] = "ElvUI Font",
 					["BigWigsEmphasizeAnchor_y"] = 258.8443422052569,
-					["BigWigsAnchor_width"] = 199.9999084472656,
 					["emphasizeScale"] = 0.8,
+					["texture"] = "Aluminium",
 				},
 			},
 		},
 		["BigWigs_Plugins_Super Emphasize"] = {
 			["profiles"] = {
 				["Default"] = {
-					["font"] = "Boris Black Bloxx",
 					["outline"] = "OUTLINE",
+					["font"] = "Boris Black Bloxx",
 					["fontSize"] = 40,
 				},
 			},
@@ -47,15 +45,15 @@ BigWigs3DB = {
 				["Default"] = {
 					["posx"] = 151.4659433377938,
 					["fontSize"] = 20,
-					["width"] = 202.9999389648438,
+					["posy"] = 303.6446688109027,
+					["height"] = 157.0000305175781,
 					["objects"] = {
-						["close"] = false,
 						["background"] = false,
 						["sound"] = false,
+						["close"] = false,
 					},
 					["font"] = "Vixar",
-					["height"] = 157.0000305175781,
-					["posy"] = 303.6446688109027,
+					["width"] = 202.9999389648438,
 				},
 			},
 		},
@@ -63,10 +61,10 @@ BigWigs3DB = {
 			["profiles"] = {
 				["Default"] = {
 					["BWEmphasizeMessageAnchor_x"] = 608.7111692534563,
-					["BWMessageAnchor_x"] = 610.8445460412258,
-					["font"] = "Boris Black Bloxx",
 					["BWEmphasizeMessageAnchor_y"] = 672.7111708031771,
 					["BWMessageAnchor_y"] = 496.3556109772799,
+					["BWMessageAnchor_x"] = 610.8445460412258,
+					["font"] = "Boris Black Bloxx",
 					["fontSize"] = 20,
 				},
 			},
@@ -76,18 +74,18 @@ BigWigs3DB = {
 				["Default"] = {
 					["Mocking Banner"] = 0,
 					["Stampeding Roar"] = 2,
-					["Skull Banner"] = 0,
-					["Stormlash Totem"] = 0,
 					["Rallying Cry"] = 0,
-					["feast"] = 0,
-					["Create Soulwell"] = 0,
-					["Ritual of Summoning"] = 0,
-					["portal"] = 0,
-					["rebirth"] = 2,
-					["Bloodlust"] = 2,
-					["Innervate"] = 258,
-					["Shattering Throw"] = 0,
+					["Skull Banner"] = 0,
 					["Conjure Refreshment Table"] = 0,
+					["Bloodlust"] = 2,
+					["Ritual of Summoning"] = 0,
+					["Stormlash Totem"] = 0,
+					["feast"] = 0,
+					["portal"] = 0,
+					["Shattering Throw"] = 0,
+					["Innervate"] = 258,
+					["rebirth"] = 2,
+					["Create Soulwell"] = 0,
 				},
 			},
 		},

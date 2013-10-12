@@ -64,8 +64,8 @@ GridDB = {
 					["buff_Riptide"] = {
 						["icon"] = "Interface\\Icons\\spell_nature_riptide",
 					},
-					["buff_BeaconofLight"] = {
-						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
 					},
 					["buff_LifeCocoon"] = {
 						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
@@ -79,8 +79,8 @@ GridDB = {
 					["buff_Regrowth"] = {
 						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
 					},
-					["buff_PowerWord:Shield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					["buff_BeaconofLight"] = {
+						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
 					},
 					["buff_Lifebloom"] = {
 						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",

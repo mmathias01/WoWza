@@ -1,0 +1,12 @@
+tag v5.4.0.2
+bc6d3e7fcbcd2f532ee8346a242e014767392527
+SLOKnightfall <SLOKnightfall@gmail.com>
+2013-10-12 08:56:54 -0700
+
+Tagging as v5.4.0.2 for changes
+
+
+--------------------
+
+SLOKnightfall:
+	- disabled minimap button until option to disable can be added.

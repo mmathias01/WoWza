@@ -2,6 +2,11 @@
 AdiBagsDB = {
 	["namespaces"] = {
 		["ItemLevel"] = {
+			["profiles"] = {
+				["Default"] = {
+					["minLevel"] = 446,
+				},
+			},
 		},
 		["FilterOverride"] = {
 			["profiles"] = {
@@ -11,6 +16,14 @@ AdiBagsDB = {
 			},
 		},
 		["ItemCategory"] = {
+			["profiles"] = {
+				["Default"] = {
+					["splitBySubclass"] = {
+						["Gem"] = true,
+					},
+					["mergeGems"] = false,
+				},
+			},
 		},
 		["NewItem"] = {
 			["profiles"] = {
@@ -19,9 +32,14 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["Equipment"] = {
-		},
 		["AdiBags_TooltipInfo"] = {
+		},
+		["Equipment"] = {
+			["profiles"] = {
+				["Default"] = {
+					["dispatchRule"] = "one",
+				},
+			},
 		},
 		["Junk"] = {
 			["profiles"] = {
@@ -89,6 +107,7 @@ AdiBagsDB = {
 				},
 			},
 			["automaticLayout"] = 2,
+			["sortingOrder"] = "byQualityAndLevel",
 			["sectionFont"] = {
 				["name"] = "ElvUI Font",
 			},

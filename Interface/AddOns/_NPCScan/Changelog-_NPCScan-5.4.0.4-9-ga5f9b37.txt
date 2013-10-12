@@ -1,0 +1,16 @@
+Oscarucb:
+	- ticket 21: impl. proper DB upgrade for custom list
+	Now on database upgrade (after installing an updated addon version)
+	we try very hard to preserve the previous custom list of NPCs entered
+	by the user. This won't help users who already had their settings wiped
+	by addon v5.2 - 5.4, but will prevent future wipes on users upgrading
+	from older versions, or when the DB_VERSION next changes.
+James D. Callahan III:
+	- Minor changes.
+	- Disable manual change log until a new Release version.
+	- Reformatting, removal of unnecessary parens and killing of the semicolons. Amen.
+	- Restructuring, variable-name changes, and comment changes/removals.
+	- Replace hardcoded ID with a constant.
+	- More logical grouping - Achievements.
+	- More logical grouping.
+	- Variable-name changes.

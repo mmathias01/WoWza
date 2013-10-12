@@ -6,6 +6,13 @@ X: 0
 Y: 0
 W: 365
 H: 240
+Frame: BagSync_MinimapButton
+FrameLevel: 3
+Anchor: TOPRIGHT
+X: -148
+Y: -169
+W: 32
+H: 32
 Frame: _NPCScanButton
 FrameLevel: 1
 Anchor: BOTTOM

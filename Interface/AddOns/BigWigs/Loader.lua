@@ -16,13 +16,13 @@ do
 	local releaseType = RELEASE
 	local releaseRevision = nil
 	local releaseString = nil
-	--[===[@alpha@
+	--@alpha@
 	-- The following code will only be present in alpha ZIPs.
 	releaseType = ALPHA
-	--@end-alpha@]===]
+	--@end-alpha@
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	releaseRevision = tonumber("11367")
+	releaseRevision = tonumber("11373")
 
 	-- If the releaseRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(releaseRevision) ~= "number" then

@@ -22,13 +22,13 @@ Postal3DB = {
 		["Jolokia - Dragonblight"] = {
 			["BlackBook"] = {
 				["recent"] = {
-					"Majandra|Dragonblight|Alliance", -- [1]
-					"Shenlu|Dragonblight|Alliance", -- [2]
-					"Aedaliora|Dragonblight|Alliance", -- [3]
-					"Shuangy|Dragonblight|Alliance", -- [4]
-					"Gunnslave|Dragonblight|Alliance", -- [5]
-					"Drewthepally|Dragonblight|Alliance", -- [6]
-					"Jolobank|Dragonblight|Alliance", -- [7]
+					"Jolobank|Dragonblight|Alliance", -- [1]
+					"Majandra|Dragonblight|Alliance", -- [2]
+					"Shenlu|Dragonblight|Alliance", -- [3]
+					"Aedaliora|Dragonblight|Alliance", -- [4]
+					"Shuangy|Dragonblight|Alliance", -- [5]
+					"Gunnslave|Dragonblight|Alliance", -- [6]
+					"Drewthepally|Dragonblight|Alliance", -- [7]
 				},
 			},
 		},

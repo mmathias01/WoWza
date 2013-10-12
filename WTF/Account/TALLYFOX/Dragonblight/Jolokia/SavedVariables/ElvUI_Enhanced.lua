@@ -224,60 +224,6 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_WHISPER",
 		},
-		["1379204156.02"] = {
-			"tank on same side tho", -- [1]
-			"Jolokia", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Jolokia", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			566, -- [11]
-			"0x0180000004F3C6BB", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
-		},
-		["1379204247.147"] = {
-			"when he casts wave move forward ", -- [1]
-			"Crystalapex", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Crystalapex", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			577, -- [11]
-			"0x018000000145DEF1", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
-		},
-		["1379204091.003"] = {
-			"ok healers", -- [1]
-			"Destellar", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Destellar", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			547, -- [11]
-			"0x018000000496BBAF", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
-		},
 		["1379283952.894"] = {
 			"%s has earned the achievement |cffffff00|Hachievement:2000:0180000004F3C6BB:1:9:15:13:4294967295:4294967295:4294967295:4294967295|h[25 Cooking Awards]|h|r!", -- [1]
 			"Jolokia", -- [2]
@@ -295,24 +241,6 @@ ElvCharacterDB = {
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
-		},
-		["1379286415.027"] = {
-			"what addon is it that gives you cords on your map", -- [1]
-			"Howen", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Howen", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			741, -- [11]
-			"0x01800000050368CC", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_GUILD",
 		},
 		["1379204094.44"] = {
 			"or did i just go too soon?", -- [1]
@@ -332,23 +260,95 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204378.682"] = {
-			"is there like a second phase or is that it", -- [1]
-			"Génial", -- [2]
+		["1379204091.003"] = {
+			"ok healers", -- [1]
+			"Destellar", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Génial", -- [5]
+			"Destellar", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			595, -- [11]
-			"0x01800000048C076F", -- [12]
+			547, -- [11]
+			"0x018000000496BBAF", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_INSTANCE_CHAT",
+			[20] = "CHAT_MSG_RAID",
+		},
+		["1379204156.02"] = {
+			"tank on same side tho", -- [1]
+			"Jolokia", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Jolokia", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			566, -- [11]
+			"0x0180000004F3C6BB", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_RAID",
+		},
+		["1379286415.027"] = {
+			"what addon is it that gives you cords on your map", -- [1]
+			"Howen", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Howen", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			741, -- [11]
+			"0x01800000050368CC", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_GUILD",
+		},
+		["1379204247.147"] = {
+			"when he casts wave move forward ", -- [1]
+			"Crystalapex", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Crystalapex", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			577, -- [11]
+			"0x018000000145DEF1", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_RAID",
+		},
+		["1379204808.239"] = {
+			"fuck it let me get back on my priest", -- [1]
+			"Jolokia", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Jolokia", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			660, -- [11]
+			"0x0180000004F3C6BB", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379204528.385"] = {
 			"Im going to heal dunwin and you heal tetsuo?", -- [1]
@@ -386,8 +386,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
 		},
-		["1379204417.038"] = {
-			"otherwise that IS the fight", -- [1]
+		["1379203979.322"] = {
+			"should be ok", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -397,7 +397,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			607, -- [11]
+			537, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
@@ -584,8 +584,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203958.684"] = {
-			"no one stand behind the tanks ;)", -- [1]
+		["1379204181.879"] = {
+			"thatll work I think", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -595,7 +595,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			533, -- [11]
+			567, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
@@ -620,42 +620,6 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204819.584"] = {
-			"and keep trying to shield people", -- [1]
-			"Jolokia", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Jolokia", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			662, -- [11]
-			"0x0180000004F3C6BB", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
-		},
-		["1379204388.225"] = {
-			"easy mode", -- [1]
-			"Dunwin", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Dunwin", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			599, -- [11]
-			"0x01800000005CAA25", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID_LEADER",
-		},
 		["1379204430.884"] = {
 			"and what he said", -- [1]
 			"Jolokia", -- [2]
@@ -669,6 +633,42 @@ ElvCharacterDB = {
 			0, -- [10]
 			611, -- [11]
 			"0x0180000004F3C6BB", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_RAID",
+		},
+		["1380686191.47"] = {
+			"you coming", -- [1]
+			"|Kf19|k000000000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			161, -- [11]
+			false, -- [12]
+			19, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1379204280.681"] = {
+			"ready", -- [1]
+			"Destellar", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Destellar", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			581, -- [11]
+			"0x018000000496BBAF", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -728,26 +728,26 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1380686191.47"] = {
-			"you coming", -- [1]
-			"|Kf19|k000000000|k", -- [2]
-			"", -- [3]
+		["1379204388.225"] = {
+			"easy mode", -- [1]
+			"Dunwin", -- [2]
+			"Common", -- [3]
 			"", -- [4]
-			"", -- [5]
+			"Dunwin", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			161, -- [11]
-			false, -- [12]
-			19, -- [13]
+			599, -- [11]
+			"0x01800000005CAA25", -- [12]
+			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
+			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204181.879"] = {
-			"thatll work I think", -- [1]
+		["1379204819.584"] = {
+			"and keep trying to shield people", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -757,15 +757,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			567, -- [11]
+			662, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204499.205"] = {
-			"well damn", -- [1]
+		["1379204078.19"] = {
+			"ok so you see the shit to avoid now", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -775,7 +775,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			621, -- [11]
+			545, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
@@ -800,23 +800,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204078.19"] = {
-			"ok so you see the shit to avoid now", -- [1]
-			"Jolokia", -- [2]
+		["1379204265.299"] = {
+			"i need stam buff", -- [1]
+			"Tetsuø", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Tetsuø", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			545, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			579, -- [11]
+			"0x018000000409D4C7", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_INSTANCE_CHAT",
 		},
 		["1379204691.586"] = {
 			"lets get him to split this time", -- [1]
@@ -836,19 +836,19 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204280.681"] = {
-			"ready", -- [1]
-			"Destellar", -- [2]
+		["1379204212.528"] = {
+			"watch the sha puddles", -- [1]
+			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Destellar", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			581, -- [11]
-			"0x018000000496BBAF", -- [12]
+			572, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -872,23 +872,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1379284801.896"] = {
-			"%s has earned the achievement |cffffff00|Hachievement:8723:0180000004D075C3:1:9:15:13:4294967295:4294967295:4294967295:4294967295|h[Legend of the Past]|h|r!", -- [1]
-			"Taibhreamh", -- [2]
-			"", -- [3]
+		["1379204555.68"] = {
+			"lets get him to split this time", -- [1]
+			"Jolokia", -- [2]
+			"Common", -- [3]
 			"", -- [4]
-			"Taibhreamh", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			584, -- [11]
-			"0x0180000004D075C3", -- [12]
+			635, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379285948.811"] = {
 			"%s has earned the achievement |cffffff00|Hachievement:7300:0180000004F3C6BB:1:9:15:13:4294967295:4294967295:4294967295:4294967295|h[Master of the Grill]|h|r!", -- [1]
@@ -926,23 +926,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203889.33"] = {
-			"k", -- [1]
-			"Dunwin", -- [2]
-			"", -- [3]
+		["1379286478.602"] = {
+			"i use sexy map, and it has that capability", -- [1]
+			"Tychondrius", -- [2]
+			"Common", -- [3]
 			"", -- [4]
-			"Dunwin", -- [5]
+			"Tychondrius", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			521, -- [11]
-			"0x01800000005CAA25", -- [12]
+			745, -- [11]
+			"0x0180000004BB2502", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_WHISPER",
+			[20] = "CHAT_MSG_GUILD",
 		},
 		["1379204419.873"] = {
 			"basically you need to reduce his focus to zero, am i correct?  and you do that by killing blobs etc. in between phases", -- [1]
@@ -998,37 +998,37 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204632.275"] = {
-			"within 1 section", -- [1]
-			"Jolokia", -- [2]
+		["1379204624.617"] = {
+			"we were all on the green side tank... just need a couple by blue", -- [1]
+			"Bonehedge", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Bonehedge", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			647, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			646, -- [11]
+			"0x0180000003799C3E", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1380772186.422"] = {
-			"%s has earned the achievement |cffffff00|Hachievement:508:0180000002E8C86D:1:10:2:13:4294967295:4294967295:4294967295:4294967295|h[1500 Quests Completed]|h|r!", -- [1]
-			"Pallykings", -- [2]
+		["1379204384.304"] = {
+			"%s has earned the achievement |cffffff00|Hachievement:6348:018000000298F09E:1:9:14:13:4294967295:4294967295:4294967295:4294967295|h[Mystically Superior]|h|r!", -- [1]
+			"Xcusionkings", -- [2]
 			"", -- [3]
 			"", -- [4]
-			"Pallykings", -- [5]
+			"Xcusionkings", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			52, -- [11]
-			"0x0180000002E8C86D", -- [12]
+			597, -- [11]
+			"0x018000000298F09E", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -1052,26 +1052,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204143.041"] = {
-			"just making sure ", -- [1]
-			"Crystalapex", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Crystalapex", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			564, -- [11]
-			"0x018000000145DEF1", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
-		},
-		["1379204555.68"] = {
-			"lets get him to split this time", -- [1]
+		["1379204632.275"] = {
+			"within 1 section", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -1081,15 +1063,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			635, -- [11]
+			647, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379286478.602"] = {
-			"i use sexy map, and it has that capability", -- [1]
+		["1379284838.511"] = {
+			"where do you find one of those?", -- [1]
 			"Tychondrius", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -1099,12 +1081,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			745, -- [11]
+			586, -- [11]
 			"0x0180000004BB2502", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_GUILD",
+		},
+		["1380772186.422"] = {
+			"%s has earned the achievement |cffffff00|Hachievement:508:0180000002E8C86D:1:10:2:13:4294967295:4294967295:4294967295:4294967295|h[1500 Quests Completed]|h|r!", -- [1]
+			"Pallykings", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"Pallykings", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			52, -- [11]
+			"0x0180000002E8C86D", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
 		},
 		["1379204089.968"] = {
 			"was i standing in something?", -- [1]
@@ -1142,41 +1142,41 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204624.617"] = {
-			"we were all on the green side tank... just need a couple by blue", -- [1]
-			"Bonehedge", -- [2]
-			"Common", -- [3]
+		["1379203889.33"] = {
+			"k", -- [1]
+			"Dunwin", -- [2]
+			"", -- [3]
 			"", -- [4]
-			"Bonehedge", -- [5]
+			"Dunwin", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			646, -- [11]
-			"0x0180000003799C3E", -- [12]
+			521, -- [11]
+			"0x01800000005CAA25", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_WHISPER",
+		},
+		["1379204130.31"] = {
+			"we only have 2 heals ", -- [1]
+			"Crystalapex", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Crystalapex", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			559, -- [11]
+			"0x018000000145DEF1", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
-		},
-		["1379204384.304"] = {
-			"%s has earned the achievement |cffffff00|Hachievement:6348:018000000298F09E:1:9:14:13:4294967295:4294967295:4294967295:4294967295|h[Mystically Superior]|h|r!", -- [1]
-			"Xcusionkings", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"Xcusionkings", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			597, -- [11]
-			"0x018000000298F09E", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
 		},
 		["1379204220.036"] = {
 			"they do hurt", -- [1]
@@ -1196,19 +1196,19 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203952.661"] = {
-			"which healer is going where i want to know where i should go lol", -- [1]
-			"Destellar", -- [2]
+		["1379204143.041"] = {
+			"just making sure ", -- [1]
+			"Crystalapex", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Destellar", -- [5]
+			"Crystalapex", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			532, -- [11]
-			"0x018000000496BBAF", -- [12]
+			564, -- [11]
+			"0x018000000145DEF1", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -1322,23 +1322,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_WHISPER_INFORM",
 		},
-		["1379203871.813"] = {
-			"but not too far and yes", -- [1]
-			"Dunwin", -- [2]
-			"", -- [3]
+		["1379204147.495"] = {
+			"just other side of platform", -- [1]
+			"Jolokia", -- [2]
+			"Common", -- [3]
 			"", -- [4]
-			"Dunwin", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			518, -- [11]
-			"0x01800000005CAA25", -- [12]
+			565, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_WHISPER_INFORM",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379204286.97"] = {
 			"ready as I can be wihout vent ;)", -- [1]
@@ -1358,23 +1358,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203910.018"] = {
-			"conal", -- [1]
-			"Dunwin", -- [2]
-			"", -- [3]
+		["1379204830.645"] = {
+			"im switching", -- [1]
+			"Jolokia", -- [2]
+			"Common", -- [3]
 			"", -- [4]
-			"Dunwin", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			525, -- [11]
-			"0x01800000005CAA25", -- [12]
+			665, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_WHISPER_INFORM",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379204283.535"] = {
 			"going", -- [1]
@@ -1394,23 +1394,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204147.495"] = {
-			"just other side of platform", -- [1]
-			"Jolokia", -- [2]
-			"Common", -- [3]
+		["1379203871.813"] = {
+			"but not too far and yes", -- [1]
+			"Dunwin", -- [2]
+			"", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Dunwin", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			565, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			518, -- [11]
+			"0x01800000005CAA25", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_WHISPER_INFORM",
 		},
 		["1379204066.796"] = {
 			"hah. sorry if i did that", -- [1]
@@ -1424,24 +1424,6 @@ ElvCharacterDB = {
 			"", -- [9]
 			0, -- [10]
 			541, -- [11]
-			"0x01800000005CAA25", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_RAID_LEADER",
-		},
-		["1379204359.128"] = {
-			"okay we have this next time... i see what's up now", -- [1]
-			"Dunwin", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Dunwin", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			590, -- [11]
 			"0x01800000005CAA25", -- [12]
 			0, -- [13]
 			false, -- [14]
@@ -1466,6 +1448,24 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
+		["1379204359.128"] = {
+			"okay we have this next time... i see what's up now", -- [1]
+			"Dunwin", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Dunwin", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			590, -- [11]
+			"0x01800000005CAA25", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_RAID_LEADER",
+		},
 		["1379204110.223"] = {
 			"rez inc", -- [1]
 			"Twelvegauge", -- [2]
@@ -1484,23 +1484,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203922.347"] = {
-			"spread around him", -- [1]
-			"Jolokia", -- [2]
+		["1379285953.503"] = {
+			"grats", -- [1]
+			"Tychondrius", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Tychondrius", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			526, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			694, -- [11]
+			"0x0180000004BB2502", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_GUILD",
 		},
 		["1380686198.641"] = {
 			"yup, just making some potions", -- [1]
@@ -1538,41 +1538,41 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1380686210.137"] = {
-			"hurry up trash is done", -- [1]
-			"|Kf19|k000000000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			163, -- [11]
-			false, -- [12]
-			19, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1379203928.937"] = {
-			"so be vareful", -- [1]
-			"Jolokia", -- [2]
+		["1379204579.504"] = {
+			"okay we ready?", -- [1]
+			"Dunwin", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Dunwin", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			528, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			640, -- [11]
+			"0x01800000005CAA25", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_RAID_LEADER",
+		},
+		["1379204492.532"] = {
+			"except he was healing too ", -- [1]
+			"Destellar", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Destellar", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			619, -- [11]
+			"0x018000000496BBAF", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_INSTANCE_CHAT",
 		},
 		["1379204396.583"] = {
 			"and you kill / heal h is blobs", -- [1]
@@ -1646,23 +1646,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204579.504"] = {
-			"okay we ready?", -- [1]
-			"Dunwin", -- [2]
-			"Common", -- [3]
+		["1380686210.137"] = {
+			"hurry up trash is done", -- [1]
+			"|Kf19|k000000000|k", -- [2]
+			"", -- [3]
 			"", -- [4]
-			"Dunwin", -- [5]
+			"", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			640, -- [11]
-			"0x01800000005CAA25", -- [12]
-			0, -- [13]
+			163, -- [11]
+			false, -- [12]
+			19, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID_LEADER",
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1379204542.433"] = {
 			"ill try", -- [1]
@@ -1682,41 +1682,41 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_WHISPER_INFORM",
 		},
-		["1379204098.844"] = {
-			"one go right ", -- [1]
-			"Destellar", -- [2]
+		["1379203925.25"] = {
+			"he is prox pull", -- [1]
+			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Destellar", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			549, -- [11]
-			"0x018000000496BBAF", -- [12]
+			527, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204354.724"] = {
-			"those swirls pop up so much ", -- [1]
-			"Tetsuø", -- [2]
+		["1379203928.937"] = {
+			"so be vareful", -- [1]
+			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Tetsuø", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			587, -- [11]
-			"0x018000000409D4C7", -- [12]
+			528, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_INSTANCE_CHAT",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379204565.807"] = {
 			"lol", -- [1]
@@ -1754,19 +1754,19 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204492.532"] = {
-			"except he was healing too ", -- [1]
-			"Destellar", -- [2]
+		["1379204354.724"] = {
+			"those swirls pop up so much ", -- [1]
+			"Tetsuø", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Destellar", -- [5]
+			"Tetsuø", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			619, -- [11]
-			"0x018000000496BBAF", -- [12]
+			587, -- [11]
+			"0x018000000409D4C7", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -1790,19 +1790,19 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203925.25"] = {
-			"he is prox pull", -- [1]
-			"Jolokia", -- [2]
+		["1379204098.844"] = {
+			"one go right ", -- [1]
+			"Destellar", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Destellar", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			527, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			549, -- [11]
+			"0x018000000496BBAF", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
@@ -1826,23 +1826,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_INSTANCE_CHAT",
 		},
-		["1379285953.503"] = {
-			"grats", -- [1]
-			"Tychondrius", -- [2]
+		["1379203922.347"] = {
+			"spread around him", -- [1]
+			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Tychondrius", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			694, -- [11]
-			"0x0180000004BB2502", -- [12]
+			526, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_GUILD",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379204821.669"] = {
 			"ffs", -- [1]
@@ -1862,23 +1862,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379204494.434"] = {
-			"lol", -- [1]
-			"Destellar", -- [2]
-			"Common", -- [3]
+		["1379203910.018"] = {
+			"conal", -- [1]
+			"Dunwin", -- [2]
+			"", -- [3]
 			"", -- [4]
-			"Destellar", -- [5]
+			"Dunwin", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			620, -- [11]
-			"0x018000000496BBAF", -- [12]
+			525, -- [11]
+			"0x01800000005CAA25", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_INSTANCE_CHAT",
+			[20] = "CHAT_MSG_WHISPER_INFORM",
 		},
 		["1379204121.475"] = {
 			"tks for rez", -- [1]
@@ -1898,23 +1898,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204830.645"] = {
-			"im switching", -- [1]
-			"Jolokia", -- [2]
+		["1379204494.434"] = {
+			"lol", -- [1]
+			"Destellar", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Destellar", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			665, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			620, -- [11]
+			"0x018000000496BBAF", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_INSTANCE_CHAT",
 		},
 		["1379204522.68"] = {
 			"oh", -- [1]
@@ -1988,44 +1988,44 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_WHISPER_INFORM",
 		},
-		["1379204130.31"] = {
-			"we only have 2 heals ", -- [1]
-			"Crystalapex", -- [2]
-			"Common", -- [3]
+		["1379284801.896"] = {
+			"%s has earned the achievement |cffffff00|Hachievement:8723:0180000004D075C3:1:9:15:13:4294967295:4294967295:4294967295:4294967295|h[Legend of the Past]|h|r!", -- [1]
+			"Taibhreamh", -- [2]
+			"", -- [3]
 			"", -- [4]
-			"Crystalapex", -- [5]
+			"Taibhreamh", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			559, -- [11]
-			"0x018000000145DEF1", -- [12]
+			584, -- [11]
+			"0x0180000004D075C3", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_GUILD_ACHIEVEMENT",
+		},
+		["1379203952.661"] = {
+			"which healer is going where i want to know where i should go lol", -- [1]
+			"Destellar", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Destellar", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			532, -- [11]
+			"0x018000000496BBAF", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379284838.511"] = {
-			"where do you find one of those?", -- [1]
-			"Tychondrius", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Tychondrius", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			586, -- [11]
-			"0x0180000004BB2502", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_GUILD",
-		},
-		["1379204212.528"] = {
-			"watch the sha puddles", -- [1]
+		["1379204499.205"] = {
+			"well damn", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -2035,7 +2035,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			572, -- [11]
+			621, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
@@ -2096,23 +2096,23 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204265.299"] = {
-			"i need stam buff", -- [1]
-			"Tetsuø", -- [2]
+		["1379203958.684"] = {
+			"no one stand behind the tanks ;)", -- [1]
+			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Tetsuø", -- [5]
+			"Jolokia", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			579, -- [11]
-			"0x018000000409D4C7", -- [12]
+			533, -- [11]
+			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_INSTANCE_CHAT",
+			[20] = "CHAT_MSG_RAID",
 		},
 		["1379203902.61"] = {
 			"cant take a hit with whatever after you get debuff", -- [1]
@@ -2186,8 +2186,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID_LEADER",
 		},
-		["1379204808.239"] = {
-			"fuck it let me get back on my priest", -- [1]
+		["1379204417.038"] = {
+			"otherwise that IS the fight", -- [1]
 			"Jolokia", -- [2]
 			"Common", -- [3]
 			"", -- [4]
@@ -2197,30 +2197,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			660, -- [11]
+			607, -- [11]
 			"0x0180000004F3C6BB", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_RAID",
 		},
-		["1379203979.322"] = {
-			"should be ok", -- [1]
-			"Jolokia", -- [2]
+		["1379204378.682"] = {
+			"is there like a second phase or is that it", -- [1]
+			"Génial", -- [2]
 			"Common", -- [3]
 			"", -- [4]
-			"Jolokia", -- [5]
+			"Génial", -- [5]
 			"", -- [6]
 			0, -- [7]
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			537, -- [11]
-			"0x0180000004F3C6BB", -- [12]
+			595, -- [11]
+			"0x01800000048C076F", -- [12]
 			0, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_RAID",
+			[20] = "CHAT_MSG_INSTANCE_CHAT",
 		},
 		["1379204527.301"] = {
 			"this fight gets easier as it goes", -- [1]

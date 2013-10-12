@@ -48,10 +48,3 @@ X: 0
 Y: 128
 W: 150
 H: 42
-Frame: TSMCraftingTradeSkillFrame
-FrameLevel: 0
-Anchor: CENTER
-X: 57
-Y: 133
-W: 450
-H: 500

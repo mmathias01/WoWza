@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
 	["lastSanitation"] = 3,
-	["session"] = 473,
+	["session"] = 477,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",
@@ -660,5 +660,13 @@ BugGrabberDB = {
 			["session"] = 468,
 			["counter"] = 1,
 		}, -- [91]
+		{
+			["message"] = "_NPCScan\\_NPCScan-5.4.0.4-9-ga5f9b37.lua:937: attempt to compare table with number",
+			["time"] = "2013/10/12 11:10:46",
+			["locals"] = "(*temporary) = \"PLAYER_LOGIN\"\n(*temporary) = \"PLAYER_LOGIN\"\n(*temporary) = <func> =[C]:-1\n",
+			["stack"] = "_NPCScan\\_NPCScan-5.4.0.4-9-ga5f9b37.lua:937: in function <_NPCScan\\_NPCScan.lua:905>\n(tail call): ?",
+			["session"] = 475,
+			["counter"] = 1,
+		}, -- [92]
 	},
 }

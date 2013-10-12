@@ -11,7 +11,7 @@
 ## X-Email: neikos@goingpriceaddon.com
 ## X-Website: http://goingpriceaddon.com
 ##
-## X-Curse-Packaged-Version: 5.4.1381363200
+## X-Curse-Packaged-Version: 5.4.1381536000
 ## X-Curse-Project-Name: GoingPrice_US
 ## X-Curse-Project-ID: goingprice_us
 ## X-Curse-Repository-ID: wow/goingprice_us/mainline

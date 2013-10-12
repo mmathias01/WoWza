@@ -26,8 +26,8 @@ oRA3DB = {
 		["Ziagi - Terenas"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
 		["Jolokya - Dragonblight"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
 	},
 	["profiles"] = {
