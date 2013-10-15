@@ -1,7 +1,9 @@
 
 TradeSkillMaster_WarehousingDB = {
 	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["global"] = {
 		["optionsTreeStatus"] = {
@@ -9,8 +11,8 @@ TradeSkillMaster_WarehousingDB = {
 				["1"] = true,
 			},
 			["scrollvalue"] = 0,
-			["treesizable"] = true,
 			["selected"] = 1,
+			["treesizable"] = true,
 			["treewidth"] = 175,
 			["fullwidth"] = 782.9999389648438,
 		},

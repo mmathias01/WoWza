@@ -5,49 +5,9 @@ BeanCounterDB = {
 			["vendorsell"] = {
 			},
 			["postedBids"] = {
-				["76651"] = {
-					["item:76651:0:0:0:0:0:0:851401728:80:0:0"] = {
-					},
-					["item:76651:0:0:0:0:0:0:683015808:80:0:0"] = {
-					},
-				},
-				["37704"] = {
-					["item:37704:0:0:0:0:0:0:2132862848:80:0:0"] = {
-					},
-				},
-				["36930"] = {
-					["item:36930:0:0:0:0:0:0:312738560:80:0:0"] = {
-					},
-				},
-				["42253"] = {
-					["item:42253:0:0:0:0:0:0:1818043648:80:0:0"] = {
-					},
-				},
-				["72095"] = {
-					["item:72095:0:0:0:0:0:0:777709440:80:0:0"] = {
-					},
-					["item:72095:0:0:0:0:0:0:277189760:80:0:0"] = {
-					},
-					["item:72095:0:0:0:0:0:0:1647221504:80:0:0"] = {
-					},
-					["item:72095:0:0:0:0:0:0:1056612864:80:0:0"] = {
-					},
-				},
-				["74841"] = {
-					["item:74841:0:0:0:0:0:0:1557646080:80:0:0"] = {
-					},
-					["item:74841:0:0:0:0:0:0:1291460096:80:0:0"] = {
-					},
-				},
 				["74837"] = {
-					["item:74837:0:0:0:0:0:0:859241600:80:0:0"] = {
-					},
-					["item:74837:0:0:0:0:0:0:1004436224:80:0:0"] = {
-					},
 					["item:74837:0:0:0:0:0:0:1999049600:80:0:0"] = {
 						"1;16400;;boolean true;4;1378866802;", -- [1]
-					},
-					["item:74837:0:0:0:0:0:0:533427536:80:0:0"] = {
 					},
 				},
 			},
@@ -277,23 +237,21 @@ BeanCounterDB = {
 					},
 				},
 				["74650"] = {
-					["item:74650:0:0:0:0:0:0:2099285376:80:0:0"] = {
+					["item:74650:0:0:0:0:0:0:0:80:0"] = {
 						"5;;;;2049995;2049995;Dorfbank;1377055169;;A", -- [1]
 						"5;;;;2049995;2049995;Dorfbank;1377055168;;A", -- [2]
-					},
-					["item:74650:0:0:0:0:0:0:0:80:0"] = {
-						"5;;;;2614845;2614845;Drviagra;1374721513;;A", -- [1]
-						"5;;;;2614845;2614845;Drviagra;1374721512;;A", -- [2]
-						"5;;;;2614845;2614845;Drviagra;1374721512;;A", -- [3]
-						"2;;;;996212;996212;Bankatorn;1374639108;;A", -- [4]
-						"2;;;;996212;996212;Bankatorn;1374639108;;A", -- [5]
-						"2;;;;996212;996212;Bankatorn;1374639107;;A", -- [6]
-						"2;;;;996212;996212;Bankatorn;1374639107;;A", -- [7]
-						"5;;;;2249995;2249995;Drviagra;1371785654;;A", -- [8]
-						"5;;;;2249995;2249995;Drviagra;1371785654;;A", -- [9]
-						"5;;;;2249995;2249995;Drviagra;1371785653;;A", -- [10]
-						"5;;;;2527800;2527800;Misstrustme;1371613358;;A", -- [11]
-						"5;;;;2527800;2527800;Misstrustme;1371613357;;A", -- [12]
+						"5;;;;2614845;2614845;Drviagra;1374721513;;A", -- [3]
+						"5;;;;2614845;2614845;Drviagra;1374721512;;A", -- [4]
+						"5;;;;2614845;2614845;Drviagra;1374721512;;A", -- [5]
+						"2;;;;996212;996212;Bankatorn;1374639108;;A", -- [6]
+						"2;;;;996212;996212;Bankatorn;1374639108;;A", -- [7]
+						"2;;;;996212;996212;Bankatorn;1374639107;;A", -- [8]
+						"2;;;;996212;996212;Bankatorn;1374639107;;A", -- [9]
+						"5;;;;2249995;2249995;Drviagra;1371785654;;A", -- [10]
+						"5;;;;2249995;2249995;Drviagra;1371785654;;A", -- [11]
+						"5;;;;2249995;2249995;Drviagra;1371785653;;A", -- [12]
+						"5;;;;2527800;2527800;Misstrustme;1371613358;;A", -- [13]
+						"5;;;;2527800;2527800;Misstrustme;1371613357;;A", -- [14]
 					},
 				},
 				["76651"] = {
@@ -344,14 +302,12 @@ BeanCounterDB = {
 						"9;;;;150000;150000;Cheep;1378866802;;A", -- [1]
 					},
 					["item:74837:0:0:0:0:0:0:0:80:0"] = {
-						"20;;;;1908564;1908564;Dragua;1373599080;;A", -- [1]
-						"4;;;;62000;62000;Bizank;1370322283;;A", -- [2]
+						"20;;;;650000;650000;Vonredbaron;1377055642;;A", -- [1]
+						"20;;;;1908564;1908564;Dragua;1373599080;;A", -- [2]
+						"4;;;;62000;62000;Bizank;1370322283;;A", -- [3]
 					},
 					["item:74837:0:0:0:0:0:0:1471884032:80:0:0"] = {
 						"11;;;;200000;200000;Cellestral;1378866804;;A", -- [1]
-					},
-					["item:74837:0:0:0:0:0:0:1701715712:80:0:0"] = {
-						"20;;;;650000;650000;Vonredbaron;1377055642;;A", -- [1]
 					},
 					["item:74837:0:0:0:0:0:0:533427536:80:0:0"] = {
 						"16;;;;259200;259200;Mìstress;1378866798;;A", -- [1]
@@ -436,8 +392,8 @@ BeanCounterDB = {
 						"1;;;;80000;80000;Ladeith;1373175420;;A", -- [1]
 					},
 					["item:23112:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;79999;79999;Pâlídên;1373175418;;A", -- [1]
-						"1;;;;230000;230000;Maryssa;1373175422;;A", -- [2]
+						"1;;;;230000;230000;Maryssa;1373175422;;A", -- [1]
+						"1;;;;79999;79999;Pâlídên;1373175418;;A", -- [2]
 					},
 				},
 				["42405"] = {
@@ -447,24 +403,22 @@ BeanCounterDB = {
 				},
 				["74841"] = {
 					["item:74841:0:0:0:0:0:0:0:80:0"] = {
-						"100;;;;6000000;6000000;Krzy;1370322349;;A", -- [1]
-						"25;;;;1467500;1467500;Joaniea;1370322341;;A", -- [2]
-						"25;;;;1467500;1467500;Joaniea;1370322333;;A", -- [3]
-						"25;;;;1467500;1467500;Joaniea;1370322331;;A", -- [4]
-						"25;;;;1467500;1467500;Joaniea;1370322330;;A", -- [5]
-						"25;;;;1467500;1467500;Joaniea;1370322328;;A", -- [6]
+						"100;;;;5300000;5300000;Pepei;1377055686;;A", -- [1]
+						"100;;;;6000000;6000000;Krzy;1370322349;;A", -- [2]
+						"25;;;;1467500;1467500;Joaniea;1370322341;;A", -- [3]
+						"25;;;;1467500;1467500;Joaniea;1370322333;;A", -- [4]
+						"25;;;;1467500;1467500;Joaniea;1370322331;;A", -- [5]
+						"25;;;;1467500;1467500;Joaniea;1370322330;;A", -- [6]
 						"25;;;;1467500;1467500;Joaniea;1370322328;;A", -- [7]
-						"25;;;;1467500;1467500;Joaniea;1370322327;;A", -- [8]
-						"1;;;;58000;58000;Monkee;1370322323;;A", -- [9]
+						"25;;;;1467500;1467500;Joaniea;1370322328;;A", -- [8]
+						"25;;;;1467500;1467500;Joaniea;1370322327;;A", -- [9]
+						"1;;;;58000;58000;Monkee;1370322323;;A", -- [10]
 					},
 					["item:74841:0:0:0:0:0:0:26519680:80:0:0"] = {
 						"100;;;;6000000;6000000;Krzy;1370322351;;A", -- [1]
 					},
 					["item:74841:0:0:0:0:0:0:1557646080:80:0:0"] = {
 						"21;;;;441000;441000;Mìstress;1378866682;;A", -- [1]
-					},
-					["item:74841:0:0:0:0:0:0:327616000:80:0:0"] = {
-						"100;;;;5300000;5300000;Pepei;1377055686;;A", -- [1]
 					},
 					["item:74841:0:0:0:0:0:0:1291460096:80:0:0"] = {
 						"88;;;;1865600;1865600;Wyl;1378866678;;A", -- [1]
@@ -575,9 +529,9 @@ BeanCounterDB = {
 						"1;;;;159898;159898;Waralik;1378349110;;A", -- [1]
 					},
 					["item:36930:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;159898;159898;Waralik;1373175367;;A", -- [1]
+						"1;;;;69900;69900;Phamilyman;1374205676;;A", -- [1]
 						"1;;;;189598;189598;Waralik;1373868654;;A", -- [2]
-						"1;;;;69900;69900;Phamilyman;1374205676;;A", -- [3]
+						"1;;;;159898;159898;Waralik;1373175367;;A", -- [3]
 					},
 				},
 				["42407"] = {
@@ -587,7 +541,7 @@ BeanCounterDB = {
 					},
 				},
 				["76098"] = {
-					["item:76098:0:0:0:0:0:0:1069198208:80:0:0"] = {
+					["item:76098:0:0:0:0:0:0:0:80:0"] = {
 						"14;;;;500000;500000;Pickerman;1375933361;;A", -- [1]
 					},
 				},
@@ -639,7 +593,7 @@ BeanCounterDB = {
 					},
 				},
 				["76086"] = {
-					["item:76086:0:0:0:0:0:0:2023781120:80:0:0"] = {
+					["item:76086:0:0:0:0:0:0:0:80:0"] = {
 						"1;;;;400000;400000;Itanknuspank;1375933346;;A", -- [1]
 						"1;;;;400000;400000;Itanknuspank;1375933346;;A", -- [2]
 						"1;;;;400000;400000;Itanknuspank;1375933346;;A", -- [3]
@@ -659,16 +613,19 @@ BeanCounterDB = {
 				},
 				["76085"] = {
 					["item:76085:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;1149997;1149997;Kirkobanks;1374118969;;A", -- [1]
-						"1;;;;1149997;1149997;Kirkobanks;1374118967;;A", -- [2]
-						"1;;;;1149997;1149997;Kirkobanks;1374118966;;A", -- [3]
-					},
-					["item:76085:0:0:0:0:0:0:1767647488:80:0:0"] = {
 						"1;;;;449997;449997;Management;1375933336;;A", -- [1]
 						"1;;;;449997;449997;Management;1375933335;;A", -- [2]
 						"1;;;;449997;449997;Management;1375933335;;A", -- [3]
 						"1;;;;449997;449997;Management;1375933334;;A", -- [4]
 						"1;;;;449997;449997;Management;1375933333;;A", -- [5]
+						"1;;;;1149997;1149997;Kirkobanks;1374118969;;A", -- [6]
+						"1;;;;1149997;1149997;Kirkobanks;1374118967;;A", -- [7]
+						"1;;;;1149997;1149997;Kirkobanks;1374118966;;A", -- [8]
+					},
+				},
+				["42398"] = {
+					["item:42398:0:0:0:0:0:0:0:80:0"] = {
+						"1;;;;1459982;1459982;Lightham;1369608715;;A", -- [1]
 					},
 				},
 				["52719"] = {
@@ -687,21 +644,14 @@ BeanCounterDB = {
 						"1;;;;99998;99998;Vincetento;1367181486;;A", -- [12]
 					},
 				},
-				["42398"] = {
-					["item:42398:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;1459982;1459982;Lightham;1369608715;;A", -- [1]
-					},
-				},
 				["42396"] = {
 					["item:42396:0:0:0:0:0:0:0:80:0"] = {
 						"1;;;;289897;289897;Bankmeplease;1368861839;;A", -- [1]
 					},
 				},
-				["74864"] = {
-					["item:74864:0:0:0:0:0:0:0:80:0"] = {
-						"20;;;;500000;500000;Abank;1370322400;;A", -- [1]
-						"20;;;;500000;500000;Abank;1370322399;;A", -- [2]
-						"20;;;;500000;500000;Abank;1370322398;;A", -- [3]
+				["43342"] = {
+					["item:43342:0:0:0:0:0:0:0:80:0"] = {
+						"1;;;;2994883;2994883;Krzy;1367787342;;A", -- [1]
 					},
 				},
 				["79513"] = {
@@ -768,9 +718,11 @@ BeanCounterDB = {
 						"1;;;;3950000;3950000;Kezrak;1369193203;;A", -- [3]
 					},
 				},
-				["43342"] = {
-					["item:43342:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;2994883;2994883;Krzy;1367787342;;A", -- [1]
+				["74864"] = {
+					["item:74864:0:0:0:0:0:0:0:80:0"] = {
+						"20;;;;500000;500000;Abank;1370322400;;A", -- [1]
+						"20;;;;500000;500000;Abank;1370322399;;A", -- [2]
+						"20;;;;500000;500000;Abank;1370322398;;A", -- [3]
 					},
 				},
 				["42410"] = {
@@ -785,28 +737,28 @@ BeanCounterDB = {
 				},
 				["41511"] = {
 					["item:41511:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;630000;630000;Wortistwo;1373175329;;A", -- [1]
-						"1;;;;630000;630000;Wortistwo;1373175326;;A", -- [2]
-						"1;;;;630000;630000;Wortistwo;1373175325;;A", -- [3]
-						"1;;;;630000;630000;Wortistwo;1373175319;;A", -- [4]
-						"1;;;;970000;970000;Themule;1373175350;;A", -- [5]
-						"1;;;;970000;970000;Themule;1373175345;;A", -- [6]
-						"1;;;;970000;970000;Themule;1373175345;;A", -- [7]
-						"1;;;;970000;970000;Themule;1373175345;;A", -- [8]
-						"1;;;;970000;970000;Themule;1373175344;;A", -- [9]
-						"1;;;;970000;970000;Themule;1373175344;;A", -- [10]
-						"1;;;;850000;850000;Phaith;1373175334;;A", -- [11]
-						"1;;;;850000;850000;Phaith;1373175334;;A", -- [12]
-						"1;;;;850000;850000;Phaith;1373175333;;A", -- [13]
-						"1;;;;850000;850000;Phaith;1373175333;;A", -- [14]
-						"1;;;;850000;850000;Phaith;1373175333;;A", -- [15]
-						"1;;;;850000;850000;Phaith;1373175333;;A", -- [16]
+						"1;;;;970000;970000;Themule;1373175350;;A", -- [1]
+						"1;;;;970000;970000;Themule;1373175345;;A", -- [2]
+						"1;;;;970000;970000;Themule;1373175345;;A", -- [3]
+						"1;;;;970000;970000;Themule;1373175345;;A", -- [4]
+						"1;;;;970000;970000;Themule;1373175344;;A", -- [5]
+						"1;;;;970000;970000;Themule;1373175344;;A", -- [6]
+						"1;;;;850000;850000;Phaith;1373175334;;A", -- [7]
+						"1;;;;850000;850000;Phaith;1373175334;;A", -- [8]
+						"1;;;;850000;850000;Phaith;1373175333;;A", -- [9]
+						"1;;;;850000;850000;Phaith;1373175333;;A", -- [10]
+						"1;;;;850000;850000;Phaith;1373175333;;A", -- [11]
+						"1;;;;850000;850000;Phaith;1373175333;;A", -- [12]
+						"1;;;;630000;630000;Wortistwo;1373175329;;A", -- [13]
+						"1;;;;630000;630000;Wortistwo;1373175326;;A", -- [14]
+						"1;;;;630000;630000;Wortistwo;1373175325;;A", -- [15]
+						"1;;;;630000;630000;Wortistwo;1373175319;;A", -- [16]
 					},
 				},
 				["90046"] = {
 					["item:90046:0:0:0:0:0:0:0:80:0"] = {
-						"1;;;;4599999;4599999;Syynless;1373598606;;A", -- [1]
-						"1;;;;4500000;4500000;Vonredbaron;1373695691;;A", -- [2]
+						"1;;;;4500000;4500000;Vonredbaron;1373695691;;A", -- [1]
+						"1;;;;4599999;4599999;Syynless;1373598606;;A", -- [2]
 						"1;;;;5150000;5150000;Tabz;1370503342;;A", -- [3]
 						"1;;;;5490000;5490000;Darnor;1370329196;;A", -- [4]
 						"1;;;;4750000;4750000;Bankmeplease;1368860636;;A", -- [5]
@@ -917,6 +869,78 @@ BeanCounterDB = {
 			["failedBids"] = {
 			},
 		},
+		["Jolobank"] = {
+			["vendorsell"] = {
+			},
+			["postedBids"] = {
+			},
+			["postedAuctions"] = {
+				["32747"] = {
+					["item:32747:0:0:0:0:0:0:1418097280:80:0:0"] = {
+						"1;1425000;1500000;2880;7500;1381611281;", -- [1]
+					},
+				},
+				["32739"] = {
+					["item:32739:0:0:0:0:0:0:1822700800:80:0:0"] = {
+						"1;1897625;1997500;2880;4500;1381611337;", -- [1]
+					},
+				},
+				["104230"] = {
+					["item:104230:0:0:0:0:0:0:0:80:0:0"] = {
+						"1;18990500;19990000;2880;100;1381611296;", -- [1]
+					},
+				},
+				["22904"] = {
+					["item:22904:0:0:0:0:0:0:282403328:80:0:0"] = {
+						"1;9504241;10004465;2880;6000;1381611329;", -- [1]
+					},
+				},
+			},
+			["completedBidsBuyoutsNeutral"] = {
+			},
+			["vendorbuy"] = {
+			},
+			["failedAuctions"] = {
+			},
+			["failedBidsNeutral"] = {
+			},
+			["completedBidsBuyouts"] = {
+			},
+			["completedAuctions"] = {
+			},
+			["failedAuctionsNeutral"] = {
+			},
+			["completedAuctionsNeutral"] = {
+			},
+			["failedBids"] = {
+			},
+		},
+		["Jolokia"] = {
+			["vendorsell"] = {
+			},
+			["postedBids"] = {
+			},
+			["postedAuctions"] = {
+			},
+			["completedBidsBuyoutsNeutral"] = {
+			},
+			["vendorbuy"] = {
+			},
+			["failedAuctions"] = {
+			},
+			["failedBidsNeutral"] = {
+			},
+			["completedBidsBuyouts"] = {
+			},
+			["completedAuctions"] = {
+			},
+			["failedAuctionsNeutral"] = {
+			},
+			["completedAuctionsNeutral"] = {
+			},
+			["failedBids"] = {
+			},
+		},
 	},
 }
 BeanCounterDBSettings = {
@@ -924,61 +948,81 @@ BeanCounterDBSettings = {
 	["util.beancounter.ButtonuseDateCheck"] = false,
 	["Dragonblight"] = {
 		["Majandra"] = {
-			["tasks.sortArray"] = 1379070214,
+			["tasks.sortArray"] = 1381866035,
 			["version"] = 3.03,
 			["faction"] = "Alliance",
-			["tasks.compactDB"] = 1379070214,
+			["tasks.compactDB"] = 1381866035,
 			["wealth"] = 25762271,
-			["tasks.prunePostedDB"] = 1377801618,
+			["tasks.prunePostedDB"] = 1381813292,
 			["mailbox"] = {
 				{
-					["subject"] = "Auction won: Raw Turtle Meat (11)",
-					["read"] = 1,
 					["time"] = 29.99974632263184,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Raw Turtle Meat (11)",
+					["read"] = 1,
 				}, -- [1]
 				{
-					["subject"] = "Auction won: Raw Turtle Meat (9)",
-					["read"] = 1,
 					["time"] = 29.99973297119141,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Raw Turtle Meat (9)",
+					["read"] = 1,
 				}, -- [2]
 				{
-					["subject"] = "Auction won: Raw Turtle Meat (16)",
-					["read"] = 1,
 					["time"] = 29.99968719482422,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Raw Turtle Meat (16)",
+					["read"] = 1,
 				}, -- [3]
 				{
-					["subject"] = "Auction won: Raw Turtle Meat (3)",
-					["read"] = 1,
 					["time"] = 29.99967575073242,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Raw Turtle Meat (3)",
+					["read"] = 1,
 				}, -- [4]
 				{
-					["subject"] = "Auction won: Juicycrunch Carrot (21)",
-					["read"] = 1,
 					["time"] = 29.99834442138672,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Juicycrunch Carrot (21)",
+					["read"] = 1,
 				}, -- [5]
 				{
-					["subject"] = "Auction won: Juicycrunch Carrot (88)",
-					["read"] = 1,
 					["time"] = 29.99828720092773,
 					["sender"] = "Alliance Auction House",
+					["subject"] = "Auction won: Juicycrunch Carrot (88)",
+					["read"] = 1,
 				}, -- [6]
 				{
-					["read"] = 1,
 					["sender"] = "Alliance Auction House",
-					["time"] = 29.99983787536621,
+					["read"] = 1,
 					["subject"] = "Auction won: Iceweb Spider Silk",
+					["time"] = 29.99983787536621,
 				}, -- [7]
 				{
-					["read"] = 1,
 					["sender"] = "Alliance Auction House",
-					["time"] = 29.99966430664063,
+					["read"] = 1,
 					["subject"] = "Auction won: Crystallized Life (10)",
+					["time"] = 29.99966430664063,
 				}, -- [8]
+			},
+		},
+		["Jolobank"] = {
+			["tasks.sortArray"] = 1381923526,
+			["version"] = 3.03,
+			["faction"] = "Alliance",
+			["tasks.compactDB"] = 1381923526,
+			["wealth"] = 1908845,
+			["tasks.prunePostedDB"] = 1381923526,
+			["mailbox"] = {
+			},
+		},
+		["Jolokia"] = {
+			["tasks.sortArray"] = 1381996308,
+			["version"] = 3.03,
+			["faction"] = "Alliance",
+			["tasks.compactDB"] = 1381996308,
+			["wealth"] = 129292337,
+			["tasks.prunePostedDB"] = 1381996308,
+			["mailbox"] = {
 			},
 		},
 	},
@@ -1018,69 +1062,73 @@ BeanCounterDBNames = {
 	["41601:0"] = "cff0070dd;Shining Spellthread",
 	["52753:0"] = "cffffffff;Enchant Cloak - Intellect",
 	["42399:0"] = "cffffffff;Glyph of Fear Ward",
+	["22904:0"] = "cff1eff00;Recipe: Elixir of the Searching Eye",
 	["54443:0"] = "cff1eff00;Embersilk Bag",
 	["74709:0"] = "cffffffff;Enchant Chest - Superior Stamina",
+	["53010:0"] = "cffffffff;Embersilk Cloth",
 	["74837:0"] = "cffffffff;Raw Turtle Meat",
-	["42410:0"] = "cffffffff;Glyph of Psychic Scream",
+	["42416:0"] = "cffffffff;Glyph of Smite",
+	["72095:0"] = "cff1eff00;Trillium Bar",
 	["74250:0"] = "cff1eff00;Mysterious Essence",
 	["77542:0"] = "cff0070dd;Quick Tinker's Gear",
 	["76085:0"] = "cffffffff;Flask of the Warm Sun",
+	["32747:0"] = "cffa335ee;Pattern: Swiftstrike Shoulders",
 	["74856:0"] = "cffffffff;Jade Lungfish",
-	["37704:0"] = "cffffffff;Crystallized Life",
-	["76888:0"] = "cff0070dd;Revitalizing Primal Diamond",
-	["53010:0"] = "cffffffff;Embersilk Cloth",
-	["82430:0"] = "cff0070dd;Contender's Satin Amice",
-	["72095:0"] = "cff1eff00;Trillium Bar",
-	["35625:0"] = "cff1eff00;Eternal Life",
-	["93556:0"] = "cff0070dd;Crafted Dreadful Gladiator's Satin Hood",
 	["42404:0"] = "cffffffff;Glyph of Mass Dispel",
+	["76888:0"] = "cff0070dd;Revitalizing Primal Diamond",
+	["42410:0"] = "cffffffff;Glyph of Psychic Scream",
+	["82430:0"] = "cff0070dd;Contender's Satin Amice",
+	["23112:0"] = "cff1eff00;Golden Draenite",
+	["35625:0"] = "cff1eff00;Eternal Life",
+	["74700:0"] = "cffffffff;Enchant Bracer - Mastery",
+	["37704:0"] = "cffffffff;Crystallized Life",
 	["93429:0"] = "cff0070dd;Crafted Dreadful Gladiator's Cord of Accuracy",
 	["42402:0"] = "cffffffff;Glyph of Inner Fire",
 	["82421:0"] = "cff0070dd;Contender's Silk Cowl",
-	["23112:0"] = "cff1eff00;Golden Draenite",
+	["42417:0"] = "cffffffff;Glyph of Prayer of Mending",
 	["52759:0"] = "cffffffff;Enchant Gloves - Greater Expertise",
 	["52745:0"] = "cffffffff;Enchant Cloak - Lesser Power",
-	["74700:0"] = "cffffffff;Enchant Bracer - Mastery",
+	["97828:0"] = "cffa335ee;Latent Kor'kron Gloves",
 	["52329:0"] = "cffffffff;Volatile Life",
 	["74716:0"] = "cffffffff;Enchant Boots - Greater Precision",
 	["42411:0"] = "cffffffff;Glyph of Renew",
 	["87502:0"] = "cff0070dd;Repression Belt",
-	["93551:0"] = "cff0070dd;Crafted Dreadful Gladiator's Mooncloth Helm",
-	["42417:0"] = "cffffffff;Glyph of Prayer of Mending",
-	["77101:0"] = "cffffffff;Glyph of Shadow",
-	["97828:0"] = "cffa335ee;Latent Kor'kron Gloves",
-	["42416:0"] = "cffffffff;Glyph of Smite",
 	["76086:0"] = "cffffffff;Flask of Falling Leaves",
 	["74712:0"] = "cffffffff;Enchant Cloak - Superior Intellect",
+	["77101:0"] = "cffffffff;Glyph of Shadow",
 	["52687:0"] = "cffffffff;Enchant Gloves - Mastery",
 	["74834:0"] = "cffffffff;Mushan Ribs",
-	["42401:0"] = "cffffffff;Glyph of Holy Nova",
-	["42407:0"] = "cffffffff;Glyph of Weakened Soul",
-	["52743:0"] = "cffffffff;Enchant Boots - Earthen Vitality",
+	["93551:0"] = "cff0070dd;Crafted Dreadful Gladiator's Mooncloth Helm",
 	["52762:0"] = "cffffffff;Enchant Shield - Mastery",
 	["42396:0"] = "cffffffff;Glyph of Circle of Healing",
 	["45755:0"] = "cffffffff;Glyph of Leap of Faith",
+	["42401:0"] = "cffffffff;Glyph of Holy Nova",
 	["52756:0"] = "cffffffff;Enchant Gloves - Exceptional Strength",
+	["52743:0"] = "cffffffff;Enchant Boots - Earthen Vitality",
 	["79514:0"] = "cffffffff;Glyph of Shadow Word: Death",
 	["52761:0"] = "cffffffff;Enchant Weapon - Heartsong",
 	["42405:0"] = "cffffffff;Glyph of Psychic Horror",
-	["75014:0"] = "cffffffff;Raw Crocolisk Belly",
-	["79513:0"] = "cffffffff;Glyph of Mind Flay",
+	["74248:0"] = "cffa335ee;Sha Crystal",
+	["42407:0"] = "cffffffff;Glyph of Weakened Soul",
 	["42398:0"] = "cffffffff;Glyph of Fade",
 	["42400:0"] = "cffffffff;Glyph of Inner Sanctum",
-	["33470:0"] = "cffffffff;Frostweave Cloth",
-	["39005:0"] = "cffffffff;Enchant Chest - Super Health",
+	["75014:0"] = "cffffffff;Raw Crocolisk Belly",
+	["79513:0"] = "cffffffff;Glyph of Mind Flay",
 	["42414:0"] = "cffffffff;Glyph of Mind Blast",
 	["21840:0"] = "cffffffff;Bolt of Netherweave",
+	["33470:0"] = "cffffffff;Frostweave Cloth",
+	["39005:0"] = "cffffffff;Enchant Chest - Super Health",
+	["32739:0"] = "cffa335ee;Plans: Dawnsteel Shoulders",
+	["74650:0"] = "cffffffff;Mogu Fish Stew",
 	["42397:0"] = "cffffffff;Glyph of Purify",
 	["74864:0"] = "cffffffff;Reef Octopus",
 	["76638:0"] = "cff0070dd;Sparkling River's Heart",
-	["74650:0"] = "cffffffff;Mogu Fish Stew",
-	["74248:0"] = "cffa335ee;Sha Crystal",
+	["93556:0"] = "cff0070dd;Crafted Dreadful Gladiator's Satin Hood",
+	["76098:0"] = "cffffffff;Master Mana Potion",
 	["42408:0"] = "cffffffff;Glyph of Power Word: Shield",
 	["74841:0"] = "cffffffff;Juicycrunch Carrot",
 	["43374:0"] = "cffffffff;Glyph of Dark Archangel",
-	["76098:0"] = "cffffffff;Master Mana Potion",
+	["104230:0"] = "cff1eff00;Technique: Glyph of Shifted Appearances",
 	["79538:0"] = "cffffffff;Glyph of the Heavens",
 	["42406:0"] = "cffffffff;Glyph of Holy Fire",
 }

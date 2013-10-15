@@ -6,8 +6,8 @@ Omen3DB = {
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 	},
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
@@ -18,7 +18,7 @@ Omen3DB = {
 			["PositionX"] = 213.5,
 			["Locked"] = true,
 			["Background"] = {
-				["EdgeSize"] = 1,
+				["EdgeSize"] = 2,
 				["BarInset"] = 2,
 				["Texture"] = "ElvUI Blank",
 			},
@@ -94,23 +94,23 @@ Omen3DB = {
 					["b"] = 0.7764705882352941,
 				},
 				["ShowTPS"] = false,
-				["UseClassColors"] = false,
-				["ShowHeadings"] = false,
+				["Font"] = "vibrocen",
+				["UseMyBarColor"] = true,
 				["BarColor"] = {
 					["a"] = 0.8900000005960465,
 					["r"] = 0.3686274509803922,
 					["g"] = 0.3686274509803922,
 					["b"] = 0.3686274509803922,
 				},
-				["Spacing"] = 1,
-				["ShowValue"] = false,
-				["Font"] = "vibrocen",
-				["Height"] = 25,
 				["FadeBarColor"] = {
 					["r"] = 0.4666666666666667,
 					["g"] = 0.4666666666666667,
 					["b"] = 0.4666666666666667,
 				},
+				["ShowValue"] = false,
+				["UseClassColors"] = false,
+				["Height"] = 25,
+				["Spacing"] = 1,
 				["MyBarColor"] = {
 					["r"] = 0.592156862745098,
 					["g"] = 0.592156862745098,
@@ -121,7 +121,7 @@ Omen3DB = {
 					["g"] = 0.592156862745098,
 					["b"] = 0.592156862745098,
 				},
-				["UseMyBarColor"] = true,
+				["ShowHeadings"] = false,
 				["Texture"] = "Minimalist",
 			},
 		},
@@ -161,10 +161,22 @@ Omen3DB = {
 				["Texture"] = "Smooth",
 			},
 		},
+		["Jolobank - Dragonblight"] = {
+			["PositionY"] = 675.0001220703125,
+			["Background"] = {
+				["EdgeSize"] = 2,
+				["BarInset"] = 2,
+				["Texture"] = "ElvUI Blank",
+			},
+			["PositionX"] = 847.5000610351563,
+			["Bar"] = {
+				["Spacing"] = 1,
+			},
+		},
 		["Majandra - Dragonblight"] = {
+			["PositionY"] = 391.0001525878906,
 			["PositionW"] = 199.9999694824219,
 			["PositionH"] = 81.99998474121094,
-			["PositionY"] = 391.0001525878906,
 			["Locked"] = true,
 			["Background"] = {
 				["EdgeSize"] = 1,
@@ -172,18 +184,6 @@ Omen3DB = {
 				["Texture"] = "ElvUI Blank",
 			},
 			["PositionX"] = 222.4998931884766,
-			["Bar"] = {
-				["Spacing"] = 1,
-			},
-		},
-		["Jolobank - Dragonblight"] = {
-			["Background"] = {
-				["EdgeSize"] = 1,
-				["BarInset"] = 2,
-				["Texture"] = "ElvUI Blank",
-			},
-			["PositionY"] = 675.0001220703125,
-			["PositionX"] = 847.5000610351563,
 			["Bar"] = {
 				["Spacing"] = 1,
 			},

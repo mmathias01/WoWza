@@ -247,8 +247,8 @@ AtlasLootDB = {
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
 							["EXPERTISE_RATING"] = false,
-							["STRENGTH"] = false,
 							["AGILITY"] = false,
+							["STRENGTH"] = false,
 						},
 						["Armor"] = {
 							["#a2#"] = false,
@@ -280,8 +280,8 @@ AtlasLootDB = {
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
 	["profiles"] = {
@@ -295,10 +295,10 @@ AtlasLootDB = {
 		},
 		["Jolokya - Dragonblight"] = {
 		},
-		["Jolobank - Dragonblight"] = {
-		},
 		["Majandra - Dragonblight"] = {
 			["UseGameTooltip"] = true,
+		},
+		["Jolobank - Dragonblight"] = {
 		},
 		["Cellestia - Terenas"] = {
 			["LootTableType"] = "RaidFinder",

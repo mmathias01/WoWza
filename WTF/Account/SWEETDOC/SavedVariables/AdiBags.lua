@@ -32,7 +32,7 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["AdiBags_TooltipInfo"] = {
+		["PT3Filter"] = {
 		},
 		["Equipment"] = {
 			["profiles"] = {
@@ -41,16 +41,16 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["Junk"] = {
+		["TidyBags"] = {
 			["profiles"] = {
 				["Default"] = {
-					["exclude"] = {
-						[95567] = true,
-					},
+					["autoTidy"] = true,
 				},
 			},
 		},
-		["DataSource"] = {
+		["Bound"] = {
+		},
+		["ItemSets"] = {
 		},
 		["CurrencyFrame"] = {
 			["profiles"] = {
@@ -71,22 +71,24 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["ItemSets"] = {
+		["DataSource"] = {
 		},
-		["Bound"] = {
-		},
-		["TidyBags"] = {
+		["Junk"] = {
 			["profiles"] = {
 				["Default"] = {
-					["autoTidy"] = true,
+					["exclude"] = {
+						[95567] = true,
+					},
 				},
 			},
 		},
-		["PT3Filter"] = {
+		["AdiBags_TooltipInfo"] = {
 		},
 	},
 	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -106,11 +108,11 @@ AdiBagsDB = {
 					["yOffset"] = 241.0000915527344,
 				},
 			},
-			["automaticLayout"] = 2,
-			["sortingOrder"] = "byQualityAndLevel",
 			["sectionFont"] = {
 				["name"] = "ElvUI Font",
 			},
+			["sortingOrder"] = "byQualityAndLevel",
+			["automaticLayout"] = 2,
 		},
 	},
 }

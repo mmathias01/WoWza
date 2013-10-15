@@ -1,6 +1,6 @@
 
 BugGrabberDB = {
-	["session"] = 800,
+	["session"] = 806,
 	["lastSanitation"] = 3,
 	["errors"] = {
 		{
@@ -1096,5 +1096,12 @@ BugGrabberDB = {
 			["session"] = 800,
 			["counter"] = 1,
 		}, -- [149]
+		{
+			["message"] = "ElvUI-6.59\\core\\core.lua:683: attempt to index field \"actionbar\" (a nil value)",
+			["time"] = "2013/10/12 13:51:07",
+			["stack"] = "ElvUI-6.59\\core\\core.lua:683: in function \"DBConversions\"\nElvUI-6.59\\core\\core.lua:513: in function \"?\"\nlibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[3]\":4: in function <string>:\"safecall Dispatcher[3]\":4\n<in C code>\n<string>:\"safecall Dispatcher[3]\":13: in function \"?\"\nlibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nAdiBags-v1.6.9\\libs\\AceDB-3.0\\AceDB-3.0-23.lua:462: in function \"SetProfile\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:193: in function \"CheckDualSpecState\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:218: in function \"_EnhanceDatabase\"\nlibs\\LibDualSpec-1.0\\LibDualSpec-1.0-12.lua:240: in function \"EnhanceDatabase\"\nElvUI-6.59\\core\\core.lua:857: in function \"?\"\nlibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:147: in function <libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua:147>\n<string>:\"safecall Dispatcher[1]\":4: in function <string>:\"safecall Dispatcher[1]\":4\n<in C code>\n<string>:\"safecall Dispatcher[1]\":13: in function \"?\"\nlibs\\CallbackHandler-1.0\\CallbackHandler-1.0-6.lua:92: in function \"Fire\"\nAdiBags-v1.6.9\\libs\\AceEvent-3.0\\AceEvent-3.0-3.lua:120: in function <AdiBags\\libs\\AceEvent-3.0\\AceEvent-3.0.lua:119>",
+			["session"] = 801,
+			["counter"] = 1,
+		}, -- [150]
 	},
 }

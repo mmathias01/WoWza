@@ -130,3 +130,8 @@ VER 3 0000000000000005 "vent" "ABILITY_CREATURE_CURSED_05"
 /p gotham.hidef-voice.com
 /p port: 4144
 END
+VER 3 0000000000000016 "vent" "SPELL_MISC_PETHEAL"
+/ra === vent ===
+/ra bismuth.typefrag.com:7670
+/ra no password
+END

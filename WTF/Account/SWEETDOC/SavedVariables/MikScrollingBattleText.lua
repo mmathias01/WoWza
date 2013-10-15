@@ -7,28 +7,15 @@ MSBTProfiles_SavedVars = {
 			["normalFontAlpha"] = 75,
 			["shortenNumbers"] = true,
 			["stickyCritsDisabled"] = true,
-			["powerThrottleDuration"] = 4,
+			["hideFullHoTOverheals"] = false,
 			["hotThrottleDuration"] = 4,
 			["critOutlineIndex"] = 2,
-			["hideFullHoTOverheals"] = false,
+			["animationSpeed"] = 30,
 			["cooldownThreshold"] = 10,
 			["dotThrottleDuration"] = 4,
 			["creationVersion"] = "5.7.125",
 			["critFontSize"] = 22.29510879516602,
-			["scrollAreas"] = {
-				["Incoming"] = {
-					["offsetX"] = -300,
-				},
-				["Notification"] = {
-					["disabled"] = true,
-				},
-				["Outgoing"] = {
-					["offsetX"] = 260,
-				},
-				["Static"] = {
-					["disabled"] = true,
-				},
-			},
+			["critFontName"] = "MSBT Cooline",
 			["groupNumbers"] = true,
 			["events"] = {
 				["NOTIFICATION_BUFF_FADE"] = {
@@ -85,7 +72,7 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_DEBUFF_STACK"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_REP_GAIN"] = {
+				["NOTIFICATION_DEBUFF"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_EXPERIENCE_GAIN"] = {
@@ -104,7 +91,7 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_POWER_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_MONEY"] = {
+				["NOTIFICATION_ITEM_BUFF"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_ENEMY_BUFF"] = {
@@ -116,31 +103,44 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_EXTRA_ATTACK"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_PET_COOLDOWN"] = {
-					["disabled"] = true,
-				},
-				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
-					["scrollArea"] = "Notification",
-				},
-				["NOTIFICATION_CP_GAIN"] = {
+				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
 				["NOTIFICATION_SKILL_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_SHADOW_ORBS_CHANGE"] = {
+				["NOTIFICATION_CP_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_ITEM_BUFF"] = {
+				["NOTIFICATION_HOLY_POWER_CHANGE"] = {
 					["scrollArea"] = "Notification",
 				},
-				["NOTIFICATION_DEBUFF"] = {
+				["NOTIFICATION_PET_COOLDOWN"] = {
+					["disabled"] = true,
+				},
+				["NOTIFICATION_MONEY"] = {
+					["scrollArea"] = "Notification",
+				},
+				["NOTIFICATION_REP_GAIN"] = {
 					["scrollArea"] = "Notification",
 				},
 			},
-			["critFontName"] = "MSBT Cooline",
+			["scrollAreas"] = {
+				["Static"] = {
+					["disabled"] = true,
+				},
+				["Incoming"] = {
+					["offsetX"] = -300,
+				},
+				["Outgoing"] = {
+					["offsetX"] = 260,
+				},
+				["Notification"] = {
+					["disabled"] = true,
+				},
+			},
 			["normalFontName"] = "MSBT Cooline",
-			["animationSpeed"] = 30,
+			["powerThrottleDuration"] = 4,
 			["normalFontSize"] = 15.17127799987793,
 		},
 	},

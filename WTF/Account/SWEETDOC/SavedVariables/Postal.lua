@@ -1,5 +1,12 @@
 
 Postal3DB = {
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
+		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+	},
 	["global"] = {
 		["BlackBook"] = {
 			["alts"] = {
@@ -10,13 +17,6 @@ Postal3DB = {
 				"Shenlu|Dragonblight|Alliance|12|MONK", -- [5]
 			},
 		},
-	},
-	["profileKeys"] = {
-		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
-		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
 	},
 	["profiles"] = {
 		["Jolokia - Dragonblight"] = {
@@ -29,6 +29,21 @@ Postal3DB = {
 		},
 		["Shenlu - Dragonblight"] = {
 		},
+		["Cellestia - Terenas"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Saphiira|Terenas|Alliance", -- [1]
+					"Majandra|Terenas|Alliance", -- [2]
+				},
+			},
+		},
+		["Jolobank - Dragonblight"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Majandra|Dragonblight|Alliance", -- [1]
+				},
+			},
+		},
 		["Majandra - Dragonblight"] = {
 			["BlackBook"] = {
 				["recent"] = {
@@ -40,16 +55,6 @@ Postal3DB = {
 					"Shenlu|Dragonblight|Alliance", -- [6]
 					"Anaksha|Dragonblight|Alliance", -- [7]
 					"Aedaliora|Dragonblight|Alliance", -- [8]
-				},
-			},
-		},
-		["Jolobank - Dragonblight"] = {
-		},
-		["Cellestia - Terenas"] = {
-			["BlackBook"] = {
-				["recent"] = {
-					"Saphiira|Terenas|Alliance", -- [1]
-					"Majandra|Terenas|Alliance", -- [2]
 				},
 			},
 		},

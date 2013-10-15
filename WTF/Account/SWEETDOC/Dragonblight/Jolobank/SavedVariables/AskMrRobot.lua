@@ -17,4 +17,20 @@ AmrRace = nil
 AmrLevel = nil
 AmrFaction = nil
 AmrActiveSpec = nil
-AmrHideMapIcon = false
+AmrOptions = {
+}
+AmrGlyphs = {
+}
+AmrTalents = {
+}
+AmrBankItemsAndCounts = {
+}
+AmrImportString = ""
+AmrImportDate = ""
+AmrSendSettings = {
+	["SendTo"] = "",
+	["SendGems"] = true,
+	["SendEnchants"] = true,
+	["SendEnchantMaterials"] = true,
+	["SendToType"] = "a friend",
+}

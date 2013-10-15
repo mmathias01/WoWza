@@ -1,11 +1,13 @@
 
 TradeSkillMaster_AuctioningDB = {
-	["factionrealm"] = {
-		["Alliance - Dragonblight"] = {
-			["player"] = {
-				["Majandra"] = true,
-			},
+	["profiles"] = {
+		["Default"] = {
 		},
+	},
+	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["global"] = {
 		["optionsTreeStatus"] = {
@@ -16,22 +18,24 @@ TradeSkillMaster_AuctioningDB = {
 				["1"] = true,
 				["3Sell Enchants"] = true,
 				["3Post Malevolent Items"] = true,
-				[3] = true,
 				["3Test"] = true,
+				[3] = true,
 				["3Profit"] = true,
 			},
 			["scrollvalue"] = 0,
-			["selected"] = "3Sell Enchants",
+			["fullwidth"] = 782.9998779296875,
 			["treesizable"] = true,
 			["treewidth"] = 175,
-			["fullwidth"] = 782.9998779296875,
+			["selected"] = "3Sell Enchants",
 		},
 	},
-	["profileKeys"] = {
-		["Majandra - Dragonblight"] = "Default",
-	},
-	["profiles"] = {
-		["Default"] = {
+	["factionrealm"] = {
+		["Alliance - Dragonblight"] = {
+			["player"] = {
+				["Majandra"] = true,
+				["Jolobank"] = true,
+				["Jolokia"] = true,
+			},
 		},
 	},
 }

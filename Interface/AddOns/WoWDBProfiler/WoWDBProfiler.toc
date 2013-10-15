@@ -5,7 +5,7 @@
 ## X-Email: jcallahan@curse.com
 ## SavedVariables: WoWDBProfilerData
 ## OptionalDeps: Ace3, LibDeformat-3.0, LibPetJournal-2.0, LibDialog-1.0, LibQTip-1.0
-## X-Curse-Packaged-Version: 5.4.0-3
+## X-Curse-Packaged-Version: r323
 ## X-Curse-Project-Name: WoWDB Profiler
 ## X-Curse-Project-ID: wowdb-profiler
 ## X-Curse-Repository-ID: wow/wowdb-profiler/mainline

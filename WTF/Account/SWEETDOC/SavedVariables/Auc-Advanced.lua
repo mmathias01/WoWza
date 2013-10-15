@@ -60,8 +60,8 @@ AucAdvancedData = {
 			},
 		},
 		["Global"] = {
-			["configator.left"] = 509.9999694824219,
-			["configator.top"] = 850,
+			["configator.left"] = 510.0000305175781,
+			["configator.top"] = 850.0000610351563,
 		},
 		["SavedSearches"] = {
 		},

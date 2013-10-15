@@ -1,13 +1,16 @@
 
 BrokerVolumeDB = {
 	["profileKeys"] = {
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 	},
 	["profiles"] = {
+		["Jolokia - Dragonblight"] = {
+		},
 		["Majandra - Dragonblight"] = {
 		},
-		["Jolokia - Dragonblight"] = {
+		["Jolobank - Dragonblight"] = {
 		},
 	},
 }

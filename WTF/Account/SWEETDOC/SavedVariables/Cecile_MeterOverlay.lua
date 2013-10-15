@@ -5,23 +5,25 @@ Cecile_MeterOverlayDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
-			["overlay"] = {
-				["type"] = "TYPE_BOTH",
-			},
+			["segment"] = "OverallData",
 			["datatext"] = {
 				["customformat"] = " DPS([ndps]): [dps] -  HPS([nhealer]): [hps]",
 				["enable"] = false,
 				["w"] = 199.9999084472656,
 				["y"] = 915.9998168945313,
-				["h"] = 15.99985694885254,
-				["format"] = "FORMAT_CUSTOM",
 				["x"] = 860.0001220703125,
+				["format"] = "FORMAT_CUSTOM",
+				["h"] = 15.99985694885254,
 			},
-			["segment"] = "OverallData",
+			["overlay"] = {
+				["type"] = "TYPE_BOTH",
+			},
 		},
 	},
 }

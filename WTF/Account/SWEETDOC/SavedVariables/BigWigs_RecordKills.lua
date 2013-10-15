@@ -1,7 +1,9 @@
 
 RKDatabase = {
 	["profileKeys"] = {
+		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -44,12 +46,12 @@ RKDatabase = {
 				},
 				["Siege of Orgrimmar"] = {
 					["Galakras"] = {
+						[14] = 551,
+						[7] = 639,
 						[3] = 524,
-						[14] = 562,
 					},
-					["Kor'kron Dark Shaman"] = {
-						[3] = 335,
-						[7] = 471,
+					["Paragons of the Klaxxi"] = {
+						[3] = 628,
 					},
 					["Sha of Pride"] = {
 						[14] = 304,
@@ -61,38 +63,41 @@ RKDatabase = {
 						[7] = 355,
 						[3] = 358,
 					},
-					["Iron Juggernaut"] = {
-						[14] = 338,
-						[7] = 474,
-						[3] = 389,
+					["Siegecrafter Blackfuse"] = {
+						[3] = 305,
 					},
-					["Paragons of the Klaxxi"] = {
-						[3] = 628,
+					["Kor'kron Dark Shaman"] = {
+						[3] = 335,
+						[7] = 471,
+						[14] = 245,
 					},
 					["Malkorok"] = {
 						[3] = 279,
 						[7] = 346,
 					},
-					["Thok the Bloodthirsty"] = {
-						[3] = 375,
-						[7] = 590,
+					["General Nazgrim"] = {
+						[14] = 278,
+						[7] = 486,
+						[3] = 392,
 					},
 					["Immerseus"] = {
 						[14] = 297,
 						[7] = 529,
 						[3] = 375,
 					},
-					["General Nazgrim"] = {
-						[14] = 447,
-						[7] = 486,
-						[3] = 392,
-					},
 					["Spoils of Pandaria"] = {
 						[3] = 481,
 						[7] = 463,
 					},
-					["Siegecrafter Blackfuse"] = {
-						[3] = 305,
+					["Thok the Bloodthirsty"] = {
+						[3] = 375,
+						[7] = 590,
+						[14] = 416,
+					},
+					["Iron Juggernaut"] = {
+						[14] = 287,
+						[7] = 474,
+						[3] = 389,
 					},
 					["The Fallen Protectors"] = {
 						[14] = 351,
@@ -115,17 +120,17 @@ RKDatabase = {
 						[7] = 317,
 						[5] = 582,
 					},
-					["Durumu the Forgotten"] = {
-						[3] = 342,
-						[7] = 171,
+					["Iron Qon"] = {
+						[3] = 548,
+						[7] = 405,
 					},
 					["Dark Animus"] = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
+					["Council of Elders"] = {
+						[3] = 324,
+						[7] = 359,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -143,13 +148,13 @@ RKDatabase = {
 						[3] = 482,
 						[7] = 500,
 					},
-					["Council of Elders"] = {
-						[3] = 324,
-						[7] = 359,
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
 					},
-					["Iron Qon"] = {
-						[3] = 548,
-						[7] = 405,
+					["Durumu the Forgotten"] = {
+						[3] = 342,
+						[7] = 171,
 					},
 				},
 			},
