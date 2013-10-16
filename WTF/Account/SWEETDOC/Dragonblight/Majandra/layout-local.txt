@@ -4,8 +4,8 @@ FrameLevel: 1
 Anchor: LEFT
 X: 367
 Y: 98
-W: 314
-H: 174
+W: 128
+H: 64
 Frame: ColorPickerFrame
 FrameLevel: 11
 Anchor: CENTER
@@ -28,7 +28,7 @@ Y: 241
 W: 80
 H: 80
 Frame: AskMrRobot_Dialog
-FrameLevel: 42
+FrameLevel: 34
 Anchor: CENTER
 X: 226
 Y: 115
@@ -42,7 +42,7 @@ Y: -126
 W: 32
 H: 32
 Frame: OQMainFrame
-FrameLevel: 10
+FrameLevel: 7
 Anchor: CENTER
 X: 1
 Y: 111

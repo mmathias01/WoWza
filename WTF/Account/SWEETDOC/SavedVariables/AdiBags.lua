@@ -32,7 +32,7 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["PT3Filter"] = {
+		["AdiBags_TooltipInfo"] = {
 		},
 		["Equipment"] = {
 			["profiles"] = {
@@ -41,16 +41,16 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["TidyBags"] = {
+		["Junk"] = {
 			["profiles"] = {
 				["Default"] = {
-					["autoTidy"] = true,
+					["exclude"] = {
+						[95567] = true,
+					},
 				},
 			},
 		},
-		["Bound"] = {
-		},
-		["ItemSets"] = {
+		["DataSource"] = {
 		},
 		["CurrencyFrame"] = {
 			["profiles"] = {
@@ -71,18 +71,18 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["DataSource"] = {
+		["ItemSets"] = {
 		},
-		["Junk"] = {
+		["Bound"] = {
+		},
+		["TidyBags"] = {
 			["profiles"] = {
 				["Default"] = {
-					["exclude"] = {
-						[95567] = true,
-					},
+					["autoTidy"] = true,
 				},
 			},
 		},
-		["AdiBags_TooltipInfo"] = {
+		["PT3Filter"] = {
 		},
 	},
 	["profileKeys"] = {
@@ -108,11 +108,11 @@ AdiBagsDB = {
 					["yOffset"] = 241.0000915527344,
 				},
 			},
+			["automaticLayout"] = 2,
 			["sectionFont"] = {
 				["name"] = "ElvUI Font",
 			},
 			["sortingOrder"] = "byQualityAndLevel",
-			["automaticLayout"] = 2,
 		},
 	},
 }

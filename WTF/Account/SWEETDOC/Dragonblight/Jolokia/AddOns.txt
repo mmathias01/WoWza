@@ -1,0 +1,8 @@
+Clique: enabled
+ArkInventoryRules: disabled
+ArkInventory: disabled
+RazerAnansi: disabled
+RazerNaga: disabled
+RazerNaga_Cast: disabled
+RazerNaga_Config: disabled
+RazerNaga_XP: disabled

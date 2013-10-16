@@ -2,7 +2,6 @@
 ACP_Data = {
 	["sorter"] = "Group By Name",
 	["NoRecurse"] = false,
-	["NoChildren"] = true,
 	["AddonSet"] = {
 		{
 			"!AccurateTime", -- [1]
@@ -96,6 +95,7 @@ ACP_Data = {
 			"Cecile_MeterOverlay", -- [89]
 		}, -- [1]
 	},
+	["NoChildren"] = true,
 	["collapsed"] = {
 		["MikScrollingBattleText"] = true,
 		["Tukui"] = true,
@@ -109,18 +109,18 @@ ACP_Data = {
 		["ChocolateBar"] = true,
 		["Libraries"] = true,
 		["BigWigs"] = true,
-		["Skada"] = true,
+		["GoingPrice"] = true,
 		["TradeSkillMaster"] = true,
 		["Cecile"] = true,
-		["DBM"] = true,
+		["Forte"] = true,
 		["ElvUI"] = true,
 		["BittensSpellFlash"] = true,
 		["LDB"] = true,
 		["Broker"] = true,
-		["PitBull4"] = true,
 		["Gatherer"] = true,
-		["Forte"] = true,
-		["GoingPrice"] = true,
+		["PitBull4"] = true,
+		["DBM"] = true,
+		["Skada"] = true,
 	},
 	["ProtectedAddons"] = {
 		["ACP"] = true,

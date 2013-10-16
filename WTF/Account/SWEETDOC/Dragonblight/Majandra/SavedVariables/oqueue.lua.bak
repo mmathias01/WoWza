@@ -1,0 +1,43 @@
+
+OQ_toon = {
+	["stats"] = {
+		["bg"] = {
+			["nGames"] = 0,
+			["nWins"] = 0,
+			["nLosses"] = 0,
+		},
+		["rbg"] = {
+			["nGames"] = 0,
+			["nWins"] = 0,
+			["nLosses"] = 0,
+		},
+	},
+	["waitlist"] = {
+	},
+	["tab3_notice"] = 1382287627,
+	["player_wallet"] = {
+	},
+	["shout_kbs"] = 0,
+	["who_popped_lust"] = 0,
+	["shout_ragequits"] = 0,
+	["raid"] = {
+	},
+	["MinimapPos"] = 0,
+	["my_toons"] = {
+	},
+	["player_role"] = 2,
+	["last_tm"] = 1381683962,
+	["_idata"] = {
+	},
+	["marquee_y"] = 9.9998779296875,
+	["my_group"] = 0,
+	["marquee_x"] = 892.5000610351563,
+	["marquee_hide"] = true,
+	["say_sapped"] = 0,
+	["my_slot"] = 0,
+	["auto_role"] = 1,
+	["reports"] = {
+	},
+	["shout_caps"] = 0,
+	["class_portrait"] = 1,
+}

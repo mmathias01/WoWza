@@ -1,0 +1,206 @@
+2013-10-14  James D. Callahan III  <jcallahan@curse.com>
+
+[901b9cd2a6c2] [tip]
+* Main.lua:
+
+Added support for recording object locations in GOSSIP_SHOW.
+
+
+[fdf96c61d1b7]
+* Main.lua:
+
+Attempt to extrapolate valid current_action data in cases where it is invalid/incomplete when LOOT_OPENED fires.
+
+
+[10d45fef6ae1]
+* Main.lua:
+
+Added a Debug statement to watch for failures in HandleItemUse.
+
+
+[4f2d5a082b6d]
+* Main.lua:
+
+Reorganized some of the timer functions' nil assignments.
+
+
+2013-09-15  James D. Callahan III  <jcallahan@curse.com>
+
+[391eb564424c]
+* .hgtags:
+
+Added tag 5.4.0-3 for changeset 23e50d3e0f35
+
+
+[23e50d3e0f35] [5.4.0-3]
+* Non-change changes…?
+
+
+[8a2e619cced5]
+* Main.lua:
+
+Loot and merchant currency fixes.
+
+
+2013-09-10  James D. Callahan III  <jcallahan@curse.com>
+
+[9fe19fd62142]
+* .hgtags:
+
+Added tag 5.4.0-2 for changeset 9599e463f05f
+
+
+[9599e463f05f] [5.4.0-2]
+* WoWDBProfiler.toc:
+
+Might help things if I updated the ToC interface version to 50400...
+
+
+[80ec5756b1eb]
+* .hgtags:
+
+Added tag 5.4.0-1 for changeset 564deda095ec
+
+
+[564deda095ec] [5.4.0-1]
+* Main.lua:
+
+Bumped DB version to 18.
+
+
+2013-09-09  James D. Callahan III  <jcallahan@curse.com>
+
+[de9d571df07f]
+* Main.lua:
+
+More loot fixes.
+
+
+2013-08-22  James D. Callahan III  <jcallahan@curse.com>
+
+[183b6b967cc2]
+* Constants.lua:
+
+Updated LOOT_SPELL_ID_TO_ITEM_ID_MAP
+
+
+2013-08-14  James D. Callahan III  <jcallahan@curse.com>
+
+[628a5dc587ee]
+* .hgtags:
+
+Added tag 5.3.0-2 for changeset 3b9c6d588e62
+
+
+[3b9c6d588e62] [5.3.0-2]
+* Main.lua:
+
+Looting fixes.
+
+
+2013-07-30  James D. Callahan III  <jcallahan@curse.com>
+
+[22e2e16318e5]
+* Main.lua:
+
+Loot fixes.
+
+
+2013-07-28  James D. Callahan III  <jcallahan@curse.com>
+
+[c33ab3413737]
+* Constants.lua, Main.lua:
+
+Changes/fixes.
+
+
+2013-07-23  James D. Callahan III  <jcallahan@curse.com>
+
+[7feb687b1b22]
+* Constants.lua, Main.lua:
+
+Fixes
+
+
+2013-07-08  James D. Callahan III  <jcallahan@curse.com>
+
+[4986ef8a338a]
+* Main.lua:
+
+Initialize current_loot whenever there is a container_id in SHOW_LOOT_TOAST - not just when the type is "item".
+
+
+[1e55a8ebedbd]
+* Main.lua:
+
+Fixed double-counting for loot in items.
+
+
+[e54e370e3a01]
+* Main.lua:
+
+Removed some unnecessary debug prints.
+
+
+[ca7abdbda078]
+* Main.lua:
+
+Use quantity from GetLootSlotQuantity() instead of what's returned by GetLootSourceInfo().
+
+
+2013-07-01  James D. Callahan III  <jcallahan@curse.com>
+
+[216f807df434]
+* Main.lua:
+
+Support for Heroic Scenerio Cache and Battle Pet Supply loot.
+
+
+[e5c2dc3c7f6f]
+* Main.lua:
+
+PLAYER_GUID assignment fix.
+
+
+[0946f1091810]
+* Main.lua:
+
+Tighten up group detection, and disregard the check when in an instance.
+
+
+2013-06-18  James D. Callahan III  <jcallahan@curse.com>
+
+[841eeb16dcf7]
+* Main.lua:
+
+Update group pets on GROUP_ROSTER_UPDATE as well as on UNIT_PET since pets may exist before groups are formed.
+
+
+2013-06-17  James D. Callahan III  <jcallahan@curse.com>
+
+[57cb63fe5ba8]
+* Main.lua:
+
+Only wipe previous_combat_event on non-damaging CLEU subevent or when UNIT_DIED fires (after collecting its data).
+
+
+[0cad30f414f6]
+* Main.lua:
+
+Fix assignment in group_owner_guids_to_pet_guids.
+
+
+[6f70a1762dde]
+* Main.lua:
+
+Remove commas from stat amounts parsed from tooltips so tonumber() will produce a usable result instead of nil.
+
+
+2013-06-13  James D. Callahan III  <jcallahan@curse.com>
+
+[8cf9787fafe7]
+* Main.lua:
+
+Bumped DB version to 17.
+
+
