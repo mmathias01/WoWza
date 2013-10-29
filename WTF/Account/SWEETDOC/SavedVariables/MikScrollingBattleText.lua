@@ -16,17 +16,17 @@ MSBTProfiles_SavedVars = {
 			["creationVersion"] = "5.7.125",
 			["critFontSize"] = 22.29510879516602,
 			["scrollAreas"] = {
-				["Incoming"] = {
-					["offsetX"] = -300,
-				},
 				["Notification"] = {
+					["disabled"] = true,
+				},
+				["Static"] = {
 					["disabled"] = true,
 				},
 				["Outgoing"] = {
 					["offsetX"] = 260,
 				},
-				["Static"] = {
-					["disabled"] = true,
+				["Incoming"] = {
+					["offsetX"] = -300,
 				},
 			},
 			["groupNumbers"] = true,

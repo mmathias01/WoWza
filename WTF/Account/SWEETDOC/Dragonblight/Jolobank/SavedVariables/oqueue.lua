@@ -25,17 +25,17 @@ OQ_toon = {
 	["my_toons"] = {
 	},
 	["player_role"] = 1,
-	["last_tm"] = 1381736535,
+	["last_tm"] = 1382250565,
 	["_idata"] = {
 	},
 	["my_group"] = 0,
-	["marquee_y"] = 9.9998779296875,
+	["marquee_y"] = 9.9996337890625,
 	["marquee_x"] = 892.5000610351563,
 	["say_sapped"] = 1,
+	["auto_role"] = 1,
+	["class_portrait"] = 1,
 	["reports"] = {
 	},
-	["auto_role"] = 1,
 	["my_slot"] = 0,
 	["shout_caps"] = 1,
-	["class_portrait"] = 1,
 }

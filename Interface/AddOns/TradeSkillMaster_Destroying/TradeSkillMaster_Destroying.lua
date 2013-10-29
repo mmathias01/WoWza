@@ -27,7 +27,6 @@ local savedDBDefaults = {
 		timeFormat = "ago",
 		deMaxQuality = 3,
 		logDays = 3,
-		framePosition = {850, 450},
 	},
 }
 

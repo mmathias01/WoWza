@@ -1,7 +1,6 @@
 -------------------------------------------------------------------------------
 -- ElvUI_ChatTweaks By Lockslap (US, Bleeding Hollow)
--- <Borderline Amazing>, http://ba-guild.com
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
 local L = AceLocale:NewLocale("ElvUI_ChatTweaks", "ruRU", false)
 if not L then return end
@@ -31,6 +30,7 @@ L["Add item icons to loot received messages."] = "Add item icons to loot receive
 L["Addon Messages"] = "Addon Messages" -- Requires localization
 L["Addon Version Sent, Version: |cffffff00%s|r"] = "Addon Version Sent, Version: |cffffff00%s|r" -- Requires localization
 L["Add Percentage"] = "Add Percentage" -- Requires localization
+L["Adds a button to open this config window from ElvUI's config window."] = "Adds a button to open this config window from ElvUI's config window." -- Requires localization
 L["Adds a minimap button.\
 \
 |cffffff00To disable the button, simply disable this module.|r"] = "Adds a minimap button.\
@@ -395,6 +395,7 @@ L["Editbox History"] = "\208\160\208\181\208\180\208\176\208\186\209\130\208\184
 L["ElvUI ChatTweaks"] = "ElvUI ChatTweaks "
 L["ElvUI_ChatTweaks"] = "ElvUI_ChatTweaks" -- Requires localization
 L["ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!"] = "ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!" -- Requires localization
+L["ElvUI Config Button"] = "ElvUI Config Button" -- Requires localization
 L["ElvUI_CT"] = "ElvUI_CT" -- Requires localization
 L["Emote"] = "\208\173\208\188\208\190\209\134\208\184\208\184" -- Needs review
 L["Emote Filter"] = "Emote Filter" -- Requires localization
@@ -846,6 +847,7 @@ everyone."] = "Please DON'T use this. Reporting the spam is what gets the hacked
 the spammers closed down and realms cleaned up. Also, if many people report a spammer,\
 then that spammer looses the ability to chat meaning they can no longer spam, this benefits\
 everyone." -- Requires localization
+L["Plugins by |cff9382c9Lockslap|r"] = "Plugins by |cff9382c9Lockslap|r" -- Requires localization
 L["Popup"] = "Popup" -- Requires localization
 L["PopupMessage"] = "PopupMessage" -- Requires localization
 L["Popup Messages"] = "Popup Messages" -- Requires localization
@@ -1160,7 +1162,6 @@ Shift+Click the link to send the line to the last chat you used."] = "Turns the 
 \
 Click the link to copy the chat line.\
 Shift+Click the link to send the line to the last chat you used." -- Requires localization
-L["Tweaks"] = "Tweaks" -- Requires localization
 L["Unable to load the Alt Name module, please try again."] = "Unable to load the Alt Name module, please try again." -- Requires localization
 L["Unbalanced parameter count. Trailing Symbol: |cffffff00%s|r"] = "Unbalanced parameter count. Trailing Symbol: |cffffff00%s|r" -- Requires localization
 L["% Unowned"] = "% Unowned" -- Requires localization

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(332, "DBM-DragonSoul", nil, 187)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 89 $"):sub(12, -3))
 mod:SetCreatureID(56598)--56427 is Boss, but engage trigger needs the ship which is 56598
 mod:SetMainBossID(56427)
 mod:SetModelSound("sound\\CREATURE\\WarmasterBlackhorn\\VO_DS_BLACKHORN_INTRO_01.OGG", "sound\\CREATURE\\WarmasterBlackhorn\\VO_DS_BLACKHORN_SLAY_01.OGG")
@@ -50,7 +50,7 @@ local specWarnTwilightFlames		= mod:NewSpecialWarningMove(108076)
 local specWarnSunder				= mod:NewSpecialWarningStack(108043, mod:IsTank(), 3)
 local specWarnSunderOther			= mod:NewSpecialWarningTarget(108043, mod:IsTank())
 
-local timerCombatStart				= mod:NewTimer(20.5, "TimerCombatStart", 2457)
+local timerCombatStart				= mod:NewCombatTimer(20.5)
 local timerAdd						= mod:NewTimer(61, "TimerAdd", 107752)
 local timerHarpoonCD				= mod:NewCDTimer(6.5, 108038, nil, mod:IsDps())--If you fail to kill drake until next drake spawning, timer do not match. So better to use cd timer for now.
 local timerHarpoonActive			= mod:NewBuffActiveTimer(20, 108038, nil, mod:IsDps())--Seems to always hold at least 20 seconds, beyond that, RNG, but you always get at least 20 seconds before they "snap" free.

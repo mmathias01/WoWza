@@ -65,6 +65,7 @@ local savedDBDefaults = {
 		chatFrame = "",
 		infoMessage = 1000,
 		bankUIframeScale = 1,
+		frameStatus = {},
 	},
 	profile = {
 		minimapIcon = {
@@ -78,9 +79,6 @@ local savedDBDefaults = {
 		showBids = false,
 		openAllBags = true,
 		auctionResultRows = 12,
-		design = nil,
-
-		-- new TSM 2.0 stuff
 		groups = {},
 		items = {},
 		operations = {},
@@ -106,6 +104,7 @@ local savedDBDefaults = {
 		keepInParent = true,
 		savedThemes = {},
 		groupTreeCollapsedStatus = {},
+		groupTreeSelectedGroupStatus = {},
 		exportSubGroups = false,
 	},
 	factionrealm = {
@@ -251,9 +250,8 @@ function TSM:RegisterModule()
 
 	TSM.slashCommands = {
 		{ key = "version", label = L["Prints out the version numbers of all installed modules"], callback = function() TSM:Print(L["TSM Version Info:"]) for _, module in ipairs(TSM.Modules:GetInfo()) do print(module.name, "|cff99ffff" .. module.version .. "|r") end end },
-		{ key = "freset", label = L["Resets the position of the main TSM frame to the center of the screen"], callback = function() TSM.Frame.frame:ClearAllPoints() TSM.Frame.frame:SetPoint("CENTER", UIParent, "CENTER") TSM.Frame:SetWidth(823) TSM.Frame:SetHeight(686) TSM.Frame.frame:SetWidth(823) TSM.Frame.frame:SetHeight(686) end },
+		{ key = "freset", label = L["Resets the position, scale, and size of all applicable TSM and module frames."], callback = TSM.ResetFrames },
 		{ key = "bankui", label = L["Toggles the bankui"], callback = "toggleBankUI" },
-		{ key = "bankuireset", label = L["Resets the position of the BankUI frame."], callback = "ResetBankUIFramePosition"},
 		{ key = "sources", label = L["Prints out the available price sources for use in custom price boxes."], callback = "PrintPriceSources" },
 		{ key = "price", label = L["Allows for testing of custom prices."], callback = "TestPriceSource" },
 	}

@@ -1,15 +1,28 @@
 
 Omen3DB = {
 	["profileKeys"] = {
+		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
 	},
 	["profiles"] = {
+		["Jolobank - Dragonblight"] = {
+			["Background"] = {
+				["EdgeSize"] = 2,
+				["BarInset"] = 2,
+				["Texture"] = "ElvUI Blank",
+			},
+			["PositionY"] = 675.0001220703125,
+			["PositionX"] = 847.5000610351563,
+			["Bar"] = {
+				["Spacing"] = 1,
+			},
+		},
 		["Jolokia - Dragonblight"] = {
 			["PositionW"] = 200.9999389648438,
 			["PositionH"] = 205.9999847412109,
@@ -32,16 +45,78 @@ Omen3DB = {
 			["PositionY"] = 675.0001220703125,
 		},
 		["Shenlu - Dragonblight"] = {
-			["PositionY"] = 675.0001220703125,
 			["Background"] = {
 				["EdgeSize"] = 1,
 				["BarInset"] = 2,
 				["Texture"] = "ElvUI Blank",
 			},
+			["PositionY"] = 675.0001220703125,
 			["PositionX"] = 847.5000610351563,
 			["Bar"] = {
 				["Spacing"] = 1,
 			},
+		},
+		["Majandra - Darrowmere"] = {
+			["PositionY"] = 614.9999389648438,
+			["Background"] = {
+				["EdgeSize"] = 2,
+				["BarInset"] = 2,
+			},
+			["PositionX"] = 847.5,
+			["Bar"] = {
+				["Spacing"] = 1,
+			},
+		},
+		["Cellestia - Terenas"] = {
+			["MinimapIcon"] = {
+				["minimapPos"] = 159.904692751801,
+			},
+			["PositionW"] = 201.7317352294922,
+			["NumBars"] = 11,
+			["VGrip1"] = 85.73602192382937,
+			["PositionH"] = 206,
+			["VGrip2"] = 115.9957943675338,
+			["PositionY"] = 391.3276062011719,
+			["TitleBar"] = {
+				["Font"] = "ElvUI Font",
+			},
+			["Autocollapse"] = true,
+			["Locked"] = true,
+			["Background"] = {
+				["EdgeSize"] = 1,
+				["BorderColor"] = {
+					["r"] = 0.7568627450980392,
+					["g"] = 0.7450980392156863,
+					["b"] = 0.8,
+				},
+				["BarInset"] = 2,
+				["BorderTexture"] = "None",
+				["Texture"] = "ElvUI Blank",
+			},
+			["PositionX"] = 213.1810607910156,
+			["Bar"] = {
+				["ShowTPS"] = false,
+				["Spacing"] = 1,
+				["Height"] = 16,
+				["ShowHeadings"] = false,
+				["Font"] = "ElvUI Font",
+				["Texture"] = "Smooth",
+			},
+		},
+		["Majandra - Dragonblight"] = {
+			["PositionY"] = 391.0001525878906,
+			["PositionW"] = 199.9999694824219,
+			["Bar"] = {
+				["Spacing"] = 1,
+			},
+			["Locked"] = true,
+			["Background"] = {
+				["EdgeSize"] = 1,
+				["BarInset"] = 2,
+				["Texture"] = "ElvUI Blank",
+			},
+			["PositionX"] = 222.4998931884766,
+			["PositionH"] = 81.99998474121094,
 		},
 		["Cellestia - Windrunner"] = {
 			["MinimapIcon"] = {
@@ -56,8 +131,8 @@ Omen3DB = {
 				["HideWhileResting"] = false,
 				["HideInPVP"] = false,
 			},
-			["VGrip1"] = 155.3166898740382,
 			["PositionH"] = 196.9849329984127,
+			["VGrip1"] = 155.3166898740382,
 			["VGrip2"] = 155.3166898740382,
 			["PositionY"] = 224.0147437441533,
 			["PositionX"] = 428.618218069226,
@@ -70,9 +145,9 @@ Omen3DB = {
 				["BorderTexture"] = "None",
 				["Color"] = {
 					["a"] = 0,
-					["r"] = 0,
-					["g"] = 0,
 					["b"] = 0,
+					["g"] = 0,
+					["r"] = 0,
 				},
 				["BorderColor"] = {
 					["a"] = 0,
@@ -89,103 +164,40 @@ Omen3DB = {
 			["Bar"] = {
 				["FontSize"] = 13,
 				["FontColor"] = {
-					["r"] = 0.7764705882352941,
-					["g"] = 0.7764705882352941,
 					["b"] = 0.7764705882352941,
+					["g"] = 0.7764705882352941,
+					["r"] = 0.7764705882352941,
 				},
 				["ShowTPS"] = false,
-				["Font"] = "vibrocen",
 				["UseMyBarColor"] = true,
+				["ShowHeadings"] = false,
 				["BarColor"] = {
 					["a"] = 0.8900000005960465,
-					["r"] = 0.3686274509803922,
-					["g"] = 0.3686274509803922,
 					["b"] = 0.3686274509803922,
+					["g"] = 0.3686274509803922,
+					["r"] = 0.3686274509803922,
 				},
-				["FadeBarColor"] = {
-					["r"] = 0.4666666666666667,
-					["g"] = 0.4666666666666667,
-					["b"] = 0.4666666666666667,
+				["AggroBarColor"] = {
+					["b"] = 0.592156862745098,
+					["g"] = 0.592156862745098,
+					["r"] = 0.592156862745098,
 				},
 				["ShowValue"] = false,
 				["UseClassColors"] = false,
-				["Height"] = 25,
-				["Spacing"] = 1,
 				["MyBarColor"] = {
-					["r"] = 0.592156862745098,
-					["g"] = 0.592156862745098,
 					["b"] = 0.592156862745098,
-				},
-				["AggroBarColor"] = {
-					["r"] = 0.592156862745098,
 					["g"] = 0.592156862745098,
-					["b"] = 0.592156862745098,
+					["r"] = 0.592156862745098,
 				},
-				["ShowHeadings"] = false,
+				["Spacing"] = 1,
+				["Height"] = 25,
+				["FadeBarColor"] = {
+					["b"] = 0.4666666666666667,
+					["g"] = 0.4666666666666667,
+					["r"] = 0.4666666666666667,
+				},
+				["Font"] = "vibrocen",
 				["Texture"] = "Minimalist",
-			},
-		},
-		["Cellestia - Terenas"] = {
-			["MinimapIcon"] = {
-				["minimapPos"] = 159.904692751801,
-			},
-			["PositionW"] = 201.7317352294922,
-			["NumBars"] = 11,
-			["PositionH"] = 206,
-			["VGrip1"] = 85.73602192382937,
-			["VGrip2"] = 115.9957943675338,
-			["PositionY"] = 391.3276062011719,
-			["TitleBar"] = {
-				["Font"] = "ElvUI Font",
-			},
-			["Autocollapse"] = true,
-			["Locked"] = true,
-			["Background"] = {
-				["EdgeSize"] = 1,
-				["BorderColor"] = {
-					["b"] = 0.8,
-					["g"] = 0.7450980392156863,
-					["r"] = 0.7568627450980392,
-				},
-				["BarInset"] = 2,
-				["BorderTexture"] = "None",
-				["Texture"] = "ElvUI Blank",
-			},
-			["PositionX"] = 213.1810607910156,
-			["Bar"] = {
-				["ShowTPS"] = false,
-				["Spacing"] = 1,
-				["Height"] = 16,
-				["ShowHeadings"] = false,
-				["Font"] = "ElvUI Font",
-				["Texture"] = "Smooth",
-			},
-		},
-		["Jolobank - Dragonblight"] = {
-			["PositionY"] = 675.0001220703125,
-			["Background"] = {
-				["EdgeSize"] = 2,
-				["BarInset"] = 2,
-				["Texture"] = "ElvUI Blank",
-			},
-			["PositionX"] = 847.5000610351563,
-			["Bar"] = {
-				["Spacing"] = 1,
-			},
-		},
-		["Majandra - Dragonblight"] = {
-			["PositionY"] = 391.0001525878906,
-			["PositionW"] = 199.9999694824219,
-			["PositionH"] = 81.99998474121094,
-			["Locked"] = true,
-			["Background"] = {
-				["EdgeSize"] = 1,
-				["BarInset"] = 2,
-				["Texture"] = "ElvUI Blank",
-			},
-			["PositionX"] = 222.4998931884766,
-			["Bar"] = {
-				["Spacing"] = 1,
 			},
 		},
 	},

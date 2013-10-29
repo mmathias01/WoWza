@@ -1,0 +1,16 @@
+SLOKnightfall:
+	- Fixed _g.InCombatLockdown error
+James D. Callahan III:
+	- Ticket #27: Hide target_button upon creation - at this point no scripts are required.
+	- Moved more things around.
+	- Moved more target_button settings.
+	- Renamed NS to target_button and moved most of its relevant settings to immediately after its creation.
+	- Useless line is useless.
+	- Store completion state of an achievement on the achievement object.
+	- Removed AchievementCritertaUpdate() by stuffing its body into private.Updater.OnLoop() which was the only place it was ever used.
+	- Comment cleanup.
+	- Scoping fix.
+	- Reformatting.
+	- Variable renames.
+	- Logic flip.
+	- Do away with private.SlashCommand() - simply assign the function to the SlashCmdList entry directly.

@@ -1,0 +1,13 @@
+tag v1.6.11
+8f19f440dee82f47f2c9ac92829eb8c6894ca429
+Adirelle <adirelle@gmail.com>
+2013-10-21 00:09:29 +0200
+
+Silenced the ItemLevel error.
+
+
+--------------------
+
+Adirelle:
+	- Silently ignore ItemUpgradeInfo:GetUpgradedItemLevel(link) when it returns nil.
+	- Locales updated.

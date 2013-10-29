@@ -62,7 +62,7 @@ function bankui:createTab(parent)
 	tFrame:SetPoint("BOTTOMLEFT", 0, 120)
 	tFrame:SetPoint("BOTTOMRIGHT", 0, 120)
 
-	groupTree = TSMAPI:CreateGroupTree(tFrame, "Warehousing")
+	groupTree = TSMAPI:CreateGroupTree(tFrame, "Warehousing", "Warehousing_Bank")
 	groupTree:SetPoint("TOPLEFT", 5, -5)
 	groupTree:SetPoint("BOTTOMRIGHT", -5, 5)
 

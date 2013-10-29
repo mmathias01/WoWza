@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 AskMrRobot.ItemLinkText = AskMrRobot.inheritsFrom(AskMrRobot.ItemTooltipFrame)
 
 function AskMrRobot.ItemLinkText:new(name, parent)

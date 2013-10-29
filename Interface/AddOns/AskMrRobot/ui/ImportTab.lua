@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the ImportTab class
 AskMrRobot.ImportTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
@@ -38,7 +40,7 @@ function AskMrRobot.ImportTab:new(parent)
 	text:SetPoint("RIGHT", 0, 40)
 	text:SetWidth(text:GetWidth())
 	text:SetJustifyH("LEFT")
-	text:SetText("2. A window will popup, copy the text from that window.\r\r3. Return to Warcraft, click the 'Import' tab in my mod and paste the text there.\r\r4. Click the 'Import' button below")
+	text:SetText("2. A window will popup, copy the text from that window.\r\r3. Return here and paste the text into the window below. To paste it, hold ctrl + v, or on a mac apple + v.\r\r4. Click the 'Import' button below")
 
 	local scrollFrame = CreateFrame("ScrollFrame", "AmrScrollFrame", tab, "InputScrollFrameTemplate")
 	scrollFrame:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 5, -20)

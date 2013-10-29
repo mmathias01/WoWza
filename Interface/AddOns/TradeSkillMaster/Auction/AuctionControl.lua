@@ -113,7 +113,7 @@ local count = 0
 function private:FindCurrentAuctionForBuyout(noCache, resetCount)
 	if not private.currentAuction then return end
 	if diffFrame.num > 0 then
-		return TSMAPI:CreateTimeDelay("diffDelay", 0.2, private.FindCurrentAuctionForBuyout)
+		return TSMAPI:CreateTimeDelay(0.2, private.FindCurrentAuctionForBuyout)
 	end
 	if resetCount then
 		count = 0

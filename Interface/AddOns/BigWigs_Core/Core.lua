@@ -188,6 +188,7 @@ do
 		[74] = true, -- DeathwingSpine engage
 		[75] = true, -- DeathwingSpine death
 		[76] = true, -- DeathwingMadness death
+		[152] = true, -- Garrosh defeat
 	}
 
 	-- We can't :HookScript as we need to prevent the movie starting to play in the first place
@@ -215,7 +216,7 @@ do
 		[930.3] = true, -- Tortos cave entry -- Doesn't work, apparently Blizzard don't want us to skip this..?
 		[930.7] = true, -- Ra-Den room opening
 		[953.2] = true, -- After Immerseus, entry to Fallen Protectors
-		[953.9] = true, -- Blackfuse room opening
+		[953.9] = true, [953.8] = true, -- Blackfuse room opening
 		[953.12] = true, -- Heroic Garrosh Phase 4
 	}
 
@@ -434,9 +435,10 @@ function addon:OnInitialize()
 	db.RegisterCallback(self, "OnProfileReset", profileUpdate)
 	self.db = db
 
-	self:RegisterBossOption("bosskill", L["bosskill"], L["bosskill_desc"], nil, "Interface\\Icons\\ability_rogue_feigndeath")
-	self:RegisterBossOption("berserk", L["berserk"], L["berserk_desc"], nil, "Interface\\Icons\\spell_shadow_unholyfrenzy")
-	self:RegisterBossOption("stages", L["stages"], L["stages_desc"])
+	self:RegisterBossOption("bosskill", L.bosskill, L.bosskill_desc, nil, "Interface\\Icons\\ability_rogue_feigndeath")
+	self:RegisterBossOption("berserk", L.berserk, L.berserk_desc, nil, "Interface\\Icons\\spell_shadow_unholyfrenzy")
+	self:RegisterBossOption("altpower", L.altpower, L.altpower_desc, nil, "Interface\\Icons\\spell_arcane_invocation")
+	self:RegisterBossOption("stages", L.stages, L.stages_desc)
 
 	-- this should ALWAYS be the last action of OnInitialize, it will trigger the loader to
 	-- enable the foreign language pack, and other packs that want to be loaded when the core loads
@@ -556,6 +558,7 @@ do
 				berserk = C.BAR + C.MESSAGE,
 				bosskill = C.MESSAGE,
 				proximity = C.PROXIMITY,
+				altpower = C.ALTPOWER,
 			}, {__index = function(self, key)
 				return C.BAR + C.MESSAGE
 			end})

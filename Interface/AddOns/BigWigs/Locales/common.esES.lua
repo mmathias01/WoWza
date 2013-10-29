@@ -1,11 +1,13 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs: Common", "esES") or LibStub("AceLocale-3.0"):NewLocale("Big Wigs: Common", "esMX")
 if not L then return end
--- Prototype.lua common words
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
-L["add_killed"] = "¡Add muerto! (%d/%d)"
-L["add_remaining"] = "Add muerto, %d restantes"
-L["add_spawned"] = "¡Add aparece!"
-L["cast"] = "<Castea %s>" -- Needs review
+L["add"] = "Esbirro"
+L["add_killed"] = "¡Esbirro muerto! (%d/%d)"
+L["add_remaining"] = "Esbirro muerto, %d restantes"
+L["adds"] = "Esbirros"
+L["add_spawned"] = "¡Aparece Esbirro!"
+L["cast"] = "<Lanza %s>"
 L["casting"] = "Casteando %s!"
 L["count"] = "%s (%d)"
 L["custom_end"] = "¡%s entra en %s!"
@@ -22,7 +24,7 @@ L["interrupted"] = "%s cortado"
 L["mob_killed"] = "¡%s muerto! (%d/%d)"
 L["mob_remaining"] = "%s muerto, %d restantes"
 L["near"] = "¡%s cerca de TI!"
-L["next_add"] = "Siguiente Add"
+L["next_add"] = "Siguiente Esbirro"
 L["normal"] = "Modo normal"
 L["on"] = "%s en %s"
 L["onboss"] = "¡%s en el JEFE!"
@@ -35,5 +37,4 @@ L["soon"] = "¡%s inminente!"
 L["stack"] = "%dx %s en %s"
 L["underyou"] = "¡%s debajo de TI!"
 L["you"] = "%s en TI"
-
 

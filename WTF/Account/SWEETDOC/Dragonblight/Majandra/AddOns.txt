@@ -24,7 +24,7 @@ Forte_Summon: disabled
 Gatherer: disabled
 Gatherer_HUD: enabled
 Omen: disabled
-Recount: enabled
+Recount: disabled
 SlideBar: disabled
 !Swatter: disabled
 XPerl_Options: enabled
@@ -203,7 +203,7 @@ MikScrollingBattleText: enabled
 MSBTOptions: enabled
 !AccurateTime: enabled
 ACP: enabled
-AskMrRobot: enabled
+AskMrRobot: disabled
 AtlasLoot: enabled
 AtlasLoot_Crafting: enabled
 AtlasLoot_Loader: disabled

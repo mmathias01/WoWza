@@ -1,6 +1,7 @@
 
 RKDatabase = {
 	["profileKeys"] = {
+		["Majandra - Darrowmere"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
@@ -11,15 +12,24 @@ RKDatabase = {
 				["Mogu'shan Vaults"] = {
 					["Gara'jal the Spiritbinder"] = {
 						[7] = 145,
-						[5] = 159,
+						[5] = 120,
+					},
+					["The Spirit Kings"] = {
+						[5] = 355,
+					},
+					["The Stone Guard"] = {
+						[7] = 176,
+						[5] = 216,
+					},
+					["Will of the Emperor"] = {
+						[5] = 422,
+					},
+					["Elegon"] = {
+						[5] = 293,
 					},
 					["Feng the Accursed"] = {
 						[7] = 291,
 						[5] = 320,
-					},
-					["The Stone Guard"] = {
-						[7] = 176,
-						[5] = 237,
 					},
 				},
 				["Heart of Fear"] = {
@@ -50,37 +60,43 @@ RKDatabase = {
 						[7] = 639,
 						[3] = 524,
 					},
-					["Kor'kron Dark Shaman"] = {
-						[3] = 335,
-						[7] = 471,
-						[14] = 245,
-					},
-					["Sha of Pride"] = {
-						[14] = 304,
-						[7] = 368,
-						[3] = 251,
-					},
-					["Norushen"] = {
-						[14] = 277,
-						[7] = 355,
-						[3] = 273,
-					},
 					["Iron Juggernaut"] = {
 						[14] = 287,
 						[7] = 474,
-						[3] = 322,
+						[3] = 302,
 					},
-					["Paragons of the Klaxxi"] = {
-						[3] = 628,
+					["Garrosh Hellscream"] = {
+						[3] = 652,
+					},
+					["Sha of Pride"] = {
+						[14] = 304,
+						[7] = 355,
+						[3] = 251,
+					},
+					["Norushen"] = {
+						[14] = 265,
+						[7] = 355,
+						[3] = 273,
+					},
+					["Kor'kron Dark Shaman"] = {
+						[3] = 303,
+						[7] = 471,
+						[14] = 245,
+					},
+					["Thok the Bloodthirsty"] = {
+						[3] = 328,
+						[7] = 590,
+						[14] = 299,
 					},
 					["Malkorok"] = {
 						[3] = 264,
 						[7] = 346,
+						[14] = 200,
 					},
-					["Thok the Bloodthirsty"] = {
-						[3] = 375,
-						[7] = 590,
-						[14] = 416,
+					["Spoils of Pandaria"] = {
+						[3] = 481,
+						[7] = 463,
+						[14] = 456,
 					},
 					["Immerseus"] = {
 						[14] = 297,
@@ -90,18 +106,19 @@ RKDatabase = {
 					["General Nazgrim"] = {
 						[14] = 278,
 						[7] = 486,
-						[3] = 392,
+						[3] = 332,
 					},
-					["Spoils of Pandaria"] = {
-						[3] = 481,
-						[7] = 463,
+					["Paragons of the Klaxxi"] = {
+						[3] = 527,
+						[14] = 419,
 					},
 					["Siegecrafter Blackfuse"] = {
 						[3] = 305,
+						[14] = 254,
 					},
 					["The Fallen Protectors"] = {
 						[14] = 351,
-						[7] = 474,
+						[7] = 430,
 						[3] = 300,
 					},
 				},

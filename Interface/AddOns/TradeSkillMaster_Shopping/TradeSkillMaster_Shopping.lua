@@ -28,6 +28,7 @@ local savedDBDefaults = {
 		marketValueSource = "dbmarket",
 		destroyingTargetItems = {},
 		tooltip = true,
+		maxDeSearchPercent = 1,
 	},
 }
 

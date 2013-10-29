@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 AskMrRobot.eventListener = CreateFrame("FRAME"); -- Need a frame to respond to events
 AskMrRobot.eventListener:RegisterEvent("ADDON_LOADED"); -- Fired when saved variables are loaded
 AskMrRobot.eventListener:RegisterEvent("ITEM_PUSH");
@@ -17,6 +19,9 @@ AskMrRobot.eventListener:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
 AskMrRobot.eventListener:RegisterEvent("SOCKET_INFO_UPDATE")
 AskMrRobot.eventListener:RegisterEvent("SOCKET_INFO_CLOSE")
 AskMrRobot.eventListener:RegisterEvent("BAG_UPDATE")
+AskMrRobot.eventListener:RegisterEvent("ITEM_UNLOCKED")
+
+AskMrRobot.AddonName = ...
 
 local amrLDB
 local icon
@@ -71,12 +76,11 @@ local upgradeTable = {
   [493] =  2 -- ? -> 0
 }
 
-function AskMrRobot.eventListener:OnEvent(event, arg1)
+function AskMrRobot.eventListener:OnEvent(event, arg1, arg2)
 	if event == "ADDON_LOADED" and arg1 == "AskMrRobot" then
-		print("Loaded Ask Mr. Robot");  
-  
-		AmrRealmName = GetRealmName();
-		AmrCharacterName = UnitName("player");
+		print("Loaded Ask Mr. Robot " .. GetAddOnMetadata(AskMrRobot.AddonName, "Version"))
+		AmrRealmName = GetRealmName()
+		AmrCharacterName = UnitName("player")
 
 
 		if not AmrIconInfo then AmrIconInfo = {} end
@@ -137,7 +141,7 @@ function AskMrRobot.eventListener:OnEvent(event, arg1)
 		--AskMrRobot.GetAmrProfessions();
 		--AskMrRobot.GetRace();
 		--AskMrRobot.GetLevel();
-	elseif event == "ITEM_PUSH" or event == "DELETE_ITEM_CONFIRM" or event == "UNIT_INVENTORY_CHANGED" or event == "SOCKET_INFO_UPDATE" or event == "SOCKET_INFO_CLOSE" or event == "PLAYER_SPECIALIZATION_CHANGED" or event == "BAG_UPDATE" then
+	elseif event == "ITEM_PUSH" or event == "DELETE_ITEM_CONFIRM" or event == "UNIT_INVENTORY_CHANGED" or event == "SOCKET_INFO_CLOSE" or event == "PLAYER_SPECIALIZATION_CHANGED" or event == "BAG_UPDATE" then
 		if AskMrRobot_ReforgeFrame then
 			AskMrRobot_ReforgeFrame:OnUpdate()
 		end
@@ -158,6 +162,8 @@ function AskMrRobot.eventListener:OnEvent(event, arg1)
 		end
 	elseif event == "PLAYER_LEVEL_UP" then
 		--GetLevel();
+	elseif event == "ITEM_UNLOCKED" then
+		AskMrRobot.On_ITEM_UNLOCKED()
 	elseif event == "PLAYER_LOGOUT" then
 		-- doing nothing right now, but leaving this in case we need something here	
 	end
@@ -727,13 +733,37 @@ local function getPrimaryProfessions()
 	return profs;
 end
 
+local professionThresholds = {
+	Leatherworking = 575,
+	Inscription = 600,
+	Alchemy = 50,
+	Enchanting = 550,
+	Jewelcrafting = 550,
+	Blacksmithing = 550,
+	Tailoring = 550
+}
+
 function AskMrRobot.validateProfessions(professions)
 	local currentProfessions = getPrimaryProfessions()
 	if #currentProfessions ~= #professions then
 		return false
 	end
 	for k, v in pairs(professions) do
-		if currentProfessions[k] ~= v then
+		if currentProfessions[k] then
+			local threshold = professionThresholds[k]
+			if not threshold then
+				threshold = 1
+			end
+			-- compare the desired profession against the threshold
+			local desired = v >= threshold
+			-- compare the current profession against the threshold
+			local has = currentProfessions[k] and currentProfessions[k] >= threshold
+			-- if the current value is on the other side of the threshold
+			-- then we don't match
+			if desired ~= has then 
+				return false 
+			end
+		else 
 			return false
 		end
 	end

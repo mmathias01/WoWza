@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the EnchantTab class
 AskMrRobot.EnchantTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 

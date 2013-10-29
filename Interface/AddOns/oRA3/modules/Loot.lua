@@ -2,7 +2,7 @@ local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
 local module = oRA:NewModule("Loot", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 653 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 674 $"):sub(12, -3))
 local db
 local defaults = {
 	profile = {
@@ -121,14 +121,18 @@ function module:OnRegister()
 	db = self.db.profile
 
 	oRA.RegisterCallback(self, "OnPromoted", "SetLoot")
-	oRA.RegisterCallback(self, "OnStartup", "SetLoot")
-	oRA.RegisterCallback(self, "OnConvertRaid", "SetLoot")
-	oRA.RegisterCallback(self, "OnConvertParty", "SetLoot")
+	oRA.RegisterCallback(self, "OnGroupChanged")
 	oRA.RegisterCallback(self, "OnProfileUpdate", function()
 		db = self.db.profile
 	end)
 
 	oRA:RegisterModuleOptions("Loot", getOptions, LOOT_METHOD)
+end
+
+function module:OnGroupChanged(_, groupStatus)
+	if groupStatus > 0 then
+		self:SetLoot()
+	end
 end
 
 function module:SetLoot()

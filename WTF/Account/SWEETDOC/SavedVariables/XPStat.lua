@@ -1,13 +1,16 @@
 
 XPStatDB = {
 	["profileKeys"] = {
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 	},
 	["profiles"] = {
-		["Majandra - Dragonblight"] = {
+		["Majandra - Darrowmere"] = {
 		},
 		["Jolobank - Dragonblight"] = {
+		},
+		["Majandra - Dragonblight"] = {
 		},
 	},
 }

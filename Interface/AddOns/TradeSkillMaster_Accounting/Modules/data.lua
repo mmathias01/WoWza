@@ -101,7 +101,7 @@ function Data:BuyMerchantItem(index, quantity)
 	if not quantity then
 		quantity = batchQuantity
 	end
-	if price > 0 then
+	if price and price > 0 then
 		local link = GetMerchantItemLink(index);
 		local itemString = TSM.db.global.itemStrings[itemName] or TSMAPI:GetItemString(link)
 		local buyPrice = floor(price / batchQuantity + 0.5)
@@ -829,7 +829,13 @@ function Data:GetResaleSummaryData(filterFunc)
 end
 
 -- gets data for the gold summary page
-function Data:GetGoldData()
+function Data:GetGoldData(filters)
+	local function GroupFilter(itemString)
+		if not filters.group then return true end
+		local groupPath = TSMAPI:GetGroupPath(itemString)
+		return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(filters.group))
+	end
+
 	local goldData = {
 		totalSale = 0,
 		monthSale = 0,
@@ -857,70 +863,76 @@ function Data:GetGoldData()
 	}
 
 	for itemString, data in pairs(Data.items) do
-		if #data.sales > 0 then
-			local itemTotalGold, itemTotalNum = 0, 0
-			for _, record in ipairs(data.sales) do
-				itemTotalNum = itemTotalNum + record.quantity
-				itemTotalGold = itemTotalGold + record.price * record.quantity
-				goldData.totalSale = goldData.totalSale + record.price * record.quantity
-				local timeDiff = time() - record.time
-				if timeDiff < (SECONDS_PER_DAY * 30) then
-					if timeDiff > goldData.monthTime then
-						goldData.monthTime = timeDiff
-					end
-					goldData.monthSale = goldData.monthSale + record.price * record.quantity
-					if timeDiff < (SECONDS_PER_DAY * 7) then
-						if timeDiff > goldData.weekTime then
-							goldData.weekTime = timeDiff
+		if GroupFilter(itemString) then
+			if #data.sales > 0 then
+				local itemTotalGold, itemTotalNum = 0, 0
+				for _, record in ipairs(data.sales) do
+					if filters.player == "all" or filters.player == record.player then
+						itemTotalNum = itemTotalNum + record.quantity
+						itemTotalGold = itemTotalGold + record.price * record.quantity
+						goldData.totalSale = goldData.totalSale + record.price * record.quantity
+						local timeDiff = time() - record.time
+						if timeDiff < (SECONDS_PER_DAY * 30) then
+							if timeDiff > goldData.monthTime then
+								goldData.monthTime = timeDiff
+							end
+							goldData.monthSale = goldData.monthSale + record.price * record.quantity
+							if timeDiff < (SECONDS_PER_DAY * 7) then
+								if timeDiff > goldData.weekTime then
+									goldData.weekTime = timeDiff
+								end
+								goldData.weekSale = goldData.weekSale + record.price * record.quantity
+							end
 						end
-						goldData.weekSale = goldData.weekSale + record.price * record.quantity
-					end
-				end
-				if timeDiff > goldData.totalTime then
-					goldData.totalTime = timeDiff
-				end
-			end
-			if itemTotalGold > (goldData.topSellGold.price or 0) then
-				local rarity = select(3, GetItemInfo(itemString)) or 0
-				if ((not TSM.db.factionrealm.displayGreys and rarity ~= 0) or TSM.db.factionrealm.displayGreys) then
-					goldData.topSellGold = { itemString = itemString, price = itemTotalGold, itemID = TSMAPI:GetItemID(itemString) }
-				end
-			end
-			if itemTotalNum > (goldData.topSellQuantity.num or 0) then
-				local rarity = select(3, GetItemInfo(itemString)) or 0
-				if ((not TSM.db.factionrealm.displayGreys and rarity ~= 0) or TSM.db.factionrealm.displayGreys) then
-					goldData.topSellQuantity = { itemString = itemString, num = itemTotalNum, itemID = TSMAPI:GetItemID(itemString) }
-				end
-			end
-		end
-		if #data.buys > 0 then
-			local itemTotalGold, itemTotalNum = 0, 0
-			for _, record in ipairs(data.buys) do
-				itemTotalNum = itemTotalNum + record.quantity
-				itemTotalGold = itemTotalGold + record.price * record.quantity
-				goldData.totalBuy = goldData.totalBuy + record.price * record.quantity
-				local timeDiff = time() - record.time
-				if timeDiff < (SECONDS_PER_DAY * 30) then
-					if timeDiff > goldData.monthTime then
-						goldData.monthTime = timeDiff
-					end
-					goldData.monthBuy = goldData.monthBuy + record.price * record.quantity
-					if timeDiff < (SECONDS_PER_DAY * 7) then
-						if timeDiff > goldData.weekTime then
-							goldData.weekTime = timeDiff
+						if timeDiff > goldData.totalTime then
+							goldData.totalTime = timeDiff
 						end
-						goldData.weekBuy = goldData.weekBuy + record.price * record.quantity
 					end
 				end
-				if timeDiff > goldData.totalTime then
-					goldData.totalTime = timeDiff
+				if itemTotalGold > (goldData.topSellGold.price or 0) then
+					local rarity = select(3, GetItemInfo(itemString)) or 0
+					if ((not TSM.db.factionrealm.displayGreys and rarity ~= 0) or TSM.db.factionrealm.displayGreys) then
+						goldData.topSellGold = { itemString = itemString, price = itemTotalGold, itemID = TSMAPI:GetItemID(itemString) }
+					end
+				end
+				if itemTotalNum > (goldData.topSellQuantity.num or 0) then
+					local rarity = select(3, GetItemInfo(itemString)) or 0
+					if ((not TSM.db.factionrealm.displayGreys and rarity ~= 0) or TSM.db.factionrealm.displayGreys) then
+						goldData.topSellQuantity = { itemString = itemString, num = itemTotalNum, itemID = TSMAPI:GetItemID(itemString) }
+					end
 				end
 			end
-			if itemTotalGold > (goldData.topBuyGold.price or 0) then
-				goldData.topBuyGold = { itemString = itemString, price = itemTotalGold, itemID = TSMAPI:GetItemID(itemString) }
-			end
-			if itemTotalNum > (goldData.topBuyQuantity.num or 0) then
-				goldData.topBuyQuantity = { itemString = itemString, num = itemTotalNum, itemID = TSMAPI:GetItemID(itemString) }
+			if #data.buys > 0 then
+				local itemTotalGold, itemTotalNum = 0, 0
+				for _, record in ipairs(data.buys) do
+					if filters.player == "all" or filters.player == record.player then
+						itemTotalNum = itemTotalNum + record.quantity
+						itemTotalGold = itemTotalGold + record.price * record.quantity
+						goldData.totalBuy = goldData.totalBuy + record.price * record.quantity
+						local timeDiff = time() - record.time
+						if timeDiff < (SECONDS_PER_DAY * 30) then
+							if timeDiff > goldData.monthTime then
+								goldData.monthTime = timeDiff
+							end
+							goldData.monthBuy = goldData.monthBuy + record.price * record.quantity
+							if timeDiff < (SECONDS_PER_DAY * 7) then
+								if timeDiff > goldData.weekTime then
+									goldData.weekTime = timeDiff
+								end
+								goldData.weekBuy = goldData.weekBuy + record.price * record.quantity
+							end
+						end
+						if timeDiff > goldData.totalTime then
+							goldData.totalTime = timeDiff
+						end
+					end
+				end
+				if itemTotalGold > (goldData.topBuyGold.price or 0) then
+					goldData.topBuyGold = { itemString = itemString, price = itemTotalGold, itemID = TSMAPI:GetItemID(itemString) }
+				end
+				if itemTotalNum > (goldData.topBuyQuantity.num or 0) then
+					goldData.topBuyQuantity = { itemString = itemString, num = itemTotalNum, itemID = TSMAPI:GetItemID(itemString) }
+				end
 			end
 		end
 	end
@@ -929,24 +941,26 @@ function Data:GetGoldData()
 		if #data.income > 0 then
 			local typeTotalGold, typeTotalNum = 0, 0
 			for _, record in ipairs(data.income) do
-				typeTotalNum = typeTotalNum + 1
-				typeTotalGold = typeTotalGold + record.amount
-				goldData.totalIncome = goldData.totalIncome + record.amount
-				local timeDiff = time() - record.time
-				if timeDiff < (SECONDS_PER_DAY * 30) then
-					if timeDiff > goldData.monthTime then
-						goldData.monthTime = timeDiff
-					end
-					goldData.monthIncome = goldData.monthIncome + record.amount
-					if timeDiff < (SECONDS_PER_DAY * 7) then
-						if timeDiff > goldData.weekTime then
-							goldData.weekTime = timeDiff
+				if filters.player == "all" or filters.player == record.player then
+					typeTotalNum = typeTotalNum + 1
+					typeTotalGold = typeTotalGold + record.amount
+					goldData.totalIncome = goldData.totalIncome + record.amount
+					local timeDiff = time() - record.time
+					if timeDiff < (SECONDS_PER_DAY * 30) then
+						if timeDiff > goldData.monthTime then
+							goldData.monthTime = timeDiff
 						end
-						goldData.weekIncome = goldData.weekIncome + record.amount
+						goldData.monthIncome = goldData.monthIncome + record.amount
+						if timeDiff < (SECONDS_PER_DAY * 7) then
+							if timeDiff > goldData.weekTime then
+								goldData.weekTime = timeDiff
+							end
+							goldData.weekIncome = goldData.weekIncome + record.amount
+						end
 					end
-				end
-				if timeDiff > goldData.totalTime then
-					goldData.totalTime = timeDiff
+					if timeDiff > goldData.totalTime then
+						goldData.totalTime = timeDiff
+					end
 				end
 			end
 			if typeTotalGold > (goldData.topIncomeGold.amount or 0) then
@@ -959,24 +973,26 @@ function Data:GetGoldData()
 		if #data.expense > 0 then
 			local typeTotalGold, typeTotalNum = 0, 0
 			for _, record in ipairs(data.expense) do
-				typeTotalNum = typeTotalNum + 1
-				typeTotalGold = typeTotalGold + record.amount
-				goldData.totalExpense = goldData.totalExpense + record.amount
-				local timeDiff = time() - record.time
-				if timeDiff < (SECONDS_PER_DAY * 30) then
-					if timeDiff > goldData.monthTime then
-						goldData.monthTime = timeDiff
-					end
-					goldData.monthExpense = goldData.monthExpense + record.amount
-					if timeDiff < (SECONDS_PER_DAY * 7) then
-						if timeDiff > goldData.weekTime then
-							goldData.weekTime = timeDiff
+				if filters.player == "all" or filters.player == record.player then
+					typeTotalNum = typeTotalNum + 1
+					typeTotalGold = typeTotalGold + record.amount
+					goldData.totalExpense = goldData.totalExpense + record.amount
+					local timeDiff = time() - record.time
+					if timeDiff < (SECONDS_PER_DAY * 30) then
+						if timeDiff > goldData.monthTime then
+							goldData.monthTime = timeDiff
 						end
-						goldData.weekExpense = goldData.weekExpense + record.amount
+						goldData.monthExpense = goldData.monthExpense + record.amount
+						if timeDiff < (SECONDS_PER_DAY * 7) then
+							if timeDiff > goldData.weekTime then
+								goldData.weekTime = timeDiff
+							end
+							goldData.weekExpense = goldData.weekExpense + record.amount
+						end
 					end
-				end
-				if timeDiff > goldData.totalTime then
-					goldData.totalTime = timeDiff
+					if timeDiff > goldData.totalTime then
+						goldData.totalTime = timeDiff
+					end
 				end
 			end
 			if typeTotalGold > (goldData.topExpenseGold.amount or 0) then
@@ -1003,8 +1019,7 @@ end
 
 -- get the data for the item specifics page
 function Data:GetItemData(itemString)
-	if not Data.items[itemString] then return
-	end
+	if not Data.items[itemString] then return	end
 
 	local data = { activity = {}, sellers = {}, buyers = {} }
 
@@ -1013,9 +1028,9 @@ function Data:GetItemData(itemString)
 		local monthBuyPrice, monthBuyNum = 0, 0
 		local weekBuyPrice, weekBuyNum = 0, 0
 
-		for _, record in ipairs(Data.items[itemString].buys) do
+		for i, record in ipairs(Data.items[itemString].buys) do
 			data.sellers[record.seller] = (data.sellers[record.seller] or 0) + record.quantity
-			tinsert(data.activity, { type = "Purchase", price = record.price, source = record.source, quantity = record.quantity, who = record.seller, time = record.time })
+			tinsert(data.activity, { type = "Purchase", price = record.price, source = record.source, quantity = record.quantity, who = record.seller, time = record.time, record = record })
 
 			totalBuyPrice = totalBuyPrice + record.price * record.quantity
 			totalBuyNum = totalBuyNum + record.quantity
@@ -1048,9 +1063,9 @@ function Data:GetItemData(itemString)
 		local monthSellPrice, monthSellNum = 0, 0
 		local weekSellPrice, weekSellNum = 0, 0
 
-		for _, record in ipairs(Data.items[itemString].sales) do
+		for i, record in ipairs(Data.items[itemString].sales) do
 			data.buyers[record.buyer] = (data.buyers[record.buyer] or 0) + record.quantity
-			tinsert(data.activity, { type = "Sale", price = record.price, source = record.source, quantity = record.quantity, who = record.buyer, time = record.time })
+			tinsert(data.activity, { type = "Sale", price = record.price, source = record.source, quantity = record.quantity, who = record.buyer, time = record.time, record = record })
 
 			totalSellPrice = totalSellPrice + record.price * record.quantity
 			totalSellNum = totalSellNum + record.quantity
@@ -1078,8 +1093,7 @@ function Data:GetItemData(itemString)
 		data.avgWeekSell = weekSellNum > 0 and floor(weekSellPrice / weekSellNum + 0.5) or 0
 	end
 
-	sort(data.activity, function(a, b) return a.time > b.time
-	end)
+	sort(data.activity, function(a, b) return a.time > b.time end)
 	data.stData = {}
 	for _, record in pairs(data.activity) do
 		tinsert(data.stData, {
@@ -1113,6 +1127,8 @@ function Data:GetItemData(itemString)
 					sortArg = record.time,
 				},
 			},
+			record = record.record,
+			recordType = record.type,
 		})
 	end
 
@@ -1236,10 +1252,8 @@ do
 					timeout = 0,
 					whileDead = true,
 					hideOnEscape = true,
-					OnAccept = function() Data:AddRecord(info.type, info.itemString, info.price, info.count, tradeInfo.target.name, time())
-					end,
-					OnCancel = function()
-					end,
+					OnAccept = function() Data:AddRecord(info.type, info.itemString, info.price, info.count, tradeInfo.target.name, time()) end,
+					OnCancel = function() end,
 				}
 				TSMAPI:ShowStaticPopupDialog("TSMAccountingOnTrade")
 			end
@@ -1261,10 +1275,13 @@ function Data:LogGold()
 
 	TSM.db.factionrealm.goldLog[player] = TSM.db.factionrealm.goldLog[player] or {}
 	local goldLog = TSM.db.factionrealm.goldLog[player]
-	local currentGold = GetMoney()
+	local currentGold = TSM:Round(GetMoney(), COPPER_PER_GOLD*1000)
 	if #goldLog > 0 and currentGold == goldLog[#goldLog].copper then
 		goldLog[#goldLog].endMinute = currentMinute
 	else
+		if #goldLog > 0 then
+			goldLog[#goldLog].endMinute = currentMinute - 1
+		end
 		tinsert(goldLog, { startMinute = currentMinute, endMinute = currentMinute, copper = currentGold })
 	end
 end

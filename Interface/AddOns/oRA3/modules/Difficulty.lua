@@ -1,7 +1,7 @@
 local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
-local module = oRA:NewModule("Difficulty")
+local module = oRA:NewModule("Difficulty", "AceTimer-3.0")
 
-module.VERSION = tonumber(("$Revision: 658 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 678 $"):sub(12, -3))
 
 local db = nil
 
@@ -19,12 +19,18 @@ function module:OnRegister()
 	end)
 end
 
-function module:OnEnable()
+local function restoreDifficulty()
 	if not IsInGroup() then
 		local diff = db.lastRaidDifficulty
 		if GetRaidDifficultyID() ~= diff then
 			SetRaidDifficultyID(diff)
 		end
+	end
+end
+
+function module:OnEnable()
+	if not IsInGroup() then
+		self:ScheduleTimer(restoreDifficulty, 4)
 	end
 end
 

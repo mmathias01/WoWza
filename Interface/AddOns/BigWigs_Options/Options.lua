@@ -460,7 +460,7 @@ do
 		if frame then return end
 		frame = AceGUI:Create("Window")
 		frame:EnableResize(nil)
-		frame:SetWidth(410)
+		frame:SetWidth(450)
 		frame:SetHeight(515)
 		frame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 12, -12)
 		frame:SetTitle(L.configure)
@@ -488,7 +488,7 @@ do
 			if module.GetPluginConfig then
 				plugins[#plugins + 1] = {
 					value = name,
-					text = name,
+					text = module.displayName or name,
 				}
 				ac:RegisterOptionsTable(acId:format(name), module:GetPluginConfig())
 			end
@@ -637,7 +637,7 @@ local function advancedToggles(dbKey, module, check)
 				local message = getSlaveToggle(name, desc, dbKey, module, flag, check)
 				messageGroup:AddChild(message)
 
-				local onMe = getSlaveToggle(L["ME_ONLY"], L["ME_ONLY_desc"], dbKey, module, C.ME_ONLY, check)
+				local onMe = getSlaveToggle(L.ME_ONLY, L.ME_ONLY_desc, dbKey, module, C.ME_ONLY, check)
 				messageGroup:AddChild(onMe)
 
 				advancedOptions[#advancedOptions + 1] = messageGroup
@@ -650,7 +650,7 @@ local function advancedToggles(dbKey, module, check)
 				local flash = getSlaveToggle(name, desc, dbKey, module, flag, check)
 				flashGroup:AddChild(flash)
 
-				local pulse = getSlaveToggle(L["PULSE"], L["PULSE_desc"], dbKey, module, C.PULSE, check)
+				local pulse = getSlaveToggle(L.PULSE, L.PULSE_desc, dbKey, module, C.PULSE, check)
 				flashGroup:AddChild(pulse)
 
 				advancedOptions[#advancedOptions + 1] = flashGroup
@@ -660,7 +660,7 @@ local function advancedToggles(dbKey, module, check)
 			end
 		end
 	end
-	advancedOptions[#advancedOptions + 1] = getSlaveToggle(L["EMPHASIZE"], L["EMPHASIZE_desc"], dbKey, module, C.EMPHASIZE, check)
+	advancedOptions[#advancedOptions + 1] = getSlaveToggle(L.EMPHASIZE, L.EMPHASIZE_desc, dbKey, module, C.EMPHASIZE, check)
 
 	return unpack(advancedOptions)
 end

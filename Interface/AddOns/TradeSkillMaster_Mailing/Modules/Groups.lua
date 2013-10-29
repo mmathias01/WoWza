@@ -25,7 +25,7 @@ function Groups:CreateTab(parent)
 	stContainer:SetPoint("TOPLEFT", 5, -5)
 	stContainer:SetPoint("BOTTOMRIGHT", -5, 35)
 	TSMAPI.Design:SetFrameColor(stContainer)
-	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Mailing")
+	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Mailing", "Mailing_Send")
 
 	local function OnButtonClick(self)
 		if IsShiftKeyDown() then

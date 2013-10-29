@@ -1,6 +1,5 @@
--- Very empty for now
-local plugin = {}
 
+local plugin = {}
 BigWigs.pluginCore:SetDefaultModulePrototype(plugin)
 
 function plugin:OnInitialize()
@@ -22,4 +21,38 @@ function plugin:OnDisable()
 end
 
 function plugin:IsBossModule() return end
+
+do
+	local UnitName = UnitName
+	function plugin:UnitName(unit, trimServer)
+		local name, server = UnitName(unit)
+		if not name then
+			return
+		elseif server and server ~= "" then
+			name = name .. (trimServer and "*" or "-"..server)
+		end
+		return name
+	end
+end
+
+do
+	local raidList = {}
+	for i = 1, 40 do
+		raidList[i] = format("raid%d", i)
+	end
+	function plugin:GetRaidList()
+		return raidList
+	end
+end
+
+do
+	local partyList = {}
+	partyList[1] = "player"
+	for i = 1, 4 do
+		partyList[i+1] = format("party%d", i)
+	end
+	function plugin:GetPartyList()
+		return partyList
+	end
+end
 

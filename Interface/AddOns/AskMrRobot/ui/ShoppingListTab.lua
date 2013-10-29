@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the ShoppingListTab class
 AskMrRobot.ShoppingListTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 

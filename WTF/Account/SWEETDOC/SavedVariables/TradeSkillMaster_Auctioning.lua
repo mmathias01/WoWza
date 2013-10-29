@@ -8,6 +8,11 @@ TradeSkillMaster_AuctioningDB = {
 				["Jolokia"] = true,
 			},
 		},
+		["Alliance - Darrowmere"] = {
+			["player"] = {
+				["Majandra"] = true,
+			},
+		},
 	},
 	["global"] = {
 		["optionsTreeStatus"] = {
@@ -30,6 +35,7 @@ TradeSkillMaster_AuctioningDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Majandra - Darrowmere"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",

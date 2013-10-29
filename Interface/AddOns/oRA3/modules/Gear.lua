@@ -6,7 +6,7 @@ local util = oRA.util
 local module = oRA:NewModule("Gear")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 647 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 680 $"):sub(12, -3))
 
 local gearTbl = {}
 
@@ -103,9 +103,9 @@ do
 						end
 
 						local statsTable = GetItemStats(itemLink)
-						for k in next, statsTable do
+						for k, v in next, statsTable do
 							if k:find("EMPTY_SOCKET_", nil, true) then
-								totalItemSockets = totalItemSockets + 1
+								totalItemSockets = totalItemSockets + v
 							end
 						end
 

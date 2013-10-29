@@ -1,5 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "itIT")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "Informazioni"
 L["activeBossModules"] = "Moduli dei Combattimenti Attivi:"
@@ -132,5 +133,4 @@ L["website"] = "Sito Web"
 L["wipes"] = "Fallimenti:"
 L["zoneMessages"] = "Mostra messaggi di zona"
 L["zoneMessagesDesc"] = "Disabilitando questa opzione BigWigs non mostrerà più i messaggi per avvisare che esistono moduli con timer/barre ecc. disponibili ma che tu non hai installato. Raccomandiamo di lasciare attiva questa opzione perché è una notifica che vedrai solo quando verranno creati timer e quant'altro per una nuova zona che potresti trovare utile."
-
 

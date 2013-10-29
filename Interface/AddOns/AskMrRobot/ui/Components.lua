@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 local unresolvedItemIds = {}
 
 -- Create a new class that inherits from a base class
@@ -33,7 +35,7 @@ end
 
 local itemInfoFrame = nil;
 
-local function onGetItemInfoReceived()
+local function onGetItemInfoReceived(arg1, arg2, arg3)
 	-- since wow is awesome, it doesn't tell us *which* item id was just resolved, so we have to look at them all
 	for itemId, callbacks in pairs(unresolvedItemIds) do
 		-- attempt to get the item info AGAIN

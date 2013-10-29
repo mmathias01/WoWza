@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the ExportTab class
 AskMrRobot.ExportTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 

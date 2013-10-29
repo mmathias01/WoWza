@@ -4,6 +4,9 @@ TukuiConfigAll = {
 		["Cellestia"] = false,
 		["Ziagi"] = false,
 	},
+	["Darrowmere"] = {
+		["Majandra"] = false,
+	},
 }
 TukuiConfigPublic = {
 	["merchant"] = {

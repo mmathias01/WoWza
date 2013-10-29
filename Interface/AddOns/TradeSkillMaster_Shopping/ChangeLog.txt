@@ -1,3 +1,10 @@
+v2.2.1
+*Updating group tree creation API call.
+
+v2.2
+*Added disenchant search to the "Other" sidebar tab.
+*Added an option to set the max percentage of disenchant value that the disenchant search will return results for.
+
 v2.1.1
 *Api changes for gathering shopping search
 

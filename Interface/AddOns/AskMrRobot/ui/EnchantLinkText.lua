@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 AskMrRobot.EnchantLinkText = AskMrRobot.inheritsFrom(AskMrRobot.ItemTooltipFrame)
 
 function AskMrRobot.EnchantLinkText:new(name, parent)
@@ -17,7 +19,7 @@ end
 
 function AskMrRobot.EnchantLinkText:SetEnchantId(enchantId)
 	self.itemName = nil
-	if enchantId then
+	if enchantId and enchantId ~= 0 then
 		local spellId = AskMrRobot.getEnchantSpellId(enchantId)
 		local link = nil
 		if spellId then
@@ -80,7 +82,7 @@ end
 
 function AskMrRobot.EnchantLinkIconAndText:SetEnchantId(enchantId)
 	AskMrRobot.EnchantLinkText.SetEnchantId(self, enchantId)
-	if enchantId then
+	if enchantId and enchantId ~= 0 then
 		local texture = AskMrRobot.getEnchantIcon(enchantId)
 		self.icon:SetTexture('Interface/Icons/' .. texture)
 		self.iconFrame:Show()

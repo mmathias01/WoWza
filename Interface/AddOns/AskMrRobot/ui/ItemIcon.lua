@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the ItemIcon class (inherit from a dummy frame)
 AskMrRobot.ItemIcon = AskMrRobot.inheritsFrom(AskMrRobot.ItemTooltipFrame)
 

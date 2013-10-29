@@ -330,14 +330,22 @@ function Cancel:ShouldCancel(index, operation)
 		if operation.cancelUndercut and (buyoutPerItem - prices.undercut) > (TSM.Scan:GetPlayerLowestBuyout(auctionItem, operation) or math.huge) then
 			-- this is not our lowest auction
 			return cancelData, "notLowest"
-		elseif auctionItem:IsPlayerOnly() or (isPlayer and (secondLowest > prices.maxPrice)) then
-			-- we are posted at the normal price with no competition under our max price
+		elseif auctionItem:IsPlayerOnly() then
+			-- we are posted at the aboveMax price with no competition under our max price
 			-- check if we can repost higher
 			if operation.cancelRepost and prices.normalPrice - buyoutPerItem > prices.cancelRepostThreshold then
 				-- we can repost higher
 				return cancelData, "repost"
 			end
-			return false, "atFallback"
+			return false, "atNormal"
+		elseif isPlayer and (secondLowest > prices.maxPrice) then
+			-- we are posted at the aboveMax price with no competition under our max price
+			-- check if we can repost higher
+			if operation.cancelRepost and prices.aboveMax - buyoutPerItem > prices.cancelRepostThreshold then
+				-- we can repost higher
+				return cancelData, "repost"
+			end
+			return false, "atAboveMax"
 		elseif isPlayer then
 			-- we are the loewst auction
 			-- check if we can repost higher
@@ -360,8 +368,7 @@ function Cancel:ShouldCancel(index, operation)
 		end
 	end
 	
-	print("unexpectedly reached end...", buyoutPerItem, lowestBuyout, isWhitelist, isPlayer, prices.minPrice)
-	return false, "notUndercut"
+	error("unexpectedly reached end", buyoutPerItem, lowestBuyout, isWhitelist, isPlayer, prices.minPrice)
 end
 
 -- register events and queue up the first item to cancel

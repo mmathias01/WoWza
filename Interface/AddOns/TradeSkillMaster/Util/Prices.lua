@@ -13,7 +13,21 @@ local moduleObjects = TSM.moduleObjects
 local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster") -- loads the localization table
 
 TSM_PRICE_TEMP = {loopError=function(str) TSM:Printf(L["Loop detected in the following custom price:"].." "..TSMAPI.Design:GetInlineColor("link")..str.."|r") end}
-
+local MONEY_PATTERNS = {
+	"([0-9]+g[ ]*[0-9]+s[ ]*[0-9]+c)", 	-- g/s/c
+	"([0-9]+g[ ]*[0-9]+s)", 				-- g/s
+	"([0-9]+g[ ]*[0-9]+c)", 				-- g/c
+	"([0-9]+s[ ]*[0-9]+c)", 				-- s/c
+	"([0-9]+g)", 								-- g
+	"([0-9]+s)", 								-- s
+	"([0-9]+c)",								-- c
+}
+local MATH_FUNCTIONS = {
+	["avg"] = "_avg",
+	["min"] = "_min",
+	["max"] = "_max",
+	["first"] = "_first",
+}
 
 function TSMAPI:GetPriceSources()
 	local sources = {}
@@ -75,44 +89,34 @@ local function ParsePriceString(str, badPriceSource)
 	end
 
 	local origStr = str
+	
 	-- make everything lower case
 	str = strlower(str)
+	
+	
+	-- remove any colors around gold/silver/copper
+	str = gsub(str, "|cff([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])g|r", "g")
+	str = gsub(str, "|cff([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])s|r", "s")
+	str = gsub(str, "|cff([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])c|r", "c")
 
-	-- replace up to 1 gold amount with "~gold~"
-	local totalGoldAmounts = 0
-	local goldAmount = TSMAPI:UnformatTextMoney(str)
-	if goldAmount then
-		-- remove colors around g/s/c
-		str = gsub(str, TSM.GOLD_TEXT, "g")
-		str = gsub(str, TSM.SILVER_TEXT, "s")
-		str = gsub(str, TSM.COPPER_TEXT, "c")
-		local goldMatch = {string.match(str, "([0-9]+)([ ]*)g([ ]*)([0-9]+)")}
-		if #goldMatch > 0 then
-			str = gsub(str, goldMatch[1].."([ ]*)g([ ]*)"..goldMatch[4], goldMatch[1].."g "..goldMatch[4])
+	-- replace all formatted gold amount with their copper value
+	local start = 1
+	local goldAmountContinue = true
+	while goldAmountContinue do
+		goldAmountContinue = false
+		for _, pattern in ipairs(MONEY_PATTERNS) do
+			local s, e, sub = strfind(str, pattern, start)
+			if s then
+				local value = TSMAPI:UnformatTextMoney(sub)
+				if not value then return end -- sanity check
+				local preStr = strsub(str, 1, s-1)
+				local postStr = strsub(str, e+1)
+				str = preStr .. value .. postStr
+				start = #str - #postStr + 1
+				goldAmountContinue = true
+				break
+			end
 		end
-		local silverMatch = {string.match(str, "([0-9]+)([ ]*)s([ ]*)([0-9]+)")}
-		if #silverMatch > 0 then
-			str = gsub(str, silverMatch[1].."([ ]*)s([ ]*)"..silverMatch[4], silverMatch[1].."s "..silverMatch[4])
-		end
-		local num
-		str, num = gsub(str, TSMAPI:FormatTextMoney(goldAmount, nil, nil, nil, true), "~gold~")
-		totalGoldAmounts = totalGoldAmounts + num
-		str, num = gsub(str, TSMAPI:FormatTextMoney(goldAmount, nil, nil, true, true), "~gold~")
-		totalGoldAmounts = totalGoldAmounts + num
-		if totalGoldAmounts > 1 then
-			return nil, L["A maximum of 1 gold amount is allowed."]
-		elseif totalGoldAmounts == 0 then
-			return nil, L["Failed to parse gold amount."]
-		end
-	end
-
-	-- create array of valid price sources
-	local priceSourceKeys = {}
-	for key in pairs(TSMAPI:GetPriceSources()) do
-		tinsert(priceSourceKeys, strlower(key))
-	end
-	for key in pairs(TSM.db.global.customPriceSources) do
-		tinsert(priceSourceKeys, strlower(key))
 	end
 
 	-- remove up to 1 occurance of convert(priceSource[, item])
@@ -206,6 +210,15 @@ local function ParsePriceString(str, badPriceSource)
 			str = gsub(str, pctValue .. "%%", number .. " *")
 		end
 	end
+	
+	-- create array of valid price sources
+	local priceSourceKeys = {}
+	for key in pairs(TSMAPI:GetPriceSources()) do
+		tinsert(priceSourceKeys, strlower(key))
+	end
+	for key in pairs(TSM.db.global.customPriceSources) do
+		tinsert(priceSourceKeys, strlower(key))
+	end
 
 	-- validate all words in the string
 	local parts = SafeStrSplit(str:trim(), " ")
@@ -241,10 +254,8 @@ local function ParsePriceString(str, badPriceSource)
 			else
 				-- we're hoping this is a valid comma within a function, will be caught by loadstring otherwise
 			end
-		elseif word == "min" or word == "max" or word == "first" then
+		elseif MATH_FUNCTIONS[word] then
 			-- valid math function
-		elseif word == "~gold~" then
-			-- valid gold amount
 		elseif word == "~convert~" then
 			-- valid convert statement
 		elseif word:trim() == "" then
@@ -307,15 +318,10 @@ local function ParsePriceString(str, badPriceSource)
 		str = gsub(str, "~convert~", "values[" .. #itemValues .. "]")
 	end
 
-	-- put gold amount back in if necessary
-	if goldAmount then
-		str = gsub(str, "~gold~", goldAmount)
+	-- replace math functions special custom function names
+	for word, funcName in pairs(MATH_FUNCTIONS) do
+		str = gsub(str, word, funcName)
 	end
-
-	-- replace "min", "max", "first" calls with special "_min", _max", "_first" calls
-	str = gsub(str, "min", "_min")
-	str = gsub(str, "max", "_max")
-	str = gsub(str, "first", "_first")
 	
 	-- remove any unused values
 	for i in ipairs(itemValues) do
@@ -327,6 +333,7 @@ local function ParsePriceString(str, badPriceSource)
 	-- finally, create and return the function
 	local funcTemplate = [[
 		return function(_item)
+				local NAN = math.huge*0
 				local origStr = %s
 				local isTop
 				if not TSM_PRICE_TEMP.num then
@@ -342,7 +349,7 @@ local function ParsePriceString(str, badPriceSource)
 					return
 				end
 				local function isNAN(num)
-					return tostring(num) == tostring(math.huge*0)
+					return tostring(num) == tostring(NAN)
 				end
 				local function _min(...)
 					local nums = {...}
@@ -351,7 +358,7 @@ local function ParsePriceString(str, badPriceSource)
 							tremove(nums, i)
 						end
 					end
-					if #nums == 0 then return math.huge*0 end
+					if #nums == 0 then return NAN end
 					return min(unpack(nums))
 				end
 				local function _max(...)
@@ -361,7 +368,7 @@ local function ParsePriceString(str, badPriceSource)
 							tremove(nums, i)
 						end
 					end
-					if #nums == 0 then return math.huge*0 end
+					if #nums == 0 then return NAN end
 					return max(unpack(nums))
 				end
 				local function _first(...)
@@ -371,7 +378,19 @@ local function ParsePriceString(str, badPriceSource)
 							return nums[i]
 						end
 					end
-					return math.huge*0
+					return NAN
+				end
+				local function _avg(...)
+					local nums = {...}
+					local total, count = 0, 0
+					for i=#nums, 1, -1 do
+						if type(nums[i]) == "number" and not isNAN(nums[i]) then
+							total = total + nums[i]
+							count = count + 1
+						end
+					end
+					if count == 0 then return NAN end
+					return floor(total / count + 0.5)
 				end
 				local values = {}
 				for i, params in ipairs({%s}) do
@@ -385,7 +404,7 @@ local function ParsePriceString(str, badPriceSource)
 						else
 							values[i] = TSMAPI:GetItemValue(itemString, key)
 						end
-						values[i] = values[i] or math.huge*0
+						values[i] = values[i] or NAN
 					end
 				end
 				local result = floor((%s) + 0.5)

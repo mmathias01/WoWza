@@ -205,7 +205,7 @@ function GUI:DrawSales(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.sale = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.sale:EnableSorting(true, -8)
 				scrollingTables.sale:DisableSelection(true)
@@ -296,7 +296,7 @@ function GUI:DrawPurchases(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.buy = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.buy:EnableSorting(true, -8)
 				scrollingTables.buy:DisableSelection(true)
@@ -375,7 +375,7 @@ function GUI:DrawItemSummary(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.itemSummary = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.itemSummary:EnableSorting(true, 1)
 				scrollingTables.itemSummary:DisableSelection(true)
@@ -454,7 +454,7 @@ function GUI:DrawResaleSummary(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.resale = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.resale:EnableSorting(true, -6)
 				scrollingTables.resale:DisableSelection(true)
@@ -733,8 +733,49 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 				headAlign = "LEFT",
 			},
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
-				scrollingTables.itemDetail = TSMAPI:CreateScrollingTable(stParent, stCols)
+		local handlers = {
+			OnClick = function(_, data, self, button)
+				if not data then return end
+				if button == "RightButton" and IsShiftKeyDown() then
+					if data.type == "Sale" then
+						for i, v in ipairs(TSM.Data.items[itemString].sales) do
+							if v == data.record then
+								tremove(TSM.Data.items[itemString].sales, i)
+								break
+							end
+						end
+					elseif data.type == "Purchase" then
+						for i, v in ipairs(TSM.Data.items[itemString].buys) do
+							if v == data.record then
+								tremove(TSM.Data.items[itemString].buys, i)
+								break
+							end
+						end
+					end
+					for i, v in ipairs(itemData.stData) do
+						if v == data then
+							tremove(itemData.stData, i)
+							break
+						end
+					end
+					scrollingTables.itemDetail:SetData(itemData.stData)
+					TSM:Print(L["Removed record."])
+				end
+			end,
+			OnEnter = function(_, data, self)
+				if not data then return end
+
+				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
+				GameTooltip:SetText(L["Shift-Right-Click to delete this record."], 1, .82, 0, 1)
+				GameTooltip:Show()
+			end,
+			OnLeave = function()
+				GameTooltip:ClearLines()
+				GameTooltip:Hide()
+			end
+		}
+		TSMAPI:CreateTimeDelay(0, function()
+				scrollingTables.itemDetail = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.itemDetail:EnableSorting(true, -7)
 				scrollingTables.itemDetail:DisableSelection(true)
 				scrollingTables.itemDetail:Show()
@@ -792,7 +833,7 @@ function GUI:DrawIncome(container)
 				if not data then return end
 			end,
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.income = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.income:EnableSorting(true, -5)
 				scrollingTables.income:DisableSelection(true)
@@ -851,7 +892,7 @@ function GUI:DrawExpenses(container)
 				if not data then return end
 			end,
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.expense = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.expense:EnableSorting(true, -5)
 				scrollingTables.expense:DisableSelection(true)
@@ -916,7 +957,7 @@ function GUI:DrawExpired(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.expired = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.expired:EnableSorting(true, -5)
 				scrollingTables.expired:DisableSelection(true)
@@ -981,7 +1022,7 @@ function GUI:DrawCancelled(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				scrollingTables.cancelled = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
 				scrollingTables.cancelled:EnableSorting(true, -5)
 				scrollingTables.cancelled:DisableSelection(true)
@@ -998,8 +1039,15 @@ function GUI:DrawCancelled(container)
 	end
 end
 
+local goldSummaryFilters = {group=nil, player=nil}
 function GUI:DrawGoldSummary(container)
-	local data = TSM.Data:GetGoldData()
+	if goldSummaryFilters.isReloading then
+		goldSummaryFilters.isReloading = nil
+	else
+		goldSummaryFilters = {group=nil, player="all"}
+	end
+	
+	local data = TSM.Data:GetGoldData(goldSummaryFilters)
 	local color, color2 = TSMAPI.Design:GetInlineColor("link2"), TSMAPI.Design:GetInlineColor("category2")
 
 	local topSellGoldLink = data.topSellGold.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topSellGold.itemString)) or TSM.Data.items[data.topSellGold.itemString].name) or L["none"]
@@ -1007,11 +1055,50 @@ function GUI:DrawGoldSummary(container)
 	local topBuyGoldLink = data.topBuyGold.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topBuyGold.itemString)) or TSM.Data.items[data.topBuyGold.itemString].name) or L["none"]
 	local topBuyQuantityLink = data.topBuyQuantity.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topBuyQuantity.itemString)) or TSM.Data.items[data.topBuyQuantity.itemString].name) or L["none"]
 
+	local ddpList = {["all"]=L["All"]}
+	if TSM.Data.playerDataCache then
+		for _, player in pairs(TSM.Data.playerDataCache) do
+			ddpList[player] = player
+		end
+	end
+	
 	local page = {
 		{
 			type = "ScrollFrame",
 			layout = "Flow",
 			children = {
+				{
+					type = "SimpleGroup",
+					layout = "Flow",
+					children = {
+						{
+							type = "GroupBox",
+							label = L["Group"],
+							relativeWidth = 0.5,
+							value = TSMAPI:FormatGroupPath(goldSummaryFilters.group),
+							callback = function(_, _, value)
+								goldSummaryFilters.group = value
+								goldSummaryFilters.isReloading = true
+								container:ReloadTab()
+							end,
+						},
+						{
+							type = "Dropdown",
+							label = L["Player(s)"],
+							relativeWidth = 0.49,
+							list = ddpList,
+							value = goldSummaryFilters.player,
+							callback = function(_, _, value)
+								goldSummaryFilters.player = value
+								goldSummaryFilters.isReloading = true
+								container:ReloadTab()
+							end,
+						},
+					},
+				},
+				{
+					type = "HeadingLine",
+				},
 				{
 					type = "InlineGroup",
 					layout = "Flow",
@@ -1040,25 +1127,20 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Item by Gold:"] .. "|r",
+							relativeWidth = 0.28,
+							text = color2 .. L["Top Item by Gold / Quantity:"] .. "|r",
 						},
 						{
 							type = "InteractiveLabel",
 							text = topSellGoldLink .. " (" .. (TSMAPI:FormatTextMoney(data.topSellGold.price) or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 							callback = function() SetItemRef("item:" .. data.topSellGold.itemID, data.topSellGold.itemID) end,
 							tooltip = data.topSellGold.itemID,
 						},
 						{
-							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Item by Quantity:"] .. "|r",
-						},
-						{
 							type = "InteractiveLabel",
 							text = topSellQuantityLink .. " (" .. (data.topSellQuantity.num or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 							callback = function() SetItemRef("item:" .. data.topSellQuantity.itemID, data.topSellQuantity.itemID) end,
 							tooltip = data.topSellQuantity.itemID,
 						},
@@ -1092,23 +1174,18 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Income by Gold:"] .. "|r",
+							relativeWidth = 0.28,
+							text = color2 .. L["Top Income by Gold / Quantity:"] .. "|r",
 						},
 						{
 							type = "Label",
 							text = (data.topIncomeGold.type or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.topIncomeGold.amount) or "---") .. ")",
-							relativeWidth = 0.69,
-						},
-						{
-							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Income by Quantity:"] .. "|r",
+							relativeWidth = 0.36,
 						},
 						{
 							type = "Label",
 							text = (data.topIncomeQuantity.type or L["none"]) .. " (" .. (data.topIncomeQuantity.num or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 						},
 					},
 				},
@@ -1140,25 +1217,20 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Item by Gold:"] .. "|r",
+							relativeWidth = 0.28,
+							text = color2 .. L["Top Item by Gold / Quantity:"] .. "|r",
 						},
 						{
 							type = "InteractiveLabel",
 							text = topBuyGoldLink .. " (" .. (TSMAPI:FormatTextMoney(data.topBuyGold.price) or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 							callback = function() SetItemRef("item:" .. data.topBuyGold.itemID, data.topBuyGold.itemID) end,
 							tooltip = data.topBuyGold.itemID,
 						},
 						{
-							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Item by Quantity:"] .. "|r",
-						},
-						{
 							type = "InteractiveLabel",
 							text = topBuyQuantityLink .. " (" .. (data.topBuyQuantity.num or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 							callback = function() SetItemRef("item:" .. data.topBuyQuantity.itemID, data.topBuyQuantity.itemID) end,
 							tooltip = data.topBuyQuantity.itemID,
 						},
@@ -1192,23 +1264,18 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Expense by Gold:"] .. "|r",
+							relativeWidth = 0.28,
+							text = color2 .. L["Top Expense by Gold / Quantity:"] .. "|r",
 						},
 						{
 							type = "Label",
 							text = (data.topExpenseGold.type or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.topExpenseGold.amount) or "---") .. ")",
-							relativeWidth = 0.69,
-						},
-						{
-							type = "Label",
-							relativeWidth = 0.3,
-							text = color2 .. L["Top Expense by Quantity:"] .. "|r",
+							relativeWidth = 0.36,
 						},
 						{
 							type = "Label",
 							text = (data.topExpenseQuantity.type or L["none"]) .. " (" .. (data.topExpenseQuantity.num or "---") .. ")",
-							relativeWidth = 0.69,
+							relativeWidth = 0.36,
 						},
 					},
 				},
@@ -1247,29 +1314,11 @@ function GUI:DrawGoldSummary(container)
 	TSMAPI:BuildPage(container, page)
 end
 
-function GUI:DrawGoldGraph(container)
-	local goldLog = TSM.db.factionrealm.goldLog[UnitName("player") or ""]
-	if not goldLog or #goldLog < 3 then
-		local page = {
-			{
-				type = "SimpleGroup",
-				layout = "Flow",
-				children = {
-					{
-						type = "Label",
-						text = L["Accounting has not yet collect enough information for this tab. This is likely due to not having recorded enough data points or not seeing any significant fluctuations (over 1k gold) in your gold on hand."],
-						relativeWidth = 1,
-					},
-				},
-			},
-		}
-		TSMAPI:BuildPage(container, page)
-		return
-	end
-
-	local data = {}
+local function GetGoldGraphPoints(goldLog)
+	if not goldLog or #goldLog < 3 then return end
 	local minY, maxY = math.huge, 0
 	local minX, maxX = math.huge, 0
+	local data = {}
 	for _, info in ipairs(goldLog) do
 		local x1, x2 = info.startMinute, info.endMinute
 		local y = info.copper / COPPER_PER_GOLD / 1000
@@ -1277,8 +1326,117 @@ function GUI:DrawGoldGraph(container)
 		maxX = max(maxX, x2)
 		minY = min(minY, floor(y))
 		maxY = max(maxY, ceil(y))
-		tinsert(data, { x1, y })
-		tinsert(data, { x2, y })
+		tinsert(data, {x1, y})
+		tinsert(data, {x2, y})
+	end
+	return data, minX, maxX, minY, maxY
+end
+local function GetGoldGraphSumData()
+	local currentMinute = floor(time() / 60)
+	local players = {}
+	local starts = {}
+	for _, playerData in pairs(TSM.db.factionrealm.goldLog) do
+		if #playerData > 2 then
+			local data = CopyTable(playerData)
+			for i=1, #data do
+				if i > 1 then
+					data[i].startMinute = data[i-1].endMinute+1
+				end
+				data[i].copper = TSM:Round(data[i].copper, COPPER_PER_GOLD*1000)
+			end
+			tinsert(players, data)
+			tinsert(starts, data[1].startMinute)
+		end
+	end
+	if #players == 0 then return end
+	
+	local indicies = {}
+	local absStartMinute = min(unpack(starts))
+	for i=1, #players do
+		indicies[i] = 1
+	end
+	
+	local temp = {}
+	local staticCopper = 0
+	for t=absStartMinute, currentMinute do
+		local copper = staticCopper
+		for i=#players, 1, -1 do
+			if starts[i] <= t then
+				local playerData = players[i]
+				local index = indicies[i]
+				while true do
+					if index >= #playerData then
+						index = #playerData
+						tremove(players, i)
+						staticCopper = staticCopper + playerData[index].copper
+						copper = copper + playerData[index].copper
+						break
+					end
+					if t > playerData[index].endMinute then
+						-- move to the next datapoint for this player
+						index = index + 1
+					else
+						-- we are in the range
+						copper = copper + playerData[index].copper
+						break
+					end
+				end
+				indicies[i] = index
+			end
+		end
+		local j = #temp+1
+		if j > 1 and temp[j-1].copper == copper then
+			temp[j-1].endMinute = t
+		else
+			tinsert(temp, {startMinute=t, endMinute=t, copper=copper})
+		end
+	end
+	if #temp == 0 then return end
+	return GetGoldGraphPoints(temp)
+end
+function GUI:DrawGoldGraph(container)
+	TSM.db.factionrealm.goldGraphCharacter = TSM.db.factionrealm.goldGraphCharacter or UnitName("player")
+	local player = TSM.db.factionrealm.goldGraphCharacter
+	local data, minX, maxX, minY, maxY
+	if player == "<ALL>" then
+		data, minX, maxX, minY, maxY = GetGoldGraphSumData()
+	else
+		data, minX, maxX, minY, maxY = GetGoldGraphPoints(TSM.db.factionrealm.goldLog[player])
+	end
+	
+	local dropdownList = {["<ALL>"]="Sum of All Characters"}
+	for player in pairs(TSM.db.factionrealm.goldLog) do
+		dropdownList[player] = player
+	end
+	
+	if not data then
+		local page = {
+			{
+				type = "SimpleGroup",
+				layout = "Flow",
+				children = {
+					{
+						type = "Label",
+						text = L["Accounting has not yet collected enough information for this tab. This is likely due to not having recorded enough data points or not seeing any significant fluctuations (over 1k gold) in your gold on hand."],
+						relativeWidth = 1,
+					},
+					{
+						type = "Spacer",
+					},
+					{
+						type = "Dropdown",
+						label = "Character to Graph",
+						settingInfo = {TSM.db.factionrealm, "goldGraphCharacter"},
+						relativeWidth = 0.5,
+						list = dropdownList,
+						callback = function() container:ReloadTab() end,
+						tooltip = "",
+					},
+				},
+			},
+		}
+		TSMAPI:BuildPage(container, page)
+		return
 	end
 
 	local startDate, endDate
@@ -1300,8 +1458,19 @@ function GUI:DrawGoldGraph(container)
 			children = {
 				{
 					type = "Label",
-					text = format(L["Below is a graph of the current character's gold on hand over time.\n\nThe x-axis is time and goes from %s to %s\nThe y-axis is thousands of gold."], startDate, endDate),
+					text = format(L["Below is a graph of the your character's gold on hand over time.\n\nThe x-axis is time and goes from %s to %s\nThe y-axis is thousands of gold."], startDate, endDate),
 					relativeWidth = 1,
+				},
+				{
+					type = "Spacer",
+				},
+				{
+					type = "Dropdown",
+					label = L["Character to Graph"],
+					settingInfo = {TSM.db.factionrealm, "goldGraphCharacter"},
+					relativeWidth = 0.5,
+					list = dropdownList,
+					callback = function() container:ReloadTab() end,
 				},
 				{
 					type = "HeadingLine"
@@ -1331,12 +1500,13 @@ function GUI:DrawGoldGraph(container)
 	GUI.lineGraph:SetAllPoints(parent)
 
 	GUI.lineGraph:ResetData()
-	local xSpacing = max(ceil((maxX - minX) / 20), 1)
 	local ySpacing = max(ceil((maxY - minY) / 20), 0.5)
 	GUI.lineGraph:SetGridSpacing(nil, ySpacing)
-	GUI.lineGraph:SetXAxis(minX - 10, maxX)
-	GUI.lineGraph:SetYAxis(minY - 0.5, maxY + 0.5)
-	GUI.lineGraph:AddDataSeries(data, { 255 / 255, 215 / 255, 0 / 255, 1 })
+	local xBuffer = (maxX-minX)*0.05
+	local yBuffer = (maxY-minY)*0.03
+	GUI.lineGraph:SetXAxis(minX-xBuffer, maxX)
+	GUI.lineGraph:SetYAxis(minY-yBuffer, maxY+yBuffer)
+	GUI.lineGraph:AddDataSeries(data, {1, 0.83, 0, 1})
 	GUI.lineGraph:RefreshGraph()
 end
 

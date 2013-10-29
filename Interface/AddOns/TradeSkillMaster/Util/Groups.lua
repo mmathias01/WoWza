@@ -362,6 +362,56 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 		factionrealmList[factionrealm] = factionrealm
 	end
 	
+	local groupList = {}
+	for path, modules in pairs(TSM.db.profile.groups) do
+		if modules[moduleName] then
+			for i=1, #modules[moduleName] do
+				if modules[moduleName][i] == operationName then
+					tinsert(groupList, path)
+				end
+			end
+		end
+	end
+	sort(groupList, function(a,b) return strlower(gsub(a, TSM.GROUP_SEP, "\001")) < strlower(gsub(b, TSM.GROUP_SEP, "\001")) end)
+	
+	local groupWidgets = {
+		{
+			type = "Label",
+			relativeWidth = 1,
+			text = L["Below is a list of groups which this operation is currently applied to. Clicking on the 'Remove' button next to the group name will remove the operation from that group."],
+		},
+		{
+			type = "HeadingLine",
+		},
+	}
+	for _, groupPath in ipairs(groupList) do
+		tinsert(groupWidgets, {
+				type = "Button",
+				relativeWidth = 0.2,
+				text = L["Remove"],
+				callback = function()
+					for i=#TSM.db.profile.groups[groupPath][moduleName], 1, -1 do
+						if TSM.db.profile.groups[groupPath][moduleName][i] == operationName then
+							DeleteOperation(groupPath, moduleName, i)
+						end
+					end
+					TSM:CheckOperationRelationships(moduleName)
+					ModuleOptionsRefresh(TSMObj)
+				end,
+				tooltip = L["Click this button to completely remove this operation from the specified group."],
+			})
+		tinsert(groupWidgets, {
+				type = "Label",
+				relativeWidth = 0.05,
+				text = "",
+			})
+		tinsert(groupWidgets, {
+				type = "Label",
+				relativeWidth = 0.75,
+				text = TSMAPI:FormatGroupPath(groupPath, true),
+			})
+	end
+	
 	local page = {
 		{
 			type = "ScrollFrame",
@@ -407,12 +457,10 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 								end
 								TSMObj.operations[name] = TSMObj.operations[operationName]
 								TSMObj.operations[operationName] = nil
-								for groupPath, modules in pairs(TSM.db.profile.groups) do
-									if modules[moduleName] then
-										for i=1, #modules[moduleName] do
-											if modules[moduleName][i] == operationName then
-												modules[moduleName][i] = name
-											end
+								for _, groupPath in ipairs(groupList) do
+									for i=1, #TSM.db.profile.groups[groupPath][moduleName] do
+										if TSM.db.profile.groups[groupPath][moduleName][i] == operationName then
+											TSM.db.profile.groups[groupPath][moduleName][i] = name
 										end
 									end
 								end
@@ -449,7 +497,6 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 								TSM.db.profile.groups[path][moduleName] = TSM.db.profile.groups[path][moduleName] or {}
 								local operations = TSM.db.profile.groups[path][moduleName]
 								local num = #operations
-								local maxOperations = 1
 								if num == 0 then
 									SetOperationOverride(path, moduleName, true)
 									AddOperation(path, moduleName)
@@ -520,12 +567,10 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 							relativeWidth = 0.5,
 							callback = function()
 								TSMObj.operations[operationName] = nil
-								for groupPath, modules in pairs(TSM.db.profile.groups) do
-									if modules[moduleName] then
-										for i=#modules[moduleName], 1, -1 do
-											if modules[moduleName][i] == operationName then
-												DeleteOperation(groupPath, moduleName, i)
-											end
+								for _, groupPath in ipairs(groupList) do
+									for i=#TSM.db.profile.groups[groupPath][moduleName], 1, -1 do
+										if TSM.db.profile.groups[groupPath][moduleName][i] == operationName then
+											DeleteOperation(groupPath, moduleName, i)
 										end
 									end
 								end
@@ -541,26 +586,26 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 							label = L["Import Operation Settings"],
 							relativeWidth = 1,
 							callback = function(self, _, value)
-									value = value:trim()
-									if value == "" then return end
-									local valid, data = LibStub("AceSerializer-3.0"):Deserialize(value)
-									if not valid then
-										TSM:Print(L["Invalid import string."])
-										self:SetFocus()
-										return
-									elseif data.module ~= moduleName then
-										TSM:Print(L["Invalid import string."].." "..L["You appear to be attempting to import an operation from a different module."])
-										self:SetText("")
-										return
-									end
-									data.module = nil
-									for key, value in pairs(data) do
-										TSMObj.operations[operationName][key] = value
-									end
+								value = value:trim()
+								if value == "" then return end
+								local valid, data = LibStub("AceSerializer-3.0"):Deserialize(value)
+								if not valid then
+									TSM:Print(L["Invalid import string."])
+									self:SetFocus()
+									return
+								elseif data.module ~= moduleName then
+									TSM:Print(L["Invalid import string."].." "..L["You appear to be attempting to import an operation from a different module."])
 									self:SetText("")
-									TSM:Print(L["Successfully imported operation settings."])
-									ModuleOptionsRefresh(TSMObj, operationName)
-								end,
+									return
+								end
+								data.module = nil
+								for key, value in pairs(data) do
+									TSMObj.operations[operationName][key] = value
+								end
+								self:SetText("")
+								TSM:Print(L["Successfully imported operation settings."])
+								ModuleOptionsRefresh(TSMObj, operationName)
+							end,
 							tooltip = L["Paste the exported operation settings into this box and hit enter or press the 'Okay' button. Imported settings will irreversibly replace existing settings for this operation."],
 						},
 						{
@@ -577,6 +622,12 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 							end,
 						},
 					},
+				},
+				{
+					type = "InlineGroup",
+					layout = "flow",
+					title = L["Groups"],
+					children = groupWidgets,
 				},
 			},
 		},
@@ -652,7 +703,6 @@ function TSMAPI:ShowOperationRelationshipTab(obj, container, operation, settingI
 			children = {
 				{
 					type = "Label",
-					title = "Help",
 					text = L["Here you can setup relationships between the settings of this operation and other operations for this module. For example, if you have a relationship set to OperationA for the stack size setting below, this operation's stack size setting will always be equal to OperationA's stack size setting."],
 					relativeWidth = 1,
 				},
@@ -1197,7 +1247,7 @@ function private:DrawGroupItemsPage(container, groupPath)
 			layout = "Fill",
 			children = {
 				{
-					type = "SelectionList",
+					type = "GroupItemList",
 					leftTitle = leftTitle,
 					rightTitle = rightTitle,
 					listCallback = GetItemList,

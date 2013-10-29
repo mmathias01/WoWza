@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 local MAX_GEMS_PER_SLOT = 3
 
 -- make the JewelPanel inherit from a dummy frame

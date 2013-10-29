@@ -1,9 +1,11 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "esES") or LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "esMX")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "Acerca de"
 L["activeBossModules"] = "Módulos de jefes activos:"
 L["advanced"] = "Opciones avanzadas"
+L["allRightsReserved"] = "Todos los derechos reservados"
 L["alphaOutdated"] = "Tu versión alpha de Big Wigs está desactualizada (/bwv)."
 L["alphaRelease"] = "Estás usando la VERSION ALPHA de Big Wigs %s (revisión %d)"
 L["already_registered"] = "|cffff0000ATENCIóN:|r |cff00ff00%s|r (|cffffff00%s|r) ya existe ese módulo en BigWigs, pero sin embargo está intentando registrarlo de nuevo. Esto normalmente ocurre cuando tienes varias copias de este módulo en tu carpeta de addons posiblemente por una actualización fallida. Es recomendable que borres la carpeta de Big Wigs y lo reinstales por completo."
@@ -31,7 +33,7 @@ L["configureBtn"] = "Configurar..."
 L["configureBtnDesc"] = [=[Cierra la ventana de opciones y deja configurar como se verían las barras y mensajes.
 Si quieres personalizar más cosas, puedes expandir Big Wigs en el arbol de la izquierda y buscar la subsección Personalizar...]=]
 L["contact"] = "Contacto"
-L["coreAddonDisabled"] = "Big Wigs no puede funcionar debidamente ya que el addon %s está desactivado. Puedes activarlo desde el addon Control panel o en la pantalla de selección de personaje."
+L["coreAddonDisabled"] = "Big Wigs no puede funcionar debidamente ya que el addon %s está desactivado. Puedes activarlo desde el addon Control Panel o en la pantalla de selección de personaje."
 L["customizeBtn"] = "Personalizar..."
 L["dbmBar"] = "Crear barras personalizadas de DBM"
 L["dbmBarDesc"] = "Si un usuario de DBM envia un contador de Pull u otro personalizado tipo 'pizza' bar, este será mostrado en Big Wigs."
@@ -128,5 +130,6 @@ L["tooltipHint"] = "|cffeda55fClic|r para reiniciar todos los módulos. |cffeda5
 L["upToDate"] = "Al día:"
 L["website"] = "Web"
 L["wipes"] = "Wipes:"
-
+L["zoneMessages"] = "Mostrar mensajes de la zona"
+L["zoneMessagesDesc"] = "Desactivando esto dejará de mostrar mensajes cuando entres en una zona donde Big Wigs tenga un modulo, pero no lo tengas instalado. Recomendamos que dejes esto activo pues será la única notificación que recibirás si creamos módulos nuevos para una zona  que encontréis útil"
 

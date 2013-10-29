@@ -57,6 +57,7 @@ function Util:GetItemPrices(operation, itemString, isResetScan)
 		prices.normalPrice = ceil(prices.normalPrice / COPPER_PER_GOLD) * COPPER_PER_GOLD
 	end
 	prices.resetPrice = operation.priceReset ~= "none" and operation.priceReset ~= "ignore" and prices[operation.priceReset]
+	prices.aboveMax = operation.aboveMax ~= "none" and prices[operation.aboveMax]
 	return prices
 end
 
@@ -84,7 +85,7 @@ function Util:createTab(parent)
 	tFrame:SetPoint("BOTTOMLEFT", 0, 120)
 	tFrame:SetPoint("BOTTOMRIGHT", 0, 120)
 
-	groupTree = TSMAPI:CreateGroupTree(tFrame, "Auctioning")
+	groupTree = TSMAPI:CreateGroupTree(tFrame, "Auctioning", "Auctioning_Bank")
 	groupTree:SetPoint("TOPLEFT", 5, -5)
 	groupTree:SetPoint("BOTTOMRIGHT", -5, 5)
 

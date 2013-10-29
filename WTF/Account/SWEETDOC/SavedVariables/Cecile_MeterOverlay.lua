@@ -5,6 +5,7 @@ Cecile_MeterOverlayDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Majandra - Darrowmere"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",

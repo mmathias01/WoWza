@@ -1,4 +1,4 @@
-AskMrRobot = {}
+local _, AskMrRobot = ...
 
 local waitTable = {};
 local waitFrame = nil;

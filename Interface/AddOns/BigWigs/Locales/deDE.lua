@@ -1,5 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "deDE")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "Über"
 L["activeBossModules"] = "Aktive Boss Module:"
@@ -8,6 +9,10 @@ L["allRightsReserved"] = "Alle Rechte vorbehalten"
 L["alphaOutdated"] = "Deine Big Wigs Alpha ist veraltet (/bwv)."
 L["alphaRelease"] = "Bei dir läuft ein ALPHA RELEASE von Big Wigs %s (revision %d)."
 L["already_registered"] = "|cffff0000WARNUNG:|r |cff00ff00%s|r (|cffffff00%s|r) existiert bereits als Modul in Big Wigs, aber irgend etwas versucht es erneut anzumelden. Dies bedeutet normalerweise, dass du zwei Kopien des Moduls aufgrund eines Fehlers beim Aktualisieren in deinem Addon-Ordner hast. Es wird empfohlen, jegliche Big Wigs Ordner zu löschen und dann von Grund auf neu zu installieren."
+L["altpower"] = "Anzeige alternativer Energien"
+L["ALTPOWER"] = "Anzeige alternativer Energien"
+L["altpower_desc"] = "Zeigt ein Fenster mit alternativen Energien der einzelnen Gruppenmitglieder."
+L["ALTPOWER_desc"] = "Einige Bosse nutzen die alternativen Energien für Mitspieler in der Gruppe. Die Anzeige alternativer Energien bietet einen schnellen Überblick darüber, wer am meisten/wenigsten alternative Energie besitzt. Dies kann bei Taktiken oder Einteilungen helfen."
 L["autoRole"] = "Automatisches Rollen-Update"
 L["autoRoleDesc"] = [=[Wenn Big Wigs Deine Rolle bekannt ist, verbessert dies die Warnungen für andere Spieler im Schlachtzug. Diese Option aktualisiert Deine Rolle automatisch. Beispielsweise überprüfen einige Module, ob der Spielercharakter die Tankrolle übernimmt, da einige Boss-Fähigkeiten niemals den Tank treffen.
 
@@ -132,5 +137,4 @@ L["website"] = "Webseite"
 L["wipes"] = "Niederlagen:"
 L["zoneMessages"] = "Gebietsmeldungen anzeigen"
 L["zoneMessagesDesc"] = "Wenn Du diese Option deaktivierst, zeigt Big Wigs beim Betreten von Gebieten ohne installierte Boss Mods keine Meldungen mehr an. Es wird empfohlen, diese Option aktiviert zu lassen, da sie über neu erstellte Timer für neue Gebiete informiert."
-
 

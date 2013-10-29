@@ -183,11 +183,38 @@ end
 -- MAIL TRACKING FUNCTIONS
 -- ***************************************************************************
 
-function Data:UpdateMailQuantities(player)
-	if not TSM.characters[player] then return end
-	local playerMail = TSM.characters[player].mail
-	wipe(playerMail)
-	for _, data in ipairs(TSM.characters[player].mailInbox) do
+local playersToUpdate = {}
+local function UpdateMailQuantitiesThread(self)
+	-- this runs in the background forever, updating mail quantities as necessary
+	while true do
+		if #playersToUpdate > 0 then
+			local player = tremove(playersToUpdate)
+			if TSM.characters[player] then
+				local playerMail = TSM.characters[player].mail
+				wipe(playerMail)
+				for _, data in ipairs(TSM.characters[player].mailInbox) do
+					for _, itemData in ipairs(data.items) do
+						local itemString = TSMAPI:GetItemString(itemData.link)
+						local baseItemString = TSMAPI:GetBaseItemString(itemData.link)
+						playerMail[itemString] = (playerMail[itemString] or 0) + itemData.count
+						if itemString ~= baseItemString then
+							playerMail[baseItemString] = (playerMail[baseItemString] or 0) + itemData.count
+						end
+					end
+					self:Yield()
+				end
+				TSM.characters[player].lastUpdate.mail = time()
+				TSM.Sync:BroadcastUpdateRequest()
+			end
+		else
+			self:Sleep(1)
+		end
+	end
+end
+
+do
+	local function InsertInboxMail(player, index, data)
+		local playerMail = TSM.characters[player].mail
 		for _, itemData in ipairs(data.items) do
 			local itemString = TSMAPI:GetItemString(itemData.link)
 			local baseItemString = TSMAPI:GetBaseItemString(itemData.link)
@@ -196,12 +223,50 @@ function Data:UpdateMailQuantities(player)
 				playerMail[baseItemString] = (playerMail[baseItemString] or 0) + itemData.count
 			end
 		end
+		tinsert(TSM.characters[player].mailInbox, index, data)
 	end
-	TSM.characters[player].lastUpdate.mail = time()
-	TSM.Sync:BroadcastUpdateRequest()
-end
+	
+	local function RemoveInboxMail(player, index)
+		local playerMail = TSM.characters[player].mail
+		for _, itemData in ipairs(TSM.characters[player].mailInbox[index].items) do
+			local itemString = TSMAPI:GetItemString(itemData.link)
+			local baseItemString = TSMAPI:GetBaseItemString(itemData.link)
+			if playerMail[itemString] then
+				playerMail[itemString] = max(playerMail[itemString] - itemData.count, 0)
+				if playerMail[itemString] == 0 then
+					playerMail[itemString] = nil
+				end
+			end
+			if itemString ~= baseItemString and playerMail[baseItemString] then
+				playerMail[baseItemString] = max(playerMail[baseItemString] - itemData.count, 0)
+				if playerMail[baseItemString] == 0 then
+					playerMail[baseItemString] = nil
+				end
+			end
+		end
+		tremove(TSM.characters[player].mailInbox, index)
+	end
+	
+	local function RemoveInboxMailItem(player, index, itemIndex)
+		local playerMail = TSM.characters[player].mail
+		local itemData = TSM.characters[player].mailInbox[index].items[itemIndex]
+		local itemString = TSMAPI:GetItemString(itemData.link)
+		local baseItemString = TSMAPI:GetBaseItemString(itemData.link)
+		if playerMail[itemString] then
+			playerMail[itemString] = max(playerMail[itemString] - itemData.count, 0)
+			if playerMail[itemString] == 0 then
+				playerMail[itemString] = nil
+			end
+		end
+		if itemString ~= baseItemString and playerMail[baseItemString] then
+			playerMail[baseItemString] = max(playerMail[baseItemString] - itemData.count, 0)
+			if playerMail[baseItemString] == 0 then
+				playerMail[baseItemString] = nil
+			end
+		end
+		tremove(TSM.characters[player].mailInbox[index].items, itemIndex)
+	end
 
-do
 	local function AddIncomingMail(player, ...)
 		if not TSM.characters[player] then return end
 		TSM.characters[player].mailInbox = TSM.characters[player].mailInbox or {}
@@ -213,7 +278,7 @@ do
 			items = {{link=link, count=count}}
 		end
 		if not items then error() end
-		tinsert(TSM.characters[player].mailInbox, 1, {items=items, index=nil})
+		InsertInboxMail(player, 1, {items=items, index=nil})
 	end
 	
 	local function RemoveMailItem(index, itemIndex)
@@ -224,12 +289,12 @@ do
 			if data.index == index then
 				for j, itemData in ipairs(data.items) do
 					if itemData.link == link and itemData.count == count then
-						tremove(data.items, j)
+						RemoveInboxMailItem(TSM.CURRENT_PLAYER, i, j)
 						break
 					end
 				end
 				if #data.items == 0 then
-					tremove(TSM.characters[TSM.CURRENT_PLAYER].mailInbox, i)
+					RemoveInboxMail(TSM.CURRENT_PLAYER, i)
 				end
 				break
 			end
@@ -251,7 +316,7 @@ do
 				local info = tremove(tmpBuyouts, 1)
 				if msg == format(ERR_AUCTION_WON_S, info.name) then
 					AddIncomingMail(TSM.CURRENT_PLAYER, info.link, info.count)
-					Data:UpdateMailQuantities(TSM.CURRENT_PLAYER)
+					tinsert(playersToUpdate, TSM.CURRENT_PLAYER)
 					break
 				end
 			end
@@ -262,7 +327,7 @@ do
 		local link = GetAuctionItemLink("owner", index)
 		local count = select(3, GetAuctionItemInfo("owner", index))
 		AddIncomingMail(TSM.CURRENT_PLAYER, link, count)
-		Data:UpdateMailQuantities(TSM.CURRENT_PLAYER)
+		tinsert(playersToUpdate, TSM.CURRENT_PLAYER)
 	end
 
 	local function OnSendMail(target)
@@ -283,7 +348,7 @@ do
 			end
 		end
 		AddIncomingMail(altName, items)
-		Data:UpdateMailQuantities(altName)
+		tinsert(playersToUpdate, altName)
 	end
 	
 	local function OnTakeInboxItem(index, itemIndex)
@@ -307,8 +372,8 @@ do
 			end
 		end
 		AddIncomingMail(sender, items)
-		Data:UpdateMailQuantities(sender)
-		Data:UpdateMailQuantities(TSM.CURRENT_PLAYER)
+		tinsert(playersToUpdate, sender)
+		tinsert(playersToUpdate, TSM.CURRENT_PLAYER)
 	end
 
 	local function OnInboxUpdate()
@@ -354,16 +419,16 @@ do
 						index = index + 1
 					elseif matchIndex > index then
 						for k=1, matchIndex-index do
-							tremove(player.mailInbox, index)
+							RemoveInboxMail(TSM.CURRENT_PLAYER, index)
 						end
 					end
 				else
-					tinsert(player.mailInbox, index, {items=items, index=i})
+					InsertInboxMail(TSM.CURRENT_PLAYER, index, {items=items, index=i})
 					index = index + 1
 				end
 			end
 		end
-		Data:UpdateMailQuantities(TSM.CURRENT_PLAYER)
+		tinsert(playersToUpdate, TSM.CURRENT_PLAYER)
 	end
 
 	Data:RegisterEvent("CHAT_MSG_SYSTEM", OnChatMsg)
@@ -374,4 +439,5 @@ do
 	Data:Hook("AutoLootMailItem", OnTakeInboxItem, true)
 	Data:Hook("SendMail", OnSendMail, true)
 	Data:Hook("ReturnInboxItem", OnReturnMail, true)
+	TSMAPI.Threading:Start(UpdateMailQuantitiesThread, 0.1)
 end

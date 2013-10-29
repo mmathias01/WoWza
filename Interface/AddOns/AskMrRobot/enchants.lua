@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 local enchantNames = {
 [-1000]="Belt Buckle",
 [2]="Frostbrand",

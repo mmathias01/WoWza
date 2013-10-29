@@ -5,13 +5,14 @@ SkadaDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
-		["Jolokya - Dragonblight"] = "Default",
-		["Cellestia - Terenas"] = "Default",
-		["Jolobank - Dragonblight"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
+		["Jolobank - Dragonblight"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -139,8 +140,10 @@ SkadaDB = {
 			},
 			["feed"] = "Damage: Personal DPS",
 			["report"] = {
-				["channel"] = "guild",
-				["target"] = "Arkannia",
+				["number"] = 20,
+				["chantype"] = "RealID",
+				["channel"] = "realid",
+				["target"] = "Corey Smith",
 				["mode"] = "Healing",
 			},
 			["icon"] = {

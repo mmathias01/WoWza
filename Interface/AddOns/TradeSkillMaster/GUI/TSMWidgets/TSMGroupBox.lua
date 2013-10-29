@@ -52,7 +52,7 @@ local function CreateGroupSelectionFrame()
 	container:SetPoint("TOPLEFT", 5, -45)
 	container:SetPoint("BOTTOMRIGHT", -5, 45)
 	TSMAPI.Design:SetFrameColor(container)
-	groupSelectionFrame.groupTree = TSMAPI:CreateGroupTree(container, nil, true)
+	groupSelectionFrame.groupTree = TSMAPI:CreateGroupTree(container, nil, nil, true)
 	
 	local function OnBtnClick(btn)
 		if btn.which == "clear" then

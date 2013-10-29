@@ -7,6 +7,20 @@ ElvUI_ChatTweaksDB = {
 		},
 		["DamageMeters"] = {
 			["profiles"] = {
+				["Majandra - Darrowmere"] = {
+					["Party Leader"] = 2,
+					["Raid Leader"] = 2,
+					["Instance Chat Leader"] = 2,
+					["Yell"] = 2,
+					["Instance Chat"] = 2,
+					["Party"] = 2,
+					["Whisper"] = 2,
+					["Channel"] = 2,
+					["Guild"] = 2,
+					["Raid"] = 2,
+					["Say"] = 2,
+					["Officer"] = 2,
+				},
 				["Jolokia - Dragonblight"] = {
 					["Party Leader"] = 2,
 					["Raid Leader"] = 2,
@@ -60,8 +74,102 @@ ElvUI_ChatTweaksDB = {
 		},
 		["ChannelColors"] = {
 			["profiles"] = {
+				["Majandra - Darrowmere"] = {
+					["colors"] = {
+						["RealID Conversation"] = {
+							["r"] = 0,
+							["g"] = 0.6941176652908325,
+							["b"] = 0.9411765336990356,
+						},
+						["General"] = {
+							["r"] = 1,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
+						},
+						["Instance Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["Raid Leader"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0.03529411926865578,
+						},
+						["Party"] = {
+							["r"] = 0.6666666865348816,
+							["g"] = 0.6666666865348816,
+							["b"] = 1,
+						},
+						["Whisper"] = {
+							["r"] = 1,
+							["g"] = 0.501960813999176,
+							["b"] = 1,
+						},
+						["Raid"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["Raid Warning"] = {
+							["r"] = 1,
+							["g"] = 0.2823529541492462,
+							["b"] = 0,
+						},
+						["Party Leader"] = {
+							["r"] = 0.4627451300621033,
+							["g"] = 0.7843137979507446,
+							["b"] = 1,
+						},
+						["Instance"] = {
+							["r"] = 1,
+							["g"] = 0.4980392456054688,
+							["b"] = 0,
+						},
+						["Yell"] = {
+							["r"] = 1,
+							["g"] = 0.250980406999588,
+							["b"] = 0.250980406999588,
+						},
+						["LocalDefense"] = {
+							["r"] = 1,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
+						},
+						["Say"] = {
+							["r"] = 1,
+							["g"] = 1,
+							["b"] = 1,
+						},
+						["oqgeneral"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+						["RealID Whisper"] = {
+							["r"] = 0,
+							["g"] = 1,
+							["b"] = 0.9647059440612793,
+						},
+						["Guild"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 1,
+							["b"] = 0.250980406999588,
+						},
+						["Officer"] = {
+							["r"] = 0.250980406999588,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.250980406999588,
+						},
+					},
+				},
 				["Jolokia - Dragonblight"] = {
 					["colors"] = {
+						["oqgeneral"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
 						["CHANNEL6"] = {
 							["b"] = 0.7529412508010864,
 							["g"] = 0.7529412508010864,
@@ -1134,31 +1242,15 @@ ElvUI_ChatTweaksDB = {
 		},
 		["Reputation"] = {
 			["profiles"] = {
-				["Majandra - Dragonblight"] = {
-					["factions"] = {
-						["operation:shieldwall"] = false,
-						["thelorewalkers"] = false,
-						["natpagle"] = false,
-						["orderofthecloudserpent"] = false,
-						["shadopanassault"] = false,
-						["pearlfinjinyu"] = false,
-						["shadopan"] = false,
-						["theaugustcelestials"] = false,
-						["mayorcarlosdanger"] = false,
-						["kirintoroffensive"] = false,
-						["goldenlotus"] = false,
-						["theblackprince"] = false,
-					},
-				},
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
-						["thescaleofthesands"] = false,
+						["gilneas"] = false,
 						["theconsortium"] = false,
-						["timbermawhold"] = false,
+						["theleagueofarathor"] = false,
 						["darkmoonfaire"] = false,
 						["gelkisclancentaur"] = false,
-						["cenarionexpedition"] = false,
+						["orderofthecloudserpent"] = false,
 						["everlook"] = false,
 						["shatariskyguard"] = false,
 						["shadopanassault"] = false,
@@ -1168,47 +1260,63 @@ ElvUI_ChatTweaksDB = {
 						["darnassus"] = false,
 						["theshatar"] = false,
 						["bloodsailbuccaneers"] = false,
-						["theklaxxi"] = false,
+						["theblackprince"] = false,
 						["thesilvercovenant"] = false,
-						["honorhold"] = false,
-						["pearlfinjinyu"] = false,
-						["stormpikeguard"] = false,
-						["silverwingsentinels"] = false,
-						["ginamudclaw"] = false,
 						["stormwind"] = false,
-						["sho"] = false,
+						["exodar"] = false,
+						["kirintoroffensive"] = false,
+						["honorhold"] = false,
+						["ginamudclaw"] = false,
 						["thoriumbrotherhood"] = false,
+						["sho"] = false,
+						["tinamudclaw"] = false,
 						["thealdor"] = false,
 						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
+						["ironforge"] = false,
 						["shatteredsunoffensive"] = false,
-						["thelorewalkers"] = false,
 						["ratchet"] = false,
 						["thevioleteye"] = false,
 						["lowercity"] = false,
-						["valianceexpedition"] = false,
+						["thelorewalkers"] = false,
 						["magramclancentaur"] = false,
-						["ironforge"] = false,
-						["gilneas"] = false,
+						["valianceexpedition"] = false,
+						["thescaleofthesands"] = false,
 						["tushuipandaren"] = false,
 						["sporeggar"] = false,
-						["orderofthecloudserpent"] = false,
+						["cenarionexpedition"] = false,
 						["holycrit"] = false,
 						["keepersoftime"] = false,
 						["gadgetzan"] = false,
-						["tinamudclaw"] = false,
-						["theleagueofarathor"] = false,
+						["silverwingsentinels"] = false,
+						["timbermawhold"] = false,
 						["thescryers"] = false,
 						["argentdawn"] = false,
 						["kurenai"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
-						["exodar"] = false,
+						["pearlfinjinyu"] = false,
 						["ashtonguedeathsworn"] = false,
+						["stormpikeguard"] = false,
+						["goldenlotus"] = false,
+						["theklaxxi"] = false,
+						["joguthedrunk"] = false,
+					},
+				},
+				["Majandra - Dragonblight"] = {
+					["factions"] = {
+						["theaugustcelestials"] = false,
+						["operation:shieldwall"] = false,
+						["shadopan"] = false,
+						["pearlfinjinyu"] = false,
+						["orderofthecloudserpent"] = false,
+						["thelorewalkers"] = false,
+						["natpagle"] = false,
+						["mayorcarlosdanger"] = false,
 						["kirintoroffensive"] = false,
 						["goldenlotus"] = false,
 						["theblackprince"] = false,
-						["joguthedrunk"] = false,
+						["shadopanassault"] = false,
 					},
 				},
 			},
@@ -1260,6 +1368,10 @@ ElvUI_ChatTweaksDB = {
 		},
 		["ATestofValor"] = {
 			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["completed"] = true,
+					["gains"] = false,
+				},
 				["Majandra - Dragonblight"] = {
 					["completed"] = true,
 					["gains"] = false,
@@ -1274,6 +1386,19 @@ ElvUI_ChatTweaksDB = {
 		},
 		["AutoProfessionLink"] = {
 			["profiles"] = {
+				["Majandra - Darrowmere"] = {
+					["Guild"] = false,
+					["Raid Leader"] = false,
+					["Instance Chat Leader"] = false,
+					["Instance Chat"] = false,
+					["Party"] = false,
+					["Whisper"] = false,
+					["Raid"] = false,
+					["Party Leader"] = false,
+					["Yell"] = false,
+					["Say"] = false,
+					["Officer"] = false,
+				},
 				["Jolokia - Dragonblight"] = {
 					["Guild"] = false,
 					["Raid Leader"] = false,
@@ -1294,10 +1419,10 @@ ElvUI_ChatTweaksDB = {
 					["Instance Chat"] = false,
 					["Party"] = false,
 					["Whisper"] = false,
-					["Raid"] = false,
-					["Party Leader"] = false,
-					["Yell"] = false,
 					["Say"] = false,
+					["Party Leader"] = false,
+					["Raid"] = false,
+					["Yell"] = false,
 					["Officer"] = false,
 				},
 				["Jolobank - Dragonblight"] = {
@@ -1319,6 +1444,16 @@ ElvUI_ChatTweaksDB = {
 		},
 		["InviteLinks"] = {
 			["profiles"] = {
+				["Majandra - Darrowmere"] = {
+					["groupWords"] = {
+						["inv"] = "inv",
+						["invite"] = "invite",
+					},
+					["guildWords"] = {
+						["ginvite"] = "ginvite",
+						["ginv"] = "ginv",
+					},
+				},
 				["Jolokia - Dragonblight"] = {
 					["groupWords"] = {
 						["inv"] = "inv",
@@ -1361,6 +1496,10 @@ ElvUI_ChatTweaksDB = {
 		},
 		["Companions"] = {
 			["profiles"] = {
+				["Majandra - Darrowmere"] = {
+					["global"] = {
+					},
+				},
 				["Jolokia - Dragonblight"] = {
 					["global"] = {
 					},
@@ -1393,76 +1532,90 @@ ElvUI_ChatTweaksDB = {
 		},
 		["EditboxHistory"] = {
 			["char"] = {
-				["Majandra - Dragonblight"] = {
+				["Majandra - Darrowmere"] = {
 					["history"] = {
-						" fucking 27 stacks on the first phase", -- [1]
-						" holy crap", -- [2]
-						"/cw Kexxie like I said I do OK in disc on this fight ;)", -- [3]
-						"/cw Kexxie anytime", -- [4]
-						" my pleasure", -- [5]
-						" fucking 27 stacks on the first phase", -- [6]
-						" holy crap", -- [7]
-						"/g I would but I have to log any second till around raid time", -- [8]
-						"/cw Kexxie anytime", -- [9]
-						" my pleasure", -- [10]
-						" fucking 27 stacks on the first phase", -- [11]
-						" holy crap", -- [12]
-						"/g I would but I have to log any second till around raid time", -- [13]
-						"/cw Padred already done ;)", -- [14]
-						"/cw Padred fuk yah dude", -- [15]
-						"/cw Padred thats gonna help on the meters", -- [16]
-						"/cw Padred lmao", -- [17]
-						"/random", -- [18]
-						"/cw Arcanature thanks :)", -- [19]
-						"/cw Padred fuk yah dude", -- [20]
-						"/cw Padred thats gonna help on the meters", -- [21]
-						"/cw Padred lmao", -- [22]
-						"/random", -- [23]
-						"/cw Arcanature thanks :)", -- [24]
-						" yo ", -- [25]
-						" oqueue", -- [26]
-						"/g  |cffffff00|Hachievement:8448:0180000004F57514:1:10:13:13:4294967295:4294967295:4294967295:4294967295|h[Gamon Will Save Us!]|h|r", -- [27]
-						"/random", -- [28]
-						"/cw Arcanature thanks :)", -- [29]
-						" yo ", -- [30]
-						" oqueue", -- [31]
-						"/g  |cffffff00|Hachievement:8448:0180000004F57514:1:10:13:13:4294967295:4294967295:4294967295:4294967295|h[Gamon Will Save Us!]|h|r", -- [32]
+						" the fuck is going on with DB?", -- [1]
+						" when", -- [2]
+						" damn them", -- [3]
+						" brt lol", -- [4]
 					},
 				},
 				["Jolokia - Dragonblight"] = {
 					["history"] = {
-						"/random", -- [1]
-						"/focus", -- [2]
-						"/macro", -- [3]
-						"/cw Shuangy psst you have an eye on your head", -- [4]
-						"/cw Shuangy just wanted you to know before you went to a party or something", -- [5]
-						"/random", -- [6]
-						"/focus", -- [7]
-						"/macro", -- [8]
-						" he didnt last night", -- [9]
-						" obvs we both have you on RealID and you were not on", -- [10]
-						" goes better with you tho", -- [11]
-						" aw turtle", -- [12]
-						" lol didnt mean to type turtle", -- [13]
-						" was looking for raw turtle", -- [14]
-						" but when I typed \"r\" it replied", -- [15]
-						"/raid lol I was like - ok so when they say it kills you instantly", -- [16]
-						"/raid they mean it kills you instantly", -- [17]
-						" how does he know doobs is on? I thought doobs said he wasnt on and gunn couldn't see him?", -- [18]
-						" or as far as gunn was concerned he wasnt on rather", -- [19]
-						"/wa", -- [20]
-						"/wa", -- [21]
-						"/wa", -- [22]
-						"/wa", -- [23]
-						"/macro", -- [24]
-						"/wa", -- [25]
-						"/wa", -- [26]
-						"/wa", -- [27]
-						"/cw Fuzzydoobie lol peeps are freakin because we dont have the peoples to raid and if we had you we would be closer ;)", -- [28]
-						"/cw Fuzzydoobie down 2 but easier to find / wait for", -- [29]
-						"/cw Holywanderer what times do they raid?", -- [30]
-						"/cw Holywanderer lol good to know there are options ;)", -- [31]
-						"/g bbiab", -- [32]
+						"/cw Nevic im level 509 you think that is high enough?", -- [1]
+						"/cw Nevic invite me already", -- [2]
+						" shouldnt be a problem most days - tomorrow I haz WIDD ne way", -- [3]
+						" had Garrosh @ 10% on flex", -- [4]
+						" but we couldn't push past it ", -- [5]
+						" were carrying two people with 0 raid awareness", -- [6]
+						" next week :)", -- [7]
+						"/cw Padred this alt is farther along", -- [8]
+						"/cw Padred so I figured get the token on her first", -- [9]
+						"/cw Padred then do it on Maj on express mode", -- [10]
+						" I understand, on the one hand he kind of deserves it, on the other hand I agree on the other healer thing lol", -- [11]
+						" yah ive tried to lay somewhat low but I was pretty annoyed on thursday lol", -- [12]
+						" and its aggrivating to me personally because I dont have time to farm either but somehow never run out of gold", -- [13]
+						" but I hear ya", -- [14]
+						"/cw Padred then do it on Maj on express mode", -- [15]
+						" I understand, on the one hand he kind of deserves it, on the other hand I agree on the other healer thing lol", -- [16]
+						" yah ive tried to lay somewhat low but I was pretty annoyed on thursday lol", -- [17]
+						" and its aggrivating to me personally because I dont have time to farm either but somehow never run out of gold", -- [18]
+						" but I hear ya", -- [19]
+						"/g yay promoted", -- [20]
+						"/g lol", -- [21]
+						"/g nice", -- [22]
+						" and its aggrivating to me personally because I dont have time to farm either but somehow never run out of gold", -- [23]
+						" but I hear ya", -- [24]
+						"/g yay promoted", -- [25]
+						"/g lol", -- [26]
+						"/g nice", -- [27]
+						" and its aggrivating to me personally because I dont have time to farm either but somehow never run out of gold", -- [28]
+						" but I hear ya", -- [29]
+						"/g yay promoted", -- [30]
+						"/g lol", -- [31]
+						"/g nice", -- [32]
+					},
+				},
+				["Majandra - Dragonblight"] = {
+					["history"] = {
+						" she had a cyber, possibly real affair with im", -- [1]
+						" Kohl", -- [2]
+						" average hunter", -- [3]
+						" remember Ross May?", -- [4]
+						" er...Kevis", -- [5]
+						" I think that is easier on a tank", -- [6]
+						" im fucking keybound out now", -- [7]
+						" and macro'd", -- [8]
+						" and I use a naga", -- [9]
+						" so tight", -- [10]
+						" 12 keys at your fingertips", -- [11]
+						" yah Ross is Kevis", -- [12]
+						" have him on IM still ", -- [13]
+						" mmathias01@gmail.com  is FB", -- [14]
+						" u do remember buckspaladin right?", -- [15]
+						" that is who Cira was like all over", -- [16]
+						" Erin rather", -- [17]
+						" omg ur girls are beautiful", -- [18]
+						" ur so fucked in 10 years", -- [19]
+						" its ok I know the feeling", -- [20]
+						" Grace is a gorgeous little girl", -- [21]
+						" gonna be a pile of bodies outside my front door when that one starts dating me thinks", -- [22]
+						" good for boyfriends, zombies, and birds", -- [23]
+						" hmm", -- [24]
+						" thats tough I would think prospecting it but only if you have a JC", -- [25]
+						" then you can make the gems out of it", -- [26]
+						" problem is the 200 versions of gems", -- [27]
+						" good for boyfriends, zombies, and birds", -- [28]
+						" hmm", -- [29]
+						" thats tough I would think prospecting it but only if you have a JC", -- [30]
+						" then you can make the gems out of it", -- [31]
+						" problem is the 200 versions of gems", -- [32]
+					},
+				},
+				["Jolobank - Dragonblight"] = {
+					["history"] = {
+						"/reloadui", -- [1]
+						"/reloadui", -- [2]
 					},
 				},
 			},
@@ -1473,24 +1626,27 @@ ElvUI_ChatTweaksDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 	},
 	["profiles"] = {
+		["Majandra - Darrowmere"] = {
+		},
 		["Jolokia - Dragonblight"] = {
 			["modules"] = {
 				["Alt Names"] = true,
 			},
 		},
 		["Majandra - Dragonblight"] = {
-			["welcome"] = false,
 			["modules"] = {
-				["Custom Named Chat Filters"] = false,
 				["A Test of Valor"] = false,
-				["Companions"] = false,
+				["Custom Named Chat Filters"] = false,
 				["Alt Names"] = true,
+				["Companions"] = false,
 			},
+			["welcome"] = false,
 		},
 		["Jolobank - Dragonblight"] = {
 		},

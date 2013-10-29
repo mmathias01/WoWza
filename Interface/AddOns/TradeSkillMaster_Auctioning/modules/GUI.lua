@@ -494,7 +494,7 @@ function private:CreateLogST(parent)
 			GameTooltip:AddLine(L["Minimum Price:"].." "..(TSMAPI:FormatTextMoney(prices.minPrice, "|cffffffff") or "---"))
 			GameTooltip:AddLine(L["Maximum Price:"].." "..(TSMAPI:FormatTextMoney(prices.maxPrice, "|cffffffff") or "---"))
 			GameTooltip:AddLine(L["Normal Price:"].." "..(TSMAPI:FormatTextMoney(prices.normalPrice, "|cffffffff") or "---"))
-			GameTooltip:AddLine(L["Lowest Buyout:"].." |r"..(TSMAPI:FormatTextMoney(data.buyout, "|cffffffff") or "---"))
+			GameTooltip:AddLine(L["Lowest Buyout:"].." |r"..(TSMAPI:FormatTextMoney(data.lowestBuyout, "|cffffffff") or "---"))
 			GameTooltip:AddLine(L["Log Info:"].." "..data.info)
 			GameTooltip:AddLine("\n"..TSMAPI.Design:GetInlineColor("link2")..L["Click to show auctions for this item."].."|r")
 			GameTooltip:AddLine(TSMAPI.Design:GetInlineColor("link2")..format(L["Right-Click to add %s to your friends list."], "|r"..(data.seller or "---")..TSMAPI.Design:GetInlineColor("link2")).."|r")
@@ -573,9 +573,10 @@ function private:GetLogSTRow(record, recordIndex)
 	end
 	
 	local name, link = TSMAPI:GetSafeItemInfo(record.itemString)
-	local buyout, seller, isWhitelist, isPlayer, _
+	local buyout, seller, isWhitelist, isPlayer, lowestBuyout, _
 	if record.reason ~= "cancelAll" then
 		buyout, _, seller, isWhitelist, isPlayer = TSM.Scan:GetLowestAuction(record.itemString, record.operation)
+		lowestBuyout = buyout
 		if TSM.db.global.priceColumn == 1 then
 			buyout = record.buyout
 		end
@@ -628,6 +629,7 @@ function private:GetLogSTRow(record, recordIndex)
 		itemString = record.itemString,
 		operation = record.operation,
 		buyout = buyout,
+		lowestBuyout = lowestBuyout,
 		seller = seller,
 		info = infoText,
 	}
@@ -679,7 +681,7 @@ function private:Stopped(notDone)
 	private.contentButtons.currAuctionsButton:Hide()
 	
 	if private.mode == "Post" then
-		TSMAPI:CreateTimeDelay("aucTotalGold", 0.5, SetGoldText)
+		TSMAPI:CreateTimeDelay(0.5, SetGoldText)
 		SetGoldText()
 		private.statusBar:SetStatusText(L["Post Scan Finished"])
 	elseif private.mode == "Cancel" then
@@ -705,7 +707,7 @@ function GUI:CreateSelectionFrame(parent)
 	stContainer:SetPoint("TOPLEFT", 5, -20)
 	stContainer:SetPoint("BOTTOMRIGHT", -200, 30)
 	TSMAPI.Design:SetFrameColor(stContainer)
-	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Auctioning")
+	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Auctioning", "Auctioning_AH")
 	
 	local helpText = TSMAPI.GUI:CreateLabel(frame)
 	helpText:SetPoint("TOP", stContainer, 0, 20)

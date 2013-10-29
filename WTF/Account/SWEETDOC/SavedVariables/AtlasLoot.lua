@@ -1,76 +1,10 @@
 
 AtlasLootDB = {
 	["namespaces"] = {
-		["DefaultFrame"] = {
-			["profiles"] = {
-				["Jolokia - Dragonblight"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						178.9999237060547, -- [4]
-						123.0000076293945, -- [5]
-					},
-					["instance"] = "ThroneofThunder",
-				},
-				["Majandra - Dragonblight"] = {
-					["instance"] = "SiegeofOrgrimmar",
-					["NEWpoint"] = {
-						"TOP", -- [1]
-						nil, -- [2]
-						"TOP", -- [3]
-						68.50005340576172, -- [4]
-						-39.00002670288086, -- [5]
-					},
-					["module"] = "AtlasLootMoP",
-				},
-				["Cellestia - Terenas"] = {
-					["module"] = "AtlasLootMoP",
-					["NEWpoint"] = {
-						nil, -- [1]
-						nil, -- [2]
-						"CENTER", -- [3]
-						26.99994468688965, -- [4]
-						122, -- [5]
-					},
-					["instance"] = "MoguShanVaults",
-				},
-			},
-		},
-		["AtlasLootPanel"] = {
-		},
 		["WishList"] = {
 			["global"] = {
 				["data"] = {
 					["Normal"] = {
-						["Terenas"] = {
-							["Cellestia"] = {
-								{
-									{
-										{
-											0, -- [1]
-											86885, -- [2]
-											"", -- [3]
-											"=q4=Spirits of the Sun", -- [4]
-											"=ds=#s14#", -- [5]
-											"ToESTsulong#RaidFinder", -- [6]
-										}, -- [1]
-										{
-											0, -- [1]
-											86805, -- [2]
-											"", -- [3]
-											"=q4=Qin-xi's Polarizing Seal", -- [4]
-											"=ds=#s14#", -- [5]
-											"MSVWilloftheEmperor#RaidFinder", -- [6]
-										}, -- [2]
-									}, -- [1]
-									["info"] = {
-										["icon"] = "INTERFACE\\ICONS\\Ability_BackStab",
-									},
-								}, -- [1]
-							},
-						},
 						["Dragonblight"] = {
 							["Majandra"] = {
 								{
@@ -200,7 +134,73 @@ AtlasLootDB = {
 								}, -- [1]
 							},
 						},
+						["Terenas"] = {
+							["Cellestia"] = {
+								{
+									{
+										{
+											0, -- [1]
+											86885, -- [2]
+											"", -- [3]
+											"=q4=Spirits of the Sun", -- [4]
+											"=ds=#s14#", -- [5]
+											"ToESTsulong#RaidFinder", -- [6]
+										}, -- [1]
+										{
+											0, -- [1]
+											86805, -- [2]
+											"", -- [3]
+											"=q4=Qin-xi's Polarizing Seal", -- [4]
+											"=ds=#s14#", -- [5]
+											"MSVWilloftheEmperor#RaidFinder", -- [6]
+										}, -- [2]
+									}, -- [1]
+									["info"] = {
+										["icon"] = "INTERFACE\\ICONS\\Ability_BackStab",
+									},
+								}, -- [1]
+							},
+						},
 					},
+				},
+			},
+		},
+		["AtlasLootPanel"] = {
+		},
+		["DefaultFrame"] = {
+			["profiles"] = {
+				["Jolokia - Dragonblight"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						178.9999237060547, -- [4]
+						123.0000076293945, -- [5]
+					},
+					["instance"] = "ThroneofThunder",
+				},
+				["Majandra - Dragonblight"] = {
+					["instance"] = "SiegeofOrgrimmar",
+					["NEWpoint"] = {
+						"TOP", -- [1]
+						nil, -- [2]
+						"TOP", -- [3]
+						68.50005340576172, -- [4]
+						-39.00002670288086, -- [5]
+					},
+					["module"] = "AtlasLootMoP",
+				},
+				["Cellestia - Terenas"] = {
+					["module"] = "AtlasLootMoP",
+					["NEWpoint"] = {
+						nil, -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						26.99994468688965, -- [4]
+						122, -- [5]
+					},
+					["instance"] = "MoguShanVaults",
 				},
 			},
 		},
@@ -225,17 +225,17 @@ AtlasLootDB = {
 							["#w1#"] = false,
 							["#w10#"] = false,
 						},
-						["WeaponsRanged"] = {
-							["#w3#"] = false,
-							["#w2#"] = false,
-							["#w5#"] = false,
-						},
 						["WeaponsMeele"] = {
 							["#w13#"] = false,
 							["#w1#"] = false,
 							["#w8#"] = false,
 							["#w7#"] = false,
 							["#w10#"] = false,
+						},
+						["WeaponsRanged"] = {
+							["#w3#"] = false,
+							["#w2#"] = false,
+							["#w5#"] = false,
 						},
 					},
 					["enable"] = true,
@@ -246,9 +246,9 @@ AtlasLootDB = {
 							["PARRY_RATING"] = false,
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
-							["EXPERTISE_RATING"] = false,
 							["AGILITY"] = false,
 							["STRENGTH"] = false,
+							["EXPERTISE_RATING"] = false,
 						},
 						["Armor"] = {
 							["#a2#"] = false,
@@ -258,15 +258,15 @@ AtlasLootDB = {
 						["WeaponsMeeleTwoHand"] = {
 							["#w10#"] = false,
 						},
+						["WeaponsMeele"] = {
+							["#w7#"] = false,
+							["#w10#"] = false,
+						},
 						["WeaponsRanged"] = {
 							["#w3#"] = false,
 							["#w2#"] = false,
 							["#w5#"] = false,
 							["#w12#"] = false,
-						},
-						["WeaponsMeele"] = {
-							["#w7#"] = false,
-							["#w10#"] = false,
 						},
 					},
 					["enable"] = true,
@@ -274,32 +274,18 @@ AtlasLootDB = {
 			},
 		},
 	},
-	["showWarning"] = true,
 	["profileKeys"] = {
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 	},
+	["showWarning"] = true,
 	["profiles"] = {
-		["Jolokia - Dragonblight"] = {
-			["LootTableType"] = "RaidFinder",
-			["UseGameTooltip"] = true,
-		},
-		["Ziagi - Terenas"] = {
-		},
-		["Shenlu - Dragonblight"] = {
-		},
-		["Jolokya - Dragonblight"] = {
-		},
-		["Majandra - Dragonblight"] = {
-			["UseGameTooltip"] = true,
-		},
-		["Jolobank - Dragonblight"] = {
-		},
 		["Cellestia - Terenas"] = {
 			["LootTableType"] = "RaidFinder",
 			["LastSearch"] = "firescri",
@@ -308,6 +294,23 @@ AtlasLootDB = {
 			["CompareFrame"] = {
 				["showExtraSort"] = false,
 			},
+		},
+		["Jolokia - Dragonblight"] = {
+			["LootTableType"] = "RaidFinder",
+			["UseGameTooltip"] = true,
+		},
+		["Ziagi - Terenas"] = {
+		},
+		["Shenlu - Dragonblight"] = {
+		},
+		["Majandra - Darrowmere"] = {
+		},
+		["Majandra - Dragonblight"] = {
+			["UseGameTooltip"] = true,
+		},
+		["Jolobank - Dragonblight"] = {
+		},
+		["Jolokya - Dragonblight"] = {
 		},
 	},
 }

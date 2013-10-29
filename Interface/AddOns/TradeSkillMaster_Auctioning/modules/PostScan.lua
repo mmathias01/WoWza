@@ -21,7 +21,9 @@ function Post:ValidateOperation(itemString, operation)
 	local prices = TSM.Util:GetItemPrices(operation, itemString)
 
 	-- don't post this item if their settings are invalid
-	if not prices.minPrice then
+	if operation.postCap == 0 then
+		return -- posting is disabled
+	elseif not prices.minPrice then
 		if not TSM.db.global.disableInvalidMsg then
 			TSM:Printf(L["Did not post %s because your minimum price (%s) is invalid. Check your settings."], itemLink or itemString, operation.minPrice)
 		end
@@ -242,11 +244,20 @@ function Post:GetPostPrice(itemString, operation)
 
 	if not lowestOwner then
 		-- No other auctions up, default to normalPrice
-		info = "postingFallback"
+		info = "postingNormal"
 		buyout = prices.normalPrice
 	elseif prices.resetPrice and lowestBuyout <= prices.minPrice then
 		-- item is below min price and a priceReset is set
-		info = "postingReset"
+		if operation.priceReset == "minPrice" then
+			info = "postingResetMin"
+		elseif operation.priceReset == "maxPrice" then
+			info = "postingResetMax"
+		elseif operation.priceReset == "normalPrice" then
+			info = "postingResetNormal"
+		else
+			-- should never happen, but better to throw an error here than cause issues later on
+			error("Unknown 'below minimum' price setting.")
+		end
 		buyout = prices.resetPrice
 	elseif isPlayer or (isWhitelist and lowestBuyout - prices.undercut <= prices.maxPrice) then
 		-- Either we already have one up or someone on the whitelist does
@@ -255,10 +266,19 @@ function Post:GetPostPrice(itemString, operation)
 	else
 		-- we've been undercut and we are going to undercut back
 		buyout = lowestBuyout - prices.undercut
-		-- if the cheapest is above our max price, post at normal price
+		-- if the cheapest is above our max price, follow the aboveMax setting
 		if buyout > prices.maxPrice then
-			info = "postingFallback"
-			buyout = prices.normalPrice
+			if operation.aboveMax == "minPrice" then
+				info = "aboveMaxMin"
+			elseif operation.aboveMax == "maxPrice" then
+				info = "aboveMaxMax"
+			elseif operation.aboveMax == "normalPrice" then
+				info = "aboveMaxNormal"
+			else
+				-- should never happen, but better to throw an error here than cause issues later on
+				error("Unknown 'above maximum' price setting.")
+			end
+			buyout = prices.aboveMax
 		end
 		-- make sure the buyout and bid aren't below the minPrice
 		buyout = max(buyout, prices.minPrice)
@@ -400,6 +420,18 @@ function Post:DoAction()
 		AuctionFrameAuctions.duration = 2
 	end
 
+	if type(currentItem.bag) ~= "number" or type(currentItem.slot) ~= "number" then
+		local bag, slot = Post:FindItemSlot(itemString)
+		if not bag or not slot then
+			local link = select(2, TSMAPI:GetSafeItemInfo(currentItem.itemString)) or currentItem.itemString
+			TSM:Printf(L["Auctioning could not find %s in your bags so has skipped posting it. Running the scan again should resolve this issue."], link)
+			timeout:Hide()
+			Post:SkipItem()
+			return
+		end
+		currentItem.bag = bag
+		currentItem.slot = slot
+	end
 	local itemString = TSMAPI:GetBaseItemString(GetContainerItemLink(currentItem.bag, currentItem.slot), true)
 	if itemString ~= currentItem.itemString then
 		TSM:Print(L["Please don't move items around in your bags while a post scan is running! The item was skipped to avoid an incorrect item being posted."])

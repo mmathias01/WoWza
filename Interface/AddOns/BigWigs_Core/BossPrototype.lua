@@ -290,6 +290,7 @@ do
 		end
 		allowedEvents[event] = true
 		bossUtilityFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+		self:SendMessage("BigWigs_OnBossLog", self, event, ...)
 	end
 	function boss:Death(func, ...)
 		if not func then error(format(missingArgument, self.moduleName)) end
@@ -792,6 +793,19 @@ do
 		if band(fullKey, C.HEALER) == C.HEALER and not self:Healer() then return end
 		if band(fullKey, C.TANK_HEALER) == C.TANK_HEALER and not self:Tank() and not self:Healer() then return end
 		return band(fullKey, flag) == flag
+	end
+end
+
+-- ALT POWER
+function boss:OpenAltPower(key, title, sorting)
+	if checkFlag(self, key, C.ALTPOWER) then
+		self:SendMessage("BigWigs_ShowAltPower", self, type(title) == "number" and spells[title] or title, sorting == "ZA" and sorting or "AZ")
+	end
+end
+
+function boss:CloseAltPower(key)
+	if checkFlag(self, key or "altpower", C.ALTPOWER) then
+		self:SendMessage("BigWigs_HideAltPower", self)
 	end
 end
 

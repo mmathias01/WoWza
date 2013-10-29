@@ -40,16 +40,16 @@ L = mod:GetLocale()
 
 function mod:GetOptions()
 	return {
-		{-8179, "FLASH"}, {144459, "HEALER"}, {144467, "TANK"}, -- Assault mode
+		-8181,
+		{-8179, "FLASH"}, {144459, "HEALER"}, {144467, "TANK_HEALER"}, -- Assault mode
 		144485, {-8190, "FLASH", "ICON"}, {144498, "FLASH"}, -- Siege mode
 		"custom_off_mine_marks",
-		-8181,
 		"stages", -8183, "berserk", "bosskill",
 	}, {
+		[-8181] = "heroic",
 		[-8179] = -8177,
 		[144485] = -8178,
 		["custom_off_mine_marks"] = L.custom_off_mine_marks,
-		[-8181] = "heroic",
 		["stages"] = "general",
 	}
 end
@@ -59,11 +59,11 @@ function mod:OnBossEnable()
 
 	self:Log("SPELL_CAST_SUCCESS", "MineArming", 144718) -- Detonation Sequence
 	-- Siege mode
-	self:Log("SPELL_PERIODIC_DAMAGE", "NapalmOil", 144498)
+	self:Log("SPELL_PERIODIC_DAMAGE", "ExplosiveTar", 144498)
 	self:Log("SPELL_AURA_REMOVED", "CutterLaserRemoved", 146325)
 	self:Log("SPELL_AURA_APPLIED", "CutterLaserApplied", 146325)
 	self:Log("SPELL_CAST_START", "ShockPulse", 144485)
-	-- Assaukt mode
+	-- Assault mode
 	self:Log("SPELL_AURA_APPLIED", "IgniteArmor", 144467)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "IgniteArmor", 144467)
 	self:Log("SPELL_AURA_APPLIED", "LaserBurn", 144459)
@@ -151,13 +151,13 @@ end
 -- Siege mode
 do
 	local prev = 0
-	function mod:NapalmOil(args)
+	function mod:ExplosiveTar(args)
 		if not self:Me(args.destGUID) then return end
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(-8179, "Personal", "Info", CL["underyou"]:format(args.spellName))
-			self:Flash(-8179)
+			self:Message(144498, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Flash(144498)
 		end
 	end
 end
@@ -180,21 +180,22 @@ function mod:ShockPulse(args)
 	self:Bar(args.spellId, 16)
 end
 
--- Assaukt mode
+-- Assault mode
 function mod:IgniteArmor(args)
-	local amount = args.amount or 0
 	self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
 	self:CDBar(args.spellId, 9)
 end
 
 do
-	local prev = 0
+	local burnList, scheduled = mod:NewTargetList(), nil
+	local function warnBurn(spellId)
+		mod:TargetMessage(spellId, burnList, "Important")
+		scheduled = nil
+	end
 	function mod:LaserBurn(args)
-		local t = GetTime()
-		if t-prev > 2 then
-			prev = t
-			self:Bar(args.spellId, 11) -- is there even a point for this?
-			self:Message(args.spellId, "Important")
+		burnList[#burnList+1] = args.destName
+		if not scheduled then
+			scheduled = self:ScheduleTimer(warnBurn, 1, args.spellId)
 		end
 	end
 end
@@ -215,9 +216,10 @@ end
 function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 	if spellId == 144296 then -- Borer Drill
 		self:Message(-8179, "Attention")
-		self:CDBar(-8179, 19) -- Borer Drill
+		self:CDBar(-8179, 19)
 	elseif spellId == 144673 then -- Crawler Mine
 		self:Message(-8183, "Urgent", nil, CL["count"]:format(spellName, mineCounter))
+		self:Bar(-8183, 18, 144718) -- 48732 = Mine Explosion?
 		mineCounter = mineCounter + 1
 		if phase == 1 then
 			self:Bar(-8183, 30, CL["count"]:format(spellName, mineCounter))
@@ -228,24 +230,24 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 			self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			self:ScheduleTimer("ResetMarking", 18) -- cast time is 15, we should be safe with 18
 		end
-	elseif spellId == 144492 then -- Napalm Oil
-		self:Message(-8179, "Attention")
-		self:CDBar(-8179, 20)
-	elseif spellId == 146359 then -- Regeneration aka Assault mode
+	elseif spellId == 144492 then -- Explosive Tar 
+		self:Message(144498, "Attention")
+		self:CDBar(144498, 20)
+	elseif spellId == 146359 then -- Regeneration (Assault mode)
 		phase = 1
 		self:Message("stages", "Neutral", "Long", CL["phase"]:format(phase), false)
 		self:Bar("stages", 120, CL["phase"]:format(2), 144498) -- maybe should use UNIT_POWER to adjust timer since there seems to be a 6 sec variance
 		if self:Healer() then
-			self:CDBar(144459, 8)
+			self:CDBar(144459, 8) -- Laser Burn
 		end
 		self:StopBar(CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		mineCounter = 1
 		self:Bar(-8183, 30, CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		self:CDBar(-8179, 19) -- Borer Drill
 		self:StopBar(144485) -- Shock Pulse
-		self:StopBar(-8179) -- Napalm Oil
+		self:StopBar(144498) -- Explosive Tar
 		self:StopBar(CL["phase"]:format(1)) -- in case it overruns
-	elseif spellId == 146360 then -- Depletion aka Siege mode
+	elseif spellId == 146360 then -- Depletion (Siege mode)
 		phase = 2
 		self:Message("stages", "Neutral", "Long", CL["phase"]:format(phase), false)
 		self:Bar("stages", 64, CL["phase"]:format(1), 144464) -- maybe should use UNIT_POWER to adjust timer since there seems to be a 6 sec variance
@@ -253,15 +255,14 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 		mineCounter = 1
 		self:CDBar(-8183, 23, CL["count"]:format(self:SpellName(144673), mineCounter)) -- Crawler Mine
 		self:Bar(144485, 15.5) -- Shock Pulse, 15.6 - 15.8
-		self:CDBar(-8179, 10) -- Napalm Oil
+		self:CDBar(144498, 10) -- Explosive Tar
 		self:StopBar(144459) -- Laser Burn
 		self:StopBar(-8179) -- Borer Drill
 		self:StopBar(144467) -- Ignite Armor
 		self:StopBar(CL["phase"]:format(2)) -- in case it overruns
 	elseif spellId == 144356 then -- Ricochet
 		self:Message(-8181, "Attention")
-		self:CDBar(-8181, 15) -- Ricochet, 15-20s
+		self:CDBar(-8181, 15) -- 15-20s
 	end
 end
-
 

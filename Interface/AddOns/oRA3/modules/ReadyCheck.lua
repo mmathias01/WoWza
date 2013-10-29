@@ -2,7 +2,7 @@ local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
 local module = oRA:NewModule("ReadyCheck", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 667 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 679 $"):sub(12, -3))
 
 local readycheck = {} -- table containing ready check results
 local frame -- will be filled with our GUI frame
@@ -470,6 +470,7 @@ end
 do
 	local noReply = {}
 	local notReady = {}
+	module.stripservers = true
 	function module:READY_CHECK_FINISHED(preempted)
 		if not readychecking or preempted then return end -- is a dungeon group ready check
 
@@ -479,10 +480,13 @@ do
 		wipe(noReply)
 		wipe(notReady)
 		for name, ready in next, readycheck do
+			if module.stripservers then -- this is a hook for other addons to enable unambiguous character names
+				name = name:gsub("%-.*$", "")
+			end
 			if ready == "waiting" or ready == "offline" then
-				noReply[#noReply + 1] = name:gsub("%-.*$", "")
+				noReply[#noReply + 1] = name
 			elseif ready == "notready" then
-				notReady[#notReady + 1] = name:gsub("%-.*$", "")
+				notReady[#notReady + 1] = name
 			end
 		end
 

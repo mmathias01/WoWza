@@ -1,5 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "frFR")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "À propos"
 L["activeBossModules"] = "Modules de boss actifs :"
@@ -8,6 +9,10 @@ L["allRightsReserved"] = "Tous droits réservés"
 L["alphaOutdated"] = "Votre version alpha de Big Wigs est périmée (/bwv)."
 L["alphaRelease"] = "Vous utilisez une version ALPHA de Big Wigs %s (r%d)."
 L["already_registered"] = "|cffff0000ATTENTION :|r |cff00ff00%s|r (|cffffff00%s|r) existe déjà en tant que module dans Big Wigs, mais quelque chose essaye de l'enregistrer à nouveau. Cela signifie souvent que vous avez deux copies de ce module dans votre répertoire AddOns suite à une mauvaise mise à jour d'un gestionnaire d'addons. Il est recommandé de supprimer tous les répertoires de Big Wigs et de le réinstaller complètement."
+L["altpower"] = "Affichage de la ressource alternative" -- Needs review
+L["ALTPOWER"] = "Affichage de la ressource alternative" -- Needs review
+L["altpower_desc"] = "Affiche la fenêtre de ressource alternative, qui montre la quantité de ressource alternative des membres de votre groupe." -- Needs review
+L["ALTPOWER_desc"] = "Certaines rencontres utilisent le mécanisme de ressource alternative sur les joueurs de votre groupe. L'affichage de la ressource alternative fournit un aperçu rapide de qui a le plus/le moins de ressource alternative, ce qui peut être utile pour des stratégies ou des attributions spécifiques." -- Needs review
 L["autoRole"] = "Mise à jour auto. du rôle"
 L["autoRoleDesc"] = [=[Savoir quel rôle vous jouez améliore les alertes Big Wigs des autres joueurs de votre raid. Cette option permet à Big Wigs de mettre à jour automatiquement votre rôle. Par exemple, certains modules vérifient si un joueur est un tank lors de l'analyse des techniques de boss qui n'affectent jamais les tanks.
 
@@ -53,7 +58,7 @@ L["FLASH"] = "Flash"
 L["FLASH_desc"] = "Certaines techniques sont plus importantes que d'autres. Si vous souhaitez que votre écran clignote quand cette technique est imminente ou utilisée, cochez cette option."
 L["flashScreen"] = "Faire clignoter l'écran"
 L["flashScreenDesc"] = "Certaines techniques sont tellement importantes qu'elles nécessitent toute votre attention. Quand ces techniques vous affectent, Big Wigs peut faire clignoter l'écran."
-L["flex"] = "Flex"
+L["flex"] = "Dyna"
 L["healer"] = "|cFFFF0000Alertes pour soigneur uniquement.|r "
 L["HEALER"] = "Soigneur uniquement"
 L["HEALER_desc"] = "Certaines techniques sont importantes uniquement pour les soigneurs. Si vous souhaitez voir des alertes pour cette technique quelque soit votre rôle, désactivez cette option"
@@ -131,5 +136,4 @@ L["website"] = "Site web"
 L["wipes"] = "Échecs :"
 L["zoneMessages"] = "Afficher les messages de zone"
 L["zoneMessagesDesc"] = "La désactivation de ceci enlevera les messages qui s'affichent quand vous entrez dans une zone pour laquelle Big Wigs a un module de délais que vous n'avez pas installé. Nous vous recommendons de laisser ceci activé, étant donné qu'il s'agit de la seule notification que vous recevrez si nous ajoutons un module que vous n'avez pas pour une nouvelle zone qui vous intéresse."
-
 

@@ -1,6 +1,5 @@
 -------------------------------------------------------------------------------
 -- ElvUI Chat Tweaks By Lockslap (US, Bleeding Hollow)
--- <Borderline Amazing>, http://ba-guild.com
 -- Based on functionality provided by Prat and/or Chatter
 -------------------------------------------------------------------------------
 local Module = ElvUI_ChatTweaks:NewModule("In Command", "AceConsole-3.0", "AceTimer-3.0")

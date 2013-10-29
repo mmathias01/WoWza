@@ -258,7 +258,7 @@ local function GetOptions()
 		name = addonName..' DEV',
 		--@end-debug@]===]
 		--@non-debug@
-		name = addonName..' v1.6.9',
+		name = addonName..' v1.6.11',
 		--@end-non-debug@
 		type = 'group',
 		handler = addon:GetOptionHandler(addon),
@@ -355,6 +355,16 @@ local function GetOptions()
 								arg = { "rowWidth", "Bank" },
 							},
 						},
+					},
+					maxWidth = {
+						name = L['Maximum bag width'],
+						desc = L['Adjust the maximum width of the bags, relative to screen size.\nNote: due to the layout constraints, this is a soft cap.'],
+						type = 'range',
+						order = 145,
+						isPercent = true,
+						min = 0.30,
+						max = 1.00,
+						step = 0.05,
 					},
 					maxHeight = {
 						name = L['Maximum bag height'],

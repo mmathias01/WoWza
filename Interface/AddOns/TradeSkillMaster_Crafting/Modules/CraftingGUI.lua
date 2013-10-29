@@ -328,20 +328,22 @@ end
 function GUI:ShowSwitchButton()
 	if not GUI.switchBtn then
 		local btn = TSMAPI.GUI:CreateButton(UIParent, 16)
-		btn:SetText("TSM")
+		btn:SetText(TSMAPI.Design:GetInlineColor("link")..DEFAULT.."|r")
 		btn.Update = function(self)
 			self:Show()
 			if TSM.db.global.showingDefaultFrame then
 				self:SetParent(TradeSkillFrame)
 				self:SetPoint("TOPLEFT", 55, -3)
-				self:SetWidth(40)
+				self:SetWidth(60)
 				self:SetHeight(18)
+				self:SetText(TSMAPI.Design:GetInlineColor("link").."TSM|r")
 			else
 				if not GUI.frame then return TSMAPI:CreateTimeDelay("craftingSwitchBtn", 0.05, function() self:Update() end) end
 				self:SetParent(GUI.frame)
 				self:SetPoint("TOPLEFT", 4, -4)
-				self:SetWidth(40)
+				self:SetWidth(60)
 				self:SetHeight(18)
+				self:SetText(TSMAPI.Design:GetInlineColor("advanced")..DEFAULT.."|r")
 			end
 		end
 		btn:SetScript("OnClick", function(self)
@@ -364,33 +366,17 @@ function GUI:ShowSwitchButton()
 end
 
 function GUI:CreateGUI()
-	local frame = CreateFrame("Frame", "TSMCraftingTradeSkillFrame")
-	frame:SetFrameStrata("HIGH")
-	frame:SetToplevel(true)
-	local width, height = unpack(TSM.db.global.frameSize)
-	frame:SetHeight(height)
-	frame:SetWidth(width)
-	frame:SetScale(UIParent:GetScale() * TSM.db.global.frameScale)
-	frame:SetPoint("CENTER", UIParent)
-	frame:EnableMouse(true)
-	frame:SetMovable(true)
+	local frameDefaults = {
+		x = 100,
+		y = 300,
+		width = 450,
+		height = 500,
+		scale = 1,
+	}
+	local frame = TSMAPI:CreateMovableFrame("TSMCraftingTradeSkillFrame", frameDefaults)
 	frame:SetResizable(true)
 	frame:SetMinResize(300, 400)
-	local function OnFrameShow(self)
-		self:SetScale(UIParent:GetScale() * TSM.db.global.frameScale)
-		self:SetFrameLevel(0)
-		self:ClearAllPoints()
-		self:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.global.framePosition))
-		local width, height = unpack(TSM.db.global.frameSize)
-		self:SetWidth(width)
-		self:SetHeight(height)
-	end
-
-	frame:SetScript("OnMouseDown", frame.StartMoving)
-	frame:SetScript("OnMouseUp", function(...) frame.StopMovingOrSizing(...) TSM.db.global.framePosition = { frame:GetLeft(), frame:GetBottom() } end)
 	TSMAPI.Design:SetFrameBackdropColor(frame)
-	frame:SetScript("OnShow", OnFrameShow)
-	frame:Hide()
 	frame:Show()
 	frame:SetScript("OnHide", function() if not GUI.noClose then GUI.switchBtn:Hide() TradeSkillFrame:Show() CloseTradeSkill() end end)
 	tinsert(UISpecialFrames, "TSMCraftingTradeSkillFrame")
@@ -429,14 +415,6 @@ function GUI:CreateGUI()
 
 	content.professionsTab = GUI:CreateProfessionsTab(content)
 	content.groupsTab = GUI:CreateGroupsTab(content)
-end
-
-function GUI:ResetFramePosition()
-	TSM.db.global.framePosition = { 20, 500 }
-	TSM.db.global.frameSize = { 450, 500 }
-	if GUI.frame and GUI.frame:IsVisible() then
-		GUI.frame:Hide()
-	end
 end
 
 function GUI:CreateQueueFrame(parent)
@@ -1018,7 +996,6 @@ function GUI:CreateCraftInfoFrame(parent)
 
 	local function Sizer_OnMouseUp()
 		GUI.frame:StopMovingOrSizing()
-		TSM.db.global.frameSize = { GUI.frame:GetWidth(), GUI.frame:GetHeight() }
 	end
 
 	local function Sizer_OnMouseDown()
@@ -1227,17 +1204,17 @@ function GUI:CreateCraftInfoFrame(parent)
 		end
 
 		for i, btn in ipairs(self.matsFrame.reagentButtons) do
-			if i > GetTradeSkillNumReagents(skillIndex) then
-				btn:Hide()
-				btn:SetText("")
-				btn.quantityText:SetText("")
-			else
+			local name, texture, needed, player = GetTradeSkillReagentInfo(skillIndex, i)
+			if name then
 				btn:Show()
 				btn.link = GetTradeSkillReagentItemLink(skillIndex, i)
-				local name, texture, needed, player = GetTradeSkillReagentInfo(skillIndex, i)
 				btn:SetText((texture and "|T" .. texture .. ":0|t" or "") .. (GetTradeSkillReagentItemLink(skillIndex, i) or name))
 				local color = (needed > player) and "|cffff0000" or "|cff00ff00"
 				btn.quantityText:SetText(format(" %s(%d/%d)|r", color, player, needed))
+			else
+				btn:Hide()
+				btn:SetText("")
+				btn.quantityText:SetText("")
 			end
 		end
 
@@ -1273,7 +1250,7 @@ function GUI:CreateGroupsTab(parent)
 	stContainer:SetPoint("TOPLEFT", 5, -5)
 	stContainer:SetPoint("BOTTOMRIGHT", -5, 35)
 	TSMAPI.Design:SetFrameColor(stContainer)
-	local groupTree = TSMAPI:CreateGroupTree(stContainer, "Crafting")
+	local groupTree = TSMAPI:CreateGroupTree(stContainer, "Crafting", "Crafting_Profession")
 
 	local function OnCreateBtnClick()
 		if TSM.db.factionrealm.tradeSkills[UnitName("player")][GetTradeSkillLine()] then
@@ -1878,27 +1855,16 @@ function GUI:UpdateGatherSelectionWindow()
 end
 
 function GUI:CreateGatheringFrame()
-	local frame = CreateFrame("Frame")
+	local frameDefaults = {
+		x = 850,
+		y = 450,
+		width = 325,
+		height = 400,
+		scale = 1,
+	}
+	local frame = TSMAPI:CreateMovableFrame("TSMCraftingGatherFrame", frameDefaults)
 	frame:SetFrameStrata("HIGH")
-	frame:SetToplevel(true)
-	frame:SetHeight(325)
-	frame:SetWidth(400)
-	frame:SetScale(UIParent:GetScale() * TSM.db.global.frameScale)
-	frame:SetPoint("CENTER", UIParent)
-	frame:EnableMouse(true)
-	frame:SetMovable(true)
-	local function OnFrameShow(self)
-		self:SetScale(UIParent:GetScale() * TSM.db.global.frameScale)
-		self:SetFrameLevel(0)
-		self:ClearAllPoints()
-		self:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.global.gatheringFramePosition))
-	end
-
-	frame:SetScript("OnMouseDown", frame.StartMoving)
-	frame:SetScript("OnMouseUp", function(...) frame.StopMovingOrSizing(...) TSM.db.global.gatheringFramePosition = { frame:GetLeft(), frame:GetBottom() } end)
 	TSMAPI.Design:SetFrameBackdropColor(frame)
-	frame:SetScript("OnShow", OnFrameShow)
-	frame:Hide()
 
 	local title = TSMAPI.GUI:CreateLabel(frame)
 	title:SetText("TSM_Crafting - " .. L["Gathering"])
@@ -2014,14 +1980,24 @@ function GUI:CreateGatheringFrame()
 	checkboxFrame:SetPoint("TOPRIGHT", containersFrame, "BOTTOMRIGHT", -2, 2)
 	checkboxFrame:SetPoint("BOTTOMLEFT", 2, 28)
 
-	local checkbox = TSMAPI.GUI:CreateCheckBox(checkboxFrame, L["If checked, only a normal AH search will be performed"])
-	checkbox:SetPoint("CENTER", checkboxFrame, "CENTER")
+	local checkbox1 = TSMAPI.GUI:CreateCheckBox(checkboxFrame, L["If checked, only a normal AH search will be performed"])
+	checkbox1:SetPoint("LEFT", checkboxFrame, "LEFT")
 	--checkbox:SetPoint("BOTTOMRIGHT", checkboxFrame, "BOTTOMRIGHT")
-	checkbox:SetHeight(18)
-	checkbox:SetValue(TSM.db.factionrealm.gathering.destroyDisable)
-	checkbox:SetLabel(L[" Disable Destroying Search"])
-	checkbox:SetCallback("OnValueChanged", function(_,_,value)
+	checkbox1:SetHeight(18)
+	checkbox1:SetValue(TSM.db.factionrealm.gathering.destroyDisable)
+	checkbox1:SetLabel(L[" Disable Destroying Search"])
+	checkbox1:SetCallback("OnValueChanged", function(_,_,value)
 		TSM.db.factionrealm.gathering.destroyDisable = value
+	end)
+
+	local checkbox2 = TSMAPI.GUI:CreateCheckBox(checkboxFrame, L["If checked, the AH destroying search will only look for even stacks"])
+	checkbox2:SetPoint("CENTER", checkboxFrame, "RIGHT")
+	--checkbox:SetPoint("BOTTOMRIGHT", checkboxFrame, "BOTTOMRIGHT")
+	checkbox2:SetHeight(18)
+	checkbox2:SetValue(TSM.db.factionrealm.gathering.evenStacks)
+	checkbox2:SetLabel(L[" Even Stacks"])
+	checkbox2:SetCallback("OnValueChanged", function(_,_,value)
+		TSM.db.factionrealm.gathering.evenStacks = value
 	end)
 	TSMAPI.Design:SetFrameColor(checkboxFrame)
 
@@ -2387,12 +2363,4 @@ function GUI:GatheringEventHandler(event)
 		GUI.gatheringFrame.gatherButton:Disable()
 	end
 	TSMAPI:CreateTimeDelay("gatheringUpdateThrottle", 0.3, GUI.UpdateGathering)
-end
-
-function GUI:ResetGatheringFramePosition()
-	TSM.db.global.gatheringFramePosition = {100, 300}
-	if GUI.gatheringFrame and GUI.gatheringFrame:IsVisible() then
-		GUI.gatheringFrame:Hide()
-		GUI.gatheringFrame:Show()
-	end
 end

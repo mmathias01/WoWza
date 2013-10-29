@@ -1,5 +1,17 @@
+v2.4.1
+*Updating group tree creation API call.
+
+v2.4
+*Button for switching between Crafting and default profession UI's is now more obvious.
+*Improved how the current craft reagent list is populated.
+*Fixed error from special characters being used in the crafts/mats tab filters.
+*Using new movable frame TSMAPI function for gather and profession frames.
+*Removed '/tsm gatherreset' and '/tsm profreset' as they are now combined with '/tsm freset'.
+*Added mail tasks for destroyable items bought from the AH.
+*Added an option to enable even stacks when searching for millable / prospectable items with gathering.
+
 v2.3.1
-* Added /tsm gatherreset to reset gathering frame position
+*Added /tsm gatherreset to reset gathering frame position
 
 v2.3
 *Added caching to the retrieval of mat item links to greatly speed up opening of professions.

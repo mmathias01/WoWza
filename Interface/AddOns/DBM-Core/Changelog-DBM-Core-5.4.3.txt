@@ -1,0 +1,255 @@
+tag 5.4.3
+8c3c7ee70201d09f1ecd24b0e1b446097778b03f
+subversion <svn@deadlybossmods.com>
+2013-10-16 06:29:45 +0200
+
+Tagging as 5.4.3
+
+
+--------------------
+
+subversion:
+	- increment version number to 5.4.3
+	- ultrashining via svn r10638: zhTW update
+	- nbluewiz via svn r10637: # koKR update.
+	- Omega via svn r10636: comment out another thing
+	- Omega via svn r10635: disable non working timer for release
+	- Omega via svn r10634: Push an update that will enable hotfix notification by simply adding a revision to an updated mod during alpha process (or a new release). this should help when big hotfix changes happen like what happened with sha of pride (that made 3 timers on that fight wrong).
+	- Omega via svn r10633: fix some fail
+	- ultrashining via svn r10632: zhTW update
+	- ebmor via svn r10631: deDE update
+	- Omega via svn r10630: revert option change too, since warning for actual spawn is disabled, and dps need some kind of warning (so they don't tunnel).
+	- nbluewiz via svn r10629: # Fix SoO mod not loading.
+	- nbluewiz via svn r10628: # Thok : Fix LFR again.
+	- nbluewiz via svn r10627: # # Thok : Cancel scheduler when phase change. + LFR update.
+	- Omega via svn r10626: fix some fail
+	- Omega via svn r10625: change option defaults on spoils Disable unworking stuff on norushen Fix thok screech timers and disable them beyond 7. Improve cast stop warning by using scheduling (although has to be disabled when things get crazy above 7.
+	- nbluewiz via svn r10624: # Nazgrim : fix add.
+	- nbluewiz via svn r10623: # Nazgrim : Add timer update.
+	- Omega via svn r10622: add spoils infoframe
+	- nbluewiz via svn r10621: # Fix lua error.
+	- Omega via svn r10620: add additional text notifying that icons only work if you have absolute highest alpha in raid, no matter what
+	- nbluewiz via svn r10619: # Spoils : Fix stupid.
+	- Omega via svn r10618: Run validator, fix lua error it found
+	- Omega via svn r10617: small antispam for supernova. can't make it too strict though until it's possible to filter sides for these things...(if that ever happens)
+	- Omega via svn r10616: The back and forth reports of berserk being 9 min or 10 min are both wrong, it's in between that.
+	- Omega via svn r10615: RU update
+	- nbluewiz via svn r10614: # Malkorok : Fix rangeframe bug.
+	- nbluewiz via svn r10613: # Spoils : Bliz suck.. Add timer correction code. (untested)
+	- nbluewiz via svn r10612: # Spoils : one more thing to cleanup.
+	- nbluewiz via svn r10611: # Spoils : Cache GetPlayerMapPosition.
+	- Omega via svn r10610: ckeanup, fixed missed countdown
+	- nbluewiz via svn r10609: # Spoils : Add berserk timer. # Ordos : Add Magma Crush warn.
+	- ultrashining via svn r10608: zhTW update
+	- nbluewiz via svn r10607: # Fix bug again(sorry)
+	- nbluewiz via svn r10606: # typo
+	- nbluewiz via svn r10605: # Finish icon set.
+	- Omega via svn r10604: remove power test, it was actually worthless
+	- Omega via svn r10603: up priority on crimson recon
+	- nbluewiz via svn r10602: # Core : Fix icon set bug. / Ignore worldboss sync during combat.
+	- ebmor via svn r10601: deDE update
+	- nbluewiz via svn r10600: # Fix find fastest computer.
+	- nbluewiz via svn r10599: # Spoils : fix enrage.
+	- nbluewiz via svn r10598: # Garrosh : Some heroic garrosh stuff reported by other player.
+	- nbluewiz via svn r10597: # Thok : revert bad changes.
+	- nbluewiz via svn r10596: # Thok : some tweaks. # koKR update.
+	- Omega via svn r10595: remove spammy timerSuperNova, you pop crates fast on heroic and usually 3-4 sparks up at once, these bars are not useful
+	- Omega via svn r10594: Apply map stuff to correct spells
+	- nbluewiz via svn r10593: # Spoils of Pandaria : map coord.
+	- Omega via svn r10592: Add some debug for spoils testing tonight
+	- Omega via svn r10591: Add preliminary tower add stuff
+	- Omega via svn r10590: Add 3 more auto add marking. untested. I should be able to test 2 of 3 this week though.
+	- Omega via svn r10589: small timer adjust
+	- nbluewiz via svn r10588: # Core : Fix NewCombatTimer audio not works (Sorry, Omega) # Malkorok and Thok : LFR update and fix small bug.
+	- nbluewiz via svn r10587: # Core : fix UNIT_NAME_UPDATE spam.
+	- Omega via svn r10586: Fix a bug in IsTanking method where the boss has no target when he's attacking a player who has no role set (causing istanking to return false when it should return true). This should be improved and more robust code.
+	- nbluewiz via svn r10585: # Nazgrim : this will be better.
+	- nbluewiz via svn r10584: # Sorry for mistake.
+	- nbluewiz via svn r10583: # Nazgrim : Fix info frame sorting.
+	- Omega via svn r10582: correct spellids for trash versions of spells (war banner was same, other two diff)
+	- Omega via svn r10581: NOtes
+	- Omega via svn r10580: Push bugfix and test code, now to work on compatable sorting of a table that has numbers and strings. hmm
+	- Omega via svn r10579: selfs
+	- Omega via svn r10578: fix xuen yell
+	- nbluewiz via svn r10577: # Sha of Pride : Fix Wounded Pride.
+	- ultrashining via svn r10576: zhTW update
+	- nbluewiz via svn r10575: # fix error + koKR update.
+	- Omega via svn r10574: Some trash mod improvement Remove useless fracture stuff from galakras (never targets players, only npcs)
+	- Omega via svn r10573: use custom text for moonfang to better explain mechanics people not understand
+	- Omega via svn r10572: Add non heroic adds info
+	- Omega via svn r10571: Fix few bugs found by Lua Validator app
+	- Omega via svn r10570: Filter start combat debug so we only see what called a mod to enter combat when it was not already in combat. If already in combat, ignore startcombat debug.
+	- nbluewiz via svn r10569: # Moonfang confirmed. Remove boss target debug. (debug message causes lua error..)
+	- nbluewiz via svn r10568: # I finally found problem. The problem is in BossTargetScanner function in UnitExists. If we are in group and target unit is in group, UnitExists(UnitName) will return correct value. But if we are not in group. UnitExists(UnitName) will return nil. This is why Moonfang target warning works only in group. Anyway, I found UnitExist(uId) check works if not in group. So switch UnitExits check to uId. This will fix Moonfang problem :) # I've seen second issue. I died in Moonfang and revived. But, I see wipe message and debug message shows that No boss found. IEEU fires in Moonfang? If not, we must never see No boss found wipe message. I will review that problem.
+	- nbluewiz via svn r10567: # koKR update.
+	- Omega via svn r10566: better way to do class names/colors
+	- Omega via svn r10565: add some debug
+	- Omega via svn r10564: lets try 40 scans at 0.02 then, can't think of what else to do to make it work. I KNOW boss is looking at the targets, i'm watching it happen, and dbm is not catching it.
+	- Omega via svn r10563: Fix target scanning when solo raid that lacks boss unit ids. (this should resolve moonfang leap target not working if not in a group, even when you're targeting/focusing moonfang. Should improve targetscanning in solo raids too on trash mobs) remove the "near" warning on moonfang. it's quite useless since you don't group up for this boss, there is no map data for other players.
+	- Omega via svn r10562: Antispam windstorm (it's cast 3-4 times per mob per cast). this should fix that
+	- Omega via svn r10561: disable bad timer, need to udpate to world state stuff later cause this method doesn't work for crap, varies too much. Try tank filter on supernova
+	- nbluewiz via svn r10560: # Fix icon setting bug reported by Omega.
+	- ultrashining via svn r10559: zhTW update
+	- nbluewiz via svn r10558: # koKR update.
+	- Omega via svn r10557: Untested drycode of nazgrim wave info on infoframe. since i don't have normal or LFR data, this isn't really testable on any mode but heroic
+	- Omega via svn r10556: fix another moonfang fuckup
+	- Omega via svn r10555: Improvements to nazgrim leap. Meant to commit these few nights ago but with computer problems it didn't get done (actually still booted from a backup volume at the moment too)
+	- Omega via svn r10554: fix another mistake
+	- Omega via svn r10553: fix a fuckup
+	- Omega via svn r10552: setrevision property
+	- Omega via svn r10551: add moonfang mod remove setwipetime from rabbit, should be handled by world boss code.
+	- Omega via svn r10550: Fix brawlers mod loading
+	- Omega via svn r10549: Never get more than 4 adds at once on nazgrim. never get more than 3 on normal actually. 4 is heroic only
+	- ebmor via svn r10548: Immerseus: fix LUA error (mod:SetWipeTime must not be used before mod:RegisterCombat)
+	- nbluewiz via svn r10547: # Immerseus : Prevent false wipe. / Fix timer not freshing when residue stacking.
+	- ultrashining via svn r10546: zhTW update
+	- Omega via svn r10545: Ru update
+	- Omega via svn r10544: Enforce conventions in 3 remaining languages that were still overwriting entire tables. Should fix issues like this one http://elitistjerks.com/f104/t133238-lua_error_zhtw/
+	- ebmor via svn r10543: deDE update
+	- nbluewiz via svn r10542: # Core : Fix worldboss health report bug (hopefully) # koKR update.
+	- nbluewiz via svn r10541: # Oops bad change by accident.
+	- nbluewiz via svn r10540: # Add more raid roster update event. This is related with class coloring. # Force wipe worldboss mod if you entered instance during combat. # Some adjust. (This is not change note : Nazgrim add icons setting good working with new stuff. Confirmed in LFR.)
+	- Omega via svn r10539: Start countdown a little sooner. move pre warn back 1 second as well
+	- ultrashining via svn r10538: zhTW update
+	- nbluewiz via svn r10537: # Nazgrim : try to fix IconSet not working.
+	- Omega via svn r10536: Include sender in pull timer.
+	- Omega via svn r10535: Improve Sha shear behavior on many requests. Only warn when it's relevant, add yell too.
+	- ultrashining via svn r10534: zhTW update
+	- nbluewiz via svn r10533: # Improve world boss mod load. (When I playing Paladin healer, joined Ordos party. All members reached and start fight with him. On combat start, I founded Pandaria mod not loaded. WTF?)
+	- nbluewiz via svn r10532: # Core : Finish wipe check. hope there will be no bug.
+	- ebmor via svn r10531: GarroshHellscream: fix icon set bug (introduced in 10513 and unfortunately not fixed in r10516)
+	- ebmor via svn r10530: Malkorok: adjust SetUsedIcons to include the icons for the three Living Corruption adds (heroic25)
+	- Omega via svn r10529: Debug looked good, so re-enable strike stuff
+	- nbluewiz via svn r10528: # Restore Omega's feature.
+	- ebmor via svn r10527: FallenProtectors: unused InferoStrike code / GUI options commented out (see r10367 changes)
+	- nbluewiz via svn r10526: # Update wipe and recovery feature.
+	- ebmor via svn r10525: deDE update
+	- Omega via svn r10524: Improvements to timer recovery and reduction in wipe time for IEEU
+	- Omega via svn r10523: Switch gouge to raid boss whisper do to the threat scanning sometimes failing if gouge is cast at same time as desperate measures (ie bossN's shuffle around while scanning them)
+	- Omega via svn r10522: Fix falling ash cast time on heroic
+	- nbluewiz via svn r10521: # Also remove pet check here :)
+	- nbluewiz via svn r10520: # fix error.
+	- Omega via svn r10519: Remove pets from the def stance warning. Most pets don't give. maybe just stuff like shaman totems.
+	- Omega via svn r10518: Fix elegon error, raise scan timing. not all activate at same time, need more time to mark all
+	- Omega via svn r10517: LFr berserk was bumped up to 10 min, up from 9.
+	- Omega via svn r10516: Fix several obvious bugs
+	- nbluewiz via svn r10515: # Sha of Pried : Update option text.
+	- nbluewiz via svn r10514: # Change All icon stuff. And fix error. Still, new icon prototype not tested. I have no time today, I will test new function tomorrow.
+	- nbluewiz via svn r10513: # Re-improve ScanForMobs. (supports Nazgrim.)
+	- nbluewiz via svn r10512: # Improve ScanForMob + Imported Lei Shi method.
+	- Omega via svn r10511: Add additional notes. Icon stuff should be good to go now. However, it lacks icon electing and as such, if 2 or more turn them on, they will break. Added note to prototype explaining this.
+	- Omega via svn r10510: Also, add key announce to thok
+	- Omega via svn r10509: Fix a logic fail
+	- Omega via svn r10508: Update set icons used Change one icon on Galakras, not make sense to use skull for debuff. May still be adds up (marked with skull) when boss lands. Add auto marking on galakras too (need at least ONE fight to test function on that's available in LFR/Flex)
+	- Omega via svn r10507: Ooops, don't scan for adds on malk unless it's heroic
+	- Omega via svn r10506: Add add finding icon prototype (unfortunately, As for nazgrim, well i think there is no avoiding that one staying a local function in mod, it's too custom to include in prototype.) Add auto icon marking on heroic sha and heroic malkorak Change garrosh to prototype
+	- Omega via svn r10505: err no, that was even worse logic, do it this way
+	- Omega via svn r10504: improve agility warning to filter spell steals from people NOT in your raid group since apparently IsDestTypePlayer fails if they are not in group.
+	- Omega via svn r10503: Re-hard embed. svn sucks at externals
+	- Omega via svn r10502: revert that
+	- Omega via svn r10501: grr
+	- Omega via svn r10500: I'm terrible at this, last try, otherwise i'll just revert it until paul can do it right way
+	- Omega via svn r10499: oops
+	- Omega via svn r10498: try this again
+	- Omega via svn r10497: Some testing
+	- ebmor via svn r10496: Brawlers - Anoo'ru: fix defect CompleteHeal warning (AAARGH!)
+	- ebmor via svn r10495: deDE update
+	- nbluewiz via svn r10494: # Remove useless LS toc.
+	- Omega via svn r10493: Needs LS to work
+	- ebmor via svn r10492: deDE update
+	- nbluewiz via svn r10491: # Change Salyis to Galleon (refer to bliz instance lockout info)
+	- nbluewiz via svn r10490: # Do not show statistics for trash mod.
+	- nbluewiz via svn r10489: # Improve NewMod auto name generate stuff. Also see proving ground mods.
+	- nbluewiz via svn r10488: # Core : fix leaked global.
+	- Omega via svn r10487: oops, use propper name
+	- Omega via svn r10486: fix leaked globals
+	- Omega via svn r10485: Embed LibChatAnims for the AddMessage taints
+	- nbluewiz via svn r10484: # Block self sync.
+	- Omega via svn r10483: Change back to my way but fix the leaked global and bad sync. It's good this way. better not to swap args for no reason. simply adding arg is good.
+	- nbluewiz via svn r10482: # Improve and fix bug in revision check.
+	- Omega via svn r10481: Fix thok spam if dps/healers in front of boss. fix bug on iron jugg where healers/dps can't see cooldown for breath if turned on.
+	- Omega via svn r10480: block bad pulls by now supporting dbm revision in "C" syncs
+	- nbluewiz via svn r10479: # Refine StartCombat args. (nil, nil, nil, nil is very ugly.) I wish this change to apply in announce, timer.. but too many work.
+	- Omega via svn r10478: remove forced TimerTracker on alternate voice on nazgrim, done in core now
+	- Omega via svn r10477: Remove the encounter specific hack for megaera, should now be handled by core.
+	- Omega via svn r10476: Some more debug work. I'm still having a hard time on 25 man, spotting who even has the inferostrike debuff. Hell when i ask in raid no one knows who it's actually on. 25 people are piled up in a stack, we only know it's on SOMEONE.
+	- nbluewiz via svn r10475: # Fix bug and tweak.
+	- nbluewiz via svn r10474: # Improve wipe check .(Avoiding SoO combat lock bug)
+	- nbluewiz via svn r10473: # Na# Nazgrim : Some tweak for healer. And no not show defensive stance warn below 10%.
+	- Omega via svn r10472: also, fix another bug with it. wanted to schedule it in 55 seconds not 5. warning iron prison soon with 55 seconds left on debuff is clearly not the intention :). Change to a pre warn and make it 4 seconds before
+	- Omega via svn r10471: fix iron prison bug
+	- Omega via svn r10470: Oops, didn't mean to delete that part
+	- Omega via svn r10469: Small antispam pass and cleanup
+	- Omega via svn r10468: Some anti spam
+	- nbluewiz via svn r10467: # Add spam throttle in combined warnings. # Sha of Pride : Change duplicated mind control warnings. And Bursting Pride yell off by default. (koKR almost user uses DBM and extremely spam yell when he casts Swelling Pride). And we maybe need more spam throttling on Swelling Pride ended. Currently, too many spam yells and warnings.
+	- nbluewiz via svn r10466: # Fix false combat start in field. maybe this will be fix instance false start.
+	- nbluewiz via svn r10465: # Core : Fix bad mod localization. This is final fix. # Stone Guard : Try to fix infoframe bug. Not confirmed.
+	- nbluewiz via svn r10464: # Core : WTF? Sorry. Bad copy paste in my update. Remove bad thing. Also I removed specific mod name DBM-ProvingGrounds-MoP. This is not good idea. If we need another split char, we can define in NewMod function. Since I do not have authority in Proving Ground svn access, leaved changed it core. (There no comma spitted char in GetDungeonInfo)
+	- Omega via svn r10463: Also, prevent lua error in pandaria mods loading because L.Victory doesn't exist (1x DBM-Core\DBM-Core.lua:6371: table index is nil)
+	- nbluewiz via svn r10462: # Nazgrim : Fix attack warning bug.
+	- Omega via svn r10461: Possibly fix pvp mod breakage. Drycoded fix
+	- nbluewiz via svn r10460: # Fix stupid logical error.
+	- nbluewiz via svn r10459: # Do not use text countdown on altvoice.
+	- ultrashining via svn r10458: zhTW update
+	- nbluewiz via svn r10457: # Add debug code to figure out false CombatStart.
+	- nbluewiz via svn r10456: # Fix false combat start.
+	- nbluewiz via svn r10455: # Core : Remove all debug message from GetTankDistance. Now this function works perfectly. (But have some limitation, see comment) # Galakras : Better check for tower and ground spells.
+	- Omega via svn r10454: set textDisabled to true on 2nd nazgrim count. that timer is variable for 1, and 2 it's used pretty dang often, you'd spend like 1/3rd of fight with countdown text on screen.
+	- nbluewiz via svn r10453: # Core : Code clean up. CheckTankDistance. I will remove all debug message after this LFR run.
+	- Omega via svn r10452: since tower abilities so deadly, also check target on them so if distance check fails, it still warn if you are targeting aster. (Hopefully distance check won't. if all kinks are worked out, it should always work here).
+	- Omega via svn r10451: After taht LFR, i have determined, the following. the special warning for defensive stance def needs to be spammy to the point of making you stop dps before it pisses you off. And 2, adds countdown MUST be on by default, in all modes for all specs. Probably the most important timer on fight (next to defensive stance) Add a GTFO for ravagers Fix tank sunder CD
+	- nbluewiz via svn r10450: # Fix an error during LFR CheckTankDistance test.
+	- nbluewiz via svn r10449: # Missed this (conflicted)
+	- nbluewiz via svn r10448: # Core : 1. Try to fix CombinedShow bug. Bug only in slow computer? 2. Galakras : Fix rare lua error. Also decrease range for tower spells. 3. I carefully reviewed CheckTankDistance code and found a problem. The problem is not within CheckTankDistance function. Problem is in GetBossTarget function that written by me. I intended GetBossTarget function to working on enemy scan, but that stuff returns bad player uid even boss has no target. Hopefully this fix can "FIX" problem.
+	- Omega via svn r10447: because mobs may be looking at wrong target, use threat as primary method and getbossTArget as secondary, since we want to know who is tanking boss, not the person the debuff was cast on (My testing showed part of problem was that getbosstarget was returning one of the toxic mists debuff targets, NOT the tank, so it was basing distance offsome random ranged, not the tank, ie the boss)
+	- Omega via svn r10446: Just did a looking for raid and it worked correctly. hmm. Increase debug
+	- Omega via svn r10445: improve debug some.
+	- Omega via svn r10444: This was working before, but now it's not. specificly, it's not working for casts where the mob is not targeting anyone, it's grabbing wrong targets, so add debug and find out why. its not GUID though that check is working fine. it's failing somewhere in this thread code still
+	- Omega via svn r10443: My bad on threat check, this is proper way.
+	- nbluewiz via svn r10442: # Core : Sorry Omega. This is a "BUG" I found. API UnitDetailedThreatSituation never returns 3. Returning only 1 or nil. Maybe you intended UnitThreatSituation? So try to "FIX" this. Sorry for this change. But I never intend to break your work. # Nazgrim : Fix typo and remove sunder warning for DPS. # Dark Shaman : Falling Ash seems that not falls after 15 sec. So change it. (LFR's, If heroic not 17s, revert it) # Galakras : Hopefully, tower warning bug fixed...(Running LFR is too boring.. I've runned LFR 15 times...)
+	- Omega via svn r10441: ru update
+	- Omega via svn r10440: Oops, fix a stupid
+	- Omega via svn r10439: Wall countdown not that important so remove. Add countdown for the big aoe instead since that's very important for heroic (always needs cds)
+	- Omega via svn r10438: ashen wall important to everyone, but only if they are near that boss, so lower range for that specific spell to about 30
+	- nbluewiz via svn r10437: # Core : Fix announce error.
+	- ebmor via svn r10436: deDE update
+	- nbluewiz via svn r10435: # Core : Add more frequently used feature to core.
+	- nbluewiz via svn r10434: # More tweaks.
+	- nbluewiz via svn r10433: # Iron Juggernaut : Changed RangeFrame to Demolisher Canon frame. (currently Mortar Cannon) / Fix lua error.
+	- nbluewiz via svn r10432: # Force reset countdownAshenWall.
+	- nbluewiz via svn r10431: # Nazgrim : Add tank debuff check to Defensive Stance warning.
+	- Omega via svn r10430: Also, fix some fail
+	- Omega via svn r10429: actually, raise default recombat to 120 for all mods by default. Aside from maybe holiday bosses you spam run, there is just no boss you are going to kill every 2 minutes naturally. those bosses have a 10 second custom time already. Also set world bosses to 20. Still getting lots of odd false engages well after bosses died. Confirmed on thok, norushen, fallen protectors. MULTIPLE bosses re-enraged upwards of 40 seconds AFTER bosses died. Must be a slow or buggy IEEU. this should eliminate like 99% of false recombats.
+	##also, revert CheckTankDistance change. it DOES accept GUID, read the damn code, change it again without MY approval and I'll permanently revoke svn access. this has had 3 weeks worth of testing. GetBosstarget handles cid or guid and so CheckTankDistance also handles supports either arg (fully tested). this function was 100% working when I used it in raid this week after my latest tweaks. So i expect it to STAY that way.. In fact, GUID is REQUIRED for this, because hello, multiple mobs with same cid running around on spoils and galakras. On spoils it's possible for both sides to be fighting mantied or both sides fighting mogu if one side is head. Common fucking sense. If you found a bug with the GUID code, report it to me. Don't undermind core functionality that I've spent weeks testing and refining. the function will use GUID checks for mobs that aren't unique.
+	- Omega via svn r10428: Getting reports of buggy IEEU on fallen protectors too. it firing really late after boss dies and causing re-engage.
+	- nbluewiz via svn r10427: # Fix CheckTankDistance. CheckTankDistance do not accepts GUID. # Option default tweak(for reduce warning spam).
+	- nbluewiz via svn r10426: # Galakras : Fix error.
+	- nbluewiz via svn r10425: # Galakras : Fix tower timer.
+	- nbluewiz via svn r10424: # Reduce local dependency. Current in SoO only.
+	- Omega via svn r10423: iron prison improvement
+	- Omega via svn r10422: In rare cases, playsoundfile fires script ran too long? Anyways, probably doesn't hurt to upvalue it anyways, it's used oh, a few dozen times per pull. Also, unregister another event from RaidBossEmoteFrame
+	- Omega via svn r10421: Add ready check options with celestials and ordos quest flags
+	- nbluewiz via svn r10420: # Improve world boss pull. Also moved common stuff to core.
+	- nbluewiz via svn r10419: # Sha of Pride : fix error.
+	- nbluewiz via svn r10418: # Core : Fix countdown optionName bug. Clean unused saved variables on mod load (to reduce memory usage)
+	- Omega via svn r10417: Small optimize on dark shaman (no reason to fire checktankdistance for EVERY debuff in multi debuff events, that's a lot of extra scanning. only fire it once in the local function Add filter to misttargets as well.
+	- Omega via svn r10416: Remove the latency check on sync. unfortunately that's just not doable with fights like siegecrafter. when 2 warnings REQUIRE syncing to work. bluewiz 8 second thing will have to be our latency defense. Updates to iron jugg Updates to Dark shaman Update to nazgrim
+	- Omega via svn r10415: fix a bug
+	- Omega via svn r10414: Missed a spell that needs a filter
+	- Omega via svn r10413: Some major filter adjustments and fixes
+	- nbluewiz via svn r10412: # Core : Add feature force change SavedVariables variable name. (ex: SpecWarn144328spell -> SpecWarn144328spell2) Also change timer variable as do in warning and special warning. (ex: Timer1440908563 -> Timer144090cd)
+	- Omega via svn r10411: aura of pride yell off by default, also force a default change
+	- Omega via svn r10410: fix last. it's still 10 min on normal. it's only 7.5 on heroic
+	- Omega via svn r10409: Update iron Jugg berserk
+	- nbluewiz via svn r10408: # Some boss has long Encounter Journal name, do not match with actual boss name. (Especially Ordos). Add feature to read boss name from creature info to resolve this.
+	- nbluewiz via svn r10407: # Sha of Pride : Fix first Manifestation warning not be showed. # Immerseus : bar changes. # Yulon : Add wave trigger.
+	- nbluewiz via svn r10406: # Some fix and tweaks.
+	- Omega via svn r10405: actually add latency check back in, but looks like it needs to go here.
+	- Omega via svn r10404: Add banishment CD. Fixed 3 other phase 2 ability cds. It looks like blizzard fixed the energy desyncing bug on those abilities so they retain their consistency in phase 2 now. Of course them deciding to fix that out of blue means thousands of users not using alpha have bad timers in phase 2 sha of pride. DOH
+	- Omega via svn r10403: raise galakras repull to 3 minutes, since apparently the dumb pug persists longer than 2
+	- nbluewiz via svn r10402: # Fallen Protectors : Sha Shear stuff. (Seems very spammy. but some heroic player requests, off by default)
+	- nbluewiz via svn r10401: # Do not return variable name when MiscLocalization do not exists. (related with pvp bar issue)
+	- Omega via svn r10400: Remove sync latency check, cause apparently syncing is weird and for some reason is checking it for RECIEVING syncs not just sending, wtf? i only put it in the send code
+	- Omega via svn r10399: Always unregister incombatevents, unless someone can give me a single reason why this hurts anything? Should help a ton with world bosses where events may stay registers and annoy you through half teh zone after a wipe you didn't return to and finish.
+	- Omega via svn r10398: Follow funky's lead and make role thing work in flex raids. Tweaked a bit because i still want coin warning to work in LFR. Make sure those mixed mod flex raids stay smooth :).
+	- Omega via svn r10397: Increment alpha

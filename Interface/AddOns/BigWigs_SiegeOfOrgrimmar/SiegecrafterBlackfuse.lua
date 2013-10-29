@@ -20,7 +20,6 @@ local markableMobs = {}
 local marksUsed = {}
 local markTimer
 local assemblyLineCounter = 1
-local shredder = EJ_GetSectionInfo(8199)
 local sawbladeTarget
 
 --------------------------------------------------------------------------------
@@ -45,10 +44,26 @@ if L then
 
 	L.assembly_line_trigger = "Unfinished weapons begin to roll out on the assembly line."
 	L.assembly_line_message = "Unfinished weapons (%d)"
+	L.assembly_line_items = "Items (%d): %s"
+	L.item_missile = "Missile"
+	L.item_mines = "Mines"
+	L.item_laser = "Laser"
+	L.item_magnet = "Magnet"
 
 	L.shockwave_missile_trigger = "Presenting... the beautiful new ST-03 Shockwave missile turret!"
 end
 L = mod:GetLocale()
+
+local itemNames = {
+	[71606] = L.item_missile, -- Deactivated Missile Turret
+	[71790] = L.item_mines, -- Disassembled Crawler Mines
+	[71751] = L.item_laser, -- Deactivated Laser Turret
+	[71694] = L.item_magnet, -- Deactivated Electromagnet
+	[71752] = L.item_missile, -- Activated Missile Turret
+	[71795] = L.item_mines, -- Activated Crawler Mine Vehicle
+	[71638] = L.item_laser, -- Activated Laser Turret
+	[71696] = L.item_magnet, -- Activated Electromagnet
+}
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -108,7 +123,7 @@ end
 function mod:OnEngage()
 	self:Berserk(self:Heroic() and 540 or 600)
 	assemblyLineCounter = 1
-	self:Bar(-8199, 35, shredder, "INV_MISC_ARMORKIT_27") -- Shredder Engage
+	self:Bar(-8199, 35, nil, "INV_MISC_ARMORKIT_27") -- Shredder Engage
 	self:CDBar(-8195, 9) -- Sawblade
 	if self.db.profile.custom_off_mine_marker then
 		wipe(markableMobs)
@@ -136,14 +151,11 @@ do
 	end
 
 	local function markMobs()
-		local continue
 		for guid in next, markableMobs do
 			if markableMobs[guid] == true then
 				local unit = mod:GetUnitIdByGUID(guid)
 				if unit then
 					setMark(unit, guid)
-				else
-					continue = true
 				end
 			end
 		end
@@ -169,8 +181,9 @@ do
 	end
 
 	function mod:Overcharge(args)
-		self:Message(-8408, "Important", nil, CL["other"]:format(args.spellName, args.destName), false) -- maybe shorten args.destName?
-		if self.db.profile.custom_off_mine_marker and self:MobId(args.destGUID) == 71790 then -- mines
+		local mobId = self:MobId(args.destGUID)
+		self:Message(-8408, "Important", nil, CL["other"]:format(args.spellName, itemNames[mobId]), false)
+		if self.db.profile.custom_off_mine_marker and mobId == 71790 then -- mines
 			wipe(markableMobs)
 			wipe(marksUsed)
 			markTimer = nil
@@ -186,22 +199,22 @@ end
 
 do
 	-- this helps people trying to figure out tactics
-	local function beltItems()
-		local items = ""
-		local boss
+	local items = {}
+	local function beltItems(count)
 		for i=1, 5 do
-			boss = "boss"..i
-			if UnitExists(boss) and mod:MobId(UnitGUID(boss)) ~= 71504 then
-				items = ("%s - %s"):format(items, UnitName(boss)) -- I used to gsub this with to shorten it but guess that won't work for all localization, maybe use localized names instead?
+			local mobId = mod:MobId(UnitGUID("boss"..i))
+			if mobId > 0 and mobId ~= 71504 then
+				items[#items+1] = itemNames[mobId]
 			end
 		end
-		mod:Message(-8202, "Neutral", nil, CL["count"]:format("Items: "..items, assemblyLineCounter-1), false)
+		mod:Message(-8202, "Neutral", nil, L["assembly_line_items"]:format(count, table.concat(items, " - ")), false)
+		wipe(items)
 	end
 	function mod:AssemblyLine()
-		self:ScheduleTimer(beltItems, 13)
+		self:ScheduleTimer(beltItems, 13, assemblyLineCounter)
 		self:Message(-8202, "Neutral", "Warning", L["assembly_line_message"]:format(assemblyLineCounter), "Inv_crate_03")
 		assemblyLineCounter = assemblyLineCounter + 1
-		self:Bar(-8202, 40, CL["count"]:format((EJ_GetSectionInfo(8202)), assemblyLineCounter), "Inv_crate_03")
+		self:Bar(-8202, 40, CL["count"]:format(self:SpellName(-8202), assemblyLineCounter), "Inv_crate_03")
 	end
 end
 
@@ -275,8 +288,8 @@ end
 -- Automated Shredders
 
 function mod:ShredderEngage()
-	self:Message(-8199, "Attention", self:Tank() and "Long", shredder, "INV_MISC_ARMORKIT_27")
-	self:Bar(-8199, 60, shredder, "INV_MISC_ARMORKIT_27")
+	self:Message(-8199, "Attention", self:Tank() and "Long", nil, "INV_MISC_ARMORKIT_27")
+	self:Bar(-8199, 60, nil, "INV_MISC_ARMORKIT_27")
 	self:Bar(144208, 16) -- Death from Above
 	overloadCounter = 1
 	self:Bar(145444, 7, CL["count"]:format(self:SpellName(145444), overloadCounter)) -- Overload
@@ -312,11 +325,11 @@ end
 
 function mod:ProtectiveFrenzy(args)
 	self:Message(args.spellId, "Attention", "Long")
-	local boss
 	for i=1, 5 do
-		boss = "boss"..i
+		local boss = "boss"..i
 		if UnitExists(boss) and UnitIsDead(boss) then
-			self:Message(-8202, "Positive", nil, CL["other"]:format(L["disabled"], UnitName(boss)), false) -- maybe shorten the unit name?
+			local mobId = self:MobId(UnitGUID(boss))
+			self:Message(-8202, "Positive", nil, CL["other"]:format(L["disabled"], itemNames[mobId]), false)
 		end
 	end
 end
@@ -330,7 +343,6 @@ do
 		if not self:Me(guid) then -- we warn for ourself from the BOSS_WHISPER
 			if self:Range(target) < 8 then -- 8 is guessed
 				self:RangeMessage("saw_blade_near_you", "Personal", "Alarm", mod:SpellName(-8195), 143265)
-				--mod:Flash(-8195) -- this is too much for our tactic
 			else
 				self:TargetMessage(-8195, target, "Positive", "Info")
 			end

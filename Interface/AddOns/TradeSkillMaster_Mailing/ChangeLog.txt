@@ -1,3 +1,9 @@
+v2.1.2
+*Updating group tree creation API call.
+
+v2.1.1
+*Fixed bug with expired mail.
+
 v2.1
 *Fixed bug with automatic restarting of sending groups continuing after the mailbox is closed.
 *Fixed error related to closing the mail frame without visiting TSM tab.

@@ -100,11 +100,6 @@ function TSM:CreateMainFrame()
 	mainFrame:SetIconText(version)
 	mainFrame:SetIconLabels(L["Options"], L["Modules"])
 	mainFrame:SetLayout("Fill")
-	mainFrame:SetWidth(823)
-	mainFrame:SetHeight(686)
-	mainFrame.frame:SetFrameStrata("MEDIUM")
-	mainFrame.frame:SetWidth(823)
-	mainFrame.frame:SetHeight(686)
 	
 	for _, icon in ipairs(private.icons) do
 		icon.texture = icon.icon
@@ -120,5 +115,5 @@ function TSM:CreateMainFrame()
 	end
 	TSM.Frame = mainFrame
 	
-	TSMAPI:CreateTimeDelay("mainFrameSize", .5, function() mainFrame:SetWidth(823) mainFrame:SetHeight(686) end)
+	TSMAPI:CreateTimeDelay("mainFrameSize", .5, function() mainFrame:SetWidth(mainFrame.frame.options.width) mainFrame:SetHeight(mainFrame.frame.options.height) end)
 end

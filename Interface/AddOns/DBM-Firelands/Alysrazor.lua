@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(194, "DBM-Firelands", nil, 78)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 83 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 90 $"):sub(12, -3))
 mod:SetCreatureID(52530)
 mod:SetZone()
 mod:SetModelSound("Sound\\Creature\\ALYSRAZOR\\VO_FL_ALYSRAZOR_AGGRO.wav", "Sound\\Creature\\ALYSRAZOR\\VO_FL_ALYSRAZOR_TRANSITION_02.wav")
@@ -37,7 +37,7 @@ local specWarnGushingWoundSelf	= mod:NewSpecialWarningYou(99308, false)
 local specWarnTantrum			= mod:NewSpecialWarningSpell(99362, mod:IsTank())
 local specWarnGushingWoundOther	= mod:NewSpecialWarningTarget(99308, false)
 
-local timerCombatStart			= mod:NewTimer(35.5, "TimerCombatStart", 2457)
+local timerCombatStart			= mod:NewCombatTimer(35.5)
 local timerFieryVortexCD		= mod:NewNextTimer(179, 99794)
 local timerMoltingCD			= mod:NewNextTimer(60, 99464)
 local timerCataclysm			= mod:NewCastTimer(5, 102111)--Heroic
@@ -49,10 +49,8 @@ local timerNextInitiate			= mod:NewTimer(32, "timerNextInitiate", 61131)
 local timerTantrum				= mod:NewBuffActiveTimer(10, 99362, nil, mod:IsTank())
 local timerSatiated				= mod:NewBuffActiveTimer(15, 99359, nil, mod:IsTank())
 local timerBlazingClaw			= mod:NewTargetTimer(15, 99844, nil, false)
-local timerWingsofFlame			= mod:NewBuffActiveTimer(30, 98619)
 
 local countdownFirestorm		= mod:NewCountdown(83, 100744)
-local countdownWingsofFlame		= mod:NewCountdownFades(29, 98619, nil, nil, nil, nil, true)
 
 mod:AddBoolOption("InfoFrame", false)
 
@@ -121,20 +119,12 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnPhase:Show(3)
 	elseif args.spellId == 99844 and args:IsDestTypePlayer() then
 		timerBlazingClaw:Start(args.destName)
-	elseif args.spellId == 98619 and args:IsPlayer() then
-		timerWingsofFlame:Start()
-		countdownWingsofFlame:Cancel()
-		countdownWingsofFlame:Start()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
 	if args.spellId == 99844 and args:IsDestTypePlayer() then
 		timerBlazingClaw:Start(args.destName)
-	elseif args.spellId == 98619 and args:IsPlayer() then
-		timerWingsofFlame:Start()
-		countdownWingsofFlame:Cancel()
-		countdownWingsofFlame:Start()
 	end
 end
 
@@ -145,10 +135,6 @@ function mod:SPELL_AURA_REFRESH(args)
 		else
 			timerSatiated:Start()
 		end
-	elseif args.spellId == 98619 and args:IsPlayer() then
-		timerWingsofFlame:Start()
-		countdownWingsofFlame:Cancel()
-		countdownWingsofFlame:Start()
 	end
 end
 
@@ -168,9 +154,6 @@ function mod:SPELL_AURA_REMOVED(args)
 		timerSatiated:Cancel()
 	elseif args.spellId == 101731 then
 		timerBlazingClaw:Cancel(args.destName)
-	elseif args.spellId == 98619 and args:IsPlayer() then
-		timerWingsofFlame:Cancel()
-		countdownWingsofFlame:Cancel()
 	end
 end
 

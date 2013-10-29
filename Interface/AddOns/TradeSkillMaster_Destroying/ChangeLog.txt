@@ -1,3 +1,6 @@
+v2.0.4
+*Using new movable frame TSMAPI function for destroying frame.
+
 v2.0.3
 *The destroying frame will now remember its position when moved.
 

@@ -6,7 +6,6 @@ TODO:
 
 	-- reported/requested by others
 	could maybe warn one hurl amber target?
-	heroic toxic injection proximity submarine sound and not closing
 	win sound
 ]]--
 
@@ -33,8 +32,11 @@ local UnitDebuff = UnitDebuff
 
 local mod, CL = BigWigs:NewBoss("Paragons of the Klaxxi", 953, 853)
 if not mod then return end
-mod:RegisterEnableMob(71161, 71157, 71156, 71155, -- Kil'ruk the Wind-Reaver, Xaril the Poisoned Mind, Kaz'tik the Manipulator, Korven the Prime
-71160, 71154, 71152, 71158, 71153 ) -- Iyyokuk the Lucid, Ka'roz the Locust, Skeer the Bloodseeker, Rik'kal the Dissector, Hisek the Swarmkeeper
+mod:RegisterEnableMob(
+	71161, 71157, 71156, 71155, -- Kil'ruk the Wind-Reaver, Xaril the Poisoned Mind, Kaz'tik the Manipulator, Korven the Prime
+	71160, 71154, 71152, 71158, 71153 -- Iyyokuk the Lucid, Ka'roz the Locust, Skeer the Bloodseeker, Rik'kal the Dissector, Hisek the Swarmkeeper
+)
+
 --------------------------------------------------------------------------------
 -- Locals
 --
@@ -57,7 +59,6 @@ local results = {
 	[1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {},
 }
 local raidParsed
-local emoteTriggers = {}
 local mutateCounter = 1
 local redPlayers = {}
 local parasiteCounter = 0
@@ -69,6 +70,8 @@ local marksUsed = {}
 local markTimer = nil
 local parasites = {}
 local calculateCounter = 1
+local aimCounter = 1
+
 --------------------------------------------------------------------------------
 -- Localization
 --
@@ -76,7 +79,9 @@ local calculateCounter = 1
 local L = mod:NewLocale("enUS", true)
 if L then
 	L.catalyst_match = "Catalyst: |c%sMATCHES YOU|r" -- might not be best for colorblind?
-	L.you_ate = "You ate a parasite!"
+	L.you_ate = "You ate a Parasite (%d left)"
+	L.other_ate = "%s ate a %sParasite (%d left)"
+	L.parasites_up = "%d |4Parasite:Parasites; up"
 	L.dance = "Dance"
 	L.prey_message = "Use Prey on parasite"
 	-- for getting all those calculate emotes:
@@ -128,28 +133,28 @@ local calculations = {
 function mod:GetOptions()
 	return {
 		{142931, "TANK"}, {143939, "TANK_HEALER"}, {-8008, "FLASH", "SAY"}, 148676, --Kil'ruk the Wind-Reaver
-		142929, {-8034, "PROXIMITY"}, 142803, 143576, --Xaril the Poisoned Mind
+		{-8034, "PROXIMITY"}, 142803, 143576, --Xaril the Poisoned Mind
 		142671, --Kaz'tik the Manipulator
 		142564, {143974, "TANK_HEALER"}, --Korven the Prime
-		{-8055, "FLASH"}, --Iyyokuk the Lucid
+		{-8055, "FLASH", "SAY"}, --Iyyokuk the Lucid
 		"custom_off_edge_marks",
 		{143701, "FLASH", "SAY"}, {143759, "FLASH"}, {143735, "FLASH"}, {148650, "FLASH"}, --Ka'roz the Locust
-		{143275, "TANK"}, 143280, --Skeer the Bloodseeker
-		{143279, "TANK"}, 143339, {-8065, "FLASH"}, {148589, "FLASH"}, 143337, --Rik'kal the Dissector
+		143280, --Skeer the Bloodseeker
+		143339, {-8065, "FLASH"}, {148589, "FLASH"}, 143337, --Rik'kal the Dissector
 		"custom_off_parasite_marks",
 		{-8073, "ICON", "FLASH"}, {143243, "FLASH"}, --Hisek the Swarmkeeper
 
 		"berserk", "bosskill",
 	}, {
 		[142931] = -8004, --Kil'ruk the Wind-Reaver
-		[142929] = -8009, --Xaril the Poisoned Mind
+		[-8034] = -8009, --Xaril the Poisoned Mind
 		[142671] = -8010, --Kaz'tik the Manipulator
 		[142564] = -8011, --Korven the Prime
 		[-8055] = -8012, --Iyyokuk the Lucid
 		["custom_off_edge_marks"] = L.custom_off_edge_marks,
 		[143701] = -8013, --Ka'roz the Locust
-		[143275] = -8014, --Skeer the Bloodseeker
-		[143279] = -8015, --Rik'kal the Dissector
+		[143280] = -8014, --Skeer the Bloodseeker
+		[143339] = -8015, --Rik'kal the Dissector
 		["custom_off_parasite_marks"] = L.custom_off_parasite_marks,
 		[-8073] = -8016, --Hisek the Swarmkeeper
 		["berserk"] = "general",
@@ -157,11 +162,6 @@ function mod:GetOptions()
 end
 
 function mod:OnBossEnable()
-	for _, t in pairs(calculations) do
-		for partial, v in pairs(t) do
-			emoteTriggers[#emoteTriggers+1] = partial
-		end
-	end
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "MyEngage")
 
 	--Kil'ruk the Wind-Reaver
@@ -172,10 +172,8 @@ function mod:OnBossEnable()
 	--Xaril the Poisoned Mind
 	self:Log("SPELL_CAST_START", "Catalysts", 142725, 142726, 142727, 142729, 142730, 142728) -- blue red yellow purple green orange
 	self:Log("SPELL_CAST_SUCCESS", "ToxicInjection", 142528)
-	self:Log("SPELL_AURA_APPLIED", "ToxicInjectionsRemoved", 142532, 142533, 142534) -- blue red yellow
+	self:Log("SPELL_AURA_REMOVED", "ToxicInjectionsRemoved", 142532, 142533, 142534) -- blue red yellow
 	self:Log("SPELL_AURA_APPLIED", "ToxicInjectionsApplied", 142532, 142533, 142534) -- blue red yellow
-	self:Log("SPELL_AURA_APPLIED", "TenderizingStrike", 142929)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "TenderizingStrike", 142929)
 	self:Log("SPELL_PERIODIC_DAMAGE", "ExplosiveRing", 142803)
 	self:Log("SPELL_PERIODIC_DAMAGE", "CannedHeat", 143576)
 
@@ -185,6 +183,12 @@ function mod:OnBossEnable()
 	self:Log("SPELL_CAST_SUCCESS", "EncaseInEmber", 142564)
 	self:Log("SPELL_CAST_START", "ShieldBash", 143974)
 	--Iyyokuk the Lucid
+	local emoteTriggers = {}
+	for _, t in next, calculations do
+		for partial in next, t do
+			emoteTriggers[#emoteTriggers+1] = partial
+		end
+	end
 	self:Emote("CalculateEmotes", unpack(emoteTriggers))
 	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE")
 	self:Log("SPELL_AURA_REMOVED", "CalculationRemoved", 143605,143606,143607,143608,143609,143610,143611,143612,143613,143614,143615,143616,143617,143618,143619,143620,143621,143622,143623,143624,143627,143628,143629,143630,143631)
@@ -194,11 +198,9 @@ function mod:OnBossEnable()
 	self:Log("SPELL_CAST_SUCCESS", "CausticAmber", 143735) -- this is half a sec faster than _DAMAGE
 	self:Log("SPELL_PERIODIC_DAMAGE", "CausticAmber", 143735)
 	--Skeer the Bloodseeker
-	self:Log("SPELL_AURA_APPLIED_DOSE", "Hewn", 143275)
 	self:Log("SPELL_CAST_START", "Bloodletting", 143280)
 	--Rik'kal the Dissector
 	self:Log("SPELL_CAST_SUCCESS" , "Prey", 144286)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "GeneticAlteration", 143279)
 	self:Log("SPELL_AURA_APPLIED", "Injection", 143339)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "Injection", 143339)
 	self:Log("SPELL_AURA_REMOVED", "InjectionRemoved", 143339)
@@ -231,6 +233,7 @@ function mod:OnEngage()
 	parasiteCounter = 0
 	wipe(parasites)
 	calculateCounter = 1
+	aimCounter = 1
 	self:StopWipeCheck()
 	self:RegisterEvent("PLAYER_REGEN_ENABLED", "StartWipeCheck")
 	self:RegisterEvent("PLAYER_REGEN_DISABLED", "StopWipeCheck")
@@ -248,11 +251,16 @@ function mod:RapidFire(args)
 end
 
 function mod:Aim(args)
-	self:CDBar(-8073, 42)
 	self:SecondaryIcon(-8073, args.destName)
-	self:TargetMessage(-8073, args.destName, "Important", "Warning", nil, nil, true)
+	self:TargetMessage(-8073, args.destName, "Important", "Warning", CL["count"]:format(args.spellName, aimCounter), args.spellId, true)
 	self:TargetBar(-8073, 5, args.destName)
-	self:Flash(-8073) -- XXX Funkeh remove this if you think this is too much
+	if not self:Tank() then
+		self:Flash(-8073)
+	end
+
+	self:StopBar(CL["count"]:format(args.spellName, aimCounter))
+	aimCounter = aimCounter + 1
+	self:CDBar(-8073, 42, CL["count"]:format(args.spellName, aimCounter))
 end
 --Rik'kal the Dissector
 do
@@ -261,13 +269,15 @@ do
 		if not parasites[args.destGUID] then
 			parasiteCounter = parasiteCounter - 1
 			parasites[args.destGUID] = true
-			parasiteEater[1] = args.sourceName
-			-- intentionally not :TargetMessage
-			self:Message(143339, "Attention", nil, CL["other"]:format(CL["count"]:format(self:SpellName(8363), parasiteCounter), parasiteEater[1]), 99315) -- spell called parasite, worm look like icon
-			parasiteEater[1] = nil
 			if self:Me(args.sourceGUID) then
-				self:Message(143339, "Positive", "Info", L["you_ate"])
+				self:Message(143339, "Positive", "Info", L["you_ate"]:format(parasiteCounter))
 				youAte = true
+			else
+				parasiteEater[1] = args.sourceName
+				-- Important message for heroic, intentionally not :TargetMessage
+				local raidIcon = CombatLog_String_GetIcon(args.destRaidFlags) -- Raid icon string
+				self:Message(143339, "Attention", nil, L["other_ate"]:format(parasiteEater[1], raidIcon, parasiteCounter), 99315) -- spell called parasite, worm look like icon
+				wipe(parasiteEater)
 			end
 		end
 		if self.db.profile.custom_off_parasite_marks then
@@ -365,8 +375,9 @@ do
 	end
 	function mod:InjectionRemoved(args)
 		if getBossByMobId(71158) then -- no more parasites spawn when boss is dead
-			parasiteCounter = parasiteCounter + 8
-			self:Message(143339, "Attention", nil, CL["count"]:format(self:SpellName(8363), parasiteCounter), 99315) -- spell called parasite, worm look like icon
+			local is10m = self:Difficulty() == 3 or self:Difficulty() == 5
+			parasiteCounter = parasiteCounter + (is10m and 5 or 8)
+			self:Message(143339, "Attention", nil, L["parasites_up"]:format(parasiteCounter), 99315) -- spell called parasite, worm look like icon
 		end
 		self:CancelDelayedMessage(L["injection_over_soon"]:format(args.destName))
 		if self.db.profile.custom_off_parasite_marks and not markTimer then
@@ -401,22 +412,12 @@ do
 	end
 end
 
-function mod:GeneticAlteration(args)
-	if args.amount > 5 and args.amount%3 == 0 then -- XXX this probably needs adjustment
-		self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
-	end
-end
 --Skeer the Bloodseeker
 function mod:Bloodletting(args)
 	self:Message(args.spellId, "Important", self:Damager() and "Warning")
 	self:CDBar(args.spellId, 37)
 end
 
-function mod:Hewn(args)
-	if args.amount > 5 and args.amount%3 == 0 then -- XXX this probably needs adjustment
-		self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
-	end
-end
 --Ka'roz the Locust
 do
 	local prev = 0
@@ -442,7 +443,7 @@ do
 		mod:CancelTimer(whirlingTimer)
 		whirlingTimer = nil
 	end
-	local function warnWhilringTarget()
+	local function warnWhirlingTarget()
 		local boss = getBossByMobId(71154)
 		if not boss then return end
 		local target = boss.."target"
@@ -462,11 +463,10 @@ do
 		end
 	end
 	function mod:StoreKineticEnergy(args)
-		self:Message(143701, "Urgent")
 		self:CDBar(143701, 63)
 		lastWhirlTarget = ""
 		if not whirlingTimer then
-			whirlingTimer = self:ScheduleRepeatingTimer(warnWhilringTarget, 0.1)
+			whirlingTimer = self:ScheduleRepeatingTimer(warnWhirlingTarget, 0.1)
 			self:ScheduleTimer(stopScanning, 20)
 		end
 	end
@@ -510,29 +510,29 @@ local mantid = {mod:SpellName(143620), mod:SpellName(143621), mod:SpellName(1436
 local staff  = {mod:SpellName(143627), mod:SpellName(143628), mod:SpellName(143629), mod:SpellName(143630), mod:SpellName(143631)}
 
 local function parseDebuff(player)
-	local count
+	local _, count
 	for i=1, 5 do
-		count = select(4,UnitDebuff(player, sword[i]))
+		_, _, _, count = UnitDebuff(player, sword[i])
 		if count then
 			return "sword", colors[i], (count == 0) and 1 or count
 		end
 
-		count = select(4,UnitDebuff(player, drum[i]))
+		_, _, _, count = UnitDebuff(player, drum[i])
 		if count then
 			return "drum", colors[i], (count == 0) and 1 or count
 		end
 
-		count = select(4,UnitDebuff(player, bomb[i]))
+		_, _, _, count = UnitDebuff(player, bomb[i])
 		if count then
 			return "bomb", colors[i], (count == 0) and 1 or count
 		end
 
-		count = select(4,UnitDebuff(player, mantid[i]))
+		_, _, _, count = UnitDebuff(player, mantid[i])
 		if count then
 			return "mantid", colors[i], (count == 0) and 1 or count
 		end
 
-		count = select(4,UnitDebuff(player, staff[i]))
+		_, _, _, count = UnitDebuff(player, staff[i])
 		if count then
 			return "staff", colors[i], (count == 0) and 1 or count
 		end
@@ -551,6 +551,7 @@ local function warnEdge()
 	mod:Flash(-8055)
 	mod:Message(-8055, "Personal", "Info", L["edge_message"])
 	mod:Bar(-8055, 9, mod:SpellName(142809), 142809) -- Fiery Edge
+	mod:Say(-8055, mod:SpellName(142809))
 end
 
 local function iyyokukSelected()
@@ -599,14 +600,13 @@ end
 
 function mod:CHAT_MSG_MONSTER_EMOTE(_, _, sender, _, _, target)
 	-- Iyyokuk only have one MONSTER_EMOTE so this should be a safe method rather than having to translate the msg
-	if sender == EJ_GetSectionInfo(8012) then -- hopefully no weird naming missmatch in different localization like for "Xaril the Poisoned Mind" vs "Xaril the Poisoned-Mind"
-		local diff = self:Difficulty()
+	if sender == self:SpellName(-8012) then -- hopefully no weird naming missmatch in different localization like for "Xaril the Poisoned Mind" vs "Xaril the Poisoned-Mind"
 		self:Message(-8055, "Attention", nil, CL["count"]:format(self:SpellName(142514), calculateCounter), 142514)
 		calculateCounter = calculateCounter + 1
 		self:Bar(-8055, 35, CL["count"]:format(self:SpellName(142514), calculateCounter), 142514) -- Calculate
-		if target == self:UnitName("player") then
+		if UnitIsUnit(target, "player") then
 			warnEdge()
-		elseif diff == 5 or diff == 6 then -- Heroic
+		elseif self:Heroic() then
 			results.shape, results.color, results.number = parseDebuff(target) -- we don't have to rely on emotes for heroic
 			iyyokukSelected()
 		else
@@ -616,12 +616,14 @@ function mod:CHAT_MSG_MONSTER_EMOTE(_, _, sender, _, _, target)
 end
 
 --Korven the Prime
-function mod:ShieldBash(args)
-	local target = getBossByMobId(71155)
-	if not target then return end
-	target = target .. "target"
-	self:TargetMessage(args.spellId, self:UnitName(target), "Urgent", "Alarm", nil, nil, true)
-	self:Bar(args.spellId, 17)
+do
+	local function printTarget(self, name)
+		self:TargetMessage(143974, name, "Urgent", "Alarm", nil, nil, true)
+	end
+	function mod:ShieldBash(args)
+		self:Bar(args.spellId, 17)
+		self:GetBossTarget(printTarget, 0, args.sourceGUID)
+	end
 end
 
 function mod:EncaseInEmber(args)
@@ -714,12 +716,6 @@ function mod:ToxicInjectionsApplied(args)
 	self:Message(-8034, "Personal", "Long", CL["you"]:format(message))
 end
 
-function mod:TenderizingStrike(args)
-	local amount = args.amount or 1
-	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "Personal", nil, CL["count"]:format(args.spellName, amount))
-	end
-end
 --Kil'ruk the Wind-Reaver
 function mod:Reave(args)
 	self:Message(args.spellId, "Urgent", "Long")
@@ -804,7 +800,7 @@ function mod:MyEngage()
 			elseif mobId == 71152 then -- Skeer the Bloodseeker
 				self:Bar(143280 ,10) -- Bloodletting
 			elseif mobId == 71153 then --Hisek the Swarmkeeper
-				self:Bar(-8073, 40) -- Aim
+				self:CDBar(-8073, 40, CL["count"]:format(self:SpellName(-8073), aimCounter)) -- Aim
 				if self:Heroic() then
 					self:Bar(143243, 48) -- Rapid Fire
 				end
@@ -830,6 +826,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unitId, spellName, _, _, spellId)
 			self:Bar(143280, 10) -- Bloodletting
 		elseif mobId == 71158 then --Rik'kal the Dissector
 			self:CDBar(143337, 34) -- Mutate
+			self:Bar(143339, 8) -- Injection
 			parasiteCounter = 0
 			if self.db.profile.custom_off_parasite_marks then
 				wipe(markableMobs)
@@ -878,7 +875,7 @@ function mod:Deaths(args)
 		if not parasites[args.destGUID] then
 			parasites[args.destGUID] = true
 			parasiteCounter = parasiteCounter - 1
-			self:Message(143339, "Attention", nil, CL["count"]:format(self:SpellName(8363), parasiteCounter), 99315) -- spell called parasite, worm look like icon
+			self:Message(143339, "Attention", nil, L["parasites_up"]:format(parasiteCounter), 99315) -- spell called parasite, worm look like icon
 		end
 		if self.db.profile.custom_off_parasite_marks then
 			self:FreeMarkByGUID(args.destGUID)

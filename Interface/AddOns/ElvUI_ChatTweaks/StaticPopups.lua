@@ -1,6 +1,5 @@
 -------------------------------------------------------------------------------
 -- ElvUI Chat Tweaks By Lockslap (US, Bleeding Hollow)
--- <Borderline Amazing>, http://ba-guild.com
 -- Based on functionality provided by Prat and/or Chatter
 -------------------------------------------------------------------------------
 local L = LibStub("AceLocale-3.0"):GetLocale("ElvUI_ChatTweaks", false)

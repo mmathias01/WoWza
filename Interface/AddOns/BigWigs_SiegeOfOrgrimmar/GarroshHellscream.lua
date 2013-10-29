@@ -42,6 +42,9 @@ local weaponTimer = nil
 local maliciousSpreader
 local clumpCheckAllowed
 local mindControl = nil
+local bombardmentCounter = 1
+local bombardmentTimers = { 55, 40, 40, 25 } -- XXX need more data
+
 --------------------------------------------------------------------------------
 -- Localization
 --
@@ -66,8 +69,14 @@ if L then
 	L.intermission = "Intermission"
 	L.mind_control = "Mind Control"
 
+	L.ironstar_impact = mod:SpellName(144653)
+	L.ironstar_impact_desc = "A timer bar for when the Iron Star will impact the wall at the other side."
+	L.ironstar_impact_icon = 144653
+	L.ironstar_rolling = "Iron Star Rolling!"
+
 	L.chain_heal = mod:SpellName(144583)
 	L.chain_heal_desc = "Heals a friendly target for 40% of their max health, chaining to nearby friendly targets."
+	L.chain_heal_icon = 144583
 	L.chain_heal_message = "Your focus is casting Chain Heal!"
 	L.chain_heal_bar = "Focus: Chain Heal"
 
@@ -87,23 +96,25 @@ L.chain_heal_desc = L.focus_only..L.chain_heal_desc
 -- Initialization
 --
 
-function mod:GetOptions()
+function mod:GetOptions(CL)
 	-- XXX Funkeh clean "FLASH" up as you see fit
 	return {
-		{147209, "FLASH", "ICON"}, 147235, "bombardment", {147665, "FLASH", "ICON"}, {"clump_check", "FLASH"}, "manifest_rage", -- phase 4 .. fix descriptions
-		-8298, -8292, 144821,-- phase 1
+		-8298, 144616, "ironstar_impact", -8292, 144821, -- phase 1
 		-8294, "chain_heal", "custom_off_shaman_marker", -- Farseer
 		-8305, 144945, 144969, -- Intermissions
 		"custom_off_minion_marker",
-		145065, {144985, "FLASH"}, 145183, -- phase 2
+		145065, {144985, "FLASH"}, {145183, "TANK"}, -- phase 2
+		-8325, -- phase 3
+		{147209, "FLASH", "ICON"}, 147235, "bombardment", {147665, "FLASH", "ICON"}, {"clump_check", "FLASH"}, "manifest_rage", -- phase 4 .. fix descriptions
 		{144758, "SAY", "FLASH", "ICON"},
 		"stages", "berserk", "bosskill",
 	}, {
-		[147209] = CL["phase"]:format(4),
 		[-8298] = -8288, -- phase 1
 		[-8294] = -8294, -- Farseer
 		[-8305] = -8305, "custom_off_minion_marker", -- Intermissions
 		[145065] = -8307, -- phase 2
+		[-8325] = -8319, -- phase 3
+		[147209] = CL["stage"]:format(4).." ("..CL["heroic"]..")",
 		[144758] = "general",
 	}
 end
@@ -111,6 +122,7 @@ end
 function mod:OnBossEnable()
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "CheckBossStatus")
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1", "boss2", "boss3")
+	self:RegisterUnitEvent("UNIT_SPELLCAST_CHANNEL_STOP", "IronStarRolling", "boss2", "boss3")
 
 	-- Phase 4
 	self:Yell("Phase3End", L.phase_3_end_trigger)
@@ -137,10 +149,12 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "AddMarkedMob", 144585) -- Ancestral Fury
 	self:Log("SPELL_CAST_START", "AddMarkedMob", 144584) -- Chain Lightning
 	self:Log("SPELL_CAST_START", "ChainHeal", 144583)
+	self:Log("SPELL_CAST_SUCCESS", "PowerIronStar", 144616)
 	self:Yell("Farseer", L["farseer_trigger"])
 	self:Emote("SiegeEngineer", "144616")
 	self:Log("SPELL_CAST_SUCCESS", "DesecratedWeapon", 144748, 144749)
 
+	self:Death("EngineerDeath", 71984) -- Siege Engineer
 	self:Death("RiderDeath", 71983) -- Farseer Wolf Rider
 	self:Death("Win", 71865) -- Garrosh
 end
@@ -212,6 +226,7 @@ function mod:ManifestRage(args)
 end
 
 function mod:Phase3End()
+	bombardmentCounter = 1
 	self:Bar("stages", 19, CL["phase"]:format(4), 147126)
 	-- stop bars here too, but since this needs localization we need to do it at the actual pull into the phase 4
 	self:StopBar(L["intermission"])
@@ -223,7 +238,7 @@ end
 
 function mod:IronStar()
 	self:Message("clump_check", "Important", "Long", L["spread"], 147126)
-	self:Flash("clump_check")
+	self:Flash("clump_check", 147126)
 end
 
 do
@@ -268,7 +283,8 @@ end
 
 function mod:Bombardment(args)
 	self:Message("bombardment", "Attention", nil, L["bombardment"], args.spellId)
-	self:Bar("bombardment", 55, L["bombardment"], args.spellId)
+	self:Bar("bombardment", bombardmentTimers[bombardmentCounter] and bombardmentTimers[bombardmentCounter] or 25, L["bombardment"], args.spellId)
+	bombardmentCounter = bombardmentCounter + 1
 	self:Bar("bombardment", 13, CL["casting"]:format(args.spellName), args.spellId)
 	self:Bar("clump_check", 3, L["clump_check"], 147126) -- Clump Check
 end
@@ -276,15 +292,10 @@ end
 -- phase 2
 function mod:GrippingDespair(args)
 	local amount = args.amount or 1
-	local sound
-	if amount > 3 and not self:Me(args.destGUID) then
-		sound = "Warning"
-	end
-	if args.spellId == 145195 then -- XXX do tanks need a bar for non empowered?
-		self:TargetBar(145183, 10, args.destName, 145195) -- text might be too long
-	end
-	if self:Tank() then
-		self:StackMessage(145183, args.destName, amount, "Attention", sound) -- force Gripping Despair text to keep it short
+	-- force Gripping Despair text to keep it short
+	self:StackMessage(145183, args.destName, amount, "Attention", amount > 2 and not self:Me(args.destGUID) and "Warning")
+	if args.spellId == 145195 then -- Empowered (Explosive Despair)
+		self:TargetBar(-8325, 10, args.destName)
 	end
 end
 
@@ -368,9 +379,10 @@ do
 	end
 	function mod:WhirlingCorruption(args)
 		self:Flash(144985)
-		self:Message(144985, "Important", "Long", CL["count"]:format(args.spellName, whirlingCounter))
+		local shortName = self:SpellName(144985)
+		self:Message(144985, "Important", "Long", CL["count"]:format(shortName, whirlingCounter))
 		whirlingCounter = whirlingCounter + 1
-		self:Bar(144985, 50, CL["count"]:format(args.spellName, whirlingCounter))
+		self:Bar(144985, 50, CL["count"]:format(shortName, whirlingCounter))
 		if args.spellId == 145037 and self.db.profile.custom_off_minion_marker then
 			markableMobs = {}
 			marksUsed = {}
@@ -416,11 +428,31 @@ do
 	end
 end
 
-function mod:SiegeEngineer()
-	self:Message(-8298, "Attention", nil, nil, 144616)
-	self:Bar(-8298, engineerCounter == 1 and 45 or 40, nil, 144616)
-	self:Bar(-8298, 22, 144616, 144616)
-	engineerCounter = engineerCounter + 1
+do
+	local dead = 0
+	function mod:SiegeEngineer()
+		self:Message(-8298, "Attention", nil, nil, 144616)
+		self:Bar(-8298, engineerCounter == 1 and 45 or 40, nil, 144616)
+		engineerCounter = engineerCounter + 1
+		dead = 0
+	end
+	function mod:EngineerDeath()
+		dead = dead + 1
+		if dead > 1 then
+			self:StopBar(144616) -- Power Iron Star
+		end
+	end
+end
+
+function mod:PowerIronStar(args)
+	self:Bar(args.spellId, 15)
+end
+
+function mod:IronStarRolling(_, _, _, _, spellId)
+	if spellId == 144616 then -- Power Iron Star
+		self:Message(spellId, "Important", nil, L["ironstar_rolling"])
+		self:Bar("ironstar_impact", 9, 144653) -- Iron Star Impact
+	end
 end
 
 -- Intermission
@@ -557,8 +589,8 @@ do
 		local boss = getBossByMobId(71865)
 		if not boss then return end
 		local target = boss.."target"
-		-- added UnitCastingInfo(boss), if it turns out to be too restrictive could just disable weaponTarget check while whirling corruption is being casted
-		if not UnitExists(target) or mod:Tank(target) or UnitDetailedThreatSituation(target, boss) or UnitCastingInfo(boss) then return end
+		-- added UnitCastingInfo(boss), UnitChannelInfo(boss), if it turns out to be too restrictive could just disable weaponTarget check while whirling corruption is being casted
+		if not UnitExists(target) or mod:Tank(target) or UnitDetailedThreatSituation(target, boss) or UnitCastingInfo(boss) or UnitChannelInfo(boss) then return end
 
 		local name = mod:UnitName(target)
 		mod:SecondaryIcon(144758, name) -- so we don't use skull as that might be used for marking the healing add

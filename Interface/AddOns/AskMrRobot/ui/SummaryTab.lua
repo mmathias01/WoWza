@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 AskMrRobot.SummaryTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
 function AskMrRobot.SummaryTab:new(parent)

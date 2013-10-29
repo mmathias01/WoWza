@@ -45,7 +45,7 @@ function mod:GetOptions()
 		145215, 147207,
 		"custom_off_titan_mark",
 		{146595, "PROXIMITY"}, 144400, -8257, {-8258, "FLASH"}, {146817, "FLASH", "PROXIMITY"}, -8270, {144351, "DISPEL"}, {144358, "TANK", "FLASH", "EMPHASIZE"}, -8262, 144800, 144563, -8349,
-		"berserk", "bosskill",
+		"altpower", "berserk", "bosskill",
 	}, {
 		[145215] = "heroic",
 		["custom_off_titan_mark"] = L.custom_off_titan_mark,
@@ -97,6 +97,7 @@ function mod:OnEngage()
 		self:CDBar(144358, 11) -- Wounded Pride
 	end
 	self:Berserk(600)
+	self:OpenAltPower("altpower", 144343) -- Pride
 end
 
 --------------------------------------------------------------------------------
@@ -128,19 +129,19 @@ end
 function mod:UnleashedStart()
 	if not self:LFR() then
 		self:CDBar(144358, 11) -- Wounded Pride
-		self:StopBar(144400) -- Swelling Pride
-		self:StopBar(144563) -- Imprison
-		self:StopBar(145215) -- Banishment
-		self:StopBar(L["small_adds"])
-		self:StopBar(L["big_add_bar"])
-		self:CancelDelayedMessage(L["big_add_spawning"])
 	end
+	self:StopBar(CL["count"]:format(self:SpellName(144400), swellingPrideCounter)) -- Swelling Pride
+	self:StopBar(144563) -- Imprison
+	self:StopBar(145215) -- Banishment
+	self:StopBar(L["small_adds"])
+	self:StopBar(L["big_add_bar"])
+	self:CancelDelayedMessage(L["big_add_spawning"])
 end
 
 function mod:Unleashed() -- Final Gift
 	self:StopBar(146595) -- Gift of the Titans
 	self:Message(-8349, "Neutral", "Info")
-	self:Bar(144400, 74) -- Swelling Pride
+	self:Bar(144400, 74, CL["count"]:format(self:SpellName(144400), swellingPrideCounter)) -- Swelling Pride
 	self:Bar(-8262, 60, L["big_add_bar"], 144379)
 	self:DelayedMessage(-8262, 55, "Urgent", L["big_add_spawning"], 144379)
 	self:Bar(144800, 16.3, L["small_adds"])
@@ -297,11 +298,13 @@ do
 
 		if self.db.profile.custom_off_titan_mark then
 			if prideExpires then
-				self:TargetBar(146595, prideExpires-GetTime(), args.destName, L["titan_pride"])
+				local remaining = prideExpires-GetTime()
+				self:TargetBar(146595, remaining, args.destName, L["titan_pride"])
+				self:ScheduleTimer(SetRaidTarget, remaining, args.destName, titanCounter)
 			else
 				SetRaidTarget(args.destName, titanCounter)
-				titanCounter = titanCounter + 1
 			end
+			titanCounter = titanCounter + 1
 		end
 	end
 	function mod:TitanGiftSuccess(args)

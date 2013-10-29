@@ -27,7 +27,7 @@ private.bankUiButtons = {}
 function BankUI:OnEnable()
 	BankUI:RegisterEvent("GUILDBANKFRAME_OPENED", function(event)
 		bankType = "guild"
-		TSMAPI:CreateTimeDelay("bankUIShowDelay", 0.1, function()
+		TSMAPI:CreateTimeDelay(0.1, function()
 			bankFrame = BankUI:getBankFrame("guildbank")
 			if TSM.db.profile.isBankui then
 				if #private.bankUiButtons > 0 then
@@ -54,7 +54,7 @@ function BankUI:OnEnable()
 
 	BankUI:RegisterEvent("BANKFRAME_OPENED", function(event)
 		bankType = "bank"
-		TSMAPI:CreateTimeDelay("bankUIShowDelay", 0.1, function()
+		TSMAPI:CreateTimeDelay(0.1, function()
 			bankFrame = BankUI:getBankFrame("bank")
 			if TSM.db.profile.isBankui then
 				if #private.bankUiButtons > 0 then
@@ -149,7 +149,7 @@ function BankUI:getBankFrame(bank)
 		return AspUIBank
 	elseif NivayacBniv_Bank and NivayacBniv_Bank:IsVisible() then
 		return NivayacBniv_Bank
-	elseif DufUIBank and DufUIBank:IsVisble() then
+	elseif DufUIBank and DufUIBank:IsVisible() then
 		return DufUIBank
 	end
 

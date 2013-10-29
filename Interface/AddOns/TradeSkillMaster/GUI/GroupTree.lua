@@ -17,29 +17,29 @@ local function UpdateTree(self)
 	self.statusText:SetText("")
 	local rowData = {}
 	local groupPathList, disabledGroupPaths = TSM:GetGroupPathList(self.module)
-	
+
 	for i, groupPath in ipairs(groupPathList) do
 		if not disabledGroupPaths[groupPath] then
-			local pathParts = {TSM.GROUP_SEP:split(groupPath)}
+			local pathParts = { TSM.GROUP_SEP:split(groupPath) }
 			local leader = ""
-			for i=1, #pathParts-1 do
-				leader = leader.."    "
+			for i = 1, #pathParts - 1 do
+				leader = leader .. "    "
 			end
-			local hasSubGroups = (groupPathList[i+1] and (groupPathList[i+1] == groupPath or strfind(groupPathList[i+1], "^"..TSMAPI:StrEscape(groupPath)..TSM.GROUP_SEP)))
-			local parent = #pathParts > 1 and table.concat(pathParts, TSM.GROUP_SEP, 1, #pathParts-1) or nil
-			local index = #rowData+1
+			local hasSubGroups = (groupPathList[i + 1] and (groupPathList[i + 1] == groupPath or strfind(groupPathList[i + 1], "^" .. TSMAPI:StrEscape(groupPath) .. TSM.GROUP_SEP)))
+			local parent = #pathParts > 1 and table.concat(pathParts, TSM.GROUP_SEP, 1, #pathParts - 1) or nil
+			local index = #rowData + 1
 			rowData[index] = {
-				value = leader..format("%s %s%s|r", pathParts[#pathParts], TSMAPI.Design:GetInlineColor("link"), hasSubGroups and (self.collapsed[groupPath] and "[+]" or "[-]") or ""),
+				value = leader .. format("%s %s%s|r", pathParts[#pathParts], TSMAPI.Design:GetInlineColor("link"), hasSubGroups and (self.collapsed[groupPath] and "[+]" or "[-]") or ""),
 				groupName = pathParts[#pathParts],
 				parent = parent,
 				groupPath = groupPath,
 				hasSubGroups = hasSubGroups,
 				index = index,
-				isSelected = not self.isGroupBox, -- select all rows by default (unless it's for a GroupBox)
+				isSelected = not self.isGroupBox and self.selectedGroups[groupPath], -- select all rows by default (unless it's for a GroupBox)
 			}
 		end
 	end
-	
+
 	if #rowData == 0 then
 		if #groupPathList == 0 then
 			self.statusText:SetText(L["You currently don't have any groups setup. Type '/tsm' and click on the 'TradeSkillMaster Groups' button to setup TSM groups."])
@@ -49,13 +49,14 @@ local function UpdateTree(self)
 	else
 		self.statusText:SetText("")
 	end
-	
+
 	self.rowData = rowData
 	self:RefreshRows()
 end
 
 local function SelectAll(self)
-	for i=1, #self.st.rowData do
+	for i = 1, #self.st.rowData do
+		self.st.selectedGroups[self.st.rowData[i].groupPath] = true
 		self.st.rowData[i].isSelected = true
 	end
 	self.st:RefreshRows()
@@ -65,8 +66,9 @@ local function SelectAll(self)
 end
 
 local function DeselectAll(self)
-	for i=1, #self.st.rowData do
-		self.st.rowData[i].isSelected = false
+	for i = 1, #self.st.rowData do
+		self.st.selectedGroups[self.st.rowData[i].groupPath] = nil
+		self.st.rowData[i].isSelected = nil
 	end
 	self.st:RefreshRows()
 	for _, row in ipairs(self.st.rows) do
@@ -82,26 +84,25 @@ local methods = {
 			end
 		end
 	end,
-
 	RefreshRows = function(self)
 		local offset = FauxScrollFrame_GetOffset(self.scrollFrame)
 		self.offset = offset
-		
-		for i=#self.rowData, 1, -1 do
+
+		for i = #self.rowData, 1, -1 do
 			local data = self.rowData[i]
 			if not self.isGroupBox and not data.isSelected and data.parent then
 				local index = self:GetRowIndex(data.parent)
 				if index then
-					self.rowData[index].isSelected = nil
+					self.rowData[index].isSelected = self.selectedGroups[self.rowData[index].groupPath]
 				end
 			end
 		end
-		
+
 		local displayRows = {}
-		for i=1, #self.rowData do
-			local pathParts = {TSM.GROUP_SEP:split(self.rowData[i].groupPath)}
+		for i = 1, #self.rowData do
+			local pathParts = { TSM.GROUP_SEP:split(self.rowData[i].groupPath) }
 			local isCollapsed = false
-			for i=1, #pathParts-1 do
+			for i = 1, #pathParts - 1 do
 				local path = table.concat(pathParts, TSM.GROUP_SEP, 1, i)
 				if self.collapsed[path] then
 					isCollapsed = true
@@ -118,17 +119,17 @@ local methods = {
 			end
 		end
 		FauxScrollFrame_Update(self.scrollFrame, #displayRows, self.NUM_ROWS, ROW_HEIGHT)
-		
-		for i=1, self.NUM_ROWS do
+
+		for i = 1, self.NUM_ROWS do
 			if i > #displayRows then
 				self.rows[i]:Hide()
 				self.rows[i].data = nil
 			else
 				self.rows[i]:Show()
-				local data = displayRows[i+offset]
+				local data = displayRows[i + offset]
 				if not data then return end
 				self.rows[i].data = data
-				
+
 				if data.isSelected or self.rows[i]:IsMouseOver() then
 					self.rows[i].highlight:Show()
 				else
@@ -138,17 +139,16 @@ local methods = {
 			end
 		end
 	end,
-	
 	SetSelection = function(self, rowNum, isSelected)
+		self.selectedGroups[self.rowData[rowNum].groupPath] = isSelected or nil
 		self.rowData[rowNum].isSelected = isSelected
 		self:RefreshRows()
 	end,
-	
 	GetSelectedGroupInfo = function(self, rowNum)
 		local groupInfo = {}
 		for _, data in ipairs(self.rowData) do
 			if data.isSelected then
-				groupInfo[data.groupPath] = {operations=TSM:GetGroupOperations(data.groupPath, self.module), items=TSM:GetGroupItems(data.groupPath)}
+				groupInfo[data.groupPath] = { operations = TSM:GetGroupOperations(data.groupPath, self.module), items = TSM:GetGroupItems(data.groupPath) }
 				if self.module and not groupInfo[data.groupPath].operations then
 					groupInfo[data.groupPath] = nil
 				end
@@ -156,21 +156,20 @@ local methods = {
 		end
 		return groupInfo
 	end,
-
 	ClearSelection = function(self)
-		for i=1, #self.rowData do
+		for i = 1, #self.rowData do
+			self.selectedGroups[self.rowData[i].groupPath] = nil
 			self.rowData[i].isSelected = nil
 		end
 		self.groupBoxSelection = nil
 		self:RefreshRows()
 	end,
-	
 	SetGropBoxSelection = function(self, groupPath)
 		if self.groupBoxSelection then
 			self.groupBoxSelection.isSelected = nil
 			self.groupBoxSelection = nil
 		end
-		for i=1, #self.rowData do
+		for i = 1, #self.rowData do
 			if self.rowData[i].groupPath == groupPath then
 				self.rowData[i].isSelected = true
 				self.groupBoxSelection = self.rowData[i]
@@ -178,7 +177,6 @@ local methods = {
 			end
 		end
 	end,
-	
 	GetGroupBoxSelection = function(self)
 		return self.groupBoxSelection and self.groupBoxSelection.groupPath
 	end,
@@ -191,26 +189,24 @@ local defaultColScripts = {
 		if self.data.hasSubGroups then
 			tinsert(tooltipLines, format(L["%sRight-Click|r to collapse / expand this group."], TSMAPI.Design:GetInlineColor("link")))
 		end
-		
+
 		local operations = TSM:GetGroupOperations(self.data.groupPath, self.st.module)
 		local operationLine = operations and table.concat(operations, ", ") or L["<No Operation>"]
 		tinsert(tooltipLines, "")
 		tinsert(tooltipLines, format(L["Operations: %s"], operationLine))
-		
+
 		GameTooltip:SetOwner(self, "ANCHOR_TOP")
 		GameTooltip:AddLine(table.concat(tooltipLines, "\n"), 1, 1, 1)
 		GameTooltip:Show()
-		
+
 		self.highlight:Show()
 	end,
-	
 	OnLeave = function(self)
 		GameTooltip:Hide()
 		if not self.data.isSelected then
 			self.highlight:Hide()
 		end
 	end,
-	
 	OnClick = function(self, button)
 		if button == "RightButton" then
 			self.st.collapsed[self.data.groupPath] = not self.st.collapsed[self.data.groupPath]
@@ -227,9 +223,11 @@ local defaultColScripts = {
 			self.data.isSelected = true
 		else
 			self.data.isSelected = not self.data.isSelected
+			self.st.selectedGroups[self.data.groupPath] = self.data.isSelected or nil
 			if self.data.hasSubGroups then
-				for i=1, #self.st.rowData do
-					if self.st.rowData[i].groupPath == self.data.groupPath or strfind(self.st.rowData[i].groupPath, "^"..TSMAPI:StrEscape(self.data.groupPath)..TSM.GROUP_SEP) then
+				for i = 1, #self.st.rowData do
+					if self.st.rowData[i].groupPath == self.data.groupPath or strfind(self.st.rowData[i].groupPath, "^" .. TSMAPI:StrEscape(self.data.groupPath) .. TSM.GROUP_SEP) then
+						self.st.selectedGroups[self.st.rowData[i].groupPath] = self.data.isSelected or nil
 						self.st.rowData[i].isSelected = self.data.isSelected
 					end
 				end
@@ -244,30 +242,37 @@ local defaultColScripts = {
 	end,
 }
 
-function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
+function TSMAPI:CreateGroupTree(parent, module, label, isGroupBox)
 	assert(type(parent) == "table", format(L["Invalid parent argument type. Expected table, got %s."], type(parent)))
-	
-	local name = "TSMGroupTree"..COUNT
+
+	local name = "TSMGroupTree" .. COUNT
 	COUNT = COUNT + 1
 	local st = CreateFrame("Frame", name, parent)
 	st:SetAllPoints()
 	st:SetScript("OnShow", UpdateTree)
-	st.NUM_ROWS = floor((parent:GetHeight()-(isGroupBox and 0 or 20))/ROW_HEIGHT)
+	st.NUM_ROWS = floor((parent:GetHeight() - (isGroupBox and 0 or 20)) / ROW_HEIGHT)
 	st.isGroupBox = isGroupBox
 	st.groupBoxSelection = nil
 	st.module = module
-	if module then
-		TSM.db.profile.groupTreeCollapsedStatus[module] = TSM.db.profile.groupTreeCollapsedStatus[module] or {}
-		st.collapsed = TSM.db.profile.groupTreeCollapsedStatus[module]
+	if label or module then
+		label = label or module
+		if not TSM.db.profile.groupTreeSelectedGroupStatus[label] then
+			TSMAPI:CreateTimeDelay(0, function() SelectAll({st=st}) end)
+		end
+		TSM.db.profile.groupTreeCollapsedStatus[label] = TSM.db.profile.groupTreeCollapsedStatus[label] or {}
+		TSM.db.profile.groupTreeSelectedGroupStatus[label] = TSM.db.profile.groupTreeSelectedGroupStatus[label] or {}
+		st.collapsed = TSM.db.profile.groupTreeCollapsedStatus[label]
+		st.selectedGroups = TSM.db.profile.groupTreeSelectedGroupStatus[label]
 	else
 		st.collapsed = {}
+		st.selectedGroups = {}
 	end
-	
-	local contentFrame = CreateFrame("Frame", name.."Content", st)
+
+	local contentFrame = CreateFrame("Frame", name .. "Content", st)
 	contentFrame:SetPoint("TOPLEFT")
 	contentFrame:SetPoint("BOTTOMRIGHT", -15, isGroupBox and 0 or 18)
 	st.contentFrame = contentFrame
-	
+
 	if not isGroupBox then
 		local btn = TSMAPI.GUI:CreateButton(st, 14)
 		btn:SetPoint("BOTTOMLEFT", 0, 2)
@@ -276,7 +281,7 @@ function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
 		btn:SetText(L["Select All Groups"])
 		btn:SetScript("OnClick", SelectAll)
 		btn.st = st
-		
+
 		local btn = TSMAPI.GUI:CreateButton(st, 14)
 		btn:SetPoint("BOTTOMLEFT", st, "BOTTOM", 2, 2)
 		btn:SetPoint("BOTTOMRIGHT", 0, 2)
@@ -285,17 +290,17 @@ function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
 		btn:SetScript("OnClick", DeselectAll)
 		btn.st = st
 	end
-	
+
 	-- frame to hold the rows
-	local scrollFrame = CreateFrame("ScrollFrame", name.."ScrollFrame", st, "FauxScrollFrameTemplate")
+	local scrollFrame = CreateFrame("ScrollFrame", name .. "ScrollFrame", st, "FauxScrollFrameTemplate")
 	scrollFrame:SetScript("OnVerticalScroll", function(self, offset)
-		FauxScrollFrame_OnVerticalScroll(self, offset, ROW_HEIGHT, function() st:RefreshRows() end) 
+		FauxScrollFrame_OnVerticalScroll(self, offset, ROW_HEIGHT, function() st:RefreshRows() end)
 	end)
 	scrollFrame:SetAllPoints(contentFrame)
 	st.scrollFrame = scrollFrame
-	
+
 	-- make the scroll bar consistent with the TSM theme
-	local scrollBar = _G[scrollFrame:GetName().."ScrollBar"]
+	local scrollBar = _G[scrollFrame:GetName() .. "ScrollBar"]
 	scrollBar:ClearAllPoints()
 	scrollBar:SetPoint("BOTTOMRIGHT", st, -1, isGroupBox and 1 or 19)
 	scrollBar:SetPoint("TOPRIGHT", st, -1, -1)
@@ -305,9 +310,9 @@ function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
 	TSMAPI.Design:SetContentColor(thumbTex)
 	thumbTex:SetHeight(50)
 	thumbTex:SetWidth(scrollBar:GetWidth())
-	_G[scrollBar:GetName().."ScrollUpButton"]:Hide()
-	_G[scrollBar:GetName().."ScrollDownButton"]:Hide()
-	
+	_G[scrollBar:GetName() .. "ScrollUpButton"]:Hide()
+	_G[scrollBar:GetName() .. "ScrollDownButton"]:Hide()
+
 	local text = st:CreateFontString()
 	text:SetFont(TSMAPI.Design:GetContentFont("normal"))
 	text:SetJustifyH("CENTER")
@@ -317,19 +322,19 @@ function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
 	text:SetHeight(100)
 	text:SetNonSpaceWrap(true)
 	st.statusText = text
-	
+
 	-- create the rows
 	st.rows = {}
-	for i=1, st.NUM_ROWS do
-		local row = CreateFrame("Button", name.."Row"..i, st.contentFrame)
+	for i = 1, st.NUM_ROWS do
+		local row = CreateFrame("Button", name .. "Row" .. i, st.contentFrame)
 		row:SetHeight(ROW_HEIGHT)
 		row:RegisterForClicks("AnyUp")
 		if i == 1 then
 			row:SetPoint("TOPLEFT")
 			row:SetPoint("TOPRIGHT")
 		else
-			row:SetPoint("TOPLEFT", st.rows[i-1], "BOTTOMLEFT")
-			row:SetPoint("TOPRIGHT", st.rows[i-1], "BOTTOMRIGHT")
+			row:SetPoint("TOPLEFT", st.rows[i - 1], "BOTTOMLEFT")
+			row:SetPoint("TOPRIGHT", st.rows[i - 1], "BOTTOMRIGHT")
 		end
 		local highlight = row:CreateTexture()
 		highlight:SetAllPoints()
@@ -349,12 +354,12 @@ function TSMAPI:CreateGroupTree(parent, module, isGroupBox, collapsedStatus)
 		row.st = st
 		tinsert(st.rows, row)
 	end
-	
+
 	for name, func in pairs(methods) do
 		st[name] = func
 	end
-	
+
 	UpdateTree(st)
-	
+
 	return st
 end

@@ -360,7 +360,7 @@ function Reset:ProcessItemOperation(itemString, operation)
 	if not scanData then return end
 	local prices = TSM.Util:GetItemPrices(operation, itemString, true)
 	local priceLevels = {}
-	local addFallback, isFirstItem = true, true
+	local addNormal, isFirstItem = true, true
 	local currentPriceLevel = -math.huge
 	
 	for _, record in ipairs(scanData.compactRecords) do
@@ -368,7 +368,7 @@ function Reset:ProcessItemOperation(itemString, operation)
 		if itemBuyout then
 			if not isFirstItem and itemBuyout > prices.minPrice and itemBuyout < prices.maxPrice and itemBuyout > (currentPriceLevel + prices.resetResolution) then
 				if itemBuyout >= prices.normalPrice then
-					addFallback = false
+					addNormal = false
 				end
 				currentPriceLevel = itemBuyout
 				tinsert(priceLevels, itemBuyout)
@@ -377,7 +377,7 @@ function Reset:ProcessItemOperation(itemString, operation)
 		end
 	end
 	
-	if addFallback then
+	if addNormal then
 		tinsert(priceLevels, prices.normalPrice)
 	end
 	

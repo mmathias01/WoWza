@@ -1,3 +1,23 @@
+local _, AskMrRobot = ...
+
+StaticPopupDialogs["AUTOGEM_FINISHED"] = {
+	text = "Mr. Robot finished auto-gemming. \rIf some items aren't gemmed, you may need to acquire more gems. \rIf your belt isn't gemmed, you may still need to buy a belt buckle.",
+	button1 = "Ok",
+	timeout = 0,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
+
+StaticPopupDialogs["AUTOGEM_ONCE"] = {
+	text = "Autogemming already in progress.",
+	button1 = "Ok",
+	timeout = 0,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
+
 -- initialize the GemTab class
 AskMrRobot.GemTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
@@ -29,6 +49,16 @@ function AskMrRobot.GemTab:new(name, parent)
 	text:SetWidth(200)
 	text:SetJustifyH("LEFT")
 	tab.gemsTextToOptimize = text
+
+	-- autogem button
+	tab.button = CreateFrame("Button", "AmrAutoGemButton", tab, "UIPanelButtonTemplate")	
+	tab.button:SetPoint("TOP", "AmrGemsText1", "BOTTOM", 0, -16)
+	tab.button:SetPoint("RIGHT", -40, 0)
+	tab.button:SetText("Auto Gem! (BETA)")
+	tab.button:SetWidth(150)
+	tab.button:SetHeight(20)
+	tab.button:SetScript("OnClick", function() tab:startAutoGem() end)
+	tab.button:Hide()
 
 
 	tab.gemSlotHeader = tab:CreateFontString("AmrBadGemSlot0", "ARTWORK", "GameFontNormal")
@@ -72,7 +102,13 @@ function AskMrRobot.GemTab:new(name, parent)
 	return tab
 end
 
-function AskMrRobot.GemTab:showBadGems()
+function AskMrRobot.GemTab:startAutoGem()
+	if AskMrRobot.AutoGem() == false then 
+		StaticPopup_Show("AUTOGEM_ONCE")
+	end
+end
+
+function AskMrRobot.GemTab:Update()
 	self.count = 0
 
 	local i = 1
@@ -99,12 +135,14 @@ function AskMrRobot.GemTab:showBadGems()
 		self.gemCurrentHeader:Hide()
 		self.gemOptimizedHeader:Hide()
 		self.gemsTextToOptimize:Hide()
+		self.button:Hide()
 		self.stamp:Show()
 	else
 		self.gemSlotHeader:Show()
 		self.gemCurrentHeader:Show()
 		self.gemOptimizedHeader:Show()
 		self.gemsTextToOptimize:Show()
+		self.button:Show()
 		self.stamp:Hide()
 	end	
 
@@ -122,16 +160,6 @@ function AskMrRobot.GemTab.OnVerticalScroll(scrollframe, offset)
 end
 
 function AskMrRobot.GemTab.OnUpdate(scrollframe)	
-	--if AskMrRobot.itemDiffs.gems then
-	--	for slotNum, badGems in AskMrRobot.sortSlots(AskMrRobot.itemDiffs.gems) do
-	--		for j = 1, #badGems.badGems do
-	--			if badGems.badGems[j] then
-	--			end
-	--		end
-	--		i = i + 1
-	--	end
-	--end
-
 	local self = scrollframe.parent
 	FauxScrollFrame_Update(self.fauxScroll, self.count, #self.jewelPanels, self.jewelPanels[1]:GetHeight())
 	local offset = FauxScrollFrame_GetOffset(scrollframe)

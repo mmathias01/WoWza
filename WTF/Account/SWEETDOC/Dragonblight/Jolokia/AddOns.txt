@@ -6,3 +6,7 @@ RazerNaga: disabled
 RazerNaga_Cast: disabled
 RazerNaga_Config: disabled
 RazerNaga_XP: disabled
+Omen: disabled
+Recount: disabled
+VuhDo: disabled
+VuhDoOptions: disabled

@@ -18,6 +18,7 @@ private.bagUpdateCallbacks = {}
 private.bankUpdateCallbacks = {}
 private.bagState = {}
 private.bankState = {}
+private.frames = {}
 
 TSM.GOLD_TEXT = "|cffffd700g|r"
 TSM.SILVER_TEXT = "|cffc7c7cfs|r"
@@ -517,10 +518,10 @@ function TSMAPI:GetSafeItemInfo(link)
 	if not itemInfoCache[link] then
 		if strmatch(link, "battlepet:") then
 			local _, speciesID, level, quality, health, power, speed, petID = strsplit(":", link)
-			if not speciesID then return end
+			if not tonumber(speciesID) then return end
 			level, quality, health, power, speed, petID = level or 0, quality or 0, health or 0, power or 0, speed or 0, petID or "0"
 			
-			local name, texture = C_PetJournal.GetPetInfoBySpeciesID(speciesID)
+			local name, texture = C_PetJournal.GetPetInfoBySpeciesID(tonumber(speciesID))
 			level, quality = tonumber(level), tonumber(quality)
 			petID = strsub(petID, 1, (strfind(petID, "|") or #petID)-1)
 			link = ITEM_QUALITY_COLORS[quality].hex.."|Hbattlepet:"..speciesID..":"..level..":"..quality..":"..health..":"..power..":"..speed..":"..petID.."|h["..name.."]|h|r"
@@ -792,4 +793,70 @@ do
 	TSM.RegisterEvent(private, "BANKFRAME_CLOSED", EventHandler)
 	TSM.RegisterEvent(private, "PLAYER_ENTERING_WORLD", EventHandler)
 	TSM.RegisterEvent(private, "PLAYERBANKSLOTS_CHANGED", EventHandler)
+end
+
+
+-- Registers a movable/resizable frame which TSM will keep track of and persistently store its position / size.
+-- The frame must be named for this function to work.
+-- Required defaults
+--          x  -  x position
+--          y  -  y position
+--      width  -  width
+--     height  -  height
+--      scale  -  scale
+function TSMAPI:CreateMovableFrame(name, defaults, parent)
+	local options = TSM.db.global.frameStatus[name] or CopyTable(defaults)
+	options.defaults = defaults
+	TSM.db.global.frameStatus[name] = options
+	
+	local frame = CreateFrame("Frame", name, parent)
+	frame:Hide()
+	frame:SetHeight(options.height)
+	frame:SetWidth(options.width)
+	frame:SetScale(UIParent:GetScale()*options.scale)
+	frame:SetPoint("CENTER", frame:GetParent())
+	frame:SetToplevel(true)
+	frame:EnableMouse(true)
+	frame:SetMovable(true)
+	frame:SetClampedToScreen(true)
+	frame:SetClampRectInsets(options.width-50, -(options.width-50), -(options.height-50), options.height-50)
+	frame:SetScript("OnMouseDown", frame.StartMoving)
+	frame:SetScript("OnMouseUp", function(self)
+			self:StopMovingOrSizing()
+			options.x = self:GetLeft()
+			options.y = self:GetBottom()
+		end)
+	frame:SetScript("OnSizeChanged", function(self)
+			options.width = self:GetWidth()
+			options.height = self:GetHeight()
+			self:SetClampRectInsets(options.width-50, -(options.width-50), -(options.height-50), options.height-50)
+		end)
+	frame.RefreshPosition = function(self)
+		self:SetScale(UIParent:GetScale()*options.scale)
+		self:SetFrameLevel(0)
+		self:ClearAllPoints()
+		self:SetPoint("BOTTOMLEFT", UIParent, options.x, options.y)
+		self:SetWidth(options.width)
+		self:SetHeight(options.height)
+	end
+	frame:SetScript("OnShow", frame.RefreshPosition)
+	frame.options = options
+	tinsert(private.frames, frame)
+	
+	return frame
+end
+
+function TSM:ResetFrames()
+	for _, frame in ipairs(private.frames) do
+		-- reset all fields to the default values without breaking any table references
+		local options = TSM.db.global.frameStatus[frame:GetName()]
+		local defaults = options.defaults
+		for i, v in pairs(defaults) do options[i] = v end
+		if frame and frame:IsVisible() then
+			frame:RefreshPosition()
+		end
+	end
+	
+	-- explicitly reset bankui since it can't easily use TSMAPI:CreateMovableFrame
+	TSM:ResetBankUIFramePosition()
 end

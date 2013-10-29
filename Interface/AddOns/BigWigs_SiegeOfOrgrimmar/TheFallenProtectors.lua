@@ -1,7 +1,8 @@
 --[[
 TODO:
-	:StopBar
 	improve timers by checking how they interact with different Desperate Measures -- Sun Tenderheart fixed, other two still need fixing
+	fix Corrupted Brew timer (in heroic every 2 casts it gets .5s faster) Clash and Vengeful Strikes probably delay it, too
+	need some data from normal for starting timers at intermission ends
 ]]--
 
 --------------------------------------------------------------------------------
@@ -44,7 +45,7 @@ if L then
 	L.no_meditative_field = "NO Meditative Field!"
 
 	L.intermission = "Desperate Measures"
-	L.intermission_desc = "Warnings for when you are getting close to any of the bosses using Desperate Measures"
+	L.intermission_desc = "Warnings for when bosses use Desperate Measures."
 
 	L.inferno_self = "Inferno Strike on you"
 	L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
@@ -60,8 +61,8 @@ L = mod:GetLocale()
 function mod:GetOptions()
 	return {
 		{144396, "TANK"}, {143019, "FLASH", "SAY"}, 143027, {143007, "HEALER"}, 143958, {"defile", "TANK"}, {144357, "FLASH"}, {-7959, "FLASH", "SAY", "PROXIMITY", "ICON"}, {"inferno_self", "SAY", "EMPHASIZE"}, -- Rook Stonetoe
-		{143330, "TANK"}, {143292, "FLASH"}, {144367, "FLASH"}, {143840, "FLASH", "PROXIMITY"}, -- He Softfoot
-		{143446, "DISPEL"}, 143491, 143546, {143423, "SAY"}, -- Sun Tenderheart
+		{143330, "TANK"}, {143292, "FLASH"}, {144367, "FLASH"}, {143840, "FLASH"}, -- He Softfoot
+		{143446, "DISPEL"}, 143491, 143564, {143423, "ICON", "SAY", "FLASH"}, -- Sun Tenderheart
 		"custom_off_bane_marks",
 		143497, "intermission", "berserk", "proximity", "bosskill",
 	}, {
@@ -79,29 +80,30 @@ function mod:OnBossEnable()
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "BossSucceeded", "boss1", "boss2", "boss3", "boss4", "boss5")
 	self:Log("SPELL_CAST_START", "Heal", 143497)
 	-- Sun Tenderheart
-	self:Log("SPELL_AURA_APPLIED", "DarkMeditationApplied", 143546)
-	self:Log("SPELL_AURA_REMOVED", "DarkMeditationRemoved", 143546)
+	self:Log("SPELL_AURA_APPLIED", "SunIntermission", 143546) -- Dark Meditation
+	self:Log("SPELL_AURA_REMOVED", "SunIntermissionEnd", 143546)
 	self:Log("SPELL_CAST_START", "Calamity", 143491)
 	self:Log("SPELL_CAST_SUCCESS", "Bane", 143446)
 	self:Log("SPELL_AURA_APPLIED", "BaneApplied", 143434)
 	self:Log("SPELL_AURA_REMOVED", "BaneRemoved", 143434)
 	self:Log("SPELL_AURA_APPLIED", "ShaSear", 143423)
 	-- He Softfoot
+	self:Log("SPELL_AURA_APPLIED", "HeIntermission", 143812) -- Mark of Anguish
+	self:Log("SPELL_AURA_REMOVED", "HeIntermissionEnd", 143812)
 	self:RegisterEvent("RAID_BOSS_WHISPER", "Gouge")
 	self:Log("SPELL_AURA_APPLIED", "Fixate", 143292)
 	self:Log("SPELL_DAMAGE", "NoxiousPoisonDamage", 144367)
-	self:Log("SPELL_AURA_APPLIED", "MarkOfAnguishApplied", 143840)
-	self:Log("SPELL_AURA_REMOVED", "MarkOfAnguishRemoved", 143840)
+	self:Log("SPELL_AURA_APPLIED", "MarkOfAnguish", 143840)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "LingeringAnguish", 144176)
-	self:Emote("HeIntermission", "143840")
 	-- Rook Stonetoe
-	self:Log("SPELL_CAST_SUCCESS", "VengefulStrikes", 144396)
+	self:Log("SPELL_AURA_APPLIED", "RookIntermission", 143955) -- Misery, Sorrow, and Gloom
+	self:Log("SPELL_AURA_REMOVED", "RookIntermissionEnd", 143955)
+	self:Log("SPELL_CAST_START", "VengefulStrikes", 144396)
 	self:Log("SPELL_CAST_SUCCESS", "Clash", 143027)
 	self:Log("SPELL_CAST_SUCCESS", "CorruptionKick", 143007)
 	self:Log("SPELL_CAST_SUCCESS", "CorruptionShock", 143958)
 	self:Log("SPELL_DAMAGE", "DefiledGroundDamage", 144357)
 	self:Log("SPELL_CAST_START", "InfernoStrike", 143962)
-	self:Emote("RookIntermission", "143955")
 
 	self:Death("Deaths", 71475, 71479, 71480) -- Rook Stonetoe, He Softfoot, Sun Tenderheart
 end
@@ -129,29 +131,35 @@ end
 -- Sun Tenderheart
 
 do
-	local function warnDarkMeditation(spellName)
-		if UnitDebuff("player", mod:SpellName(143564)) or not UnitAffectingCombat("player") then -- Meditative Field
-			mod:CancelTimer(darkMeditationTimer)
-			darkMeditationTimer = nil
-		else
-			mod:Message(143546, "Personal", "Info", L["no_meditative_field"])
+	local meditativeField = mod:SpellName(143564)
+	local function warnDarkMeditation(spellId)
+		if not UnitDebuff("player", meditativeField) and UnitAffectingCombat("player") then
+			mod:Message(143564, "Personal", "Info", L["no_meditative_field"])
 		end
 	end
 
-	function mod:DarkMeditationRemoved(args)
+	function mod:SunIntermissionEnd(args)
+		if not self:Tank() then
+			self:CancelTimer(darkMeditationTimer)
+			darkMeditationTimer = nil
+		end
+		if not self:Heroic() then
+			--self:CDBar(143027, ) -- Clash
+		end
 		self:CDBar(143491, 30) -- Calamity
 		self:CDBar(143446, 17) -- Bane
-		if not self:Tank() then
-			mod:CancelTimer(darkMeditationTimer)
-		end
 	end
-	function mod:DarkMeditationApplied(args)
+
+	function mod:SunIntermission(args)
+		self:Message("intermission", "Important", "Alert", args.spellName, args.spellId)
+		if not self:Tank() then
+			darkMeditationTimer = self:ScheduleRepeatingTimer(warnDarkMeditation, 3)
+		end
+		if not self:Heroic() then
+			self:StopBar(143027) -- Clash
+		end
 		self:StopBar(143491) -- Calamity
 		self:StopBar(143446) -- Bane
-		self:Message(args.spellId, "Important", "Alert")
-		if not self:Tank() then
-			darkMeditationTimer = self:ScheduleRepeatingTimer(warnDarkMeditation, 3, self:SpellName(143546))
-		end
 	end
 end
 
@@ -213,10 +221,13 @@ function mod:ShaSear(args)
 			if not self:LFR() then
 				self:Say(args.spellId)
 			end
+			self:Flash(args.spellId)
 			self:TargetMessage(args.spellId, args.destName, "Personal", "Warning")
 			self:TargetBar(args.spellId, 5, args.destName)
 		end
-		--self:SecondaryIcon(args.spellId, args.destName)
+		if not self:LFR() then
+			self:SecondaryIcon(args.spellId, args.destName)
+		end
 	end
 end
 
@@ -224,23 +235,15 @@ end
 
 function mod:LingeringAnguish(args)
 	-- inform the player with the debuff if stacks are getting high, the values might need adjusting (one warning about every 6 sec atm)
-	if UnitDebuff("player", self:SpellName(143840)) and (args.amount > 7 and args.amount % 2 == 0) then -- MarkOfAnguish
+	if UnitDebuff("player", self:SpellName(143840)) and (args.amount > 7 and args.amount % 2 == 0) then -- Mark of Anguish
 		self:StackMessage(143840, args.destName, args.amount, "Personal", "Info", 144176, 144176)
 	end
 end
 
-function mod:MarkOfAnguishRemoved(args)
-	self:CloseProximity(args.spellId)
-	self:OpenProximity("proximity", 5)
-end
-
-function mod:MarkOfAnguishApplied(args)
+function mod:MarkOfAnguish(args)
 	self:TargetMessage(args.spellId, args.destName, "Important", "Alert")
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-	else
-		self:CloseProximity("proximity")
-		self:OpenProximity(args.spellId, 30, args.destName, true)
 	end
 end
 
@@ -273,8 +276,20 @@ function mod:Gouge(_, msg)
 	end
 end
 
-function mod:HeIntermission()
+function mod:HeIntermission(args)
 	self:StopBar(143330) -- Gouge
+	if not self:Heroic() then
+		self:StopBar(143491) -- Calamity
+		self:StopBar(143027) -- Clash
+	end
+end
+
+function mod:HeIntermissionEnd(args)
+	if not self:Heroic() then
+		--self:CDBar(143491, ) -- Calamity
+		--self:CDBar(143027, ) -- Clash
+	end
+	self:CDBar(143330, 23) -- Gouge
 end
 
 -- Rook Stonetoe
@@ -338,28 +353,23 @@ do
 	end
 end
 
-function mod:CorruptionShock(args)
-	-- in 10 man one cast resulted in 2 bolts, so obviously can only warn for 1 target, since CLEU does not supply target
-	local unit = self:GetUnitIdByGUID(args.sourceGUID)
-	if not unit then
-		self:Message(args.spellId, "Personal", "Info")
-		return
-	end
-
-	local target = unit.."target"
-	if UnitExists(target) then
-		if self:Me(UnitGUID(target)) then
-			self:Flash(args.spellId)
-			self:Message(args.spellId, "Personal", "Info", CL["you"]:format(args.spellName))
-		elseif self:Range(target) < 4 then
-			self:RangeMessage(args.spellId)
-			self:Flash(args.spellId)
+do
+	local function printTarget(self, name, guid, elapsed)
+		if elapsed > 0.2 then
+			self:Message(143958, "Personal", "Info")
 		else
-			-- Even though the codes seems to work fine, keep this for debugging just to be safe
-			self:TargetMessage(args.spellId, self:UnitName(target), "Personal", "Info")
+			if self:Me(guid) then
+				self:Flash(143958)
+			elseif self:Range(name) < 4 then
+				self:RangeMessage(143958)
+				self:Flash(143958)
+				return
+			end
+			self:TargetMessage(143958, name, "Personal", "Info")
 		end
-	else
-		self:ScheduleTimer("TargetMessage", 0.1, args.spellId, self:UnitName(target), "Personal", "Info")
+	end
+	function mod:CorruptionShock(args)
+		self:GetBossTarget(printTarget, 0.2, args.sourceGUID)
 	end
 end
 
@@ -387,8 +397,8 @@ do
 	function mod:BossSucceeded(unitId, spellName, _, _, spellId)
 		if spellId == 143019 then -- Corrupted Brew
 			-- timer is all over the place, need to figure out if something delays it or what
-			self:CDBar(spellId, 11) -- not sure if there is a point for this like this
-			self:GetBossTarget(printTarget, 0.2, UnitGUID(unitId))
+			self:CDBar(spellId, 11)
+			self:GetBossTarget(printTarget, 0.4, UnitGUID(unitId))
 		elseif spellId == 143961 then
 			if UnitDetailedThreatSituation("player", unitId) then
 				self:CDBar("defile", 10, 144357)
@@ -398,6 +408,7 @@ do
 			self:CloseProximity(-7959)
 			self:OpenProximity("proximity", 5)
 			self:PrimaryIcon(-7959)
+			self:SecondaryIcon(143423)
 			if infernoTimer then
 				self:CancelTimer(infernoTimer)
 				infernoTimer = nil
@@ -413,23 +424,42 @@ end
 
 function mod:VengefulStrikes(args)
 	-- only warn for the tank targeted by the mob
-	if self:Me(args.destGUID) then
+	local unit = self:GetUnitIdByGUID(args.sourceGUID)
+	if self:Me(UnitGUID(unit.."target")) then -- or self:Healer()
 		self:Message(args.spellId, "Urgent", "Alarm")
-		self:Bar(args.spellId, 3, CL["cast"]:format(args.spellName))
-		self:CDBar(args.spellId, 21)
+		self:Bar(args.spellId, 4, CL["cast"]:format(args.spellName))
+		self:CDBar(args.spellId, 22)
 	end
 end
 
-function mod:RookIntermission()
+function mod:RookIntermission(args)
+	self:Message("intermission", "Important", "Alert", args.spellName, false)
 	self:StopBar(143027) -- Clash
 	self:StopBar(144396) -- Vengeful Strikes
 	self:StopBar(143019) -- Corrupted Brew
+	if not self:Heroic() then
+		self:StopBar(143491) -- Calamity
+	end
+	self:CDBar("defile", 9, 144357) -- Defiled Ground (first cast not limited her tank, obviously)
+	self:CDBar(-7959, 7) -- Inferno Strike
+	self:CDBar(143958, 5) -- Corruption Shock
+end
+
+function mod:RookIntermissionEnd(args)
+	self:StopBar(144357) -- Defiled Ground
+	self:OpenProximity("proximity", 5)
+	if not self:Heroic() then
+		self:CDBar(143491, 5) -- Calamity
+		self:CDBar(143027, 57) -- Clash
+	end
+	self:CDBar(144396, 7) -- Vengeful Strikes
+	self:CDBar(143019, 12) -- Corrupted Brew
 end
 
 
 function mod:Heal(args)
-	self:Bar(args.spellId, 15, CL["cast"]:format(CL["other"]:format(self:SpellName(98417), args.sourceName))) -- use text "Heal" instead of the long one
-	self:Message(args.spellId, "Positive", "Warning")
+	self:Bar(args.spellId, self:LFR() and 20 or 15, CL["cast"]:format(CL["other"]:format(self:SpellName(98417), args.sourceName))) -- "Heal"
+	self:Message(args.spellId, "Positive", "Warning", CL["other"]:format(self:SpellName(37455), args.sourceName)) -- "Healing"
 end
 
 function mod:UNIT_HEALTH_FREQUENT(unitId)
@@ -437,14 +467,16 @@ function mod:UNIT_HEALTH_FREQUENT(unitId)
 	if mobId == 71475 or mobId == 71479 or mobId == 71480 then
 		local hp = UnitHealth(unitId) / UnitHealthMax(unitId) * 100
 		if hp < 70 and not intermission[mobId] then -- 66%
-			self:Message("intermission", "Neutral", "Info", CL["soon"]:format(("%s (%s)"):format(L["intermission"], (UnitName(unitId)))), false)
+			local boss = UnitName(unitId)
+			self:Message("intermission", "Neutral", "Info", CL["soon"]:format(("%s (%s)"):format(L["intermission"], boss)), false)
 			intermission[mobId] = 1
 		elseif hp < 37 and intermission[mobId] == 1 then -- 33%
-			self:Message("intermission", "Neutral", "Info", CL["soon"]:format(("%s (%s)"):format(L["intermission"], (UnitName(unitId)))), false)
+			local boss = UnitName(unitId)
+			self:Message("intermission", "Neutral", "Info", CL["soon"]:format(("%s (%s)"):format(L["intermission"], boss)), false)
 			intermission[mobId] = 2
-		end
-		if intermission[71475] == 2 and intermission[71479] == 2 and intermission[71480] == 2 then
-			self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", "boss1", "boss2", "boss3")
+			if intermission[71475] == 2 and intermission[71479] == 2 and intermission[71480] == 2 then
+				self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", "boss1", "boss2", "boss3")
+			end
 		end
 	end
 end

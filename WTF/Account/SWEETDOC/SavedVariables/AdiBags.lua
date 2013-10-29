@@ -86,6 +86,7 @@ AdiBagsDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Majandra - Darrowmere"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
@@ -109,10 +110,10 @@ AdiBagsDB = {
 				},
 			},
 			["automaticLayout"] = 2,
+			["sortingOrder"] = "byQualityAndLevel",
 			["sectionFont"] = {
 				["name"] = "ElvUI Font",
 			},
-			["sortingOrder"] = "byQualityAndLevel",
 		},
 	},
 }

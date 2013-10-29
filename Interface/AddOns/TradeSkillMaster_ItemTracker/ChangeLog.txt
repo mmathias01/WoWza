@@ -1,3 +1,6 @@
+v2.0.6
+*Rewrote some of the mail tracking code to make it much less laggy.
+
 v2.0.5
 *Remove some old mail tracking code.
 *Fixed error from not viewing a character in a while.

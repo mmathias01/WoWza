@@ -27,6 +27,7 @@ local db = nil
 local floor = math.floor
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Big Wigs: Plugins")
+plugin.displayName = L.messages
 
 --------------------------------------------------------------------------------
 -- Anchors
@@ -354,11 +355,11 @@ do
 					},
 					align = {
 						type = "select",
-						name = L["Align"],
+						name = L.align,
 						values = {
-							LEFT = L["Left"],
-							CENTER = L["Center"],
-							RIGHT = L["Right"],
+							LEFT = L.left,
+							CENTER = L.center,
+							RIGHT = L.right,
 						},
 						width = "half",
 						style = "radio",

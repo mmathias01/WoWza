@@ -4,4 +4,8 @@ AucAdvancedFilterBasic_IgnoreList = {
 		["Alliance"] = {
 		},
 	},
+	["Darrowmere"] = {
+		["Alliance"] = {
+		},
+	},
 }

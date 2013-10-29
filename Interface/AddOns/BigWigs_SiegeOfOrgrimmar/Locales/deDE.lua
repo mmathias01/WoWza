@@ -1,4 +1,4 @@
-﻿local L = BigWigs:NewBossLocale("Immerseus", "deDE")
+local L = BigWigs:NewBossLocale("Immerseus", "deDE")
 if not L then return end
 if L then
 	L.win_yell = "Ah, Ihr habt es geschafft!"
@@ -14,7 +14,7 @@ if L then
 	L.no_meditative_field = "KEIN Meditationsfeld!"
 
 	L.intermission = "Verzweifelte Maßnahmen"
-	L.intermission_desc = "Warnt, wenn Du Dich nahe bei einem Boss befindest, welcher Verzweifelte Maßnahmen benutzt"
+	L.intermission_desc = "Warnt, wenn die Bosse Verzweifelte Maßnahmen verwenden."
 
 	L.inferno_self = "Infernostoß auf Dir"
 	L.inferno_self_desc = "Spezieller Timer wenn Du von Infernostoß betroffen bist."
@@ -127,6 +127,9 @@ if L then
 	L.tank_debuffs_desc = "Warnungen für die verschiedenen Typen von Schwächungszaubern auf den Tanks in Verbindung mit Fürchterlichem Brüllen."
 
 	L.cage_opened = "Käfig geöffnet"
+
+	L.akolik = "Akolik"
+	L.waterspeaker_gorai = "Wassersprecher Gorai"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "deDE")
@@ -146,6 +149,11 @@ if L then
 
 	L.assembly_line_trigger = "Unfertige Waffen werden auf das Fabrikationsband befördert."
 	L.assembly_line_message = "Unfertige Waffen (%d)"
+	L.assembly_line_items = "Waffen (%d): %s"
+	L.item_missile = "Rakete"
+	L.item_mines = "Minen"
+	L.item_laser = "Laser"
+	L.item_magnet = "Magnet"
 
 	L.shockwave_missile_trigger = "Ich präsentiere... den wunderschönen Erschütterungsraketenturm ST-03!"
 end
@@ -153,7 +161,9 @@ end
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "deDE")
 if L then
 	L.catalyst_match = "Katalysator: |c%sSTIMMT MIT DIR ÜBEREIN|r"
-	L.you_ate = "Du hast einen Parasiten gegessen!"
+	L.you_ate = "Du hast einen Parasiten gegessen (noch %d)"
+	L.other_ate = "%s hat einen %sParasiten gegessen (noch %d)"
+	L.parasites_up = "%d |4Parasit:Parasiten; vorhanden"
 	L.dance = "Tanzen"
 	L.prey_message = "Wirke Beute auf Parasiten"
 	L.one = "Iyyokuk wählt aus: Eins!"
@@ -161,7 +171,6 @@ if L then
 	L.three = "Iyyokuk wählt aus: Drei!"
 	L.four = "Iyyokuk wählt aus: Vier!"
 	L.five = "Iyyokuk wählt aus: Fünf!"
-	--------------------------------
 	L.edge_message = "Brennendes Band auf Dir"
 	L.custom_off_edge_marks = "Brennendes Band markieren"
 	L.custom_off_edge_marks_desc = "Markiert die Spieler mit Brennendem Band, basierend auf den Kalkulationen, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
@@ -187,6 +196,9 @@ if L then
 	L.intermission = "Unterbrechung"
 	L.mind_control = "Gedankenkontrolle"
 
+	L.ironstar_impact_desc = "Zeigt einen Timer für die Explosion der Eisernen Sterne an der jeweils gegenüberliegenden Wand."
+	L.ironstar_rolling = "Eiserner Stern rollt!"
+
 	L.chain_heal_desc = "Heilt ein verbündetes Ziel um 40% ihrer maximalen Gesundheit. Springt auf nahe verbündete Ziele über."
 	L.chain_heal_message = "Dein Fokusziel wirkt Kettenheilung!"
 	L.chain_heal_bar = "Fokusziel: Kettenheilung"
@@ -199,10 +211,5 @@ if L then
 	L.custom_off_minion_marker_desc = "Um bei der Unterscheidung der Diener zu helfen, werden diese mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} markiert, benötigt Leiter oder Assistent."
 
 	L.focus_only = "|cffff0000Nur Meldungen für Fokusziele.|r "
-end
-
-L = BigWigs:NewBossLocale("Siege of Orgrimmar Trash", "deDE")
-if L then
-
 end
 

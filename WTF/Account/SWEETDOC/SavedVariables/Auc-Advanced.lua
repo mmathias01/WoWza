@@ -11,9 +11,17 @@ AucAdvancedConfig = {
 			},
 		},
 		["configator.left"] = 560.0001220703125,
+		["stat"] = {
+			["sales"] = {
+				["ignoredsigs"] = {
+				},
+			},
+		},
+		["printwindow"] = "Loot / Trade",
+		["scandata.force"] = true,
+		["ModTTShow"] = "alt",
 		["util"] = {
-			["scanbutton"] = {
-				["getall"] = true,
+			["pricelevel"] = {
 			},
 			["mover"] = {
 				["anchors"] = {
@@ -26,21 +34,13 @@ AucAdvancedConfig = {
 			},
 			["automagic"] = {
 				["ammailguix"] = 160,
+				["uierrormsg"] = 1,
+				["ammailguiy"] = 99.99999237060547,
 				["SavedMailButtons"] = {
 				},
-				["ammailguiy"] = 99.99999237060547,
-				["uierrormsg"] = 1,
 			},
-			["pricelevel"] = {
-			},
-		},
-		["ModTTShow"] = "alt",
-		["scandata.force"] = true,
-		["printwindow"] = "Loot / Trade",
-		["stat"] = {
-			["sales"] = {
-				["ignoredsigs"] = {
-				},
+			["scanbutton"] = {
+				["getall"] = true,
 			},
 		},
 		["configator.top"] = 825,
@@ -50,19 +50,20 @@ AucAdvancedConfig = {
 AucAdvancedData = {
 	["AserArbitrageRealms"] = {
 		["Dragonblight"] = "Majandra",
+		["Darrowmere"] = "Majandra",
 	},
 	["Stats"] = {
 	},
 	["UtilSearchUiData"] = {
-		["Version"] = 1,
-		["Current"] = {
-			["snatch.itemsList"] = {
-			},
-		},
 		["Global"] = {
 			["configator.left"] = 510.0000305175781,
 			["configator.top"] = 850.0000610351563,
 		},
+		["Current"] = {
+			["snatch.itemsList"] = {
+			},
+		},
+		["Version"] = 1,
 		["SavedSearches"] = {
 		},
 	},

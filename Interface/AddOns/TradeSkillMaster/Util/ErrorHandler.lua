@@ -252,11 +252,13 @@ do
 	seterrorhandler(errHandlerFrame.handler)
 end
 
+--[===[@debug@ 
 --- Disables TSM's error handler until the game is reloaded.
 -- This is mainly used for debugging errors with TSM's error handler and should not be used in actual code.
 function TSMAPI:DisableErrorHandler()
 	seterrorhandler(origErrorHandler)
 end
+--@end-debug@]===]
 
 
 

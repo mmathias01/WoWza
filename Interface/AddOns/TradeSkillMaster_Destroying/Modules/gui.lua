@@ -33,26 +33,16 @@ function GUI:ShowFrame()
 end
 
 function private:CreateDestroyingFrame()
-	local frame = CreateFrame("Frame")
-	frame:Hide()
+	local frameDefaults = {
+		x = 850,
+		y = 450,
+		width = 200,
+		height = 220,
+		scale = 1,
+	}
+	local frame = TSMAPI:CreateMovableFrame("TSMDestroyingFrame", frameDefaults)
 	frame:SetFrameStrata("HIGH")
-	frame:SetHeight(220)
-	frame:SetWidth(200)
-	frame:SetScale(UIParent:GetScale())
-	frame:SetPoint("CENTER", UIParent)
-	frame:EnableMouse(true)
-	frame:SetMovable(true)
-	local function OnFrameShow(self)
-		self:SetScale(UIParent:GetScale())
-		self:SetFrameLevel(0)
-		self:ClearAllPoints()
-		self:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.global.framePosition))
-	end
-
-	frame:SetScript("OnMouseDown", frame.StartMoving)
-	frame:SetScript("OnMouseUp", function(...) frame.StopMovingOrSizing(...) TSM.db.global.framePosition = { frame:GetLeft(), frame:GetBottom() } end)
 	TSMAPI.Design:SetFrameBackdropColor(frame)
-	frame:SetScript("OnShow", OnFrameShow)
 	
 	local title = TSMAPI.GUI:CreateLabel(frame)
 	title:SetText("TSM_Destroying")

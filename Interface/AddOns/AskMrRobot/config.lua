@@ -1,6 +1,7 @@
-local addonName, addon = ...
+local addonName, AskMrRobot = ...
+
 --if not addon.healthCheck then return end
-local L = addon.L
+local L = AskMrRobot.L
 
 local wow_ver = select(4, GetBuildInfo())
 local wow_500 = wow_ver >= 50000

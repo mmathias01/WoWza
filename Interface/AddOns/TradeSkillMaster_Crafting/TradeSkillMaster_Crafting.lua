@@ -26,12 +26,8 @@ local savedDBDefaults = {
 		priceColumn = 1,
 		ignoreCDCraftCost = true,
 		neverCraftInks = true,
-		framePosition = {100, 300},
-		frameSize = {450, 500},
-		frameScale = 1,
 		frameQueueOpen = nil,
 		showingDefaultFrame = nil,
-		gatheringFramePosition = {100, 300},
 	},
 	factionrealm = {
 		tradeSkills = {},
@@ -39,7 +35,7 @@ local savedDBDefaults = {
 		mats = {},
 		queueStatus = { collapsed = {} },
 		sourceStatus = { collapsed = {} },
-		gathering = { crafter = nil, professions = {}, neededMats = {}, availableMats = {}, gatheredMats = false, gatherAll = false, destroyingMats = {}, destroyDisable = false },
+		gathering = { crafter = nil, professions = {}, neededMats = {}, availableMats = {}, gatheredMats = false, gatherAll = false, destroyingMats = {}, destroyDisable = false, evenStacks = true },
 		craftingCostCache = {}
 	},
 }
@@ -101,8 +97,6 @@ function TSM:RegisterModule()
 	TSM.tooltipOptions = { callback = "Options:LoadTooltipOptions" }
 	TSM.slashCommands = {
 		{ key = "profession", label = L["Opens the Crafting window to the first profession."], callback = "CraftingGUI:OpenFirstProfession" },
-		{ key = "profreset", label = L["Resets the position of the profession frame."], callback = "CraftingGUI:ResetFramePosition" },
-		{ key = "gatherreset", label = L["Resets the position of the profession frame."], callback = "CraftingGUI:ResetGatheringFramePosition" },
 	}
 	TSM.sync = { callback = "Sync:Callback" }
 	TSMAPI:NewModule(TSM)

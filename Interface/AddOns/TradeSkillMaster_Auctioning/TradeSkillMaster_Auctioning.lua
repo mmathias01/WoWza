@@ -60,9 +60,10 @@ function TSM:OnInitialize()
 			TSM.db:ResetProfile()
 		end
 	end
-	
+
 	for _, operation in pairs(TSM.operations) do
 		operation.resetMaxInventory = operation.resetMaxInventory or TSM.operationDefaults.resetMaxInventory
+		operation.aboveMax = operation.aboveMax or TSM.operationDefaults.aboveMax
 	end
 end
 
@@ -127,6 +128,7 @@ TSM.operationDefaults = {
 	maxPrice = 5000000,
 	normalPrice = 1000000,
 	priceReset = "none",
+	aboveMax = "normalPrice",
 	-- cancel
 	cancelUndercut = true,
 	keepPosted = 0,

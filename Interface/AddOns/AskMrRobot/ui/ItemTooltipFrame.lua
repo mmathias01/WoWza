@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the ItemLink class
 AskMrRobot.ItemTooltipFrame = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 

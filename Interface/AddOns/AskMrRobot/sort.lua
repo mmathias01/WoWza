@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 function AskMrRobot.spairs(t, order)
     -- collect the keys
     local keys = {}

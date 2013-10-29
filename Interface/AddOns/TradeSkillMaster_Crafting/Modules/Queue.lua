@@ -193,11 +193,11 @@ function Queue:GetQueue()
 	end
 
 	-- readd usedMats back in
-		for profession, data in pairs(tempMats) do
-			for itemString, quantity in pairs(data) do
-				mats[profession][itemString] = (mats[profession][itemString] or 0) + quantity
-			end
+	for profession, data in pairs(tempMats) do
+		for itemString, quantity in pairs(data) do
+			mats[profession][itemString] = (mats[profession][itemString] or 0) + quantity
 		end
+	end
 
 	for profession, data in pairs(usedMats) do
 		if mats[profession] then

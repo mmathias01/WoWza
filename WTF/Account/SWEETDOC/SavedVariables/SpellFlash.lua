@@ -3,23 +3,6 @@ SpellFlashAddonConfig = {
 	["SERVER"] = {
 		["us.logon.worldofwarcraft.com"] = {
 			["REALM"] = {
-				["Terenas"] = {
-					["PLAYER"] = {
-						["Cellestia"] = {
-							["disable_default_proc_highlighting"] = true,
-							["selected_class_module"] = "BittensSpellFlash_Shaman",
-							["MODULE"] = {
-								["BittensSpellFlash_Shaman"] = {
-									["enhance_off"] = true,
-								},
-							},
-						},
-						["Ziagi"] = {
-							["MODULE"] = {
-							},
-						},
-					},
-				},
 				["Dragonblight"] = {
 					["PLAYER"] = {
 						["Jolobank"] = {
@@ -49,6 +32,31 @@ SpellFlashAddonConfig = {
 							["MODULE"] = {
 								["BittensSpellFlash_Shaman"] = {
 								},
+							},
+						},
+					},
+				},
+				["Terenas"] = {
+					["PLAYER"] = {
+						["Cellestia"] = {
+							["disable_default_proc_highlighting"] = true,
+							["selected_class_module"] = "BittensSpellFlash_Shaman",
+							["MODULE"] = {
+								["BittensSpellFlash_Shaman"] = {
+									["enhance_off"] = true,
+								},
+							},
+						},
+						["Ziagi"] = {
+							["MODULE"] = {
+							},
+						},
+					},
+				},
+				["Darrowmere"] = {
+					["PLAYER"] = {
+						["Majandra"] = {
+							["MODULE"] = {
 							},
 						},
 					},

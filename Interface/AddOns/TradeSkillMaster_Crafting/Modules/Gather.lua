@@ -128,7 +128,11 @@ function Gather:ShoppingSearch(itemString, need)
 	if not TSM.db.factionrealm.gathering.destroyDisable then
 		if TSMAPI.InkConversions[itemString] then
 			TSM.Inventory.gatherItem = itemString
-			TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+			if TSM.db.factionrealm.gathering.evenStacks then
+				TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+			else
+				TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/x" .. need, ShoppingCallback)
+			end
 		elseif TSMAPI:GetDisenchantData(itemString) then
 			TSM.Inventory.gatherItem = itemString
 			TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
@@ -140,7 +144,11 @@ function Gather:ShoppingSearch(itemString, need)
 				break
 			end
 			if convertSource == "mill" or convertSource == "prospect" then
-				TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+				if TSM.db.factionrealm.gathering.evenStacks then
+					TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/even/x" .. need, ShoppingCallback)
+				else
+					TSMAPI:ModuleAPI("Shopping", "runDestroySearch", TSMAPI:GetSafeItemInfo(itemString) .. "/x" .. need, ShoppingCallback)
+				end
 			else
 				TSMAPI:ModuleAPI("Shopping", "runSearch", TSMAPI:GetSafeItemInfo(itemString) .. "/exact/x" .. need, ShoppingCallback)
 			end

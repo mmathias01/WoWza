@@ -1,5 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "ptBR")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "Sobre"
 L["activeBossModules"] = "Módulos de chefes ativos:"
@@ -39,18 +40,23 @@ L["EMPHASIZE"] = "Enfatizar"
 L["EMPHASIZE_desc"] = "Ativando isso SUPER ENFATIZARÁ qualquer mensagem ou barra associada com esta habilidade de encontro. As mensagens serão grandes, as barras piscarão e tremerão numa cor diferente, Será usado sons para contar quando a habilidade será eminente. Basicamente tera notícia dela. (:"
 L["extremelyOutdated"] = "|cffff0000AVISO:|r Seu Big Wigs é mais de 120 revisões desatualizado!! Sua versão pode ter erros, falta de recursos, ou temporizadores completamente incorretas. É altamente recomendado que você atualize." -- Needs review
 L["finishedLoading"] = "O combate terminou, Big Wigs agora terminou de ser carregado."
+L["FLASH_desc"] = "Algumas habilidades podem ser mais importante do que outras. Se você quer que sua tela pisque quando estas habilidades forem usadas ou iminentes, marque esta opção." -- Needs review
 L["flex"] = "Flex"
 L["healer"] = "|cFFFF0000Alertas somente de curadores.|r "
+L["HEALER"] = "Apenas para curadores" -- Needs review
+L["HEALER_desc"] = "Algumas habilidades são importantes somente para curadores. Se você quer ver avisos para essa habilidade independente da sua função, desmarque esta opção." -- Needs review
 L["heroic10"] = "10h"
 L["heroic25"] = "25h"
 L["ICON"] = "Icone"
-L["ICON_desc"] = "Big Wigs pode marcar personagens afetados por habilidades com um ícone."
+L["ICON_desc"] = "Big Wigs pode marcar personagens afetados por habilidades com um ícone. Isso os deixa mais fáceis de ver." -- Needs review
 L["introduction"] = "Bem-vindo ao Big Wigs. Coloque os cintos e pegue um lanche enquanto desfruta do passeio. De maneira não-instrusa iremos te preparar para esses novos encontros de chefes."
 L["ircChannel"] = "irc.freenode.net no canal #wowace"
 L["kills"] = "Kills:"
 L["lfr"] = "LFR"
 L["license"] = "Licença"
 L["listAbilities"] = "Listar as habilidades no chat"
+L["ME_ONLY"] = "Só quando for em mim" -- Needs review
+L["ME_ONLY_desc"] = "Quando você ativa esta opção as mensagens desta habilidade só serão mostradas se elas afetarem você. Por exemplo, 'Bomba: Jogador' só será mostrada se for em você." -- Needs review
 L["MESSAGE"] = "Mensagens"
 L["MESSAGE_desc"] = "A maioria das habilidades dos encontros se apresentam com uma ou mais mensagens que o Big Wigs mostrará em sua tela. Se desativar esta opção, nenhuma mensagem ligada a isto, se não todos, serão mostrados."
 L["minimapIcon"] = "Ícone no minimapa"
@@ -96,5 +102,4 @@ L["tooltipHint"] = "|cffeda55fClique|r para reiniciar todos os módulos. |cffeda
 L["upToDate"] = "Atualizado:"
 L["website"] = "Website"
 L["wipes"] = "Wipes:"
-
 

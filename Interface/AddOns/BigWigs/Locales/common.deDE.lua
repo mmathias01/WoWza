@@ -1,6 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs: Common", "deDE")
 if not L then return end
--- Prototype.lua common words
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["add"] = "Add"
 L["add_killed"] = "Add getötet! (%d/%d)"
@@ -35,7 +35,7 @@ L["removed"] = "%s entfernt"
 L["say"] = "%s auf MIR!"
 L["soon"] = "%s bald!"
 L["stack"] = "%dx %s auf %s"
+L["stage"] = "Phase %d"
 L["underyou"] = "%s unter DIR!"
 L["you"] = "%s auf DIR!"
-
 

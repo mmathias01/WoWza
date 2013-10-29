@@ -271,7 +271,7 @@ function private:InboxUpdate()
 			end
 			local itemDesc = (quantity > 0 and format("%s (%d)", itemLink, quantity)) or (quantity == -1 and L["Multiple Items"]) or "---"
 
-			if hasItem == 1 and itemLink and subject == format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)) then
+			if hasItem == 1 and itemLink and strfind(subject, "^"..TSMAPI:StrEscape(format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)))) then
 				mailInfo[i] = format(L["Expired: %s | %s"], itemDesc, FormatDaysLeft(daysLeft))
 			elseif cod > 0 then
 				mailInfo[i] = format(L["COD: %s | %s | %s | %s"], itemDesc, TSMAPI:FormatTextMoney(cod, redColor), sender or "---", FormatDaysLeft(daysLeft))
@@ -362,7 +362,7 @@ function private:ShouldOpenMail(index)
 		local subject, _, _, _, hasItem = select(4, GetInboxHeaderInfo(index))
 		if not isInvoice and hasItem == 1 then
 			local itemLink = GetInboxItemLink(index, 1)
-			if itemLink and subject == format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)) then
+			if itemLink and strfind(subject, "^"..TSMAPI:StrEscape(format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)))) then
 				return true
 			end
 		end
@@ -477,7 +477,7 @@ function private:LootMailItem(index)
 				end
 			end
 			local itemDesc = (quantity > 0 and format("%s (%d)", itemLink, quantity)) or (quantity == -1 and "Multiple Items") or "?"
-			if hasItem == 1 and itemLink and subject == format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)) then
+			if hasItem == 1 and itemLink and strfind(subject, "^"..TSMAPI:StrEscape(format(AUCTION_EXPIRED_MAIL_SUBJECT, TSMAPI:GetSafeItemInfo(itemLink)))) then
 				TSM:Printf(L["Collected expired auction of %s"], itemDesc)
 			elseif cod > 0 then
 				TSM:Printf(L["Collected COD of %s from %s for %s."], itemDesc, sender, TSMAPI:FormatTextMoney(cod, redColor))

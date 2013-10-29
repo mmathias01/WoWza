@@ -20,9 +20,6 @@ local ICON_TEXT_COLOR = {165/255, 168/255, 188/255, .7}
 --[[-----------------------------------------------------------------------------
 Scripts
 -------------------------------------------------------------------------------]]
-local function Frame_OnOpen(frame)
-	-- nothing here
-end
 local function Frame_OnClose(frame)
 	frame.obj:Fire("OnClose")
 end
@@ -78,8 +75,8 @@ Methods
 -------------------------------------------------------------------------------]]
 local methods = {
 	["OnAcquire"] = function(self)
-		self.frame:SetParent(UIParent)
-		self.frame:SetFrameStrata("FULLSCREEN")
+		self.frame:RefreshPosition()
+		self.frame:SetFrameStrata("MEDIUM")
 		self:SetTitle()
 		self:ApplyStatus()
 		self:Show()
@@ -267,19 +264,20 @@ Constructor
 local function Constructor()
 	local frameName = Type..AceGUI:GetNextWidgetNum(Type)
 
-	local frame = CreateFrame("Frame", frameName, UIParent)
-	frame:EnableMouse(true)
-	frame:SetMovable(true)
+	local frameDefaults = {
+		x = UIParent:GetWidth()/2,
+		y = UIParent:GetHeight()/2,
+		width = 823,
+		height = 686,
+		scale = 1,
+	}
+	local frame = TSMAPI:CreateMovableFrame(frameName, frameDefaults)
 	frame:SetResizable(true)
-	frame:SetFrameStrata("FULLSCREEN")
+	frame:SetFrameStrata("MEDIUM")
 	TSMAPI.Design:SetFrameBackdropColor(frame)
 	frame:SetMinResize(600, 400)
 	frame:SetToplevel(true)
-	frame:Hide()
-	frame:SetScript("OnShow", Frame_OnOpen)
 	frame:SetScript("OnHide", Frame_OnClose)
-	frame:SetScript("OnMouseDown", Frame_OnMouseDown)
-	frame:SetScript("OnMouseUp", Frame_OnMouseUp)
 	frame.toMove = frame
 	tinsert(UISpecialFrames, frameName)
 	

@@ -285,7 +285,7 @@ function Options:LoadGeneralSettings(container)
 		end
 	end
 
-	local oldScale = TSM.db.global.frameScale*UIParent:GetScale()
+	local oldScale = TSM.CraftingGUI.frame and TSM.CraftingGUI.frame.options.scale*UIParent:GetScale() or nil
 	local page = {
 		{
 			-- scroll frame to contain everything
@@ -300,23 +300,25 @@ function Options:LoadGeneralSettings(container)
 						{
 							-- slider to set the % to deduct from profits
 							type = "Slider",
-							label = L["Profession Frame Scale"],
-							settingInfo = {TSM.db.global, "frameScale"},
+							label = TSM.CraftingGUI.frame and L["Profession Frame Scale"] or "Open Profession to Enable",
+							value = TSM.CraftingGUI.frame and TSM.CraftingGUI.frame.options.scale or 1,
+							disabled = not TSM.CraftingGUI.frame,
 							min = 0.1,
 							max = 3,
 							step = 0.01,
 							relativeWidth = 0.49,
-							callback = function()
-								local x, y = unpack(TSM.db.global.framePosition)
-								local newScale = UIParent:GetScale()*TSM.db.global.frameScale
+							callback = function(_,_,value)
+								local options = TSM.CraftingGUI.frame.options
+								options.scale = value
+								local x = TSM.CraftingGUI.frame:GetLeft()
+								local y = TSM.CraftingGUI.frame:GetBottom()
+								local newScale = UIParent:GetScale()*options.scale
 								x = x * oldScale / newScale
 								y = y * oldScale / newScale
-								TSM.db.global.framePosition = {x, y}
-								oldScale = TSM.db.global.frameScale*UIParent:GetScale()
-								if TSM.CraftingGUI.frame then
-									TSM.CraftingGUI.frame:SetPoint("BOTTOMLEFT", UIParent, unpack(TSM.db.global.framePosition))
-									TSM.CraftingGUI.frame:SetScale(UIParent:GetScale()*TSM.db.global.frameScale)
-								end
+								options.x = x
+								options.y = y
+								oldScale = options.scale*UIParent:GetScale()
+								TSM.CraftingGUI.frame:RefreshPosition()
 							end,
 							tooltip = L["The scale of the profession frame."],
 						},
@@ -490,7 +492,7 @@ function Options:UpdateCraftST()
 		local isFiltered
 		local name, link = TSMAPI:GetSafeItemInfo(data.itemID)
 	
-		if not name or not link or (filters.filter ~= "" and not strfind(strlower(name), strlower(TSMAPI:StrEscape(filters.filter)))) then
+		if not name or not link or (filters.filter ~= "" and not strfind(strlower(name), strlower(filters.filter))) then
 			isFiltered = true
 		elseif filters.profession ~= "" and filters.profession ~= data.profession then
 			isFiltered = true
@@ -582,7 +584,7 @@ function Options:LoadCraftsPage(container)
 					relativeWidth = 0.3,
 					onTextChanged = true,
 					callback = function(_, _, value)
-						filters.filter = strlower(value:trim())
+						filters.filter = TSMAPI:StrEscape(strlower(value:trim()))
 						Options:UpdateCraftST()
 					end,
 				},
@@ -725,7 +727,7 @@ function Options:LoadCraftsPage(container)
 				GameTooltip:Hide()
 			end
 		}
-		TSMAPI:CreateTimeDelay("stHeightDelay", 0, function()
+		TSMAPI:CreateTimeDelay(0, function()
 				craftST = TSMAPI:CreateScrollingTable(stParent, cols, handlers)
 				craftST:EnableSorting(true, 2)
 				craftST:Show()
@@ -836,7 +838,7 @@ function Options:LoadMaterialsPage(container)
 					relativeWidth = 0.41,
 					onTextChanged = true,
 					callback = function(_, _, value)
-						filters.filter = strlower(value:trim())
+						filters.filter = TSMAPI:StrEscape(strlower(value:trim()))
 						Options:UpdateMatST()
 					end,
 				},

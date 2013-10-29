@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 -- initialize the RobotStamp class (inherit from Frame)
 AskMrRobot.RobotStamp = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 

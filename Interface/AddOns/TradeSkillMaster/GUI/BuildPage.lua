@@ -269,15 +269,15 @@ local Add = {
 		return buttonWidget
 	end,
 		
-	SelectionList = function(parent, args)
-		local selectionList = CreateWidget("TSMSelectionList", parent, args)
-		selectionList:SetIgnoreVisible(args.showIgnore)
-		selectionList:SetTitle("left", args.leftTitle)
-		selectionList:SetTitle("right", args.rightTitle)
-		selectionList:SetListCallback(args.listCallback)
-		selectionList:SetCallback("OnAddClicked", args.onAdd)
-		selectionList:SetCallback("OnRemoveClicked", args.onRemove)
-		return selectionList
+	GroupItemList = function(parent, args)
+		local groupItemList = CreateWidget("TSMGroupItemList", parent, args)
+		groupItemList:SetIgnoreVisible(args.showIgnore)
+		groupItemList:SetTitle("left", args.leftTitle)
+		groupItemList:SetTitle("right", args.rightTitle)
+		groupItemList:SetListCallback(args.listCallback)
+		groupItemList:SetCallback("OnAddClicked", args.onAdd)
+		groupItemList:SetCallback("OnRemoveClicked", args.onRemove)
+		return groupItemList
 	end,
 		
 	MacroButton = function(parent, args)

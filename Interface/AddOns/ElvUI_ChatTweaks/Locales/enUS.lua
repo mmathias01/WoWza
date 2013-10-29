@@ -1,6 +1,5 @@
 -------------------------------------------------------------------------------
 -- ElvUI Chat Tweaks By Lockslap (US, Bleeding Hollow)
--- <Borderline Amazing>, http://ba-guild.com
 -------------------------------------------------------------------------------
 local debug = false
 --[===[@debug@
@@ -71,6 +70,7 @@ L["Add |cff00ff00/emotes|r Command"] = true
 L["Added log entry from %s%s|r to %s%s|r log."] = true
 L["Addon Messages"] = true
 L["Addon Version Sent, Version: |cffffff00%s|r"] = true
+L["Adds a button to open this config window from ElvUI's config window."] = true
 L["Adds a minimap button.\n\n|cffffff00To disable the button, simply disable this module.|r"] = true
 L["Adds a timestamp to each line of text."] = true
 L["Adds an ElvUI datatext for this addon."] = true
@@ -299,6 +299,7 @@ L["Dont Always Run"] = true
 L["Druid"] = true
 L["Editbox History"] = true
 L["ElvUI ChatTweaks"] = true
+L["ElvUI Config Button"] = true
 L["ElvUI_CT"] = true
 L["ElvUI_ChatTweaks"] = true
 L["ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!"] = true
@@ -618,6 +619,7 @@ L["Players Level"] = true
 L["Plays a sound when one of your ElvUI keywords is found."] = true
 L["Plays a sound, of your choosing (via LibSharedMedia-3.0), whenever a message is received in a given channel."] = true
 L["Please DON'T use this. Reporting the spam is what gets the hacked accounts used by\nthe spammers closed down and realms cleaned up. Also, if many people report a spammer,\nthen that spammer looses the ability to chat meaning they can no longer spam, this benefits\neveryone."] = true
+L["Plugins by |cff9382c9Lockslap|r"] = true
 L["Popup"] = true
 L["Popup Messages"] = true
 L["PopupMessage"] = true
@@ -858,7 +860,6 @@ L["Trade"] = true
 L["Trigger"] = true
 L["Triggers"] = true
 L["Turns the timestamps into a link.\n\nClick the link to copy the chat line.\nShift+Click the link to send the line to the last chat you used."] = true
-L["Tweaks"] = true
 L["Unable to load the Alt Name module, please try again."] = true
 L["Unbalanced parameter count. Trailing Symbol: |cffffff00%s|r"] = true
 L["Unowned Only"] = true

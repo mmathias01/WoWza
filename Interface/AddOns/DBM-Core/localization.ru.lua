@@ -44,7 +44,8 @@ DBM_CORE_MIN_FMT					= "%d мин"
 DBM_CORE_SEC						= "сек"
 DBM_CORE_SEC_FMT					= "%d сек"
 
-DBM_CORE_GENERIC_WARNING_DUPLICATE	= "Один из %s"
+DBM_CORE_GENERIC_WARNING_OTHERS		= "и еще один"
+DBM_CORE_GENERIC_WARNING_OTHERS2	= "и %d других"
 DBM_CORE_GENERIC_WARNING_BERSERK	= "Берсерк через %s %s"
 DBM_CORE_GENERIC_TIMER_BERSERK		= "Берсерк"
 DBM_CORE_OPTION_TIMER_BERSERK		= "Отсчет времени до $spell:26662"
@@ -148,7 +149,7 @@ DBM_CORE_TIMER_BREAK				= "Перерыв!"
 DBM_CORE_ANNOUNCE_BREAK_OVER		= "Перерыв закончился"
 
 DBM_CORE_TIMER_PULL					= "Атака"
-DBM_CORE_ANNOUNCE_PULL				= "Атака через %d сек."
+DBM_CORE_ANNOUNCE_PULL				= "Атака через %d сек. (отправил %s)"
 DBM_CORE_ANNOUNCE_PULL_NOW			= "Атака!"
 
 DBM_CORE_ACHIEVEMENT_TIMER_SPEED_KILL = "Достижение"
@@ -247,6 +248,7 @@ DBM_CORE_AUTO_TIMER_OPTIONS.achievement = "Отсчет времени для %s
 
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT			= "Устанавливать метки на цели заклинания $spell:%s"
+DBM_CORE_AUTO_ICONS_OPTION_TEXT2		= "Устанавливать метки на $spell:%s (рекомендуется включить только одному)"
 DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "Звуковой сигнал \"бегите\" для $spell:%s"
 DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT		= "Звуковой отсчет до восстановления $spell:%s"
 DBM_CORE_AUTO_COUNTDOWN_OPTION_TEXT2	= "Звуковой отсчет до спадения $spell:%s"
@@ -255,7 +257,8 @@ DBM_CORE_AUTO_YELL_OPTION_TEXT			= "Кричать, когда на вас $spel
 DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT		= "%s на " .. UnitName("player") .. "!"
 DBM_CORE_AUTO_RANGE_OPTION_TEXT			= "Показывать окно проверки дистанции (%s м) для $spell:%s"--string used for range so we can use things like "5/2" as a value for that field
 DBM_CORE_AUTO_RANGE_OPTION_TEXT_SHORT	= "Показывать окно проверки дистанции (%s м)"--For when a range frame is just used for more than one thing
-
+DBM_CORE_AUTO_INFO_FRAME_OPTION_TEXT	= "Информационное окно для $spell:%s"
+DBM_CORE_AUTO_READY_CHECK_OPTION_TEXT	= "Проигрывать звук проверки готовности когда пулят босса (даже если он не является целью)"
 
 -- New special warnings
 DBM_CORE_MOVE_SPECIAL_WARNING_BAR	= "Индикатор спец-предупреждения"

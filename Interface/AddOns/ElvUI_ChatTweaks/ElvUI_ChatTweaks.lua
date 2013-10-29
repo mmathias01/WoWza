@@ -1,6 +1,5 @@
 -------------------------------------------------------------------------------
 -- ElvUI Chat Tweaks By Lockslap (US, Bleeding Hollow)
--- <Borderline Amazing>, http://ba-guild.com
 -- Based on functionality provided by Prat and/or Chatter
 -------------------------------------------------------------------------------
 local E, _, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
@@ -80,13 +79,19 @@ function ElvUI_ChatTweaks:OnInitialize()
 	self.db.RegisterCallback(self, "OnProfileReset", "SetUpdateConfig")
 	
 	-- add to elvui's config
-	-- trying to make this addon feel more like a part
-	-- of elvui, instead of being independant, even though it is
-	-- a required dep
 	LibStub("LibElvUIPlugin-1.0"):RegisterPlugin(self.addonName, function()
-		E.Options.args.chat.args.ChatTweaks = {
+		if not E.Options.args.lockslap then
+			E.Options.args.lockslap = {
+				type = "group",
+				order = -2,
+				name = L["Plugins by |cff9382c9Lockslap|r"],
+				args = {},
+			}
+		end
+	
+		E.Options.args.lockslap.args.chattweaks = {
 			type = "group",
-			name = L["Tweaks"],
+			name = L["Chat Tweaks"],
 			args = {
 				showect = {
 					type = "execute",

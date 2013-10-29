@@ -1,3 +1,18 @@
+v2.1.1
+*Fixed bug with gold tracking.
+
+v2.1
+*Fixed bug with buying items using alternate currency.
+*Added "maxBuy" and "maxSell" price sources.
+*Added max buy/sell prices to item tooltips.
+*Player on-hand gold values tracked by Accounting will now be rounded to the nearest 1k gold.
+*Added a dropdown to select which character to display on the gold graph.
+*Added an option to the dropdown to display the sum of all characters (on the faction+realm) on the gold graph.
+*Fixed some bugs with how on-hand gold data was being stored.
+*Added some code to correct errors in on-hand gold data automatically.
+*Added group and player filters to the summary tab.
+*Added the ability to remove a record for an item by shift-right-clicking on it in the item-detail page.
+
 v2.0.6
 *Fixed another stack overflow issue with Accounting price sources.
 *Updated TOC for patch 5.4.

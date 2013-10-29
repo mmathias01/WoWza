@@ -1,3 +1,5 @@
+local _, AskMrRobot = ...
+
 local primaryGemTexture = "Interface\\ItemSocketingFrame\\UI-ItemSockets";
 local engineeringGemTexture = "Interface\\ItemSocketingFrame\\UI-EngineeringSockets";
  

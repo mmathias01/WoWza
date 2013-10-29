@@ -206,6 +206,12 @@ function Inventory:GetItemSources(crafter, neededMats)
 					end
 				end
 			end
+			-- add mail tasks for destroyable items bought through shopping search (exclude items already added to mail tasks)
+			for itemString, quantity in pairs(TSM.db.factionrealm.gathering.destroyingMats) do
+				if mail[itemString] and not shortItems[itemString] then
+					mailItems[itemString] = quantity
+				end
+			end
 
 			if next(bankItems) then
 				tinsert(task, { taskType = L["Visit Bank"], items = bankItems })

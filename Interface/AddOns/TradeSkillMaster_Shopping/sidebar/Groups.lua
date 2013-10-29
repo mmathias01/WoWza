@@ -11,7 +11,7 @@ function private.Create(parent)
 	stContainer:SetPoint("TOPLEFT", 0, -35)
 	stContainer:SetPoint("BOTTOMRIGHT", 0, 30)
 	TSMAPI.Design:SetFrameColor(stContainer)
-	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Shopping")
+	frame.groupTree = TSMAPI:CreateGroupTree(stContainer, "Shopping", "Shopping_AH")
 	private.groupTree = frame.groupTree
 	
 	local helpText = TSMAPI.GUI:CreateLabel(frame)

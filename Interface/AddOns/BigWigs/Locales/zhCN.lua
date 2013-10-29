@@ -1,5 +1,6 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Big Wigs", "zhCN")
 if not L then return end
+
 -- These localization strings are translated on WoWAce: http://www.wowace.com/addons/big-wigs/localization/
 L["about"] = "关于"
 L["activeBossModules"] = "激活首领模块："
@@ -8,6 +9,10 @@ L["allRightsReserved"] = "保留所有权利"
 L["alphaOutdated"] = "Big Wigs α 测试版已过期。（/bwv）。"
 L["alphaRelease"] = "你所使用的 Big Wigs %s 为“α测试版”（修订号%d）"
 L["already_registered"] = "|cffff0000警告：|r |cff00ff00%s|r（|cffffff00%s|r）在 Big Wigs 中已经存在模块，但存在模块仍试图重新注册。可能由于更新失败的原因，通常表示您有两份模块拷贝在您插件的文件夹中。建议删除所有 Big Wigs 文件夹并重新安装。"
+L["altpower"] = "交替能量显示"
+L["ALTPOWER"] = "交替能量显示"
+L["altpower_desc"] = "显示交替能量窗口，可以显示团队成员交替能量计数。"
+L["ALTPOWER_desc"] = "一些首领战斗团队中的玩家将用到交替能量方式。交替能量显示提供了玩家最少/最多交替能量的快速预览，可以帮助特定的战术或分配。"
 L["autoRole"] = "自动更新职责"
 L["autoRoleDesc"] = [=[明确所担任的职责 Big Wigs 将为团队其他队友优化警报，此选项将使 Big Wigs 自动更新你的职责。比如，一些模块将检查玩家是坦克时首领并不会对坦克所施放的技能。
 
@@ -132,5 +137,4 @@ L["website"] = "网站"
 L["wipes"] = "团灭："
 L["zoneMessages"] = "显示区域信息"
 L["zoneMessagesDesc"] = "禁用此项 Big Wigs 在进入新区域时将停止显示已有计时器。建议不要关闭此选项，因为可能在进入新的区域时需要创建新的计时器，这是非常有帮助的。"
-
 

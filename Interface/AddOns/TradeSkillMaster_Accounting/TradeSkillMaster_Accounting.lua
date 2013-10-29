@@ -71,16 +71,29 @@ function TSM:OnInitialize()
 	end
 
 	TSM.Data:Load()
-	
+
 	-- fix issues in gold log
-	local player = UnitName("player")
-	if player and TSM.db.factionrealm.goldLog[player] then
-		for i=#TSM.db.factionrealm.goldLog[player], 1, -1 do
-			local data = TSM.db.factionrealm.goldLog[player][i]
+	for _, playerData in ipairs(TSM.db.factionrealm.goldLog) do
+		for i=#playerData, 1, -1 do
+			local data = playerData[i]
 			data.startMinute = floor(data.startMinute)
 			data.endMinute = floor(data.endMinute)
 			if data.startMinute == data.endMinute and data.copper == 0 then
-				tremove(TSM.db.factionrealm.goldLog[player], i)
+				tremove(playerData, i)
+			else
+				-- round to nearest 1k gold
+				data.copper = TSM:Round(data.copper, COPPER_PER_GOLD*1000)
+			end
+		end
+		if #playerData >= 2 then
+			for i=2, #playerData do
+				playerData[i].startMinute = playerData[i-1].endMinute + 1
+			end
+			for i=#playerData-1, 1, -1 do
+				if playerData[i].copper == playerData[i+1].copper then
+					playerData[i].endTime = playerData[i+1].endTime
+					tremove(playerData, i+1)
+				end
 			end
 		end
 	end
@@ -98,6 +111,8 @@ function TSM:RegisterModule()
 	TSM.priceSources = {
 		{ key = "avgSell", label = L["Avg Sell Price"], callback = "GetAvgSellPrice" },
 		{ key = "avgBuy", label = L["Avg Buy Price"], callback = "GetAvgBuyPrice" },
+		{ key = "maxSell", label = L["Max Sell Price"], callback = "GetMaxSellPrice" },
+		{ key = "maxBuy", label = L["Max Buy Price"], callback = "GetMaxBuyPrice" },
 	}
 	TSM.tooltipOptions = { callback = "GUI:LoadTooltipOptions" }
 
@@ -140,12 +155,14 @@ function TSM:GetTooltip(itemString)
 			else
 				tinsert(text, { left = "  " .. L["Sold (Total Price):"], right = format("%s (%s)", "|cffffffff" .. totalSaleNum .. "|r", (TSMAPI:FormatTextMoney(totalPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
 			end
-		elseif moneyCoinsTooltip then
-			tinsert(text, { left = "  " .. L["Sold (Avg Price):"], right = format("%s (%s)", "|cffffffff" .. totalSaleNum .. "|r", (TSMAPI:FormatTextMoneyIcon(totalPrice / totalSaleNum, "|cffffffff", true) or "|cffffffff" .. "?")) })
 		else
-			tinsert(text, { left = "  " .. L["Sold (Avg Price):"], right = format("%s (%s)", "|cffffffff" .. totalSaleNum .. "|r", (TSMAPI:FormatTextMoney(totalPrice / totalSaleNum, "|cffffffff", true) or "|cffffffff" .. "?")) })
+			local maxPrice = TSM:GetMaxSellPrice(itemString)
+			if moneyCoinsTooltip then
+				tinsert(text, { left = "  " .. L["Sold (Avg/Max Price):"], right = format("%s (%s / %s)", "|cffffffff" .. totalSaleNum .. "|r", (TSMAPI:FormatTextMoneyIcon(totalPrice / totalSaleNum, "|cffffffff", true) or "|cffffffff" .. "?"), (TSMAPI:FormatTextMoneyIcon(maxPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
+			else
+				tinsert(text, { left = "  " .. L["Sold (Avg/Max Price):"], right = format("%s (%s / %s)", "|cffffffff" .. totalSaleNum .. "|r", (TSMAPI:FormatTextMoney(totalPrice / totalSaleNum, "|cffffffff", true) or "|cffffffff" .. "?"), (TSMAPI:FormatTextMoney(maxPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
+			end
 		end
-
 		if lastSold then
 			local timeDiff = SecondsToTime(time() - lastSold)
 			tinsert(text, { left = "  " .. L["Last Sold:"], right = "|cffffffff" .. format(L["%s ago"], timeDiff) })
@@ -216,10 +233,11 @@ function TSM:GetTooltip(itemString)
 			end
 		else
 			local avgPrice = TSM:GetAvgBuyPrice(itemString)
+			local maxPrice = TSM:GetMaxBuyPrice(itemString)
 			if moneyCoinsTooltip then
-				tinsert(text, { left = "  " .. L["Purchased (Avg Price):"], right = format("%s (%s)", "|cffffffff" .. totalNum .. "|r", (TSMAPI:FormatTextMoneyIcon(avgPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
+				tinsert(text, { left = "  " .. L["Purchased (Avg/Max Price):"], right = format("%s (%s / %s)", "|cffffffff" .. totalNum .. "|r", (TSMAPI:FormatTextMoneyIcon(avgPrice, "|cffffffff", true) or "|cffffffff" .. "?"), (TSMAPI:FormatTextMoneyIcon(maxPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
 			else
-				tinsert(text, { left = "  " .. L["Purchased (Avg Price):"], right = format("%s (%s)", "|cffffffff" .. totalNum .. "|r", (TSMAPI:FormatTextMoney(avgPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
+				tinsert(text, { left = "  " .. L["Purchased (Avg/Max Price):"], right = format("%s (%s / %s)", "|cffffffff" .. totalNum .. "|r", (TSMAPI:FormatTextMoney(avgPrice, "|cffffffff", true) or "|cffffffff" .. "?"), (TSMAPI:FormatTextMoney(maxPrice, "|cffffffff", true) or "|cffffffff" .. "?")) })
 			end
 		end
 		if lastPurchased then
@@ -290,10 +308,10 @@ function TSM:GetItemName(item)
 	end
 end
 
-local baseItemLookup = {update=0}
+local baseItemLookup = { update = 0 }
 function TSM:UpdateBaseItemLookup()
 	if time() - baseItemLookup.update < 30 then return end
-	baseItemLookup = {update=time()}
+	baseItemLookup = { update = time() }
 	for itemString in pairs(TSM.Data.items) do
 		local baseItemString = TSMAPI:GetBaseItemString(itemString)
 		if baseItemString ~= itemString then
@@ -449,15 +467,15 @@ function TSM:GetAvgBuyPrice(itemString)
 		local auctions = TSMAPI:ModuleAPI("ItemTracker", "auctionstotal", itemString) or 0
 		itemCount = player + alts + guild + auctions
 	end
-	
+
 	local prices = {}
-	for i=#TSM.Data.items[itemString].buys, 1, -1 do
+	for i = #TSM.Data.items[itemString].buys, 1, -1 do
 		local record = TSM.Data.items[itemString].buys[i]
-		for j=1, record.quantity do
-			tinsert(prices, {price=record.price, withinTime=(time()-30*24*60*60 < floor(record.time))})
+		for j = 1, record.quantity do
+			tinsert(prices, { price = record.price, withinTime = (time() - 30 * 24 * 60 * 60 < floor(record.time)) })
 		end
 	end
-	
+
 	local totalNum, totalPrice = 0, 0
 	for _, data in ipairs(prices) do
 		totalNum = totalNum + 1
@@ -467,4 +485,54 @@ function TSM:GetAvgBuyPrice(itemString)
 		end
 	end
 	return floor(totalPrice / totalNum + 0.5), totalNum
+end
+
+function TSM:Round(value, sig)
+	local gold = value / sig
+	gold = floor(gold + 0.5)
+	return gold * sig
+end
+
+function TSM:GetMaxSellPrice(itemString)
+	itemString = TSMAPI:GetItemString(select(2, TSMAPI:GetSafeItemInfo(itemString)))
+	if not (itemString and TSM.Data.items[itemString] and #TSM.Data.items[itemString].sales > 0) then return end
+
+	local prices = {}
+	for i = #TSM.Data.items[itemString].sales, 1, -1 do
+		local record = TSM.Data.items[itemString].sales[i]
+		for j = 1, record.quantity do
+			tinsert(prices, { price = record.price })
+		end
+	end
+
+	local maxPrice = 0
+	for _, data in ipairs(prices) do
+		if data.price > maxPrice then
+			maxPrice = data.price
+		end
+	end
+
+	return maxPrice
+end
+
+function TSM:GetMaxBuyPrice(itemString)
+	itemString = TSMAPI:GetItemString(select(2, TSMAPI:GetSafeItemInfo(itemString)))
+	if not (itemString and TSM.Data.items[itemString] and #TSM.Data.items[itemString].buys > 0) then return end
+
+	local prices = {}
+	for i = #TSM.Data.items[itemString].buys, 1, -1 do
+		local record = TSM.Data.items[itemString].buys[i]
+		for j = 1, record.quantity do
+			tinsert(prices, { price = record.price })
+		end
+	end
+
+	local maxPrice = 0
+	for _, data in ipairs(prices) do
+		if data.price > maxPrice then
+			maxPrice = data.price
+		end
+	end
+
+	return maxPrice
 end

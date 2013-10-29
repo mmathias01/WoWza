@@ -361,7 +361,7 @@ function Options:DrawOperationSettings(container, operationName)
 	tg:SetLayout("Fill")
 	tg:SetFullHeight(true)
 	tg:SetFullWidth(true)
-	tg:SetTabs({{value=1, text=L["General"]}, {value=2, text=L["Post"]}, {value=3, text=L["Cancel"]}, {value=4, text=L["Reset"]}, {value=5, text=L["Relationships"]}, {value=6, text=L["Management"]}})
+	tg:SetTabs({{value=1, text=L["General"]}, {value=2, text=L["Post"]}, {value=3, text=L["Cancel"]}, {value=4, text=L["Reset"]}, {value=5, text=TSMAPI.Design:GetInlineColor("advanced")..L["Relationships"].."|r"}, {value=6, text=L["Management"]}})
 	tg:SetCallback("OnGroupSelected", function(self,_,value)
 			tg:ReleaseChildren()
 			TSMAPI:UpdateOperation("Auctioning", operationName)
@@ -517,21 +517,22 @@ function Options:DrawOperationPost(container, operationName)
 					title = L["Posting Price Settings"],
 					children = {
 						{
-							type = "Label",
-							text = L["NOTE: You can right click on any of the price settings below to show a window which will help with more advanced price settings such as using a % of another price source."],
-							relativeWidth = 1,
-						},
-						{
-							type = "HeadingLine",
-						},
-						{
 							type = "EditBox",
-							label = L["Minimum Price (aka Threshold)"],
+							label = L["Minimum Price"],
 							settingInfo = {operation, "minPrice"},
 							relativeWidth = 0.49,
 							acceptCustom = true,
 							disabled = operation.relationships.minPrice,
 							tooltip = L["The lowest price you want an item to be posted for. Auctioning will not undercut auctions below this price."],
+						},
+						{
+							type = "Dropdown",
+							label = L["When Below Minimum"],
+							relativeWidth = 0.5,
+							list = {["none"]=L["Don't Post Items"], ["minPrice"]=L["Post at Minimum Price"], ["maxPrice"]=L["Post at Maximum Price"], ["normalPrice"]=L["Post at Normal Price"], ["ignore"]=L["Ignore Auctions Below Minimum"]},
+							settingInfo = {operation, "priceReset"},
+							disabled = operation.relationships.priceReset,
+							tooltip = L["This dropdown determines what Auctioning will do when the market for an item goes below your minimum price. You can not post the items, post at one of your configured prices, or have Auctioning ignore all the auctions below your minimum price (and likely undercut the lowest auction above your mimimum price)."],
 						},
 						{
 							type = "EditBox",
@@ -543,22 +544,22 @@ function Options:DrawOperationPost(container, operationName)
 							tooltip = L["The maximum price you want an item to be posted for. Auctioning will not undercut auctions above this price."],
 						},
 						{
+							type = "Dropdown",
+							label = L["When Above Maximum"],
+							relativeWidth = 0.5,
+							list = {["minPrice"]=L["Post at Minimum Price"], ["maxPrice"]=L["Post at Maximum Price"], ["normalPrice"]=L["Post at Normal Price"]},
+							settingInfo = {operation, "aboveMax"},
+							disabled = operation.relationships.aboveMax,
+							tooltip = L["This dropdown determines what Auctioning will do when the market for an item goes above your maximum price. You can post the items at one of your configured prices."],
+						},
+						{
 							type = "EditBox",
-							label = L["Normal Price (aka Fallback)"],
+							label = L["Normal Price"],
 							settingInfo = {operation, "normalPrice"},
 							relativeWidth = 0.49,
 							acceptCustom = true,
 							disabled = operation.relationships.normalPrice,
-							tooltip = L["Price to post at if there are no auctions up under your maximum price. This includes the case where there's none of an item on the AH."],
-						},
-						{
-							type = "Dropdown",
-							label = L["When Below Minimum (aka Reset Method)"],
-							relativeWidth = 0.5,
-							list = {["none"]=L["Don't Post Items"], ["minPrice"]=L["Post at Minimum Price"], ["maxPrice"]=L["Post at Maximum Price"], ["normalPrice"]=L["Post at Normal Price"], ["ignore"]=L["Ignore Auctions Below Minimum"]},
-							settingInfo = {operation, "priceReset"},
-							disabled = operation.relationships.priceReset,
-							tooltip = L["This dropdown determines what Auctioning will do when the market for an item goes below your minimum price. You can not post the items, post at one of your configured prices, or have Auctioning ignore all the auctions below your minimum price (and likely undercut the lowest auction above your mimimum price)."],
+							tooltip = L["Price to post at if there are none on of an item on the AH."],
 						},
 					},
 				},
@@ -729,10 +730,11 @@ function Options:DrawOperationRelationships(container, operationName)
 			{key="stackSizeIsCap", label=L["Use Stack Size as Cap"]},
 			{key="bidPercent", label=L["Bid percent"]},
 			{key="undercut", label=L["Undercut Amount"]},
-			{key="minPrice", label=L["Minimum Price (aka Threshold)"]},
+			{key="minPrice", label=L["Minimum Price"]},
+			{key="priceReset", label=L["When Below Minimum"]},
 			{key="maxPrice", label=L["Maximum Price"]},
-			{key="normalPrice", label=L["Normal Price (aka Fallback)"]},
-			{key="priceReset", label=L["When Below Minimum (aka Reset Method)"]},
+			{key="aboveMax", label=L["When Above Maximum"]},
+			{key="normalPrice", label=L["Normal Price"]},
 		},
 		{
 			label = L["Cancel Settings"],

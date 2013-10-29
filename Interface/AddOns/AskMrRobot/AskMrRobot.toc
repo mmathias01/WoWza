@@ -1,7 +1,7 @@
 ## Interface: 50400
 ## Title: Ask Mr Robot
 ## Author: Ask Mr Robot
-## Version: 1.1.11.0
+## Version: 1.2.1.0
 ## Notes: Exports bag/bank items to a saved variable.
 ## URL: www.askmrrobot.com
 ## DefaultState: Enabled

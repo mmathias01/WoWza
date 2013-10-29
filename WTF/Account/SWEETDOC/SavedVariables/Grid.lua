@@ -63,23 +63,21 @@ GridDB = {
 							["Power Word: Barrier"] = 81782,
 							["Colossus"] = 116631,
 							["Jade Spirit"] = 104993,
-							["Tempus Repit"] = 137590,
 							["Healing Stream Totem"] = 119523,
+							["Tempus Repit"] = 137590,
 							["Sunder Armor"] = 76622,
 							["Dancing Steel"] = 120032,
 							["Stormlash Totem"] = 120676,
 						},
-						["Temple of the Jade Serpent"] = {
-							["Purified Water"] = 118714,
-							["Shattered Resolve"] = 110125,
-							["Sha Residue"] = 106653,
-							["Lorewalkers' Alacrity"] = 122714,
+						["Stormstout Brewery"] = {
+							["Blackout Drunk"] = 106857,
+							["Brew Explosion"] = 106648,
 							["Jade Spirit"] = 104993,
-							["Serrated Slash"] = 128051,
-							["Blessing of the Waterspeaker"] = 121483,
-							["Tempus Repit"] = 137590,
-							["Shadows of Doubt"] = 110099,
-							["Touch of Nothingness"] = 106113,
+							["Explosive Brew"] = 114291,
+							["Blackout Brew"] = 106851,
+							["Water Strike"] = 107046,
+							["Wall of Suds"] = 114466,
+							["Brew Bolt"] = 114548,
 						},
 						["Vale of Eternal Blossoms"] = {
 							["Heart of Y'Shaarj"] = 142154,
@@ -93,15 +91,11 @@ GridDB = {
 							["Restoration"] = 132958,
 							["Stone Rain"] = 142139,
 						},
-						["Stormstout Brewery"] = {
-							["Blackout Drunk"] = 106857,
-							["Brew Explosion"] = 106648,
+						["Thunder King's Citadel"] = {
+							["Web"] = 140642,
+							["Lightning Surge"] = 139805,
 							["Jade Spirit"] = 104993,
-							["Explosive Brew"] = 114291,
-							["Blackout Brew"] = 106851,
-							["Water Strike"] = 107046,
-							["Wall of Suds"] = 114466,
-							["Brew Bolt"] = 114548,
+							["Stone Smash"] = 139777,
 						},
 						["The Secrets of Ragefire"] = {
 							["Jade Spirit"] = 104993,
@@ -115,12 +109,12 @@ GridDB = {
 							["Gale Force"] = 115419,
 							["Viscous Fluid"] = 107122,
 							["Battering Headbutt"] = 130772,
-							["Sabotage"] = 107119,
+							["Jade Spirit"] = 104993,
 							["Fixate"] = 111723,
 							["Prey Time"] = 106933,
 							["Savage Cleave"] = 115436,
 							["Dancing Steel"] = 120032,
-							["Jade Spirit"] = 104993,
+							["Sabotage"] = 107119,
 						},
 						["Throne of Thunder"] = {
 							["Amplifier"] = 138070,
@@ -202,11 +196,17 @@ GridDB = {
 							["Swiftmend"] = 142423,
 							["Spirit Mend"] = 90361,
 						},
-						["Thunder King's Citadel"] = {
-							["Web"] = 140642,
-							["Lightning Surge"] = 139805,
+						["Temple of the Jade Serpent"] = {
+							["Purified Water"] = 118714,
+							["Shattered Resolve"] = 110125,
+							["Sha Residue"] = 106653,
+							["Lorewalkers' Alacrity"] = 122714,
 							["Jade Spirit"] = 104993,
-							["Stone Smash"] = 139777,
+							["Serrated Slash"] = 128051,
+							["Blessing of the Waterspeaker"] = 121483,
+							["Tempus Repit"] = 137590,
+							["Shadows of Doubt"] = 110099,
+							["Touch of Nothingness"] = 106113,
 						},
 					},
 					["isFirst"] = false,
@@ -235,8 +235,8 @@ GridDB = {
 					["buff_Riptide"] = {
 						["icon"] = "Interface\\Icons\\spell_nature_riptide",
 					},
-					["buff_PowerWord:Shield"] = {
-						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					["buff_BeaconofLight"] = {
+						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
 					},
 					["buff_LifeCocoon"] = {
 						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
@@ -256,8 +256,8 @@ GridDB = {
 					["buff_Regrowth"] = {
 						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
 					},
-					["buff_BeaconofLight"] = {
-						["icon"] = "Interface\\Icons\\Ability_Paladin_BeaconofLight",
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
 					},
 					["buff_Lifebloom"] = {
 						["icon"] = "Interface\\Icons\\INV_Misc_Herb_Felblossom",
@@ -345,7 +345,7 @@ GridDB = {
 					["layouts"] = {
 						["solo"] = "None",
 					},
-					["PosX"] = -1151,
+					["Spacing"] = 3,
 					["anchor"] = "TOPRIGHT",
 					["PosY"] = -489,
 					["layout"] = "None",
@@ -353,7 +353,7 @@ GridDB = {
 					["horizontal"] = true,
 					["Padding"] = 2,
 					["borderTexture"] = "ArkInventory Square 1",
-					["Spacing"] = 3,
+					["PosX"] = -1151,
 				},
 			},
 		},
@@ -365,10 +365,11 @@ GridDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Jolokya - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
 		["Cellestia - Terenas"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

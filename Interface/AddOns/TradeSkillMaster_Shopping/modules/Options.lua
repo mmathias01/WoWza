@@ -88,6 +88,17 @@ function Options:DrawGeneralSettings(container)
 							acceptCustom = true,
 							tooltip = L["This is how Shopping calculates the '% Market Value' column in the search results."],
 						},
+						{
+							type = "Slider",
+							label = L["Max Disenchant Search Percent"],
+							settingInfo = {TSM.db.global, "maxDeSearchPercent"},
+							min = .1,
+							max = 1,
+							step = .01,
+							isPercent = true,
+							relativeWidth = 0.5,
+							tooltip = L["This is the maximum percentage of disenchant value that the Other > Disenchant search will display results for."],
+						},
 					},
 				},
 				{

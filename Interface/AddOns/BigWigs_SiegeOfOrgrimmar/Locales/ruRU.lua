@@ -120,20 +120,40 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "ruRU")
 if L then
+	L.adds = "Героические помощники"
+	L.adds_desc = "Предупреждать, если героические помощники вступают в бой."
+
 	L.tank_debuffs = "Дебаффы танка"
 	L.tank_debuffs_desc = "Предупреждать о разных типах дебаффов танка, связанных со Страшным ревом."
 
 	L.cage_opened = "Клетка открыта"
+
+	L.akolik = "Аколик"
+	L.waterspeaker_gorai = "Говорящий с водой Гожай"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "ruRU")
 if L then
+	L.overcharged_crawler_mine = "Перегретая ползучая мина"
+	L.custom_off_mine_marker = "Маркировка мин"
+	L.custom_off_mine_marker_desc = "Ставить метки на мины, для распределения оглушений. (Все метки используются)"
+
+	L.saw_blade_near_you = "Пила возле тебя (не на тебе)"
+	L.saw_blade_near_you_desc = "Возможно, вы захотите выключить эту опцию, чтобы избежать спама, если ваш рейд сгруппирован по другой тактике."
+
+	-- L.disabled = "Disabled"
+
 	L.shredder_engage_trigger = "Приближается автоматический крошшер!"
 	L.laser_on_you = "Лазер на тебе ПИУ-ПИУ!"
 	L.laser_say = "Лазер ПИУ-ПИУ"
 
 	L.assembly_line_trigger = "На сборочную линию начинает поступать незаконченное оружие."
 	L.assembly_line_message = "Незаконченное оружие (%d)"
+	L.assembly_line_items = "Предметы (%d): %s"
+	L.item_missile = "Ракета"
+	L.item_mines = "Мины"
+	L.item_laser = "Лазер"
+	L.item_magnet = "Магнит"
 
 	L.shockwave_missile_trigger = "Представляю вам прекрасную ударно-волновую турель УТ-03!"
 end
@@ -141,7 +161,9 @@ end
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "ruRU")
 if L then
 	L.catalyst_match = "Катализатор: |c%sСОВПАДЕНИЕ|r"
-	L.you_ate = "Тебя ест паразит!"
+	L.you_ate = "Тебя ест Паразит (%d осталось)"
+	L.other_ate = "%s ест %sПаразит (%d осталось)"
+	L.parasites_up = "%d |4Паразит жив:Паразита живы:Паразитов живы;"
 	L.dance = "Танцуем"
 	L.prey_message = "Используй Охоту на паразита"
 	L.one = "Выбор Ийокука: Один!"
@@ -149,7 +171,6 @@ if L then
 	L.three = "Выбор Ийокука: Три!"
 	L.four = "Выбор Ийокука: Четыре!"
 	L.five = "Выбор Ийокука: Пять!"
-	--------------------------------
 	L.edge_message = "Ты в луче"
 	L.custom_off_edge_marks = "Маркировка луча"
 	L.custom_off_edge_marks_desc = "Люди, которые станут лучами на основе расчетов, будут отмечены {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
@@ -161,19 +182,22 @@ end
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "ruRU")
 if L then
 	L.manifest_rage = "Проявить ярость"
-	-- L.manifest_rage_desc = "When Garrosh reaches 100 energy he'll pre cast Manifest Rage for 2 seconds, then channel it. While it's channelled it summons big adds. Kite the Iron Star into Garrosh to stun and interrupt his cast."
+	L.manifest_rage_desc = "Когда Гаррош накапливает 100 энергии, он 2 секунды готовится к Проявлению ярости и зачем начинает поддерживать это заклинание. В это время вызываются большие помощники. Прикатите Железную звезду в Гарроша, чтобы прервать чтение."
 
-	-- L.phase_3_end_trigger = "You think you have WON?  You are BLIND.  I WILL FORCE YOUR EYES OPEN."
+	L.phase_3_end_trigger = "Думаете, вы победили? Слепцы. Я раскрою вам глаза!"
 
-	-- L.clump_check = "Clump check"
-	-- L.clump_check_desc = "Check every 3 seconds during bombardment for clumped up players, if a clump is found a Kor'kron Iron Star will spawn."
+	L.clump_check = "Проверка проходимости"
+	L.clump_check_desc = "Каждые 3 секунды, во время Бомбардировки, будет проверяться проходимость, если она обнаружена, появится Кор'кронская железная звезда."
 
 	L.bombardment = "Бомбардировка"
-	-- L.bombardment_desc = "Bombarding Stormwind and leaving fires on the ground. Kor'kron Iron Star can only spawn during bombardment."
+	L.bombardment_desc = "Бомбардировка города и появление горящих луж. Кор'кронская железная звезда появляется только в это время."
 
 	L.spread = "Разбегайтесь!"
 	L.intermission = "Перерыв"
 	L.mind_control = "Контроль разума"
+
+	L.ironstar_impact_desc = "Таймер, когда Железная звезда ударится о противоположную стену."
+	L.ironstar_rolling = "Железная звезда катится!"
 
 	L.chain_heal_desc = "Лечит союзника, восстанавливая определенный процент от его максимального запаса здоровья, переходя на находящиеся поблизости дружественные цели."
 	L.chain_heal_message = "Ваш фокус читает Цепное исцеление!"
@@ -187,10 +211,5 @@ if L then
 	L.custom_off_minion_marker_desc = "Чтобы помочь разделить прислужников, на них будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером."
 
 	L.focus_only = "|cffff0000Оповещения только для фокуса.|r "
-end
-
-L = BigWigs:NewBossLocale("Siege of Orgrimmar Trash", "ruRU")
-if L then
-
 end
 
