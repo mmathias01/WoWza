@@ -45,6 +45,8 @@ end
 
 function UF:Construct_AuraBarHeader(frame)
 	local auraBar = CreateFrame('Frame', nil, frame)
+	auraBar:SetFrameLevel(frame.RaisedElementParent:GetFrameLevel())
+	auraBar:SetFrameStrata(frame.RaisedElementParent:GetFrameStrata())
 	auraBar.PostCreateBar = UF.Construct_AuraBars
 	auraBar.gap = (E.PixelMode and -1 or 1)
 	auraBar.spacing = (E.PixelMode and -1 or 1)
@@ -122,6 +124,14 @@ function UF:AuraBarFilter(unit, name, rank, icon, count, debuffType, duration, e
 			returnValue = false;
 		end
 		
+		anotherFilterExists = true
+	end
+
+	if db.maxDuration > 0 then
+		if(duration and (duration > db.maxDuration)) then
+			returnValue = false;
+		end
+
 		anotherFilterExists = true
 	end
 
