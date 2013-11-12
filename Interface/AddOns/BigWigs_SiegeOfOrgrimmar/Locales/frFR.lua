@@ -1,51 +1,44 @@
 local L = BigWigs:NewBossLocale("Immerseus", "frFR")
 if not L then return end
 if L then
-	L.win_yell = "Ah, vous avez réussi !"
+L["win_yell"] = "Ah, vous avez réussi !"
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "frFR")
 if L then
-	L.defile = "Incant. de Sol profané"
+L["defile_you"] = "Sol profané en dessous de vous" -- Needs review
+L["defile_you_desc"] = "Prévient quand vous vous trouvez dans le Sol profané." -- Needs review
+L["inferno_self"] = "Frappe du feu d'enfer sur vous" -- Needs review
+L["inferno_self_bar"] = "Vous explosez !" -- Needs review
+L["inferno_self_desc"] = "Compte à rebours spécial quand la Frappe du feu d'enfer est sur vous." -- Needs review
+L["intermission_desc"] = "Prévient quand l'un des boss est sur le point d'utiliser ses Mesures désespérées." -- Needs review
+L["no_meditative_field"] = "Vous n'êtes pas dans la bulle !" -- Needs review
+
 
 	L.custom_off_bane_marks = "Marquage Mot de l'ombre : Plaie"
 	L.custom_off_bane_marks_desc = "Afin d'aider à l'attribution des dissipations, marque les personnes initialement touchées par Mot de l'ombre : Plaie avec {rt1}{rt2}{rt3}{rt4}{rt5} (dans cet ordre, il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
-
-	L.no_meditative_field = "PAS de Champ de méditation !"
-
-	L.intermission = "Mesures désespérées"
-	L.intermission_desc = "Prévient quand l'un des boss est sur le point d'utiliser ses Mesures désespérées."
-
-	L.inferno_self = "Frappe du feu d'enfer"
-	L.inferno_self_desc = "Compte à rebours spécial quand la Frappe du feu d'enfer est sur vous."
-	L.inferno_self_bar = "Vous explosez !"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "frFR")
 if L then
-	L.pre_pull = "Début du combat"
-	L.pre_pull_desc = "Barre de délai de l'événement RP avant l'engagement du boss."
-	L.pre_pull_trigger = "Très bien, je vais créer un champ de force qui contiendra votre corruption."
+L["big_add"] = "Manifestation de la corruption (%d)"
+L["big_add_killed"] = "Manifestation de la corruption tuée (%d)"
+L["big_adds"] = "Manifestations de la corruption"
+L["big_adds_desc"] = "Alertes quand les gros adds apparaissent et sont tués." -- Needs review
+L["warmup_trigger"] = "Très bien, je vais créer un champ de force qui contiendra votre corruption."
 
-	L.big_adds = "Manifestations de la corruption"
-	L.big_adds_desc = "Alertes quand des Manifestations de la corruptions sont tuées à l'intérieur/à l'extérieur."
-	L.big_add = "Manifestation de la corruption (%d)"
-	L.big_add_killed = "Manifestation de la corruption tuée ! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "frFR")
 if L then
+L["projection_explosion"] = "Explosion de la projection"
+L["projection_message"] = "Allez sur la flèche |cFF00FF00VERTE|r !"
+L["titan_pride"] = "Titan+Orgueil : %s"
+
+
 	L.custom_off_titan_mark = "Marquage Don des titans"
 	L.custom_off_titan_mark_desc = "Marque les joueurs sous l'effet de Don des titans avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
-
-	L.projection_message = "Allez sur la flèche |cFF00FF00VERTE|r !"
-	L.projection_explosion = "Explosion de la projection"
-
-	L.big_add_bar = "Manifestation de l'orgueil"
-	L.big_add_spawning = "Apparition d'une Manifestation de l'orgueil !"
-	L.small_adds = "Reflets d'orgueil"
-
-	L.titan_pride = "Titan+Orgueil : %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "frFR")
@@ -60,6 +53,15 @@ if L then
 	L.north_tower_trigger = "La porte qui barrait l’accès à la tour nord a été détruite !"
 	L.north_tower = "Tour nord"
 	L.tower_defender = "Défenseur de la tour"
+
+	L.adds_desc = "Barres de délai indiquant quand un nouveau groupe d'ennemi se joint au combat."
+	L.adds_trigger1 = "Descendez-la, que je puisse serrer mes mains autour de son cou."
+	L.adds_trigger2 = "Les voilà !"
+	L.adds_trigger3 = "Gueules-de-dragon, avancez !"
+	L.adds_trigger4 = "Pour Hurlenfer !"
+	L.adds_trigger5 = "Escouade suivante, en avant !"
+
+	--L.drakes = "Proto-Drakes"
 
 	L.custom_off_shaman_marker = "Marquage Chaman des marées"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chamans des marées gueule-de-dragon avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r\n|cFFADFF2ASTUCE : si le raid a décidé que c'est vous qui devez l'activer, survoler rapidement tous les chamans est le moyen le plus rapide de les marquer.|r"
@@ -120,13 +122,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "frFR")
 if L then
-	L.adds = "Heroic adds"
-	L.adds_desc = "Alertes indiquant quand les animaux du mode héroïque entrent en combat."
+L["adds_desc"] = "Alertes indiquant quand le Yéti ou les Chauve-souris se joignent au combat." -- Needs review
+L["cage_opened"] = "Cage ouverte"
+L["npc_akolik"] = "Akolik"
+L["npc_waterspeaker_gorai"] = "Eauracle Goraï"
 
-	L.tank_debuffs = "Affaiblissements tank"
-	L.tank_debuffs_desc = "Alertes concernant les différents types d'affaiblisement de tank associés avec Rugissement effroyable."
-
-	L.cage_opened = "Cage ouverte"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "frFR")
@@ -163,17 +163,23 @@ if L then
 	L.parasites_up = "%d |4Parasite actif:Parasites actifs;"
 	L.dance = "Danse"
 	L.prey_message = "Utilisez Prendre pour proie sur le parasite"
+	L.injection_over_soon = "Injection bientôt terminée (%s) !"
+
 	L.one = "Iyyokuk sélectionne : Un !"
 	L.two = "Iyyokuk sélectionne : Deux !"
 	L.three = "Iyyokuk sélectionne : Trois !"
 	L.four = "Iyyokuk sélectionne : Quatre !"
 	L.five = "Iyyokuk sélectionne : Cinq !"
-	L.edge_message = "Vous êtes un sommet"
+
 	L.custom_off_edge_marks = "Marquage Tranchant enflammé"
 	L.custom_off_edge_marks_desc = "Marque les joueurs qui seront les sommets des Tranchants enflammés avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
-	L.injection_over_soon = "Injection bientôt terminée (%s) !"
+	L.edge_message = "Vous êtes un sommet"
+
 	L.custom_off_parasite_marks = "Marquage Parasite"
 	L.custom_off_parasite_marks_desc = "Afin d'aider à l'attribution des contrôles de foule et des Prendre pour proie, marque les parasites avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
+
+	L.injection_tank = "Incantation d'Injection"
+	L.injection_tank_desc = "Barre de délai indiquant quand Injection est incanté sur son tank actuel."
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "frFR")
@@ -183,15 +189,15 @@ if L then
 
 	L.phase_3_end_trigger = "Vous croyez avoir GAGNÉ ? Vous êtes AVEUGLE. JE VAIS VOUS OUVRIR LES YEUX." -- to check
 
-	L.clump_check = "Vérification des regroupements"
 	L.clump_check_desc = "Vérifie toutes les 3 secondes durant les bombardements les joueurs regroupés. Si un regroupement est trouvé, une étoile de fer Kor'kron apparaîtra."
+	L.clump_check_warning = "Regroupement détecté, arrivée d'une étoile"
 
 	L.bombardment = "Bombardement"
 	L.bombardment_desc = "Bombarde Hurlevent et laisse des gerbes de feu sur le sol. Les étoiles de fer Kor'kron n'apparaissent que durant les bombardements."
 
-	L.spread = "Éparpillez-vous !"
 	L.intermission = "Intervalle"
 	L.mind_control = "Contrôle mental"
+	L.empowered_message = "%s est maintenant surpuissant !"
 
 	L.ironstar_impact_desc = "Une barre de délai indiquant quand l'Étoile de fer touchera le mur d'en face."
 	L.ironstar_rolling = "L'Étoile de fer roule !"
@@ -201,6 +207,7 @@ if L then
 	L.chain_heal_bar = "Focalisation : Salve de guérison"
 
 	L.farseer_trigger = "Long-voyants, soignez nos blessures !"
+
 	L.custom_off_shaman_marker = "Marquage Chevaucheur de loup long-voyant"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chevaucheurs de loup long-voyant avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
 

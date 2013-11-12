@@ -6,15 +6,6 @@
 local RazerNaga = LibStub('AceAddon-3.0'):GetAddon('RazerNaga')
 local ModHighlighter = RazerNaga:NewModule('ModHighlighter', 'AceEvent-3.0'); RazerNaga.ModHighlighter = ModHighlighter
 
-
---[[ throttled event handler for modifier state changed, since keyboard combos can happen very quickly ]]--
-local ModifierStateChangedTimer = RazerNaga:CreateTimer(0.03)
-function ModifierStateChangedTimer:OnFinished()
-	ModHighlighter:HighlightModifiers()
-	ModHighlighter:FadeBars()
-end
-
-
 --[[ Events ]]--
 
 function ModHighlighter:Load()
@@ -28,7 +19,7 @@ function ModHighlighter:Unload()
 end
 
 function ModHighlighter:MODIFIER_STATE_CHANGED()
-	ModifierStateChangedTimer:Start()
+	self:OnStateChanged()
 end
 
 function ModHighlighter:HIGHLIGHT_MODIFIERS_UPDATE(msg, enable)
@@ -48,6 +39,11 @@ function ModHighlighter:UpdateEventRegistration()
 		self:UnregisterEvent('MODIFIER_STATE_CHANGED')
 	end
 end
+
+ModHighlighter.OnStateChanged = RazerNaga.Debounce(function(self)
+	ModHighlighter:HighlightModifiers()
+	ModHighlighter:FadeBars()
+end, 0.03)
 
 
 --[[ Configuration ]]--

@@ -1,56 +1,49 @@
 local L = BigWigs:NewBossLocale("Immerseus", "koKR")
 if not L then return end
 if L then
-	L.win_yell = "아, 역시 해냈군! 골짜기의 물이 다시 깨끗해졌네."
+L["win_yell"] = "아, 역시 해냈군! 골짜기의 물이 다시 깨끗해졌네."
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "koKR")
 if L then
-	L.defile = "더럽혀진 땅 방어전담 경고"
+L["defile_you"] = "더럽혀진 땅 방어전담 경고"
+L["defile_you_desc"] = "더렵혀진 땅이 자신의 발 밑에 있을경우 경고해줍니다."
+L["inferno_self"] = "당신에게 지옥불 일격!"
+L["inferno_self_bar"] = "지옥불 일격"
+L["inferno_self_desc"] = "지옥불 일격이 폭발하기까지의 남은 시간을 카운트다운으로 알려줍니다."
+L["intermission_desc"] = "수호자의 궁책 사용 시기가 가까워지면 경고로 알려줍니다."
+L["no_meditative_field"] = "명상의 장 안으로 들어가야 합니다!"
+
 
 	L.custom_off_bane_marks = "어둠의 권능: 파멸 징표 설정"
 	L.custom_off_bane_marks_desc = "해제를 돕기 위해 어둠의 권능: 파멸을 가진 플레이어들을 {rt1}{rt2}{rt3}{rt4}{rt5} 징표로 표시합니다. 공격대장이거나 권한이 필요합니다."
-
-	L.no_meditative_field = "명상의 장 안으로 들어가야 합니다!"
-
-	L.intermission = "궁책"
-	L.intermission_desc = "수호자의 궁책 사용 시기가 가까워지면 경고로 알려줍니다."
-
-	L.inferno_self = "지옥불 일격 특수경고"
-	L.inferno_self_desc = "당신이 지옥불 일격에 걸렸을 때 특수 경고를 해줍니다."
-	L.inferno_self_bar = "지옥불 일격 시전"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "koKR")
 if L then
-	L.pre_pull = "전투 시작"
-	L.pre_pull_desc = "네임드와 전투에 돌입하기까지의 시간을 표시합니다."
-	L.pre_pull_trigger = "그래, 좋다. 너희 타락을 가두어 둘 공간을 만들겠다."
+L["big_add"] = "타락의 현신 등장 (%d)"
+L["big_add_killed"] = "타락의 현신 처치 (%d)"
+L["big_adds"] = "타락의 현신"
+L["big_adds_desc"] = "큰 쫄이 나타나고 죽는 것에 대한 경고"
+L["warmup_trigger"] = "그래, 좋다. 너희 타락을 가두어 둘 공간을 만들겠다."
 
-	L.big_adds = "타락의 현신"
-	L.big_adds_desc = "내부 및 외부에서 타락의 현신 알림"
-	L.big_add = "타락의 현신 등장 (%d)"
-	L.big_add_killed = "타락의 현신 처치 (%d)"
- end
+end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "koKR")
 if L then
+L["projection_explosion"] = "투영 폭발!"
+L["projection_message"] = "|cFF00FF00녹색|r 화살표 위로 올라가세요!"
+L["titan_pride"] = "티탄 + 교만: %s"
+
+
 	L.custom_off_titan_mark = "티탄의 선물 표시"
 	L.custom_off_titan_mark_desc = "티탄의 선물 걸린 플레이어를 파악하기 쉽게하기 위해, 티탄의 선물이 걸린 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
-
-	L.projection_message = "|cFF00FF00녹색|r 화살표 위로 올라가세요!"
-	L.projection_explosion = "투영 폭발!"
-
-	L.big_add_bar = "교만의 현신"
-	L.big_add_spawning = "교만의 현신 등장!"
-	L.small_adds = "자아성찰: 투영체"
-
-	L.titan_pride = "티탄 + 교만: %s"
- end
+end
 
 L = BigWigs:NewBossLocale("Galakras", "koKR")
 if L then
-	L.demolisher = "파괴전차"
+	L.demolisher = "파괴 전차 등장"
 	L.demolisher_desc = "코르크론 파괴 전차가 전투에 나타날 때 까지의 시간"
 
 	L.towers = "탑"
@@ -60,6 +53,16 @@ if L then
 	L.north_tower_trigger = "북쪽 탑으로 통하는 문이 뚫렸습니다!"
 	L.north_tower = "북쪽 탑"
 	L.tower_defender = "탑 수호자"
+
+	L.adds = "다음 병력"
+	L.adds_desc = "추가병력 타이머"
+	L.adds_trigger1 = "저 계집을 당장 끌어내려라. 내가 친히 그녀의 목을 죌 것이다." -- Lady Sylvanas Windrunner
+	L.adds_trigger2 = "놈들이 와요!" -- Lady Jaina Proudmoore
+	L.adds_trigger3 = "용아귀 용사들아, 진격하라!"
+	L.adds_trigger4 = "헬스크림 님을 위하여!"
+	L.adds_trigger5 = "다음 분대, 진격!"
+
+	L.drakes = "용아귀 원시비룡"
 
 	L.custom_off_shaman_marker = "파도주술사 징표 설정"
 	L.custom_off_shaman_marker_desc = "차단하는 것을 돕기 위해, 용아귀부족 파도주술사를 {rt1}{rt2}{rt3}{rt4}{rt5} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
@@ -102,7 +105,7 @@ if L then
 	L.arcane_shock_message = "당신의 주시 대상이 비전 충격을 시전합니다!"
 
 	L.focus_only = "|cffff0000주시 대상을 잡았을 경우에만 경고합니다.|r "
- end
+end
 
 L = BigWigs:NewBossLocale("Malkorok", "koKR")
 if L then
@@ -120,13 +123,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "koKR")
 if L then
-	L.adds = "하드모드 쫄"
-	L.adds_desc = "하드모드에서만 나오는 쫄이 전투 중 출현했을 때 경고해줍니다."
+L["adds_desc"] = "설인과 박쥐가 전투에 나타났을 때를 위한 경고"
+L["cage_opened"] = "감옥 열림"
+L["npc_akolik"] = "아콜릭"
+L["npc_waterspeaker_gorai"] = "물예언자 고라이"
 
-	L.tank_debuffs = "탱커 디버프"
-	L.tank_debuffs_desc = "무시무시한 외침과 연계된 탱커 디버프를 경고합니다."
-
-	L.cage_opened = "감옥 열림"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "koKR")
@@ -163,20 +164,21 @@ if L then
 	L.parasites_up = "%d 마리의 |4기생충:기생충들; 나타남"
 	L.dance = "속사"
 	L.prey_message = "기생충을 드세요."
+	L.injection_over_soon = "주입이 곧 끝남! (%s)"
+
 	L.one = "이요쿠크가 1을 선택합니다!"
 	L.two = "이요쿠크가 2을 선택합니다!"
 	L.three = "이요쿠크가 3을 선택합니다!"
 	L.four = "이요쿠크가 4을 선택합니다!"
 	L.five = "이요쿠크가 5을 선택합니다!"
-	L.edge_message = "당신은 광기의 계산 대상자입니다."
+
 	L.custom_off_edge_marks = "광기의 계산 대상 징표 설정"
 	L.custom_off_edge_marks_desc = "광기의 계산의 대상이 된 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
-	L.injection_over_soon = "주입이 곧 끝남! (%s)"
-	L.custom_off_mutate_marks = "돌연변이: 호박석 전갈 징표 설정"
-	L.custom_off_mutate_marks_desc = "힐을 돕기 위해, 돌연변이: 호박석 전갈에 걸린 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
+	L.edge_message = "당신은 광기의 계산 대상자입니다."
+
 	L.custom_off_parasite_marks = "기생충 징표 설정"
 	L.custom_off_parasite_marks_desc = "군중 제어기나 기생충을 먹어야 하는 플레이어를 위해 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다. \n|cFFFF0000혼선을 빚는 것을 방지하기 위하여, 오직 공대원 중 한 사람만이 이 옵션을 켜야합니다.|r"
- end
+end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "koKR")
 if L then
@@ -185,15 +187,15 @@ if L then
 
 	L.phase_3_end_trigger = "네가 이겼다고 생각하나? 넌 눈이 멀었다! 내가 그 눈을 뜨게해 주마!"
 
-	L.clump_check = "뭉침 여부 확인"
 	L.clump_check_desc = "폭격 동안 3초마다 플레이어들이 뭉쳐있는 지 확인합니다. 뭉쳐있는 것이 발견된다면 코르크론 강철의 별이 소환됩니다."
+	--L.clump_check_warning = "Clump found, Star inc"
 
 	L.bombardment = "폭격"
 	L.bombardment_desc = "스톰윈드를 폭격하고, 지면에 불길의 흔적을 남깁니다. 폭격 동안에만 코르크론 강철의 별이 소환될 수 있습니다."
 
-	L.spread = "산개하세요!"
 	L.intermission = "내면 세계"
 	L.mind_control = "정신 지배"
+	--L.empowered_message = "%s is now empowered!"
 
 	L.ironstar_impact_desc = "강철의 별이 다른 쪽 벽에 충돌할 때를 위한 타이머 바를 생성합니다."
 	L.ironstar_rolling = "강철의 별이 굴러갑니다!"
@@ -210,5 +212,5 @@ if L then
 	L.custom_off_minion_marker_desc = "쫄들을 분리하는 것을 돕기 위해, {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
 
 	L.focus_only = "|cffff0000주시 대상 경고 전용.|r "
- end
+end
 

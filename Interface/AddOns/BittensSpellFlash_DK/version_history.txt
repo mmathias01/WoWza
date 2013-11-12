@@ -1,3 +1,9 @@
+== Version 50400.2.1
+* Blood: Bugfix - Soul Reaper and Heart Strike were sometimes flashing when you had no target.
+
+== Version 50400.2.0
+* Blood: Added Soul Reaper.
+
 == Version 50400.1.2
 * Blood: Adjusted the priority and conditions for Dancing Rune Weapon when you have 4pT16.
 * Blood: Does not flash Vampiric Blood when solo until you have runes to cast Death Strike.
@@ -85,12 +91,3 @@ NOTE: Your options will be reset when you upgrade to this version.
 * Frost & Unholy: Updated priority lists based on new research.
 * Unholy: Added Soul Reaper.
 * Unholy: Bugfix - Plague Leech was flashing at times that it was not castable.
-
-== Version 3.2.1
-* Blood: Bone Shield will no longer flash when mounted.
-* Blood: Bugfix - there were some circumstances when Blood Tap would flash when no runes were fully depleted.
-* Blood: Bugfix - Blood Boil would never flash if you didn't have a rune available, even if Crimson Scourge proc'd
-* Unholy: Now flashes Death Siphon.  Not sure why I only added it to Frost before.
-
-== Version 3.2.0
-* Blood: Added a Blood soloing rotation, meant for questing as Blood.

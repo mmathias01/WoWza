@@ -15,7 +15,7 @@ _NPCScanOptionsCharacter = {
 	},
 	["ModulesSaved"] = {
 	},
-	["Version"] = 1,
+	["Version"] = 2,
 	["TrackBeasts"] = true,
 	["ShowAll"] = false,
 	["ModulesExtra"] = {

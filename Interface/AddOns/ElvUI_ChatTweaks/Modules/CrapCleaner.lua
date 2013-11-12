@@ -186,12 +186,9 @@ end
 -- From BadBoy_CCleaner by funkydude
 Module.knownIcons = { --list of all known raid icon chat shortcuts
 	"{%a%a%d}",
-	"{[Rr][Tt]%d}",
 	"{[Xx]}",
-	"{[Cc][Rr][Oo][Ss][Ss]}",
 	"{[Ss][Tt][Aa][Rr]}",
 	"{[Cc][Ii][Rr][Cc][Ll][Ee]}",
-	"{[Cc][Oo][Ii][Nn]}",
 	"{[Dd][Ii][Aa][Mm][Oo][Nn][Dd]}",
 	"{[Tt][Rr][Ii][Aa][Nn][Gg][Ll][Ee]}",
 	"{[Mm][Oo][Oo][Nn]}",

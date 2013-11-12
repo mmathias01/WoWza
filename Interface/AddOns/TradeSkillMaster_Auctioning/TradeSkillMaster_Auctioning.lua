@@ -61,9 +61,11 @@ function TSM:OnInitialize()
 		end
 	end
 
-	for _, operation in pairs(TSM.operations) do
-		operation.resetMaxInventory = operation.resetMaxInventory or TSM.operationDefaults.resetMaxInventory
-		operation.aboveMax = operation.aboveMax or TSM.operationDefaults.aboveMax
+	for _ in TSMAPI:GetTSMProfileIterator() do
+		for _, operation in pairs(TSM.operations) do
+			operation.resetMaxInventory = operation.resetMaxInventory or TSM.operationDefaults.resetMaxInventory
+			operation.aboveMax = operation.aboveMax or TSM.operationDefaults.aboveMax
+		end
 	end
 end
 

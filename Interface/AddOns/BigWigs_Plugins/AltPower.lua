@@ -2,10 +2,6 @@
 -- Module Declaration
 --
 
-local LULZ = false
-if not LULZ then return end
-print"alt power loaded"
-
 local plugin = BigWigs:NewPlugin("Alt Power")
 if not plugin then return end
 
@@ -13,6 +9,8 @@ plugin.defaultDB = {
 	posx = nil,
 	posy = nil,
 	expanded = false,
+	disabled = false,
+	lock = false,
 }
 
 --------------------------------------------------------------------------------
@@ -20,6 +18,8 @@ plugin.defaultDB = {
 --
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Big Wigs: Plugins")
+local media = LibStub("LibSharedMedia-3.0")
+plugin.displayName = L.altPowerTitle
 
 local powerList, sortedUnitList, roleColoredList = nil, nil, nil
 local unitList = nil
@@ -28,6 +28,8 @@ local display, updater = nil, nil
 local opener = nil
 local inTestMode = nil
 local sortDir = nil
+local repeatSync = nil
+local syncPowerList = nil
 local UpdateDisplay
 local tsort = table.sort
 local min = math.min
@@ -41,12 +43,153 @@ local roleIcons = {
 }
 
 local function colorize(power)
+	if power == -1 then return 0, 255 end
 	local ratio = power/100*510
 	local r, g = min(ratio, 255), min(510-ratio, 255)
 	if sortDir == "AZ" then -- red to green
 		return r, g
 	else -- green to red
 		return g, r
+	end
+end
+
+function plugin:RestyleWindow()
+	if db.lock then
+		display:SetMovable(false)
+		display:RegisterForDrag()
+		display:SetScript("OnDragStart", nil)
+		display:SetScript("OnDragStop", nil)
+	else
+		display:SetMovable(true)
+		display:RegisterForDrag("LeftButton")
+		display:SetScript("OnDragStart", function(self) self:StartMoving() end)
+		display:SetScript("OnDragStop", function(self)
+			self:StopMovingOrSizing()
+			local s = self:GetEffectiveScale()
+			db.posx = self:GetLeft() * s
+			db.posy = self:GetTop() * s
+		end)
+	end
+end
+
+-------------------------------------------------------------------------------
+-- Options
+--
+
+do
+	local pluginOptions = nil
+	function plugin:GetPluginConfig()
+		if not pluginOptions then
+			pluginOptions = {
+				type = "group",
+				get = function(info)
+					local key = info[#info]
+					if key == "font" then
+						for i, v in next, media:List("font") do
+							if v == db.font then return i end
+						end
+					else
+						return db[key]
+					end
+				end,
+				set = function(info, value)
+					local key = info[#info]
+					if key == "font" then
+						db.font = media:List("font")[value]
+					else
+						db[key] = value
+					end
+					plugin:RestyleWindow()
+				end,
+				args = {
+					disabled = {
+						type = "toggle",
+						name = L.disabled,
+						desc = L.disabledDisplayDesc,
+						order = 1,
+					},
+					lock = {
+						type = "toggle",
+						name = L.lock,
+						desc = L.lockDesc,
+						order = 2,
+					},
+					font = {
+						type = "select",
+						name = L.font,
+						order = 3,
+						values = media:List("font"),
+						width = "full",
+						itemControl = "DDI-Font",
+						disabled = true,
+					},
+					fontSize = {
+						type = "range",
+						name = L.fontSize,
+						order = 4,
+						max = 40,
+						min = 8,
+						step = 1,
+						width = "full",
+						disabled = true,
+					},
+					--[[showHide = {
+						type = "group",
+						name = L.showHide,
+						inline = true,
+						order = 5,
+						get = function(info)
+							local key = info[#info]
+							return db.objects[key]
+						end,
+						set = function(info, value)
+							local key = info[#info]
+							db.objects[key] = value
+							plugin:RestyleWindow()
+						end,
+						args = {
+							title = {
+								type = "toggle",
+								name = L.title,
+								desc = L.titleDesc,
+								order = 1,
+							},
+							background = {
+								type = "toggle",
+								name = L.background,
+								desc = L.backgroundDesc,
+								order = 2,
+							},
+							sound = {
+								type = "toggle",
+								name = L.soundButton,
+								desc = L.soundButtonDesc,
+								order = 3,
+							},
+							close = {
+								type = "toggle",
+								name = L.closeButton,
+								desc = L.closeButtonDesc,
+								order = 4,
+							},
+							ability = {
+								type = "toggle",
+								name = L.abilityName,
+								desc = L.abilityNameDesc,
+								order = 5,
+							},
+							tooltip = {
+								type = "toggle",
+								name = L.tooltip,
+								desc = L.tooltipDesc,
+								order = 6,
+							}
+						},
+					},]]
+				},
+			}
+		end
+		return pluginOptions
 	end
 end
 
@@ -59,6 +202,7 @@ local function updateProfile()
 end
 
 function plugin:OnPluginEnable()
+	self:RegisterMessage("BigWigs_StartSyncingPower")
 	self:RegisterMessage("BigWigs_ShowAltPower")
 	self:RegisterMessage("BigWigs_HideAltPower", "Close")
 	self:RegisterMessage("BigWigs_OnBossDisable")
@@ -80,19 +224,44 @@ end
 --
 
 do
+	-- Realistically this should never fire during an encounter, we're just compensating for someone leaving the group
+	-- whilst the display is shown (more likely to happen in LFR). The display should not be shown outside of an encounter
+	-- where the event seems to fire frequently, which would make this very inefficient.
+	local function GROUP_ROSTER_UPDATE()
+		updater:Stop()
+		if not IsInGroup() then plugin:Close() return end
+
+		if repeatSync then
+			plugin:GROUP_ROSTER_UPDATE() -- Force sync refresh
+			syncPowerList = {}
+		end
+		maxPlayers = GetNumGroupMembers()
+		unitList = IsInRaid() and plugin:GetRaidList() or plugin:GetPartyList()
+		powerList, sortedUnitList, roleColoredList = {}, {}, {}
+
+		local UnitClass, UnitGroupRolesAssigned = UnitClass, UnitGroupRolesAssigned
+		local colorTbl = CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS
+		for i = 1, maxPlayers do
+			local unit = unitList[i]
+			sortedUnitList[i] = unit
+
+			local name = plugin:UnitName(unit, true) or "???"
+			local _, class = UnitClass(unit)
+			local tbl = class and colorTbl[class] or GRAY_FONT_COLOR
+			roleColoredList[unit] = ("%s|cFF%02x%02x%02x%s|r"):format(roleIcons[UnitGroupRolesAssigned(unit)], tbl.r*255, tbl.g*255, tbl.b*255, name)
+		end
+		updater:Play()
+	end
+
 	local function createFrame()
 		display = CreateFrame("Frame", "BigWigsAltPower", UIParent)
 		display:SetSize(230, db.expanded and 210 or 80)
 		display:SetClampedToScreen(true)
 		display:EnableMouse(true)
-		display:SetMovable(true)
-		display:RegisterForDrag("LeftButton")
-		display:SetScript("OnDragStart", function(self) self:StartMoving() end)
-		display:SetScript("OnDragStop", function(self)
-			self:StopMovingOrSizing()
-			local s = self:GetEffectiveScale()
-			db.posx = self:GetLeft() * s
-			db.posy = self:GetTop() * s
+		display:SetScript("OnMouseUp", function(self, button)
+			if inTestMode and button == "LeftButton" then
+				plugin:SendMessage("BigWigs_SetConfigureTarget", plugin)
+			end
 		end)
 
 		updater = display:CreateAnimationGroup()
@@ -113,7 +282,7 @@ do
 		close:SetWidth(16)
 		close:SetNormalTexture("Interface\\AddOns\\BigWigs\\Textures\\icons\\close")
 		close:SetScript("OnClick", function()
-			--BigWigs:Print(L.toggleProximityPrint)
+			BigWigs:Print(L.toggleDisplayPrint)
 			plugin:Close()
 		end)
 
@@ -161,38 +330,34 @@ do
 			display:ClearAllPoints()
 			display:SetPoint("CENTER", UIParent, "CENTER", 300, -80)
 		end
+
+		display:SetScript("OnEvent", GROUP_ROSTER_UPDATE)
+		plugin:RestyleWindow()
 	end
 
 	-- This module is rarely used, and opened once during an encounter where it is.
 	-- We will prefer on-demand variables over permanent ones.
-	function plugin:BigWigs_ShowAltPower(event, module, title, sorting)
-		if not IsInGroup() then return end -- Solo runs of old content
+	function plugin:BigWigs_ShowAltPower(event, module, title, sorting, sync)
+		if db.disabled or not IsInGroup() then return end -- Solo runs of old content
+
 		if createFrame then createFrame() createFrame = nil end
 		self:Close()
 
-		maxPlayers = GetNumGroupMembers()
+		if sync then
+			BigWigs:AddSyncListener(self, "BWPower", 0)
+		end
+
+		display:RegisterEvent("GROUP_ROSTER_UPDATE")
+
 		opener = module
 		sortDir = sorting
-		unitList = IsInRaid() and self:GetRaidList() or self:GetPartyList()
-		powerList, sortedUnitList, roleColoredList = {}, {}, {}
-		local UnitClass, UnitGroupRolesAssigned = UnitClass, UnitGroupRolesAssigned
-		local colorTbl = CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS
-		for i = 1, maxPlayers do
-			local unit = unitList[i]
-			sortedUnitList[i] = unit
-
-			local name = self:UnitName(unit, true) or "???"
-			local _, class = UnitClass(unit)
-			local tbl = class and colorTbl[class] or GRAY_FONT_COLOR
-			roleColoredList[unit] = ("%s|cFF%02x%02x%02x%s|r"):format(roleIcons[UnitGroupRolesAssigned(unit)], tbl.r*255, tbl.g*255, tbl.b*255, name)
-		end
 		if title then
 			display.title:SetFormattedText("%s: %s", L.altPowerTitle, title)
 		else
 			display.title:SetText(L.altPowerTitle)
 		end
 		display:Show()
-		updater:Play()
+		GROUP_ROSTER_UPDATE()
 		UpdateDisplay()
 	end
 
@@ -236,16 +401,18 @@ do
 	function UpdateDisplay()
 		for i = 1, maxPlayers do
 			local unit = unitList[i]
-			powerList[unit] = UnitPower(unit, 10) -- ALTERNATE_POWER_INDEX = 10
+			powerList[unit] = syncPowerList and (syncPowerList[unit] or -1) or UnitPower(unit, 10) -- ALTERNATE_POWER_INDEX = 10
 		end
 		tsort(sortedUnitList, sortTbl)
 		for i = 1, db.expanded and 25 or 10 do
 			local unit = sortedUnitList[i]
-			if not unit then return end
-
-			local power = powerList[unit]
-			local r, g = colorize(power)
-			display.text[i]:SetFormattedText("|cFF%02x%02x00[%d]|r %s", r, g, power, roleColoredList[unit])
+			if unit then
+				local power = powerList[unit]
+				local r, g = colorize(power)
+				display.text[i]:SetFormattedText("|cFF%02x%02x00[%d]|r %s", r, g, power, roleColoredList[unit])
+			else
+				display.text[i]:SetText("")
+			end
 		end
 	end
 end
@@ -256,6 +423,8 @@ function plugin:Expand()
 	display.expand:SetNormalTexture("Interface\\AddOns\\BigWigs\\Textures\\icons\\arrows_up")
 	if inTestMode then
 		self:Test()
+	else
+		UpdateDisplay()
 	end
 end
 
@@ -272,21 +441,75 @@ function plugin:Contract()
 end
 
 function plugin:Close()
-	if not updater then return end
-	updater:Stop()
-	display:Hide()
-	powerList, sortedUnitList, roleColoredList = nil, nil, nil
-	unitList = nil
-	opener = nil
-	inTestMode = nil
-	for i = 1, 25 do
-		display.text[i]:SetText("")
+	if repeatSync then
+		self:CancelTimer(repeatSync)
+		repeatSync = nil
 	end
+
+	if display then
+		updater:Stop()
+		display:UnregisterEvent("GROUP_ROSTER_UPDATE")
+		display:Hide()
+		BigWigs:ClearSyncListeners(self)
+		for i = 1, 25 do
+			display.text[i]:SetText("")
+		end
+	end
+
+	powerList, sortedUnitList, roleColoredList, syncPowerList = nil, nil, nil, nil
+	unitList, opener, inTestMode = nil, nil, nil
 end
 
 function plugin:BigWigs_OnBossDisable(_, module)
 	if module == opener then
 		self:Close()
+	end
+end
+
+do
+	local power = -1
+	local function sendPower()
+		local newPower = UnitPower("player", 10) -- ALTERNATE_POWER_INDEX = 10
+		if newPower ~= power then
+			power = newPower
+			BigWigs:Transmit("BWPower", newPower)
+		end
+	end
+
+	function plugin:GROUP_ROSTER_UPDATE()
+		-- This is for people that don't show the AltPower display (event isn't registered to the display as it normally would be).
+		-- It will force sending the current power for those that do have the display shown
+		-- but just had their power list reset by a GROUP_ROSTER_UPDATE.
+		self:CancelTimer(repeatSync)
+		power = -1
+		repeatSync = self:ScheduleRepeatingTimer(sendPower, 1)
+	end
+
+	function plugin:BigWigs_StartSyncingPower(_, module)
+		if not IsInGroup() then return end
+		power = -1
+		opener = module
+		if not repeatSync then
+			repeatSync = self:ScheduleRepeatingTimer(sendPower, 1)
+			if display and display:IsShown() then
+				syncPowerList = {}
+			else
+				self:RegisterEvent("GROUP_ROSTER_UPDATE")
+			end
+		end
+	end
+
+	function plugin:OnSync(sync, amount, nick)
+		local curPower = tonumber(amount)
+		if curPower then
+			for i = 1, maxPlayers do
+				local unit = unitList[i]
+				if nick == self:UnitName(unit) then
+					syncPowerList[unit] = curPower
+					break
+				end
+			end
+		end
 	end
 end
 

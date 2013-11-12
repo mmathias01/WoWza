@@ -30,7 +30,6 @@ L["Add item icons to loot received messages."] = "Add item icons to loot receive
 L["Addon Messages"] = "Addon Messages" -- Requires localization
 L["Addon Version Sent, Version: |cffffff00%s|r"] = "Addon Version Sent, Version: |cffffff00%s|r" -- Requires localization
 L["Add Percentage"] = "Add Percentage" -- Requires localization
-L["Adds a button to open this config window from ElvUI's config window."] = "Adds a button to open this config window from ElvUI's config window." -- Requires localization
 L["Adds a minimap button.\
 \
 |cffffff00To disable the button, simply disable this module.|r"] = "Adds a minimap button.\
@@ -166,7 +165,9 @@ L["Auto Welcome"] = "\208\144\208\178\209\130\208\190 \208\180\208\190\208\177\2
 L["Available Chat Command Arguments"] = "\208\148\208\190\209\129\209\130\209\131\208\191\208\189\209\139\208\181 \208\176\209\128\208\179\209\131\208\188\208\181\208\189\209\130\209\139 \208\186\208\190\208\188\208\176\208\189\208\180 \209\135\208\176\209\130\208\176" -- Needs review
 L["Available parameters are |cff1784d1version|r, |cff1784d1build|r, |cff1784d1date|r, |cff1784d1interface|r, |cff1784d1locale|r."] = "Available parameters are |cff1784d1version|r, |cff1784d1build|r, |cff1784d1date|r, |cff1784d1interface|r, |cff1784d1locale|r." -- Requires localization
 L["Battle.Net Convo"] = "Battle.Net Convo" -- Requires localization
+L["Battle.net invite from %s%s|r blocked!"] = "Battle.net invite from %s%s|r blocked!" -- Requires localization
 L["Battle.Net Options"] = "Battle.Net \208\191\208\176\209\128\208\176\208\188\208\181\209\130\209\128\209\139" -- Needs review
+L["Battle.net Spam"] = "Battle.net Spam" -- Requires localization
 L["Battle.Net Whisper"] = "Battle.Net Whisper" -- Requires localization
 L["Before"] = "\208\148\208\190" -- Needs review
 L["Below are the keywords that the module will look for to substitute with the values described below."] = "Below are the keywords that the module will look for to substitute with the values described below." -- Requires localization
@@ -175,6 +176,7 @@ L["Better not tell you now."] = "Better not tell you now." -- Requires localizat
 L["Bid Accepted"] = "\208\159\209\128\208\184\208\189\208\184\208\188\208\176\209\142\209\130\209\129\209\143 \209\129\209\130\208\176\208\178\208\186\208\184." -- Needs review
 L["Blacksmithing"] = "\208\154\209\131\208\183\208\189\208\181\209\135\208\189\208\190\208\181 \208\180\208\181\208\187\208\190" -- Needs review
 L["Blocked Whisper from %s"] = "Blocked Whisper from %s" -- Requires localization
+L["Blocks Battle.net friend requests from spammers."] = "Blocks Battle.net friend requests from spammers." -- Requires localization
 L["Build: |cff1784d1%s|r"] = "Build: |cff1784d1%s|r" -- Requires localization
 L["Build Date: |cff1784d1%s|r"] = "Build Date: |cff1784d1%s|r" -- Requires localization
 L["Busy"] = "\208\157\208\181 \208\177\208\181\209\129\208\191\208\190\208\186\208\190\208\184\209\130\209\140 (\208\148\208\157\208\148)" -- Needs review
@@ -197,6 +199,7 @@ L["|cFF5cb4f8Pet Battle - Tale of the Tape|r"] = "|cFF5cb4f8Pet Battle - Tale of
 L["|cffc7c7cfs|r"] = "|cffc7c7cfs|r" -- Requires localization
 L["|cFFccff00Not Owned|r"] = "|cFFccff00Not Owned|r" -- Requires localization
 L["|cffeda55fc|r"] = "|cffeda55fc|r" -- Requires localization
+L["|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r"] = "|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r" -- Requires localization
 L["|cffff0000Disabled|r"] = "|cffff0000Disabled|r" -- Requires localization
 L["|cffff0000ERROR|r Both messages must be set in order to use the spam method |cffffff00%s|r"] = "|cffff0000ERROR|r Both messages must be set in order to use the spam method |cffffff00%s|r" -- Requires localization
 L["|cffff0000Item|r |cffffffff\"%s\"|r |cffff0000does not exist.|r"] = "|cffff0000Item|r |cffffffff\"%s\"|r |cffff0000does not exist.|r" -- Requires localization
@@ -234,7 +237,6 @@ L["|cffffff00Usage: /hextorgb <hex code>|r"] = "|cffffff00Usage: /hextorgb <hex 
 L["|cffffff00Usage: /in <delay> <command>|r"] = "|cffffff00Usage: /in <delay> <command>|r" -- Requires localization
 L["|cffffff00Usage: /rgbtohex <red> <green> <blue>|r"] = "|cffffff00Usage: /rgbtohex <red> <green> <blue>|r" -- Requires localization
 L["|cffffff00Usage: /rpt <times> <command>|r"] = "|cffffff00Usage: /rpt <times> <command>|r" -- Requires localization
-L["|cffffffffBlocked spam from |Hplayer:%s|h[%s]|h,|r |cfffe2ec8|Hspamfilter:%d:%s|h[Click to report!]|h|r"] = "|cffffffffBlocked spam from |Hplayer:%s|h[%s]|h,|r |cfffe2ec8|Hspamfilter:%d:%s|h[Click to report!]|h|r" -- Requires localization
 L["|cffffffffYou have %s.|r"] = "|cffffffffYou have %s.|r" -- Requires localization
 L["|cff%sHex:|r %s, |cffff0000Red:|r %s, |cff00ff00Green:|r %s, |cff0000ffBlue:|r %s"] = "|cff%sHex:|r %s, |cffff0000Red:|r %s, |cff00ff00Green:|r %s, |cff0000ffBlue:|r %s" -- Requires localization
 L["Changed Channel"] = "Changed Channel" -- Requires localization
@@ -395,7 +397,6 @@ L["Editbox History"] = "\208\160\208\181\208\180\208\176\208\186\209\130\208\184
 L["ElvUI ChatTweaks"] = "ElvUI ChatTweaks "
 L["ElvUI_ChatTweaks"] = "ElvUI_ChatTweaks" -- Requires localization
 L["ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!"] = "ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!" -- Requires localization
-L["ElvUI Config Button"] = "ElvUI Config Button" -- Requires localization
 L["ElvUI_CT"] = "ElvUI_CT" -- Requires localization
 L["Emote"] = "\208\173\208\188\208\190\209\134\208\184\208\184" -- Needs review
 L["Emote Filter"] = "Emote Filter" -- Requires localization
@@ -1075,6 +1076,11 @@ L["Text Justification"] = "\208\146\209\139\209\128\208\176\208\178\208\189\208\
 " -- Needs review
 L["Text justification for ChatFrame %d."] = "Text justification for ChatFrame %d." -- Requires localization
 L["Text to trigger the addon to answer a question."] = "Text to trigger the addon to answer a question." -- Requires localization
+L["Thanks for using and supporting my work!  -- |cff9382c9Lockslap|r\
+\
+|cffff0000If you find any bugs, or have any suggestions for any of my addons, please open a ticket at that particular addon's page on CurseForge."] = "Thanks for using and supporting my work!  -- |cff9382c9Lockslap|r\
+\
+|cffff0000If you find any bugs, or have any suggestions for any of my addons, please open a ticket at that particular addon's page on CurseForge." -- Requires localization
 L["The amount of each material you'd like to farm.  If you want an unlimited amount simply put a 0.  You must add a quantity for every entry, and it must correspond to the same line in the other box."] = "The amount of each material you'd like to farm.  If you want an unlimited amount simply put a 0.  You must add a quantity for every entry, and it must correspond to the same line in the other box." -- Requires localization
 L["The character in front of abbreviations to be recognised as such."] = "The character in front of abbreviations to be recognised as such." -- Requires localization
 L["The classic Magic 8-Ball brought to World of Warcraft!"] = "The classic Magic 8-Ball brought to World of Warcraft!" -- Requires localization
@@ -1254,6 +1260,7 @@ L["You have %s%d|r mounts."] = "You have %s%d|r mounts." -- Requires localizatio
 L["You have %s%d|r unique pets."] = "You have %s%d|r unique pets." -- Requires localization
 L["You may rely on it."] = "You may rely on it." -- Requires localization
 L["You must provide a calculation or set a variable."] = "You must provide a calculation or set a variable." -- Requires localization
+L["You must wait ~7 seconds between reports to avoid being disconnected."] = "You must wait ~7 seconds between reports to avoid being disconnected." -- Requires localization
 L["You need %s%s%s%sto hit level %d."] = "You need %s%s%s%sto hit level %d." -- Requires localization
 L["Your Color"] = "Your Color" -- Requires localization
 L["Your Version: |cffffff00%d|r, Latest Version: |cffffff00%d|r"] = "Your Version: |cffffff00%d|r, Latest Version: |cffffff00%d|r" -- Requires localization

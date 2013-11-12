@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(851, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10628 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10666 $"):sub(12, -3))
 mod:SetCreatureID(71529)
 mod:SetZone()
 mod:SetUsedIcons(8)
@@ -19,6 +19,21 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
+--People who aren't affected by the bosses screech (so they don't need to track devotion aura up time.
+--Ret Paladins excluded because they do need to track devotion aura to use theirs properly
+local function immuneCaster(includeMeleePal)
+	local _, class = UnitClass("player")
+	return class == "ROGUE"
+	or class == "WARRIOR"
+	or class == "DEATHKNIGHT"
+	or class == "HUNTER"
+	or (class == "MONK" and (GetSpecialization() == 1 or GetSpecialization() == 3))
+    or (class == "SHAMAN" and (GetSpecialization() == 2))
+	or (class == "DRUID" and (GetSpecialization() == 2 or GetSpecialization() == 3))
+	or (class == "PALADIN" and includeMeleePal and (GetSpecialization() ~= 1))
+end
+
+local warnDevotionAura				= mod:NewTargetAnnounce(31821, 1, nil, not immuneCaster(), nil, nil, nil, nil, 2)
 --Stage 1: A Cry in the Darkness
 local warnFearsomeRoar				= mod:NewStackAnnounce(143766, 2, nil, mod:IsTank())--143426
 local warnAcceleration				= mod:NewStackAnnounce(143411, 3)--Staghelm 2.0
@@ -27,7 +42,7 @@ local warnTailLash					= mod:NewSpellAnnounce(143428, 3, nil, false)--Hey, someo
 local warnBloodFrenzy				= mod:NewStackAnnounce(143442, 3)
 local warnFixate					= mod:NewTargetAnnounce(143445, 4)
 local warnEnrage					= mod:NewTargetAnnounce(145974, 3, nil, mod:IsTank() or mod:CanRemoveEnrage())
-local warnKey						= mod:NewTargetAnnounce(146589, 3)
+local warnKey						= mod:NewTargetAnnounce(146589, 2)
 --Infusion of Acid
 local warnAcidPustules				= mod:NewSpellAnnounce(143971, 2)
 local warnAcidBreath				= mod:NewStackAnnounce(143780, 2, nil, mod:IsTank())
@@ -41,10 +56,11 @@ local warnFirePustules				= mod:NewSpellAnnounce(143970, 2)
 local warnScorchingBreath			= mod:NewStackAnnounce(143767, 2, nil, mod:IsTank())
 local warnBurningBlood				= mod:NewTargetAnnounce(143783, 3, nil, false, nil, nil, nil, nil, 2)
 
+local specWarnDevotionAura			= mod:NewSpecialWarningFades(31821, not immuneCaster(), nil, nil, nil, 2)
 --Stage 1: A Cry in the Darkness
 local specWarnFearsomeRoar			= mod:NewSpecialWarningStack(143766, mod:IsTank(), 2)
 local specWarnFearsomeRoarOther		= mod:NewSpecialWarningTarget(143766, mod:IsTank())
-local specWarnDeafeningScreech		= mod:NewSpecialWarningCast(143343, nil, nil, nil, 2)
+local specWarnDeafeningScreech		= mod:NewSpecialWarningCast(143343, not immuneCaster(true), nil, nil, 2, 2)
 --Stage 2: Frenzy for Blood!
 local specWarnBloodFrenzy			= mod:NewSpecialWarningSpell(143440, nil, nil, nil, 2)
 local specWarnFixate				= mod:NewSpecialWarningRun(143445, nil, nil, nil, 3)
@@ -65,30 +81,32 @@ local specWarnBurningBlood			= mod:NewSpecialWarningYou(143783)
 local specWarnBurningBloodMove		= mod:NewSpecialWarningMove(143784)
 local yellBurningBlood				= mod:NewYell(143783, nil, false)
 
+
+local timerDevotionAura				= mod:NewBuffActiveTimer(6, 31821, nil, not immuneCaster(), nil, nil, nil, nil, nil, nil, 2)
 --Stage 1: A Cry in the Darkness
-local timerFearsomeRoar			= mod:NewTargetTimer(30, 143766, nil, mod:IsTank() or mod:IsHealer())
-local timerFearsomeRoarCD		= mod:NewCDTimer(11, 143766, nil, mod:IsTank())
-local timerDeafeningScreechCD	= mod:NewNextCountTimer(13, 143343)-- (143345 base power regen, 4 every half second)
-local timerTailLashCD			= mod:NewCDTimer(10, 143428, nil, false)
+local timerFearsomeRoar				= mod:NewTargetTimer(30, 143766, nil, mod:IsTank() or mod:IsHealer())
+local timerFearsomeRoarCD			= mod:NewCDTimer(11, 143766, nil, mod:IsTank())
+local timerDeafeningScreechCD		= mod:NewNextCountTimer(13, 143343)-- (143345 base power regen, 4 every half second)
+local timerTailLashCD				= mod:NewCDTimer(10, 143428, nil, false)
 --Stage 2: Frenzy for Blood!
-local timerBloodFrenzyCD		= mod:NewNextTimer(5, 143442)
-local timerFixate				= mod:NewTargetTimer(12, 143445)
+local timerBloodFrenzyCD			= mod:NewNextTimer(5, 143442)
+local timerFixate					= mod:NewTargetTimer(12, 143445)
 --Infusion of Acid
-local timerAcidBreath			= mod:NewTargetTimer(30, 143780, nil, mod:IsTank() or mod:IsHealer())
-local timerAcidBreathCD			= mod:NewCDTimer(11, 143780, nil, mod:IsTank())--Often 12, but sometimes 11
-local timerCorrosiveBloodCD		= mod:NewCDTimer(3.5, 143791, nil, false)--Cast often, so off by default
+local timerAcidBreath				= mod:NewTargetTimer(30, 143780, nil, mod:IsTank() or mod:IsHealer())
+local timerAcidBreathCD				= mod:NewCDTimer(11, 143780, nil, mod:IsTank())--Often 12, but sometimes 11
+local timerCorrosiveBloodCD			= mod:NewCDTimer(3.5, 143791, nil, false)--Cast often, so off by default
 --Infusion of Frost
-local timerFrostBreath			= mod:NewTargetTimer(30, 143773, nil, mod:IsTank() or mod:IsHealer())
-local timerFrostBreathCD		= mod:NewCDTimer(9.5, 143773, nil, mod:IsTank())
+local timerFrostBreath				= mod:NewTargetTimer(30, 143773, nil, mod:IsTank() or mod:IsHealer())
+local timerFrostBreathCD			= mod:NewCDTimer(9.5, 143773, nil, mod:IsTank())
 --Infusion of Fire
-local timerScorchingBreath		= mod:NewTargetTimer(30, 143767, nil, mod:IsTank() or mod:IsHealer())
-local timerScorchingBreathCD	= mod:NewCDTimer(11, 143767, nil, mod:IsTank())--Often 12, but sometimes 11
-local timerBurningBloodCD		= mod:NewCDTimer(3.5, 143783, nil, false)--cast often, but someone might want to show it
+local timerScorchingBreath			= mod:NewTargetTimer(30, 143767, nil, mod:IsTank() or mod:IsHealer())
+local timerScorchingBreathCD		= mod:NewCDTimer(11, 143767, nil, mod:IsTank())--Often 12, but sometimes 11
+local timerBurningBloodCD			= mod:NewCDTimer(3.5, 143783, nil, false)--cast often, but someone might want to show it
 
-local berserkTimer				= mod:NewBerserkTimer(600)
+local berserkTimer					= mod:NewBerserkTimer(600)
 
-local soundBloodFrenzy			= mod:NewSound(144067)
-local soundFixate				= mod:NewSound(143445)
+local soundBloodFrenzy				= mod:NewSound(144067)
+local soundFixate					= mod:NewSound(143445)
 
 mod:AddBoolOption("RangeFrame")
 mod:AddSetIconOption("FixateIcon", 143445)
@@ -155,6 +173,11 @@ function mod:SPELL_CAST_SUCCESS(args)
 	elseif args.spellId == 143428 then
 		warnTailLash:Show()
 		timerTailLashCD:Start()
+	elseif args.spellId == 31821 and not self:IsDifficulty("lfr25") then
+		warnDevotionAura:Show(args.sourceName)
+		specWarnDevotionAura:Cancel()
+		specWarnDevotionAura:Schedule(6)--Use scheduling but cancel it if a recast happens, that way we don't falsely warn it's gone since REMOVED fires while buff still up from another person
+		timerDevotionAura:Start()
 	end
 end
 

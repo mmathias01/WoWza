@@ -3,7 +3,7 @@ local module = oRA:NewModule("Invite", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 local AceGUI = LibStub("AceGUI-3.0")
 
-module.VERSION = tonumber(("$Revision: 662 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 688 $"):sub(12, -3))
 
 local frame = nil
 local db = nil
@@ -50,6 +50,14 @@ do
 			module:ScheduleTimer(waitForParty, 1)
 		end
 	end
+	
+	local function invite(player)
+		if type(player) == "number" then
+			BNInviteFriend(player)
+		else
+			InviteUnit(player)
+		end
+	end
 
 	function doActualInvites()
 		if #peopleToInvite == 0 then return end
@@ -64,7 +72,7 @@ do
 				-- invite people until the party is full
 				for i = 1, math.min(5 - pNum, #peopleToInvite) do
 					local player = tremove(peopleToInvite)
-					InviteUnit(player)
+					invite(player)
 				end
 				-- invite the rest
 				if #peopleToInvite > 0 then
@@ -79,7 +87,7 @@ do
 			end
 		else
 			for _, player in next, peopleToInvite do
-				InviteUnit(player)
+				invite(player)
 			end
 			wipe(peopleToInvite)
 		end
@@ -174,7 +182,8 @@ end
 local function inQueue()
 	-- LFG
 	for i=1, NUM_LE_LFG_CATEGORYS do
-		if GetLFGMode(i) then
+		local mode = GetLFGMode(i)
+		if mode and mode ~= "lfgparty" then
 			return true
 		end
 	end
@@ -204,29 +213,42 @@ end
 local function getBattleNetToon(presenceId)
 	local friendIndex = BNGetFriendIndex(presenceId)
 	for i=1, BNGetNumFriendToons(friendIndex) do
-		local _, toonName, client, realmName, realmId, faction = BNGetFriendToonInfo(friendIndex, i)
+		local _, toonName, client, realmName, realmId, faction, _, _, _, _, _, _, _, _, _, toonId = BNGetFriendToonInfo(friendIndex, i)
 		if client == BNET_CLIENT_WOW and faction == UnitFactionGroup("player") and realmId > 0 then
+			--[[ 5.4.1 broke returning realmName it seems
 			if realmName ~= GetRealmName() then
 				toonName = toonName.."-"..realmName
 			end
 			return toonName
+			--]]
+			return toonName, toonId
 		end
 	end
+end
+
+local function shouldInvite(msg, sender)
+	if (IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and select(3, GetInstanceInfo()) ~= 14) or inQueue() then
+		return false -- in lfr or in queue
+	end
+
+	msg = msg:trim():lower()
+	local keyword = db.keyword and db.keyword:lower()
+	local guildkeyword = db.guildkeyword and db.guildkeyword:lower()
+
+	return msg == keyword or (msg == guildkeyword and oRA:IsGuildMember(sender))
 end
 
 local function handleWhisper(msg, sender, _, _, _, _, _, _, _, _, _, _, presenceId)
 	if not canInvite() then return end
 	if db.raidonly and not IsInRaid() then return end
 
+	local toonName
 	if presenceId > 0 then
-		sender = getBattleNetToon(presenceId)
+		toonName, sender = getBattleNetToon(presenceId)
 		if not sender then return end
 	end
 
-	msg = msg:trim():lower()
-	if ( (db.keyword and msg == db.keyword:lower()) or (db.guildkeyword and msg == db.guildkeyword:lower() and oRA:IsGuildMember(sender)) )
-		and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and not inQueue()
-	then
+	if shouldInvite(msg, toonName or sender) then
 		local _, instanceType = IsInInstance()
 		if (instanceType == "party" and GetNumSubgroupMembers() == 4) or GetNumGroupMembers() == 40 then
 			if presenceId > 0 then

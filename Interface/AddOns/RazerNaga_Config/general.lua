@@ -8,21 +8,26 @@ local RazerNaga = LibStub('AceAddon-3.0'):GetAddon('RazerNaga')
 local AddonName, AddonDesc = select(2, GetAddOnInfo('RazerNaga'))
 
 do
-	local Options = RazerNaga.Panel:New('RazerNagaOptions', nil, AddonName)
-	local panels = {}
+	local Options = CreateFrame('Frame', 'RazerNagaOptions'); Options:Hide()
+	RazerNaga.Options = Options
+
+	Options.panels = {}
+
+	Options.name = AddonName
+	
+	Options:SetScript('OnShow', function(self)
+		InterfaceOptionsFrame_OpenToCategory(self.panels[1])
+	end)
 	
 	Options.NewPanel = function(self, title, subtitle, icon)
 		local panel = RazerNaga.Panel:New('$parent' .. title, AddonName, title, subtitle, icon)
-		table.insert(panels, panel)
+
+		table.insert(self.panels, panel)
+
 		return panel
 	end
-	
-	Options:SetScript('OnShow', function(self) 
-		InterfaceOptionsFrame_OpenToCategory(panels[1])
-		self:Hide() 
-	end)
-	
-	RazerNaga.Options = Options
+
+	InterfaceOptions_AddCategory(Options)
 end
 
 

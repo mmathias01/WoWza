@@ -15,6 +15,7 @@ ActionButton.active = {}
 --constructor
 function ActionButton:New(id)
 	local b = self:Restore(id) or self:Create(id)
+
 	if b then
 		b:SetAttribute('showgrid', 0)
 		b:SetAttribute('action--base', id)
@@ -35,21 +36,21 @@ function ActionButton:New(id)
 			end
 		]])
 
-		b:UpdateGrid()
-		b:UpdateHotkey(b.buttonType)
-		b:UpdateMacro()
-		b:UnregisterEvent('UPDATE_BINDINGS')
+		RazerNaga.BindingsController:Register(b, b:GetName():match('RazerNagaActionButton%d'))
 
 		--hack #1billion, get rid of range indicator text
 		local hotkey = _G[b:GetName() .. 'HotKey']
 		if hotkey:GetText() == _G['RANGE_INDICATOR'] then
 			hotkey:SetText('')
-		end
+		end		
+
+		b:UpdateGrid()
+		b:UpdateMacro()
 
 		self.active[id] = b
-
-		return b
 	end
+
+	return b	
 end
 
 local function Create(id)
@@ -111,6 +112,7 @@ function ActionButton:Free()
 	self.active[id] = nil
 	
 	ActionBarActionEventsFrame_UnregisterFrame(self)
+	RazerNaga.BindingsController:Unregister(self)
 	
 	self:SetParent(HiddenActionButtonFrame)
 	self:Hide()

@@ -1,3 +1,11 @@
+== Version 50400.4.0
+This version is required for the latest Death Kight release.
+* Added c.Flashable().
+
+== Version 50400.3.0
+This version only adds convenience flashing - it is not a required update for any class.
+* Added flashing for some new foods and items from the Timeless Isle.
+
 == Version 50400.2.0
 This version supports the latest Hunter release.
 * c.Flashing{} now contains an entry for every spell that is flashing.
@@ -87,11 +95,3 @@ This version supports the latest Paladin release.
 == Version 4.10.1
 * Flash food buffs on enemy "detection" instead of targeting.
 * Do not flash food buttons when you don't have any in your bags.
-
-== Version 4.10.0 beta
-* Added c.FlashFoods().
-* c.RegisterAddon() now flashes MoP foods for anything listed in a rotation's UsefulStats.
-
-== Version 4.9.1
-This version supports the latest Warlock release.
-* c.HasMyDebuff() and c.HasBuff() now work on auras without a duration.

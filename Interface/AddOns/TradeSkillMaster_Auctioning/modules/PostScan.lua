@@ -261,7 +261,7 @@ function Post:GetPostPrice(itemString, operation)
 		buyout = prices.resetPrice
 	elseif isPlayer or (isWhitelist and lowestBuyout - prices.undercut <= prices.maxPrice) then
 		-- Either we already have one up or someone on the whitelist does
-		bid, buyout = min(max(lowestBid, prices.minPrice), lowestBuyout), lowestBuyout
+		bid, buyout = min(lowestBid, lowestBuyout), lowestBuyout
 		info = isPlayer and "postingPlayer" or "postingWhitelist"
 	else
 		-- we've been undercut and we are going to undercut back

@@ -61,16 +61,17 @@ function SettingsLoader:LoadSettings(settings)
 
 	--reenable dominos
 	RazerNaga:Load()
+	RazerNaga.AutoBinder:EnforceBindings()
 	
 	--hack, need to do a slightly more advanced layout method for the class bar to place it properly across all resolutions
-	local classBar = RazerNaga.Frame:Get('class')
-	if classBar then
-		if self:GetLayoutType() == '3x4' then
-			classBar:SetFramePoint('BOTTOMLEFT', UIParent, 'BOTTOMRIGHT', -370, 270)
-		elseif self:GetLayoutType() == '4x3' then
-			classBar:SetFramePoint('BOTTOMLEFT', UIParent, 'BOTTOMRIGHT', -450, 230)
-		end
-	end
+	-- local classBar = RazerNaga.Frame:Get('class')
+	-- if classBar then
+	-- 	if self:GetLayoutType() == '3x4' then
+	-- 		classBar:SetFramePoint('BOTTOMLEFT', UIParent, 'BOTTOMRIGHT', -370, 270)
+	-- 	elseif self:GetLayoutType() == '4x3' then
+	-- 		classBar:SetFramePoint('BOTTOMLEFT', UIParent, 'BOTTOMRIGHT', -450, 230)
+	-- 	end
+	-- end
 end
 
 --replace any items in toTble that are in fromTbl
@@ -355,51 +356,9 @@ function SettingsLoader:GetThreeByFour()
 				['padW'] = 2,
 				['point'] = 'BOTTOMRIGHT',
 				['spacing'] = 0,
-				['x'] = -340,
+				['x'] = -306,
 				['y'] = 270,
-			},
-			["totem1"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 330,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
-			["totem2"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 367,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
-			["totem3"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 404,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
+			}
 		},
 	}
 end
@@ -662,51 +621,9 @@ function SettingsLoader:GetFourByThree()
 				['padW'] = 2,
 				['point'] = 'BOTTOMRIGHT',
 				['spacing'] = 0,
-				['x'] = -420,
+				['x'] = -386,
 				['y'] = 230,
-			},
-			["totem1"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 330,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
-			["totem2"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 367,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
-			["totem3"] = {
-				['isRightToLeft'] = false,
-				['isBottomToTop'] = false,
-				["y"] = 404,
-				["x"] = -0,
-				["point"] = "BOTTOMLEFT",
-				["spacing"] = 2,
-				["anchor"] = false,
-				["columns"] = false,
-				["hidden"] = false,
-				["scale"] = 0.8,
-				["showRecall"] = true,
-				["showTotems"] = true,
-			},
+			}
 		},
 	}
 end

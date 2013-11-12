@@ -1,51 +1,44 @@
 local L = BigWigs:NewBossLocale("Immerseus", "ruRU")
 if not L then return end
 if L then
-	L.win_yell = "У вас получилось!"
+L["win_yell"] = "У вас получилось!"
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "ruRU")
 if L then
-	L.defile = "Чтение Оскверненной земли"
+L["defile_you"] = "Оскверненная земля под тобой" -- Needs review
+L["defile_you_desc"] = "Предупреждать, если Оскверненная земля под тобой." -- Needs review
+L["inferno_self"] = "Адский удар на тебе" -- Needs review
+L["inferno_self_bar"] = "Ты взорвешься!" -- Needs review
+L["inferno_self_desc"] = "Особый отсчет, когда Адский удар на тебе." -- Needs review
+L["intermission_desc"] = "Предупреждать, когда боссы применяют Крайние меры." -- Needs review
+L["no_meditative_field"] = "Ты не в пузыре!" -- Needs review
+
 
 	L.custom_off_bane_marks = "Маркировка Слово Тьмы: Погибель"
 	L.custom_off_bane_marks_desc = "Чтобы помочь с рассеиванием, на людей со Словом Тьмы: Погибель будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5} (в этой последовательности, не все метки могут быть использованы), требуется быть помощником или лидером."
-
-	L.no_meditative_field = "НЕТ Медитативного поля!"
-
-	L.intermission = "Крайние меры"
-	L.intermission_desc = "Предупреждать, когда боссы готовятся применить Крайние меры."
-
-	L.inferno_self = "Адский удар на тебе"
-	L.inferno_self_desc = "Особый отсчет, когда Адский удар на тебе."
-	L.inferno_self_bar = "Ты взорвешься!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "ruRU")
 if L then
-	L.pre_pull = "Подготовка"
-	L.pre_pull_desc = "Полоса отсчета до нападения босса."
-	L.pre_pull_trigger = "Хорошо, я создам поле для удерживания порчи."
+L["big_add"] = "Большой помощник (%d)"
+L["big_add_killed"] = "Большой помощник убит (%d)"
+L["big_adds"] = "Большие помощники"
+L["big_adds_desc"] = "Предупреждать, когда большие помощники появляются или их убивают."
+L["warmup_trigger"] = "Хорошо, я создам поле для удерживания порчи."
 
-	L.big_adds = "Большие помощники"
-	L.big_adds_desc = "Предупреждать об убийстве больших помощников снаружи/внутри."
-	L.big_add = "Большой помощник (%d)"
-	L.big_add_killed = "Большой помощник убит! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "ruRU")
 if L then
+L["projection_explosion"] = "Проекция взрывается"
+L["projection_message"] = "Бегите к |cFF00FF00ЗЕЛЕНОЙ|r стрелке!"
+L["titan_pride"] = "Титан+Гордыня: %s"
+
+
 	L.custom_off_titan_mark = "Маркировка Дара титанов"
 	L.custom_off_titan_mark_desc = "Отмечать людей с Даром титанов метками {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
-
-	L.projection_message = "Бегите к |cFF00FF00ЗЕЛЕНОЙ|r стрелке!"
-	L.projection_explosion = "Проекция взрывается"
-
-	L.big_add_bar = "Большой помощник"
-	L.big_add_spawning = "Большой помощник появляется!"
-	L.small_adds = "Маленькие помощники"
-
-	L.titan_pride = "Титан+Гордыня: %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "ruRU")
@@ -60,6 +53,15 @@ if L then
 	L.north_tower_trigger = "Дверь северной башни разбита!"
 	L.north_tower = "Северная башня"
 	L.tower_defender = "Защитник башни"
+
+	L.adds_desc = "Таймеры, когда новые помощники вступят в бой."
+	L.adds_trigger1 = "Сбейте ее скорее, не терпится взять ее за глотку." -- Lady Sylvanas Windrunner
+	L.adds_trigger2 = "Вот и они!" -- Lady Jaina Proudmoore
+	L.adds_trigger3 = "Драконья Пасть, вперед!"
+	L.adds_trigger4 = "За Гарроша!"
+	L.adds_trigger5 = "Следующий отряд!"
+
+	L.drakes = "Протодракон"
 
 	L.custom_off_shaman_marker = "Маркировка Шаманов"
 	L.custom_off_shaman_marker_desc = "Чтобы помочь с распределением прерываний, на Шаманов прилива из клана Драконьей Пасти будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r\n|cFFADFF2FСОВЕТ: Если вы выбраны для этой задачи, быстро проведите указателем мыши по шаманам, метки сразу же поставятся.|r"
@@ -120,16 +122,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "ruRU")
 if L then
-	L.adds = "Героические помощники"
-	L.adds_desc = "Предупреждать, если героические помощники вступают в бой."
+L["adds_desc"] = "Предупреждать, когда йети или летучие мыши вступают в бой."
+L["cage_opened"] = "Клетка открыта"
+L["npc_akolik"] = "Аколик"
+L["npc_waterspeaker_gorai"] = "Говорящий с водой Гожай"
 
-	L.tank_debuffs = "Дебаффы танка"
-	L.tank_debuffs_desc = "Предупреждать о разных типах дебаффов танка, связанных со Страшным ревом."
-
-	L.cage_opened = "Клетка открыта"
-
-	L.akolik = "Аколик"
-	L.waterspeaker_gorai = "Говорящий с водой Гожай"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "ruRU")
@@ -141,7 +138,7 @@ if L then
 	L.saw_blade_near_you = "Пила возле тебя (не на тебе)"
 	L.saw_blade_near_you_desc = "Возможно, вы захотите выключить эту опцию, чтобы избежать спама, если ваш рейд сгруппирован по другой тактике."
 
-	-- L.disabled = "Disabled"
+	L.disabled = "Отключено"
 
 	L.shredder_engage_trigger = "Приближается автоматический крошшер!"
 	L.laser_on_you = "Лазер на тебе ПИУ-ПИУ!"
@@ -166,17 +163,23 @@ if L then
 	L.parasites_up = "%d |4Паразит жив:Паразита живы:Паразитов живы;"
 	L.dance = "Танцуем"
 	L.prey_message = "Используй Охоту на паразита"
+	L.injection_over_soon = "Инъекция заканчивается (%s)!"
+
 	L.one = "Выбор Ийокука: Один!"
 	L.two = "Выбор Ийокука: Два!"
 	L.three = "Выбор Ийокука: Три!"
 	L.four = "Выбор Ийокука: Четыре!"
 	L.five = "Выбор Ийокука: Пять!"
-	L.edge_message = "Ты в луче"
+
 	L.custom_off_edge_marks = "Маркировка луча"
 	L.custom_off_edge_marks_desc = "Люди, которые станут лучами на основе расчетов, будут отмечены {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
-	L.injection_over_soon = "Инъекция заканчивается (%s)!"
+	L.edge_message = "Ты в луче"
+
 	L.custom_off_parasite_marks = "Маркировка Паразита"
 	L.custom_off_parasite_marks_desc = "Чтобы помочь с распределением контроля и Охоты, на паразитов будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r"
+
+	L.injection_tank = "Чтение Инъекции"
+	L.injection_tank_desc = "Таймер, когда идет чтение Инъекции на текущего танка."
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "ruRU")
@@ -186,15 +189,15 @@ if L then
 
 	L.phase_3_end_trigger = "Думаете, вы победили? Слепцы. Я раскрою вам глаза!"
 
-	L.clump_check = "Проверка проходимости"
 	L.clump_check_desc = "Каждые 3 секунды, во время Бомбардировки, будет проверяться проходимость, если она обнаружена, появится Кор'кронская железная звезда."
+	L.clump_check_warning = "Проход найден, Звезда на подходе"
 
 	L.bombardment = "Бомбардировка"
 	L.bombardment_desc = "Бомбардировка города и появление горящих луж. Кор'кронская железная звезда появляется только в это время."
 
-	L.spread = "Разбегайтесь!"
 	L.intermission = "Перерыв"
 	L.mind_control = "Контроль разума"
+	L.empowered_message = "%s теперь усилено!"
 
 	L.ironstar_impact_desc = "Таймер, когда Железная звезда ударится о противоположную стену."
 	L.ironstar_rolling = "Железная звезда катится!"
@@ -205,10 +208,10 @@ if L then
 
 	L.farseer_trigger = "Исцелите наши раны!"
 	L.custom_off_shaman_marker = "Маркировка Предсказателей"
-	L.custom_off_shaman_marker_desc = "Чтобы помочь с распределением прерываний, на 'Предсказателей - всадников на волках' будет поставлены метки  {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r\n|cFFADFF2FСОВЕТ: Если вы выбраны для этой задачи, быстро проведите указателем мыши по минам, метки сразу же поставятся.|r"
+	L.custom_off_shaman_marker_desc = "Чтобы помочь с распределением прерываний, на 'Предсказателей - всадников на волках' будет поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, требуется быть помощником или лидером.\n|cFFFF0000Только 1 человек в рейде должен включить эту опцию, чтобы предотвратить конфликты.|r\n|cFFADFF2FСОВЕТ: Если вы выбраны для этой задачи, быстро проведите указателем мыши по минам, метки сразу же поставятся.|r"
 
-	L.custom_off_minion_marker = "Маркировка прислужника"
-	L.custom_off_minion_marker_desc = "Чтобы помочь разделить прислужников, на них будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, требуется быть помощником или лидером."
+	L.custom_off_minion_marker = "Маркировка прислужников"
+	L.custom_off_minion_marker_desc = "Чтобы помочь разделить прислужников, на них будут поставлены метки {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, требуется быть помощником или лидером."
 
 	L.focus_only = "|cffff0000Оповещения только для фокуса.|r "
 end

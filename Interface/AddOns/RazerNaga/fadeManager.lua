@@ -6,46 +6,13 @@
 
 local RazerNaga = LibStub('AceAddon-3.0'):GetAddon('RazerNaga')
 
---[[ Animation Timer ]]--
-
-function RazerNaga:CreateTimer(duration)
-	local timer = CreateFrame('Frame'); timer:Hide()
-	timer.duration = duration or 0
-	
-	timer:SetScript('OnUpdate', function(self, elapsed)
-		local nextUpdate = self.nextUpdate - elapsed
-		if nextUpdate > 0 then
-			self.nextUpdate = nextUpdate
-		else
-			self:Hide()
-			if self.OnFinished then
-				self:OnFinished()
-			end
-		end
-	end)
-
-	timer.Start = function(self)
-		self.nextUpdate = self.duration
-		self:Show()
-	end
-
-	timer.Stop = function(self)
-		self:Hide()
-	end
-
-	timer.IsPlaying = function(self)
-		return self:IsShown()
-	end
-
-	return timer
-end
-
 --[[ Code to watch frames as they're moused over ]]--
 
-local MouseOverWatcher = RazerNaga:CreateTimer()
 local watched = {}
 
-MouseOverWatcher.duration = 0.15
+local MouseOverWatcher = RazerNaga.Timer:New()
+
+MouseOverWatcher.delay = 0.15
 
 function MouseOverWatcher:OnFinished()
 	for f in pairs(watched) do
@@ -74,7 +41,7 @@ function MouseOverWatcher:Add(f)
 	f.focused = f:IsFocus() and true or nil
 	f:UpdateAlpha()
 
-	if not self:IsPlaying() then
+	if not self:IsRunning() then
 		self:Start()
 	end
 end

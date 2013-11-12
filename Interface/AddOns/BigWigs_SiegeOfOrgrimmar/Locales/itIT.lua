@@ -1,51 +1,44 @@
 local L = BigWigs:NewBossLocale("Immerseus", "itIT")
 if not L then return end
 if L then
-	L.win_yell = "Ah, ce l'avete fatta!"
+L["win_yell"] = "Ah, ce l'avete fatta!"
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "itIT")
 if L then
-	L.defile = "Lancio Suolo Profanato"
+L["defile_you"] = "Suolo Profanato sotto DI TE"
+L["defile_you_desc"] = "Avvisa quando Suolo Profanato è sotto di te."
+L["inferno_self"] = "Assalto dell'Inferno su DI TE"
+L["inferno_self_bar"] = "Stai per esplodere!"
+L["inferno_self_desc"] = "Conto alla rovescia speciale per quando Assalto dell'inferno è su di te."
+L["intermission_desc"] = "Avvisa quando i boss usano Misure Disperate"
+L["no_meditative_field"] = "Non sei nella bolla!"
+
 
 	L.custom_off_bane_marks = "Parola d'Ombra: Flagello"
 	L.custom_off_bane_marks_desc = "Per aiutare a dissipare, evidenzia chi ha Parola d'Ombra: Flagello su di loro con {rt1}{rt2}{rt3}{rt4}{rt5} (in questo ordine, possono non essere usati tutti i simboli), richiede capo incursione o assistente."
-
-	L.no_meditative_field = "NESSUN Campo di Meditazione!"
-
-	L.intermission = "Misure Disperate"
-	L.intermission_desc = "Avvisa quando ti stai avvicinando ad un boss che sta lanciando Misure Disperate"
-
-	L.inferno_self = "Assalto dell'Inferno su di te"
-	L.inferno_self_desc = "Countdown Speciale quando Assalto dell'nferno è su di te."
-	L.inferno_self_bar = "Stai Esplodendo!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "itIT")
 if L then
-	L.pre_pull = "Pre-ingaggio"
-	L.pre_pull_desc = "Barra per la scenetta prima dell'ingaggio del boss"
-	L.pre_pull_trigger = "Molto bene, creerò un campo di contenimento per la corruzione che vi affligge."
+L["big_add"] = "Add Maggiore (%d)"
+L["big_add_killed"] = "Add Maggiore ucciso (%d)"
+L["big_adds"] = "Add Maggiori"
+L["big_adds_desc"] = "Avvisi per l'apparizione degli add maggiori da uccidere."
+L["warmup_trigger"] = "Molto bene, creerò un campo di contenimento per la corruzione che vi affligge."
 
-	L.big_adds = "Add Maggiori"
-	L.big_adds_desc = "Avvisa quando uccidi gli Add Maggiori dentro/fuori"
-	L.big_add = "Add Maggiore (%d)"
-	L.big_add_killed = "Add Maggiore ucciso! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "itIT")
 if L then
+L["projection_explosion"] = "Proiezione esplosione"
+L["projection_message"] = "Vai verso la freccia |cFF00FF00VERDE|r!"
+L["titan_pride"] = "Titano+Orgoglio: %s"
+
+
 	L.custom_off_titan_mark = "Marcatore Potenza dei Titani"
 	L.custom_off_titan_mark_desc = "Evidenzia i giocatori con Dono dei Titani con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, richiede capoincursione o assistente.\n|cFFFF0000Soltanto 1 dei giocatori nell'incursione dovrebbe tenere abilitata questa opzione per evitare conflitti di marcamento.|r"
-
-	L.projection_message = "Vai verso la freccia |cFF00FF00VERDE|r!"
-	L.projection_explosion = "Proiezione esplosione"
-
-	L.big_add_bar = "Add Maggiore"
-	L.big_add_spawning = "Add Maggiore in arrivo!"
-	L.small_adds = "Add Minori"
-
-	L.titan_pride = "Titano+Orgoglio: %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "itIT")
@@ -60,6 +53,15 @@ if L then
 	L.north_tower_trigger = "La porta a protezione della torre a nord è stata sfondata!" --checked
 	L.north_tower = "Torre nord"
 	L.tower_defender = "DIfensore Torre"
+
+	L.adds_desc = "Avvisi per quando una nuova ondata di add entra in combattimento."
+	L.adds_trigger1 = "Abbattetela in fretta così potrò strangolarla personalmente." -- Lady Sylvanas Windrunner
+	L.adds_trigger2 = "Eccoli che arrivano!" -- Lady Jaina Proudmoore
+	L.adds_trigger3 = "Fauci di Drago, avanzate!"
+	L.adds_trigger4 = "Per Malogrido!"
+	L.adds_trigger5 = "Prossima squadra, avanti!"
+
+	L.drakes = "Proto-Draghi"
 
 	L.custom_off_shaman_marker = "Marcatore Sciamano"
 	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzzioni, evidenzia gli Sciamani delle Maree delle Fauci di Drago con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r\n|cFFADFF2FSUGGERIMENTO: Se l'Incursione ha scelto te per abilitare questa opzione, muovere velocemente il mouse sopra gli sciamani è il modo più rapido per evidenziarli.|r"
@@ -120,16 +122,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "itIT")
 if L then
-	L.adds = "Add Modalità Eroica"
-	L.adds_desc = "Avvisa quando entrano in combattimento gli add nella sola modalità eroica"
+L["adds_desc"] = "Avvisa quando Yeti o Pipistrelli entrano in combattimento."
+L["cage_opened"] = "Gabbia Aperta"
+L["npc_akolik"] = "Akolik"
+L["npc_waterspeaker_gorai"] = "Oratore dell'Acqua Gorai"
 
-	L.tank_debuffs = "Malefici Difensori"
-	L.tank_debuffs_desc = "Avvisi per i vari tipi di malefici sui Difensori associati a Ruggito Temibile"
-
-	L.cage_opened = "Gabbia Aperta"
-
-	L.akolik = "Akolik"
-	L.waterspeaker_gorai = "Oratore dell'Acqua Gorai"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "itIT")
@@ -166,15 +163,18 @@ if L then
 	L.parasites_up = "%d |4Parassita:Parassiti; attivi"
 	L.dance = "Danza"
 	L.prey_message = "Usa Preda sul Parassita"
+	L.injection_over_soon = "Fine di Iniezione tra poco (%s)!"
+
 	L.one = "Iyyokuk seleziona: Uno!"
 	L.two = "Iyyokuk seleziona: Due!"
 	L.three = "Iyyokuk seleziona: Tre!"
 	L.four = "Iyyokuk seleziona: Quattro!"
 	L.five = "Iyyokuk seleziona: Cinque!"
-	L.edge_message = "Sei uno dei limiti"
+
 	L.custom_off_edge_marks = "Marcatori dei Limiti"
 	L.custom_off_edge_marks_desc = "Evidenzia i giocatori che saranno i limiti in base ai calcoli {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, richiede capoincursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r"
-	L.injection_over_soon = "Fine di Iniezione tra poco (%s)!"
+	L.edge_message = "Sei uno dei limiti"
+
 	L.custom_off_parasite_marks = "Marcatore Parassita"
 	L.custom_off_parasite_marks_desc = "Evidenzia i parassiti da controllare e le assegnazioni di Preda con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, richiede capoincursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r"
 end
@@ -186,15 +186,15 @@ if L then
 
 	L.phase_3_end_trigger = "Pensate di aver VINTO? Siete CIECHI. VI COSTRINGERÒ AD APRIRE GLI OCCHI."
 
-	L.clump_check = "CControllo ammucchiamento"
 	L.clump_check_desc = "Controlla ogni 3 secondi durante il Bombardamento i giocatori ammucchiati, se viene rilevato un gruppo, verrà creata una Pirostella Kor'kron."
+	L.clump_check_warning = "Rilevato ammucchiamento, Pirostella in arrivo"
 
 	L.bombardment = "Bombardmento"
 	L.bombardment_desc = "Bombardamendo di Roccavento che lascia dei fuochi sul terreno. Le Pirostelle Kor'kron possono apparire soltanto durante il bombardmento."
 
-	L.spread = "Allargarsi!"
 	L.intermission = "Intermezzo"
 	L.mind_control = "Controllo della Mente"
+	L.empowered_message = "%s adesso è potenziato!"
 
 	L.ironstar_impact_desc = "Una barra a tempo per quando la Pirostella si schianterà contro l'altra parte della stanza."
 	L.ironstar_rolling = "Pirostella in movimento!"

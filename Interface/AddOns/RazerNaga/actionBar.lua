@@ -3,7 +3,13 @@
 		the code for RazerNaga action bars and buttons
 --]]
 
---libs and omgspeed
+--[[ globals ]]--
+
+local RazerNaga = _G['RazerNaga']
+local ActionButton = RazerNaga.ActionButton
+
+local MAX_BUTTONS = 120
+
 local ceil = math.ceil
 local min = math.min
 local format = string.format
@@ -76,14 +82,15 @@ function ActionBar:New(id)
 	f.pages = f.sets.pages[f.class]
 	f.baseID = f:MaxLength() * (id-1)
 
-	f:LoadStateController()
 	f:LoadButtons()
+	f:LoadStateController()
 	f:UpdateClickThrough()
 	f:UpdateStateDriver()
 	f:Layout()
 	f:UpdateGrid()
 	f:UpdateRightClickUnit()
 	f:SetScript('OnSizeChanged', self.OnSizeChanged)
+	f:UpdateFlyoutDirection()
 
 	active[id] = f
 
@@ -168,8 +175,9 @@ function ActionBar:GetOffset(stateId)
 	return self.pages[stateId]
 end
 
---note to self:
---if you leave a ; on the end of a statebutton string, it causes evaluation issues, especially if you're doing right click selfcast on the base state
+-- note to self:
+-- if you leave a ; on the end of a statebutton string, it causes evaluation issues, 
+-- especially if you're doing right click selfcast on the base state
 function ActionBar:UpdateStateDriver()
 	UnregisterStateDriver(self.header, 'page', 0)
 
@@ -210,9 +218,11 @@ function ActionBar:UpdateAction(i)
 	for i, state in RazerNaga.BarStates:getAll() do
 		local offset = self:GetOffset(state.id)
 		local actionId = nil
+
 		if offset then
 			actionId = ToValidID(b:GetAttribute('action--base') + offset * maxSize)
 		end
+
 		b:SetAttribute('action--S' .. i, actionId)
 	end
 end
@@ -256,7 +266,9 @@ function ActionBar:RefreshActions()
 end
 
 function ActionBar:UpdateOverrideBar()
-	self.header:SetAttribute('state-overridebar', self:IsOverrideBar())
+	local isOverrideBar = self:IsOverrideBar()
+
+	self.header:SetAttribute('state-overridebar', isOverrideBar)
 end
 
 --returns true if the possess bar, false otherwise
@@ -507,4 +519,21 @@ do
 
 		ActionBar.menu = menu
 	end
+end
+
+
+--[[ Action Bar Controller ]]--
+
+local ActionBarController = RazerNaga:NewModule('ActionBars', 'AceEvent-3.0')
+
+function ActionBarController:Load()
+	for i = 1, RazerNaga:NumBars() do
+		ActionBar:New(i)
+	end
+end
+
+function ActionBarController:Unload()
+	for i = 1, RazerNaga:NumBars() do
+		RazerNaga.Frame:ForFrame(i, 'Free')
+	end	
 end

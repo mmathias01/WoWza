@@ -13,10 +13,10 @@ TradeSkillMaster_MailingDB = {
 				[2] = true,
 			},
 			["scrollvalue"] = 0,
-			["selected"] = 1,
-			["treesizable"] = true,
-			["treewidth"] = 175,
 			["fullwidth"] = 782.9999389648438,
+			["selected"] = 1,
+			["treewidth"] = 175,
+			["treesizable"] = true,
 		},
 	},
 }

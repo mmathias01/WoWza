@@ -51,6 +51,8 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "ptBR")
 if L then
+L["npc_akolik"] = "Akolik" -- Needs review
+L["npc_waterspeaker_gorai"] = "Parlágua Gorai" -- Needs review
 
 end
 

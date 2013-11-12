@@ -23,6 +23,20 @@ local UpdateDispelStatus = nil
 local UpdateMapData = nil
 local myGUID = nil
 local myRole = nil
+local updateData = function()
+	myGUID = UnitGUID("player")
+
+	local tree = GetSpecialization()
+	if tree then
+		myRole = GetSpecializationRole(tree)
+	end
+
+	local _, _, diff = GetInstanceInfo()
+	difficulty = diff
+
+	UpdateDispelStatus()
+	UpdateMapData()
+end
 
 -------------------------------------------------------------------------------
 -- Debug
@@ -45,7 +59,7 @@ local icons = setmetatable({}, {__index =
 			if key > 0 then
 				_, _, value = GetSpellInfo(key)
 				if not value then
-					print(format("Big Wigs: An invalid spell id (%d) is being used in a bar/message.", key))
+					core:Print(format("An invalid spell id (%d) is being used in a bar/message.", key))
 				end
 			else
 				local _, _, _, abilityIcon = EJ_GetSectionInfo(-key)
@@ -86,28 +100,7 @@ function boss:OnInitialize() core:RegisterBossModule(self) end
 function boss:OnEnable()
 	if debug then dbg(self, "OnEnable()") end
 
-	-- Update GUID
-	myGUID = UnitGUID("player")
-
-	-- Update Role
-	local tree = GetSpecialization()
-	if tree then
-		myRole = GetSpecializationRole(tree)
-	end
-
-	if IsEncounterInProgress() then
-		self:CheckBossStatus("NoEngage") -- Prevent engaging if enabling during a boss fight (after a DC)
-	end
-
-	if self.SetupOptions then self:SetupOptions() end
-	if type(self.OnBossEnable) == "function" then self:OnBossEnable() end
-
-	-- Update Difficulty
-	local _, _, diff = GetInstanceInfo()
-	difficulty = diff
-
-	-- Update Dispel Status
-	UpdateDispelStatus()
+	updateData()
 
 	-- Update enabled modules list
 	for i = #enabledModules, 1, -1 do
@@ -115,6 +108,13 @@ function boss:OnEnable()
 		if module == self then return end
 	end
 	enabledModules[#enabledModules+1] = self
+
+	if self.SetupOptions then self:SetupOptions() end
+	if type(self.OnBossEnable) == "function" then self:OnBossEnable() end
+
+	if IsEncounterInProgress() then
+		self:CheckBossStatus("NoEngage") -- Prevent engaging if enabling during a boss fight (after a DC)
+	end
 
 	self:SendMessage("BigWigs_OnBossEnable", self)
 end
@@ -208,8 +208,8 @@ do
 		end
 	end
 	function boss:Emote(func, ...)
-		if not func then error(format(missingArgument, self.moduleName)) end
-		if not self[func] then error(format(missingFunction, self.moduleName, func)) end
+		if not func then core:Print(format(missingArgument, self.moduleName)) return end
+		if not self[func] then core:Print(format(missingFunction, self.moduleName, func)) return end
 		if not eventMap[self].CHAT_MSG_RAID_BOSS_EMOTE then eventMap[self].CHAT_MSG_RAID_BOSS_EMOTE = {} end
 		for i = 1, select("#", ...) do
 			eventMap[self]["CHAT_MSG_RAID_BOSS_EMOTE"][(select(i, ...))] = func
@@ -229,8 +229,8 @@ do
 		end
 	end
 	function boss:Yell(func, ...)
-		if not func then error(format(missingArgument, self.moduleName)) end
-		if not self[func] then error(format(missingFunction, self.moduleName, func)) end
+		if not func then core:Print(format(missingArgument, self.moduleName)) return end
+		if not self[func] then core:Print(format(missingFunction, self.moduleName, func)) return end
 		if not eventMap[self].CHAT_MSG_MONSTER_YELL then eventMap[self].CHAT_MSG_MONSTER_YELL = {} end
 		for i = 1, select("#", ...) do
 			eventMap[self]["CHAT_MSG_MONSTER_YELL"][(select(i, ...))] = func
@@ -278,23 +278,24 @@ do
 		end
 	end)
 	function boss:Log(event, func, ...)
-		if not event or not func then error(format(missingArgument, self.moduleName)) end
-		if type(func) ~= "function" and not self[func] then error(format(missingFunction, self.moduleName, func)) end
+		if not event or not func then core:Print(format(missingArgument, self.moduleName)) return end
+		if type(func) ~= "function" and not self[func] then core:Print(format(missingFunction, self.moduleName, func)) return end
 		if not eventMap[self][event] then eventMap[self][event] = {} end
 		for i = 1, select("#", ...) do
 			local id = (select(i, ...))
-			eventMap[self][event][id] = func
 			if type(id) == "number" and not GetSpellInfo(id) then
-				print(format(invalidId, self.moduleName, id, event))
+				core:Print(format(invalidId, self.moduleName, id, event))
+				return
 			end
+			eventMap[self][event][id] = func
 		end
 		allowedEvents[event] = true
 		bossUtilityFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 		self:SendMessage("BigWigs_OnBossLog", self, event, ...)
 	end
 	function boss:Death(func, ...)
-		if not func then error(format(missingArgument, self.moduleName)) end
-		if type(func) ~= "function" and not self[func] then error(format(missingFunction, self.moduleName, func)) end
+		if not func then core:Print(format(missingArgument, self.moduleName)) return end
+		if type(func) ~= "function" and not self[func] then core:Print(format(missingFunction, self.moduleName, func)) return end
 		if not eventMap[self].UNIT_DIED then eventMap[self].UNIT_DIED = {} end
 		for i = 1, select("#", ...) do
 			eventMap[self]["UNIT_DIED"][(select(i, ...))] = func
@@ -325,9 +326,9 @@ do
 	end
 
 	function boss:RegisterUnitEvent(event, func, ...)
-		if type(event) ~= "string" then error(format(noEvent, self.moduleName)) end
-		if not ... then error(format(noUnit, self.moduleName)) end
-		if (not func and not self[event]) or (func and not self[func]) then error(format(noFunc, self.moduleName, func or event)) end
+		if type(event) ~= "string" then core:Print(format(noEvent, self.moduleName)) return end
+		if not ... then core:Print(format(noUnit, self.moduleName)) return end
+		if (not func and not self[event]) or (func and not self[func]) then core:Print(format(noFunc, self.moduleName, func or event)) return end
 		if not unitEventMap[self][event] then unitEventMap[self][event] = {} end
 		for i = 1, select("#", ...) do
 			local unit = select(i, ...)
@@ -341,8 +342,8 @@ do
 		end
 	end
 	function boss:UnregisterUnitEvent(event, ...)
-		if type(event) ~= "string" then error(format(noEvent, self.moduleName)) end
-		if not ... then error(format(noUnit, self.moduleName)) end
+		if type(event) ~= "string" then core:Print(format(noEvent, self.moduleName)) return end
+		if not ... then core:Print(format(noUnit, self.moduleName)) return end
 		if not unitEventMap[self][event] then return end
 		for i = 1, select("#", ...) do
 			local unit = select(i, ...)
@@ -499,30 +500,13 @@ do
 		if debug then dbg(self, ":Engage") end
 
 		if not noEngage or noEngage ~= "NoEngage" then
-			-- Update GUID
-			myGUID = UnitGUID("player")
-
-			-- Update Role
-			local tree = GetSpecialization()
-			if tree then
-				myRole = GetSpecializationRole(tree)
-			end
-
-			-- Update Difficulty
-			local _, _, diff = GetInstanceInfo()
-			difficulty = diff
-
-			-- Update Dispel Status
-			UpdateDispelStatus()
-
-			-- Update map size
-			UpdateMapData()
+			updateData()
 
 			if self.OnEngage then
-				self:OnEngage(diff)
+				self:OnEngage(difficulty)
 			end
 
-			self:SendMessage("BigWigs_OnBossEngage", self, diff)
+			self:SendMessage("BigWigs_OnBossEngage", self, difficulty)
 		end
 	end
 
@@ -535,35 +519,34 @@ do
 end
 
 do
+	local bosses = {"boss1", "boss2", "boss3", "boss4", "boss5"}
+	local bossTargets = {"boss1target", "boss2target", "boss3target", "boss4target", "boss5target"}
 	local UnitDetailedThreatSituation = UnitDetailedThreatSituation
-	local function bossScanner(self, func, tankCheckExpiry, guid, t)
-		local elapsed = self.scheduledScansCounter[t] + 0.05
-		if elapsed > 0.8 then self:CancelTimer(self.scheduledScans[t]) end
-		self.scheduledScansCounter[t] = elapsed
+	local function bossScanner(self, func, tankCheckExpiry, guid)
+		local elapsed = self.scheduledScansCounter[func] + 0.05
 
 		for i = 1, 5 do
-			local boss = format("boss%d", i)
+			local boss = bosses[i]
 			if UnitGUID(boss) == guid then
-				local bossTarget = boss.."target"
+				local bossTarget = bossTargets[i]
 				local playerGUID = UnitGUID(bossTarget)
 				if playerGUID and ((not UnitDetailedThreatSituation(bossTarget, boss) and not self:Tank(bossTarget)) or elapsed > tankCheckExpiry) then
-					self:CancelTimer(self.scheduledScans[t])
-					func(self, self:UnitName(bossTarget), playerGUID, elapsed)
+					local name = self:UnitName(bossTarget)
+					self:CancelTimer(self.scheduledScans[func])
+					func(self, name, playerGUID, elapsed)
 				end
 				break
 			end
 		end
+
+		if elapsed > 0.8 then self:CancelTimer(self.scheduledScans[func]) end
+		self.scheduledScansCounter[func] = elapsed
 	end
 	function boss:GetBossTarget(func, tankCheckExpiry, guid)
 		if not self.scheduledScans then self.scheduledScans = {} self.scheduledScansCounter = {} end
 
-		local t = GetTime()
-		if self.scheduledScans[t] then -- Safety check, should never happen
-			self:CancelTimer(self.scheduledScans[t])
-			core:Print("Detected a timer with the same id already running whilst trying to schedule a new one, tell the Big Wigs authors!")
-		end
-		self.scheduledScansCounter[t] = 0
-		self.scheduledScans[t] = self:ScheduleRepeatingTimer(bossScanner, 0.05, self, func, tankCheckExpiry, guid, t)
+		self.scheduledScansCounter[func] = 0
+		self.scheduledScans[func] = self:ScheduleRepeatingTimer(bossScanner, 0.05, self, func, tankCheckExpiry, guid)
 	end
 end
 
@@ -773,17 +756,19 @@ do
 	local invalidFlagError = "Module %s tried to check for an invalid flag type %q (%q). Flags must be bits."
 	local noDBError        = "Module %s does not have a .db property, which is weird."
 	checkFlag = function(self, key, flag)
-		if type(key) == "nil" then error(format(nilKeyError, self.name)) end
-		if type(flag) ~= "number" then error(format(invalidFlagError, self.name, type(flag), tostring(flag))) end
+		if type(key) == "nil" then core:Print(format(nilKeyError, self.name)) return end
+		if type(flag) ~= "number" then core:Print(format(invalidFlagError, self.name, type(flag), tostring(flag))) return end
 		if silencedOptions[key] then return end
 		if type(key) == "number" and key > 0 then key = spells[key] end
-		if type(self.db) ~= "table" then error(format(noDBError, self.name)) end
+		if type(self.db) ~= "table" then core:Print(format(noDBError, self.name)) return end
 		if type(self.db.profile[key]) ~= "number" then
 			if not self.toggleDefaults[key] then
-				error(format(noDefaultError, self.name, key))
+				core:Print(format(noDefaultError, self.name, key))
+				return
 			end
 			if debug then
-				error(format(notNumberError, self.name, key, type(self.db.profile[key])))
+				core:Print(format(notNumberError, self.name, key, type(self.db.profile[key])))
+				return
 			end
 			self.db.profile[key] = self.toggleDefaults[key]
 		end
@@ -797,9 +782,12 @@ do
 end
 
 -- ALT POWER
-function boss:OpenAltPower(key, title, sorting)
-	if checkFlag(self, key, C.ALTPOWER) then
-		self:SendMessage("BigWigs_ShowAltPower", self, type(title) == "number" and spells[title] or title, sorting == "ZA" and sorting or "AZ")
+function boss:OpenAltPower(key, title, sorting, sync)
+	if title ~= 147800 and checkFlag(self, key, C.ALTPOWER) then -- Temp disable Norushen display but keep syncing
+		self:SendMessage("BigWigs_ShowAltPower", self, type(title) == "number" and spells[title] or title, sorting == "ZA" and sorting or "AZ", sync)
+	end
+	if sync then
+		self:SendMessage("BigWigs_StartSyncingPower", self)
 	end
 end
 

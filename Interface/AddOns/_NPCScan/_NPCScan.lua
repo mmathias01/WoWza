@@ -42,7 +42,7 @@ private.Updater:SetLooping("REPEAT")
 -------------------------------------------------------------------------------
 -- Constants.
 -------------------------------------------------------------------------------
-local DB_VERSION = 1
+local DB_VERSION = 2
 local ISLE_OF_THUNDER_MAP_ID = 1064
 local PLAYER_CLASS = _G.select(2, _G.UnitClass("player"))
 local PLAYER_FACTION = _G.UnitFactionGroup("player")
@@ -55,42 +55,39 @@ private.Options = {
 	Version = DB_VERSION,
 	NPCs = {},
 	NPCWorldIDs = {},
+	IgnoreList = {
+		NPCs = {},
+		MapName = {},
+		WorldID = {},
+		},
 }
-
 
 private.OptionsCharacter = {
 	Version = DB_VERSION,
 	Achievements = {},
-	AchievementsAddFound = nil,
-	AlertSoundUnmute = nil,
-	AlertSound = nil, -- Default sound
-	CacheWarnings = true,
-	FlightSupress = true,
-	Modules = {},
-	ModulesAlpha = {},
-	ModulesExtra = {},
-	ModulesSaved = {},
-	NPCWorldIDs = {},
-	ShowAll = false,
-	TrackBeasts = true,
-	TrackRares = true,
 }
 
 
 private.OptionsDefault = {
 	Version = DB_VERSION,
 	NPCs = {
-		[50409] = "Mysterious Camel Figurine",
-		[50410] = "Mysterious Camel Figurine",
-		[64004] = "Ghostly Pandaren Fisherman",
-		[64191] = "Ghostly Pandaren Craftsman",
+		[50409] = private.L.NPCs["50409"],--"Mysterious Camel Figurine",
+		[50410] = private.L.NPCs["50410"],--"Mysterious Camel Figurine",
+		[64004] = private.L.NPCs["64004"],--"Ghostly Pandaren Fisherman",
+		[64191] = private.L.NPCs["64191"], --"Ghostly Pandaren Craftsman",
 	},
 	NPCWorldIDs = {
-		[50409] = private.CONTINENT_IDS.KALIMDOR,
-		[50410] = private.CONTINENT_IDS.KALIMDOR,
-		[64004] = private.CONTINENT_IDS.PANDARIA,
-		[64191] = private.CONTINENT_IDS.PANDARIA,
+		[50409] = private.ZONE_NAMES.KALIMDOR,
+		[50410] = private.ZONE_NAMES.KALIMDOR,
+		[64004] = private.ZONE_NAMES.PANDARIA,
+		[64191] = private.ZONE_NAMES.PANDARIA,
 	},
+	IgnoreList = {
+		NPCs = {},
+		MapName = {},
+		WorldID = {},
+	},
+	
 }
 
 
@@ -104,17 +101,11 @@ private.OptionsCharacterDefault = {
 		[private.ACHIEVEMENT_IDS.CHAMPIONS_OF_LEI_SHEN] = true,
 		[private.ACHIEVEMENT_IDS.TIMELESS_CHAMPION] = true,
 	},
-	AchievementsAddFound = nil,
+	AchievementsAddFound = true,
 	AlertSoundUnmute = nil,
 	AlertSound = nil, -- Default sound
 	CacheWarnings = true,
 	FlightSupress = true,
-	Modules = {},
-	ModulesSaved = {},
-	ModulesAlpha = {},
-	ModulesExtra = {},
-	NPCWorldIDs = {},
-	ShowAll = false,
 	TrackBeasts = true,
 	TrackRares = true,
 }
@@ -190,13 +181,13 @@ do
 		end
 
 		if private.OptionsCharacter.TrackBeasts then
-			for npc_id in pairs(private.TamableIDs) do
+			for npc_id in pairs(private.TAMABLE_ID_TO_NAME) do
 				self[npc_id] = private.NPCNameFromCache(npc_id)
 			end
 		end
 
 		if private.OptionsCharacter.TrackRares then
-			for npc_id in pairs(private.RareMobData.RareNPCs) do
+			for npc_id in pairs(private.UNTAMABLE_ID_TO_NAME) do
 				self[npc_id] = private.NPCNameFromCache(npc_id)
 			end
 		end
@@ -395,7 +386,12 @@ local function AchievementActivate(achievement)
 	achievement.Active = true
 
 	for criteria_id, npc_id in pairs(achievement.Criteria) do
-		AchievementNPCActivate(achievement, npc_id, criteria_id)
+	--ignore list check
+		if not _NPCScanOptions.IgnoreList.NPCs[npc_id] then
+			AchievementNPCActivate(achievement, npc_id, criteria_id)
+		else
+		--print("ignoreing "..npc_id)
+		end
 	end
 	return true
 end
@@ -478,19 +474,32 @@ function private.SetRareMob(identifier, enable)
 	end
 end
 
+function private.ReavtivateIgnoreMob(npc_id, world_id)
+	NPCActivate(npc_id, world_id)
+end
+
+function private.DeavtivateIgnoreMob(npc_id)
+	NPCDeactivate(npc_id)
+end
+
 
 function private.RareMobToggle(identifier, enable)
 	local npcs
 
 	if identifier == "BEASTS" then
-		npcs = private.TamableIDs
+		npcs = private.TAMABLE_ID_TO_NAME
 	elseif identifier == "RARENPC" then
-		npcs = private.RareMobData.RareNPCs
+		npcs = private.UNTAMABLE_ID_TO_NAME
 	end
 
 	if npcs and enable then
 		for npc_id, _ in pairs(npcs) do
-			NPCActivate(npc_id, private.RareMobData.NPCWorldIDs[npc_id])
+						--ignore list check
+			if not _NPCScanOptions.IgnoreList.NPCs[npc_id] then
+				NPCActivate(npc_id, private.NPC_ID_TO_WORLD_NAME[npc_id])
+			else
+				--print("ignoreing "..npc_id)	
+			end
 		end
 	else
 		for npc_id, _ in pairs(npcs) do
@@ -594,7 +603,7 @@ do
 
 	--- @return True if NpcID should be a default for this character.
 	function IsDefaultNPCValid(npc_id)
-		return (PLAYER_CLASS == "HUNTER" or not private.TamableIDs[npc_id] or TAMABLE_EXCEPTIONS[npc_id]) and (not NPC_FACTION[npc_id] or NPC_FACTION[npc_id] == PLAYER_FACTION)
+		return (PLAYER_CLASS == "HUNTER" or not private.TAMABLE_ID_TO_NAME[npc_id] or TAMABLE_EXCEPTIONS[npc_id]) and (not NPC_FACTION[npc_id] or NPC_FACTION[npc_id] == PLAYER_FACTION)
 	end
 end
 
@@ -606,6 +615,10 @@ function private.Synchronize(options, character_options)
 
 	if not options then
 		options = private.OptionsDefault
+	end
+
+	if not options.IgnoreList then
+		options.IgnoreList = private.OptionsDefault.IgnoreList
 	end
 
 	if not character_options then
@@ -622,11 +635,12 @@ function private.Synchronize(options, character_options)
 		private.NPCRemove(npc_id)
 	end
 
-	for npc_id, world_id in pairs(private.RareMobData.NPCWorldIDs) do
+	for npc_id, world_id in pairs(private.NPC_ID_TO_WORLD_NAME) do
 		private.NPCRemove(npc_id)
 	end
 	assert(not next(ScanIDs), "Orphan NpcIDs in scan pool!")
 
+	_NPCScanOptions.IgnoreList = options.IgnoreList
 	private.SetCacheWarnings(options.CacheWarnings)
 	private.SetPrintTime(options.PrintTime)
 	private.SetAchievementsAddFound(character_options.AchievementsAddFound)
@@ -679,32 +693,28 @@ do
 
 	--- @return True if the tamable mob is in its correct zone, else false with an optional reason string.
 	local function OnFoundTamable(npc_id, npc_name)
-		local expected_zone = private.TamableIDs[npc_id]
+		local tamable_zone_name = private.TAMABLE_ID_TO_MAP_NAME[npc_id]
+		local expected_zone_id = tamable_zone_name and private.ZONE_IDS[private.ZONE_NAME_TO_LABEL[tamable_zone_name]]
 		local current_zone_id = _G.GetCurrentMapAreaID()
-		local in_correct_zone
 
-		if expected_zone == true then -- Expected zone is unknown (instance mob, etc.)
-			in_correct_zone = not _G.IsResting() -- Assume any tamable mob found in a city/inn is a hunter pet
-		else
-			_G.SetMapToCurrentZone()
-			in_correct_zone = expected_zone == _G.GetCurrentMapAreaID()
-		end
+		_G.SetMapToCurrentZone()
+		local in_correct_zone = expected_zone_id == _G.GetCurrentMapAreaID()
 		local invalid_reason
 
 		if not in_correct_zone then
 			if _G.IsResting() then
 				PetList[npc_id] = npc_name -- Suppress error message until the player stops resting
 			else
-				local expected_zone_name = _G.GetMapNameByID(expected_zone)
+				local expected_zone_name = _G.GetMapNameByID(expected_zone_id)
 				if not expected_zone_name then -- GetMapNameByID returns nil for continent maps
-					_G.SetMapByID(expected_zone)
+					_G.SetMapByID(expected_zone_id)
 
 					local map_continent = _G.GetCurrentMapContinent()
 					if map_continent >= 1 then
 						expected_zone_name = select(map_continent, _G.GetMapContinents())
 					end
 				end
-				invalid_reason = L.FOUND_TAMABLE_WRONGZONE_FORMAT:format(npc_name, _G.GetRealZoneText(), expected_zone_name or L.FOUND_ZONE_UNKNOWN, expected_zone)
+				invalid_reason = L.FOUND_TAMABLE_WRONGZONE_FORMAT:format(npc_name, _G.GetRealZoneText(), expected_zone_name or L.FOUND_ZONE_UNKNOWN, expected_zone_id)
 			end
 		end
 		_G.SetMapByID(current_zone_id)
@@ -736,7 +746,7 @@ do
 		end
 
 		local is_valid = true
-		local is_tamable = private.TamableIDs[npc_id]
+		local is_tamable = private.TAMABLE_ID_TO_NAME[npc_id]
 		local invalid_reason
 
 		if is_tamable then
@@ -875,11 +885,21 @@ function private.Frame:PLAYER_LOGIN(event_name)
 			local new_options = private.OptionsDefault
 
 			if stored_options.NPCs then
+				local CONTINENT_NAMES = {
+					"KALIMDOR",
+					"EASTERN_KINGDOMS",
+					"OUTLAND",
+					"NORTHREND",
+					"THE_MAELSTROM",
+					"PANDARIA",
+				}
+
 				for npc_id, npc_name in pairs(stored_options.NPCs) do
 					new_options.NPCs[npc_id] = npc_name
+
 					local world = stored_options.NPCWorldIDs and stored_options.NPCWorldIDs[npc_id]
 					if world then
-						new_options.NPCWorldIDs[npc_id] = world
+						new_options.NPCWorldIDs[npc_id] = type(world) == "number" and CONTINENT_NAMES[world] or world
 					end
 				end
 			end
@@ -890,7 +910,7 @@ function private.Frame:PLAYER_LOGIN(event_name)
 	end
 
 	if stored_character_options and stored_character_options.Version ~= DB_VERSION then
-		if not stored_character_options.Version or type(stored_character_options.Version) == "string" or stored_character_options < DB_VERSION then
+		if not stored_character_options.Version or type(stored_character_options.Version) == "string" or stored_character_options.Version < DB_VERSION then
 			if stored_character_options.NPCs then
 				for npc_id, npc_name in pairs(stored_character_options.NPCs) do
 					if not stored_options.NPCs[npc_id] then
@@ -923,21 +943,31 @@ do
 		local map_name, _, _, _, _, _, _, map_id = _G.GetInstanceInfo()
 
 		if map_id == ISLE_OF_THUNDER_MAP_ID then -- Fix for Isle of Thunder having a diffrent Instance name
-			private.WorldID = 6
+			private.WorldID = private.ZONE_NAMES.PANDARIA
 		else
-			private.WorldID = private.LOCALIZED_CONTINENT_IDS[map_name] or map_name
+			private.WorldID = map_name
 		end
 
 
 		if private.OptionsCharacter.TrackRares then
-			for npc_id, _ in pairs(private.RareMobData.RareNPCs) do
-				NPCActivate(npc_id, private.RareMobData.NPCWorldIDs[npc_id])
+			for npc_id, world_name in pairs(private.UNTAMABLE_ID_TO_WORLD_NAME) do
+				--Ignore list check
+				if not private.Options.IgnoreList.NPCs[npc_id] then
+					NPCActivate(npc_id, world_name)
+				else
+					--print("ignoreing "..npc_id)	
+				end
 			end
 		end
 
 		if private.OptionsCharacter.TrackBeasts then
-			for npc_id, _ in pairs(private.TamableIDs) do
-				NPCActivate(npc_id, private.RareMobData.NPCWorldIDs[npc_id])
+			for npc_id, world_name in pairs(private.TAMABLE_ID_TO_WORLD_NAME) do
+				--Ignore list check
+				if not private.Options.IgnoreList.NPCs[npc_id] then
+					NPCActivate(npc_id, world_name)
+				else
+					--print("ignoreing "..npc_id)	
+				end
 			end
 		end
 
@@ -1037,6 +1067,12 @@ do
 				private.Print(L.CMD_CACHE_EMPTY, _G.GREEN_FONT_COLOR)
 			end
 		end,
+		--[===[@debug@
+		DATADUMP = function()
+			private.TextDump = private.TextDump or _G.LibStub("LibTextDump-1.0"):New(FOLDER_NAME)
+			private.DumpNPCData()
+		end,
+		--@end-debug@]===]
 	}
 
 	_G.SlashCmdList["_NPCSCAN"] = function(input)

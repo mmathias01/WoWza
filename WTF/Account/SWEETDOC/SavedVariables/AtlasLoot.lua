@@ -246,8 +246,8 @@ AtlasLootDB = {
 							["PARRY_RATING"] = false,
 							["DODGE_RATING"] = false,
 							["RESILIENCE_RATING"] = false,
-							["AGILITY"] = false,
 							["STRENGTH"] = false,
+							["AGILITY"] = false,
 							["EXPERTISE_RATING"] = false,
 						},
 						["Armor"] = {
@@ -275,17 +275,25 @@ AtlasLootDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
-		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 	},
 	["showWarning"] = true,
 	["profiles"] = {
+		["Shenlu - Dragonblight"] = {
+		},
+		["Jolokia - Dragonblight"] = {
+			["UseGameTooltip"] = true,
+			["LootTableType"] = "RaidFinder",
+		},
+		["Ziagi - Terenas"] = {
+		},
 		["Cellestia - Terenas"] = {
 			["LootTableType"] = "RaidFinder",
 			["LastSearch"] = "firescri",
@@ -295,22 +303,14 @@ AtlasLootDB = {
 				["showExtraSort"] = false,
 			},
 		},
-		["Jolokia - Dragonblight"] = {
-			["LootTableType"] = "RaidFinder",
-			["UseGameTooltip"] = true,
-		},
-		["Ziagi - Terenas"] = {
-		},
-		["Shenlu - Dragonblight"] = {
-		},
-		["Majandra - Darrowmere"] = {
+		["Jolokya - Dragonblight"] = {
 		},
 		["Majandra - Dragonblight"] = {
 			["UseGameTooltip"] = true,
 		},
 		["Jolobank - Dragonblight"] = {
 		},
-		["Jolokya - Dragonblight"] = {
+		["Majandra - Darrowmere"] = {
 		},
 	},
 }

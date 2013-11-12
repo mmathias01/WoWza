@@ -22,6 +22,7 @@ function Module:SetRole(event)
 	local isSet = event == "ACTIVE_TALENT_GROUP_CHANGED" and false or true
 	
 	spec = GetSpecialization()
+	if not spec then return end
 	role = GetSpecializationRole(spec)
 	specName = spec and select(2, GetSpecializationInfo(spec))
 	

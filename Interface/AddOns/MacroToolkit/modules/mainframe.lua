@@ -472,7 +472,7 @@ function MT:CreateMTFrame()
 			if selectedMacro > 100 then
 				local commandName = format("CLICK MacroToolkitSecureButton%d:LeftButton", mtframe.extra)
 				local k1, k2 = GetBindingKey(commandName)
-				MacroToolkitBindingFrame.selected = nil
+				if MacroToolkitBindingFrame then MacroToolkitBindingFrame.selected = nil end
 				if k1 then MT:UnbindKey(k1) end
 				if k2 then MT:UnbindKey(k2) end
 				SaveBindings(GetCurrentBindingSet())
@@ -572,7 +572,7 @@ function MT:CreateMTFrame()
 			mtframe:SetPoint("BOTTOMLEFT", MT.db.profile.x, MT.db.profile.y)
 			MT:MacroFrameUpdate()
 			PlaySound("igCharacterInfoOpen")
-			UpdateMicroButtons()
+			--UpdateMicroButtons()
 			MT:GetLastBackupDate()
 			if #MT.db.global.custom == 0 then mtcustomflyout:Disable()
 			else mtcustomflyout:Enable() end
@@ -585,7 +585,7 @@ function MT:CreateMTFrame()
 			if MT.MTPF then MT.MTPF:Hide() end
 			MT:SaveMacro()
 			PlaySound("igCharacterInfoClose")
-			UpdateMicroButtons()
+			--UpdateMicroButtons()
 		end)
 
 	local crest = CreateFrame("Frame", "MacroToolkitCrest", mtframe)

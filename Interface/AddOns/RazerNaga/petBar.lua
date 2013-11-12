@@ -3,13 +3,15 @@
 		A RazerNaga pet bar
 --]]
 
---libs and omgspeed
-local _G = getfenv(0)
-local format = string.format
 
+--[[ Globals ]]--
+
+local _G = _G
+local RazerNaga = _G['RazerNaga']
 local KeyBound = LibStub('LibKeyBound-1.0')
 local L = LibStub('AceLocale-3.0'):GetLocale('RazerNaga')
-local unused
+local format = string.format
+local unused = {}
 
 
 --[[ Pet Button ]]--
@@ -18,7 +20,8 @@ local PetButton = RazerNaga:CreateClass('CheckButton', RazerNaga.BindableButton)
 
 function PetButton:New(id)
 	local b = self:Restore(id) or self:Create(id)
-	b:UpdateHotkey()
+
+	RazerNaga.BindingsController:Register(b)
 
 	return b
 end
@@ -54,8 +57,9 @@ end
 
 --saving them thar memories
 function PetButton:Free()
-	if not unused then unused = {} end
 	unused[self:GetID()] = self
+
+	RazerNaga.BindingsController:Unregister(self)
 
 	self:SetParent(nil)
 	self:Hide()
@@ -66,6 +70,7 @@ function PetButton:OnEnter()
 	if RazerNaga:ShowTooltips() then
 		PetActionButton_OnEnter(self)
 	end
+	
 	KeyBound:Set(self)
 end
 
@@ -132,6 +137,7 @@ function PetBar:KEYBOUND_DISABLED()
 	self:UpdateShowStates()
 
 	local petBarShown = PetHasActionBar()
+
 	for _,button in pairs(self.buttons) do
 		if petBarShown and GetPetActionInfo(button:GetID()) then
 			button:Show()

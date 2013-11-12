@@ -1,0 +1,94 @@
+------------------------------------------------------------------------
+r689 | funkydude | 2013-10-31 04:55:12 +0000 (Thu, 31 Oct 2013) | 1 line
+Changed paths:
+   A /tags/r689-release (from /trunk:688)
+
+Tagging as r689-release
+------------------------------------------------------------------------
+r688 | nebula169 | 2013-10-31 04:52:06 +0000 (Thu, 31 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: still return the toon name for bnet friends for guild check
+------------------------------------------------------------------------
+r686 | nebula169 | 2013-10-30 20:25:14 +0000 (Wed, 30 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: BNet invite off of toonID, since realm name is broken?
+------------------------------------------------------------------------
+r685 | nebula169 | 2013-10-23 14:41:33 +0000 (Wed, 23 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: tweak queue check for LFG
+------------------------------------------------------------------------
+r684 | nebula169 | 2013-10-23 06:58:15 +0000 (Wed, 23 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: add Counter Shot
+------------------------------------------------------------------------
+r683 | nebula169 | 2013-10-22 14:19:12 +0000 (Tue, 22 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: don't block keyword invites while in a flex instance
+------------------------------------------------------------------------
+r681 | funkydude | 2013-10-17 23:11:56 +0000 (Thu, 17 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+   M /trunk/oRA3.toc
+
+Cooldowns: add prints to the spell sorting func to easily catch when a spell id is removed.
+------------------------------------------------------------------------
+r680 | funkydude | 2013-10-17 21:19:00 +0000 (Thu, 17 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Gear.lua
+
+Gear: Fix scanning items with more than one socket of the same type.
+------------------------------------------------------------------------
+r679 | funkydude | 2013-10-16 17:14:08 +0000 (Wed, 16 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+revert r676, any tampering with CHAT_MSG_SYSTEM will ultimately result in taint. The only way to safely modify said output is via .AddMessage hooks. No filtering or passing data to the event handler should be used.
+------------------------------------------------------------------------
+r678 | nebula169 | 2013-10-13 01:42:30 +0000 (Sun, 13 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Difficulty.lua
+
+Difficulty: add a 4s delay to trying to restore your raid difficulty since you don't register as being in a group for quite a while after PLAYER_LOGIN fires when first logging in
+------------------------------------------------------------------------
+r677 | oscarucb | 2013-10-12 23:47:53 +0000 (Sat, 12 Oct 2013) | 2 lines
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+add a hidden option to control realm stripping from character names in messages
+
+------------------------------------------------------------------------
+r676 | oscarucb | 2013-10-10 09:34:05 +0000 (Thu, 10 Oct 2013) | 2 lines
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+improve the "fake" ready check response messages we generate for non-assistants, to ensure they are handled exactly like "real" ready check system messages by the chat frame(s)
+
+------------------------------------------------------------------------
+r675 | nebula169 | 2013-10-08 20:16:16 +0000 (Tue, 08 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Cooldowns.lua
+
+Cooldowns: remove hunter readiness, lower disengage to 20s and bump deterrence to 3m (still need to account for charges)
+------------------------------------------------------------------------
+r674 | nebula169 | 2013-10-03 01:42:35 +0000 (Thu, 03 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Loot.lua
+
+Loot: set loot on all group type changes
+------------------------------------------------------------------------
+r673 | Whyv | 2013-09-25 14:35:33 +0000 (Wed, 25 Sep 2013) | 1 line
+Changed paths:
+   M /trunk/locales/zhTW.lua
+
+zhTW update
+------------------------------------------------------------------------

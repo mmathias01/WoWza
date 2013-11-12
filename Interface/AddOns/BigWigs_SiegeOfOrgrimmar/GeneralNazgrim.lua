@@ -123,7 +123,7 @@ function mod:OnEngage()
 	self:CDBar(143494, 10) -- Sundering Blow
 	self:Bar(143638, 15.5) -- Bonecracker
 	addWaveCounter = 1
-	self:Bar(-7920, 46, CL["count"]:format(self:SpellName(-7920), addWaveCounter), "achievement_guildperk_everybodysfriend") -- adds
+	self:Bar(-7920, 46, CL["count"]:format(CL["adds"], addWaveCounter), "achievement_guildperk_everybodysfriend") -- adds
 end
 
 --------------------------------------------------------------------------------
@@ -206,14 +206,12 @@ end
 
 function mod:ExtraAdds()
 	self:Message(-7920, "Neutral", "Long", L["extra_adds"])
-	-- XXX looked like on 25N PTR this reset the add timer - double check
-	self:Bar(-7920, 46, CL["count"]:format(self:SpellName(-7920), addWaveCounter), "achievement_guildperk_everybodysfriend")
 end
 
 function mod:Adds()
-	self:Message(-7920, "Neutral", "Long", CL["count"]:format(self:SpellName(-7920), addWaveCounter))
+	self:Message(-7920, "Neutral", "Long", CL["count"]:format(CL["adds"], addWaveCounter))
 	addWaveCounter = addWaveCounter + 1
-	self:Bar(-7920, 46, CL["count"]:format(self:SpellName(-7920), addWaveCounter), "achievement_guildperk_everybodysfriend")
+	self:Bar(-7920, 46, CL["count"]:format(CL["adds"], addWaveCounter), "achievement_guildperk_everybodysfriend")
 end
 
 -- Boss
@@ -244,11 +242,8 @@ do
 	local function warnShockwave(self, player, guid)
 		if self:Me(guid) then
 			self:Flash(143716)
-		elseif self:Range(player) < 5 then
-			-- 5 is assumed, also a circular distance check is not the best for this
-			-- EJ says 10 yard, but that is for the landing, don't get confused!
-			-- this could get fancy if we used player facing and some math
-			self:RangeMessage(143716)
+		elseif self:Range(player) < 8 then
+			self:RangeMessage(143716, "Personal", "Alarm")
 			self:Flash(143716)
 			return
 		end

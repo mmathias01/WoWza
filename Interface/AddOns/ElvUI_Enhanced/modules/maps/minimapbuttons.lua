@@ -99,7 +99,7 @@ function MB:SkinButton(frame)
 	if not frame.isSkinned then
 		frame:HookScript('OnEnter', OnEnter)
 		frame:HookScript('OnLeave', OnLeave)
-		frame:HookScript('OnClick', MB.UpdateLayout)
+		frame:HookScript('OnClick', MB.DelayedUpdateLayout)
 
 		for i = 1, frame:GetNumRegions() do
 			local region = select(i, frame:GetRegions())
@@ -139,6 +139,10 @@ function MB:SkinButton(frame)
 		tinsert(moveButtons, name)
 		frame.isSkinned = true
 	end
+end
+
+function MB:DelayedUpdateLayout()
+	MB:ScheduleTimer("UpdateLayout", .05)
 end
 
 function MB:UpdateLayout()

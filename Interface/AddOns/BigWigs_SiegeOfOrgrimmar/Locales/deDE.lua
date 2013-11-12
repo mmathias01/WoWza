@@ -1,51 +1,37 @@
 local L = BigWigs:NewBossLocale("Immerseus", "deDE")
 if not L then return end
 if L then
-	L.win_yell = "Ah, Ihr habt es geschafft!"
+L["win_yell"] = "Ah, Ihr habt es geschafft!"
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "deDE")
 if L then
-	L.defile = "Geschändeter Boden"
+
 
 	L.custom_off_bane_marks = "Schattenwort: Unheil markieren"
 	L.custom_off_bane_marks_desc = "Um bei der Einteilung zum Bannen zu helfen, werden die anfangs von Schattenwort: Unheil betroffenen Spieler mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert (in dieser Reihenfolge, vielleicht werden nicht alle Symbole genutzt), benötigt Leiter oder Assistent."
-
-	L.no_meditative_field = "KEIN Meditationsfeld!"
-
-	L.intermission = "Verzweifelte Maßnahmen"
-	L.intermission_desc = "Warnt, wenn die Bosse Verzweifelte Maßnahmen verwenden."
-
-	L.inferno_self = "Infernostoß auf Dir"
-	L.inferno_self_desc = "Spezieller Timer wenn Du von Infernostoß betroffen bist."
-	L.inferno_self_bar = "Du explodierst!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "deDE")
 if L then
-	L.pre_pull = "Boss aktiv"
-	L.pre_pull_desc = "Leiste für das Event, bevor der Boss aktiv wird."
-	L.pre_pull_trigger = "Nun gut, ich werde ein Feld erschaffen, das Eure Verderbnis eindämmt."
+L["big_add"] = "Großes Add (%d)"
+L["big_add_killed"] = "Großes Add getötet (%d)"
+L["big_adds"] = "Große Adds"
+L["big_adds_desc"] = "Warnungen für die Entstehung und den Tod der großen Adds."
+L["warmup_trigger"] = "Nun gut, ich werde ein Feld erschaffen, das Eure Verderbnis eindämmt."
 
-	L.big_adds = "Große Adds"
-	L.big_adds_desc = "Warnungen für das Besiegen der großen Adds (Drinnen/Draußen)."
-	L.big_add = "Großes Add (%d)"
-	L.big_add_killed = "Großes Add getötet! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "deDE")
 if L then
+L["projection_explosion"] = "Projektion Explosion"
+L["projection_message"] = "Gehe zum |cFF00FF00GRÜNEN|r Pfeil!"
+L["titan_pride"] = "Titanen+Stolz: %s"
+
+
 	L.custom_off_titan_mark = "Gabe der Titanen markieren"
 	L.custom_off_titan_mark_desc = "Markiert Spieler, die von Gabe der Titanen betroffen sind, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
-
-	L.projection_message = "Gehe zum |cFF00FF00GRÜNEN|r Pfeil!"
-	L.projection_explosion = "Projektion Explosion"
-
-	L.big_add_bar = "Großes Add"
-	L.big_add_spawning = "Großes Add ercsheint!"
-	L.small_adds = "Kleine Adds"
-
-	L.titan_pride = "Titanen+Stolz: %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "deDE")
@@ -60,6 +46,15 @@ if L then
 	L.north_tower_trigger = "Das Tor zum Nordturm ist durchbrochen!"
 	L.north_tower = "Nördlicher Turm"
 	L.tower_defender = "Turmverteidiger"
+
+	L.adds_desc = "Zeigt an, wann neue Adds in den Kampf eintreten."
+	L.adds_trigger1 = "Holt sie schnell vom Himmel, damit ich sie erwürgen kann."
+	L.adds_trigger2 = "Da kommen sie!"
+	L.adds_trigger3 = "Drachenmalklan, ausrücken!"
+	L.adds_trigger4 = "Für Höllschrei!"
+	L.adds_trigger5 = "Nächster Trupp, vorwärts!"
+
+	--L.drakes = "Proto-Drakes"
 
 	L.custom_off_shaman_marker = "Schamanen markieren"
 	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Gezeitenschamanen des Drachenmals mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Schamanen.|r"
@@ -120,16 +115,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "deDE")
 if L then
-	L.adds = "Heroische Adds"
-	L.adds_desc = "Warnungen für den Kampfeintritt der heroischen Adds."
+L["adds_desc"] = "Warnungen für den Kampfeintritt der Fledermäuse oder des Yetis."
+L["cage_opened"] = "Käfig geöffnet"
+L["npc_akolik"] = "Akolik"
+L["npc_waterspeaker_gorai"] = "Wassersprecher Gorai"
 
-	L.tank_debuffs = "Tank Schwächungszauber"
-	L.tank_debuffs_desc = "Warnungen für die verschiedenen Typen von Schwächungszaubern auf den Tanks in Verbindung mit Fürchterlichem Brüllen."
-
-	L.cage_opened = "Käfig geöffnet"
-
-	L.akolik = "Akolik"
-	L.waterspeaker_gorai = "Wassersprecher Gorai"
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "deDE")
@@ -154,6 +144,7 @@ if L then
 	L.item_mines = "Minen"
 	L.item_laser = "Laser"
 	L.item_magnet = "Magnet"
+	L.item_deathdealer = "Todesboten"
 
 	L.shockwave_missile_trigger = "Ich präsentiere... den wunderschönen Erschütterungsraketenturm ST-03!"
 end
@@ -166,17 +157,23 @@ if L then
 	L.parasites_up = "%d |4Parasit:Parasiten; vorhanden"
 	L.dance = "Tanzen"
 	L.prey_message = "Wirke Beute auf Parasiten"
+	L.injection_over_soon = "Injektion bald vorbei (%s)!"
+
 	L.one = "Iyyokuk wählt aus: Eins!"
 	L.two = "Iyyokuk wählt aus: Zwei!"
 	L.three = "Iyyokuk wählt aus: Drei!"
 	L.four = "Iyyokuk wählt aus: Vier!"
 	L.five = "Iyyokuk wählt aus: Fünf!"
-	L.edge_message = "Brennendes Band auf Dir"
+
 	L.custom_off_edge_marks = "Brennendes Band markieren"
 	L.custom_off_edge_marks_desc = "Markiert die Spieler mit Brennendem Band, basierend auf den Kalkulationen, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
-	L.injection_over_soon = "Injektion bald vorbei (%s)!"
+	L.edge_message = "Brennendes Band auf Dir"
+
 	L.custom_off_parasite_marks = "Parasiten markieren"
 	L.custom_off_parasite_marks_desc = "Markiert die Parasiten für Gruppenkontroll- und Beute-Einteilungen mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
+
+	L.injection_tank = "<Wirkt Injektion>"
+	L.injection_tank_desc = "Timer für die Wirkzeit von Injektion auf den aktuellen Tank."
 end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "deDE")
@@ -186,15 +183,15 @@ if L then
 
 	L.phase_3_end_trigger = "Ihr glaubt GEWONNEN zu haben? BLIND seid ihr. ICH WERDE EUCH DIE AUGEN ÖFFNEN."
 
-	L.clump_check = "Gruppierungsprüfung"
 	L.clump_check_desc = "Prüft alle 3 Sekunden während des Bombardements, ob Spieler eng zusammenstehen, da hierdurch Eiserne Sterne der Kor'kron entstehen."
+	L.clump_check_warning = "Gruppierung gefunden, Stern kommt"
 
 	L.bombardment = "Bombardement"
 	L.bombardment_desc = "Bombardiert Sturmwind und hinterlässt Feuer auf dem Boden. Eiserne Sterne der Kor'kron können nur während des Bombardements entstehen."
 
-	L.spread = "Verteilen!"
 	L.intermission = "Unterbrechung"
 	L.mind_control = "Gedankenkontrolle"
+	L.empowered_message = "%s ist jetzt mächtig!"
 
 	L.ironstar_impact_desc = "Zeigt einen Timer für die Explosion der Eisernen Sterne an der jeweils gegenüberliegenden Wand."
 	L.ironstar_rolling = "Eiserner Stern rollt!"

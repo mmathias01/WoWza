@@ -3,7 +3,7 @@
 ## Title: |cff1784d1ElvUI|r Chat Tweaks [|cff00ff96Extra Modules|r]
 ## Notes: Adds extra modules to ElvUI Chat Tweaks that could be considered superfluous.
 ## RequiredDeps: ElvUI_ChatTweaks
-## X-Curse-Packaged-Version: 6.2
+## X-Curse-Packaged-Version: 6.3
 ## X-Curse-Project-Name: ElvUI Chat Tweaks
 ## X-Curse-Project-ID: elvui_chattweaks
 ## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline

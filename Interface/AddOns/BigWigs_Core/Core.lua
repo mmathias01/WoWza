@@ -232,7 +232,7 @@ do
 			if areaId == 953 then -- Siege of Orgrimmar
 				for i = 105930, 105935 do -- Scan quest items (Vision of Time) that trigger CINEMATIC_START inside the zone
 					local _, _, cd = GetItemCooldown(i)
-					if cd > 0 then return end -- Item has a 1 second cooldown so we know without a doubt that if it's on cooldown it was JUST used.
+					if cd > 0 then return end -- Item is in our inventory, prevent cancelling cinematics
 				end
 			end
 			local areaLevel = GetCurrentMapDungeonLevel() or 0
@@ -396,7 +396,7 @@ do
 		if sync then
 			local msg = strjoin(" ", sync, ...)
 			chatMsgAddon(nil, "T", msg, pName)
-			if IsInRaid() or IsInGroup() then
+			if IsInGroup() then
 				SendAddonMessage("BigWigs", "T:"..msg, IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
 			end
 		end
@@ -439,6 +439,7 @@ function addon:OnInitialize()
 	self:RegisterBossOption("berserk", L.berserk, L.berserk_desc, nil, "Interface\\Icons\\spell_shadow_unholyfrenzy")
 	self:RegisterBossOption("altpower", L.altpower, L.altpower_desc, nil, "Interface\\Icons\\spell_arcane_invocation")
 	self:RegisterBossOption("stages", L.stages, L.stages_desc)
+	self:RegisterBossOption("warmup", L.warmup, L.warmup_desc)
 
 	-- this should ALWAYS be the last action of OnInitialize, it will trigger the loader to
 	-- enable the foreign language pack, and other packs that want to be loaded when the core loads

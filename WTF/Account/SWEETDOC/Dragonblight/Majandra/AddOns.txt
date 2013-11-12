@@ -203,7 +203,7 @@ MikScrollingBattleText: enabled
 MSBTOptions: enabled
 !AccurateTime: enabled
 ACP: enabled
-AskMrRobot: disabled
+AskMrRobot: enabled
 AtlasLoot: enabled
 AtlasLoot_Crafting: enabled
 AtlasLoot_Loader: disabled

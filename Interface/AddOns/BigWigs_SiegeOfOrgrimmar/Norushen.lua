@@ -25,15 +25,13 @@ local bigAddKills = {}
 
 local L = mod:NewLocale("enUS", true)
 if L then
-	L.pre_pull = "Pre pull"
-	L.pre_pull_desc = "Timer bar for the RP before the boss engage"
-	L.pre_pull_trigger = "Very well, I will create a field to keep your corruption quarantined."
+	L.warmup_trigger = "Very well, I will create a field to keep your corruption quarantined."
 
 	L.big_adds = "Big adds"
-	L.big_adds_desc = "Warning for killing big adds inside/outside"
-	L.big_add_icon = 147082
+	L.big_adds_desc = "Warnings for big adds spawning and being killed."
+	L.big_adds_icon = 147082
 	L.big_add = "Big add (%d)"
-	L.big_add_killed = "Big add killed! (%d)"
+	L.big_add_killed = "Big add killed (%d)"
 end
 L = mod:GetLocale()
 
@@ -46,7 +44,7 @@ function mod:GetOptions()
 		{-8218, "TANK_HEALER"}, {146124, "TANK"}, 145226, 145132,-- Amalgam of Corruption
 		"big_adds",
 		-8220, 144482, 144514, 144649, 144628,
-		"stages", "pre_pull", "altpower", "berserk", "bosskill",
+		"stages", "warmup", "altpower", "berserk", "bosskill",
 	}, {
 		[-8218] = -8216, -- Amalgam of Corruption
 		["big_adds"] = L.big_adds, -- Big add
@@ -57,9 +55,11 @@ end
 
 function mod:OnBossEnable()
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "CheckBossStatus")
+	if IsEncounterInProgress() then
+		self:OpenAltPower("altpower", 147800, "AZ", true) -- Corruption
+	end
 
-	self:Yell("PrePull", L.pre_pull_trigger)
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEDED", "PrePull", "target")
+	self:Yell("Warmup", L.warmup_trigger)
 	-- Look Within
 	self:Log("SPELL_CAST_START", "TitanicSmash", 144628)
 	self:Log("SPELL_CAST_START", "HurlCorruption", 144649)
@@ -90,27 +90,22 @@ function mod:OnBossEnable()
 	self:Death("Win", 72276) -- Amalgam of Corruption
 end
 
+function mod:Warmup()
+	self:Bar("warmup", 26, COMBAT, "ability_titankeeper_quarantine")
+end
+
 function mod:OnEngage()
 	bigAddSpawnCounter, bigAddKillCounter = 0, 0
 	self:Berserk(self:LFR() and 600 or 418)
 	self:Bar(145226, 25) -- Blind Hatred
 	wipe(bigAddKills)
 	wipe(throttlePlayers)
-	self:OpenAltPower("altpower", 147800) -- Corruption
+	self:OpenAltPower("altpower", 147800, "AZ", true) -- Corruption
 end
 
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
-
-function mod:PrePull(unitId, spellName, _, _, spellId)
-	if spellId and type(spellId) == "number" and spellId == 145188 then -- Norushen needs to be targeted
-		self:Bar("pre_pull", 25, L["pre_pull"], "ABILITY_TITANKEEPER_QUARANTINE.BLP")
-		self:UnregisterUnitEvent("UNIT_SPELLCAST_SUCCEDED", "target")
-	else -- this is always there, but needs localization
-		self:Bar("pre_pull", 26, L["pre_pull"], "ABILITY_TITANKEEPER_QUARANTINE.BLP")
-	end
-end
 
 -- Look Within
 -- TANK

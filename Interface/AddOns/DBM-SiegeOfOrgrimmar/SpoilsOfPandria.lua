@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(870, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10636 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10657 $"):sub(12, -3))
 mod:SetCreatureID(73720, 71512)
 mod:SetZone()
 
@@ -17,8 +17,13 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED",
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
-	"UNIT_DIED"
---	"UPDATE_WORLD_STATES"
+	"UNIT_DIED",
+	"RAID_BOSS_WHISPER",
+	"UPDATE_WORLD_STATES"
+)
+
+mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
 )
 
 local warnSuperNova				= mod:NewCastAnnounce(146815, 4, nil, false, nil, nil, nil, nil, 2)--Heroic
@@ -75,6 +80,7 @@ local specWarnPathOfBlossoms	= mod:NewSpecialWarningMove(146257)
 --Crate of Pandaren Relics
 local specWarnGustingCraneKick	= mod:NewSpecialWarningSpell(146180, nil, nil, nil, 2)
 
+local timerCombatStarts			= mod:NewCombatTimer(19)
 --Massive Crate of Goods
 local timerReturnToStoneCD		= mod:NewNextTimer(12, 145489)
 local timerSetToBlowCD			= mod:NewNextTimer(9.6, 145996)
@@ -98,9 +104,12 @@ local timerGustingCraneKickCD	= mod:NewCDTimer(18, 146180)
 local timerPathOfBlossomsCD		= mod:NewCDTimer(15, 146253)
 
 local countdownSetToBlow		= mod:NewCountdownFades(29, 145996)
---local countdownArmageddon		= mod:NewCountdown(270, 145864, nil, nil, nil, nil, true)
 
---local berserkTimer				= mod:NewBerserkTimer(480)
+--Berserk Timer stuff
+local berserkTimer				= mod:NewTimer(480, DBM_CORE_GENERIC_TIMER_BERSERK, 28131, nil, "timer_berserk")
+local countdownBerserk			= mod:NewCountdown(20, 26662, nil, nil, nil, nil, true)
+local berserkWarning1			= mod:NewAnnounce(DBM_CORE_GENERIC_WARNING_BERSERK, 1, nil, "warning_berserk", false)
+local berserkWarning2			= mod:NewAnnounce(DBM_CORE_GENERIC_WARNING_BERSERK, 4, nil, "warning_berserk", false)
 
 mod:AddRangeFrameOption(10, 145987)
 mod:AddInfoFrameOption("ej8350")--Eh, "overview" works.
@@ -108,7 +117,8 @@ mod:AddInfoFrameOption("ej8350")--Eh, "overview" works.
 local select, tonumber, GetPlayerMapPosition, GetWorldStateUIInfo = select, tonumber, GetPlayerMapPosition, GetWorldStateUIInfo
 local point1 = {0.488816, 0.208129}
 local point2 = {0.562330, 0.371684}
---local worldTimer = 0
+local worldTimer = 0
+local maxTimer = 0
 
 local function isPlayerInMantid()
 	local x, y = GetPlayerMapPosition("player")
@@ -136,7 +146,8 @@ local function hideRangeFrame()
 end
 
 function mod:OnCombatStart(delay)
---	worldTimer = 0
+	worldTimer = 0
+	maxTimer = 0
 	if self.Options.InfoFrame then--Will just call it "infoframe" that's good enough
 		 DBM.InfoFrame:Show(2, "enemypower", 2, ALTERNATE_POWER_INDEX)
 	end
@@ -196,6 +207,7 @@ function mod:SPELL_CAST_START(args)
 		timerReturnToStoneCD:Start(args.sourceGUID)
 	elseif args.spellId == 142947 and not isPlayerInMantid() then--Pre warn more or less
 		warnCrimsonRecon:Show()
+		specWarnCrimsonRecon:Show()
 	elseif args.spellId == 146815 and self:AntiSpam(2, 4)  then--Will do more work on this later, not enough time before raid, but i have an idea for it
 		warnSuperNova:Show()
 		specWarnSuperNova:Show()
@@ -233,14 +245,11 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 145987 and isPlayerInMantid() then
 		warnSetToBlow:CombinedShow(0.5, args.destName)
 		if args:IsPlayer() then
-			specWarnSetToBlowYou:Show()
-			countdownSetToBlow:Start()
-			timerSetToBlow:Start()
-			specWarnSetToBlow:Schedule(26)
-			if self.Options.RangeFrame then
-				DBM.RangeCheck:Show(10)--Range assumed, spell tooltips not informative enough
-				self:Schedule(32, hideRangeFrame)
-			end
+			local _, _, _, _, _, _, expires = UnitDebuff("player", args.spellName)
+			local buffTime = expires-GetTime()
+			countdownSetToBlow:Start(buffTime)
+			timerSetToBlow:Start(buffTime)
+			specWarnSetToBlow:Schedule(buffTime)
 		end
 	elseif args.spellId == 145692 and isPlayerInMantid() then
 		warnEnrage:Show(args.destName)
@@ -299,15 +308,91 @@ function mod:UNIT_DIED(args)
 	end
 end
 
---[[
+function mod:RAID_BOSS_WHISPER(msg)
+	if msg:find("spell:146364") then
+		specWarnSetToBlowYou:Show()
+		if self.Options.RangeFrame then
+			DBM.RangeCheck:Show(10)--Range assumed, spell tooltips not informative enough
+			self:Schedule(32, hideRangeFrame)
+		end
+	end
+end
+
+function mod:CHAT_MSG_MONSTER_YELL(msg)
+	if msg == L.wasteOfTime then
+		self:SendSync("prepull")
+	end
+end
+
 function mod:UPDATE_WORLD_STATES()
 	local text = select(4, GetWorldStateUIInfo(5))
 	local time = tonumber(string.match(text or "", "%d+"))
-	if time > worldTimer and time == 10 then
+	if not time then return end
+	if time > worldTimer then
+		maxTimer = time
 		berserkTimer:Cancel()
-		countdownArmageddon:Cancel()
-		berserkTimer:Start(time)
-		countdownArmageddon:Start(time)
+		countdownBerserk:Cancel()
+		berserkTimer:Start(time+1)
+	end
+	if time % 10 == 0 then
+		berserkTimer:Update(maxTimer-time-1, maxTimer)
+		if time == 300 and self.Options["timer_berserk"] then
+			berserkWarning1:Show(5, DBM_CORE_MIN)
+		elseif time == 180 and self.Options["timer_berserk"] then
+			berserkWarning1:Show(3, DBM_CORE_MIN)
+		elseif time == 60 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(1, DBM_CORE_MIN)
+		elseif time == 30 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(30, DBM_CORE_SEC)
+		elseif time == 20 then
+			countdownBerserk:Start()
+		elseif time == 10 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(10, DBM_CORE_SEC)
+		end
 	end
 	worldTimer = time
-end--]]
+end
+
+--[[
+function mod:Test(time)
+	if time > worldTimer then
+		maxTimer = time
+		berserkTimer:Cancel()
+		countdownBerserk:Cancel()
+		berserkTimer:Start(time+1)
+	end
+	if time % 10 == 0 then
+		berserkTimer:Update(maxTimer-time-1, maxTimer)
+		if time == 300 and self.Options["timer_berserk"] then
+			berserkWarning1:Show(5, DBM_CORE_MIN)
+		elseif time == 180 and self.Options["timer_berserk"] then
+			berserkWarning1:Show(3, DBM_CORE_MIN)
+		elseif time == 60 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(1, DBM_CORE_MIN)
+		elseif time == 30 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(30, DBM_CORE_SEC)
+		elseif time == 20 then
+			countdownBerserk:Start()
+		elseif time == 10 and self.Options["timer_berserk"] then
+			berserkWarning2:Show(10, DBM_CORE_SEC)
+		end
+	end
+	worldTimer = time
+end
+--/script DBM:GetModByName("870"):Test2()
+local test = 0
+function mod:Test2()
+	test = test + 1
+	local time = 272 - test
+	if time < 2 then test = 0 end
+	print(time)
+	self:Test(time)
+	self:ScheduleMethod(0.9, "Test2")
+end
+]]
+
+function mod:OnSync(msg)
+	if msg == "prepull" then
+		timerCombatStarts:Start()
+	end
+end

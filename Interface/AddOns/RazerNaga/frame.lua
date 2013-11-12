@@ -303,25 +303,22 @@ end
 
 --[[ Scaling ]]--
 
-function Frame:GetScaledCoords(scale)
-	local ratio = self:GetFrameScale() / scale
-	return (self:GetLeft() or 0) * ratio, (self:GetTop() or 0) * ratio
-end
+function Frame:SetFrameScale(newScale, scaleAnchored)
+	local newScale = newScale or 1
+	local oldScale = self:GetFrameScale()
+	local ratio = oldScale / newScale
 
-function Frame:SetFrameScale(scale, scaleAnchored)
-	local x, y =  self:GetScaledCoords(scale)
-
-	self.sets.scale = scale
+	self.sets.scale = newScale
 	self:Rescale()
 
-	if not self.sets.anchor then
-		self:ClearAllPoints()
-		self:SetPoint('TOPLEFT', self:GetParent(), 'BOTTOMLEFT', x, y)
-		self:SavePosition()
+	if not self:GetAnchor() then
+		local point, x, y = self:GetSavedFramePosition()
+		
+		self:SetAndSaveFramePosition(point, x * ratio, y * ratio)
 	end
 
 	if scaleAnchored then
-		for _,f in self:GetAll() do
+		for _, f in self:GetAll() do
 			if f:GetAnchor() == self then
 				f:SetFrameScale(scale, true)
 			end
@@ -372,6 +369,7 @@ end
 
 function Frame:UpdateAlpha()
 	self:SetAlpha(self:GetExpectedAlpha())
+	
 	if RazerNaga:IsLinkedOpacityEnabled() then
 		self:ForDocked('UpdateAlpha')
 	end
@@ -485,6 +483,7 @@ local function fader_Create(parent)
 			fadeGroup:Pause()
 			parent:SetAlpha(parent:GetAlpha() + (fade:GetChange() * fade:GetProgress()))
 		end
+		
 		fadeGroup.targetAlpha = targetAlpha
 		fade:SetChange(targetAlpha - parent:GetAlpha())
 		fade:SetDuration(duration)
@@ -515,6 +514,7 @@ function Frame:Fade()
 		self:ForDocked('Fade')
 	end
 end
+
 
 --[[ Visibility ]]--
 
@@ -625,15 +625,18 @@ end
 
 function Frame:UpdateShowStates()
 	local showstates = self:GetShowStates()
+	
 	if showstates then
 		RegisterStateDriver(self.header, 'display', showstates)
 	else
 		UnregisterStateDriver(self.header, 'display')
+		
 		if self.header:GetAttribute('state-display') then
 			self.header:SetAttribute('state-display', nil)
 		end
 	end
 end
+
 
 --[[ Lock/Unlock ]]--
 
@@ -665,14 +668,10 @@ end
 Frame.stickyTolerance = 1
 
 function Frame:StickToEdge()
-	local point, x, y = self:GetRelPosition()
-	local s = self:GetScale()
-	local w = self:GetParent():GetWidth()/s
-	local h = self:GetParent():GetHeight()/s
-	local rTolerance = self.stickyTolerance/s
+	local point, x, y = self:GetRelativeFramePosition()
+	local rTolerance = self.stickyTolerance / self:GetFrameScale()	
 	local changed = false
 
-	--sticky edges
 	if abs(x) <= rTolerance then
 		x = 0
 		changed = true
@@ -683,44 +682,15 @@ function Frame:StickToEdge()
 		changed = true
 	end
 
-	-- auto centering
-	local cX, cY = self:GetCenter()
-	if y == 0 then
-		if abs(cX - w/2) <= rTolerance*2 then
-			if point == 'TOPLEFT' or point == 'TOPRIGHT' then
-				point = 'TOP'
-			else
-				point = 'BOTTOM'
-			end
-
-			x = 0
-			changed = true
-		end
-	elseif x == 0 then
-		if abs(cY - h/2) <= rTolerance*2 then
-			if point == 'TOPLEFT' or point == 'BOTTOMLEFT' then
-				point = 'LEFT'
-			else
-				point = 'RIGHT'
-			end
-
-			y = 0
-			changed = true
-		end
-	end
-
 	--save this junk if we've done something
 	if changed then
-		self.sets.point = point
-		self.sets.x = x
-		self.sets.y = y
-
-		self:ClearAllPoints()
-		self:SetPoint(point, x, y)
+		self:SetAndSaveFramePosition(point, x, y)
 	end
 end
 
 function Frame:Stick()
+	local rTolerance = self.stickyTolerance / self:GetFrameScale()
+	
 	self:ClearAnchor()
 
 	--only do sticky code if the alt key is not currently down
@@ -728,7 +698,7 @@ function Frame:Stick()
 		--try to stick to a bar, then try to stick to a screen edge
 		for _, f in self:GetAll() do
 			if f ~= self then
-				local point = FlyPaper.Stick(self, f, self.stickyTolerance)
+				local point = FlyPaper.Stick(self, f, rTolerance)
 				if point then
 					self:SetAnchor(f, point)
 					break
@@ -736,26 +706,25 @@ function Frame:Stick()
 			end
 		end
 
-		if not self.sets.anchor then
+		if not self:GetAnchor() then
 			self:StickToEdge()
 		end
 	end
 
-	self:SavePosition()
+	self:SaveRelativeFramePosition()
 	self.drag:UpdateColor()
 end
 
 function Frame:Reanchor()
 	local f, point = self:GetAnchor()
+	
 	if not(f and FlyPaper.StickToPoint(self, f, point)) then
 		self:ClearAnchor()
-		if not self:Reposition() then
-			self:ClearAllPoints()
-			self:SetPoint('CENTER')
-		end
+		self:Reposition()
 	else
 		self:SetAnchor(f, point)
 	end
+	
 	self.drag:UpdateColor()
 end
 
@@ -784,6 +753,7 @@ end
 
 function Frame:ClearAnchor()
 	local anchor, point = self:GetAnchor()
+	
 	if anchor and anchor.docked then
 		for i,f in pairs(anchor.docked) do
 			if f == self then
@@ -791,6 +761,7 @@ function Frame:ClearAnchor()
 				break
 			end
 		end
+		
 		if not next(anchor.docked) then
 			anchor.docked = nil
 		end
@@ -803,68 +774,116 @@ end
 
 function Frame:GetAnchor()
 	local anchorString = self.sets.anchor
+	
 	if anchorString then
 		local pointStart = #anchorString - 1
 		return self:Get(anchorString:sub(1, pointStart - 1)), anchorString:sub(pointStart)
 	end
 end
 
+
 --[[ Positioning ]]--
 
-function Frame:GetRelPosition()
-	local parent = self:GetParent()
-	local w, h = parent:GetWidth(), parent:GetHeight()
-	local x, y = self:GetCenter()
-	local s = self:GetScale()
-	w = w/s h = h/s
-
-	local dx, dy
-	local hHalf = (x > w/2) and 'RIGHT' or 'LEFT'
-	if hHalf == 'RIGHT' then
-		dx = self:GetRight() - w
-	else
-		dx = self:GetLeft()
-	end
-
-	local vHalf = (y > h/2) and 'TOP' or 'BOTTOM'
-	if vHalf == 'TOP' then
-		dy = self:GetTop() - h
-	else
-		dy = self:GetBottom()
-	end
-
-	return vHalf..hHalf, dx, dy
-end
-
-function Frame:SavePosition()
-	local point, x, y = self:GetRelPosition()
-	local sets = self.sets
-
-	sets.point = point
-	sets.x = x
-	sets.y = y
-end
-
---place the frame at it's saved position
-function Frame:Reposition()
-	self:Rescale()
-
-	local sets = self.sets
-	local point, x, y = sets.point, sets.x, sets.y
-
-	if point then
-		self:ClearAllPoints()
-		self:SetPoint(point, x, y)
-		self:SetUserPlaced(true)
-		return true
-	end
-end
-
-function Frame:SetFramePoint(...)
+function Frame:SetFramePosition(...)
 	self:ClearAllPoints()
 	self:SetPoint(...)
-	self:SavePosition()
 end
+
+function Frame:SetAndSaveFramePosition(point, x, y)
+	self:SetFramePosition(point, x, y)
+	self:SaveFramePosition(point, x, y)	
+end
+
+
+
+--[[ Relative Positioning ]]--
+
+function Frame:SaveRelativeFramePosition()
+	self:SaveFramePosition(self:GetRelativeFramePosition())
+end
+
+function Frame:GetRelativeFramePosition()
+	local scale = self:GetScale() or 1
+	local left = self:GetLeft() or 0
+	local top = self:GetTop() or 0
+	local right = self:GetRight() or 0
+	local bottom = self:GetBottom() or 0
+
+	local parent = self:GetParent() or _G['UIParent']
+	local pwidth = parent:GetWidth() / self:GetScale()
+	local pheight = parent:GetHeight() / self:GetScale()	
+
+	local x , y, point
+	if left < (pwidth - right) and left < abs((left+right)/2 - pwidth/2) then
+		x = left
+		point = 'LEFT'
+	elseif (pwidth - right) < abs((left + right)/2 - pwidth/2) then
+		x = right - pwidth
+		point = 'RIGHT'
+	else
+		x = (left+right)/2 - pwidth/2
+		point = '';
+	end
+	
+	if bottom < (pheight - top) and bottom < abs((bottom + top)/2 - pheight/2) then
+		y = bottom
+		point = 'BOTTOM' .. point
+	elseif (pheight - top) < abs((bottom + top)/2 - pheight/2) then
+		y = top - pheight
+		point = 'TOP' .. point
+	else
+		y = (bottom + top)/2 - pheight/2
+	end
+	
+	if point == '' then
+		point = 'CENTER'
+	end
+	
+	return point, x, y
+end
+
+
+--[[ Position Saving ]]--
+
+local roundPoint = function(point)
+	local point = point or 0
+	
+	if point > 0 then
+		point = floor(point + 0.5)
+	else
+		point = ceil(point - 0.5)
+	end	
+	
+	return point
+end
+
+function Frame:Reposition()
+	self:Rescale()
+	self:SetFramePosition(self:GetSavedFramePosition())
+end
+
+function Frame:SaveFramePosition(point, x, y)	
+	local point = point or 'CENTER'
+	local x = roundPoint(x)
+	local y = roundPoint(y)
+	
+	local sets = self.sets
+	sets.point = point ~= 'CENTER' and point or nil
+	sets.x = x ~= 0 and x or nil
+	sets.y = y ~= 0 and y or nil
+
+	self:SetUserPlaced(true)
+end
+
+function Frame:GetSavedFramePosition()
+	local sets = self.sets
+	local point = sets.point or 'CENTER'
+	local x = sets.x or 0
+	local y = sets.y or 0
+	
+	return point, x, y
+end
+
 
 --[[ Menus ]]--
 
@@ -876,6 +895,7 @@ end
 
 function Frame:ShowMenu()
 	local enabled = select(4, GetAddOnInfo('RazerNaga_Config'))
+	
 	if enabled then
 		if not self.menu then
 			self:CreateMenu()
@@ -895,6 +915,7 @@ function Frame:ShowMenu()
 	end
 end
 
+
 --[[ Tooltip Text ]]--
 
 function Frame:SetTooltipText(text)
@@ -904,6 +925,7 @@ end
 function Frame:GetTooltipText()
 	return self.tooltipText
 end
+
 
 --[[ Mouseover Watching ]]--
 

@@ -50,12 +50,12 @@ GoingPrice_US_SV = {
 	},
 	["_lib_major_version"] = 2,
 	["_lib_minor_version"] = 7,
+	["_lastKey"] = "Buy From Vendor",
 	["Buy From Vendor"] = {
 		["keep"] = true,
 		["checked"] = true,
 		["prev"] = "Std Deviation",
 	},
-	["_lastKey"] = "Buy From Vendor",
 	["_discard"] = {
 		["checked"] = false,
 	},

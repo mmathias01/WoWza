@@ -186,13 +186,6 @@ local acOptions = {
 			order = 33,
 			width = "full",
 		},
-		--[[autoRole = {
-			type = "toggle",
-			name = L.autoRole,
-			desc = L.autoRoleDesc,
-			order = 34,
-			width = "full",
-		},]]
 		separator4 = {
 			type = "description",
 			name = " ",
@@ -862,6 +855,12 @@ do
 	end
 end
 
+local function SecondsToTime(time)
+	local m = floor(time/60)
+	local s = mod(time, 60)
+	return format("%d:%02d", m, s)
+end
+
 local function populateToggleOptions(widget, module)
 	local scrollFrame = widget:GetUserData("parent")
 	scrollFrame:ReleaseChildren()
@@ -999,7 +998,7 @@ local function populateToggleOptions(widget, module)
 
 		statistics = AceGUI:Create("Label")
 		statistics:SetWidth(78)
-		statistics:SetText(L.bestkill)
+		statistics:SetText(L.best)
 		statGroup:AddChild(statistics)
 
 		statistics = AceGUI:Create("Label")

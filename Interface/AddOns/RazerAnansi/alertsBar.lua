@@ -129,7 +129,8 @@ end
 		A queue for displaying alert messages
 --]]
 
-local AlertsQueue = RazerNaga:CreateTimer();
+local AlertsQueue = RazerNaga.Timer:New()
+
 AlertsQueue.duration = 0.5
 AlertsQueue.messages = {}
 
@@ -157,7 +158,7 @@ function AlertsQueue:PushMessage(spellId, tKey, nagaKey)
 		['nagaKey'] = nagaKey 
 	})
 	
-	if not self:IsPlaying() then
+	if not self:IsRunning() then
 		self.nextUpdate = 0
 		self:Start()
 	end

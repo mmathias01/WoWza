@@ -1,3 +1,7 @@
+v2.2.3
+*Auctioning will now the bid as well as the buyout of whitelisted players (when it previously just matched the buyout).
+*Fixed a bug with multiple profiles.
+
 v2.2.2
 *Fixed bug with cancel scan when player's auction was the only one and "above max" price was set to post at max.
 

@@ -27,6 +27,13 @@ X: -19
 Y: 241
 W: 80
 H: 80
+Frame: AskMrRobot_Dialog
+FrameLevel: 32
+Anchor: RIGHT
+X: -105
+Y: 132
+W: 600
+H: 530
 Frame: BagSync_MinimapButton
 FrameLevel: 3
 Anchor: TOPRIGHT

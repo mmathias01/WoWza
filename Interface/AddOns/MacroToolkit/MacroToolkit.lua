@@ -447,6 +447,7 @@ function MT:GetExtendedBody(index, tab)
 end
 
 function MT:UpdateCharLimit()
+	if not MTF.selectedMacro then return end
 	local extended = MacroToolkitText.extended
 	local dct = MacroToolkitText:GetText()
 	local chars = strlenutf8(dct)

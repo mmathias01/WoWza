@@ -5,10 +5,10 @@
 
 local RazerNaga = LibStub('AceAddon-3.0'):GetAddon('RazerNaga')
 local Anansi = RazerNaga:GetModule('Anansi')
-local TPanelWatcher = RazerNaga:CreateTimer(); Anansi.TPanelWatcher = TPanelWatcher
+local TPanelWatcher = RazerNaga.Timer:New(); Anansi.TPanelWatcher = TPanelWatcher
 local watched = {}
 
-TPanelWatcher.duration = 0.15
+TPanelWatcher.delay = 0.15
 
 
 --[[ events ]]--
@@ -31,13 +31,13 @@ end
 --[[ general tracking ]]--
 
 function TPanelWatcher:Enable()
-	if not self:IsPlaying() then
+	if not self:IsRunning() then
 		self:Start()
 	end
 end
 
 function TPanelWatcher:Disable()
-	if self:IsPlaying() then
+	if self:IsRunning() then
 		self:Update()
 		self:Stop()
 	end

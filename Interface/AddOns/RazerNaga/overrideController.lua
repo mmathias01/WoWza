@@ -153,15 +153,7 @@ function OverrideController:DumpStates()
 		end
 	end
 	print('------------------------------')
-	print('override ui shown', self:GetAttribute('state-isoverrideuishown') and true or false)
-	print('mainmenubar actionpage', _G['MainMenuBarArtFrame']:GetAttribute('actionpage'))
-	print('overridebar actionpage', _G['OverrideActionBar']:GetAttribute('actionpage'))
 	print('effective actionpage', self:GetAttribute('state-overridepage'))
-end
-
-function OverrideController:MakeSecure(frame)
-	CreateFrame('Frame', nil, frame, 'SecureFrameTemplate')
-	return frame
 end
 
 OverrideController:Load()

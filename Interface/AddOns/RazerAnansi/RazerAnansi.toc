@@ -1,8 +1,8 @@
-## Interface: 50300
+## Interface: 50400
 ## Title: Razer Anansi
 ## Notes: Anansi keyboard enhancements to the Razer Naga addon
 ## Author: Tuller
-## Version: 2.5.0
+## Version: 2.6.2
 ## Dependencies: RazerNaga
 anansi.lua
 config.lua

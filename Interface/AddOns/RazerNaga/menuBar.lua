@@ -8,20 +8,35 @@ RazerNaga.MenuBar = MenuBar
 local WIDTH_OFFSET = 2
 local HEIGHT_OFFSET = 20
 
-local MICRO_BUTTONS = _G['MICRO_BUTTONS']
+local MICRO_BUTTONS = {
+	'CharacterMicroButton',
+	'SpellbookMicroButton',
+	'TalentMicroButton',
+	'AchievementMicroButton',
+	'QuestLogMicroButton',
+	'GuildMicroButton',
+	'PVPMicroButton',
+	'LFDMicroButton',
+	'EJMicroButton',
+	'CompanionsMicroButton',
+	'StoreMicroButton',	
+	'MainMenuMicroButton'
+}
+
 local MICRO_BUTTON_NAMES = {
-	['CharacterMicroButton'] = CHARACTER_BUTTON,
-	['SpellbookMicroButton'] = SPELLBOOK_ABILITIES_BUTTON,
-	['TalentMicroButton'] = TALENTS_BUTTON,
-	['AchievementMicroButton'] = ACHIEVEMENT_BUTTON,
-	['QuestLogMicroButton'] = QUESTLOG_BUTTON,
-	['GuildMicroButton'] = LOOKINGFORGUILD,
-	['PVPMicroButton'] = PLAYER_V_PLAYER,
-	['LFDMicroButton'] = DUNGEONS_BUTTON,
-	['CompanionsMicroButton'] = MOUNTS_AND_PETS,
-	['EJMicroButton'] = ENCOUNTER_JOURNAL,
-	['MainMenuMicroButton'] = MAINMENU_BUTTON,
-	['HelpMicroButton'] = HELP_BUTTON
+	['CharacterMicroButton'] = _G['CHARACTER_BUTTON'],
+	['SpellbookMicroButton'] = _G['SPELLBOOK_ABILITIES_BUTTON'],
+	['TalentMicroButton'] = _G['TALENTS_BUTTON'],
+	['AchievementMicroButton'] = _G['ACHIEVEMENT_BUTTON'],
+	['QuestLogMicroButton'] = _G['QUESTLOG_BUTTON'],
+	['GuildMicroButton'] = _G['LOOKINGFORGUILD'],
+	['PVPMicroButton'] = _G['PLAYER_V_PLAYER'],
+	['LFDMicroButton'] = _G['DUNGEONS_BUTTON'],
+	['EJMicroButton'] = _G['ENCOUNTER_JOURNAL'],	
+	['CompanionsMicroButton'] = _G['MOUNTS_AND_PETS'],
+	['MainMenuMicroButton'] = _G['MAINMENU_BUTTON'],
+	['HelpMicroButton'] = _G['HELP_BUTTON'],
+	['StoreMicroButton'] = _G['BLIZZARD_STORE']	
 }
 
 --[[ Menu Bar ]]--
@@ -40,22 +55,54 @@ function MenuBar:Create(frameId)
 	
 	bar.buttons = {}
 	bar.activeButtons = {}
+	
+	local getOrHook = function(frame, script, action)
+		if frame:GetScript(script) then
+			frame:HookScript(script, action)
+		else
+			frame:SetScript(script, action)		
+		end
+	end
 
-	local header = bar.header
+	local requestLayoutUpdate
+	do
+		local f = CreateFrame('Frame'); f:Hide()
+		local delay = 0.01
+
+		f:SetScript('OnUpdate', function(self, elapsed)
+			self:Hide()
+			bar:Layout()
+		end)
+
+		requestLayoutUpdate = function() f:Show() end
+	end
+
+	hooksecurefunc('UpdateMicroButtons', function() requestLayoutUpdate() end)	
 	
-	header:SetAttribute('_onstate-petbattleui', [[ 
-		self:RunAttribute('updateShown')
-		self:CallMethod('Layout')
-	]])
+	local petBattleFrame = _G['PetBattleFrame'].BottomFrame.MicroButtonFrame
 	
-	header:SetAttribute('_onstate-overrideui', [[ 
-		self:RunAttribute('updateShown')
-		self:CallMethod('Layout')
-	]])
+	getOrHook(petBattleFrame, 'OnShow', function()
+		bar.isPetBattleUIShown = true
+		requestLayoutUpdate()
+	end)
 	
-	_G['MainMenuBar']:HookScript('OnShow', function() bar:Layout() end)
+	getOrHook(petBattleFrame, 'OnHide', function()
+		bar.isPetBattleUIShown = nil
+		requestLayoutUpdate()
+	end)
 	
-	header.Layout = function() bar:Layout() end
+	
+	local overrideActionBar = _G['OverrideActionBar']
+	
+	getOrHook(overrideActionBar, 'OnShow', function()
+		bar.isOverrideUIShown = Dominos:UsingOverrideUI()
+		requestLayoutUpdate()
+	end)
+	
+	getOrHook(overrideActionBar, 'OnHide', function()
+		bar.isOverrideUIShown = nil
+		requestLayoutUpdate()
+	end)
 	
 	return bar
 end
@@ -125,17 +172,13 @@ function MenuBar:IsMenuButtonDisabled(button)
 end
 
 function MenuBar:Layout()
-	if self.header:GetAttribute('state-petbattleui') then
+	if self.isPetBattleUIShown then
 		self:LayoutPetBattle()
-		return
-	end
-	
-	if self.header:GetAttribute('state-overrideui') then
+	elseif self.isOverrideUIShown then
 		self:LayoutOverrideUI()
-		return
+	else
+		self:LayoutNormal()
 	end
-
-	self:LayoutNormal()
 end
 
 function MenuBar:LayoutNormal()
@@ -194,23 +237,11 @@ function MenuBar:LayoutNormal()
 	end
 end
 
-function MenuBar:LayoutPetBattle()
-	local parentFrame = _G['PetBattleFrame'].BottomFrame.MicroButtonFrame
-	local anchorX, anchorY = -10, 27
-	
-	UpdateMicroButtonsParent(parentFrame)
-	MoveMicroButtons("BOTTOMLEFT", parentFrame, "BOTTOMLEFT", anchorX, anchorY, true)
-								
+function MenuBar:LayoutPetBattle()				
 	self:FixButtonPositions()
 end
 
 function MenuBar:LayoutOverrideUI()
-	local parentFrame = _G['OverrideActionBar']
-	local anchorX, anchorY = OverrideActionBar_GetMicroButtonAnchor()
-	
-	UpdateMicroButtonsParent(parentFrame)
-	MoveMicroButtons("BOTTOMLEFT", parentFrame, "BOTTOMLEFT", anchorX, anchorY, true)
-	
 	self:FixButtonPositions()
 end
 
@@ -237,17 +268,6 @@ function MenuBar:UpdateActiveButtons()
 end
 
 --[[ Menu Code ]]--
-
-local function Menu_AddAdvancedPanel(menu)
-	local panel = menu:NewPanel(LibStub('AceLocale-3.0'):GetLocale('RazerNaga-Config').Advanced)
-	
-	panel:NewLeftToRightCheckbox()
-	panel:NewTopToBottomCheckbox()
-	panel:NewClickThroughCheckbox()
-
-	panel.width = 250
-	return panel
-end
 
 local function Menu_AddLayoutPanel(menu)
 	local panel = menu:NewPanel(LibStub('AceLocale-3.0'):GetLocale('RazerNaga-Config').Layout)
@@ -296,9 +316,31 @@ function MenuBar:CreateMenu()
 
 	Menu_AddLayoutPanel(menu)
 	Menu_AddDisableMenuButtonsPanel(menu)
-	Menu_AddAdvancedPanel(menu)
+	menu:AddAdvancedPanel()
 	
 	self.menu = menu
 	
 	return menu
+end
+
+--[[ module ]]--
+
+local MenuBarController = RazerNaga:NewModule('MenuBar')
+
+function MenuBarController:OnInitialize()
+	-- fixed blizzard nil bug
+	if not _G['AchievementMicroButton_Update'] then
+		_G['AchievementMicroButton_Update'] = function() end
+	end	
+end
+
+function MenuBarController:Load()
+	self.frame = MenuBar:New()
+end
+
+function MenuBarController:Unload()
+	if self.frame then
+		self.frame:Free()
+		self.frame = nil
+	end
 end

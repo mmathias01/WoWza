@@ -51,8 +51,6 @@ function BindingsLoader:LoadBindings(set)
 		RazerNaga:Print(L.CannotAlterBindingsInCombat)
 	end
 	
-	RazerNaga.BindingsUpdater.enabled = false
-
 	for id, frame in RazerNaga.Frame:GetAll() do
 		local modifier = self:GetFrameModifier(frame)
 		if modifier and self:IsAutoBindingEnabled(frame) then
@@ -64,9 +62,6 @@ function BindingsLoader:LoadBindings(set)
 	if isValidBlizzardBindingSet(bindingSet) then
 		SaveBindings(bindingSet)
 	end
-	
-	RazerNaga.BindingsUpdater.enabled = true
-	RazerNaga.BindingsUpdater:UpdateFrames()
 end
 
 function BindingsLoader:AssignBindingsToFrame(frame, bindings, modifier)

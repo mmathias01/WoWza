@@ -70,7 +70,10 @@ local function adjustResourcesForSuccessfulCast(info)
 			rpBumpExpires = GetTime() + .8
 		end
 		if c.InfoMatches(
-			info, "Soul Reaper - Frost", "Soul Reaper - Unholy") then
+			info, 
+			"Soul Reaper - Frost", 
+			"Soul Reaper - Unholy", 
+			"Soul Reaper - Blood") then
 			
 			a.LastSoulReaper = info.GCDStart
 			c.Debug("Event", "Soul Reaper Cast", info.GCDStart, GetTime())
@@ -108,8 +111,8 @@ local function flashNoCap(...)
 	local flashed
 	for i = 1, select("#", ...) do
 		local name = select(i, ...)
-		local spell = c.GetSpell(name)
-		if s.Flashable(spell.ID) and s.Castable(spell) then
+		if c.Flashable(name) then
+			local spell = c.GetSpell(name)
 			local bump = getBump(
 				s.SpellName(spell.ID), a.FreezingFog, a.CrimsonScourge)
 			if bump == 0 or a.RP + bump <= s.MaxPower("player") then
@@ -280,6 +283,7 @@ a.Rotations.Blood = {
 	
 	FlashInCombat = function()
 		flashInterrupts()
+		a.SetCost(1, 0, 0, 0, "Soul Reaper - Blood")
 		c.FlashAll(
 			"Rune Tap", 
 			"Dark Command", 
@@ -308,6 +312,7 @@ a.Rotations.Blood = {
 						"Death Strike",
 						"Death and Decay Free",
 						"Blood Boil for AoE B or Free",
+						"Soul Reaper - Blood B",
 						"Heart Strike B",
 						"Rune Strike",
 						"Horn of Winter")
@@ -316,6 +321,7 @@ a.Rotations.Blood = {
 						"Death and Decay",
 						"Outbreak",
 						"Blood Boil for AoE or Free",
+						"Soul Reaper - Blood",
 						"Heart Strike",
 						"Death Strike",
 						"Rune Strike",
@@ -328,9 +334,11 @@ a.Rotations.Blood = {
 					"Icy Touch for Frost Fever",
 					"Plague Strike for Blood Plague",
 					"Death Strike",
+					"Soul Reaper - Blood BB",
 					"Heart Strike BB",
 					"Blood Boil Free",
 					"Rune Strike for Resources",
+					"Soul Reaper - Blood",
 					"Heart Strike",
 					"Rune Strike",
 					"Horn of Winter")
@@ -348,6 +356,7 @@ a.Rotations.Blood = {
 				"Blood Boil for Weakened Blows",
 				"Rune Strike for Resources",
 				"Horn of Winter for Buff",
+				"Soul Reaper - Blood for Runic Power unless AoE",
 				"Heart Strike for Runic Power unless AoE",
 				"Blood Boil for Runic Power",
 				"Horn of Winter for Runic Power",

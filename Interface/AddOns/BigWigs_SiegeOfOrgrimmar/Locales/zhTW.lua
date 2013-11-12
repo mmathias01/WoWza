@@ -1,51 +1,38 @@
 local L = BigWigs:NewBossLocale("Immerseus", "zhTW")
 if not L then return end
 if L then
-	L.win_yell = "啊，你成功了!水又再次純淨了。"
+L["win_yell"] = "啊，你成功了!水又再次純淨了。"
+
 end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "zhTW")
 if L then
-	L.defile = "Defiled Ground cast"
+L["defile_you"] = "自身腳下褻瀆之地"
+L["defile_you_desc"] = "當你腳下褻瀆之地時發出警報。"
+L["inferno_self"] = "自身煉獄之擊"
+L["inferno_self_bar"] = ">你< 爆炸！"
+L["inferno_self_desc"] = "當你受到煉獄之擊時顯示特殊冷卻計時條。"
+L["intermission_desc"] = "當首領使用絕處求生時發出警報。"
+L["no_meditative_field"] = ">你< 不在保護罩！"
 
-	L.custom_off_bane_marks = "Shadow Word: Bane marker"
-	L.custom_off_bane_marks_desc = "To help dispelling assignments, mark the inital people who have Shadow Word: Bane on them with {rt1}{rt2}{rt3}{rt4}{rt5} (in that order, not all marks may be used), requires promoted or leader."
-
-	L.no_meditative_field = "NO Meditative Field!"
-
-	L.intermission = "Desperate Measures"
-	L.intermission_desc = "Warnings for when you are getting close to any of the bosses using Desperate Measures"
-
-	L.inferno_self = "Inferno Strike on you"
-	L.inferno_self_desc = "Special countdown when Inferno Strike is on you."
-	L.inferno_self_bar = "You explode!"
 end
 
 L = BigWigs:NewBossLocale("Norushen", "zhTW")
 if L then
-	L.pre_pull = "準備開戰"
-	L.pre_pull_desc = "準備與首領戰鬥前的計時器"
-	L.pre_pull_trigger = "很好，我會創造一個力場隔離你們的腐化。"
+L["big_add"] = "大型增援（%d）"
+L["big_add_killed"] = "已擊殺大型增援（%d）"
+L["big_adds"] = "大型增援"
+L["big_adds_desc"] = "當大型增援出現和被擊殺時發出警報。"
+L["warmup_trigger"] = "很好，我會創造一個力場隔離你們的腐化。"
 
-	L.big_adds = "Big adds"
-	L.big_adds_desc = "Warning for killing big adds inside/outside"
-	L.big_add = "Big add (%d)"
-	L.big_add_killed = "Big add killed! (%d)"
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "zhTW")
 if L then
-	L.custom_off_titan_mark = "Gift of the Titans marker"
-	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
+L["projection_explosion"] = "投影爆炸"
+L["projection_message"] = "快到|cFF00FF00綠|r箭頭！"
+L["titan_pride"] = "泰坦+傲：%s"
 
-	L.projection_message = "Go to |cFF00FF00GREEN|r arrow!"
-	L.projection_explosion = "Projection explosion"
-
-	L.big_add_bar = "Big add"
-	L.big_add_spawning = "Big add spawning!"
-	L.small_adds = "Small adds"
-
-	L.titan_pride = "泰坦+傲慢 : %s"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "zhTW")
@@ -60,6 +47,8 @@ if L then
 	L.north_tower_trigger = "封鎖北塔的門已經遭到破壞!"
 	L.north_tower = "北塔"
 	L.tower_defender = "Tower defender"
+
+	L.drakes = "元龍"
 
 	L.custom_off_shaman_marker = "薩滿標記"
 	L.custom_off_shaman_marker_desc = "To help interrupt assignments, mark the Dragonmaw Tidal Shamans with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r\n|cFFADFF2FTIP: If the raid has chosen you to turn this on, quickly mousing over the shamans is the fastest way to mark them.|r"
@@ -116,7 +105,11 @@ end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhTW")
 if L then
-	L.cage_opened = "籠子已打開"
+L["adds_desc"] = "當雪人或蝙蝠進入戰鬥時發出警報。"
+L["cage_opened"] = "籠子已打開"
+L["npc_akolik"] = "阿葛里克"
+L["npc_waterspeaker_gorai"] = "水語者郭萊"
+
 end
 
 L = BigWigs:NewBossLocale("Siegecrafter Blackfuse", "zhTW")
@@ -134,5 +127,6 @@ L = BigWigs:NewBossLocale("Garrosh Hellscream", "zhTW")
 if L then
 	L.intermission = "中場休息"
 	L.mind_control = "亚煞极之触"
+	L.empowered_message = ">%s< 強化腐化！"
 end
 

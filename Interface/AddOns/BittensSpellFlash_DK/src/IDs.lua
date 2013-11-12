@@ -53,6 +53,7 @@ a.SpellIDs = {
 	["Scarlet Fever"] = 81132,
 	["Scent of Blood"] = 50421,
 	["Scourge Strike"] = 55090,
+	["Soul Reaper - Blood"] = 114866,
 	["Soul Reaper - Frost"] = 130735,
 	["Soul Reaper - Unholy"] = 130736,
 	["Shadow Infusion"] = 91342,

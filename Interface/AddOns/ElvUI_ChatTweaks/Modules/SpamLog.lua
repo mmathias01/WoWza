@@ -17,6 +17,7 @@ local defaults = {
 		spam = {},
 		whisper = {},
 		invite = {},
+		bnet = {},
 	}
 }
 
@@ -29,6 +30,7 @@ local modules = {
 	spam = L["Spam Filter"],
 	whisper = L["Whisper Filter"],
 	invite = L["Channel Invite Spam"],
+	bnet = L["Battle.net Spam"]
 }
 
 function Module:AddToLog(name, event, player, message)
@@ -82,6 +84,12 @@ function Module:OnEnable()
 			tremove(db.invite, 1)
 		end
 	end
+	
+	if #db.bnet > db.maxLines then
+		for i = 1, (#db.bnet - db.maxLines) do
+			tremove(db.bnet, 1)
+		end
+	end
 end
 
 function Module:OnInitialize()
@@ -96,6 +104,7 @@ function Module:OnInitialize()
 		spam = ElvUI_ChatTweaks:GetModule("Spam Filter"),
 		whisper = ElvUI_ChatTweaks:GetModule("Whisper Filter"),
 		invite = ElvUI_ChatTweaks:GetModule("Channel Invite Spam"),
+		bnet = ElvUI_ChatTweaks:GetModule("Battle.net Spam"),
 	}
 	
 	-- load the configs from the spam modules
@@ -105,6 +114,7 @@ function Module:OnInitialize()
 		spam = ElvUI_ChatTweaks.db:GetNamespace(objects.spam.namespace) or objects.spam:GetDefaults(),
 		whisper = ElvUI_ChatTweaks.db:GetNamespace(objects.whisper.namespace) or objects.whisper:GetDefaults(),
 		invite = ElvUI_ChatTweaks.db:GetNamespace(objects.invite.namespace) or objects.invite:GetDefaults(),
+		bnet = ElvUI_ChatTweaks.db:GetNamespace(objects.bnet.namespace) or objects.bnet:GetDefaults(),
 	}
 end
 
@@ -172,7 +182,6 @@ function Module:GetOptions()
 			},
 			crap = {
 				type = "group",
-				order = 98,
 				name = L["Crap Cleaner"],
 				disabled = function() return not configs.crap.profile.logging end,
 				args = {
@@ -201,7 +210,6 @@ function Module:GetOptions()
 			},
 			guild = {
 				type = "group",
-				order = 99,
 				name = L["Guild Spam"],
 				disabled = function() return not configs.guild.profile.logging end,
 				args = {
@@ -230,7 +238,6 @@ function Module:GetOptions()
 			},
 			spam = {
 				type = "group",
-				order = 100,
 				name = L["Spam Filter"],
 				disabled = function() return not configs.spam.profile.logging end,
 				args = {
@@ -259,7 +266,6 @@ function Module:GetOptions()
 			},
 			whisper = {
 				type = "group",
-				order = 101,
 				name = L["Whisper Filter"],
 				disabled = function() return not configs.whisper.profile.logging end,
 				args = {
@@ -288,7 +294,6 @@ function Module:GetOptions()
 			},
 			invite = {
 				type = "group",
-				order = 102,
 				name = L["Channel Invite Spam"],
 				disabled = function() return not configs.whisper.profile.logging end,
 				args = {
@@ -312,6 +317,34 @@ function Module:GetOptions()
 						name = L["Log Lines"],
 						get = function() return Module:TableToString(db.invite) or L["Log is empty."] end,
 						set = function(_, value) db.invite = Module:StringToTable(value) end,
+					},
+				},
+			},
+			bnet = {
+				type = "group",
+				name = L["Battle.net Spam"],
+				disabled = function() return not configs.bnet.profile.logging end,
+				args = {
+					about = {
+						type = "description",
+						order = 1,
+						name = (L["This will contain the lines that were filtered by the |cff00ff96%s|r module.  You must have the logging setting enabled in the module's config."]):format(modules.bnet),
+						width = "full",
+					},
+					clear = {
+						type = "execute",
+						order = 2,
+						name = L["Clear Log"],
+						func = function() Module:ClearLog("bnet") end,
+					},
+					lines = {
+						type = "input",
+						order = 3,
+						width = "full",
+						multiline = 25,
+						name = L["Log Lines"],
+						get = function() return Module:TableToString(db.bnet) or L["Log is empty."] end,
+						set = function(_, value) db.bnet = Module:StringToTable(value) end,
 					},
 				},
 			},

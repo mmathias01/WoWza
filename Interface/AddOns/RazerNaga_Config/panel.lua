@@ -9,7 +9,7 @@ local min = math.min
 local max = math.max
 
 function Panel:New(name, parent, title, subtitle, icon)
-	local f = self:Bind(CreateFrame('Frame', name))
+	local f = self:Bind(CreateFrame('Frame', name)); f:Hide()
 	f.name = title
 	f.parent = parent
 	

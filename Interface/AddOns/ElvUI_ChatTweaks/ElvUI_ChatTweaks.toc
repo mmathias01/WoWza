@@ -1,12 +1,12 @@
 ## Interface: 50400
 ## Author: Lockslap
 ## Title: |cff1784d1ElvUI|r Chat Tweaks
-## Version: 6.2
+## Version: 6.3
 ## Notes: Provides various tweaks to the Chat windows.
 ## RequiredDeps: ElvUI
 ## OptionalDeps: SharedMedia
 ## SavedVariables: ElvUI_ChatTweaksDB
-## X-Curse-Packaged-Version: 6.2
+## X-Curse-Packaged-Version: 6.3
 ## X-Curse-Project-Name: ElvUI Chat Tweaks
 ## X-Curse-Project-ID: elvui_chattweaks
 ## X-Curse-Repository-ID: wow/elvui_chattweaks/mainline
@@ -14,10 +14,8 @@
 ## X-Category: Chat, Plugins
 ## X-Author-Server: Bleeding Hollow, US
 ## X-Author-Faction: Alliance
-## X-Email: adam [at] lockslap [dot] com
-## X-Website: http://ba-guild.com
-## X-Paypal: adam@lockslap.com
-## X-Credits: Borderline Amazing, Elv (for ElvUI)
+## X-Paypal: crackpot.mytouch@gmail.com
+## X-Credits: Elv (for ElvUI)
 
 Libraries\LibStub\LibStub.lua
 Libraries\CallbackHandler-1.0\CallbackHandler-1.0.xml

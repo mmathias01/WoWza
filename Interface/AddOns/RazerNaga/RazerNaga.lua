@@ -282,35 +282,17 @@ end
 
 
 --Load is called  when the addon is first enabled, and also whenever a profile is loaded
-local function HasClassBar()
-	local _,class = UnitClass('player')
-	return not(class == 'MAGE' or class == 'SHAMAN')
-end
-
 function RazerNaga:Load()
-	for i = 1, self:NumBars() do
-		self.ActionBar:New(i)
-	end
-	
-	if HasClassBar() then
-		self.ClassBar:New()
-	end
-	
+	-- load frame modules
 	self.PetBar:New()
 	self.BagBar:New()
-	self.MenuBar:New()
-	self.ExtraBar:New()
 	self.VehicleBar:New()
 
-	--load in extra functionality
-	for _,module in self:IterateModules() do
+	for i, module in self:IterateModules() do
 		module:Load()
 	end
 
-	--anchor everything
 	self.Frame:ForAll('Reanchor')
-
-	--minimap button
 	self:UpdateMinimapButton()
 
 	--show auto binder dialog, if fist load of this profile
@@ -322,16 +304,12 @@ end
 
 --unload is called when we're switching profiles
 function RazerNaga:Unload()
-	self.ActionBar:ForAll('Free')
 	self.Frame:ForFrame('pet', 'Free')
-	self.Frame:ForFrame('class', 'Free')
-	self.Frame:ForFrame('menu', 'Free')
 	self.Frame:ForFrame('bags', 'Free')
-	self.Frame:ForFrame('extra', 'Free')
 	self.Frame:ForFrame('vehicle', 'Free')
 
 	--unload any module stuff
-	for _,module in self:IterateModules() do
+	for i, module in self:IterateModules() do
 		module:Unload()
 	end
 end
@@ -340,23 +318,22 @@ end
 --[[ Blizzard Stuff Hiding ]]--
 
 function RazerNaga:HideBlizzard()
-	if MultiActionBar_UpdateGrid then
-		MultiActionBar_UpdateGrid = Multibar_EmptyFunc
-	end
-	
 	-- Hidden parent frame
 	local UIHider = CreateFrame('Frame', nil, UIParent, 'SecureFrameTemplate'); UIHider:Hide()
 	self.UIHider = UIHider
 	
+	--[[ disable multibars ]]--
+
 	_G['MultiBarBottomLeft']:SetParent(UIHider)
 	_G['MultiBarBottomRight']:SetParent(UIHider)
 	_G['MultiBarLeft']:SetParent(UIHider)
 	_G['MultiBarRight']:SetParent(UIHider)
-	
-	UIPARENT_MANAGED_FRAME_POSITIONS["MainMenuBar"] = nil
-	UIPARENT_MANAGED_FRAME_POSITIONS["StanceBarFrame"] = nil
-	UIPARENT_MANAGED_FRAME_POSITIONS["PossessBarFrame"] = nil
-	UIPARENT_MANAGED_FRAME_POSITIONS["PETACTIONBAR_YPOS"] = nil
+
+	if MultiActionBar_UpdateGrid then
+		MultiActionBar_UpdateGrid = Multibar_EmptyFunc
+	end
+
+	--[[ disable menu bar ]]--
 
 	MainMenuBar:EnableMouse(false)
 
@@ -376,16 +353,39 @@ function RazerNaga:HideBlizzard()
 
 	ReputationWatchBar:SetParent(UIHider)
 
-	_G['StanceBarFrame']:UnregisterAllEvents()
-	_G['StanceBarFrame']:Hide()
-	_G['StanceBarFrame']:SetParent(UIHider)
+
+	--[[ disable stance bar ]]--
+
+	local stanceBar = _G['StanceBarFrame']
+	-- stanceBar:UnregisterAllEvents()
+	stanceBar:SetParent(UIHider)
+
+
+	-- [[ disable possess bar ]]--
+
+	local possessBar = _G['PossessBarFrame']
+	possessBar:UnregisterAllEvents()
+	possessBar:SetParent(UIHider)
+
+
+	-- [[ disable pet action bar ]]--
+
+	local petActionBar = _G['PetActionBarFrame']
+	-- petActionBar:UnregisterAllEvents()
+	petActionBar:SetParent(UIHider)
+
+
+	--[[ disable ui position manager ]]--
+
+	_G['MultiBarBottomLeft'].ignoreFramePositionManager = true
+	_G['MultiBarRight'].ignoreFramePositionManager = true
+	_G['MainMenuBar'].ignoreFramePositionManager = true
+	_G['StanceBarFrame'].ignoreFramePositionManager = true
+	_G['PossessBarFrame'].ignoreFramePositionManager = true
+	_G['MultiCastActionBarFrame'].ignoreFramePositionManager = true
 	
-	_G['PossessBarFrame']:Hide()
-	_G['PossessBarFrame']:SetParent(UIHider)
-	
-	_G['PetActionBarFrame']:Hide()
-	_G['PetActionBarFrame']:SetParent(UIHider)
-	
+
+	--[[ disable the override ui, if we need to ]]
 	self:UpdateUseOverrideUI()
 end
 
@@ -488,9 +488,9 @@ function RazerNaga:ListProfiles()
 	local current = self.db:GetCurrentProfile()
 	for _,k in ipairs(self.db:GetProfiles()) do
 		if k == current then
-			DEFAULT_CHAT_FRAME:AddMessage(' - ' .. k, 1, 1, 0)
+			print(' - ' .. k, 1, 1, 0)
 		else
-			DEFAULT_CHAT_FRAME:AddMessage(' - ' .. k)
+			print(' - ' .. k)
 		end
 	end
 end
@@ -565,9 +565,11 @@ end
 
 function RazerNaga:ShowOptions()
 	if LoadAddOn('RazerNaga_Config') then
+		InterfaceOptionsFrame_Show()		
 		InterfaceOptionsFrame_OpenToCategory(self.Options)
 		return true
 	end
+	
 	return false
 end
 
@@ -636,6 +638,8 @@ function RazerNaga:OnCmd(args)
 		self:PrintVersion()
 	elseif cmd == 'help' or cmd == '?' then
 		self:PrintHelp()
+	elseif cmd == 'statedump' then
+		self.OverrideController:DumpStates()
 	--options stuff
 	else
 		if not self:ShowOptions() then

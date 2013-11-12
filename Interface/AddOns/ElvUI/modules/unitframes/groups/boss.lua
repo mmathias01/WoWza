@@ -26,9 +26,6 @@ function UF:Construct_BossFrames(frame)
 	frame:RegisterEvent('PLAYER_ENTERING_WORLD', UF.UpdateTargetGlow)
 	frame:RegisterEvent('GROUP_ROSTER_UPDATE', UF.UpdateTargetGlow)
 
-	frame.BGParent = CreateFrame("Frame", nil, frame.RaisedElementParent)
-	frame.BGParent:SetFrameLevel(frame.RaisedElementParent:GetFrameLevel() - 5)
-
 	frame.Castbar = self:Construct_Castbar(frame, 'RIGHT')
 	frame.RaidIcon = UF:Construct_RaidIcon(frame)
 	frame.AltPowerBar = self:Construct_AltPowerBar(frame)
@@ -135,7 +132,7 @@ function UF:Update_BossFrames(frame, db)
 		else
 			health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
 			health.bg:Point('TOPRIGHT', health)		
-			health.bg:SetParent(frame.BGParent)			
+			health.bg:SetParent(frame.Portrait.overlay)			
 		end
 	end
 	
@@ -213,7 +210,7 @@ function UF:Update_BossFrames(frame, db)
 			
 			if USE_PORTRAIT_OVERLAY then
 				if db.portrait.style == '3D' then
-					portrait:SetFrameLevel(6)
+					portrait:SetFrameLevel(frame.Health:GetFrameLevel() + 1)
 				end
 				portrait:SetAllPoints(frame.Health)
 				portrait:SetAlpha(0.3)

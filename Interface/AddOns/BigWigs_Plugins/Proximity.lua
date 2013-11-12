@@ -22,7 +22,7 @@ plugin.defaultDB = {
 	sound = false,
 	soundDelay = 1,
 	soundName = "BigWigs: Alarm",
-	disabled = nil,
+	disabled = false,
 	proximity = true,
 	font = nil,
 	fontSize = nil,
@@ -325,11 +325,6 @@ local function onResize(self, width, height)
 	end
 end
 
-local function setConfigureTarget(self, button)
-	if not inConfigMode or button ~= "LeftButton" then return end
-	plugin:SendMessage("BigWigs_SetConfigureTarget", plugin)
-end
-
 local function onDisplayEnter(self)
 	if not db.objects.tooltip then return end
 	if not activeSpellID and not inConfigMode then return end
@@ -347,7 +342,6 @@ local function lockDisplay()
 	anchor:SetScript("OnSizeChanged", nil)
 	anchor:SetScript("OnDragStart", nil)
 	anchor:SetScript("OnDragStop", nil)
-	anchor:SetScript("OnMouseUp", nil)
 	anchor.drag:Hide()
 	locked = true
 end
@@ -359,7 +353,6 @@ local function unlockDisplay()
 	anchor:SetScript("OnSizeChanged", onResize)
 	anchor:SetScript("OnDragStart", onDragStart)
 	anchor:SetScript("OnDragStop", onDragStop)
-	anchor:SetScript("OnMouseUp", setConfigureTarget)
 	anchor.drag:Show()
 	locked = nil
 end
@@ -374,7 +367,7 @@ end
 local function onControlLeave() GameTooltip:Hide() end
 
 local function onNormalClose()
-	BigWigs:Print(L.toggleProximityPrint)
+	BigWigs:Print(L.toggleDisplayPrint)
 	plugin:Close()
 end
 
@@ -853,6 +846,11 @@ do
 		anchor:EnableMouse(true)
 		anchor:SetScript("OnEnter", onDisplayEnter)
 		anchor:SetScript("OnLeave", onControlLeave)
+		anchor:SetScript("OnMouseUp", function(self, button)
+			if inConfigMode and button == "LeftButton" then
+				plugin:SendMessage("BigWigs_SetConfigureTarget", plugin)
+			end
+		end)
 
 		updater = anchor:CreateAnimationGroup()
 		updater:SetLooping("REPEAT")
@@ -947,7 +945,7 @@ do
 		end
 
 		anchor:SetScript("OnEvent", function(_, event)
-			if event == "GROUP_ROSTER_CHANGED" then
+			if event == "GROUP_ROSTER_UPDATE" then
 				updateBlipColors()
 			else
 				updateBlipIcons()
@@ -1035,7 +1033,7 @@ do
 					disabled = {
 						type = "toggle",
 						name = L.disabled,
-						desc = L.disabledDesc,
+						desc = L.disabledDisplayDesc,
 						order = 1,
 					},
 					lock = {
@@ -1168,7 +1166,7 @@ end
 function plugin:Close()
 	updater:Stop()
 
-	anchor:UnregisterEvent("GROUP_ROSTER_CHANGED")
+	anchor:UnregisterEvent("GROUP_ROSTER_UPDATE")
 	anchor:UnregisterEvent("RAID_TARGET_UPDATE")
 
 	for i = 1, 40 do
@@ -1241,7 +1239,7 @@ function plugin:Open(range, module, key, player, isReverse)
 	end
 	activeRange = range
 
-	anchor:RegisterEvent("GROUP_ROSTER_CHANGED")
+	anchor:RegisterEvent("GROUP_ROSTER_UPDATE")
 	anchor:RegisterEvent("RAID_TARGET_UPDATE")
 	updateBlipColors()
 	updateBlipIcons()

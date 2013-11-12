@@ -216,8 +216,11 @@ local function soulReaperIsReady(delay)
 	
 	return a.InExecute
 		and GetTime() + c.GetBusyTime() + delay - a.LastSoulReaper >= 6
-		and not c.IsCasting("Soul Reaper - Frost")
-		and not c.IsCasting("Soul Reaper - Unholy")
+		and s.MeleeDistance()
+		and not c.IsCasting(
+			"Soul Reaper - Frost", 
+			"Soul Reaper - Unholy", 
+			"Soul Reaper - Blood")
 end
 
 c.AddSpell("Horn of Winter", nil, {
@@ -638,7 +641,37 @@ c.AddSpell("Horn of Winter", "for Runic Power", {
 	end
 })
 
-addSpell("Heart Strike")
+addSpell("Soul Reaper - Blood", nil, {
+	CheckFirst = soulReaperIsReady,
+})
+
+c.AddSpell("Soul Reaper - Blood", "B", {
+	Override = function()
+		return soulReaperIsReady() and sufficientRunes(1, 0, 0, 0, true)
+	end
+})
+
+c.AddSpell("Soul Reaper - Blood", "for Runic Power unless AoE", {
+	Override = function()
+		return not c.AoE
+			and soulReaperIsReady()
+			and s.MaxPower("player") - a.RP >= 30
+			and sufficientRunes(1, 0, 0, 0, true)
+	end
+})
+
+c.AddSpell("Soul Reaper - Blood", "BB", {
+	Override = function()
+		return soulReaperIsReady()
+			and a.BothRunesAvailable("Blood", 1)
+			and not a.IsDeathRune(1)
+			and not a.IsDeathRune(2)
+	end
+})
+
+addSpell("Heart Strike", nil, {
+	Melee = true,
+})
 
 c.AddSpell("Heart Strike", "for Runic Power unless AoE", {
 	Melee = true,

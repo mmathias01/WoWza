@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(853, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10469 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10672 $"):sub(12, -3))
 mod:SetCreatureID(71152, 71153, 71154, 71155, 71156, 71157, 71158, 71160, 71161)
 mod:SetZone()
 mod:SetUsedIcons(1)
@@ -52,7 +52,7 @@ local warnCalculated				= mod:NewTargetAnnounce(144095, 3)--Wild variation on ti
 local warnInsaneCalculationFire		= mod:NewCastAnnounce(142416, 4)--3 seconds after 144095
 --Ka'roz the Locust
 local warnFlash						= mod:NewCastAnnounce(143709, 3)--62-70
-local warnWhirling					= mod:NewTargetAnnounce(143701, 3)
+local warnWhirling					= mod:NewTargetAnnounce(143701, 3, nil, false, nil, nil, nil, nil, 2)--Spammy
 local warnHurlAmber					= mod:NewSpellAnnounce(143759, 3)
 --Skeer the Bloodseeker
 local warnBloodletting				= mod:NewSpellAnnounce(143280, 4)
