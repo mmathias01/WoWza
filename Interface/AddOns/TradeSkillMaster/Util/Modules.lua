@@ -265,11 +265,18 @@ function TSM:UpdateModuleProfiles()
 end
 
 function TSM:ModuleOnDatabaseShutdown()
+	local originalProfile = TSM.db:GetCurrentProfile()
 	for _, obj in pairs(moduleObjects) do
 		if obj.OnTSMDBShutdown then
-			obj:OnTSMDBShutdown()
+			-- erroring here would cause the profile to be reset, so use pcall
+			if not pcall(obj.OnTSMDBShutdown) then
+				-- the callback hit an error, so ensure the correct profile is restored
+				TSM.db:SetProfile(originalProfile)
+			end
 		end
 	end
+	-- ensure we're back on the correct profile
+	TSM.db:SetProfile(originalProfile)
 end
 
 function TSM:IsOperationIgnored(module, operationName)

@@ -1,0 +1,36 @@
+------------------------------------------------------------------------
+r415 | arkayenro | 2013-11-18 21:47:49 +0000 (Mon, 18 Nov 2013) | 8 lines
+Changed paths:
+   A /tags/3.03.32 (from /trunk:414)
+
+*3.03.32 (19-NOV-2013)*
+ * fixed - some techniques were showing as unuseable because their tooltips were formatted differently to patterns and recipes
+ * changed - tooltip item counts should use less cpu (less impact on framerate)
+ * fixed - removed the blue glow from the bar numbers in edit mode
+ * changed - (via keybinding only) druid bear/cat/travel/moonkin forms are now cancelled before attempting to mount (aquatic and flight forms are never cancelled as they are usually faster or same speed)
+ * changed - (via keybinding only) shaman and warlock non humanoid forms are now cancelled before attempting to mount
+ * fixed - timeless items (the "unopened" versions) are now be under the same category as the "opened" versions - equipable items (bind to account)
+
+------------------------------------------------------------------------
+r414 | arkayenro | 2013-11-18 21:43:50 +0000 (Mon, 18 Nov 2013) | 8 lines
+Changed paths:
+   M /trunk/ArkInventory.lua
+   M /trunk/ArkInventory.toc
+   M /trunk/ArkInventory.xml
+   M /trunk/ArkInventoryCompanion.lua
+   M /trunk/ArkInventoryLDB.lua
+   M /trunk/ArkInventoryMenu.lua
+   M /trunk/ArkInventoryStorage.lua
+   M /trunk/ArkInventoryTooltip.lua
+   M /trunk/Bindings.xml
+   M /trunk/VersionHistory.txt
+
+*3.03.32 (19-NOV-2013)*
+ * fixed - some techniques were showing as unuseable because their tooltips were formatted differently to patterns and recipes
+ * changed - tooltip item counts should use less cpu (less impact on framerate)
+ * fixed - removed the blue glow from the bar numbers in edit mode
+ * changed - (via keybinding only) druid bear/cat/travel/moonkin forms are now cancelled before attempting to mount (aquatic and flight forms are never cancelled as they are usually faster or same speed)
+ * changed - (via keybinding only) shaman and warlock non humanoid forms are now cancelled before attempting to mount
+ * fixed - timeless items (the "unopened" versions) are now be under the same category as the "opened" versions - equipable items (bind to account)
+
+------------------------------------------------------------------------

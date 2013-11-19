@@ -1,3 +1,6 @@
+v2.2.2
+*Fixed layout of buttons in the "Other" sidebar page.
+
 v2.2.1
 *Updating group tree creation API call.
 

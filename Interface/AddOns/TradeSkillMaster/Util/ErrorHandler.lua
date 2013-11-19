@@ -229,6 +229,7 @@ local function TSMErrorHandler(msg)
 	errorMessage = errorMessage..color.."Message:|r "..msg.."\n"
 	errorMessage = errorMessage..color.."Stack:|r\n"..GetDebugStack().."\n"
 	errorMessage = errorMessage..color.."Locale:|r "..GetLocale().."\n"
+	errorMessage = errorMessage..color.."Client:|r "..GetBuildInfo().."\n"
 	errorMessage = errorMessage..color.."Addons:|r\n"..GetAddonList().."\n"
 	tinsert(TSMERRORLOG, errorMessage)
 	if not isErrorFrameVisible then

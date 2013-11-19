@@ -2,7 +2,7 @@ local oRA = LibStub("AceAddon-3.0"):GetAddon("oRA3")
 local module = oRA:NewModule("ReadyCheck", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
-module.VERSION = tonumber(("$Revision: 679 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 696 $"):sub(12, -3))
 
 local readycheck = {} -- table containing ready check results
 local frame -- will be filled with our GUI frame
@@ -10,6 +10,13 @@ local frame -- will be filled with our GUI frame
 local playerName = UnitName("player")
 local _, playerClass = UnitClass("player")
 local topMemberFrames, bottomMemberFrames = {}, {} -- ready check member frames
+
+local roleIcons = {
+	["TANK"] = INLINE_TANK_ICON,
+	["HEALER"] = INLINE_HEALER_ICON,
+	["DAMAGER"] = INLINE_DAMAGER_ICON,
+	["NONE"] = "",
+}
 
 local readychecking = nil
 
@@ -144,7 +151,8 @@ local function setMemberStatus(num, bottom, name, class)
 		f = topMemberFrames[num] or createTopFrame()
 	end
 	local color = oRA.classColors[class]
-	f.NameText:SetText(name:gsub("%-.*$", ""))
+	local cleanName = name:gsub("%-.+", "*")
+	f.NameText:SetFormattedText("%s%s", roleIcons[UnitGroupRolesAssigned(name)], cleanName)
 	f.NameText:SetTextColor(color.r, color.g, color.b)
 	f:SetAlpha(1)
 
@@ -418,10 +426,12 @@ function module:READY_CHECK(initiator, duration)
 	if IsInRaid() then
 		for i = 1, GetNumGroupMembers() do
 			local name, _, _, _, _, _, _, online = GetRaidRosterInfo(i)
-			local status = not online and "offline" or GetReadyCheckStatus(name)
-			readycheck[name] = status
-			if not promoted and (status == "offline" or status == "notready") then
-				DEFAULT_CHAT_FRAME:AddMessage(RAID_MEMBER_NOT_READY:format(name), c.r, c.g, c.b, c.id)
+			if name then -- Can be nil when performed whilst logging on
+				local status = not online and "offline" or GetReadyCheckStatus(name)
+				readycheck[name] = status
+				if not promoted and (status == "offline" or status == "notready") then
+					DEFAULT_CHAT_FRAME:AddMessage(RAID_MEMBER_NOT_READY:format(name), c.r, c.g, c.b, c.id)
+				end
 			end
 		end
 	else

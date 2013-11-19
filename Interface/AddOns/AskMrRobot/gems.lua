@@ -1182,11 +1182,7 @@ local gemToColor = {
 [95345]="Meta",
 [95346]="Meta",
 [95347]="Meta",
-[95348]="Meta",
-[97309]="Hydraulic",
-[97538]="Orange",
-[97943]="Orange",
-[98094]="Red"}
+[95348]="Meta"}
 
 AskMrRobot.alternateGemName = {
 [23094]="6 Int",
@@ -2361,11 +2357,7 @@ AskMrRobot.alternateGemName = {
 [95345]="Courageous",
 [95346]="Capacitive",
 [95347]="Sinister",
-[95348]="665 PvP Pow, 775 Resil",
-[97309]="34 Int",
-[97538]="5 Int, 10 Resil",
-[97943]="4 Int, 8 Resil",
-[98094]="8 Int"}
+[95348]="665 PvP Pow, 775 Resil"}
 
 AskMrRobot.gemDuplicates = {
 [76570]=76636,
@@ -2643,6 +2635,76 @@ local gemEnchantDuplicates = {
 [5024]=5026,
 [5026]=5024}
 
+local perfectGems = {
+[76570]=1,
+[76571]=1,
+[76572]=1,
+[76573]=1,
+[76574]=1,
+[76575]=1,
+[76576]=1,
+[76577]=1,
+[76578]=1,
+[76579]=1,
+[76580]=1,
+[76581]=1,
+[76582]=1,
+[76583]=1,
+[76584]=1,
+[76585]=1,
+[76586]=1,
+[76587]=1,
+[76588]=1,
+[76589]=1,
+[76590]=1,
+[76591]=1,
+[76592]=1,
+[76593]=1,
+[76594]=1,
+[76595]=1,
+[76596]=1,
+[76597]=1,
+[76598]=1,
+[76599]=1,
+[76600]=1,
+[76601]=1,
+[76602]=1,
+[76603]=1,
+[76604]=1,
+[76605]=1,
+[76606]=1,
+[76607]=1,
+[76608]=1,
+[76609]=1,
+[76610]=1,
+[76611]=1,
+[76612]=1,
+[76613]=1,
+[76614]=1,
+[76615]=1,
+[76616]=1,
+[76617]=1,
+[76618]=1,
+[76619]=1,
+[76620]=1,
+[76621]=1,
+[76622]=1,
+[76623]=1,
+[76624]=1,
+[76625]=1,
+[76626]=1,
+[76627]=1,
+[76628]=1,
+[76629]=1,
+[76630]=1,
+[76631]=1,
+[76632]=1,
+[76633]=1,
+[76634]=1,
+[76635]=1,
+[89676]=1,
+[93707]=1}
+
 AskMrRobot.JewelcrafterGems = {
 [36766]=1,
 [36767]=1,
@@ -2694,7 +2756,6 @@ AskMrRobot.JewelcrafterGems = {
 [93408]=1,
 [93409]=1,
 [93410]=1}
-
 
 local function DoGemsMatch(gemIdA, gemIdB)
    return gemIdA == gemIdB or (gemIdA and gemIdB and gemIdA == AskMrRobot.gemDuplicates[gemIdB])
@@ -2841,6 +2902,8 @@ function AskMrRobot.MatchesGems(existingItemLink, existingGemEnchantIds, gems)
 end
 
 
+local preferPerfectGems = false
+
 local function findItemInBag(bagId, itemId)
 	local numSlots = GetContainerNumSlots(bagId);
 	local lockedSlotId = nil
@@ -2904,8 +2967,21 @@ local function autoGemHelper(inventorySlotId, gemInfo, gemSlot)
 
 	--loop forever until we get the item unlocked
 	while true do
+		--if preferPerfectGems then
+		--end
+
 		-- attempt to find the gem in inventory
 		local bagId, bagSlot, locked = findItem(gemId)
+		local dupId = AskMrRobot.gemDuplicates[gemId]
+		if dupId ~= nil then
+			local bagId2, bagSlot2, locked2 = findItem(dupId)
+			if bagId == nil or (bagId2 ~= nil and perfectGems[dupId] == 1 and preferPerfectGems) then
+				bagId = bagId2
+				bagSlot = bagSlot2
+				locked = locked2
+			end
+		end
+
 		if locked or IsInventoryItemLocked(inventorySlotId) then
 			coroutine.yield()
 			if checkAutoGemTimeout() then
@@ -2981,7 +3057,8 @@ local function resumeAutoGemming()
 	end
 end
 
-function AskMrRobot.AutoGem()
+function AskMrRobot.AutoGem(preferPerfectGems1)
+	preferPerfectGems = preferPerfectGems1
 	checkAutoGemTimeout()
 	if autoGemCoRoutine then 
 		if coroutine.status(autoGemCoRoutine) == 'dead' then
@@ -2999,3 +3076,4 @@ end
 function AskMrRobot.On_ITEM_UNLOCKED()
 	resumeAutoGemming()
 end
+

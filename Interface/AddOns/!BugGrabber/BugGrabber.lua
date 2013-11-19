@@ -1,5 +1,5 @@
 --
--- $Id: BugGrabber.lua 197 2013-10-21 13:55:05Z funkydude $
+-- $Id: BugGrabber.lua 199 2013-11-18 22:46:09Z mikk $
 --
 -- The BugSack and !BugGrabber team is:
 -- Current Developer: Funkydude, Rabbit
@@ -26,6 +26,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 ]]
+
+-----------------------------------------------------------------------
+-- local-ization, mostly for use with the FindGlobals script to catch
+-- misnamed variable names. We're not hugely concerned with performance.
+
+local _G = _G
+local pairs,type,type,table,next,wipe = 
+      pairs,type,type,table,next,wipe
+local tostring, tonumber, GetTime = 
+      tostring, tonumber, GetTime
+local debuglocals = debuglocals
+-- GLOBALS: LibStub, GetLocale,GetBuildInfo,DisableAddOn,Swatter,GetAddOnInfo
+-- GLOBALS: BugGrabberDB, ItemRefTooltip, debugstack, debuglocals, date
+-- GLOBALS: seterrorhandler, print, IsAddOnLoaded, GetAddOnMetadata
+-- GLOBALS: MAX_BUGGRABBER_ERRORS, BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE
+-- GLOBALS: SlashCmdList, SLASH_SWATTER1, SLASH_SWATTER2
+
 
 -----------------------------------------------------------------------
 -- Check if we already exist in the global space
@@ -294,8 +311,33 @@ end
 local grabError
 do
 	local tmp = {}
+	local msgsAllowed = BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE
+	local msgsAllowedLastTime = GetTime()
+	local lastWarningTime = 0
 	function grabError(errorMessage)
-		if paused then return end
+		-- Flood protection --
+		msgsAllowed = msgsAllowed + (GetTime()-msgsAllowedLastTime)*BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE
+		msgsAllowedLastTime = GetTime()
+		if msgsAllowed < 1 then
+			if not paused then
+				if bugGrabberParentAddon == STANDALONE_NAME then
+					if GetTime() > lastWarningTime + 10 then
+						print(L.BUGGRABBER_STOPPED)
+						lastWarningTime = GetTime()
+					end
+				end
+				paused=true
+				triggerEvent("BugGrabber_CapturePaused")
+			end
+			return
+		end
+		paused=false
+		if msgsAllowed > BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE then
+			msgsAllowed = BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE
+		end
+		msgsAllowed = msgsAllowed - 1
+		
+		-- Grab it --
 		errorMessage = tostring(errorMessage)
 
 		local looping = errorMessage:find("BugGrabber") and true or nil
@@ -319,8 +361,6 @@ do
 		-- XXX increment the counter on it. This is probably wrong, it should
 		-- XXX be done here instead, as "fetchFromDatabase" implies a simple
 		-- XXX :Get procedure.
-
-		frame.count = frame.count + 1
 
 		local errorObject = found
 
@@ -557,30 +597,8 @@ registerAddonActionEvents()
 real_seterrorhandler(grabError)
 function seterrorhandler() --[[ noop ]] end
 
-do
-	-- Flood protection
-	local totalElapsed = 0
-	frame.count = 0
-	frame:SetScript("OnUpdate", function(self, elapsed)
-		totalElapsed = totalElapsed + elapsed
-		if totalElapsed > 1 then
-			-- Seems like we're getting more errors/sec than we want.
-			if self.count > BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE then
-				if bugGrabberParentAddon == STANDALONE_NAME then
-					print(L.BUGGRABBER_STOPPED)
-				end
-				unregisterAddonActionEvents()
-				real_seterrorhandler(function() --[[ noop ]] end)
-				paused = true
-				triggerEvent("BugGrabber_CapturePaused")
-				self:SetScript("OnUpdate", nil)
-				self:Hide()
-			end
-			self.count = 0
-			totalElapsed = 0
-		end
-	end)
-end
+frame:SetScript("OnUpdate", nil)  -- IF buggrabber in the future does version checks: disable old flood handlers that may be installed by old embedded buggrabbers
+
 
 -- Set up slash command
 _G.SlashCmdList.BugGrabber = slashHandler

@@ -88,6 +88,7 @@ frame:SetScript("OnShow", function(frame)
 	)
 	autoAh:SetChecked(not AmrOptions.manualShowShop)
 	autoAh:SetPoint("TOPLEFT", subTitleWrapper, "BOTTOMLEFT", -2, -88)
+    
 
 	frame:SetScript("OnShow", nil)
 end)

@@ -29,10 +29,10 @@ L["chatMessages"] = "聊天框體訊息"
 L["chatMessagesDesc"] = "除了顯示設定，輸出所有 Big Wigs 訊息到預設聊天框體。"
 L["colors"] = "顏色"
 L["configure"] = "配置"
-L["configureBtn"] = "設定…"
 L["configureBtnDesc"] = [=[關閉插件選項視窗並配置顯示項，如計時條、訊息。
 
 如果需要自訂更多幕後時間，你可以展開左側 Big Wigs 找到“自訂…”小項進行設定。]=]
+L["configureBtnName"] = "移動和配置 >>> 計時條/訊息/…"
 L["contact"] = "聯繫方式"
 L["coreAddonDisabled"] = "當%s被禁用時，Big Wigs 將無法正常工作。你可以在角色選擇螢幕的插件控制面板開啟它們。"
 L["customizeBtn"] = "自訂…"

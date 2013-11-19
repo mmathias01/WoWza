@@ -43,25 +43,18 @@ end
 
 L = BigWigs:NewBossLocale("Galakras", "frFR")
 if L then
-	L.demolisher = "Démolisseur"
-	L.demolisher_desc = "Délais avant que les Démolisseurs kor’kron ne se joignent au combat."
+L["adds_desc"] = "Barres de délai indiquant quand un nouveau groupe d'ennemi se joint au combat."
+L["demolisher_message"] = "Démolisseur"
+L["drakes"] = "Proto-Drakes"
+L["north_tower"] = "Tour nord"
+L["north_tower_trigger"] = "La porte qui barrait l’accès à la tour nord a été détruite !"
+L["south_tower"] = "Tour sud"
+L["south_tower_trigger"] = "La porte qui barrait l’accès à la tour sud a été détruite !"
+L["tower_defender"] = "Défenseur de la tour"
+L["towers"] = "Tours"
+L["towers_desc"] = "Alertes quand les portes des tours sont détruites."
+L["warlord_zaela"] = "Seigneur de guerre Zaela"
 
-	L.towers = "Tours"
-	L.towers_desc = "Alertes quand les portes des tours sont détruites."
-	L.south_tower_trigger = "La porte qui barrait l’accès à la tour sud a été détruite !"
-	L.south_tower = "Tour sud"
-	L.north_tower_trigger = "La porte qui barrait l’accès à la tour nord a été détruite !"
-	L.north_tower = "Tour nord"
-	L.tower_defender = "Défenseur de la tour"
-
-	L.adds_desc = "Barres de délai indiquant quand un nouveau groupe d'ennemi se joint au combat."
-	L.adds_trigger1 = "Descendez-la, que je puisse serrer mes mains autour de son cou."
-	L.adds_trigger2 = "Les voilà !"
-	L.adds_trigger3 = "Gueules-de-dragon, avancez !"
-	L.adds_trigger4 = "Pour Hurlenfer !"
-	L.adds_trigger5 = "Escouade suivante, en avant !"
-
-	--L.drakes = "Proto-Drakes"
 
 	L.custom_off_shaman_marker = "Marquage Chaman des marées"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chamans des marées gueule-de-dragon avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r\n|cFFADFF2ASTUCE : si le raid a décidé que c'est vous qui devez l'activer, survoler rapidement tous les chamans est le moyen le plus rapide de les marquer.|r"
@@ -97,7 +90,8 @@ if L then
 	L.adds_trigger4 = "Guerriers, au pas de course !"
 	L.adds_trigger5 = "Kor’krons, avec moi !"
 	L.adds_trigger_extra_wave = "Tous les Kor’krons sous mon commandement, tuez-les, maintenant !"
-	L.extra_adds = "Renforts supplémentaires"
+	L.extra_adds = "10% - Renforts supplémentaires"
+	--L.final_wave = "Final Wave"
 
 	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
 
@@ -114,6 +108,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "frFR")
 if L then
+	--L.start_trigger = "Hey, we recording?"
 	L.win_trigger = "Système en cours de réinitialisation. Veuillez ne pas le débrancher, ou il pourrait vous sauter à la figure." -- to check
 
 	L.enable_zone = "Entrepôt de l’Artéfact"
@@ -152,7 +147,7 @@ if L then
 	L.item_laser = "Laser"
 	L.item_magnet = "Aimant"
 
-	L.shockwave_missile_trigger = "Presenting... the beautiful new ST-03 Shockwave missile turret!" -- to translate
+	L.shockwave_missile_trigger = "Je vous présente ma merveilleuse tourelle lance-missiles Onde de Choc TOC-03 !" -- to check
 end
 
 L = BigWigs:NewBossLocale("Paragons of the Klaxxi", "frFR")
@@ -187,7 +182,7 @@ if L then
 	L.manifest_rage = "Manifestation de la rage"
 	L.manifest_rage_desc = "Quand Garrosh atteint 100 d'énergie, il incante Manifestation de la rage pendant 2 secondes, puis canalise ce dernier. Durant la canalisation, des adds apparaissent. Amenez l'étoile de fer sur Garrosh pour l'étourdir et interrompre son incantation."
 
-	L.phase_3_end_trigger = "Vous croyez avoir GAGNÉ ? Vous êtes AVEUGLE. JE VAIS VOUS OUVRIR LES YEUX." -- to check
+	L.phase_3_end_trigger = "Vous croyez avoir GAGNÉ ? Vous êtes AVEUGLES. JE VAIS VOUS OUVRIR LES YEUX." -- to check
 
 	L.clump_check_desc = "Vérifie toutes les 3 secondes durant les bombardements les joueurs regroupés. Si un regroupement est trouvé, une étoile de fer Kor'kron apparaîtra."
 	L.clump_check_warning = "Regroupement détecté, arrivée d'une étoile"

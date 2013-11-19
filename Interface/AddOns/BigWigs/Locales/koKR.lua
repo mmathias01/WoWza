@@ -29,10 +29,10 @@ L["chatMessages"] = "대화 창 메시지"
 L["chatMessagesDesc"] = "모든 BigWigs 메시지를 디스플레이 설정과 더불어 추가로 기본 대화창에 출력합니다."
 L["colors"] = "색상"
 L["configure"] = "설정"
-L["configureBtn"] = "설정 ..."
 L["configureBtnDesc"] = [=[인터페이스 옵션 창을 닫습니다. 그리고 바와 메시지에 대한 것을 설정할 수 있습니다.
 
 만약 더 많은 사용자 정의를 하고 싶다면, 왼쪽 옵션 트리에서 Big Wigs 옵션을 클릭하여 확장하여 '사용자 정의 ...' 찾으세요.]=]
+L["configureBtnName"] = "이동 및 조절 >>> 바 / 메시지 / ..."
 L["contact"] = "연락처"
 L["coreAddonDisabled"] = "%s 애드온이 비활성화 되었기 때문에 Big Wigs가 제대로 작동하지 않습니다. 캐릭터 선택 화면에서 좌측하단의 '외부 인터페이스'에서 활성화/비활성화를 설정할 수 있습니다."
 L["customizeBtn"] = "사용자 설정 ..."

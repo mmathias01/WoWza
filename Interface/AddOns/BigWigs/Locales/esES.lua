@@ -28,7 +28,6 @@ L["chatMessages"] = "Chat frame messages"
 L["chatMessagesDesc"] = "Todos los mensajes de salida de Big Wigs a la ventana de chat por defecto en adición a los ajustes mostrados"
 L["colors"] = "Colores"
 L["configure"] = "Configurar"
-L["configureBtn"] = "Configurar..."
 L["configureBtnDesc"] = [=[Cierra la ventana de opciones y deja configurar como se verían las barras y mensajes.
 Si quieres personalizar más cosas, puedes expandir Big Wigs en el arbol de la izquierda y buscar la subsección Personalizar...]=]
 L["contact"] = "Contacto"

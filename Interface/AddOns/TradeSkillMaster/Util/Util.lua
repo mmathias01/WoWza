@@ -470,7 +470,7 @@ function TSMAPI:GetItemString(item)
 	if type(item) ~= "string" and type(item) ~= "number" then
 		return nil, "invalid arg type"
 	end
-	item = select(2, lib:GetSafeItemInfo(item)) or item
+	item = select(2, TSMAPI:GetSafeItemInfo(item)) or item
 	if tonumber(item) then
 		return "item:"..item..":0:0:0:0:0:0"
 	end
@@ -522,6 +522,7 @@ function TSMAPI:GetSafeItemInfo(link)
 			level, quality, health, power, speed, petID = level or 0, quality or 0, health or 0, power or 0, speed or 0, petID or "0"
 			
 			local name, texture = C_PetJournal.GetPetInfoBySpeciesID(tonumber(speciesID))
+			if name == "" then return end
 			level, quality = tonumber(level), tonumber(quality)
 			petID = strsub(petID, 1, (strfind(petID, "|") or #petID)-1)
 			link = ITEM_QUALITY_COLORS[quality].hex.."|Hbattlepet:"..speciesID..":"..level..":"..quality..":"..health..":"..power..":"..speed..":"..petID.."|h["..name.."]|h|r"

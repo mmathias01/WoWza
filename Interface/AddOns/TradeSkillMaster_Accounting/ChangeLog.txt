@@ -1,3 +1,8 @@
+v2.1.2
+*Fixed bug with corrupted postage expense data.
+*Gold log data will now be stored as CSV to be consistent with other data.
+*Added option to disable display of money transfers.
+
 v2.1.1
 *Fixed bug with gold tracking.
 

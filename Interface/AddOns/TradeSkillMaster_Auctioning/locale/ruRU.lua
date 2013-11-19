@@ -76,7 +76,7 @@ L["Delete"] = "Удалить"
 -- L["Did not reset %s because your reset resolution (%s) is invalid. Check your settings."] = ""
 L["Disable Invalid Price Warnings"] = "Отключить предупреждения неправильной цены"
 L["Done Canceling"] = "Отмена завершена"
-L["Done Posting"] = "Выставлено"
+L["Done Posting"] = "Выставление лотов закончено"
 L[ [=[Done Posting
 
 Total value of your auctions: %s

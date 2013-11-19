@@ -15,6 +15,7 @@ TSM.INCOME_KEYS = { "type", "amount", "source", "player", "time" }
 TSM.EXPENSE_KEYS = { "type", "amount", "destination", "player", "time" }
 TSM.EXPIRED_KEYS = { "itemString", "itemName", "stackSize", "quantity", "player", "time" }
 TSM.CANCELLED_KEYS = { "itemString", "itemName", "stackSize", "quantity", "player", "time" }
+TSM.GOLD_LOG_KEYS = { "startMinute", "endMinute", "copper" }
 local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster_Accounting") -- loads the localization table
 
 local savedDBDefaults = {
@@ -41,6 +42,7 @@ local savedDBDefaults = {
 		autoTrackTrades = false,
 		displayGreys = true,
 		goldLog = {},
+		displayTransfers = true
 	},
 }
 
@@ -255,7 +257,7 @@ end
 
 function TSM:OnDisable()
 	TSM.Data:LogGold()
-	local sales, buys, income, expense, expired, cancelled = {}, {}, {}, {}, {}, {}
+	local sales, buys, income, expense, expired, cancelled, goldLog = {}, {}, {}, {}, {}, {}, {}
 	for itemString, data in pairs(TSM.Data.items) do
 		local name = data.itemName or TSMAPI:GetSafeItemInfo(itemString) or TSM:GetItemName(itemString) or "?"
 		for _, record in ipairs(data.sales) do
@@ -292,12 +294,18 @@ function TSM:OnDisable()
 			tinsert(cancelled, record)
 		end
 	end
-	TSM.db.factionrealm.csvSales = LibStub("LibParse"):CSVEncode(TSM.SELL_KEYS, sales)
-	TSM.db.factionrealm.csvBuys = LibStub("LibParse"):CSVEncode(TSM.BUY_KEYS, buys)
-	TSM.db.factionrealm.csvIncome = LibStub("LibParse"):CSVEncode(TSM.INCOME_KEYS, income)
-	TSM.db.factionrealm.csvExpense = LibStub("LibParse"):CSVEncode(TSM.EXPENSE_KEYS, expense)
-	TSM.db.factionrealm.csvExpired = LibStub("LibParse"):CSVEncode(TSM.EXPIRED_KEYS, expired)
-	TSM.db.factionrealm.csvCancelled = LibStub("LibParse"):CSVEncode(TSM.CANCELLED_KEYS, cancelled)
+	local LibParse = LibStub("LibParse")
+	TSM.db.factionrealm.csvSales = LibParse:CSVEncode(TSM.SELL_KEYS, sales)
+	TSM.db.factionrealm.csvBuys = LibParse:CSVEncode(TSM.BUY_KEYS, buys)
+	TSM.db.factionrealm.csvIncome = LibParse:CSVEncode(TSM.INCOME_KEYS, income)
+	TSM.db.factionrealm.csvExpense = LibParse:CSVEncode(TSM.EXPENSE_KEYS, expense)
+	TSM.db.factionrealm.csvExpired = LibParse:CSVEncode(TSM.EXPIRED_KEYS, expired)
+	TSM.db.factionrealm.csvCancelled = LibParse:CSVEncode(TSM.CANCELLED_KEYS, cancelled)
+	for player, data in pairs(TSM.db.factionrealm.goldLog) do
+		if type(data) == "table" then
+			TSM.db.factionrealm.goldLog[player] = LibParse:CSVEncode(TSM.GOLD_LOG_KEYS, data)
+		end
+	end
 end
 
 function TSM:GetItemName(item)

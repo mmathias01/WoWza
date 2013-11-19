@@ -16,20 +16,20 @@ oRA3DB = {
 		},
 		["ReadyCheck"] = {
 		},
-		["Promote"] = {
-		},
 		["LibDualSpec-1.0"] = {
+		},
+		["Promote"] = {
 		},
 	},
 	["profileKeys"] = {
-		["Jolokya - Dragonblight"] = "Default",
+		["Cellestia - Terenas"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
-		["Majandra - Darrowmere"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
-		["Cellestia - Terenas"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -39,9 +39,9 @@ oRA3DB = {
 				},
 				["oRA3CooldownFrame"] = {
 					["Height"] = 147.9999084472656,
-					["Width"] = 200.0000610351563,
-					["PosY"] = 661.3424639306686,
 					["PosX"] = 784.2696370461636,
+					["PosY"] = 661.3424639306686,
+					["Width"] = 200.0000610351563,
 				},
 			},
 			["lastSelectedPanel"] = "Checks",

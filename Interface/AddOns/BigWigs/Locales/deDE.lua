@@ -28,7 +28,6 @@ L["chatMessages"] = "Chatfenster-Nachrichten"
 L["chatMessagesDesc"] = "Gibt alle Big Wigs Nachrichten im Standard-Chatfenster aus, zusätzlich zu der Einstellung unter 'Ausgabe'."
 L["colors"] = "Farben"
 L["configure"] = "Einstellungen"
-L["configureBtn"] = "Einstellungen ..."
 L["configureBtnDesc"] = [=[Schließt das Interface-Fenster und lässt dich die Anzeigen für z.B. Leisten und Nachrichten einstellen.
 
 Wenn du mehr Dinge hinter den Kulissen anpassen willst, kannst du Big Wigs im Menü links aufmachen und 'Anpassen ...' wählen.]=]

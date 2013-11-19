@@ -3,7 +3,7 @@ local module = oRA:NewModule("Invite", "AceTimer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 local AceGUI = LibStub("AceGUI-3.0")
 
-module.VERSION = tonumber(("$Revision: 688 $"):sub(12, -3))
+module.VERSION = tonumber(("$Revision: 690 $"):sub(12, -3))
 
 local frame = nil
 local db = nil
@@ -210,17 +210,15 @@ local function inQueue()
 	--end
 end
 
+local playerFaction = UnitFactionGroup("player")
 local function getBattleNetToon(presenceId)
 	local friendIndex = BNGetFriendIndex(presenceId)
 	for i=1, BNGetNumFriendToons(friendIndex) do
 		local _, toonName, client, realmName, realmId, faction, _, _, _, _, _, _, _, _, _, toonId = BNGetFriendToonInfo(friendIndex, i)
-		if client == BNET_CLIENT_WOW and faction == UnitFactionGroup("player") and realmId > 0 then
-			--[[ 5.4.1 broke returning realmName it seems
-			if realmName ~= GetRealmName() then
+		if client == BNET_CLIENT_WOW and faction == playerFaction and realmId > 0 then
+			if realmName ~= "" and realmName ~= GetRealmName() then
 				toonName = toonName.."-"..realmName
 			end
-			return toonName
-			--]]
 			return toonName, toonId
 		end
 	end

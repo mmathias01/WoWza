@@ -1,3 +1,9 @@
+v2.2.5
+*Fixed bug with the current profile not being saved.
+*Fixed bug with getting battle pet item info.
+*Fixed sorting of auction result table.
+*Removing an operation from a group will no longer switch to the new operation page.
+
 v2.2.4
 *Made group trees select all groups by default.
 

@@ -1,9 +1,52 @@
 ------------------------------------------------------------------------
-r689 | funkydude | 2013-10-31 04:55:12 +0000 (Thu, 31 Oct 2013) | 1 line
+r697 | funkydude | 2013-11-14 17:34:27 +0000 (Thu, 14 Nov 2013) | 1 line
 Changed paths:
-   A /tags/r689-release (from /trunk:688)
+   A /tags/r697-release (from /trunk:696)
 
-Tagging as r689-release
+Tagging as r697-release
+------------------------------------------------------------------------
+r696 | funkydude | 2013-11-05 22:25:19 +0000 (Tue, 05 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: nil check
+------------------------------------------------------------------------
+r695 | funkydude | 2013-11-04 01:20:35 +0000 (Mon, 04 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: actually use the cleanName var.
+------------------------------------------------------------------------
+r694 | funkydude | 2013-11-04 01:04:13 +0000 (Mon, 04 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+ReadyCheck: revert hook addition and add role icons ourself, drycoded.
+------------------------------------------------------------------------
+r693 | oscarucb | 2013-11-03 00:04:58 +0000 (Sun, 03 Nov 2013) | 2 lines
+Changed paths:
+   M /trunk/modules/ReadyCheck.lua
+
+make the setMemberStatus function hookable
+
+------------------------------------------------------------------------
+r692 | nebula169 | 2013-10-31 11:11:08 +0000 (Thu, 31 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Difficulty.lua
+
+Difficulty: fix lua error
+------------------------------------------------------------------------
+r691 | nebula169 | 2013-10-31 07:59:33 +0000 (Thu, 31 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Difficulty.lua
+
+Difficulty: don't change difficulty when you leave a group while still in the instance
+------------------------------------------------------------------------
+r690 | nebula169 | 2013-10-31 07:47:49 +0000 (Thu, 31 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/modules/Invite.lua
+
+Invite: tweaks
 ------------------------------------------------------------------------
 r688 | nebula169 | 2013-10-31 04:52:06 +0000 (Thu, 31 Oct 2013) | 1 line
 Changed paths:
@@ -59,36 +102,4 @@ Changed paths:
    M /trunk/modules/Difficulty.lua
 
 Difficulty: add a 4s delay to trying to restore your raid difficulty since you don't register as being in a group for quite a while after PLAYER_LOGIN fires when first logging in
-------------------------------------------------------------------------
-r677 | oscarucb | 2013-10-12 23:47:53 +0000 (Sat, 12 Oct 2013) | 2 lines
-Changed paths:
-   M /trunk/modules/ReadyCheck.lua
-
-add a hidden option to control realm stripping from character names in messages
-
-------------------------------------------------------------------------
-r676 | oscarucb | 2013-10-10 09:34:05 +0000 (Thu, 10 Oct 2013) | 2 lines
-Changed paths:
-   M /trunk/modules/ReadyCheck.lua
-
-improve the "fake" ready check response messages we generate for non-assistants, to ensure they are handled exactly like "real" ready check system messages by the chat frame(s)
-
-------------------------------------------------------------------------
-r675 | nebula169 | 2013-10-08 20:16:16 +0000 (Tue, 08 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/modules/Cooldowns.lua
-
-Cooldowns: remove hunter readiness, lower disengage to 20s and bump deterrence to 3m (still need to account for charges)
-------------------------------------------------------------------------
-r674 | nebula169 | 2013-10-03 01:42:35 +0000 (Thu, 03 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/modules/Loot.lua
-
-Loot: set loot on all group type changes
-------------------------------------------------------------------------
-r673 | Whyv | 2013-09-25 14:35:33 +0000 (Wed, 25 Sep 2013) | 1 line
-Changed paths:
-   M /trunk/locales/zhTW.lua
-
-zhTW update
 ------------------------------------------------------------------------

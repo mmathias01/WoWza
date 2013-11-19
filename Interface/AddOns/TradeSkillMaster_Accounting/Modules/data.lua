@@ -22,7 +22,8 @@ function Data:Load()
 	Data.items = {}
 	Data.money = {}
 	Data.auctions = {}
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvSales)) or {}) do
+	local LibParse = LibStub("LibParse")
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvSales)) or {}) do
 		if data.itemString then
 			if data.itemName == "?" then data.itemName = nil end
 			data.itemName = data.itemName or TSMAPI:GetSafeItemInfo(data.itemString) or TSM:GetItemName(data.itemString)
@@ -31,7 +32,7 @@ function Data:Load()
 			tinsert(Data.items[data.itemString].sales, data)
 		end
 	end
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvBuys)) or {}) do
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvBuys)) or {}) do
 		if data.itemString then
 			if data.itemName == "?" then data.itemName = nil end
 			data.itemName = data.itemName or TSMAPI:GetSafeItemInfo(data.itemString) or TSM:GetItemName(data.itemString)
@@ -40,19 +41,19 @@ function Data:Load()
 			tinsert(Data.items[data.itemString].buys, data)
 		end
 	end
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvIncome)) or {}) do
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvIncome)) or {}) do
 		if data.type then
 			Data.money[data.type] = Data.money[data.type] or { income = {}, expense = {} }
 			tinsert(Data.money[data.type].income, data)
 		end
 	end
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvExpense)) or {}) do
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvExpense)) or {}) do
 		if data.type then
 			Data.money[data.type] = Data.money[data.type] or { income = {}, expense = {} }
 			tinsert(Data.money[data.type].expense, data)
 		end
 	end
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvExpired)) or {}) do
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvExpired)) or {}) do
 		if data.itemString then
 			data.itemName = data.itemName or TSMAPI:GetSafeItemInfo(data.itemString) or TSM:GetItemName(data.itemString)
 			Data.auctions[data.itemString] = Data.auctions[data.itemString] or { expired = {}, cancelled = {} }
@@ -60,12 +61,17 @@ function Data:Load()
 			tinsert(Data.auctions[data.itemString].expired, data)
 		end
 	end
-	for _, data in ipairs(select(2, LibStub("LibParse"):CSVDecode(TSM.db.factionrealm.csvCancelled)) or {}) do
+	for _, data in ipairs(select(2, LibParse:CSVDecode(TSM.db.factionrealm.csvCancelled)) or {}) do
 		if data.itemString then
 			data.itemName = data.itemName or TSMAPI:GetSafeItemInfo(data.itemString) or TSM:GetItemName(data.itemString)
 			Data.auctions[data.itemString] = Data.auctions[data.itemString] or { expired = {}, cancelled = {} }
 			Data.auctions[data.itemString].name = Data.auctions[data.itemString].name or data.itemName
 			tinsert(Data.auctions[data.itemString].cancelled, data)
+		end
+	end
+	for player, data in pairs(TSM.db.factionrealm.goldLog) do
+		if type(data) == "string" then
+			TSM.db.factionrealm.goldLog[player] = select(2, LibParse:CSVDecode(data))
 		end
 	end
 
@@ -330,16 +336,20 @@ function Data:AddRecord(dataType, itemString, price, stackSize, otherPerson, rec
 end
 
 -- adds a new record for money received / spent
-function Data:AddMoneyRecord(dataType, type, amount, otherEntity, recordTime)
+function Data:AddMoneyRecord(dataType, rType, amount, otherEntity, recordTime)
 	if dataType ~= "income" and dataType ~= "expense" then error("Invalid type: " .. tostring(dataType)) end
 	local currentPlayer = UnitName("player")
 
-	Data.money[type] = Data.money[type] or { income = {}, expense = {} }
+	Data.money[rType] = Data.money[rType] or { income = {}, expense = {} }
 	local otherEntityIndex = (dataType == "income" and "source") or (dataType == "expense" and "destination")
 
 	local foundRecord
-	for _, record in ipairs(Data.money[type][dataType]) do
-		if abs(record.time - recordTime) < TIME_BUCKET and record.player == currentPlayer then
+	for i=#Data.money[rType][dataType], 1, -1 do
+		local record = Data.money[rType][dataType][i]
+		if type(record.time) ~= "number" then
+			-- hackish fix...
+			tremove(Data.money[rType][dataType], i)
+		elseif abs(record.time - recordTime) < TIME_BUCKET and record.player == currentPlayer then
 			record.amount = record.amount + amount
 			foundRecord = true
 			break
@@ -347,7 +357,7 @@ function Data:AddMoneyRecord(dataType, type, amount, otherEntity, recordTime)
 	end
 
 	if not foundRecord then
-		tinsert(Data.money[type][dataType], { time = recordTime, amount = amount, [otherEntityIndex] = otherEntity, player = currentPlayer })
+		tinsert(Data.money[rType][dataType], { time = recordTime, amount = amount, [otherEntityIndex] = otherEntity, player = currentPlayer })
 	end
 end
 
@@ -593,30 +603,32 @@ function Data:GetMoneyData(dataType, filterFunc)
 		if #data[dataType] > 0 and filterFunc(type) then
 			for _, record in ipairs(data[dataType]) do
 				if filterFunc(type, record.player) then
-					tinsert(stData, {
-						cols = {
-							{
-								value = type,
-								sortArg = type,
+					if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+						tinsert(stData, {
+							cols = {
+								{
+									value = type,
+									sortArg = type,
+								},
+								{
+									value = record.player,
+									sortArg = record.player,
+								},
+								{
+									value = record.source or record.destination,
+									sortArg = record.source or record.destination,
+								},
+								{
+									value = TSMAPI:FormatTextMoney(record.amount),
+									sortArg = record.amount,
+								},
+								{
+									value = Data:GetFormattedTime(record.time),
+									sortArg = record.time,
+								},
 							},
-							{
-								value = record.player,
-								sortArg = record.player,
-							},
-							{
-								value = record.source or record.destination,
-								sortArg = record.source or record.destination,
-							},
-							{
-								value = TSMAPI:FormatTextMoney(record.amount),
-								sortArg = record.amount,
-							},
-							{
-								value = Data:GetFormattedTime(record.time),
-								sortArg = record.time,
-							},
-						},
-					})
+						})
+					end
 				end
 			end
 		end
@@ -833,7 +845,7 @@ function Data:GetGoldData(filters)
 	local function GroupFilter(itemString)
 		if not filters.group then return true end
 		local groupPath = TSMAPI:GetGroupPath(itemString)
-		return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(filters.group))
+		return groupPath and strfind(groupPath, "^" .. TSMAPI:StrEscape(filters.group))
 	end
 
 	local goldData = {
@@ -938,71 +950,82 @@ function Data:GetGoldData(filters)
 	end
 
 	for type, data in pairs(TSM.Data.money) do
-		if #data.income > 0 then
-			local typeTotalGold, typeTotalNum = 0, 0
-			for _, record in ipairs(data.income) do
-				if filters.player == "all" or filters.player == record.player then
-					typeTotalNum = typeTotalNum + 1
-					typeTotalGold = typeTotalGold + record.amount
-					goldData.totalIncome = goldData.totalIncome + record.amount
-					local timeDiff = time() - record.time
-					if timeDiff < (SECONDS_PER_DAY * 30) then
-						if timeDiff > goldData.monthTime then
-							goldData.monthTime = timeDiff
-						end
-						goldData.monthIncome = goldData.monthIncome + record.amount
-						if timeDiff < (SECONDS_PER_DAY * 7) then
-							if timeDiff > goldData.weekTime then
-								goldData.weekTime = timeDiff
+		if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+			if #data.income > 0 then
+				local typeTotalGold, typeTotalNum = 0, 0
+				for _, record in ipairs(data.income) do
+					if filters.player == "all" or filters.player == record.player then
+						typeTotalNum = typeTotalNum + 1
+						typeTotalGold = typeTotalGold + record.amount
+						goldData.totalIncome = goldData.totalIncome + record.amount
+						local timeDiff = time() - record.time
+						if timeDiff < (SECONDS_PER_DAY * 30) then
+							if timeDiff > goldData.monthTime then
+								goldData.monthTime = timeDiff
 							end
-							goldData.weekIncome = goldData.weekIncome + record.amount
+							goldData.monthIncome = goldData.monthIncome + record.amount
+							if timeDiff < (SECONDS_PER_DAY * 7) then
+								if timeDiff > goldData.weekTime then
+									goldData.weekTime = timeDiff
+								end
+								goldData.weekIncome = goldData.weekIncome + record.amount
+							end
+						end
+						if timeDiff > goldData.totalTime then
+							goldData.totalTime = timeDiff
 						end
 					end
-					if timeDiff > goldData.totalTime then
-						goldData.totalTime = timeDiff
+				end
+				if typeTotalGold > (goldData.topIncomeGold.amount or 0) then
+					if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+						goldData.topIncomeGold = { type = type, amount = typeTotalGold }
+					end
+				end
+				if typeTotalNum > (goldData.topIncomeQuantity.num or 0) then
+					if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+						goldData.topIncomeQuantity = { type = type, num = typeTotalNum }
 					end
 				end
 			end
-			if typeTotalGold > (goldData.topIncomeGold.amount or 0) then
-				goldData.topIncomeGold = { type = type, amount = typeTotalGold }
-			end
-			if typeTotalNum > (goldData.topIncomeQuantity.num or 0) then
-				goldData.topIncomeQuantity = { type = type, num = typeTotalNum }
-			end
-		end
-		if #data.expense > 0 then
-			local typeTotalGold, typeTotalNum = 0, 0
-			for _, record in ipairs(data.expense) do
-				if filters.player == "all" or filters.player == record.player then
-					typeTotalNum = typeTotalNum + 1
-					typeTotalGold = typeTotalGold + record.amount
-					goldData.totalExpense = goldData.totalExpense + record.amount
-					local timeDiff = time() - record.time
-					if timeDiff < (SECONDS_PER_DAY * 30) then
-						if timeDiff > goldData.monthTime then
-							goldData.monthTime = timeDiff
-						end
-						goldData.monthExpense = goldData.monthExpense + record.amount
-						if timeDiff < (SECONDS_PER_DAY * 7) then
-							if timeDiff > goldData.weekTime then
-								goldData.weekTime = timeDiff
+			if #data.expense > 0 then
+				local typeTotalGold, typeTotalNum = 0, 0
+				for _, record in ipairs(data.expense) do
+					if filters.player == "all" or filters.player == record.player then
+						typeTotalNum = typeTotalNum + 1
+						typeTotalGold = typeTotalGold + record.amount
+						goldData.totalExpense = goldData.totalExpense + record.amount
+						local timeDiff = time() - record.time
+						if timeDiff < (SECONDS_PER_DAY * 30) then
+							if timeDiff > goldData.monthTime then
+								goldData.monthTime = timeDiff
 							end
-							goldData.weekExpense = goldData.weekExpense + record.amount
+							goldData.monthExpense = goldData.monthExpense + record.amount
+							if timeDiff < (SECONDS_PER_DAY * 7) then
+								if timeDiff > goldData.weekTime then
+									goldData.weekTime = timeDiff
+								end
+								goldData.weekExpense = goldData.weekExpense + record.amount
+							end
 						end
-					end
-					if timeDiff > goldData.totalTime then
-						goldData.totalTime = timeDiff
+						if timeDiff > goldData.totalTime then
+							goldData.totalTime = timeDiff
+						end
 					end
 				end
-			end
-			if typeTotalGold > (goldData.topExpenseGold.amount or 0) then
-				goldData.topExpenseGold = { type = type, amount = typeTotalGold }
-			end
-			if typeTotalNum > (goldData.topExpenseQuantity.num or 0) then
-				goldData.topExpenseQuantity = { type = type, num = typeTotalNum }
+				if typeTotalGold > (goldData.topExpenseGold.amount or 0) then
+					if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+						goldData.topExpenseGold = { type = type, amount = typeTotalGold }
+					end
+				end
+				if typeTotalNum > (goldData.topExpenseQuantity.num or 0) then
+					if ((not TSM.db.factionrealm.displayTransfers and type ~= "Money Transfer") or TSM.db.factionrealm.displayTransfers) then
+						goldData.topExpenseQuantity = { type = type, num = typeTotalNum }
+					end
+				end
 			end
 		end
 	end
+
 
 	if goldData.totalTime > (SECONDS_PER_DAY * 7) then
 		goldData.weekTime = SECONDS_PER_DAY * 7
@@ -1019,7 +1042,7 @@ end
 
 -- get the data for the item specifics page
 function Data:GetItemData(itemString)
-	if not Data.items[itemString] then return	end
+	if not Data.items[itemString] then return end
 
 	local data = { activity = {}, sellers = {}, buyers = {} }
 
@@ -1275,7 +1298,7 @@ function Data:LogGold()
 
 	TSM.db.factionrealm.goldLog[player] = TSM.db.factionrealm.goldLog[player] or {}
 	local goldLog = TSM.db.factionrealm.goldLog[player]
-	local currentGold = TSM:Round(GetMoney(), COPPER_PER_GOLD*1000)
+	local currentGold = TSM:Round(GetMoney(), COPPER_PER_GOLD * 1000)
 	if #goldLog > 0 and currentGold == goldLog[#goldLog].copper then
 		goldLog[#goldLog].endMinute = currentMinute
 	else

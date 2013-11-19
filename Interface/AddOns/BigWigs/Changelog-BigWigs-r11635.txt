@@ -1,4 +1,323 @@
 ------------------------------------------------------------------------
+r11635 | funkydude | 2013-11-19 04:01:22 +0000 (Tue, 19 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
+   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
+   M /trunk/SiegeOfOrgrimmar/Immerseus.lua
+   M /trunk/SiegeOfOrgrimmar/IronJuggernaut.lua
+   M /trunk/SiegeOfOrgrimmar/KorKron.lua
+   M /trunk/SiegeOfOrgrimmar/Malkorok.lua
+   M /trunk/SiegeOfOrgrimmar/Norushen.lua
+   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
+   M /trunk/SiegeOfOrgrimmar/ShaOfPride.lua
+   M /trunk/SiegeOfOrgrimmar/SiegecrafterBlackfuse.lua
+   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
+   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
+   M /trunk/SiegeOfOrgrimmar/Thok.lua
+
+SiegeOfOrgrimmar: cleanup our locale table lookups.
+------------------------------------------------------------------------
+r11634 | funkydude | 2013-11-18 23:41:03 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
+
+GeneralNazgrim: sound tweak
+------------------------------------------------------------------------
+r11633 | funkydude | 2013-11-18 18:14:58 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
+
+TheFallenProtectors: don't bother with inferno proximity in LFR.
+------------------------------------------------------------------------
+r11632 | funkydude | 2013-11-18 18:11:12 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Norushen.lua
+   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
+
+Norushen: tweak big add related warnings on LFR.
+------------------------------------------------------------------------
+r11631 | nebula169 | 2013-11-18 15:24:18 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
+
+SpoilsOfPandaria: tweak
+------------------------------------------------------------------------
+r11630 | funkydude | 2013-11-18 13:36:32 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
+   M /trunk/SiegeOfOrgrimmar/Thok.lua
+
+itIT fix
+------------------------------------------------------------------------
+r11629 | _yusaku_ | 2013-11-18 11:08:02 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r11628 | Wetxius | 2013-11-18 07:19:32 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r11627 | shari83 | 2013-11-18 06:36:39 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+
+koKR update
+------------------------------------------------------------------------
+r11626 | funkydude | 2013-11-18 03:41:36 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/ShaOfPride.lua
+
+ShaOfPride: tweak message delays
+------------------------------------------------------------------------
+r11625 | ananhaid | 2013-11-18 02:27:06 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r11624 | funkydude | 2013-11-18 01:50:51 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/BigWigs.toc
+   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+GeneralNazgrim: tweak add message text, extra warnings for impending defensive stance.
+------------------------------------------------------------------------
+r11623 | funkydude | 2013-11-18 00:57:43 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/Locales/enUS.lua
+   M /trunk/Options/Options.lua
+
+Options: rename the "configure" button on the main UI to try and make it really obvious where the movers are.
+------------------------------------------------------------------------
+r11622 | funkydude | 2013-11-18 00:15:28 +0000 (Mon, 18 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/esES.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ptBR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+Galakras: move localization to wowace.
+------------------------------------------------------------------------
+r11621 | maat | 2013-11-17 22:24:13 +0000 (Sun, 17 Nov 2013) | 4 lines
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
+   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
+
+SpoilsOfPandaria.lua:
+  add unstable spark warnings
+ParagonsOfTheKlaxxi.lua:
+  adjust proximity meter closing timer for heroic catalysts
+------------------------------------------------------------------------
+r11620 | funkydude | 2013-11-17 22:12:49 +0000 (Sun, 17 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Norushen.lua
+   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
+
+Might aswell emphasize warmup timers by default
+------------------------------------------------------------------------
+r11619 | funkydude | 2013-11-17 21:37:36 +0000 (Sun, 17 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Norushen.lua
+
+Norushen: tweak big add message, add a bar, don't play a sound until > 2 doubt stacks.
+------------------------------------------------------------------------
+r11618 | pettigrow | 2013-11-17 15:48:32 +0000 (Sun, 17 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+
+frFR Update
+------------------------------------------------------------------------
+r11617 | Wetxius | 2013-11-17 14:29:37 +0000 (Sun, 17 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r11616 | funkydude | 2013-11-16 03:57:34 +0000 (Sat, 16 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
+
+GarroshHellscream: rename the touch is now empowered message to mind control is now empowered.
+------------------------------------------------------------------------
+r11615 | maat | 2013-11-15 14:57:42 +0000 (Fri, 15 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
+
+Refactor the catalyst code to be less confusing/annoying. It is untested for heroic, so please report errors.
+------------------------------------------------------------------------
+r11614 | nebula169 | 2013-11-15 12:11:22 +0000 (Fri, 15 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
+
+GarroshHellscream: show the message for Y'Sharrj's Protection dropping in LFR
+------------------------------------------------------------------------
+r11613 | Wetxius | 2013-11-15 08:19:33 +0000 (Fri, 15 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r11612 | ananhaid | 2013-11-15 00:40:04 +0000 (Fri, 15 Nov 2013) | 2 lines
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+-- zhTW update.
+-- plz use Localization system for some already for it.
+------------------------------------------------------------------------
+r11611 | zhTW | 2013-11-14 21:08:23 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+zhTW update
+------------------------------------------------------------------------
+r11610 | shari83 | 2013-11-14 15:05:26 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+
+koKR update
+------------------------------------------------------------------------
+r11609 | Wetxius | 2013-11-14 10:09:08 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r11608 | _yusaku_ | 2013-11-14 09:43:15 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r11607 | shari83 | 2013-11-14 06:49:55 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+
+koKR update - Spoils of Pandaria
+------------------------------------------------------------------------
+r11606 | ananhaid | 2013-11-14 00:50:41 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+
+- zhCN update.
+------------------------------------------------------------------------
+r11605 | Wetxius | 2013-11-13 17:41:02 +0000 (Wed, 13 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+
+ruRU update.
+------------------------------------------------------------------------
+r11604 | funkydude | 2013-11-13 16:21:57 +0000 (Wed, 13 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/esES.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
+
+SpoilsOfPandaria: add a warmup timer.
+------------------------------------------------------------------------
+r11603 | funkydude | 2013-11-13 15:30:25 +0000 (Wed, 13 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/Loader.lua
+   M /trunk/Plugins/AltPower.lua
+
+AltPower: check that the group count has changed before doing a refresh.
+------------------------------------------------------------------------
+r11602 | _yusaku_ | 2013-11-13 09:39:45 +0000 (Wed, 13 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+
+itIT Locale updates
+------------------------------------------------------------------------
+r11601 | ananhaid | 2013-11-13 00:45:31 +0000 (Wed, 13 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r11600 | funkydude | 2013-11-12 17:26:12 +0000 (Tue, 12 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/esES.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ptBR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+Galakras: test out add timers without localization.
+------------------------------------------------------------------------
+r11599 | funkydude | 2013-11-12 15:46:45 +0000 (Tue, 12 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/Core/BossPrototype.lua
+
+BossPrototype: Fix :Damager call
+------------------------------------------------------------------------
+r11598 | funkydude | 2013-11-12 14:13:27 +0000 (Tue, 12 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
+
+GeneralNazgrim: prevent adds bar showing after 10th wave.
+------------------------------------------------------------------------
+r11597 | funkydude | 2013-11-11 18:29:35 +0000 (Mon, 11 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/koKR.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhCN.lua
+   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
+
+Galakras: tweak
+------------------------------------------------------------------------
+r11596 | funkydude | 2013-11-11 18:02:39 +0000 (Mon, 11 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+
+Galakras: separate the tower functions
+------------------------------------------------------------------------
+r11595 | funkydude | 2013-11-11 12:58:57 +0000 (Mon, 11 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/Plugins/AltPower.lua
+
+AltPower: missed an unregister event call.
+------------------------------------------------------------------------
+r11594 | maat | 2013-11-10 21:08:09 +0000 (Sun, 10 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/SiegeOfOrgrimmar/Galakras.lua
+
+back to 60 sec for tower defender timer
+------------------------------------------------------------------------
 r11593 | maat | 2013-11-10 20:34:40 +0000 (Sun, 10 Nov 2013) | 1 line
 Changed paths:
    M /trunk/SiegeOfOrgrimmar/Galakras.lua
@@ -1338,403 +1657,4 @@ Changed paths:
    M /trunk/SiegeOfOrgrimmar/Malkorok.lua
 
 Malkorok have 720s berserk in LFR.
-------------------------------------------------------------------------
-r11411 | funkydude | 2013-10-18 14:15:20 +0000 (Fri, 18 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: add flash for sha sear.
-------------------------------------------------------------------------
-r11410 | funkydude | 2013-10-18 12:30:02 +0000 (Fri, 18 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: bump up corrupted brew tank check.
-------------------------------------------------------------------------
-r11409 | nebula169 | 2013-10-18 06:05:27 +0000 (Fri, 18 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
-
-GeneralNazgrim: fix Execute timer
-------------------------------------------------------------------------
-r11408 | maat | 2013-10-18 01:28:17 +0000 (Fri, 18 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
-
-fix bombardment timer, need longer phase 4 logs (4+ bombardment) to verify consistency
-------------------------------------------------------------------------
-r11406 | funkydude | 2013-10-18 00:40:55 +0000 (Fri, 18 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Core/Core.lua
-   M /trunk/Plugins/AltPower.lua
-
-tweaks
-------------------------------------------------------------------------
-r11405 | funkydude | 2013-10-17 22:02:50 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: commented out code for parasite raid icon
-------------------------------------------------------------------------
-r11404 | funkydude | 2013-10-17 20:15:26 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/AltPower.lua
-
-AltPower: tweak sizes
-------------------------------------------------------------------------
-r11403 | maat | 2013-10-17 18:02:33 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
-
-fix clump check flash icon
-------------------------------------------------------------------------
-r11402 | nebula169 | 2013-10-17 05:34:21 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/IronJuggernaut.lua
-
-IronJuggernaut: fix Explosive Tar
-------------------------------------------------------------------------
-r11401 | nebula169 | 2013-10-17 05:25:32 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Core/PluginPrototype.lua
-
-fix PluginPrototype
-------------------------------------------------------------------------
-r11400 | funkydude | 2013-10-17 02:16:19 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/AltPower.lua
-
-AltPower: tweak
-------------------------------------------------------------------------
-r11399 | funkydude | 2013-10-17 02:06:13 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Core/PluginPrototype.lua
-   M /trunk/Plugins/AltPower.lua
-
-more AltPower work
-------------------------------------------------------------------------
-r11398 | funkydude | 2013-10-17 00:27:44 +0000 (Thu, 17 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: remove extra whirl message
-------------------------------------------------------------------------
-r11397 | funkydude | 2013-10-16 23:35:39 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: fix the injection proximity not closing
-------------------------------------------------------------------------
-r11396 | funkydude | 2013-10-16 21:58:30 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/AltPower.lua
-
-AltPower: bugfix
-------------------------------------------------------------------------
-r11395 | funkydude | 2013-10-16 19:54:02 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/AltPower.lua
-   M /trunk/SiegeOfOrgrimmar/Norushen.lua
-   M /trunk/SiegeOfOrgrimmar/ShaOfPride.lua
-
-AltPower: fix closing when a boss dies and make the close button work.
-------------------------------------------------------------------------
-r11394 | maat | 2013-10-16 19:35:10 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Core/Core.lua
-
-add another room for blackfuse moovie skip
-------------------------------------------------------------------------
-r11393 | Wetxius | 2013-10-16 17:54:50 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
-
-ruRU update.
-------------------------------------------------------------------------
-r11392 | funkydude | 2013-10-16 17:45:26 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Loader.lua
-
-Loader: bump DBM faker
-------------------------------------------------------------------------
-r11391 | Dynaletik | 2013-10-16 17:44:49 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-
-- deDE update
-------------------------------------------------------------------------
-r11390 | funkydude | 2013-10-16 17:02:41 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/AltPower.lua
-
-AltPower: add movability and fix bug in configuration mode
-------------------------------------------------------------------------
-r11389 | funkydude | 2013-10-16 16:52:10 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: remove a few proximity calls
-------------------------------------------------------------------------
-r11388 | nebula169 | 2013-10-16 14:39:02 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: tweaks
-------------------------------------------------------------------------
-r11387 | funkydude | 2013-10-16 12:59:48 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   A /trunk/Plugins/AltPower.lua
-   M /trunk/Plugins/modules.xml
-   M /trunk/SiegeOfOrgrimmar/Norushen.lua
-   M /trunk/SiegeOfOrgrimmar/ShaOfPride.lua
-
-Beta of Alt Power module, currently disabled.
-------------------------------------------------------------------------
-r11386 | Dynaletik | 2013-10-16 08:22:46 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-
-- deDE update
-------------------------------------------------------------------------
-r11385 | nebula169 | 2013-10-16 06:01:06 +0000 (Wed, 16 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: stop/start timers based on Desperate Measures, change Vengeful Strikes to _START, use GetBossTarget for Corruption Shock, other misc tweaks
-------------------------------------------------------------------------
-r11384 | funkydude | 2013-10-15 23:16:58 +0000 (Tue, 15 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: typo
-------------------------------------------------------------------------
-r11383 | funkydude | 2013-10-15 22:40:10 +0000 (Tue, 15 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: stopbar for aim, don't flash for tanks.
-------------------------------------------------------------------------
-r11382 | funkydude | 2013-10-15 22:30:44 +0000 (Tue, 15 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/BigWigs.toc
-   M /trunk/Core/PluginPrototype.lua
-   M /trunk/Plugins/Flash.lua
-   M /trunk/Plugins/Proximity.lua
-
-Plugins: tweaks
-------------------------------------------------------------------------
-r11381 | funkydude | 2013-10-15 22:29:06 +0000 (Tue, 15 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/zhTW.lua
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: remove stack alerts of Hewn & Genetic Alteration. Use GetBossTarget for Shield Bash. Better messages for parasites & fix counter for 10m.
-------------------------------------------------------------------------
-r11380 | funkydude | 2013-10-14 22:06:29 +0000 (Mon, 14 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Thok.lua
-
-Thok: use a UNIT event for the tank debuff bar as not all the debuffs have a combat log event, fix acceleration timers.
-------------------------------------------------------------------------
-r11379 | funkydude | 2013-10-14 20:53:48 +0000 (Mon, 14 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Loader.lua
-
-Loader: remove role print
-------------------------------------------------------------------------
-r11378 | nebula169 | 2013-10-14 08:46:25 +0000 (Mon, 14 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
-
-SpoilsOfPandaria: limit warnings based on which area you're in, fix Residue and flag as DISPEL, tweak Set to Blow proximity
-------------------------------------------------------------------------
-r11377 | _yusaku_ | 2013-10-13 22:39:49 +0000 (Sun, 13 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
-
-itIT Locale updates
-------------------------------------------------------------------------
-r11376 | maat | 2013-10-13 20:46:39 +0000 (Sun, 13 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-add say for fiery edge
-------------------------------------------------------------------------
-r11375 | funkydude | 2013-10-13 20:33:56 +0000 (Sun, 13 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/KorKron.lua
-
-KorKron: fix berserk
-------------------------------------------------------------------------
-r11374 | funkydude | 2013-10-13 20:06:58 +0000 (Sun, 13 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-
-ParagonsOfTheKlaxxi: drycoded aim counter
-------------------------------------------------------------------------
-r11373 | _yusaku_ | 2013-10-11 15:26:47 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/itIT.lua
-
-itIT Locale updates
-------------------------------------------------------------------------
-r11372 | maat | 2013-10-11 14:37:08 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
-
-add add wave counter for Nazgrim - ticket 659
-------------------------------------------------------------------------
-r11371 | Wetxius | 2013-10-11 12:39:20 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
-
-ruRU update.
-------------------------------------------------------------------------
-r11370 | pettigrow | 2013-10-11 10:36:18 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/frFR.lua
-
-frFR Update
-------------------------------------------------------------------------
-r11369 | Dynaletik | 2013-10-11 07:46:01 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-
-- deDE update
-------------------------------------------------------------------------
-r11367 | funkydude | 2013-10-11 00:48:30 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: Use GetBossTarget for inferno strike
-------------------------------------------------------------------------
-r11366 | funkydude | 2013-10-11 00:05:06 +0000 (Fri, 11 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/BigWigs.toc
-
-bump version
-------------------------------------------------------------------------
-r11365 | funkydude | 2013-10-10 23:50:36 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Galakras.lua
-
-Galakras: better totem icon
-------------------------------------------------------------------------
-r11364 | funkydude | 2013-10-10 23:43:16 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Thok.lua
-
-Thok: Fix the fearsome roar bar icon being the acceleration icon instead of the Panic icon (Blizzard has the wrong icon for it...)
-------------------------------------------------------------------------
-r11363 | funkydude | 2013-10-10 22:55:38 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/IronJuggernaut.lua
-   M /trunk/SiegeOfOrgrimmar/Norushen.lua
-
-Norushen: fix double first big add kill message.
-------------------------------------------------------------------------
-r11362 | maat | 2013-10-10 21:30:55 +0000 (Thu, 10 Oct 2013) | 8 lines
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
-
-add Manifest Rage, BW turning into Encounter Journal part 2 - (YOU ARE WELCOME BLIZZARD)
-remove all the proximity for phase 4 since Blizzard hates us and made GetPlayerMapPosition returns 0,0 - useless
-lets fire up a phase 4 timer, so people can renew dots perfectly
-bump berserk timer to 16 min (> 15:13)
-add a malicious blast bar to help the Malice guy with movement timings
-warn people with more than one stack of malicious blast
-don't warn for weapon target if anything is being casted by Garrosh
-lets try and improve initial phase 3 timers
-------------------------------------------------------------------------
-r11361 | maat | 2013-10-10 17:28:46 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/IronJuggernaut.lua
-
-add message for Ricochet, verify timer and use spellId
-------------------------------------------------------------------------
-r11360 | funkydude | 2013-10-10 16:58:47 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Norushen.lua
-
-Norushen: another fix to the big add counter.
-------------------------------------------------------------------------
-r11359 | maat | 2013-10-10 16:25:26 +0000 (Thu, 10 Oct 2013) | 8 lines
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Malkorok.lua
-   M /trunk/SiegeOfOrgrimmar/ParagonsOfTheKlaxxi.lua
-   M /trunk/SiegeOfOrgrimmar/SpoilsOfPandaria.lua
-   M /trunk/SiegeOfOrgrimmar/Thok.lua
-
-Malkorok.lua:
-  use the new common locale
-Thok.lua:
-  try and fix heroic add bars not/wrongly popping up, need feedback
-ParagonsOfTheKlaxxi.lua:
-  add Reave
-  what we called Reave was actually Death from Above so fix that and improve the target detection, it still may need tuning
-  go from bossesSeen to bossesActive and don't start initial bars when bosses not actually active are engaged ake > boss3
-------------------------------------------------------------------------
-r11358 | Wetxius | 2013-10-10 15:08:10 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Locales/ruRU.lua
-
-ruRU update.
-------------------------------------------------------------------------
-r11357 | funkydude | 2013-10-10 15:03:31 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/Proximity.lua
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-TheFallenProtectors: fix double inferno message
-------------------------------------------------------------------------
-r11356 | funkydude | 2013-10-10 14:53:53 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/Plugins/Proximity.lua
-
-Proximity: Add a normal reverse function
-------------------------------------------------------------------------
-r11355 | funkydude | 2013-10-10 14:11:56 +0000 (Thu, 10 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Galakras.lua
-   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
-   M /trunk/SiegeOfOrgrimmar/SiegecrafterBlackfuse.lua
-
-GeneralNazgrim: drop the extra ads soon warning from 19% to 16%
-------------------------------------------------------------------------
-r11354 | maat | 2013-10-10 13:17:19 +0000 (Thu, 10 Oct 2013) | 11 lines
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/Galakras.lua
-   M /trunk/SiegeOfOrgrimmar/GeneralNazgrim.lua
-   M /trunk/SiegeOfOrgrimmar/IronJuggernaut.lua
-   M /trunk/SiegeOfOrgrimmar/Malkorok.lua
-   M /trunk/SiegeOfOrgrimmar/Norushen.lua
-   M /trunk/SiegeOfOrgrimmar/ShaOfPride.lua
-   M /trunk/SiegeOfOrgrimmar/TheFallenProtectors.lua
-
-some general clean up (mostly of comments)
-TheFallenProtectors.lua:
-  add timers for first calamity and bane after dark meditation
-  improve clash heroic timer
-  shorten the heal bar
-ShaOfPride.lua:
-  improve banishment timer
-Malkorok.lua:
-  fix first add bars being called seismic slam on heroic
-Galakras.lua:
-  improve north tower add timer for heroic, still need feedback
-------------------------------------------------------------------------
-r11353 | Dynaletik | 2013-10-09 18:17:51 +0000 (Wed, 09 Oct 2013) | 1 line
-Changed paths:
-   M /trunk/SiegeOfOrgrimmar/GarroshHellscream.lua
-   M /trunk/SiegeOfOrgrimmar/Locales/deDE.lua
-
-- deDE update
 ------------------------------------------------------------------------

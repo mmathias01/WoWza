@@ -1,0 +1,50 @@
+------------------------------------------------------------------------
+r176 | lockslap | 2013-11-14 07:10:01 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   A /tags/6.31 (from /trunk:175)
+
+Tagged as version 6.31.
+------------------------------------------------------------------------
+r175 | lockslap | 2013-11-14 07:09:37 +0000 (Thu, 14 Nov 2013) | 1 line
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.toc
+   M /trunk/Extra/includes.xml
+   D /trunk/Modules/ChannelSpam.lua
+
+Removed Channel Spam module to fix issue #101.
+------------------------------------------------------------------------
+r173 | lockslap | 2013-11-04 01:06:50 +0000 (Mon, 04 Nov 2013) | 4 lines
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.lua
+   M /trunk/ElvUI_ChatTweaks.toc
+   M /trunk/Locales/enUS.lua
+   A /trunk/Modules/BNetSpam.lua
+   M /trunk/Modules/SpamFilter.lua
+   M /trunk/Modules/SpamLog.lua
+   M /trunk/Spam/includes.xml
+
+Added Battle.net Invite Spam module.
+Updated Spam Log module to handle the added spam module.
+Updated config window.
+Updated locale.
+------------------------------------------------------------------------
+r171 | lockslap | 2013-11-03 03:52:06 +0000 (Sun, 03 Nov 2013) | 4 lines
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.toc
+   M /trunk/Locales/enUS.lua
+   M /trunk/Modules/AutoSetRole.lua
+   M /trunk/Modules/CrapCleaner.lua
+   M /trunk/Modules/GuildSpam.lua
+   M /trunk/Modules/SpamFilter.lua
+
+Fixed small bug in the Auto Set Role module.
+Updated triggers for Crap Cleaner, Guild Spam, and Spam Filter modules.
+Fixed report link for Spam Filter module (hopefully).
+Updated locales.
+------------------------------------------------------------------------
+r170 | lockslap | 2013-10-15 20:13:04 +0000 (Tue, 15 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.toc
+
+TOC change.
+------------------------------------------------------------------------

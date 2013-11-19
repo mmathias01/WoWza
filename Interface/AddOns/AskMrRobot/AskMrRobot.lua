@@ -76,6 +76,16 @@ local upgradeTable = {
   [493] =  2 -- ? -> 0
 }
 
+local function OnExport()
+    if (AmrOptions.exportToClient) then
+        AskMrRobot.SaveAll()
+        ReloadUI()
+    else
+        AskMrRobot_ReforgeFrame:Show()
+        AskMrRobot_ReforgeFrame:ShowTab("export")
+    end
+end
+
 function AskMrRobot.eventListener:OnEvent(event, arg1, arg2)
 	if event == "ADDON_LOADED" and arg1 == "AskMrRobot" then
 		print("Loaded Ask Mr. Robot " .. GetAddOnMetadata(AskMrRobot.AddonName, "Version"))
@@ -110,7 +120,7 @@ function AskMrRobot.eventListener:OnEvent(event, arg1, arg2)
 			OnClick = function()
 
 				if IsModifiedClick("CHATLINK") then
-					AskMrRobot.SaveAll()
+                    OnExport()
 				else
 					AskMrRobot_ReforgeFrame:Toggle()
 				end
@@ -118,7 +128,7 @@ function AskMrRobot.eventListener:OnEvent(event, arg1, arg2)
 			OnTooltipShow = function(tt)
 				tt:AddLine("Ask Mr. Robot", 1, 1, 1);
 				tt:AddLine(" ");
-				tt:AddLine("Left Click to open the Ask Mr. Robot window.\n\nShift + Left Click to save your bag and bank data.")
+				tt:AddLine("Left Click to open the Ask Mr. Robot window.\n\nShift + Left Click to export your bag and bank data.")
 			end	
 		});
 
@@ -132,7 +142,7 @@ function AskMrRobot.eventListener:OnEvent(event, arg1, arg2)
 		AskMrRobot_ReforgeFrame:OnUpdate()
 		AskMrRobot_ReforgeFrame.summaryTab.importDate = AmrImportDate or ""
 		AskMrRobot_ReforgeFrame.buttons[2]:Click()
-		AskMrRobot_ReforgeFrame.exportTab.button:SetScript("OnClick", AskMrRobot.SaveAll)
+		--AskMrRobot_ReforgeFrame.exportTab.button:SetScript("OnClick", AskMrRobot.SaveAll)
 		--AskMrRobot.SaveBags();
 		--AskMrRobot.SaveEquiped();
 		--AskMrRobot.GetCurrencies();
@@ -183,13 +193,13 @@ function SlashCmdList.AMR(msg)
 	elseif msg == 'hide' then
 		AskMrRobot_ReforgeFrame:Hide()
 	elseif msg == 'export' then
-		AskMrRobot.SaveAll();
+		OnExport()
 	else
 		print('Available AskMrRobot slash commands:\n' ..
 			'  /amr show   -- show the main window\n' ..
 			'  /amr hide   -- hide the main window\n' ..
 			'  /amr toggle -- toggle the main window\n' ..
-			'  /amr export -- export bag and bank data')
+			'  /amr export -- export bag and bank data (uses your last selected method and either opens the copy/paste window, or saves and reloads ui)')
 	end
 end
 
@@ -205,7 +215,7 @@ function AskMrRobot.SaveAll()
 	AskMrRobot.GetLevel()
 	AskMrRobot.GetAmrGlyphs()
 	AskMrRobot.GetAmrTalents()
-	ReloadUI()
+	--ReloadUI()
 end
 
 local function InitIcon()
@@ -343,7 +353,7 @@ function AskMrRobot.GetCurrencies()
 end
 
 local function GetAmrSpecialization(specGroup)
-	local spec = GetSpecialization(false, false, group);
+	local spec = GetSpecialization(false, false, specGroup);
 	return spec and GetSpecializationInfo(spec);
 end
 
@@ -546,6 +556,75 @@ function AskMrRobot.GetAmrGlyphs()
 	end
 end
 
+local function parseItemLink(input)
+	local itemId, enchantId, gemEnchantId1, gemEnchantId2, gemEnchantId3, gemEnchantId4, suffixId, _, _, reforgeId, upgradeId = string.match(input, "^|.-|Hitem:(%d+):(%d+):(%d+):(%d+):(%d+):(%d+):(-?%d+):(-?%d+):(-?%d+):(%d+):(%d+)|");
+	local item = {}
+	item.itemId = tonumber(itemId)
+	item.suffixId = tonumber(suffixId)
+	item.enchantId = tonumber(enchantId)
+	item.reforgeId = tonumber(reforgeId)
+	item.upgradeId = tonumber(upgradeId)
+	item.gemEnchantIds = { tonumber(gemEnchantId1), tonumber(gemEnchantId2), tonumber(gemEnchantId3), tonumber(gemEnchantId4) }
+	return item
+end
+
+local function ItemLinkToExportString(itemLink, slot)
+    local itemData = parseItemLink(itemLink)
+    local ret = {}
+    table.insert(ret, slot)
+    table.insert(ret, itemData.itemId)
+    table.insert(ret, itemData.suffixId)
+    table.insert(ret, itemData.upgradeId)
+    table.insert(ret, itemData.gemEnchantIds[1])
+    table.insert(ret, itemData.gemEnchantIds[2])
+    table.insert(ret, itemData.gemEnchantIds[3])
+    table.insert(ret, itemData.enchantId)
+    table.insert(ret, itemData.reforgeId)
+    return table.concat(ret, ":")
+end
+
+-- Create an export string that can be copied to the website
+function AskMrRobot.ExportToString()
+    local fields = {}
+    
+    fields["realm"] = AmrRealmName
+    fields["name"] = AmrCharacterName
+    fields["race"] = AmrRace
+    fields["faction"] = AmrFaction
+    fields["level"] = AmrLevel
+    
+    local profs = {}
+    for k, v in pairs(AmrProfessions) do
+        table.insert(profs, k .. ":" .. v)
+    end
+    fields["professions"] = table.concat(profs, ",")
+    
+    if (AmrActiveSpec ~= nil) then
+        fields["activespec"] = AmrActiveSpec
+        fields["spec"] = AmrSpecializations[AmrActiveSpec .. ""]
+        fields["talents"] = AmrTalents[AmrActiveSpec]
+        fields["glyphs"] = table.concat(AmrGlyphs[AmrActiveSpec], ",")
+    end
+    
+    local items = {}
+    for k, v in pairs(AmrEquipedItems) do
+        table.insert(items, ItemLinkToExportString(v, k))
+    end
+    for i, v in ipairs(AmrBagItems) do
+        table.insert(items, ItemLinkToExportString(v, "-1"))
+    end
+    for i, v in ipairs(AmrBankItems) do
+        table.insert(items, ItemLinkToExportString(v, "-1"))
+    end
+    fields["items"] = table.concat(items, "_")
+    
+    local fieldList = {}
+    for k, v in pairs(fields) do
+        table.insert(fieldList, k .. "=" .. v)
+    end
+    
+    return table.concat(fieldList, ";")
+end
 
 local function parseGlyphs(input)
 	local glyphs = {}
@@ -615,17 +694,6 @@ local function parseAmrItem(input)
 	return slot, item
 end
 
-local function parseItemLink(input)
-	local itemId, enchantId, gemEnchantId1, gemEnchantId2, gemEnchantId3, gemEnchantId4, suffixId, _, _, reforgeId, upgradeId = string.match(input, "^|.-|Hitem:(%d+):(%d+):(%d+):(%d+):(%d+):(%d+):(-?%d+):(-?%d+):(-?%d+):(%d+):(%d+)|");
-	local item = {}
-	item.itemId = tonumber(itemId)
-	item.suffixId = tonumber(suffixId)
-	item.enchantId = tonumber(enchantId)
-	item.reforgeId = tonumber(reforgeId)
-	item.upgradeId = tonumber(upgradeId)
-	item.gemEnchantIds = { tonumber(gemEnchantId1), tonumber(gemEnchantId2), tonumber(gemEnchantId3), tonumber(gemEnchantId4) }
-	return item
-end
 
 function AskMrRobot.parseAmr(input)
 	local parsedInput = {}

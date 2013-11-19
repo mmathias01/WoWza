@@ -1,3 +1,6 @@
+v2.4.2
+*Fixed race condition between the queue and profession scanning code.
+
 v2.4.1
 *Updating group tree creation API call.
 

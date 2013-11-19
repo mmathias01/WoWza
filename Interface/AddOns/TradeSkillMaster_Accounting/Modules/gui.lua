@@ -1574,6 +1574,12 @@ function GUI:DrawOptions(container)
 						},
 						{
 							type = "CheckBox",
+							label = L["Display Money Transfers in Income/Expense/Summary"],
+							settingInfo = { TSM.db.factionrealm, "displayTransfers" },
+							tooltip = L["If checked, Money Transfers will be included in income / expense and summary. Accounting will still track these if disabled but will not show them."],
+						},
+						{
+							type = "CheckBox",
 							label = L["Use smart average for purchase price"],
 							settingInfo = { TSM.db.factionrealm, "smartBuyPrice" },
 							tooltip = L["If checked, the average purchase price that shows in the tooltip will be the average price for the most recent X you have purchased, where X is the number you have in your bags / bank / gbank using data from the ItemTracker module. Otherwise, a simple average of all purchases will be used."],

@@ -122,122 +122,121 @@ AmrBankItems = {
 	"|cffffffff|Hitem:82441:0:0:0:0:0:0:515091072:90:0:0|h[Bolt of Windwool Cloth]|h|r", -- [55]
 	"|cffffffff|Hitem:72988:0:0:0:0:0:0:1445648896:90:0:0|h[Windwool Cloth]|h|r", -- [56]
 	"|cff0070dd|Hitem:76061:0:0:0:0:0:0:406064128:90:0:0|h[Spirit of Harmony]|h|r", -- [57]
-	"|cff1eff00|Hitem:74250:0:0:0:0:0:0:645374592:90:0:0|h[Mysterious Essence]|h|r", -- [58]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-690249504:90:0:0|h[Spirit Dust]|h|r", -- [59]
-	"|cff1eff00|Hitem:21843:0:0:0:0:0:0:476876102:90:0:0|h[Imbued Netherweave Bag]|h|r", -- [60]
-	"|cffffffff|Hitem:74645:0:0:0:0:0:0:218025600:90:0:0|h[Eternal Blossom Fish]|h|r", -- [61]
-	"|cffffffff|Hitem:74649:0:0:0:0:0:0:1176917760:90:0:0|h[Braised Turtle]|h|r", -- [62]
-	"|cffffffff|Hitem:87253:0:0:0:0:0:0:188518273:90:0:0|h[Perpetual Leftovers]|h|r", -- [63]
-	"|cffffffff|Hitem:81410:0:0:0:0:0:0:0:90:0:0|h[Green Curry Fish]|h|r", -- [64]
-	"|cffffffff|Hitem:87226:0:0:0:0:0:0:818037889:90:0:0|h[Banquet of the Grill]|h|r", -- [65]
-	"|cffffffff|Hitem:75016:0:0:0:0:0:0:1809523584:90:0:0|h[Great Pandaren Banquet]|h|r", -- [66]
-	"|cffffffff|Hitem:5976:0:0:0:0:0:0:0:90:0:0|h[Guild Tabard]|h|r", -- [67]
-	"|cffffffff|Hitem:30721:0:0:0:0:0:0:673920502:90:0:0|h[Spectrecles]|h|r", -- [68]
-	"|cff1eff00|Hitem:29460:0:0:0:0:0:0:948728456:90:0:0|h[Ethereum Prison Key]|h|r", -- [69]
-	"|cff1eff00|Hitem:19858:0:0:0:0:0:0:1855966316:90:0:0|h[Zandalar Honor Token]|h|r", -- [70]
-	"|cff1eff00|Hitem:32897:0:0:0:0:0:0:331222144:90:0:0|h[Mark of the Illidari]|h|r", -- [71]
-	"|cff1eff00|Hitem:22523:0:0:0:0:0:0:1253983579:90:0:0|h[Insignia of the Dawn]|h|r", -- [72]
-	"|cff1eff00|Hitem:22524:0:0:0:0:0:0:2131624002:90:0:0|h[Insignia of the Crusade]|h|r", -- [73]
-	"|cff1eff00|Hitem:18250:0:0:0:0:0:0:0:90:0:0|h[Gordok Shackle Key]|h|r", -- [74]
-	"|cffffffff|Hitem:75026:0:0:0:0:0:0:1724795904:90:0:0|h[Ginseng Tea]|h|r", -- [75]
-	"|cff1eff00|Hitem:12662:0:0:0:0:0:0:0:90:0:0|h[Demonic Rune]|h|r", -- [76]
-	"|cff1eff00|Hitem:21842:0:0:0:0:0:0:286381137:90:0:0|h[Bolt of Imbued Netherweave]|h|r", -- [77]
-	"|cff1eff00|Hitem:41511:0:0:0:0:0:0:1037104640:90:0:0|h[Bolt of Imbued Frostweave]|h|r", -- [78]
-	"|cff1eff00|Hitem:23123:0:0:0:0:0:0:1807861794:90:0:0|h[Blessed Wizard Oil]|h|r", -- [79]
-	"|cff1eff00|Hitem:20400:0:0:0:0:0:0:0:90:0:0|h[Pumpkin Bag]|h|r", -- [80]
-	"|cff1eff00|Hitem:25786:0:0:0:0:0:0:2016676477:90:0:0|h[Hypnotist's Watch]|h|r", -- [81]
-	"|cff1eff00|Hitem:25619:0:0:0:0:0:0:966337275:90:0:0|h[Glowing Crystal Insignia]|h|r", -- [82]
-	"|cff1eff00|Hitem:10030:0:0:0:0:0:0:1567548288:90:0:0|h[Admiral's Hat]|h|r", -- [83]
-	"|cff0070dd|Hitem:97849:0:0:0:0:0:0:714686592:90:0:0|h[Radical Mojo]|h|r", -- [84]
-	"|cff0070dd|Hitem:20885:0:0:0:0:0:0:0:90:0:0|h[Qiraji Martial Drape]|h|r", -- [85]
-	"|cffffffff|Hitem:74652:0:0:0:0:0:0:296481024:90:0:0|h[Fire Spirit Salmon]|h|r", -- [86]
-	"|cff0070dd|Hitem:86565:0:0:0:0:0:0:657197824:90:0:0|h[Battle Horn]|h|r", -- [87]
-	"|cff0070dd|Hitem:94221:0:0:0:0:0:0:458387584:90:0:0|h[Shan'ze Ritual Stone]|h|r", -- [88]
-	"|cff0070dd|Hitem:32428:0:0:0:0:0:0:806305920:90:0:0|h[Heart of Darkness]|h|r", -- [89]
-	"|cff0070dd|Hitem:80433:0:0:0:0:0:0:2049339136:90:0:0|h[Blood Spirit]|h|r", -- [90]
-	"|cff0070dd|Hitem:82447:0:0:0:0:0:0:1113429632:90:0:0|h[Imperial Silk]|h|r", -- [91]
-	"|cff0070dd|Hitem:82447:0:0:0:0:0:0:824627712:90:0:0|h[Imperial Silk]|h|r", -- [92]
-	"|cff0070dd|Hitem:19812:0:0:0:0:0:0:2024055296:90:0:0|h[Rune of the Dawn]|h|r", -- [93]
-	"|cff0070dd|Hitem:16309:0:0:0:0:0:0:242761632:90:0:0|h[Drakefire Amulet]|h|r", -- [94]
-	"|cffa335ee|Hitem:19288:0:0:0:0:0:0:917259072:90:0:0|h[Darkmoon Card: Blue Dragon]|h|r", -- [95]
-	"|cff0070dd|Hitem:21801:0:0:0:0:0:0:0:90:0:0|h[Antenna of Invigoration]|h|r", -- [96]
-	"|cff0070dd|Hitem:27890:0:0:0:0:0:0:-1874949082:90:0:0|h[Wand of the Netherwing]|h|r", -- [97]
-	"|cff0070dd|Hitem:17191:0:0:0:0:0:0:50307148:90:0:0|h[Scepter of Celebras]|h|r", -- [98]
-	"|cffa335ee|Hitem:94222:0:0:0:0:0:0:84747008:90:0:0|h[Key to the Palace of Lei Shen]|h|r", -- [99]
-	"|cffa335ee|Hitem:49644:0:0:0:0:0:0:19660800:90:0:0|h[Head of Onyxia]|h|r", -- [100]
-	"|cffa335ee|Hitem:95577:0:0:0:0:0:0:750432896:90:0:465|h[Helm of the Crackling Conqueror]|h|r", -- [101]
-	"|cffa335ee|Hitem:95740:0:0:0:0:0:0:2093011456:90:0:465|h[Chilblain Spaulders]|h|r", -- [102]
-	"|cffa335ee|Hitem:103982:0:0:0:0:0:0:686532609:90:0:0|h[Burden of Eternity]|h|r", -- [103]
-	"|cffa335ee|Hitem:103982:0:0:0:0:0:0:1298815755:90:0:0|h[Burden of Eternity]|h|r", -- [104]
-	"|cffa335ee|Hitem:18609:2504:0:0:0:0:0:816536064:90:0:0|h[Anathema]|h|r", -- [105]
-	"|cffff8000|Hitem:94593:0:0:0:0:0:0:1909154176:90:0:0|h[Secrets of the Empire]|h|r", -- [106]
-	"|cffff8000|Hitem:89882:0:0:0:0:0:0:1044612096:90:0:0|h[Crystallized Horror]|h|r", -- [107]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1182637833:90:0:0|h[Spirit Dust]|h|r", -- [108]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1341525889:90:0:0|h[Spirit Dust]|h|r", -- [109]
-	"|cffffffff|Hitem:12810:0:0:0:0:0:0:209418560:90:0:0|h[Enchanted Leather]|h|r", -- [110]
-	"|cff1eff00|Hitem:10939:0:0:0:0:0:0:-1271174952:90:0:0|h[Greater Magic Essence]|h|r", -- [111]
-	"|cff1eff00|Hitem:22447:0:0:0:0:0:0:64497070:90:0:0|h[Lesser Planar Essence]|h|r", -- [112]
-	"|cff1eff00|Hitem:22446:0:0:0:0:0:0:-870818818:90:0:0|h[Greater Planar Essence]|h|r", -- [113]
-	"|cff0070dd|Hitem:11177:0:0:0:0:0:0:-1152398541:90:0:0|h[Small Radiant Shard]|h|r", -- [114]
-	"|cff0070dd|Hitem:22448:0:0:0:0:0:0:317321007:90:0:0|h[Small Prismatic Shard]|h|r", -- [115]
-	"|cff0070dd|Hitem:74247:0:0:0:0:0:0:-1330595311:90:0:0|h[Ethereal Shard]|h|r", -- [116]
-	"|cff0070dd|Hitem:74247:0:0:0:0:0:0:1561009920:90:0:0|h[Ethereal Shard]|h|r", -- [117]
-	"|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321090:90:0:0|h[Nexus Crystal]|h|r", -- [118]
-	"|cffa335ee|Hitem:34057:0:0:0:0:0:0:-923224203:90:0:0|h[Abyss Crystal]|h|r", -- [119]
-	"|cffffffff|Hitem:89112:0:0:0:0:0:0:2101029504:90:0:0|h[Mote of Harmony]|h|r", -- [120]
-	"|cffffffff|Hitem:22445:0:0:0:0:0:0:635977755:90:0:0|h[Arcane Dust]|h|r", -- [121]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1264908952:90:0:0|h[Spirit Dust]|h|r", -- [122]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1220509824:90:0:0|h[Spirit Dust]|h|r", -- [123]
-	"|cff1eff00|Hitem:34055:0:0:0:0:0:0:1502778240:90:0:0|h[Greater Cosmic Essence]|h|r", -- [124]
-	"|cff1eff00|Hitem:34055:0:0:0:0:0:0:1111563520:90:0:0|h[Greater Cosmic Essence]|h|r", -- [125]
-	"|cffffffff|Hitem:22445:0:0:0:0:0:0:-215005087:90:0:0|h[Arcane Dust]|h|r", -- [126]
-	"|cffffffff|Hitem:22445:0:0:0:0:0:0:688336678:90:0:0|h[Arcane Dust]|h|r", -- [127]
-	"|cffffffff|Hitem:16204:0:0:0:0:0:0:317320956:90:0:0|h[Illusion Dust]|h|r", -- [128]
-	"|cffffffff|Hitem:34054:0:0:0:0:0:0:1347566208:90:0:0|h[Infinite Dust]|h|r", -- [129]
-	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1379883502:90:0:0|h[Infinite Dust]|h|r", -- [130]
-	"|cffffffff|Hitem:22578:0:0:0:0:0:0:787912367:90:0:0|h[Mote of Water]|h|r", -- [131]
-	"|cffffffff|Hitem:22577:0:0:0:0:0:0:1091312830:90:0:0|h[Mote of Shadow]|h|r", -- [132]
-	"|cffffffff|Hitem:22575:0:0:0:0:0:0:1037753274:90:0:0|h[Mote of Life]|h|r", -- [133]
-	"|cffffffff|Hitem:22573:0:0:0:0:0:0:1500810422:90:0:0|h[Mote of Earth]|h|r", -- [134]
-	"|cffffffff|Hitem:22572:0:0:0:0:0:0:1844503640:90:0:0|h[Mote of Air]|h|r", -- [135]
-	"|cffffffff|Hitem:37704:0:0:0:0:0:0:2132862848:90:0:0|h[Crystallized Life]|h|r", -- [136]
-	"|cffffffff|Hitem:52325:0:0:0:0:0:0:1461960704:90:0:0|h[Volatile Fire]|h|r", -- [137]
-	"|cffffffff|Hitem:52327:0:0:0:0:0:0:339576064:90:0:0|h[Volatile Earth]|h|r", -- [138]
-	"|cff1eff00|Hitem:34056:0:0:0:0:0:0:675574144:90:0:0|h[Lesser Cosmic Essence]|h|r", -- [139]
-	"|cff1eff00|Hitem:22456:0:0:0:0:0:0:1491049420:90:0:0|h[Primal Shadow]|h|r", -- [140]
-	"|cff1eff00|Hitem:22457:0:0:0:0:0:0:746795012:90:0:0|h[Primal Mana]|h|r", -- [141]
-	"|cff1eff00|Hitem:21886:0:0:0:0:0:0:1754504388:90:0:0|h[Primal Life]|h|r", -- [142]
-	"|cff1eff00|Hitem:21884:0:0:0:0:0:0:1117109830:90:0:0|h[Primal Fire]|h|r", -- [143]
-	"|cff0070dd|Hitem:22449:0:0:0:0:0:0:825053284:90:0:0|h[Large Prismatic Shard]|h|r", -- [144]
-	"|cff1eff00|Hitem:21885:0:0:0:0:0:0:1238086016:90:0:0|h[Primal Water]|h|r", -- [145]
-	"|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321093:90:0:0|h[Nexus Crystal]|h|r", -- [146]
-	"|cffa335ee|Hitem:22450:0:0:0:0:0:0:1291782477:90:0:0|h[Void Crystal]|h|r", -- [147]
-	"|cff0070dd|Hitem:76061:0:0:0:0:0:0:142995328:90:0:0|h[Spirit of Harmony]|h|r", -- [148]
-	"|cffa335ee|Hitem:22450:0:0:0:0:0:0:-1415072259:90:0:0|h[Void Crystal]|h|r", -- [149]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-794567288:90:0:0|h[Spirit Dust]|h|r", -- [150]
-	"|cffffffff|Hitem:22445:0:0:0:0:0:0:-870801574:90:0:0|h[Arcane Dust]|h|r", -- [151]
-	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376301751:90:0:0|h[Infinite Dust]|h|r", -- [152]
-	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376300722:90:0:0|h[Infinite Dust]|h|r", -- [153]
-	"|cff0070dd|Hitem:76061:0:0:0:0:0:0:1286198272:90:0:0|h[Spirit of Harmony]|h|r", -- [154]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1359092552:90:0:0|h[Spirit Dust]|h|r", -- [155]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1831899648:90:0:0|h[Spirit Dust]|h|r", -- [156]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1273369173:90:0:0|h[Spirit Dust]|h|r", -- [157]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1180004608:90:0:0|h[Spirit Dust]|h|r", -- [158]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1191153021:90:0:0|h[Spirit Dust]|h|r", -- [159]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:53734016:90:0:0|h[Spirit Dust]|h|r", -- [160]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1125490122:90:0:0|h[Spirit Dust]|h|r", -- [161]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:604567936:90:0:0|h[Spirit Dust]|h|r", -- [162]
-	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1005422941:90:0:0|h[Spirit Dust]|h|r", -- [163]
+	"|cff1eff00|Hitem:82285:0:0:0:0:0:-8:692257302:90:0:0|h[Immaculate Spellblade of the Whale]|h|r", -- [58]
+	"|cff1eff00|Hitem:21843:0:0:0:0:0:0:476876102:90:0:0|h[Imbued Netherweave Bag]|h|r", -- [59]
+	"|cffffffff|Hitem:74645:0:0:0:0:0:0:218025600:90:0:0|h[Eternal Blossom Fish]|h|r", -- [60]
+	"|cffffffff|Hitem:74649:0:0:0:0:0:0:1176917760:90:0:0|h[Braised Turtle]|h|r", -- [61]
+	"|cffffffff|Hitem:87253:0:0:0:0:0:0:188518273:90:0:0|h[Perpetual Leftovers]|h|r", -- [62]
+	"|cffffffff|Hitem:81410:0:0:0:0:0:0:0:90:0:0|h[Green Curry Fish]|h|r", -- [63]
+	"|cffffffff|Hitem:87226:0:0:0:0:0:0:818037889:90:0:0|h[Banquet of the Grill]|h|r", -- [64]
+	"|cffffffff|Hitem:75016:0:0:0:0:0:0:1809523584:90:0:0|h[Great Pandaren Banquet]|h|r", -- [65]
+	"|cffffffff|Hitem:5976:0:0:0:0:0:0:0:90:0:0|h[Guild Tabard]|h|r", -- [66]
+	"|cffffffff|Hitem:30721:0:0:0:0:0:0:673920502:90:0:0|h[Spectrecles]|h|r", -- [67]
+	"|cff1eff00|Hitem:29460:0:0:0:0:0:0:948728456:90:0:0|h[Ethereum Prison Key]|h|r", -- [68]
+	"|cff1eff00|Hitem:19858:0:0:0:0:0:0:1855966316:90:0:0|h[Zandalar Honor Token]|h|r", -- [69]
+	"|cff1eff00|Hitem:32897:0:0:0:0:0:0:331222144:90:0:0|h[Mark of the Illidari]|h|r", -- [70]
+	"|cff1eff00|Hitem:22523:0:0:0:0:0:0:1253983579:90:0:0|h[Insignia of the Dawn]|h|r", -- [71]
+	"|cff1eff00|Hitem:22524:0:0:0:0:0:0:2131624002:90:0:0|h[Insignia of the Crusade]|h|r", -- [72]
+	"|cff1eff00|Hitem:18250:0:0:0:0:0:0:0:90:0:0|h[Gordok Shackle Key]|h|r", -- [73]
+	"|cffffffff|Hitem:75026:0:0:0:0:0:0:1724795904:90:0:0|h[Ginseng Tea]|h|r", -- [74]
+	"|cff1eff00|Hitem:12662:0:0:0:0:0:0:0:90:0:0|h[Demonic Rune]|h|r", -- [75]
+	"|cff1eff00|Hitem:21842:0:0:0:0:0:0:286381137:90:0:0|h[Bolt of Imbued Netherweave]|h|r", -- [76]
+	"|cff1eff00|Hitem:41511:0:0:0:0:0:0:1037104640:90:0:0|h[Bolt of Imbued Frostweave]|h|r", -- [77]
+	"|cff1eff00|Hitem:23123:0:0:0:0:0:0:1807861794:90:0:0|h[Blessed Wizard Oil]|h|r", -- [78]
+	"|cff1eff00|Hitem:20400:0:0:0:0:0:0:0:90:0:0|h[Pumpkin Bag]|h|r", -- [79]
+	"|cff1eff00|Hitem:25786:0:0:0:0:0:0:2016676477:90:0:0|h[Hypnotist's Watch]|h|r", -- [80]
+	"|cff1eff00|Hitem:25619:0:0:0:0:0:0:966337275:90:0:0|h[Glowing Crystal Insignia]|h|r", -- [81]
+	"|cff1eff00|Hitem:10030:0:0:0:0:0:0:1567548288:90:0:0|h[Admiral's Hat]|h|r", -- [82]
+	"|cff0070dd|Hitem:97849:0:0:0:0:0:0:714686592:90:0:0|h[Radical Mojo]|h|r", -- [83]
+	"|cff0070dd|Hitem:20885:0:0:0:0:0:0:0:90:0:0|h[Qiraji Martial Drape]|h|r", -- [84]
+	"|cffffffff|Hitem:74652:0:0:0:0:0:0:296481024:90:0:0|h[Fire Spirit Salmon]|h|r", -- [85]
+	"|cff0070dd|Hitem:86565:0:0:0:0:0:0:657197824:90:0:0|h[Battle Horn]|h|r", -- [86]
+	"|cff0070dd|Hitem:94221:0:0:0:0:0:0:458387584:90:0:0|h[Shan'ze Ritual Stone]|h|r", -- [87]
+	"|cff0070dd|Hitem:32428:0:0:0:0:0:0:806305920:90:0:0|h[Heart of Darkness]|h|r", -- [88]
+	"|cff0070dd|Hitem:80433:0:0:0:0:0:0:2049339136:90:0:0|h[Blood Spirit]|h|r", -- [89]
+	"|cff0070dd|Hitem:82447:0:0:0:0:0:0:1113429632:90:0:0|h[Imperial Silk]|h|r", -- [90]
+	"|cff0070dd|Hitem:82447:0:0:0:0:0:0:824627712:90:0:0|h[Imperial Silk]|h|r", -- [91]
+	"|cff0070dd|Hitem:19812:0:0:0:0:0:0:2024055296:90:0:0|h[Rune of the Dawn]|h|r", -- [92]
+	"|cff0070dd|Hitem:16309:0:0:0:0:0:0:242761632:90:0:0|h[Drakefire Amulet]|h|r", -- [93]
+	"|cffa335ee|Hitem:19288:0:0:0:0:0:0:917259072:90:0:0|h[Darkmoon Card: Blue Dragon]|h|r", -- [94]
+	"|cff0070dd|Hitem:21801:0:0:0:0:0:0:0:90:0:0|h[Antenna of Invigoration]|h|r", -- [95]
+	"|cff0070dd|Hitem:27890:0:0:0:0:0:0:-1874949082:90:0:0|h[Wand of the Netherwing]|h|r", -- [96]
+	"|cff0070dd|Hitem:17191:0:0:0:0:0:0:50307148:90:0:0|h[Scepter of Celebras]|h|r", -- [97]
+	"|cffa335ee|Hitem:94222:0:0:0:0:0:0:84747008:90:0:0|h[Key to the Palace of Lei Shen]|h|r", -- [98]
+	"|cffa335ee|Hitem:49644:0:0:0:0:0:0:19660800:90:0:0|h[Head of Onyxia]|h|r", -- [99]
+	"|cffa335ee|Hitem:95577:0:0:0:0:0:0:750432896:90:0:465|h[Helm of the Crackling Conqueror]|h|r", -- [100]
+	"|cffa335ee|Hitem:95740:0:0:0:0:0:0:2093011456:90:0:465|h[Chilblain Spaulders]|h|r", -- [101]
+	"|cffa335ee|Hitem:103982:0:0:0:0:0:0:686532609:90:0:0|h[Burden of Eternity]|h|r", -- [102]
+	"|cffa335ee|Hitem:103982:0:0:0:0:0:0:1298815755:90:0:0|h[Burden of Eternity]|h|r", -- [103]
+	"|cffa335ee|Hitem:18609:2504:0:0:0:0:0:816536064:90:0:0|h[Anathema]|h|r", -- [104]
+	"|cffff8000|Hitem:94593:0:0:0:0:0:0:1909154176:90:0:0|h[Secrets of the Empire]|h|r", -- [105]
+	"|cffff8000|Hitem:89882:0:0:0:0:0:0:1044612096:90:0:0|h[Crystallized Horror]|h|r", -- [106]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1182637833:90:0:0|h[Spirit Dust]|h|r", -- [107]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1341525889:90:0:0|h[Spirit Dust]|h|r", -- [108]
+	"|cffffffff|Hitem:12810:0:0:0:0:0:0:209418560:90:0:0|h[Enchanted Leather]|h|r", -- [109]
+	"|cff1eff00|Hitem:10939:0:0:0:0:0:0:-1271174952:90:0:0|h[Greater Magic Essence]|h|r", -- [110]
+	"|cff1eff00|Hitem:22447:0:0:0:0:0:0:64497070:90:0:0|h[Lesser Planar Essence]|h|r", -- [111]
+	"|cff1eff00|Hitem:22446:0:0:0:0:0:0:-870818818:90:0:0|h[Greater Planar Essence]|h|r", -- [112]
+	"|cff0070dd|Hitem:11177:0:0:0:0:0:0:-1152398541:90:0:0|h[Small Radiant Shard]|h|r", -- [113]
+	"|cff0070dd|Hitem:22448:0:0:0:0:0:0:317321007:90:0:0|h[Small Prismatic Shard]|h|r", -- [114]
+	"|cff0070dd|Hitem:74247:0:0:0:0:0:0:-1330595311:90:0:0|h[Ethereal Shard]|h|r", -- [115]
+	"|cff0070dd|Hitem:74247:0:0:0:0:0:0:1561009920:90:0:0|h[Ethereal Shard]|h|r", -- [116]
+	"|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321090:90:0:0|h[Nexus Crystal]|h|r", -- [117]
+	"|cffa335ee|Hitem:34057:0:0:0:0:0:0:-923224203:90:0:0|h[Abyss Crystal]|h|r", -- [118]
+	"|cffffffff|Hitem:89112:0:0:0:0:0:0:2101029504:90:0:0|h[Mote of Harmony]|h|r", -- [119]
+	"|cffffffff|Hitem:22445:0:0:0:0:0:0:635977755:90:0:0|h[Arcane Dust]|h|r", -- [120]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1264908952:90:0:0|h[Spirit Dust]|h|r", -- [121]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1220509824:90:0:0|h[Spirit Dust]|h|r", -- [122]
+	"|cff1eff00|Hitem:34055:0:0:0:0:0:0:1502778240:90:0:0|h[Greater Cosmic Essence]|h|r", -- [123]
+	"|cff1eff00|Hitem:34055:0:0:0:0:0:0:1111563520:90:0:0|h[Greater Cosmic Essence]|h|r", -- [124]
+	"|cffffffff|Hitem:22445:0:0:0:0:0:0:-215005087:90:0:0|h[Arcane Dust]|h|r", -- [125]
+	"|cffffffff|Hitem:22445:0:0:0:0:0:0:688336678:90:0:0|h[Arcane Dust]|h|r", -- [126]
+	"|cffffffff|Hitem:16204:0:0:0:0:0:0:317320956:90:0:0|h[Illusion Dust]|h|r", -- [127]
+	"|cffffffff|Hitem:34054:0:0:0:0:0:0:1347566208:90:0:0|h[Infinite Dust]|h|r", -- [128]
+	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1379883502:90:0:0|h[Infinite Dust]|h|r", -- [129]
+	"|cffffffff|Hitem:22578:0:0:0:0:0:0:787912367:90:0:0|h[Mote of Water]|h|r", -- [130]
+	"|cffffffff|Hitem:22577:0:0:0:0:0:0:1091312830:90:0:0|h[Mote of Shadow]|h|r", -- [131]
+	"|cffffffff|Hitem:22575:0:0:0:0:0:0:1037753274:90:0:0|h[Mote of Life]|h|r", -- [132]
+	"|cffffffff|Hitem:22573:0:0:0:0:0:0:1500810422:90:0:0|h[Mote of Earth]|h|r", -- [133]
+	"|cffffffff|Hitem:22572:0:0:0:0:0:0:1844503640:90:0:0|h[Mote of Air]|h|r", -- [134]
+	"|cffffffff|Hitem:37704:0:0:0:0:0:0:2132862848:90:0:0|h[Crystallized Life]|h|r", -- [135]
+	"|cffffffff|Hitem:52325:0:0:0:0:0:0:1461960704:90:0:0|h[Volatile Fire]|h|r", -- [136]
+	"|cffffffff|Hitem:52327:0:0:0:0:0:0:339576064:90:0:0|h[Volatile Earth]|h|r", -- [137]
+	"|cff1eff00|Hitem:34056:0:0:0:0:0:0:675574144:90:0:0|h[Lesser Cosmic Essence]|h|r", -- [138]
+	"|cff1eff00|Hitem:22456:0:0:0:0:0:0:1491049420:90:0:0|h[Primal Shadow]|h|r", -- [139]
+	"|cff1eff00|Hitem:22457:0:0:0:0:0:0:746795012:90:0:0|h[Primal Mana]|h|r", -- [140]
+	"|cff1eff00|Hitem:21886:0:0:0:0:0:0:1754504388:90:0:0|h[Primal Life]|h|r", -- [141]
+	"|cff1eff00|Hitem:21884:0:0:0:0:0:0:1117109830:90:0:0|h[Primal Fire]|h|r", -- [142]
+	"|cff0070dd|Hitem:22449:0:0:0:0:0:0:825053284:90:0:0|h[Large Prismatic Shard]|h|r", -- [143]
+	"|cff1eff00|Hitem:21885:0:0:0:0:0:0:1238086016:90:0:0|h[Primal Water]|h|r", -- [144]
+	"|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321093:90:0:0|h[Nexus Crystal]|h|r", -- [145]
+	"|cffa335ee|Hitem:22450:0:0:0:0:0:0:1291782477:90:0:0|h[Void Crystal]|h|r", -- [146]
+	"|cff0070dd|Hitem:76061:0:0:0:0:0:0:142995328:90:0:0|h[Spirit of Harmony]|h|r", -- [147]
+	"|cffa335ee|Hitem:22450:0:0:0:0:0:0:-1415072259:90:0:0|h[Void Crystal]|h|r", -- [148]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-794567288:90:0:0|h[Spirit Dust]|h|r", -- [149]
+	"|cffffffff|Hitem:22445:0:0:0:0:0:0:-870801574:90:0:0|h[Arcane Dust]|h|r", -- [150]
+	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376301751:90:0:0|h[Infinite Dust]|h|r", -- [151]
+	"|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376300722:90:0:0|h[Infinite Dust]|h|r", -- [152]
+	"|cff0070dd|Hitem:76061:0:0:0:0:0:0:1286198272:90:0:0|h[Spirit of Harmony]|h|r", -- [153]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1359092552:90:0:0|h[Spirit Dust]|h|r", -- [154]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1831899648:90:0:0|h[Spirit Dust]|h|r", -- [155]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1273369173:90:0:0|h[Spirit Dust]|h|r", -- [156]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:1180004608:90:0:0|h[Spirit Dust]|h|r", -- [157]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1191153021:90:0:0|h[Spirit Dust]|h|r", -- [158]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:53734016:90:0:0|h[Spirit Dust]|h|r", -- [159]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1125490122:90:0:0|h[Spirit Dust]|h|r", -- [160]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:604567936:90:0:0|h[Spirit Dust]|h|r", -- [161]
+	"|cffffffff|Hitem:74249:0:0:0:0:0:0:-1005422941:90:0:0|h[Spirit Dust]|h|r", -- [162]
 }
 AmrEquipedItems = {
 	["1"] = "|cffa335ee|Hitem:103751:0:5031:4591:0:0:0:205911936:90:0:493|h[Hood of Swirling Senses]|h|r",
 	["3"] = "|cffa335ee|Hitem:104717:4806:4611:4591:0:0:0:820430464:90:0:491|h[Rime-Rift Shoulders]|h|r",
 	["2"] = "|cffa335ee|Hitem:103881:0:0:0:0:0:0:589943296:90:152:493|h[Necklace of Fading Light]|h|r",
 	["5"] = "|cffa335ee|Hitem:99119:4419:4611:4611:4611:0:0:0:90:116:493|h[Robes of the Ternion Glory]|h|r",
-	["9"] = "|cffa335ee|Hitem:104695:4414:0:0:0:0:0:256142592:90:116:491|h[Lifebane Bracers]|h|r",
+	["14"] = "|cffa335ee|Hitem:102294:0:0:0:0:0:0:381865728:90:0:491|h[Nazgrim's Burnished Insignia]|h|r",
 	["7"] = "|cffa335ee|Hitem:99118:4895:4647:4647:0:0:0:0:90:116:493|h[Legwraps of the Ternion Glory]|h|r",
 	["6"] = "|cffa335ee|Hitem:98608:0:4611:4611:4647:0:0:2131639040:90:152:493|h[White Cloud Belt]|h|r",
-	["14"] = "|cffa335ee|Hitem:102294:0:0:0:0:0:0:381865728:90:0:491|h[Nazgrim's Burnished Insignia]|h|r",
+	["9"] = "|cffa335ee|Hitem:104695:4414:0:0:0:0:0:256142592:90:116:491|h[Lifebane Bracers]|h|r",
 	["15"] = "|cffff8000|Hitem:102247:4892:4611:0:0:0:0:1790950144:90:152:493|h[Jina-Kang, Kindness of Chi-Ji]|h|r",
 	["16"] = "|cffa335ee|Hitem:103875:4442:4647:0:0:0:0:1788660736:90:116:493|h[Drakebinder Greatstaff]|h|r",
 	["8"] = "|cffa335ee|Hitem:94279:4429:4611:4611:0:0:0:1703867136:90:152:467|h[Falling Blossom Sandals]|h|r",
@@ -527,429 +526,425 @@ AmrBankItemsAndCounts = {
 		["link"] = "|cff0070dd|Hitem:76061:0:0:0:0:0:0:406064128:90:0:0|h[Spirit of Harmony]|h|r",
 	}, -- [57]
 	{
-		["count"] = 3,
-		["link"] = "|cff1eff00|Hitem:74250:0:0:0:0:0:0:645374592:90:0:0|h[Mysterious Essence]|h|r",
+		["count"] = 1,
+		["link"] = "|cff1eff00|Hitem:82285:0:0:0:0:0:-8:692257302:90:0:0|h[Immaculate Spellblade of the Whale]|h|r",
 	}, -- [58]
 	{
 		["count"] = 1,
-		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-690249504:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [59]
-	{
-		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:21843:0:0:0:0:0:0:476876102:90:0:0|h[Imbued Netherweave Bag]|h|r",
-	}, -- [60]
+	}, -- [59]
 	{
 		["count"] = 8,
 		["link"] = "|cffffffff|Hitem:74645:0:0:0:0:0:0:218025600:90:0:0|h[Eternal Blossom Fish]|h|r",
-	}, -- [61]
+	}, -- [60]
 	{
 		["count"] = 2,
 		["link"] = "|cffffffff|Hitem:74649:0:0:0:0:0:0:1176917760:90:0:0|h[Braised Turtle]|h|r",
-	}, -- [62]
+	}, -- [61]
 	{
 		["count"] = 1,
 		["link"] = "|cffffffff|Hitem:87253:0:0:0:0:0:0:188518273:90:0:0|h[Perpetual Leftovers]|h|r",
-	}, -- [63]
+	}, -- [62]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:81410:0:0:0:0:0:0:0:90:0:0|h[Green Curry Fish]|h|r",
-	}, -- [64]
+	}, -- [63]
 	{
 		["count"] = 1,
 		["link"] = "|cffffffff|Hitem:87226:0:0:0:0:0:0:818037889:90:0:0|h[Banquet of the Grill]|h|r",
-	}, -- [65]
+	}, -- [64]
 	{
 		["count"] = 2,
 		["link"] = "|cffffffff|Hitem:75016:0:0:0:0:0:0:1809523584:90:0:0|h[Great Pandaren Banquet]|h|r",
-	}, -- [66]
+	}, -- [65]
 	{
 		["count"] = 1,
 		["link"] = "|cffffffff|Hitem:5976:0:0:0:0:0:0:0:90:0:0|h[Guild Tabard]|h|r",
-	}, -- [67]
+	}, -- [66]
 	{
 		["count"] = 1,
 		["link"] = "|cffffffff|Hitem:30721:0:0:0:0:0:0:673920502:90:0:0|h[Spectrecles]|h|r",
-	}, -- [68]
+	}, -- [67]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:29460:0:0:0:0:0:0:948728456:90:0:0|h[Ethereum Prison Key]|h|r",
-	}, -- [69]
+	}, -- [68]
 	{
 		["count"] = 6,
 		["link"] = "|cff1eff00|Hitem:19858:0:0:0:0:0:0:1855966316:90:0:0|h[Zandalar Honor Token]|h|r",
-	}, -- [70]
+	}, -- [69]
 	{
 		["count"] = 32,
 		["link"] = "|cff1eff00|Hitem:32897:0:0:0:0:0:0:331222144:90:0:0|h[Mark of the Illidari]|h|r",
-	}, -- [71]
+	}, -- [70]
 	{
 		["count"] = 2,
 		["link"] = "|cff1eff00|Hitem:22523:0:0:0:0:0:0:1253983579:90:0:0|h[Insignia of the Dawn]|h|r",
-	}, -- [72]
+	}, -- [71]
 	{
 		["count"] = 4,
 		["link"] = "|cff1eff00|Hitem:22524:0:0:0:0:0:0:2131624002:90:0:0|h[Insignia of the Crusade]|h|r",
-	}, -- [73]
+	}, -- [72]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:18250:0:0:0:0:0:0:0:90:0:0|h[Gordok Shackle Key]|h|r",
-	}, -- [74]
+	}, -- [73]
 	{
 		["count"] = 15,
 		["link"] = "|cffffffff|Hitem:75026:0:0:0:0:0:0:1724795904:90:0:0|h[Ginseng Tea]|h|r",
-	}, -- [75]
+	}, -- [74]
 	{
 		["count"] = 2,
 		["link"] = "|cff1eff00|Hitem:12662:0:0:0:0:0:0:0:90:0:0|h[Demonic Rune]|h|r",
-	}, -- [76]
+	}, -- [75]
 	{
 		["count"] = 4,
 		["link"] = "|cff1eff00|Hitem:21842:0:0:0:0:0:0:286381137:90:0:0|h[Bolt of Imbued Netherweave]|h|r",
-	}, -- [77]
+	}, -- [76]
 	{
 		["count"] = 4,
 		["link"] = "|cff1eff00|Hitem:41511:0:0:0:0:0:0:1037104640:90:0:0|h[Bolt of Imbued Frostweave]|h|r",
-	}, -- [78]
+	}, -- [77]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:23123:0:0:0:0:0:0:1807861794:90:0:0|h[Blessed Wizard Oil]|h|r",
-	}, -- [79]
+	}, -- [78]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:20400:0:0:0:0:0:0:0:90:0:0|h[Pumpkin Bag]|h|r",
-	}, -- [80]
+	}, -- [79]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:25786:0:0:0:0:0:0:2016676477:90:0:0|h[Hypnotist's Watch]|h|r",
-	}, -- [81]
+	}, -- [80]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:25619:0:0:0:0:0:0:966337275:90:0:0|h[Glowing Crystal Insignia]|h|r",
-	}, -- [82]
+	}, -- [81]
 	{
 		["count"] = 1,
 		["link"] = "|cff1eff00|Hitem:10030:0:0:0:0:0:0:1567548288:90:0:0|h[Admiral's Hat]|h|r",
-	}, -- [83]
+	}, -- [82]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:97849:0:0:0:0:0:0:714686592:90:0:0|h[Radical Mojo]|h|r",
-	}, -- [84]
+	}, -- [83]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:20885:0:0:0:0:0:0:0:90:0:0|h[Qiraji Martial Drape]|h|r",
-	}, -- [85]
+	}, -- [84]
 	{
 		["count"] = 15,
 		["link"] = "|cffffffff|Hitem:74652:0:0:0:0:0:0:296481024:90:0:0|h[Fire Spirit Salmon]|h|r",
-	}, -- [86]
+	}, -- [85]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:86565:0:0:0:0:0:0:657197824:90:0:0|h[Battle Horn]|h|r",
-	}, -- [87]
+	}, -- [86]
 	{
 		["count"] = 15,
 		["link"] = "|cff0070dd|Hitem:94221:0:0:0:0:0:0:458387584:90:0:0|h[Shan'ze Ritual Stone]|h|r",
-	}, -- [88]
+	}, -- [87]
 	{
 		["count"] = 20,
 		["link"] = "|cff0070dd|Hitem:32428:0:0:0:0:0:0:806305920:90:0:0|h[Heart of Darkness]|h|r",
-	}, -- [89]
+	}, -- [88]
 	{
 		["count"] = 9,
 		["link"] = "|cff0070dd|Hitem:80433:0:0:0:0:0:0:2049339136:90:0:0|h[Blood Spirit]|h|r",
-	}, -- [90]
+	}, -- [89]
 	{
 		["count"] = 20,
 		["link"] = "|cff0070dd|Hitem:82447:0:0:0:0:0:0:1113429632:90:0:0|h[Imperial Silk]|h|r",
-	}, -- [91]
+	}, -- [90]
 	{
 		["count"] = 3,
 		["link"] = "|cff0070dd|Hitem:82447:0:0:0:0:0:0:824627712:90:0:0|h[Imperial Silk]|h|r",
-	}, -- [92]
+	}, -- [91]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:19812:0:0:0:0:0:0:2024055296:90:0:0|h[Rune of the Dawn]|h|r",
-	}, -- [93]
+	}, -- [92]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:16309:0:0:0:0:0:0:242761632:90:0:0|h[Drakefire Amulet]|h|r",
-	}, -- [94]
+	}, -- [93]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:19288:0:0:0:0:0:0:917259072:90:0:0|h[Darkmoon Card: Blue Dragon]|h|r",
-	}, -- [95]
+	}, -- [94]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:21801:0:0:0:0:0:0:0:90:0:0|h[Antenna of Invigoration]|h|r",
-	}, -- [96]
+	}, -- [95]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:27890:0:0:0:0:0:0:-1874949082:90:0:0|h[Wand of the Netherwing]|h|r",
-	}, -- [97]
+	}, -- [96]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:17191:0:0:0:0:0:0:50307148:90:0:0|h[Scepter of Celebras]|h|r",
-	}, -- [98]
+	}, -- [97]
 	{
 		["count"] = 4,
 		["link"] = "|cffa335ee|Hitem:94222:0:0:0:0:0:0:84747008:90:0:0|h[Key to the Palace of Lei Shen]|h|r",
-	}, -- [99]
+	}, -- [98]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:49644:0:0:0:0:0:0:19660800:90:0:0|h[Head of Onyxia]|h|r",
-	}, -- [100]
+	}, -- [99]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:95577:0:0:0:0:0:0:750432896:90:0:465|h[Helm of the Crackling Conqueror]|h|r",
-	}, -- [101]
+	}, -- [100]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:95740:0:0:0:0:0:0:2093011456:90:0:465|h[Chilblain Spaulders]|h|r",
-	}, -- [102]
+	}, -- [101]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:103982:0:0:0:0:0:0:686532609:90:0:0|h[Burden of Eternity]|h|r",
-	}, -- [103]
+	}, -- [102]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:103982:0:0:0:0:0:0:1298815755:90:0:0|h[Burden of Eternity]|h|r",
-	}, -- [104]
+	}, -- [103]
 	{
 		["count"] = 1,
 		["link"] = "|cffa335ee|Hitem:18609:2504:0:0:0:0:0:816536064:90:0:0|h[Anathema]|h|r",
-	}, -- [105]
+	}, -- [104]
 	{
 		["count"] = 1,
 		["link"] = "|cffff8000|Hitem:94593:0:0:0:0:0:0:1909154176:90:0:0|h[Secrets of the Empire]|h|r",
-	}, -- [106]
+	}, -- [105]
 	{
 		["count"] = 1,
 		["link"] = "|cffff8000|Hitem:89882:0:0:0:0:0:0:1044612096:90:0:0|h[Crystallized Horror]|h|r",
-	}, -- [107]
+	}, -- [106]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1182637833:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [108]
+	}, -- [107]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1341525889:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [109]
+	}, -- [108]
 	{
 		["count"] = 4,
 		["link"] = "|cffffffff|Hitem:12810:0:0:0:0:0:0:209418560:90:0:0|h[Enchanted Leather]|h|r",
-	}, -- [110]
+	}, -- [109]
 	{
 		["count"] = 2,
 		["link"] = "|cff1eff00|Hitem:10939:0:0:0:0:0:0:-1271174952:90:0:0|h[Greater Magic Essence]|h|r",
-	}, -- [111]
+	}, -- [110]
 	{
 		["count"] = 5,
 		["link"] = "|cff1eff00|Hitem:22447:0:0:0:0:0:0:64497070:90:0:0|h[Lesser Planar Essence]|h|r",
-	}, -- [112]
+	}, -- [111]
 	{
 		["count"] = 4,
 		["link"] = "|cff1eff00|Hitem:22446:0:0:0:0:0:0:-870818818:90:0:0|h[Greater Planar Essence]|h|r",
-	}, -- [113]
+	}, -- [112]
 	{
 		["count"] = 2,
 		["link"] = "|cff0070dd|Hitem:11177:0:0:0:0:0:0:-1152398541:90:0:0|h[Small Radiant Shard]|h|r",
-	}, -- [114]
+	}, -- [113]
 	{
 		["count"] = 3,
 		["link"] = "|cff0070dd|Hitem:22448:0:0:0:0:0:0:317321007:90:0:0|h[Small Prismatic Shard]|h|r",
-	}, -- [115]
+	}, -- [114]
 	{
 		["count"] = 20,
 		["link"] = "|cff0070dd|Hitem:74247:0:0:0:0:0:0:-1330595311:90:0:0|h[Ethereal Shard]|h|r",
-	}, -- [116]
+	}, -- [115]
 	{
 		["count"] = 3,
 		["link"] = "|cff0070dd|Hitem:74247:0:0:0:0:0:0:1561009920:90:0:0|h[Ethereal Shard]|h|r",
-	}, -- [117]
+	}, -- [116]
 	{
 		["count"] = 10,
 		["link"] = "|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321090:90:0:0|h[Nexus Crystal]|h|r",
-	}, -- [118]
+	}, -- [117]
 	{
 		["count"] = 3,
 		["link"] = "|cffa335ee|Hitem:34057:0:0:0:0:0:0:-923224203:90:0:0|h[Abyss Crystal]|h|r",
-	}, -- [119]
+	}, -- [118]
 	{
 		["count"] = 4,
 		["link"] = "|cffffffff|Hitem:89112:0:0:0:0:0:0:2101029504:90:0:0|h[Mote of Harmony]|h|r",
-	}, -- [120]
+	}, -- [119]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:22445:0:0:0:0:0:0:635977755:90:0:0|h[Arcane Dust]|h|r",
+	}, -- [120]
+	{
+		["count"] = 12,
+		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1264908952:90:0:0|h[Spirit Dust]|h|r",
 	}, -- [121]
 	{
 		["count"] = 20,
-		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1264908952:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [122]
-	{
-		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:1220509824:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [123]
+	}, -- [122]
 	{
 		["count"] = 10,
 		["link"] = "|cff1eff00|Hitem:34055:0:0:0:0:0:0:1502778240:90:0:0|h[Greater Cosmic Essence]|h|r",
-	}, -- [124]
+	}, -- [123]
 	{
 		["count"] = 6,
 		["link"] = "|cff1eff00|Hitem:34055:0:0:0:0:0:0:1111563520:90:0:0|h[Greater Cosmic Essence]|h|r",
-	}, -- [125]
+	}, -- [124]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:22445:0:0:0:0:0:0:-215005087:90:0:0|h[Arcane Dust]|h|r",
-	}, -- [126]
+	}, -- [125]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:22445:0:0:0:0:0:0:688336678:90:0:0|h[Arcane Dust]|h|r",
-	}, -- [127]
+	}, -- [126]
 	{
 		["count"] = 4,
 		["link"] = "|cffffffff|Hitem:16204:0:0:0:0:0:0:317320956:90:0:0|h[Illusion Dust]|h|r",
-	}, -- [128]
+	}, -- [127]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:34054:0:0:0:0:0:0:1347566208:90:0:0|h[Infinite Dust]|h|r",
-	}, -- [129]
+	}, -- [128]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:34054:0:0:0:0:0:0:-1379883502:90:0:0|h[Infinite Dust]|h|r",
-	}, -- [130]
+	}, -- [129]
 	{
 		["count"] = 9,
 		["link"] = "|cffffffff|Hitem:22578:0:0:0:0:0:0:787912367:90:0:0|h[Mote of Water]|h|r",
-	}, -- [131]
+	}, -- [130]
 	{
 		["count"] = 8,
 		["link"] = "|cffffffff|Hitem:22577:0:0:0:0:0:0:1091312830:90:0:0|h[Mote of Shadow]|h|r",
-	}, -- [132]
+	}, -- [131]
 	{
 		["count"] = 8,
 		["link"] = "|cffffffff|Hitem:22575:0:0:0:0:0:0:1037753274:90:0:0|h[Mote of Life]|h|r",
-	}, -- [133]
+	}, -- [132]
 	{
 		["count"] = 2,
 		["link"] = "|cffffffff|Hitem:22573:0:0:0:0:0:0:1500810422:90:0:0|h[Mote of Earth]|h|r",
-	}, -- [134]
+	}, -- [133]
 	{
 		["count"] = 1,
 		["link"] = "|cffffffff|Hitem:22572:0:0:0:0:0:0:1844503640:90:0:0|h[Mote of Air]|h|r",
-	}, -- [135]
+	}, -- [134]
 	{
 		["count"] = 8,
 		["link"] = "|cffffffff|Hitem:37704:0:0:0:0:0:0:2132862848:90:0:0|h[Crystallized Life]|h|r",
-	}, -- [136]
+	}, -- [135]
 	{
 		["count"] = 3,
 		["link"] = "|cffffffff|Hitem:52325:0:0:0:0:0:0:1461960704:90:0:0|h[Volatile Fire]|h|r",
-	}, -- [137]
+	}, -- [136]
 	{
 		["count"] = 2,
 		["link"] = "|cffffffff|Hitem:52327:0:0:0:0:0:0:339576064:90:0:0|h[Volatile Earth]|h|r",
-	}, -- [138]
+	}, -- [137]
 	{
 		["count"] = 2,
 		["link"] = "|cff1eff00|Hitem:34056:0:0:0:0:0:0:675574144:90:0:0|h[Lesser Cosmic Essence]|h|r",
-	}, -- [139]
+	}, -- [138]
 	{
 		["count"] = 16,
 		["link"] = "|cff1eff00|Hitem:22456:0:0:0:0:0:0:1491049420:90:0:0|h[Primal Shadow]|h|r",
-	}, -- [140]
+	}, -- [139]
 	{
 		["count"] = 18,
 		["link"] = "|cff1eff00|Hitem:22457:0:0:0:0:0:0:746795012:90:0:0|h[Primal Mana]|h|r",
-	}, -- [141]
+	}, -- [140]
 	{
 		["count"] = 7,
 		["link"] = "|cff1eff00|Hitem:21886:0:0:0:0:0:0:1754504388:90:0:0|h[Primal Life]|h|r",
-	}, -- [142]
+	}, -- [141]
 	{
 		["count"] = 4,
 		["link"] = "|cff1eff00|Hitem:21884:0:0:0:0:0:0:1117109830:90:0:0|h[Primal Fire]|h|r",
-	}, -- [143]
+	}, -- [142]
 	{
 		["count"] = 13,
 		["link"] = "|cff0070dd|Hitem:22449:0:0:0:0:0:0:825053284:90:0:0|h[Large Prismatic Shard]|h|r",
-	}, -- [144]
+	}, -- [143]
 	{
 		["count"] = 2,
 		["link"] = "|cff1eff00|Hitem:21885:0:0:0:0:0:0:1238086016:90:0:0|h[Primal Water]|h|r",
-	}, -- [145]
+	}, -- [144]
 	{
 		["count"] = 20,
 		["link"] = "|cffa335ee|Hitem:20725:0:0:0:0:0:0:317321093:90:0:0|h[Nexus Crystal]|h|r",
-	}, -- [146]
+	}, -- [145]
 	{
 		["count"] = 20,
 		["link"] = "|cffa335ee|Hitem:22450:0:0:0:0:0:0:1291782477:90:0:0|h[Void Crystal]|h|r",
-	}, -- [147]
+	}, -- [146]
 	{
 		["count"] = 20,
 		["link"] = "|cff0070dd|Hitem:76061:0:0:0:0:0:0:142995328:90:0:0|h[Spirit of Harmony]|h|r",
-	}, -- [148]
+	}, -- [147]
 	{
 		["count"] = 2,
 		["link"] = "|cffa335ee|Hitem:22450:0:0:0:0:0:0:-1415072259:90:0:0|h[Void Crystal]|h|r",
-	}, -- [149]
+	}, -- [148]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-794567288:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [150]
+	}, -- [149]
 	{
 		["count"] = 6,
 		["link"] = "|cffffffff|Hitem:22445:0:0:0:0:0:0:-870801574:90:0:0|h[Arcane Dust]|h|r",
-	}, -- [151]
+	}, -- [150]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376301751:90:0:0|h[Infinite Dust]|h|r",
-	}, -- [152]
+	}, -- [151]
 	{
 		["count"] = 10,
 		["link"] = "|cffffffff|Hitem:34054:0:0:0:0:0:0:-1376300722:90:0:0|h[Infinite Dust]|h|r",
-	}, -- [153]
+	}, -- [152]
 	{
 		["count"] = 1,
 		["link"] = "|cff0070dd|Hitem:76061:0:0:0:0:0:0:1286198272:90:0:0|h[Spirit of Harmony]|h|r",
-	}, -- [154]
+	}, -- [153]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1359092552:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [155]
+	}, -- [154]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:1831899648:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [156]
+	}, -- [155]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1273369173:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [157]
+	}, -- [156]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:1180004608:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [158]
+	}, -- [157]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1191153021:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [159]
+	}, -- [158]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:53734016:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [160]
+	}, -- [159]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1125490122:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [161]
+	}, -- [160]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:604567936:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [162]
+	}, -- [161]
 	{
 		["count"] = 20,
 		["link"] = "|cffffffff|Hitem:74249:0:0:0:0:0:0:-1005422941:90:0:0|h[Spirit Dust]|h|r",
-	}, -- [163]
+	}, -- [162]
 }
 AmrImportString = "region=USA;realm=Dragonblight;name=Majandra;faction=Alliance;spec=256;talents=222112;glyphs=119853,55692,119866,120581,126174,147776;race=NightElf;professions=Tailoring:600,Enchanting:600;item=14:102247:0:493:r:4611:76660:4892:152;item=1:103881:0:493:0:0:0:0:152;item=6:99118:0:493:y,y:4647,4647:76697,76697:4895:116;item=4:99119:0:493:r,r,r:4611,4611,4611:76660,76660,76660:4419:116;item=9:104422:0:493:r,b:4611,4591:76660,76640:4433:119;item=0:103751:0:493:m,b:5031,4591:95345,76640:0:0;item=15:103875:0:493:y:4647:76697:4442:116;item=12:94514:0:467:0:0:0:0:0;item=13:102294:0:491:0:0:0:0:0;item=7:94279:0:467:r,r:4611,4611:76660,76660:4429:152;item=8:104695:0:491:0:0:0:4414:116;item=5:98608:0:493:r,r,p:4611,4611,4647:76660,76660,76697:0:152;item=2:104717:0:491:r,b:4611,4591:76660,76640:4806:0;item=10:95163:0:467:0:0:0:4360:119;item=11:94931:0:467:r:4611:76660:4360:119;"
 AmrImportDate = "11/06/13 21:55:50"

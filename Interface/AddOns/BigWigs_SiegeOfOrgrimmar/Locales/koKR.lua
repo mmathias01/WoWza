@@ -43,29 +43,21 @@ end
 
 L = BigWigs:NewBossLocale("Galakras", "koKR")
 if L then
-	L.demolisher = "파괴 전차 등장"
-	L.demolisher_desc = "코르크론 파괴 전차가 전투에 나타날 때 까지의 시간"
+L["adds_desc"] = "추가병력 타이머"
+L["demolisher_message"] = "파괴 전차 등장"
+L["drakes"] = "용아귀 원시비룡"
+L["north_tower"] = "북쪽 탑"
+L["north_tower_trigger"] = "북쪽 탑으로 통하는 문이 뚫렸습니다!"
+L["south_tower"] = "남쪽 탑"
+L["south_tower_trigger"] = "남쪽 탑으로 통하는 문이 뚫렸습니다!"
+L["tower_defender"] = "탑 수호자"
+L["towers"] = "탑"
+L["towers_desc"] = "탑에 진입이 가능해 질 때 경고"
+L["warlord_zaela"] = "전쟁군주 잴라"
 
-	L.towers = "탑"
-	L.towers_desc = "탑에 진입이 가능해 질 때 경고"
-	L.south_tower_trigger = "남쪽 탑으로 통하는 문이 뚫렸습니다!"
-	L.south_tower = "남쪽 탑"
-	L.north_tower_trigger = "북쪽 탑으로 통하는 문이 뚫렸습니다!"
-	L.north_tower = "북쪽 탑"
-	L.tower_defender = "탑 수호자"
-
-	L.adds = "다음 병력"
-	L.adds_desc = "추가병력 타이머"
-	L.adds_trigger1 = "저 계집을 당장 끌어내려라. 내가 친히 그녀의 목을 죌 것이다." -- Lady Sylvanas Windrunner
-	L.adds_trigger2 = "놈들이 와요!" -- Lady Jaina Proudmoore
-	L.adds_trigger3 = "용아귀 용사들아, 진격하라!"
-	L.adds_trigger4 = "헬스크림 님을 위하여!"
-	L.adds_trigger5 = "다음 분대, 진격!"
-
-	L.drakes = "용아귀 원시비룡"
 
 	L.custom_off_shaman_marker = "파도주술사 징표 설정"
-	L.custom_off_shaman_marker_desc = "차단하는 것을 돕기 위해, 용아귀부족 파도주술사를 {rt1}{rt2}{rt3}{rt4}{rt5} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
+	L.custom_off_shaman_marker_desc = "차단하는 것을 돕기 위해, 용아귀부족 파라주술사를 {rt1}{rt2}{rt3}{rt4}{rt5} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
 end
 
 L = BigWigs:NewBossLocale("Iron Juggernaut", "koKR")
@@ -98,7 +90,8 @@ if L then
 	L.adds_trigger4 = "전사들이여! 이리로!"
 	L.adds_trigger5 = "코르크론! 날 지원하라!"
 	L.adds_trigger_extra_wave = "전 코르크론, 내 명령을 따르라. 모두 죽여!"
-	L.extra_adds = "다음 병력"
+	L.extra_adds = "10% - 다음 병력"
+	L.final_wave = "마지막 병력!"
 
 	L.chain_heal_message = "당신의 주시 대상이 연쇄 치유를 시전합니다!"
 
@@ -115,6 +108,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "koKR")
 if L then
+	L.start_trigger = "녹음되고 있는 건가? 응? 좋아. 고블린 티탄 제어 모듈 시동 중. 물러서라고."
 	L.win_trigger = "시스템 초기화 중. 전원을 끄면 폭발할 수 있으니 주의하라고."
 
 	L.enable_zone = "유물 보관실"
@@ -166,11 +160,11 @@ if L then
 	L.prey_message = "기생충을 드세요."
 	L.injection_over_soon = "주입이 곧 끝남! (%s)"
 
-	L.one = "이요쿠크가 1을 선택합니다!"
-	L.two = "이요쿠크가 2을 선택합니다!"
-	L.three = "이요쿠크가 3을 선택합니다!"
-	L.four = "이요쿠크가 4을 선택합니다!"
-	L.five = "이요쿠크가 5을 선택합니다!"
+	L.one = "이요쿠크가 1"
+	L.two = "이요쿠크가 2"
+	L.three = "이요쿠크가 3"
+	L.four = "이요쿠크가 4"
+	L.five = "이요쿠크가 5"
 
 	L.custom_off_edge_marks = "광기의 계산 대상 징표 설정"
 	L.custom_off_edge_marks_desc = "광기의 계산의 대상이 된 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."

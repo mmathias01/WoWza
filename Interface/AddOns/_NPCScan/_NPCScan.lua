@@ -71,23 +71,15 @@ private.OptionsCharacter = {
 private.OptionsDefault = {
 	Version = DB_VERSION,
 	NPCs = {
-		[50409] = private.L.NPCs["50409"],--"Mysterious Camel Figurine",
-		[50410] = private.L.NPCs["50410"],--"Mysterious Camel Figurine",
-		[64004] = private.L.NPCs["64004"],--"Ghostly Pandaren Fisherman",
-		[64191] = private.L.NPCs["64191"], --"Ghostly Pandaren Craftsman",
 	},
 	NPCWorldIDs = {
-		[50409] = private.ZONE_NAMES.KALIMDOR,
-		[50410] = private.ZONE_NAMES.KALIMDOR,
-		[64004] = private.ZONE_NAMES.PANDARIA,
-		[64191] = private.ZONE_NAMES.PANDARIA,
 	},
 	IgnoreList = {
 		NPCs = {},
 		MapName = {},
 		WorldID = {},
 	},
-	
+
 }
 
 
@@ -106,6 +98,7 @@ private.OptionsCharacterDefault = {
 	AlertSound = nil, -- Default sound
 	CacheWarnings = true,
 	FlightSupress = true,
+	TargetIcon = 8, --Skull
 	TrackBeasts = true,
 	TrackRares = true,
 }
@@ -387,7 +380,7 @@ local function AchievementActivate(achievement)
 
 	for criteria_id, npc_id in pairs(achievement.Criteria) do
 	--ignore list check
-		if not _NPCScanOptions.IgnoreList.NPCs[npc_id] then
+		if not _G._NPCScanOptions.IgnoreList.NPCs[npc_id] then
 			AchievementNPCActivate(achievement, npc_id, criteria_id)
 		else
 		--print("ignoreing "..npc_id)
@@ -494,11 +487,8 @@ function private.RareMobToggle(identifier, enable)
 
 	if npcs and enable then
 		for npc_id, _ in pairs(npcs) do
-						--ignore list check
-			if not _NPCScanOptions.IgnoreList.NPCs[npc_id] then
+			if not _G._NPCScanOptions.IgnoreList.NPCs[npc_id] then
 				NPCActivate(npc_id, private.NPC_ID_TO_WORLD_NAME[npc_id])
-			else
-				--print("ignoreing "..npc_id)	
 			end
 		end
 	else
@@ -574,6 +564,17 @@ function private.SetAlertSound(alert_sound)
 	end
 end
 
+--- Sets the icon to display over found NPC.
+
+function private.SetTargetIcon(icon)
+	if icon == nil then icon = 8 end
+		private.OptionsCharacter.TargetIcon = icon
+		local iconinfo = UnitPopupButtons["RAID_TARGET_"..icon]
+		local text = iconinfo.text
+		local colorCode = string.format("|cFF%02x%02x%02x", iconinfo.color.r*255, iconinfo.color.g*255, iconinfo.color.b*255);
+
+		_G.UIDropDownMenu_SetText(private.Config.alert_icon_dropdown, colorCode..text)
+end
 
 --- Enables Blocking alerts while on taxi.
 -- @return True if changed.
@@ -640,11 +641,12 @@ function private.Synchronize(options, character_options)
 	end
 	assert(not next(ScanIDs), "Orphan NpcIDs in scan pool!")
 
-	_NPCScanOptions.IgnoreList = options.IgnoreList
+	_G._NPCScanOptions.IgnoreList = options.IgnoreList
 	private.SetCacheWarnings(options.CacheWarnings)
 	private.SetPrintTime(options.PrintTime)
 	private.SetAchievementsAddFound(character_options.AchievementsAddFound)
 	private.SetAlertSoundUnmute(character_options.AlertSoundUnmute)
+	private.SetTargetIcon(character_options.TargetIcon)
 	private.SetAlertSound(character_options.AlertSound)
 	private.SetBlockFlightScan(character_options.FlightSupress)
 	private.SetRareMob("BEASTS", character_options.TrackBeasts)
@@ -705,7 +707,7 @@ do
 			if _G.IsResting() then
 				PetList[npc_id] = npc_name -- Suppress error message until the player stops resting
 			else
-				local expected_zone_name = _G.GetMapNameByID(expected_zone_id)
+				local expected_zone_name = expected_zone_id and _G.GetMapNameByID(expected_zone_id) or nil
 				if not expected_zone_name then -- GetMapNameByID returns nil for continent maps
 					_G.SetMapByID(expected_zone_id)
 
@@ -951,22 +953,16 @@ do
 
 		if private.OptionsCharacter.TrackRares then
 			for npc_id, world_name in pairs(private.UNTAMABLE_ID_TO_WORLD_NAME) do
-				--Ignore list check
 				if not private.Options.IgnoreList.NPCs[npc_id] then
 					NPCActivate(npc_id, world_name)
-				else
-					--print("ignoreing "..npc_id)	
 				end
 			end
 		end
 
 		if private.OptionsCharacter.TrackBeasts then
 			for npc_id, world_name in pairs(private.TAMABLE_ID_TO_WORLD_NAME) do
-				--Ignore list check
 				if not private.Options.IgnoreList.NPCs[npc_id] then
 					NPCActivate(npc_id, world_name)
-				else
-					--print("ignoreing "..npc_id)	
 				end
 			end
 		end
@@ -1068,7 +1064,7 @@ do
 			end
 		end,
 		--[===[@debug@
-		DATADUMP = function()
+		DUMP = function()
 			private.TextDump = private.TextDump or _G.LibStub("LibTextDump-1.0"):New(FOLDER_NAME)
 			private.DumpNPCData()
 		end,

@@ -322,7 +322,7 @@ function Cancel:ShouldCancel(index, operation)
 			return cancelData, "reset"
 		end
 		return false, "belowMinPrice"
-	elseif lowestBuyout <= prices.minPrice then
+	elseif lowestBuyout < prices.minPrice then
 		-- lowest buyout is below min price, so do nothing
 		return false, "belowMinPrice"
 	else

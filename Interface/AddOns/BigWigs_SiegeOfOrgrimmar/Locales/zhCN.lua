@@ -43,25 +43,18 @@ end
 
 L = BigWigs:NewBossLocale("Galakras", "zhCN")
 if L then
-	L.demolisher = "投石车"
-	L.demolisher_desc = "库卡隆投石车进入战斗计时条。"
+L["adds_desc"] = "当新的一组增援进入战斗时发出警报。"
+L["demolisher_message"] = "投石车"
+L["drakes"] = "始祖幼龙"
+L["north_tower"] = "北部塔楼"
+L["north_tower_trigger"] = "封锁北部塔楼的大门被攻破了！"
+L["south_tower"] = "南部塔楼"
+L["south_tower_trigger"] = "封锁南部塔楼的大门被攻破了！"
+L["tower_defender"] = "塔楼守卫"
+L["towers"] = "塔楼"
+L["towers_desc"] = "当塔楼被突破时发出警报。"
+L["warlord_zaela"] = "督军扎伊拉"
 
-	L.towers = "塔楼"
-	L.towers_desc = "当塔楼被突破时发出警报。"
-	L.south_tower_trigger = "封锁南部塔楼的大门被攻破了！"
-	L.south_tower = "南部塔楼"
-	L.north_tower_trigger = "封锁北部塔楼的大门被攻破了！"
-	L.north_tower = "北部塔楼"
-	L.tower_defender = "塔楼防御者"
-
-	L.adds_desc = "当新的一组增援进入战斗时发出警报。"
-	L.adds_trigger1 = "快把她打下来，然后我要活活掐死她。" -- Lady Sylvanas Windrunner
-	L.adds_trigger2 = "他们来了！" -- Lady Jaina Proudmoore
-	L.adds_trigger3 = "龙喉氏族，前进！"
-	L.adds_trigger4 = "为了地狱咆哮！"
-	L.adds_trigger5 = "下一队，前进！"
-
-	L.drakes = "始祖幼龙"
 
 	L.custom_off_shaman_marker = "萨满标记"
 	L.custom_off_shaman_marker_desc = "帮助打断分配，使用 {rt1}{rt2}{rt3}{rt4}{rt5} 标记龙喉潮汐萨满，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。|r\n|cFFADFF2F提示：如果团队选择你打开此选项，鼠标快速指向萨满是标记他们的最快方式。|r"
@@ -97,7 +90,8 @@ if L then
 	L.adds_trigger4 = "战士们，快过来！"
 	L.adds_trigger5 = "库卡隆，支援我！"
 	L.adds_trigger_extra_wave = "库卡隆，听我的命令，杀了他们！"
-	L.extra_adds = "额外增援部队"
+	L.extra_adds = "10% - 额外增援部队"
+	L.final_wave = "最后一波"
 
 	L.chain_heal_message = "你的焦点正在施放强效治疗链！"
 
@@ -114,6 +108,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "zhCN")
 if L then
+	L.start_trigger = "录像开了吗？开了？很好。地精泰坦控制模块启动，请退后。"
 	L.win_trigger = "系统重置中。请勿关闭电源，否则将发生爆炸。"
 
 	L.enable_zone = "遗物仓库"

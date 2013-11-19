@@ -60,6 +60,17 @@ function AskMrRobot.GemTab:new(name, parent)
 	tab.button:SetScript("OnClick", function() tab:startAutoGem() end)
 	tab.button:Hide()
 
+	-- autogem checkbox button
+	tab.usePerfectButton = CreateFrame("CheckButton", "AmrUsePerfectButton", tab, "ChatConfigCheckButtonTemplate")	
+	tab.preferPerfects = true
+	tab.usePerfectButton:SetChecked(tab.preferPerfects)
+	tab.usePerfectButton:SetPoint("TOPLEFT", "AmrAutoGemButton", "BOTTOMLEFT", 0, -4)
+	tab.usePerfectButton:SetScript("OnClick", function () tab.preferPerfects = tab.usePerfectButton:GetChecked() end)
+	local text3 = getglobal(tab.usePerfectButton:GetName() .. 'Text')
+	text3:SetText("Prefer Perfect")
+	text3:SetWidth(150)
+	text3:SetPoint("TOPLEFT", tab.usePerfectButton, "TOPRIGHT", 2, -4)
+	tab.usePerfectButton:Hide()
 
 	tab.gemSlotHeader = tab:CreateFontString("AmrBadGemSlot0", "ARTWORK", "GameFontNormal")
 	tab.gemSlotHeader:SetPoint("TOPLEFT", "AmrGemsText2", "BOTTOMLEFT", 0, -20)
@@ -103,7 +114,7 @@ function AskMrRobot.GemTab:new(name, parent)
 end
 
 function AskMrRobot.GemTab:startAutoGem()
-	if AskMrRobot.AutoGem() == false then 
+	if AskMrRobot.AutoGem(self.preferPerfects) == false then 
 		StaticPopup_Show("AUTOGEM_ONCE")
 	end
 end
@@ -136,6 +147,7 @@ function AskMrRobot.GemTab:Update()
 		self.gemOptimizedHeader:Hide()
 		self.gemsTextToOptimize:Hide()
 		self.button:Hide()
+		self.usePerfectButton:Hide()
 		self.stamp:Show()
 	else
 		self.gemSlotHeader:Show()
@@ -143,6 +155,7 @@ function AskMrRobot.GemTab:Update()
 		self.gemOptimizedHeader:Show()
 		self.gemsTextToOptimize:Show()
 		self.button:Show()
+		self.usePerfectButton:Show()
 		self.stamp:Hide()
 	end	
 

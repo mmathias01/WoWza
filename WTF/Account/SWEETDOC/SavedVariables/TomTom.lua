@@ -1,14 +1,14 @@
 
 TomTomDB = {
 	["profileKeys"] = {
-		["Jolokya - Dragonblight"] = "Default",
+		["Cellestia - Terenas"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
 		["Shenlu - Dragonblight"] = "Default",
-		["Majandra - Darrowmere"] = "Default",
-		["Majandra - Dragonblight"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
-		["Cellestia - Terenas"] = "Default",
+		["Majandra - Dragonblight"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -31,17 +31,17 @@ TomTomDB = {
 TomTomWaypoints = nil
 TomTomWaypointsMF = {
 	["profileKeys"] = {
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
+		["Cellestia - Terenas"] = "Cellestia - Terenas",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Shenlu - Dragonblight"] = "Shenlu - Dragonblight",
-		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
-		["Cellestia - Terenas"] = "Cellestia - Terenas",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 	},
 	["profiles"] = {
-		["Jolokya - Dragonblight"] = {
+		["Cellestia - Terenas"] = {
 		},
 		["Jolokia - Dragonblight"] = {
 		},
@@ -49,13 +49,13 @@ TomTomWaypointsMF = {
 		},
 		["Shenlu - Dragonblight"] = {
 		},
-		["Majandra - Darrowmere"] = {
-		},
-		["Majandra - Dragonblight"] = {
+		["Jolokya - Dragonblight"] = {
 		},
 		["Jolobank - Dragonblight"] = {
 		},
-		["Cellestia - Terenas"] = {
+		["Majandra - Dragonblight"] = {
+		},
+		["Majandra - Darrowmere"] = {
 		},
 	},
 }

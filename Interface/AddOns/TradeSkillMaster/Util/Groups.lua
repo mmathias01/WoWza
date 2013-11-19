@@ -396,7 +396,7 @@ function TSMAPI:DrawOperationManagement(TSMObj, container, operationName)
 						end
 					end
 					TSM:CheckOperationRelationships(moduleName)
-					ModuleOptionsRefresh(TSMObj)
+					ModuleOptionsRefresh(TSMObj, operationName)
 				end,
 				tooltip = L["Click this button to completely remove this operation from the specified group."],
 			})

@@ -3,6 +3,22 @@ local _, AskMrRobot = ...
 -- initialize the ExportTab class
 AskMrRobot.ExportTab = AskMrRobot.inheritsFrom(AskMrRobot.Frame)
 
+-- helper to create text for this tab
+local function CreateText(state, tab, font, relativeTo, xOffset, yOffset, text)
+    local t = tab:CreateFontString(nil, "ARTWORK", font)
+	t:SetPoint("TOPLEFT", relativeTo, "BOTTOMLEFT", xOffset, yOffset)
+	t:SetPoint("RIGHT", tab, "RIGHT", -25, 0)
+	t:SetWidth(t:GetWidth())
+	t:SetJustifyH("LEFT")
+	t:SetText(text)
+    
+    if (state ~= nil) then
+        table.insert(state, t)
+    end
+    
+    return t
+end
+
 function AskMrRobot.ExportTab:new(parent)
 
 	local tab = AskMrRobot.Frame:new(nil, parent)	
@@ -10,46 +26,133 @@ function AskMrRobot.ExportTab:new(parent)
 	tab:SetPoint("TOPLEFT")
 	tab:SetPoint("BOTTOMRIGHT")
 	tab:Hide()
+    
+    -- used to toggle between the two states... could use like, tabs or a UI panel or something, but then I would have to read more pseudo-documentation.
+    tab.manualElements = {}
+    tab.autoElements = {}
 
 	local text = tab:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
 	text:SetPoint("TOPLEFT", 0, -5)
-	text:SetText("Export Gear for Best in Bags")
+	text:SetText("Export Gear for Best in Bags")  
+    
+    local chooseText = CreateText(nil, tab, "GameFontWhite", text, 0, -15, "Choose a method:")
+	chooseText:SetJustifyV("MIDDLE")
+    chooseText:SetHeight(30)
+    
+    local btn = CreateFrame("Button", "AmrExportManual", tab, "UIPanelButtonTemplate")
+	btn:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 125, -15)
+	btn:SetText("Copy/Paste")
+	btn:SetWidth(120)
+	btn:SetHeight(30)
+    tab.btnManual = btn
+    
+    btn:SetScript("OnClick", function()
+        AmrOptions.exportToClient = false
+        tab:Update()
+    end)
+    
+    btn = CreateFrame("Button", "AmrExportAuto", tab, "UIPanelButtonTemplate")
+	btn:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 275, -15)
+	btn:SetText("AMR Client")
+	btn:SetWidth(120)
+	btn:SetHeight(30)
+    tab.btnAuto = btn
+    
+    btn:SetScript("OnClick", function()
+        AmrOptions.exportToClient = true
+        tab:Update()
+    end)
+    
+    -- copy/paste
+    text = CreateText(tab.manualElements, tab, "GameFontNormalLarge", chooseText, 0, -20, "COPY/PASTE EXPORT")
+    local text2 = CreateText(tab.manualElements, tab, "GameFontWhite", text, 0, -15, "1. Open your bank")
+    text = CreateText(tab.manualElements, tab, "GameFontWhite", text2, 0, -15, "2. Copy the text below by pressing Ctrl+C (or Cmd+C on a Mac)")
 
-	local text2 = tab:CreateFontString(nil, "ARTWORK", "GameFontWhite")
-	text2:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 0, -20)
-	text2:SetPoint("RIGHT", tab, "RIGHT", -25, 0)
-	text2:SetWidth(text2:GetWidth())
-	text2:SetText("Mr. Robot can find the best set of gear from items you own. So all of those extra rings or belts you're carrying around, might be put to good use. Offspec sets are also calculated!\r\r\r1. Open your bank.\r\r2. Click the export button (this updates the askmrrobot.lua file)")
-	text2:SetHeight(100)
-	text2:SetJustifyH("LEFT")
+	local txtExportString = CreateFrame("ScrollFrame", "AmrScrollFrame", tab, "InputScrollFrameTemplate")
+	txtExportString:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 12, -10)
+	txtExportString:SetPoint("RIGHT", -25, 0)
+	txtExportString:SetWidth(txtExportString:GetWidth())
+	txtExportString:SetHeight(50)
+	txtExportString.EditBox:SetWidth(txtExportString:GetWidth())
+    txtExportString.EditBox:SetMaxLetters(0)
+	txtExportString.CharCount:Hide()
+	tab.txtExportString = txtExportString
+    table.insert(tab.manualElements, txtExportString)
+    
+    txtExportString.EditBox:SetScript("OnEscapePressed", function()
+        AskMrRobot_ReforgeFrame:Hide()
+    end)
+    
+    text = CreateText(tab.manualElements, tab, "GameFontWhite", txtExportString, -12, -20, "3. Go to AskMrRobot.com and paste into the IMPORT window")
+    text2 = CreateText(tab.manualElements, tab, "GameFontWhite", text, 10, -5, "(located to the right of your character name near the top of the web page, see screenshot)")
 
-	local btn = CreateFrame("Button", "AmrImportButton", tab, "UIPanelButtonTemplate")
-	btn:SetPoint("TOPLEFT", text2, "BOTTOMLEFT", 12, -20)
-	btn:SetText("Export Bag & Bank Items")
-	btn:SetWidth(180)
-	btn:SetHeight(20)
-	tab.button = btn
-
-	local text3 = tab:CreateFontString(nil, "ARTWORK", "GameFontWhite")
-	text3:SetPoint("TOP", btn, "BOTTOM", 0, -20)
-	text3:SetPoint("LEFT", text2, "LEFT", 0, -20)
-	text3:SetPoint("RIGHT", tab, "RIGHT", -25, 0)
-	text3:SetWidth(text2:GetWidth())
-	text3:SetText("3. Update the data on Ask Mr. Robot's website:")
-	text3:SetJustifyH("LEFT")
-
-	local text4 = tab:CreateFontString(nil, "ARTWORK", "GameFontWhite")
-	text4:SetTextColor(.5,.5,.5)
-	text4:SetPoint("TOPLEFT", text3, "BOTTOMLEFT", 12, -20)
-	text4:SetPoint("RIGHT", tab, "RIGHT", -25, 0)
-	text4:SetWidth(text2:GetWidth())
-	text4:SetText("Look for the Add-On section on AskMrRobot.com, to the right of your character name.  If you have the desktop application installed, click the 'refresh' button.  Otherwise, click 'Import' to upload your askmrrobot.lua file.")
-	text4:SetJustifyH("LEFT")
-
-
-	local image = tab:CreateTexture(nil, "BACKGROUND")
-	image:SetPoint("TOPLEFT", text4, "BOTTOMLEFT", 0, -20)
+    local image = tab:CreateTexture(nil, "BACKGROUND")
+	image:SetPoint("TOPLEFT", text2, "BOTTOMLEFT", 2, -10)
 	image:SetTexture("Interface\\AddOns\\AskMrRobot\\Media\\BiBScreen")
+    table.insert(tab.manualElements, image)
+    
+    text = CreateText(tab.manualElements, tab, "GameFontWhite", text2, 0, -120, "NOTE: If you change something while this window is open, press the Update button below to generate a new export string.")
+    
+    btn = CreateFrame("Button", "AmrUpdateExportString", tab, "UIPanelButtonTemplate")
+	btn:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 0, -5)
+	btn:SetText("Update")
+	btn:SetWidth(120)
+	btn:SetHeight(25)
+    table.insert(tab.manualElements, btn)
+    
+    btn:SetScript("OnClick", function()
+        tab:Update()
+    end)
+    
+    -- amr client
+    text = CreateText(tab.autoElements, tab, "GameFontNormalLarge", chooseText, 0, -20, "AMR CLIENT EXPORT")
+    text2 = CreateText(tab.autoElements, tab, "GameFontWhite", text, 0, -15, "1. Open your bank")
+    text = CreateText(tab.autoElements, tab, "GameFontWhite", text2, 0, -15, "2. Press the button below to update your AskMrRobot.lua file")
 
+    btn = CreateFrame("Button", "AmrExportFile", tab, "UIPanelButtonTemplate")
+	btn:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 12, -10)
+	btn:SetText("Export to File")
+	btn:SetWidth(180)
+	btn:SetHeight(25)
+    table.insert(tab.autoElements, btn)
+    
+    btn:SetScript("OnClick", function()
+        AskMrRobot.SaveAll()
+        ReloadUI()
+    end)
+
+    text = CreateText(tab.autoElements, tab, "GameFontWhite", btn, -12, -20, "3. Go to AskMrRobot.com and press REFRESH")
+    text2 = CreateText(tab.autoElements, tab, "GameFontWhite", text, 10, -5, "(located to the right of your character name near the top of the web page, see screenshot:)")
+
+    image = tab:CreateTexture(nil, "BACKGROUND")
+	image:SetPoint("TOPLEFT", text2, "BOTTOMLEFT", 2, -10)
+	image:SetTexture("Interface\\AddOns\\AskMrRobot\\Media\\BiBScreen")
+    table.insert(tab.autoElements, image)
+
+    tab:SetScript("OnShow", function()
+        tab:Update()
+	end)
+    
 	return tab
+end
+
+-- update the panel and state
+function AskMrRobot.ExportTab:Update()
+
+    if (AmrOptions.exportToClient) then
+        for i, v in ipairs(self.manualElements) do v:Hide() end
+        for i, v in ipairs(self.autoElements) do v:Show() end
+        self.btnManual:UnlockHighlight()
+        self.btnAuto:LockHighlight()
+    else
+        for i, v in ipairs(self.autoElements) do v:Hide() end
+        for i, v in ipairs(self.manualElements) do v:Show() end
+        self.btnAuto:UnlockHighlight()
+        self.btnManual:LockHighlight()
+        
+        AskMrRobot.SaveAll()
+        self.txtExportString.EditBox:SetText(AskMrRobot.ExportToString())
+        self.txtExportString.EditBox:HighlightText()
+        self.txtExportString.EditBox:SetFocus()
+    end
 end

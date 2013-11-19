@@ -6,35 +6,35 @@ CliqueDB3 = {
 			["sec_profileKey"] = "Majandra - Dragonblight",
 			["fastooc"] = false,
 			["blacklist"] = {
-				["ElvUF_Player"] = true,
 				["ElvUF_Target"] = true,
+				["ElvUF_Player"] = true,
 			},
-			["alerthidden"] = true,
+			["specswap"] = false,
 			["downclick"] = false,
 			["pri_profileKey"] = "Majandra - Dragonblight",
-			["specswap"] = false,
+			["alerthidden"] = true,
 		},
 		["Cellestia - Terenas"] = {
 			["alerthidden"] = true,
 			["sec_profileKey"] = "Cellestia - Terenas",
 			["pri_profileKey"] = "Cellestia - Terenas",
 			["fastooc"] = false,
-			["downclick"] = false,
 			["specswap"] = false,
+			["downclick"] = false,
 		},
 	},
 	["profileKeys"] = {
-		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
-		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
-		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
+		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 	},
 	["profiles"] = {
-		["Cellestia - Windrunner"] = {
+		["Majandra - Darrowmere"] = {
 			["bindings"] = {
 				{
 					["type"] = "target",
@@ -56,10 +56,10 @@ CliqueDB3 = {
 		["Jolokia - Dragonblight"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -75,10 +75,10 @@ CliqueDB3 = {
 		["Ziagi - Terenas"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -94,10 +94,10 @@ CliqueDB3 = {
 		["Cellestia - Terenas"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -138,13 +138,32 @@ CliqueDB3 = {
 				}, -- [5]
 			},
 		},
-		["Jolokya - Dragonblight"] = {
+		["Cellestia - Windrunner"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Jolobank - Dragonblight"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -160,11 +179,11 @@ CliqueDB3 = {
 		["Majandra - Dragonblight"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 						["ooc"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -231,26 +250,7 @@ CliqueDB3 = {
 				}, -- [8]
 			},
 		},
-		["Jolobank - Dragonblight"] = {
-			["bindings"] = {
-				{
-					["type"] = "target",
-					["sets"] = {
-						["default"] = true,
-					},
-					["key"] = "BUTTON1",
-					["unit"] = "mouseover",
-				}, -- [1]
-				{
-					["type"] = "menu",
-					["key"] = "BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [2]
-			},
-		},
-		["Majandra - Darrowmere"] = {
+		["Jolokya - Dragonblight"] = {
 			["bindings"] = {
 				{
 					["sets"] = {

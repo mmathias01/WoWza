@@ -29,7 +29,6 @@ L["chatMessages"] = "Messages de la fenêtre de discussion"
 L["chatMessagesDesc"] = "Affiche tous les messages de BigWigs dans la fenêtre de discussion par défaut, en plus de son affichage normal."
 L["colors"] = "Couleurs"
 L["configure"] = "Configuration"
-L["configureBtn"] = "Configurer..."
 L["configureBtnDesc"] = [=[Ferme la fenêtre des options de l'interface et vous permet de configurer l'affichage des barres et des messages.
 
 Si vous voulez personnaliser plus en profondeur le reste de Big Wigs, étendez l'arbre de configuration sur la gauche et cliquez sur "Personnaliser...".]=]

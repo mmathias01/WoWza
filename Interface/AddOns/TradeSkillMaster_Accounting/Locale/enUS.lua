@@ -38,6 +38,7 @@ L["DD/MM/YY HH:MM"] = true
 L["Data older than this many days will be deleted when you click on the button to the right."] = true
 L["Days:"] = true
 L["Display Grey Items in Sales"] = true
+L["Display Money Transfers in Income/Expense/Summary"] = true
 L["Don't prompt to record trades"] = true
 L["Earned Per Day:"] = true
 L["Expenses"] = true
@@ -59,6 +60,7 @@ L["If checked, the number you have sold and the average sale price will show up 
 L["If checked, the sale rate will be shown in item tooltips. sale rate is calculated as total sold / (total sold + total expired + total cancelled)."] = true
 L["If checked, whenever you buy or sell any quantity of a single item via trade, Accounting will display a popup asking if you want it to record that transaction."] = true
 L["If checked, you won't get a popup confirmation about whether or not to track trades."] = true
+L["If checked, Money Transfers will be included in income / expense and summary. Accounting will still track these if disabled but will not show them."] = true
 L["Income"] = true
 L["Item Name"] = true
 L["Items"] = true

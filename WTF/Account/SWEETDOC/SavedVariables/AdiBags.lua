@@ -32,20 +32,25 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["PT3Filter"] = {
-		},
-		["AdiBags_TooltipInfo"] = {
-		},
-		["TidyBags"] = {
+		["Equipment"] = {
 			["profiles"] = {
 				["Default"] = {
-					["autoTidy"] = true,
+					["dispatchRule"] = "one",
 				},
 			},
 		},
-		["Bound"] = {
+		["AdiBags_TooltipInfo"] = {
 		},
-		["ItemSets"] = {
+		["Junk"] = {
+			["profiles"] = {
+				["Default"] = {
+					["exclude"] = {
+						[95567] = true,
+					},
+				},
+			},
+		},
+		["DataSource"] = {
 		},
 		["CurrencyFrame"] = {
 			["profiles"] = {
@@ -66,23 +71,18 @@ AdiBagsDB = {
 				},
 			},
 		},
-		["DataSource"] = {
+		["ItemSets"] = {
 		},
-		["Junk"] = {
+		["Bound"] = {
+		},
+		["TidyBags"] = {
 			["profiles"] = {
 				["Default"] = {
-					["exclude"] = {
-						[95567] = true,
-					},
+					["autoTidy"] = true,
 				},
 			},
 		},
-		["Equipment"] = {
-			["profiles"] = {
-				["Default"] = {
-					["dispatchRule"] = "one",
-				},
-			},
+		["PT3Filter"] = {
 		},
 	},
 	["profileKeys"] = {

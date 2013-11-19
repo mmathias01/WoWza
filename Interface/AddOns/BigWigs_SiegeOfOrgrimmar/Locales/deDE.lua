@@ -7,6 +7,10 @@ end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "deDE")
 if L then
+L["inferno_self"] = "Infernostoß auf Dir" -- Needs review
+L["inferno_self_bar"] = "Du explodierst!" -- Needs review
+L["inferno_self_desc"] = "Spezieller Timer wenn Du von Infernostoß betroffen bist." -- Needs review
+L["intermission_desc"] = "Warnt wenn die Bosse Verzweifelte Maßnahmen verwenden." -- Needs review
 
 
 	L.custom_off_bane_marks = "Schattenwort: Unheil markieren"
@@ -36,25 +40,17 @@ end
 
 L = BigWigs:NewBossLocale("Galakras", "deDE")
 if L then
-	L.demolisher = "Verwüster"
-	L.demolisher_desc = "Zeigt an, wann die Verwüster der Kor'kron in den Kampf eintreten."
+L["adds_desc"] = "Zeigt an, wann neue Adds in den Kampf eintreten."
+L["demolisher_message"] = "Verwüster"
+L["north_tower"] = "Nördlicher Turm"
+L["north_tower_trigger"] = "Das Tor zum Nordturm ist durchbrochen!"
+L["south_tower"] = "Südlicher Turm"
+L["south_tower_trigger"] = "Das Tor zum Südturm ist durchbrochen!"
+L["tower_defender"] = "Turmverteidiger"
+L["towers"] = "Türme"
+L["towers_desc"] = "Warnungen für das Durchbrechen der Tore zu den Türmen."
+L["warlord_zaela"] = "Kriegsfürstin Zaela"
 
-	L.towers = "Türme"
-	L.towers_desc = "Warnungen für das Durchbrechen der Tore zu den Türmen."
-	L.south_tower_trigger = "Das Tor zum Südturm ist durchbrochen!"
-	L.south_tower = "Südlicher Turm"
-	L.north_tower_trigger = "Das Tor zum Nordturm ist durchbrochen!"
-	L.north_tower = "Nördlicher Turm"
-	L.tower_defender = "Turmverteidiger"
-
-	L.adds_desc = "Zeigt an, wann neue Adds in den Kampf eintreten."
-	L.adds_trigger1 = "Holt sie schnell vom Himmel, damit ich sie erwürgen kann."
-	L.adds_trigger2 = "Da kommen sie!"
-	L.adds_trigger3 = "Drachenmalklan, ausrücken!"
-	L.adds_trigger4 = "Für Höllschrei!"
-	L.adds_trigger5 = "Nächster Trupp, vorwärts!"
-
-	--L.drakes = "Proto-Drakes"
 
 	L.custom_off_shaman_marker = "Schamanen markieren"
 	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Gezeitenschamanen des Drachenmals mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Schamanen.|r"
@@ -90,7 +86,8 @@ if L then
 	L.adds_trigger4 = "Krieger, im Laufschritt!"
 	L.adds_trigger5 = "Kor'kron, zu mir!"
 	L.adds_trigger_extra_wave = "Alle Kor'kron unter meinem Befehl, tötet sie! Jetzt!"
-	L.extra_adds = "Zusätzliche Adds"
+	L.extra_adds = "10% - Zusätzliche Adds"
+	--L.final_wave = "Final Wave"
 
 	L.chain_heal_message = "Dein Fokusziel wirkt Kettenheilung!"
 
@@ -107,6 +104,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "deDE")
 if L then
+	--L.start_trigger = "Hey, we recording?"
 	L.win_trigger = "System wird neu gestartet. Die Energieversorgung muss stabil bleiben, sonst fliegt die ganze Chose in die Luft."
 
 	L.enable_zone = "Artefaktlagerraum"

@@ -2,8 +2,7 @@
 ..\FrameXML\UI.xsd">	
 	<Script file="..\ElvUI_ChatTweaks\Modules\ATestOfValor.lua" />
 	<Script file="..\ElvUI_ChatTweaks\Modules\AutoSetRole.lua" />
-	<Script file="..\ElvUI_ChatTweaks\Modules\Calculator.lua" />	
-	<Script file="..\ElvUI_ChatTweaks\Modules\ChannelSpam.lua" />
+	<Script file="..\ElvUI_ChatTweaks\Modules\Calculator.lua" />
 	<Script file="..\ElvUI_ChatTweaks\Modules\ColorRolls.lua" />
 	<Script file="..\ElvUI_ChatTweaks\Modules\Companions.lua" />
 	<Script file="..\ElvUI_ChatTweaks\Modules\DamageMeters.lua" />

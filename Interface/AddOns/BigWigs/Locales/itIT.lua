@@ -29,10 +29,10 @@ L["chatMessages"] = "Messaggi Riquadro Chat"
 L["chatMessagesDesc"] = "Invia tutti i messaggi di Big Wigs alla chat oltre che nei settaggi di visualizzazione."
 L["colors"] = "Colori"
 L["configure"] = "Configura"
-L["configureBtn"] = "Configura ..."
 L["configureBtnDesc"] = [=[Chiude le opzioni dell'interfaccia e ti permette di configurare la visualizzazione delle barre e dei messaggi.
 
 Se vuoi personalizzare con maggior dettaglio, puoi espandere Big Wigs nell'albero di sinistra ed entrare nella sezione 'Personalizza ...'.]=]
+L["configureBtnName"] = "Muovi & Configura >>> Barre/Messaggi..."
 L["contact"] = "Contatti"
 L["coreAddonDisabled"] = "Big Wigs non può funzionare correttamente perché l'addon %s è disattivato. Puoi attivarlo nel pannello di controllo degli Addon nella schermata di login dei personaggi."
 L["customizeBtn"] = "Personalizza ..."

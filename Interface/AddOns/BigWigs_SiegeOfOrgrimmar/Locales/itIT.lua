@@ -43,25 +43,18 @@ end
 
 L = BigWigs:NewBossLocale("Galakras", "itIT")
 if L then
-	L.demolisher = "Demolitori"
-	L.demolisher_desc = "Timer per l'arrivo in combattimento dei Demolitori Kor'kron"
+L["adds_desc"] = "Avvisi per quando una nuova ondata di add entra in combattimento."
+L["demolisher_message"] = "Demolitori"
+L["drakes"] = "Proto-Draghi"
+L["north_tower"] = "Torre nord"
+L["north_tower_trigger"] = "La porta a protezione della torre a nord è stata sfondata!"
+L["south_tower"] = "Torre sud"
+L["south_tower_trigger"] = "La porta a protezione della torre a sud è stata sfondata!"
+L["tower_defender"] = "Difensore Torre"
+L["towers"] = "Torri"
+L["towers_desc"] = "Avvisa quando le torri vengono distrutte"
+L["warlord_zaela"] = "Signora della Guerra Zaela"
 
-	L.towers = "Torri"
-	L.towers_desc = "Avvisa quando le torri vengono distrutte"
-	L.south_tower_trigger = "La porta a protezione della torre a sud è stata sfondata!" --checked
-	L.south_tower = "Torre sud"
-	L.north_tower_trigger = "La porta a protezione della torre a nord è stata sfondata!" --checked
-	L.north_tower = "Torre nord"
-	L.tower_defender = "DIfensore Torre"
-
-	L.adds_desc = "Avvisi per quando una nuova ondata di add entra in combattimento."
-	L.adds_trigger1 = "Abbattetela in fretta così potrò strangolarla personalmente." -- Lady Sylvanas Windrunner
-	L.adds_trigger2 = "Eccoli che arrivano!" -- Lady Jaina Proudmoore
-	L.adds_trigger3 = "Fauci di Drago, avanzate!"
-	L.adds_trigger4 = "Per Malogrido!"
-	L.adds_trigger5 = "Prossima squadra, avanti!"
-
-	L.drakes = "Proto-Draghi"
 
 	L.custom_off_shaman_marker = "Marcatore Sciamano"
 	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzzioni, evidenzia gli Sciamani delle Maree delle Fauci di Drago con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r\n|cFFADFF2FSUGGERIMENTO: Se l'Incursione ha scelto te per abilitare questa opzione, muovere velocemente il mouse sopra gli sciamani è il modo più rapido per evidenziarli.|r"
@@ -97,7 +90,8 @@ if L then
 	L.adds_trigger4 = "Guerrieri, in marcia!"
 	L.adds_trigger5 = "Kor'kron, con me!"
 	L.adds_trigger_extra_wave = "Tutti i Kor'kron... al mio comando... uccideteli... ORA"
-	L.extra_adds = "Armate Aggiuntive"
+	L.extra_adds = "10% - Armate Aggiuntive"
+	L.final_wave = "Ultima Ondata"
 
 	L.chain_heal_message = "Il tuo focus sta lanciando Catena di Guarigione Potenziata!"
 
@@ -114,6 +108,7 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "itIT")
 if L then
+	L.start_trigger = "Stiamo registrando?"
 	L.win_trigger = "Riavvio del sistema. Non staccare la corrente o potrebbe saltare tutto in aria."
 
 	L.enable_zone = "Immagazzinamento Artefatti"
