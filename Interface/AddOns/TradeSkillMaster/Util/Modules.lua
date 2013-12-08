@@ -157,6 +157,13 @@ function TSMAPI:NewModule(obj)
 	if errMsg then
 		error(errMsg, 2)
 	end
+	
+	-- register it for debug tracing
+	TSMAPI:RegisterForTracing(obj)
+	for _, subModule in pairs(obj.modules or {}) do
+		local name = obj.name.."."..subModule.moduleName
+		TSMAPI:RegisterForTracing(subModule, name)
+	end
 
 	-- sets the _version, _author, and _desc fields
 	local fullName = gsub(obj.name, "TSM_", "TradeSkillMaster_")

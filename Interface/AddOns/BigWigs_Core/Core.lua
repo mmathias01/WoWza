@@ -138,7 +138,8 @@ local function zoneChanged()
 	else
 		SetMapToCurrentZone() -- Hack because Astrolabe likes to screw with map setting in rare situations, so we need to force an update.
 	end
-	if enablezones[GetCurrentMapAreaID()] then
+	local id = GetCurrentMapAreaID()
+	if enablezones[id] then
 		if not monitoring then
 			monitoring = true
 			addon:RegisterEvent("CHAT_MSG_MONSTER_YELL", chatMsgMonsterYell)
@@ -152,6 +153,10 @@ local function zoneChanged()
 		addon:UnregisterEvent("CHAT_MSG_MONSTER_YELL")
 		addon:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 		addon:UnregisterEvent("UNIT_TARGET")
+	end
+
+	if id == 953 and addon.db.profile.blockmovies then -- Siege of Orgrimmar
+		addon:SiegeOfOrgrimmarCinematics()
 	end
 end
 
@@ -220,6 +225,27 @@ do
 		[953.12] = true, -- Heroic Garrosh Phase 4
 	}
 
+	-- Cinematic skipping hack to workaround an item (Vision of Time) that creates cinematics in Siege of Orgrimmar.
+	function addon:SiegeOfOrgrimmarCinematics()
+		local hasItem
+		for i = 105930, 105935 do -- Vision of Time items
+			local _, _, cd = GetItemCooldown(i)
+			if cd > 0 then hasItem = true end -- Item is found in our inventory
+		end
+		if hasItem and not self.SiegeOfOrgrimmarCinematicsFrame then
+			local tbl = {[149370] = true, [149371] = true, [149372] = true, [149373] = true, [149374] = true, [149375] = true}
+			self.SiegeOfOrgrimmarCinematicsFrame = CreateFrame("Frame")
+			-- frame:UNIT_SPELLCAST_SUCCEEDED:player:Vision of Time Scene 2::227:149371:
+			self.SiegeOfOrgrimmarCinematicsFrame:SetScript("OnEvent", function(_, _, _, _, _, _, spellId)
+				if tbl[spellId] then
+					addon:UnregisterEvent("CINEMATIC_START")
+					addon:ScheduleTimer("RegisterEvent", 10, "CINEMATIC_START")
+				end
+			end)
+			self.SiegeOfOrgrimmarCinematicsFrame:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "player")
+		end
+	end
+
 	function addon:CINEMATIC_START()
 		if self.db.profile.blockmovies then
 			SetMapToCurrentZone()
@@ -229,12 +255,6 @@ do
 			end
 
 			local areaId = GetCurrentMapAreaID() or 0
-			if areaId == 953 then -- Siege of Orgrimmar
-				for i = 105930, 105935 do -- Scan quest items (Vision of Time) that trigger CINEMATIC_START inside the zone
-					local _, _, cd = GetItemCooldown(i)
-					if cd > 0 then return end -- Item is in our inventory, prevent cancelling cinematics
-				end
-			end
 			local areaLevel = GetCurrentMapDungeonLevel() or 0
 			local id = tonumber(("%d.%d"):format(areaId, areaLevel))
 
@@ -390,7 +410,7 @@ do
 	function addon:AddSyncListener(module, sync, throttle)
 		if not registered[sync] then registered[sync] = {} end
 		if type(registered[sync]) ~= "table" then return end -- Prevent registering BossEngaged/Death/EnableModule
-		registered[sync][module] = throttle or 2
+		registered[sync][module] = throttle or 5
 	end
 	function addon:Transmit(sync, ...)
 		if sync then
@@ -417,7 +437,6 @@ function addon:OnInitialize()
 			showZoneMessages = true,
 			blockmovies = true,
 			fakeDBMVersion = false,
-			customDBMbars = true,
 			autoRole = true,
 		},
 		global = {
@@ -434,6 +453,7 @@ function addon:OnInitialize()
 	db.RegisterCallback(self, "OnProfileCopied", profileUpdate)
 	db.RegisterCallback(self, "OnProfileReset", profileUpdate)
 	self.db = db
+	self.db.profile.customDBMbars = nil -- XXX temp cleanup
 
 	self:RegisterBossOption("bosskill", L.bosskill, L.bosskill_desc, nil, "Interface\\Icons\\ability_rogue_feigndeath")
 	self:RegisterBossOption("berserk", L.berserk, L.berserk_desc, nil, "Interface\\Icons\\spell_shadow_unholyfrenzy")

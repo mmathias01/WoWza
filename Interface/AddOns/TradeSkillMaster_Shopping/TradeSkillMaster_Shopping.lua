@@ -74,19 +74,22 @@ function TSM:OnTSMDBShutdown()
 	for profile in TSMAPI:GetTSMProfileIterator() do
 		TSM.db.global.appInfo[profile] = TSM.db.global.appInfo[profile] or {}
 		for itemString, operations in pairs(TSMAPI:GetModuleItems("Shopping")) do
-			if itemString == TSMAPI:GetBaseItemString(itemString) then
+--			if itemString == TSMAPI:GetBaseItemString(itemString) then
 				local groupName = TSMAPI:FormatGroupPath(TSMAPI:GetGroupPath(itemString))
 				local operationName = operations[1]
+				local name, _, _, _, _, iType = TSMAPI:GetSafeItemInfo(itemString)
+				local WEAPON, ARMOR = GetAuctionItemClasses()
+				local random = (itemString == TSMAPI:GetBaseItemString(itemString) and (iType == ARMOR or iType == WEAPON))
 				TSMAPI:UpdateOperation("Shopping", operationName)
 				local operation = TSM.operations[operationName]
 				if operation then
 					local maxPrice = TSM:GetMaxPrice(operation.maxPrice, itemString)
 					if maxPrice then
 						TSM.db.global.appInfo[profile][groupName] = TSM.db.global.appInfo[profile][groupName] or {}
-						TSM.db.global.appInfo[profile][groupName][TSMAPI:GetItemID(itemString)] = { name = TSMAPI:GetSafeItemInfo(itemString), maxPrice = maxPrice, evenStacks = operation.evenStacks }
+						TSM.db.global.appInfo[profile][groupName][itemString] = { itemid = TSMAPI:GetItemID(itemString), name = name, maxPrice = maxPrice, evenStacks = operation.evenStacks, random = random }
 					end
 				end
-			end
+--			end
 		end
 	end
 end

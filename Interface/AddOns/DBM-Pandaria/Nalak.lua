@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(814, "DBM-Pandaria", nil, 322)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10466 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10698 $"):sub(12, -3))
 mod:SetCreatureID(69099)
 mod:SetReCombatTime(20)
 mod:SetZone()
@@ -28,7 +28,7 @@ local timerStormcloudCD				= mod:NewCDTimer(24, 136340)
 local timerLightningTetherCD		= mod:NewCDTimer(35, 136339)--Needs more data, they may have tweaked it some.
 local timerArcNovaCD				= mod:NewNextTimer(42, 136338)
 
-local soundArcNova					= mod:NewSound(136338, nil, mod:IsMelee())
+local soundArcNova					= mod:NewSound(136338, mod:IsMelee())
 
 mod:AddBoolOption("RangeFrame")--For Stormcloud, might tweek to not show all the time with actual better logs than me facepulling it and dying with 20 seconds
 mod:AddReadyCheckOption(32518, false)

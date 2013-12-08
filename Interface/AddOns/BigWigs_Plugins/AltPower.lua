@@ -8,6 +8,10 @@ if not plugin then return end
 plugin.defaultDB = {
 	posx = nil,
 	posy = nil,
+	font = nil,
+	fontSize = nil,
+	fontOutline = nil,
+	monochrome = false,
 	expanded = false,
 	disabled = false,
 	lock = false,
@@ -31,9 +35,8 @@ local sortDir = nil
 local repeatSync = nil
 local syncPowerList = nil
 local UpdateDisplay
-local tsort = table.sort
-local min = math.min
-local UnitPower = UnitPower
+local tsort, min = table.sort, math.min
+local UnitPower, IsInGroup = UnitPower, IsInGroup
 local db = nil
 local roleIcons = {
 	["TANK"] = INLINE_TANK_ICON,
@@ -53,7 +56,7 @@ local function colorize(power)
 	end
 end
 
-function plugin:RestyleWindow()
+function plugin:RestyleWindow(dirty)
 	if db.lock then
 		display:SetMovable(false)
 		display:RegisterForDrag()
@@ -70,6 +73,24 @@ function plugin:RestyleWindow()
 			db.posy = self:GetTop() * s
 		end)
 	end
+
+	local font, size, flags = GameFontNormal:GetFont()
+	local curFont = media:Fetch("font", db.font)
+	if dirty or curFont ~= font or db.fontSize ~= size or db.fontOutline ~= flags then
+		local newFlags
+		if db.monochrome and db.fontOutline ~= "" then
+			newFlags = "MONOCHROME," .. db.fontOutline
+		elseif db.monochrome then
+			newFlags = "" -- "MONOCHROME", XXX monochrome only is disabled for now as it causes a client crash
+		else
+			newFlags = db.fontOutline
+		end
+
+		display.title:SetFont(curFont, db.fontSize, newFlags)
+		for i = 1, 25 do
+			display.text[i]:SetFont(curFont, db.fontSize, newFlags)
+		end
+	end
 end
 
 -------------------------------------------------------------------------------
@@ -83,30 +104,21 @@ do
 			pluginOptions = {
 				type = "group",
 				get = function(info)
-					local key = info[#info]
-					if key == "font" then
-						for i, v in next, media:List("font") do
-							if v == db.font then return i end
-						end
-					else
-						return db[key]
-					end
+					return db[info[#info]]
 				end,
 				set = function(info, value)
-					local key = info[#info]
-					if key == "font" then
-						db.font = media:List("font")[value]
-					else
-						db[key] = value
-					end
-					plugin:RestyleWindow()
+					local entry = info[#info]
+					db[entry] = value
+					plugin:RestyleWindow(entry == "fontOutline" or entry == "fontSize" or entry == "monochrome")
 				end,
+				disabled = function() return plugin.db.profile.disabled end,
 				args = {
 					disabled = {
 						type = "toggle",
 						name = L.disabled,
 						desc = L.disabledDisplayDesc,
 						order = 1,
+						disabled = false,
 					},
 					lock = {
 						type = "toggle",
@@ -119,19 +131,40 @@ do
 						name = L.font,
 						order = 3,
 						values = media:List("font"),
-						width = "full",
 						itemControl = "DDI-Font",
-						disabled = true,
+						get = function()
+							for i, v in next, media:List("font") do
+								if v == db.font then return i end
+							end
+						end,
+						set = function(info, value)
+							db.font = media:List("font")[value]
+							plugin:RestyleWindow(true)
+						end,
+					},
+					fontOutline = {
+						type = "select",
+						name = L.outline,
+						order = 4,
+						values = {
+							[""] = L.none,
+							OUTLINE = L.thin,
+							THICKOUTLINE = L.thick,
+						},
 					},
 					fontSize = {
 						type = "range",
 						name = L.fontSize,
-						order = 4,
-						max = 40,
+						order = 5,
+						max = 24,
 						min = 8,
 						step = 1,
-						width = "full",
-						disabled = true,
+					},
+					monochrome = {
+						type = "toggle",
+						name = L.monochrome,
+						desc = L.monochromeDesc,
+						order = 6,
 					},
 					--[[showHide = {
 						type = "group",
@@ -197,8 +230,43 @@ end
 -- Initialization
 --
 
+local function resetAnchor()
+	display:ClearAllPoints()
+	display:SetPoint("CENTER", UIParent, "CENTER", 300, -80)
+	db.posx = nil
+	db.posy = nil
+	plugin:Contract()
+end
+
 local function updateProfile()
 	db = plugin.db.profile
+
+	if not db.font then
+		db.font = media:GetDefault("font")
+	end
+	if not db.fontSize then
+		local _, size = GameFontNormal:GetFont()
+		db.fontSize = size
+	end
+	if not db.fontOutline then
+		local _, _, flags = GameFontNormal:GetFont()
+		db.fontOutline = flags
+	end
+
+	if display then
+		local x = db.posx
+		local y = db.posy
+		if x and y then
+			local s = display:GetEffectiveScale()
+			display:ClearAllPoints()
+			display:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x / s, y / s)
+		else
+			display:ClearAllPoints()
+			display:SetPoint("CENTER", UIParent, "CENTER", 300, -80)
+		end
+
+		plugin:RestyleWindow()
+	end
 end
 
 function plugin:OnPluginEnable()
@@ -212,6 +280,7 @@ function plugin:OnPluginEnable()
 	self:RegisterMessage("BigWigs_SetConfigureTarget")
 
 	self:RegisterMessage("BigWigs_ProfileUpdate", updateProfile)
+	self:RegisterMessage("BigWigs_ResetPositions", resetAnchor)
 	updateProfile()
 end
 
@@ -340,6 +409,8 @@ do
 
 		display:SetScript("OnEvent", GROUP_ROSTER_UPDATE)
 		plugin:RestyleWindow()
+
+		plugin:SendMessage("BigWigs_FrameCreated", display, "AltPower")
 	end
 
 	-- This module is rarely used, and opened once during an encounter where it is.
@@ -489,6 +560,7 @@ do
 		-- This is for people that don't show the AltPower display (event isn't registered to the display as it normally would be).
 		-- It will force sending the current power for those that do have the display shown but just had their power list reset by a 
 		-- GROUP_ROSTER_UPDATE. Or someone DCd and is logging back on, so send an update.
+		if not IsInGroup() then plugin:Close() return end
 		self:CancelTimer(repeatSync)
 		power = -1
 		repeatSync = self:ScheduleRepeatingTimer(sendPower, 1)

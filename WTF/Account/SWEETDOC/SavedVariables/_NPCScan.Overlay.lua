@@ -7,7 +7,7 @@ _NPCScanOverlayOptions = {
 		["WorldMap"] = true,
 		["Minimap"] = true,
 	},
-	["Version"] = "5.4.1.2",
+	["Version"] = "5.4.1.4",
 	["MiniMapIcon"] = {
 	},
 	["ModulesExtra"] = {

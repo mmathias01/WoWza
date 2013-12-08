@@ -1,3 +1,9 @@
+v2.2.4
+*Fixed bug in filter search code.
+
+v2.2.3
+*Updated Shopping Appdata to support changes in desktop App v203.
+
 v2.2.2
 *Fixed layout of buttons in the "Other" sidebar page.
 

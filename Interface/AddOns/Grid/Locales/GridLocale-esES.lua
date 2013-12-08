@@ -407,14 +407,14 @@ L["X"] = "X"
 ------------------------------------------------------------------------
 --	GridStatusResurrect
 
--- L["Casting color"] = ""
--- L["Pending color"] = ""
--- L["RES"] = ""
--- L["Resurrection"] = ""
--- L["Show the status until the resurrection is accepted or expires, instead of only while it is being cast."] = ""
--- L["Show until used"] = ""
--- L["Use this color for resurrections that are currently being cast."] = ""
--- L["Use this color for resurrections that have finished casting and are waiting to be accepted."] = ""
+L["Casting color"] = "Color de casteando" -- Needs review
+L["Pending color"] = "Color de pendiente" -- Needs review
+L["RES"] = "RES" -- Needs review
+L["Resurrection"] = "Resurrección" -- Needs review
+L["Show the status until the resurrection is accepted or expires, instead of only while it is being cast."] = "Muestra el estado hasta que la resurrección es aceptada o haya expirado, en vez de mostrarse solo durante el casteo." -- Needs review
+L["Show until used"] = "Mostrar mientras se castea" -- Needs review
+L["Use this color for resurrections that are currently being cast."] = "Usar este color para las resurrecciones que están siendo casteadas." -- Needs review
+L["Use this color for resurrections that have finished casting and are waiting to be accepted."] = "Usar este color para las resurreciones que se han terminado de castear y están esperando ser aceptadas." -- Needs review
 
 ------------------------------------------------------------------------
 --	GridStatusTarget

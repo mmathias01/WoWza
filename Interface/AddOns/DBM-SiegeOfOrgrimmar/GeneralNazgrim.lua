@@ -1,8 +1,9 @@
 local mod	= DBM:NewMod(850, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10671 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10729 $"):sub(12, -3))
 mod:SetCreatureID(71515)
+mod:SetEncounterID(1603)
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6, 4, 2, 1)
 
@@ -21,8 +22,8 @@ mod:RegisterEventsInCombat(
 )
 
 --Nazgrim Core Abilities
-local warnSunder					= mod:NewStackAnnounce(143494, 2, nil, mod:IsTank() or mod:IsHealer(), nil, nil, nil, nil, 2)--Will add special warnings and such when know cd and stack count needed for swaps
-local warnBonecracker				= mod:NewTargetAnnounce(143638, 2, nil, false, nil, nil, nil, nil, 2)
+local warnSunder					= mod:NewStackAnnounce("OptionVersion2", 143494, 2, nil, mod:IsTank() or mod:IsHealer())--Will add special warnings and such when know cd and stack count needed for swaps
+local warnBonecracker				= mod:NewTargetAnnounce("OptionVersion2", 143638, 2, nil, false)
 local warnBattleStance				= mod:NewSpellAnnounce(143589, 2)
 local warnBerserkerStance			= mod:NewSpellAnnounce(143594, 3)
 local warnDefensiveStanceSoon		= mod:NewAnnounce("warnDefensiveStanceSoon", 4, 143593, nil, nil, true)
@@ -34,7 +35,7 @@ local warnHeroicShockwave			= mod:NewTargetAnnounce(143500, 2)
 local warnKorkronBanner				= mod:NewSpellAnnounce(143536, 3)
 local warnRavager					= mod:NewSpellAnnounce(143872, 3)
 local warnWarSong					= mod:NewSpellAnnounce(143503, 4)
-local warnCoolingOff				= mod:NewTargetAnnounce(143484, 1, nil, false, nil, nil, nil, nil, 2)
+local warnCoolingOff				= mod:NewTargetAnnounce("OptionVersion2", 143484, 1, nil, false)
 --Kor'kron Adds
 local warnIronstorm					= mod:NewSpellAnnounce(143420, 3, nil, mod:IsMelee())
 local warnArcaneShock				= mod:NewSpellAnnounce(143432, 3, nil, false)--Spammy
@@ -43,6 +44,7 @@ local warnAssasinsMark				= mod:NewTargetAnnounce(143480, 3)
 local warnEarthShield				= mod:NewTargetAnnounce(143475, 4, nil, mod:IsMagicDispeller())
 local warnEmpoweredChainHeal		= mod:NewCastAnnounce(143473, 4)
 local warnHealingTideTotem			= mod:NewSpellAnnounce(143474, 4)
+local warnHuntersMark				= mod:NewTargetAnnounce(143882, 3)
 
 --Nazgrim Core Abilities
 local specWarnAdds					= mod:NewSpecialWarningCount("ej7920", not mod:IsHealer())
@@ -66,19 +68,22 @@ local specWarnWarSong				= mod:NewSpecialWarningSpell(143503, nil, nil, nil, 2)
 local specWarnIronstorm				= mod:NewSpecialWarningInterrupt(143420, mod:IsMelee())--Only needs to be interrupted if melee are near it
 local specWarnArcaneShock			= mod:NewSpecialWarningInterrupt(143432, false)--Spamy as all fuck, so off by default unless maybe heroic
 local specWarnMagistrike			= mod:NewSpecialWarningInterrupt(143431, false)--Spamy as all fuck, so off by default unless maybe heroic
-local specWarnEmpoweredChainHeal	= mod:NewSpecialWarningInterrupt(143473, not mod:IsHealer(), nil, nil, 1, 2)--Concerns everyone, if not interrupted will heal boss for a TON
+local specWarnEmpoweredChainHeal	= mod:NewSpecialWarningInterrupt("OptionVersion3", 143473, not mod:IsHealer())--Concerns everyone, if not interrupted will heal boss for a TON
 local specWarnAssassinsMark			= mod:NewSpecialWarningYou(143480)
 local yellAssassinsMark				= mod:NewYell(143480)
 local specWarnAssassinsMarkOther	= mod:NewSpecialWarningTarget(143480, false)
 local specWarnEarthShield			= mod:NewSpecialWarningDispel(143475, mod:IsMagicDispeller())
 local specWarnHealingTideTotem		= mod:NewSpecialWarningSwitch(143474, false)--Not everyone needs to switch, should be turned on by assigned totem mashing people.
+local specWarnHuntersMark			= mod:NewSpecialWarningYou(143882)
+local yellHuntersMark				= mod:NewYell(143882)
+local specWarnHuntersMarkOther		= mod:NewSpecialWarningTarget(143882, false)
 
 --Nazgrim Core Abilities
 local timerAddsCD					= mod:NewNextCountTimer(45, "ej7920", nil, nil, nil, 2457)
 local timerSunder					= mod:NewTargetTimer(30, 143494, nil, mod:IsTank() or mod:IsHealer())
 local timerSunderCD					= mod:NewCDTimer(8, 143494, nil, mod:IsTank())
 local timerExecuteCD				= mod:NewCDTimer(18, 143502, nil, mod:IsTank())
-local timerBoneCD					= mod:NewCDTimer(30, 143638, nil, false, nil, nil, nil, nil, nil, nil, 2)
+local timerBoneCD					= mod:NewCDTimer("OptionVersion2", 30, 143638, nil, false)
 local timerBattleStanceCD			= mod:NewNextTimer(60, 143589)
 local timerBerserkerStanceCD		= mod:NewNextTimer(60, 143594)
 local timerDefensiveStanceCD		= mod:NewNextTimer(60, 143593)
@@ -87,8 +92,8 @@ local timerCoolingOff				= mod:NewBuffFadesTimer(15, 143484)
 --Kor'kron Adds
 local timerEmpoweredChainHealCD		= mod:NewNextSourceTimer(6, 143473)
 
-local countdownAdds					= mod:NewCountdown(45, "ej7920", not mod:IsHealer(), nil, nil, nil, nil, 2)
-local countdownCoolingOff			= mod:NewCountdownFades(15, 143484, nil, nil, nil, nil, true)
+local countdownAdds					= mod:NewCountdown("OptionVersion2", 45, "ej7920", not mod:IsHealer())
+local countdownCoolingOff			= mod:NewCountdownFades("Alt15", 143484)
 
 local berserkTimer					= mod:NewBerserkTimer(600)
 
@@ -378,6 +383,14 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 143638 then
 		warnBonecracker:CombinedShow(1.5, args.destName)
 		timerBoneCD:DelayedStart(1.5)--Takes a while to get on all targets. 1.5 seconds in 10 man, not sure about 25 man yet
+	elseif args.spellId == 143882 then
+		warnHuntersMark:Show(args.destName)
+		if args:IsPlayer() then
+			specWarnHuntersMark:Show()
+			yellHuntersMark:Yell()
+		else
+			specWarnHuntersMarkOther:Show(args.destName)
+		end
 	end
 end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED

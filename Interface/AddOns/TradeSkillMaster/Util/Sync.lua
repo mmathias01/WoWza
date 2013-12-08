@@ -12,7 +12,8 @@
 local TSM = select(2, ...)
 local Sync = TSM:NewModule("Sync", "AceComm-3.0", "AceEvent-3.0")
 TSMAPI.Sync = {}
-local private = {callbacks={} }
+local private = {callbacks={}}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.Sync_private")
 local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster") -- loads the localization table
 
 -- Request friend info from the server

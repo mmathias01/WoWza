@@ -1,8 +1,9 @@
 local mod	= DBM:NewMod(868, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10671 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10726 $"):sub(12, -3))
 mod:SetCreatureID(72311, 72560, 72249, 73910, 72302, 72561, 73909)--Boss needs to engage off friendly NCPS, not the boss. I include the boss too so we don't detect a win off losing varian. :)
+mod:SetEncounterID(1622)
 mod:SetReCombatTime(180, 15)--fix combat re-starts after killed. Same issue as tsulong. Fires TONS of IEEU for like 1-2 minutes after fight ends.
 mod:SetMainBossID(72249)
 mod:SetZone()
@@ -22,8 +23,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED",
 	"SPELL_PERIODIC_DAMAGE",
 	"SPELL_PERIODIC_MISSED",
-	"SPELL_DAMAGE",
-	"SPELL_MISSED",
 	"UNIT_DIED",
 	"UNIT_SPELLCAST_SUCCEEDED",
 	"UPDATE_WORLD_STATES",
@@ -53,7 +52,6 @@ local warnFlamesofGalakrond			= mod:NewStackAnnounce(147029, 2, nil, mod:IsTank(
 local specWarnWarBanner				= mod:NewSpecialWarningSwitch(147328, not mod:IsHealer())
 local specWarnFracture				= mod:NewSpecialWarningTarget(146899, mod:IsHealer())
 local specWarnChainheal				= mod:NewSpecialWarningInterrupt(146757)
-local specWarnFlameArrow			= mod:NewSpecialWarningMove(146764)
 ----Master Cannoneer Dragryn (Tower)
 local specWarnMuzzleSpray			= mod:NewSpecialWarningSpell(147824, nil, nil, nil, 2)
 ----Lieutenant General Krugruk (Tower)
@@ -66,7 +64,7 @@ local specWarnPoisonCloud			= mod:NewSpecialWarningMove(147705)
 local specWarnFlamesofGalakrond		= mod:NewSpecialWarningCount(147029, false, nil, nil, 2)--Cast often, so lets make this optional since it's spammy
 local specWarnFlamesofGalakrondYou	= mod:NewSpecialWarningYou(147068)
 local yellFlamesofGalakrond			= mod:NewYell(147068)
-local specWarnFlamesofGalakrondTank	= mod:NewSpecialWarningStack(147029, mod:IsTank(), 3)
+local specWarnFlamesofGalakrondStack= mod:NewSpecialWarningStack("OptionVersion4", 147029, nil, 6)
 local specWarnFlamesofGalakrondOther= mod:NewSpecialWarningTarget(147029, mod:IsTank())
 
 --Stage 2: Bring Her Down!
@@ -106,7 +104,7 @@ function mod:OnCombatStart(delay)
 		timerTowerCD:Start(116.5-delay)
 	else
 		timerTowerGruntCD:Start(6)
-		mod:Schedule(6, TowerGrunt)
+		self:Schedule(6, TowerGrunt)
 	end
 end
 
@@ -162,21 +160,20 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args.spellId == 147029 then--Tank debuff version
+	if args.spellId == 147029 then
+		local amount = args.amount or 1
+		if amount >= 6 and args:IsPlayer() then
+			specWarnFlamesofGalakrondStack:Show(amount)
+		end
 		local uId = DBM:GetRaidUnitId(args.destName)
 		for i = 1, 5 do
 			local bossUnitID = "boss"..i
 			if UnitExists(bossUnitID) and UnitGUID(bossUnitID) == args.sourceGUID then
 				if self:IsTanking(uId, bossUnitID) then
-					local amount = args.amount or 1
 					warnFlamesofGalakrond:Show(args.destName, amount)
 					timerFlamesofGalakrond:Start(args.destName)
-					if amount >= 3 then
-						if args:IsPlayer() then
-							specWarnFlamesofGalakrondTank:Show(amount)
-						else
-							specWarnFlamesofGalakrondOther:Show(args.destName)
-						end
+					if amount >= 6 then
+						specWarnFlamesofGalakrondOther:Show(args.destName)
 					end
 				end
 				break--break loop if find right boss
@@ -201,13 +198,6 @@ function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, destName, _, _, spellId
 	end
 end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
-
-function mod:SPELL_DAMAGE(_, _, _, _, destGUID, destName, _, _, spellId)
-	if spellId == 146764 and destGUID == UnitGUID("player") and self:AntiSpam(2, 1) then
-		specWarnFlameArrow:Show()
-	end
-end
-mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
@@ -249,7 +239,7 @@ end
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
 	if msg:find("cFFFF0404") then--They fixed epiccenter bug (figured they would). Color code should be usuable though. It's only emote on encounter that uses it.
 		warnDemolisher:Show()
-		if self:IsDifficulty("heroic10", "heroic25") and firstTower == 1 then
+		if self:IsDifficulty("heroic10", "heroic25") and firstTower == 0 then
 			timerTowerGruntCD:Start(15)
 			self:Schedule(15, TowerGrunt)
 			firstTower = 2

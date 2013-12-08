@@ -24,26 +24,28 @@ L = BigWigs:NewBossLocale("Norushen", "koKR")
 if L then
 L["big_add"] = "타락의 현신 등장 (%d)"
 L["big_add_killed"] = "타락의 현신 처치 (%d)"
-L["big_adds"] = "타락의 현신"
-L["big_adds_desc"] = "큰 쫄이 나타나고 죽는 것에 대한 경고"
+L["big_adds"] = "타락의 현신 등장"
+L["big_adds_desc"] = "타락의 현신이 나타나고 죽는 것에 대한 경고"
 L["warmup_trigger"] = "그래, 좋다. 너희 타락을 가두어 둘 공간을 만들겠다."
 
 end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "koKR")
 if L then
-L["projection_explosion"] = "투영 폭발!"
-L["projection_message"] = "|cFF00FF00녹색|r 화살표 위로 올라가세요!"
+L["projection_green_arrow"] = "녹색 화살표"
 L["titan_pride"] = "티탄 + 교만: %s"
 
 
 	L.custom_off_titan_mark = "티탄의 선물 표시"
 	L.custom_off_titan_mark_desc = "티탄의 선물 걸린 플레이어를 파악하기 쉽게하기 위해, 티탄의 선물이 걸린 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
+
+	L.custom_off_fragment_mark = "타락한 조각 표시"
+	L.custom_off_fragment_mark_desc = "Mark the Corrupted Fragments with {rt8}{rt7}{rt6}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.\nIn 25 player mode, this will conflict with the Gift of the Titans marker.|r"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "koKR")
 if L then
-L["adds_desc"] = "추가병력 타이머"
+L["adds_desc"] = "추가 병력 타이머"
 L["demolisher_message"] = "파괴 전차 등장"
 L["drakes"] = "용아귀 원시비룡"
 L["north_tower"] = "북쪽 탑"
@@ -68,7 +70,8 @@ end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "koKR")
 if L then
-	L.blobs = "오염된 점액"
+L["blobs"] = "오염된 점액"
+
 
 	L.custom_off_mist_marks = "독성 안개 징표 설정"
 	L.custom_off_mist_marks_desc = "힐을 돕기 위해, 독성 안개에 걸린 플레이어를 {rt1}{rt2}{rt3}{rt4}{rt5} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
@@ -90,14 +93,12 @@ if L then
 	L.adds_trigger4 = "전사들이여! 이리로!"
 	L.adds_trigger5 = "코르크론! 날 지원하라!"
 	L.adds_trigger_extra_wave = "전 코르크론, 내 명령을 따르라. 모두 죽여!"
-	L.extra_adds = "10% - 다음 병력"
+	L.extra_adds = "다음 병력"
 	L.final_wave = "마지막 병력!"
 
 	L.chain_heal_message = "당신의 주시 대상이 연쇄 치유를 시전합니다!"
 
 	L.arcane_shock_message = "당신의 주시 대상이 비전 충격을 시전합니다!"
-
-	L.focus_only = "|cffff0000주시 대상을 잡았을 경우에만 경고합니다.|r "
 end
 
 L = BigWigs:NewBossLocale("Malkorok", "koKR")
@@ -108,11 +109,10 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "koKR")
 if L then
-	L.start_trigger = "녹음되고 있는 건가? 응? 좋아. 고블린 티탄 제어 모듈 시동 중. 물러서라고."
-	L.win_trigger = "시스템 초기화 중. 전원을 끄면 폭발할 수 있으니 주의하라고."
+L["enable_zone"] = "유물 보관실"
+L["start_trigger"] = "녹음되고 있는 건가? 응? 좋아. 고블린 티탄 제어 모듈 시동 중. 물러서라고."
+L["win_trigger"] = "시스템 초기화 중. 전원을 끄면 폭발할 수 있으니 주의하라고."
 
-	L.enable_zone = "유물 보관실"
-	L.matter_scramble_explosion = "물질 뒤섞기 폭발"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "koKR")
@@ -137,7 +137,7 @@ if L then
 
 	L.shredder_engage_trigger = "자동 분쇄기가 다가옵니다!"
 	L.laser_on_you = "레이저가 당신에게 꽂힙니다!"
-	L.laser_say = "나에게 절단 레이저!"
+	L.laser_say = "절단 레이저"
 
 	L.assembly_line_trigger = "생산 설비에서 미완성 무기가 나오기 시작합니다."
 	L.assembly_line_message = "생산 설비 가동 (%d)"
@@ -176,35 +176,26 @@ end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "koKR")
 if L then
-	L.manifest_rage = "명백한 분노"
-	L.manifest_rage_desc = "가로쉬의 기력이 100에 도달하면 그는 2초동안 명백한 분노를 시전하고, 그 후 정신집중에 들어갑니다. 가로쉬가 정신집중하는 동안에는 큰 쫄이 나옵니다. 강철의 별을 가로쉬에게 유도해서 스턴시켜 시전을 멈추게 해야 합니다."
+L["bombardment"] = "폭격"
+L["bombardment_desc"] = "스톰윈드를 폭격하고, 지면에 불길의 흔적을 남깁니다. 폭격 동안에만 코르크론 강철의 별이 소환될 수 있습니다."
+L["chain_heal_bar"] = "주시: 연쇄 치유"
+L["chain_heal_desc"] = "아군 대상의 최대 생명력의 40%를 치유하고, 인접한 아군 대상에게 튕겨갑니다."
+L["chain_heal_message"] = "당신의 주시 대상이 연쇄 치유를 시전합니다"
+L["clump_check_desc"] = "폭격 동안 3초마다 플레이어들이 뭉쳐있는 지 확인합니다. 뭉쳐있는 것이 발견된다면 코르크론 강철의 별이 소환됩니다."
+L["clump_check_warning"] = "불안정한 강철의 별 생성"
+L["farseer_trigger"] = "선견자, 우리를 치료하라!"
+L["intermission"] = "내면 세계"
+L["ironstar_impact_desc"] = "강철의 별이 다른 쪽 벽에 충돌할 때를 위한 타이머 바를 생성합니다."
+L["ironstar_rolling"] = "강철의 별이 굴러갑니다!"
+L["manifest_rage"] = "명백한 분노"
+L["manifest_rage_desc"] = "가로쉬의 기력이 100에 도달하면 그는 2초동안 명백한 분노를 시전하고, 그 후 정신집중에 들어갑니다. 가로쉬가 정신집중하는 동안에는 큰 쫄이 나옵니다. 강철의 별을 가로쉬에게 유도해서 스턴시켜 시전을 멈추게 해야 합니다."
+L["phase_3_end_trigger"] = "네가 이겼다고 생각하나? 넌 눈이 멀었다! 내가 그 눈을 뜨게해 주마!"
 
-	L.phase_3_end_trigger = "네가 이겼다고 생각하나? 넌 눈이 멀었다! 내가 그 눈을 뜨게해 주마!"
 
-	L.clump_check_desc = "폭격 동안 3초마다 플레이어들이 뭉쳐있는 지 확인합니다. 뭉쳐있는 것이 발견된다면 코르크론 강철의 별이 소환됩니다."
-	--L.clump_check_warning = "Clump found, Star inc"
-
-	L.bombardment = "폭격"
-	L.bombardment_desc = "스톰윈드를 폭격하고, 지면에 불길의 흔적을 남깁니다. 폭격 동안에만 코르크론 강철의 별이 소환될 수 있습니다."
-
-	L.intermission = "내면 세계"
-	L.mind_control = "정신 지배"
-	--L.empowered_message = "%s is now empowered!"
-
-	L.ironstar_impact_desc = "강철의 별이 다른 쪽 벽에 충돌할 때를 위한 타이머 바를 생성합니다."
-	L.ironstar_rolling = "강철의 별이 굴러갑니다!"
-
-	L.chain_heal_desc = "아군 대상의 최대 생명력의 40%를 치유하고, 인접한 아군 대상에게 튕겨갑니다."
-	L.chain_heal_message = "당신의 주시 대상이 연쇄 치유를 시전합니다"
-	L.chain_heal_bar = "주시: 연쇄 치유"
-
-	L.farseer_trigger = "선견자, 우리를 치료하라!"
 	L.custom_off_shaman_marker = "선견자 표시"
 	L.custom_off_shaman_marker_desc = "차단을 돕기 위해, 선견자 늑대 기수를 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다. \n|cFFFF0000혼선을 빚는 것을 방지하기 위하여, 오직 공대원 중 한 사람만이 이 옵션을 켜야합니다.|r \n|cFFADFF2F팁: 만약 공대에서 당신이 이 옵션을 키기로 했다면, 빠르게 선견자에게 마우스를 대는 것이 마킹을 하는 가장 빠른 방법입니다.|r"
 
 	L.custom_off_minion_marker = "이샤라즈의 하수인 징표 설정"
 	L.custom_off_minion_marker_desc = "쫄들을 분리하는 것을 돕기 위해, {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 마크로 표시합니다. 공격대장이거나 권한이 필요합니다."
-
-	L.focus_only = "|cffff0000주시 대상 경고 전용.|r "
 end
 

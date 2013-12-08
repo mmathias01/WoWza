@@ -13,7 +13,7 @@ local lib = TSMAPI
 
 local delays = {}
 local events = {}
-local private = {}
+local private = {} -- registers for tracing at the end of this file
 private.bagUpdateCallbacks = {}
 private.bankUpdateCallbacks = {}
 private.bagState = {}
@@ -312,8 +312,8 @@ end
 function TSMAPI:CreateTimeDelay(...)
 	local label, duration, callback, repeatDelay
 	if type(select(1, ...)) == "number" then
-		-- use empty string as placeholder label if none specified
-		label = ""
+		-- use unique string as placeholder label if none specified
+		label = tostring({})
 		duration, callback, repeatDelay = ...
 	else
 		label, duration, callback, repeatDelay = ...
@@ -512,6 +512,7 @@ function TSMAPI:GetBaseItemString(itemString, doGroupLookup)
 end
 
 local itemInfoCache = {}
+local PET_CAGE_ITEM_INFO = {isDefault=true, 0, "Battle Pets", "", 1, "", "", 0}
 function TSMAPI:GetSafeItemInfo(link)
 	if type(link) ~= "string" then return end
 	
@@ -526,7 +527,13 @@ function TSMAPI:GetSafeItemInfo(link)
 			level, quality = tonumber(level), tonumber(quality)
 			petID = strsub(petID, 1, (strfind(petID, "|") or #petID)-1)
 			link = ITEM_QUALITY_COLORS[quality].hex.."|Hbattlepet:"..speciesID..":"..level..":"..quality..":"..health..":"..power..":"..speed..":"..petID.."|h["..name.."]|h|r"
-			local minLvl, iType, _, stackSize, _, _, vendorPrice = select(5, GetItemInfo(82800))
+			if PET_CAGE_ITEM_INFO.isDefault then
+				local data = {select(5, GetItemInfo(82800))}
+				if #data > 0 then
+					PET_CAGE_ITEM_INFO = data
+				end
+			end
+			local minLvl, iType, _, stackSize, _, _, vendorPrice = unpack(PET_CAGE_ITEM_INFO)
 			local subType, equipLoc = 0, ""
 			itemInfoCache[link] = {name, link, quality, level, minLvl, iType, subType, stackSize, equipLoc, texture, vendorPrice}
 		elseif strmatch(link, "item:") then
@@ -689,6 +696,9 @@ function TSMAPI:GetBagIterator(autoBaseItems, includeSoulbound)
 			end
 			
 			local link = GetContainerItemLink(bags[b], s)
+			if not link then
+				return iter()
+			end
 			local itemString
 			if autoBaseItems then
 				itemString = TSMAPI:GetBaseItemString(link, true)
@@ -861,3 +871,7 @@ function TSM:ResetFrames()
 	-- explicitly reset bankui since it can't easily use TSMAPI:CreateMovableFrame
 	TSM:ResetBankUIFramePosition()
 end
+
+
+-- This MUST be at the end for this file since RegisterForTracing uses some function defined in this file.
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.Util_private")

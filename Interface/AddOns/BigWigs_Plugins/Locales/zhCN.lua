@@ -162,6 +162,7 @@ L["superEmphasizeDesc"] = [=[相关信息或特定首领战斗技能计时条增
 
 |cffff4411注意：超级醒目功能默认情况下所有技能关闭。|r
 ]=]
+L["superEmphasizeDisableDesc"] = "对所有模块禁用超级醒目。"
 L["tempEmphasize"] = "临时超级醒目计时条及任何信息的持续时间。"
 L["text"] = "文本"
 L["textShadow"] = "文本阴影"

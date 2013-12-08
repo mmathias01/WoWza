@@ -32,13 +32,15 @@ end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "frFR")
 if L then
-L["projection_explosion"] = "Explosion de la projection"
-L["projection_message"] = "Allez sur la flèche |cFF00FF00VERTE|r !"
+L["projection_green_arrow"] = "FLÈCHE VERTE" -- Needs review
 L["titan_pride"] = "Titan+Orgueil : %s"
 
 
 	L.custom_off_titan_mark = "Marquage Don des titans"
 	L.custom_off_titan_mark_desc = "Marque les joueurs sous l'effet de Don des titans avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
+
+	L.custom_off_fragment_mark = "Corrupted Fragment marker"
+	L.custom_off_fragment_mark_desc = "Mark the Corrupted Fragments with {rt8}{rt7}{rt6}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.\nIn 25 player mode, this will conflict with the Gift of the Titans marker.|r"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "frFR")
@@ -68,7 +70,8 @@ end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "frFR")
 if L then
-	L.blobs = "Gelées"
+L["blobs"] = "Gelées"
+
 
 	L.custom_off_mist_marks = "Marquage Brume toxique"
 	L.custom_off_mist_marks_desc = "Afin d'aider à l'attribution des soins, marque les joueurs subissant Brume toxique avec {rt1}{rt2}{rt3}{rt4}{rt5}. Nécessite d'être assistant ou chef de raid.\n|cFFFF0000Seule 1 personne du raid doit activer ceci afin d'éviter les conflits de marquage.|r"
@@ -90,14 +93,12 @@ if L then
 	L.adds_trigger4 = "Guerriers, au pas de course !"
 	L.adds_trigger5 = "Kor’krons, avec moi !"
 	L.adds_trigger_extra_wave = "Tous les Kor’krons sous mon commandement, tuez-les, maintenant !"
-	L.extra_adds = "10% - Renforts supplémentaires"
+	L.extra_adds = "Renforts supplémentaires"
 	--L.final_wave = "Final Wave"
 
 	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
 
 	L.arcane_shock_message = "Votre focalisation est en train d'incanter Horion des Arcanes !"
-
-	L.focus_only = "|cffff0000Alertes de la cible de focalisation uniquement.|r "
 end
 
 L = BigWigs:NewBossLocale("Malkorok", "frFR")
@@ -108,11 +109,9 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "frFR")
 if L then
-	--L.start_trigger = "Hey, we recording?"
-	L.win_trigger = "Système en cours de réinitialisation. Veuillez ne pas le débrancher, ou il pourrait vous sauter à la figure." -- to check
+L["enable_zone"] = "Entrepôt de l’Artéfact"
+L["win_trigger"] = "Système en cours de réinitialisation. Veuillez ne pas le débrancher, ou il pourrait vous sauter à la figure."
 
-	L.enable_zone = "Entrepôt de l’Artéfact"
-	L.matter_scramble_explosion = "Explosion Brouillage de la matière" -- shorten maybe?
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "frFR")
@@ -179,36 +178,27 @@ end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "frFR")
 if L then
-	L.manifest_rage = "Manifestation de la rage"
-	L.manifest_rage_desc = "Quand Garrosh atteint 100 d'énergie, il incante Manifestation de la rage pendant 2 secondes, puis canalise ce dernier. Durant la canalisation, des adds apparaissent. Amenez l'étoile de fer sur Garrosh pour l'étourdir et interrompre son incantation."
+L["bombardment"] = "Bombardement"
+L["bombardment_desc"] = "Bombarde Hurlevent et laisse des gerbes de feu sur le sol. Les étoiles de fer Kor'kron n'apparaissent que durant les bombardements."
+L["chain_heal_bar"] = "Focalisation : Salve de guérison"
+L["chain_heal_desc"] = "Rend 40% de ses points de vie maximum à une cible alliée et se propage aux cibles alliées à proximité."
+L["chain_heal_message"] = "Votre focalisation est en train d'incanter Salve de guérison !"
+L["clump_check_desc"] = "Vérifie toutes les 3 secondes durant les bombardements les joueurs regroupés. Si un regroupement est trouvé, une étoile de fer Kor'kron apparaîtra."
+L["clump_check_warning"] = "Regroupement détecté, arrivée d'une étoile"
+L["empowered_message"] = "%s est maintenant surpuissant !"
+L["farseer_trigger"] = "Long-voyants, soignez nos blessures !"
+L["intermission"] = "Intervalle"
+L["ironstar_impact_desc"] = "Une barre de délai indiquant quand l'Étoile de fer touchera le mur d'en face."
+L["ironstar_rolling"] = "L'Étoile de fer roule !"
+L["manifest_rage"] = "Manifestation de la rage"
+L["manifest_rage_desc"] = "Quand Garrosh atteint 100 d'énergie, il incante Manifestation de la rage pendant 2 secondes, puis canalise ce dernier. Durant la canalisation, des adds apparaissent. Amenez l'étoile de fer sur Garrosh pour l'étourdir et interrompre son incantation."
+L["phase_3_end_trigger"] = "Vous croyez avoir GAGNÉ ? Vous êtes AVEUGLES. JE VAIS VOUS OUVRIR LES YEUX."
 
-	L.phase_3_end_trigger = "Vous croyez avoir GAGNÉ ? Vous êtes AVEUGLES. JE VAIS VOUS OUVRIR LES YEUX." -- to check
-
-	L.clump_check_desc = "Vérifie toutes les 3 secondes durant les bombardements les joueurs regroupés. Si un regroupement est trouvé, une étoile de fer Kor'kron apparaîtra."
-	L.clump_check_warning = "Regroupement détecté, arrivée d'une étoile"
-
-	L.bombardment = "Bombardement"
-	L.bombardment_desc = "Bombarde Hurlevent et laisse des gerbes de feu sur le sol. Les étoiles de fer Kor'kron n'apparaissent que durant les bombardements."
-
-	L.intermission = "Intervalle"
-	L.mind_control = "Contrôle mental"
-	L.empowered_message = "%s est maintenant surpuissant !"
-
-	L.ironstar_impact_desc = "Une barre de délai indiquant quand l'Étoile de fer touchera le mur d'en face."
-	L.ironstar_rolling = "L'Étoile de fer roule !"
-
-	L.chain_heal_desc = "Rend 40% de ses points de vie maximum à une cible alliée et se propage aux cibles alliées à proximité."
-	L.chain_heal_message = "Votre focalisation est en train d'incanter Salve de guérison !"
-	L.chain_heal_bar = "Focalisation : Salve de guérison"
-
-	L.farseer_trigger = "Long-voyants, soignez nos blessures !"
 
 	L.custom_off_shaman_marker = "Marquage Chevaucheur de loup long-voyant"
 	L.custom_off_shaman_marker_desc = "Afin d'aider à l'attribution des interruptions, marque les Chevaucheurs de loup long-voyant avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (dans cet ordre)(il se peut que toutes les marques ne soient pas utilisées). Nécessite d'être assistant ou chef de raid."
 
 	L.custom_off_minion_marker = "Marquage Sbires"
 	L.custom_off_minion_marker_desc = "Afin d'aider à la séparation des sbires, marque ces derniers avec {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}. Nécessite d'être assistant ou chef de raid."
-
-	L.focus_only = "|cffff0000Alertes de la cible de focalisation uniquement.|r "
 end
 

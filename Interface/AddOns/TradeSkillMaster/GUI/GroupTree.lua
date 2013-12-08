@@ -28,6 +28,10 @@ local function UpdateTree(self)
 			local hasSubGroups = (groupPathList[i + 1] and (groupPathList[i + 1] == groupPath or strfind(groupPathList[i + 1], "^" .. TSMAPI:StrEscape(groupPath) .. TSM.GROUP_SEP)))
 			local parent = #pathParts > 1 and table.concat(pathParts, TSM.GROUP_SEP, 1, #pathParts - 1) or nil
 			local index = #rowData + 1
+			if self.selectedGroups[groupPath] == nil then
+				-- select group by default
+				self.selectedGroups[groupPath] = true
+			end
 			rowData[index] = {
 				value = leader .. format("%s %s%s|r", pathParts[#pathParts], TSMAPI.Design:GetInlineColor("link"), hasSubGroups and (self.collapsed[groupPath] and "[+]" or "[-]") or ""),
 				groupName = pathParts[#pathParts],
@@ -67,7 +71,7 @@ end
 
 local function DeselectAll(self)
 	for i = 1, #self.st.rowData do
-		self.st.selectedGroups[self.st.rowData[i].groupPath] = nil
+		self.st.selectedGroups[self.st.rowData[i].groupPath] = false
 		self.st.rowData[i].isSelected = nil
 	end
 	self.st:RefreshRows()
@@ -140,7 +144,7 @@ local methods = {
 		end
 	end,
 	SetSelection = function(self, rowNum, isSelected)
-		self.selectedGroups[self.rowData[rowNum].groupPath] = isSelected or nil
+		self.selectedGroups[self.rowData[rowNum].groupPath] = isSelected or false
 		self.rowData[rowNum].isSelected = isSelected
 		self:RefreshRows()
 	end,
@@ -158,7 +162,7 @@ local methods = {
 	end,
 	ClearSelection = function(self)
 		for i = 1, #self.rowData do
-			self.selectedGroups[self.rowData[i].groupPath] = nil
+			self.selectedGroups[self.rowData[i].groupPath] = false
 			self.rowData[i].isSelected = nil
 		end
 		self.groupBoxSelection = nil
@@ -223,11 +227,11 @@ local defaultColScripts = {
 			self.data.isSelected = true
 		else
 			self.data.isSelected = not self.data.isSelected
-			self.st.selectedGroups[self.data.groupPath] = self.data.isSelected or nil
+			self.st.selectedGroups[self.data.groupPath] = self.data.isSelected or false
 			if self.data.hasSubGroups then
 				for i = 1, #self.st.rowData do
 					if self.st.rowData[i].groupPath == self.data.groupPath or strfind(self.st.rowData[i].groupPath, "^" .. TSMAPI:StrEscape(self.data.groupPath) .. TSM.GROUP_SEP) then
-						self.st.selectedGroups[self.st.rowData[i].groupPath] = self.data.isSelected or nil
+						self.st.selectedGroups[self.st.rowData[i].groupPath] = self.data.isSelected or false
 						self.st.rowData[i].isSelected = self.data.isSelected
 					end
 				end

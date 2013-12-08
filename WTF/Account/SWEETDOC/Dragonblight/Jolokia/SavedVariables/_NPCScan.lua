@@ -1,10 +1,5 @@
 
 _NPCScanOptionsCharacter = {
-	["NPCWorldIDs"] = {
-	},
-	["CacheWarnings"] = true,
-	["FlightSupress"] = true,
-	["TrackRares"] = true,
 	["Achievements"] = {
 		[7317] = true,
 		[8103] = true,
@@ -13,15 +8,9 @@ _NPCScanOptionsCharacter = {
 		[7439] = true,
 		[8714] = true,
 	},
-	["ModulesSaved"] = {
-	},
-	["Version"] = 2,
+	["TargetIcon"] = 8,
+	["TrackRares"] = true,
 	["TrackBeasts"] = true,
-	["ShowAll"] = false,
-	["ModulesExtra"] = {
-	},
-	["ModulesAlpha"] = {
-	},
-	["Modules"] = {
-	},
+	["FlightSupress"] = true,
+	["Version"] = 2,
 }

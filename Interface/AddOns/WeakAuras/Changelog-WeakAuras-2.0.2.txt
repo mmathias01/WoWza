@@ -1,0 +1,49 @@
+------------------------------------------------------------------------
+r19 | stanzilla | 2013-12-04 19:32:10 +0000 (Wed, 04 Dec 2013) | 1 line
+Changed paths:
+   A /tags/2.0.2 (from /trunk:18)
+
+Tagging as 2.0.2
+------------------------------------------------------------------------
+r18 | stanzilla | 2013-12-04 15:04:34 +0000 (Wed, 04 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+update safeguard
+------------------------------------------------------------------------
+r16 | stanzilla | 2013-12-03 21:34:30 +0000 (Tue, 03 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+make the error print more informative
+------------------------------------------------------------------------
+r15 | stanzilla | 2013-12-03 21:15:44 +0000 (Tue, 03 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+nil check and more blocked functions
+------------------------------------------------------------------------
+r14 | stanzilla | 2013-12-03 20:59:02 +0000 (Tue, 03 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+forbid SetTradeMoney and SendMail, patch by nevcairiel
+------------------------------------------------------------------------
+r13 | stanzilla | 2013-12-03 20:09:01 +0000 (Tue, 03 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/Transmission.lua
+
+make the print red
+------------------------------------------------------------------------
+r12 | stanzilla | 2013-12-03 19:54:23 +0000 (Tue, 03 Dec 2013) | 1 line
+Changed paths:
+   M /trunk/Transmission.lua
+
+add a scam protection against nasty gold thiefs
+------------------------------------------------------------------------
+r10 | mirrormn | 2013-09-24 09:02:37 +0000 (Tue, 24 Sep 2013) | 1 line
+Changed paths:
+   M /trunk/WeakAurasOptions/WeakAurasOptions.lua
+
+Use Full Scan auras can now use a Specific Unit as their unit. I didn't get a chance to test this extensively but it seems like it should work correctly.
+------------------------------------------------------------------------

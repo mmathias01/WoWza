@@ -1,3 +1,9 @@
+== Version 50400.3.0
+* Frost: Updated the dual-wield rotation (because there is much more haste on gear now).
+
+== Version 50400.2.2
+* All: Flashes WoW's 9th Anniversary Celebration Package.
+
 == Version 50400.2.1
 * Blood: Bugfix - Soul Reaper and Heart Strike were sometimes flashing when you had no target.
 
@@ -86,8 +92,3 @@ NOTE: Your options will be reset when you upgrade to this version.
 
 == Version 3.3.1
 * Making the "Out of Date" status go away.  Please report any real issues w/ the new patch.
-
-== Version 3.3.0
-* Frost & Unholy: Updated priority lists based on new research.
-* Unholy: Added Soul Reaper.
-* Unholy: Bugfix - Plague Leech was flashing at times that it was not castable.

@@ -20,9 +20,9 @@ L["berserk"] = "광폭화"
 L["berserk_desc"] = "보스가 언제 광폭화가 되는지 경고합니다."
 L["best"] = "최고 기록:"
 L["blizzRestrictionsConfig"] = "블리자드의 제한으로 인해, 설정 창은 전투에 돌입하기 전, 전투가 아닌 상태에서만 열 수 있습니다."
-L["blizzRestrictionsZone"] = "블리자드의 제한으로 인해, 전투가 끝날때 까지 로딩을 기다리는 중입니다."
+L["blizzRestrictionsZone"] = "블리자드의 제한으로 인해, 전투가 끝날 때 까지 로딩을 기다리는 중입니다."
 L["blockMovies"] = "보스 영상 차단"
-L["blockMoviesDesc"] = "보스 영상을 한번이라도 본 적이 있다면, 이후에는 Big Wigs 을 통해 보스 영상을 차단할 수 있습니다."
+L["blockMoviesDesc"] = "보스 영상을 한 번이라도 본 적이 있다면, 이후에는 Big Wigs 을 통해 보스 영상을 차단할 수 있습니다."
 L["bosskill"] = "보스 사망"
 L["bosskill_desc"] = "보스를 물리쳤을 때 알립니다."
 L["chatMessages"] = "대화 창 메시지"
@@ -31,13 +31,11 @@ L["colors"] = "색상"
 L["configure"] = "설정"
 L["configureBtnDesc"] = [=[인터페이스 옵션 창을 닫습니다. 그리고 바와 메시지에 대한 것을 설정할 수 있습니다.
 
-만약 더 많은 사용자 정의를 하고 싶다면, 왼쪽 옵션 트리에서 Big Wigs 옵션을 클릭하여 확장하여 '사용자 정의 ...' 찾으세요.]=]
-L["configureBtnName"] = "이동 및 조절 >>> 바 / 메시지 / ..."
+만약 더 많은 사용자 정의를 하고 싶다면, 왼쪽 옵션 트리에서 Big Wigs 옵션을 클릭하여 확장하여 '사용자 정의 ...'를 찾으세요.]=]
+L["configureBtnName"] = "이동 및 조절 >>> 바/메시지/..."
 L["contact"] = "연락처"
 L["coreAddonDisabled"] = "%s 애드온이 비활성화 되었기 때문에 Big Wigs가 제대로 작동하지 않습니다. 캐릭터 선택 화면에서 좌측하단의 '외부 인터페이스'에서 활성화/비활성화를 설정할 수 있습니다."
 L["customizeBtn"] = "사용자 설정 ..."
-L["dbmBar"] = "사용자 DBM 바 생성"
-L["dbmBarDesc"] = "DBM 사용자가 풀링 타이머나 사용자 'pizza' 바를 보내면 Big Wigs에 표시합니다."
 L["dbmFaker"] = "DBM 사용자로 가장하기"
 L["dbmFakerDesc"] = "DBM 사용자가 DBM 사용을 체크하기 위해 버전 정보를 확인하면 그 목록에 표시되도록 합니다. DBM을 강제로 사용하는 길드에 유용합니다."
 L["dbmUsers"] = "DBM 사용자:"
@@ -78,11 +76,11 @@ L["missingAddOn"] = "이 지역에서 타이머를 보려면 [|cFF436EEE%s|r] �
 L["modulesDisabled"] = "실행 중인 모든 모듈이 비활성되었습니다."
 L["modulesReset"] = "활성화된 모든 모듈이 초기화 되었습니다."
 L["movieBlocked"] = "이 동영상을 본 적이 있으므로 생략합니다."
-L["newReleaseAvailable"] = "사용 가능한Big Wigs의 새로운 버전이 있습니다(/bwv). curse.com, wowinterface.com, wowace.com를 방문하거나 Curse Updater를 통하여 새로운 버전을 찾아 사용할 수 있습니다."
+L["newReleaseAvailable"] = "사용 가능한 Big Wigs의 새로운 버전이 있습니다(/bwv). curse.com, wowinterface.com, wowace.com를 방문하거나 Curse Updater를 통하여 새로운 버전을 찾아 사용할 수 있습니다."
 L["noBossMod"] = "이 보스에 대한 모듈이 없음:"
 L["norm10"] = "10인 일반"
 L["norm25"] = "25인 일반"
-L["officialRelease"] = "당신은 Big Wigs %s (revision %d) 의 정식 버전을 실행중입니다."
+L["officialRelease"] = "당신은 Big Wigs %s (revision %d) 의 정식 버전을 실행 중입니다."
 L["oldVersionsInGroup"] = "자신보다 이전 버전이거나 Big Wigs가 없는 사람들을 /bwv 를 입력하여 확인 가능합니다."
 L["outOfDate"] = "구 버전"
 L["profiles"] = "프로필"
@@ -91,10 +89,10 @@ L["PROXIMITY_desc"] = "몇몇 스킬들은 때때로 개인 간 산개를 필요
 L["PULSE"] = "진동"
 L["PULSE_desc"] = "화면을 깜박이는 것 외에 일시적으로 당신의 주의를 끌기 위해, 화면 중앙에 표시되는 특정 능력에 관련된 아이콘을 표시할 수 있습니다."
 L["raidIcons"] = "공격대 아이콘"
-L["raidIconsDesc"] = [=['폭탄'류의 스킬이나 정신 지배 같은 능력들의 경고를 하여 공격대원들의 주의를 끌기 위해서, 몇몇 보스 스크립트는  플레이어에게 징표를 찍습니다. 이 옵션을 끄면 징표를 찍지 않습니다.
+L["raidIconsDesc"] = [=['폭탄'류의 스킬이나 정신 지배 같은 능력들의 경고를 하여 공격대원들의 주의를 끌기 위해서, 몇몇 보스 스크립트는 플레이어에게 전술 아이콘을 설정합니다. 이 옵션을 끄면 전술 아이콘을 설정하지 않습니다.
 
 |cffff4411오직 공격대장이나 승급된 사람만이 가능합니다!|r]=]
-L["removeAddon"] = "'|cFF436EEE%s|r' 애드온을 지워주세요. '|cFF436EEE%s|r' 애드온으로 바뀌었기 때문입니다."
+L["removeAddon"] = "'|cFF436EEE%s|r' 애드온을 지워주세요. '|cFF436EEE%s|r' 애드온으로 대체되었습니다." -- Needs review
 L["resetPositions"] = "위치 초기화"
 L["SAY"] = "일반 대화"
 L["SAY_desc"] = "당신이 기술에 걸렸을시 주변 사람들에게 일반 대화로 알립니다. 말풍선으로 쉽게 구별하기 좋습니다."

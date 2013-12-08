@@ -162,6 +162,7 @@ L["superEmphasizeDesc"] = [=[相關訊息或特定首領戰鬥技能計時條增
 
 |cffff4411注意：超級強調功能預設情況下所有技能關閉。|r
 ]=]
+L["superEmphasizeDisableDesc"] = "對所有模組禁用超級強調。"
 L["tempEmphasize"] = "臨時超級強調調計時條及任何訊息的持續時間。"
 L["text"] = "文字"
 L["textShadow"] = "文字陰影"

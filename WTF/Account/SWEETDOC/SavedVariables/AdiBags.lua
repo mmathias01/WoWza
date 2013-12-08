@@ -32,14 +32,14 @@ AdiBagsDB = {
 				},
 			},
 		},
+		["AdiBags_TooltipInfo"] = {
+		},
 		["Equipment"] = {
 			["profiles"] = {
 				["Default"] = {
 					["dispatchRule"] = "one",
 				},
 			},
-		},
-		["AdiBags_TooltipInfo"] = {
 		},
 		["Junk"] = {
 			["profiles"] = {

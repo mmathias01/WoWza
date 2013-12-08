@@ -795,6 +795,12 @@ function WeakAuras.ImportString(str)
             else
                 local data = received.d;
                 WeakAuras.ShowDisplayTooltip(data, received.c, received.i, received.a, "unknown", true)
+                --Scam protection
+                if data.trigger.type == "custom" then
+                    if string.find(data.trigger.custom, "SendMail") or string.find(data.trigger.custom, "SetTradeMoney") then
+                        print("|cffffff00The Aura you are importing contains code to send or trade gold to other players, please watch out!|r")
+                    end
+                end
             end
         end
     elseif(type(received) == "string") then

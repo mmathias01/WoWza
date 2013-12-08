@@ -1,8 +1,9 @@
 local mod	= DBM:NewMod(865, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10680 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10730 $"):sub(12, -3))
 mod:SetCreatureID(71504)--71591 Automated Shredder
+mod:SetEncounterID(1601)
 mod:SetZone()
 mod:SetUsedIcons(8, 7, 6, 5, 4, 3, 2, 1)--Not sure how many mines spawn on 25 man, even more of them on heroic 25, so maybe all 8 used?
 
@@ -26,11 +27,11 @@ local warnProtectiveFrenzy				= mod:NewTargetAnnounce(145365, 3, nil, mod:IsTank
 local warnElectroStaticCharge			= mod:NewStackAnnounce(143385, 2, nil, mod:IsTank())
 local warnOvercharge					= mod:NewTargetAnnounce(145774, 4)--Heroic. Probably doesn't show in combat log and will require emotes i'm sure.
 --Automated Shredders
-local warnAutomatedShredder				= mod:NewSpellAnnounce("ej8199", 3, 85914)
+local warnAutomatedShredder				= mod:NewCountAnnounce("ej8199", 3, 85914)
 local warnOverload						= mod:NewStackAnnounce(145444, 3)
 local warnDeathFromAbove				= mod:NewTargetAnnounce(144208, 4)--Player target, not vulnerable shredder target. (should always be cast on highest threat target, but i like it still being a "target" warning)
 --The Assembly Line
-local warnAssemblyLine					= mod:NewSpellAnnounce("ej8202", 3, 85914)
+local warnAssemblyLine					= mod:NewCountAnnounce("OptionVersion2", "ej8202", 3, 85914, mod:IsDps())
 local warnShockwaveMissileActivated		= mod:NewSpellAnnounce("ej8204", 3, 143639)--Unsure if this will even show in CLEU, may need UNIT event or emote
 local warnShockwaveMissile				= mod:NewCountAnnounce(143641, 3)
 --local warnLaserTurretActivated			= mod:NewSpellAnnounce("ej8208", 3, 143867, false)--No event to detect it
@@ -45,12 +46,12 @@ local yellLaunchSawblade				= mod:NewYell(143265, nil, false, nil, nil, 2)
 local specWarnProtectiveFrenzy			= mod:NewSpecialWarningTarget(145365, mod:IsTank())
 local specWarnOvercharge				= mod:NewSpecialWarningTarget(145774)
 --Automated Shredders
-local specWarnAutomatedShredder			= mod:NewSpecialWarningSpell("ej8199", mod:IsTank())--No sense in dps switching when spawn, has damage reduction. This for tank pickup
-local specWarnDeathFromAbove			= mod:NewSpecialWarningYou(144208)
+local specWarnAutomatedShredder			= mod:NewSpecialWarningCount("ej8199", mod:IsTank())--No sense in dps switching when spawn, has damage reduction. This for tank pickup
+local specWarnDeathFromAbove			= mod:NewSpecialWarningSpell(144208)
 local specWarnAutomatedShredderSwitch	= mod:NewSpecialWarningSwitch("ej8199", false)--Strat dependant, you may just ignore them and have tank kill them with laser pools
 --The Assembly Line
-local specWarnCrawlerMine				= mod:NewSpecialWarningSwitch("ej8212", not mod:IsHealer(), nil, nil, nil, 2)
-local specWarnAssemblyLine				= mod:NewSpecialWarningSpell("ej8202", false, nil, nil, nil, 2)--Not all in raid need, just those assigned
+local specWarnCrawlerMine				= mod:NewSpecialWarningSwitch("OptionVersion3", "ej8212", not mod:IsHealer())
+local specWarnAssemblyLine				= mod:NewSpecialWarningCount("OptionVersion3", "ej8202", false)--Not all in raid need, just those assigned
 local specWarnShockwaveMissileActive	= mod:NewSpecialWarningSpell("ej8204", nil, nil, nil, 2)
 local specWarnReadyToGo					= mod:NewSpecialWarningTarget(145580)
 local specWarnLaserFixate				= mod:NewSpecialWarningRun(143828)
@@ -61,29 +62,30 @@ local specWarnCrawlerMineFixate			= mod:NewSpecialWarningRun("ej8212")
 local yellCrawlerMineFixate				= mod:NewYell("ej8212", nil, false)
 
 --Siegecrafter Blackfuse
-local timerProtectiveFrenzy				= mod:NewBuffActiveTimer(10, 145365, nil, mod:IsTank() or mod:IsHealer())
+local timerProtectiveFrenzy				= mod:NewBuffActiveTimer(10, 145365, nil, false, nil, nil, nil, nil, nil, 2)
 local timerElectroStaticCharge			= mod:NewTargetTimer(60, 143385, nil, mod:IsTank())
 local timerElectroStaticChargeCD		= mod:NewCDTimer(17, 143385, nil, mod:IsTank())--17-22 second variation
 local timerLaunchSawbladeCD				= mod:NewCDTimer(10, 143265)--10-15sec cd
 --Automated Shredders
-local timerAutomatedShredderCD			= mod:NewNextTimer(60, "ej8199", nil, nil, nil, 85914)
+local timerAutomatedShredderCD			= mod:NewNextTimer("OptionVersion2", 60, "ej8199", nil, mod:IsTank(), nil, 85914)
 local timerOverloadCD					= mod:NewCDCountTimer(10, 145444)
 local timerDeathFromAboveDebuff			= mod:NewTargetTimer(5, 144210, nil, not mod:IsHealer())
 local timerDeathFromAboveCD				= mod:NewNextTimer(40, 144208, nil, not mod:IsHealer())
 --The Assembly Line
-local timerAssemblyLineCD				= mod:NewNextTimer(40, "ej8202", nil, nil, nil, 59193)
-local timerPatternRecognition			= mod:NewBuffActiveTimer(60, 144236)
+local timerAssemblyLineCD				= mod:NewNextTimer("OptionVersion2", 40, "ej8202", nil, mod:IsDps(), nil, 59193)
+local timerPatternRecognition			= mod:NewBuffFadesTimer("OptionVersion2", 60, 144236, nil, false)
 --local timerDisintegrationLaserCD		= mod:NewNextCountTimer(10, 143867)
 --local timerShockwaveMissileActive		= mod:NewBuffActiveTimer(30, 143639)
 local timerShockwaveMissileCD			= mod:NewNextCountTimer(15, 143641)
 local timerBreakinPeriod				= mod:NewTargetTimer(60, 145269, nil, false)--Many mines can be up at once so timer off by default do to spam
+local timerMagneticCrush				= mod:NewBuffActiveTimer(30, 144466)
 
 local countdownAssemblyLine				= mod:NewCountdown(40, "ej8202", false)
 local countdownShredder					= mod:NewCountdown(60, "ej8199", mod:IsTank())
-local countdownElectroStatic			= mod:NewCountdown(17, 143385, mod:IsTank(), nil, nil, nil, true)
+local countdownElectroStatic			= mod:NewCountdown("Alt17", 143385, mod:IsTank())
 
-local soundMineFixate					= mod:NewSound("ej8212", nil, mod:IsMelee())--No strat involves ranged moving for these, they should die before reaching ranged. But melee must run out.
-local soundLaserFixate					= mod:NewSound(143828, nil, false)
+local soundMineFixate					= mod:NewSound("ej8212", mod:IsMelee())--No strat involves ranged moving for these, they should die before reaching ranged. But melee must run out.
+local soundLaserFixate					= mod:NewSound(143828, false)
 
 mod:AddInfoFrameOption("ej8202")
 mod:AddSetIconOption("SetIconOnMines", "ej8212", false, true)
@@ -100,6 +102,7 @@ local shockwaveMissile = EJ_GetSectionInfo(8205)
 local laserTurret = EJ_GetSectionInfo(8208)
 local electroMagnet = EJ_GetSectionInfo(8210)
 local assemblyDebuff = false
+local shredderCount = 0
 
 function mod:LaunchSawBladeTarget(targetname, uId)
 	warnLaunchSawblade:Show(targetname)
@@ -123,20 +126,26 @@ end
 --VEM Idea
 local function showWeaponInfo()
 	local lines = {}
-	if weapon == 1 or weapon == 2 or weapon == 4 or weapon == 10 or weapon == 13 then
-		lines[crawlerMine] = shockwaveMissile.." / "..laserTurret
+	if weapon == 1 or weapon == 2 or weapon == 4 then
+		lines[shockwaveMissile] = laserTurret.." , "..crawlerMine
 	elseif weapon == 3 then
-		lines[electroMagnet] = shockwaveMissile.." / "..laserTurret
-	elseif weapon == 5 or weapon == 7 or weapon == 8 then
-		lines[crawlerMine] = electroMagnet.." / "..shockwaveMissile
+		lines[shockwaveMissile] = laserTurret.." , "..electroMagnet
+	elseif weapon == 5 then
+		lines[shockwaveMissile] = electroMagnet.." , "..crawlerMine
 	elseif weapon == 6 then
-		lines[crawlerMine] = crawlerMine.." / "..shockwaveMissile
+		lines[crawlerMine] = laserTurret.." , "..crawlerMine
+	elseif weapon == 7 then
+		lines[shockwaveMissile] = laserTurret.." , "..crawlerMine
+	elseif weapon == 8 then
+		lines[shockwaveMissile] = electroMagnet.." , "..crawlerMine
 	elseif weapon == 9 then
-		lines[laserTurret] =  laserTurret.." / "..laserTurret
+		lines[laserTurret] =  crawlerMine.." , "..laserTurret
+	elseif weapon == 10 then
+		lines[shockwaveMissile] =  crawlerMine.." , "..laserTurret
 	elseif weapon == 11 then
-		lines[electroMagnet] = shockwaveMissile.." / "..shockwaveMissile
+		lines[shockwaveMissile] = electroMagnet.." , "..shockwaveMissile
 	elseif weapon == 12 then
-		lines[crawlerMine] = electroMagnet.." / "..laserTurret
+		lines[electroMagnet] = crawlerMine.." , "..laserTurret
 	else
 		lines[_G["UNKNOWN"]] = ""
 	end
@@ -149,8 +158,9 @@ function mod:OnCombatStart(delay)
 	missileCount = 0
 --	laserCount = 0
 	weapon = 0
+	shredderCount = 0
 	shockwaveOvercharged = false
-	timerAutomatedShredderCD:Start(35-delay)
+	timerAutomatedShredderCD:Start(35-delay, 1)
 	countdownShredder:Start(35-delay)
 end
 
@@ -207,7 +217,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnProtectiveFrenzy:Show(args.destName)
 		specWarnProtectiveFrenzy:Show(args.destName)
 		timerProtectiveFrenzy:Start()
-	elseif args.spellId == 143385 then
+	elseif args.spellId == 143385 and args:IsDestTypePlayer() then
 		local amount = args.amount or 1
 		warnElectroStaticCharge:Show(args.destName, amount)
 		timerElectroStaticCharge:Start(args.destName)
@@ -247,6 +257,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 144466 and self:AntiSpam(15, 1) then--Only way i see to detect magnet activation, antispam is so it doesn't break if a player dies during it.
 		warnMagneticCrush:Show()
 		specWarnMagneticCrush:Show()
+		timerMagneticCrush:Start()
 	elseif args.spellId == 143856 and args:IsPlayer() and self:AntiSpam(2, 2) then
 		specWarnSuperheated:Show()
 	end
@@ -294,9 +305,9 @@ end
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, npc, _, _, target)
 	if msg == L.newWeapons or msg:find(L.newWeapons) then
 		weapon = weapon + 1
-		warnAssemblyLine:Show()
+		warnAssemblyLine:Show(weapon)
 		if not assemblyDebuff then--Don't warn if you can't go
-			specWarnAssemblyLine:Show()
+			specWarnAssemblyLine:Show(weapon)
 		end
 		timerAssemblyLineCD:Start()
 		countdownAssemblyLine:Start()
@@ -305,10 +316,11 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, npc, _, _, target)
 			DBM.InfoFrame:Show(1, "function", showWeaponInfo, true)
 		end
 	elseif msg == L.newShredder or msg:find(L.newShredder) then
-		warnAutomatedShredder:Show()
-		specWarnAutomatedShredder:Show()
+		shredderCount = shredderCount + 1
+		warnAutomatedShredder:Show(shredderCount)
+		specWarnAutomatedShredder:Show(shredderCount)
 		timerDeathFromAboveCD:Start(17)
-		timerAutomatedShredderCD:Start()
+		timerAutomatedShredderCD:Start(nil, shredderCount+14)
 		countdownShredder:Start()
 	end
 end

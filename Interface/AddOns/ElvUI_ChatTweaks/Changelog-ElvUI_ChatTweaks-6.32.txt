@@ -1,9 +1,21 @@
 ------------------------------------------------------------------------
-r176 | lockslap | 2013-11-14 07:10:01 +0000 (Thu, 14 Nov 2013) | 1 line
+r178 | lockslap | 2013-11-21 02:15:09 +0000 (Thu, 21 Nov 2013) | 1 line
 Changed paths:
-   A /tags/6.31 (from /trunk:175)
+   A /tags/6.32 (from /trunk:177)
 
-Tagged as version 6.31.
+Tagged as version 6.32.
+------------------------------------------------------------------------
+r177 | lockslap | 2013-11-21 02:14:43 +0000 (Thu, 21 Nov 2013) | 3 lines
+Changed paths:
+   M /trunk/ElvUI_ChatTweaks.toc
+   M /trunk/Locales/enUS.lua
+   A /trunk/Modules/EditBoxAltKeyArrows.lua
+   D /trunk/Modules/EditBoxHistory.lua
+   M /trunk/Modules.xml
+
+Removed EditBox History module, ElvUI handles it natively.
+Added EditBox Alt Key Arrows module.
+Updated locales.
 ------------------------------------------------------------------------
 r175 | lockslap | 2013-11-14 07:09:37 +0000 (Thu, 14 Nov 2013) | 1 line
 Changed paths:

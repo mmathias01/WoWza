@@ -158,6 +158,7 @@ L["superEmphasizeDesc"] = [=[Aumenta la visualizzazione di un messaggio o di un 
 
 |cffff4411Attenzione: la SUPER ENFATIZZAZIONE è disattivata di default per tutte le abilità.|r
 ]=]
+L["superEmphasizeDisableDesc"] = "Disabilita la Super Enfatizzazione per tutti i moduli che la usano."
 L["tempEmphasize"] = "SUPER ENFATIZZA temporaneamente la barra ed ogni messaggio associato alla sua durata."
 L["text"] = "Testo"
 L["textShadow"] = "Ombra Testo"

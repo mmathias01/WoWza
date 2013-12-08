@@ -1,10 +1,11 @@
 local g = BittensGlobalTables
 local c = g.GetTable("BittensSpellFlashLibrary")
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "Flashing", 2) then
+if u.SkipOrUpgrade(c, "Flashing", 3) then
 	return
 end
 
+local CalendarGetDate = CalendarGetDate
 local GetItemCount = GetItemCount
 local GetZoneText = GetZoneText
 local math = math
@@ -389,6 +390,7 @@ end
 local bookOfTheAges = makeBuffItem(103642, 147226)
 local singingCrystal = makeBuffItem(103641, 147055)
 local dewOfEternalMorning = makeBuffItem(103643, 147476)
+local celebrationPackage = makeBuffItem(90918, 132700)
 
 function c.FlashCommonInCombat()
 	flashSingle(healthstone)
@@ -397,10 +399,17 @@ end
 function c.FlashCommonOutOfCombat(rotation)
 	if x.EnemyDetected and rotation.UsefulStats then
 		c.FlashFoods(rotation.UsefulStats)
-		end
+	end
 	if GetZoneText() == "Timeless Isle" then
 		flashSingle(bookOfTheAges)
 		flashSingle(singingCrystal)
 		flashSingle(dewOfEternalMorning)
+	end
+	
+	local _, month, day, year = CalendarGetDate()
+	if (((month == 11 and day >= 18) or (month == 12 and day <= 2)) 
+		and year == 2013) then
+		
+		flashSingle(celebrationPackage)
 	end
 end

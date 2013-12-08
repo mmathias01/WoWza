@@ -17,6 +17,8 @@ local origErrorHandler
 local ignoreErrors
 local isErrorFrameVisible
 TSMERRORLOG = {}
+local tsmStack = {}
+local stackNameLookup = {}
 
 local addonSuites = {
 	{name="ArkInventory"},
@@ -65,6 +67,14 @@ local function StrStartCmp(str, startStr)
 end
 
 
+local function GetModule(msg)
+	if strfind(msg, "TradeSkillMaster_") then
+		return strmatch(msg, "TradeSkillMaster_[A-Za-z]+")
+	elseif strfind(msg, "TradeSkillMaster\\") then
+		return "TradeSkillMaster"
+	end
+	return "?"
+end
 
 local function ExtractErrorMessage(...)
 	local msg = ""
@@ -120,6 +130,17 @@ local function GetDebugStack()
 		end
 	end
 	
+	return table.concat(stackInfo, "\n")
+end
+
+local function GetTSMStack()
+	local stackInfo = {}
+	local index = #tsmStack
+	for i=1, 10 do -- only show up to 10 lines
+		if not tsmStack[index] then break end
+		tinsert(stackInfo, tsmStack[index])
+		index = index - 1
+	end
 	return table.concat(stackInfo, "\n")
 end
 
@@ -225,11 +246,15 @@ local function TSMErrorHandler(msg)
 	ignoreErrors = true
 	
 	local color = TSMAPI.Design and TSMAPI.Design:GetInlineColor("link2") or ""
-	local errorMessage = color.."Date:|r "..date("%m/%d/%y %H:%M:%S").."\n"
+	local color2 = TSMAPI.Design and TSMAPI.Design:GetInlineColor("advanced") or ""
+	local errorMessage = ""
+	errorMessage = errorMessage..color.."Addon:|r "..color2..GetModule(msg).."|r\n"
 	errorMessage = errorMessage..color.."Message:|r "..msg.."\n"
-	errorMessage = errorMessage..color.."Stack:|r\n"..GetDebugStack().."\n"
-	errorMessage = errorMessage..color.."Locale:|r "..GetLocale().."\n"
+	errorMessage = errorMessage..color.."Date:|r "..date("%m/%d/%y %H:%M:%S").."\n"
 	errorMessage = errorMessage..color.."Client:|r "..GetBuildInfo().."\n"
+	errorMessage = errorMessage..color.."Locale:|r "..GetLocale().."\n"
+	errorMessage = errorMessage..color.."Stack:|r\n"..GetDebugStack().."\n"
+	errorMessage = errorMessage..color.."TSM Stack:|r\n"..GetTSMStack().."\n"
 	errorMessage = errorMessage..color.."Addons:|r\n"..GetAddonList().."\n"
 	tinsert(TSMERRORLOG, errorMessage)
 	if not isErrorFrameVisible then
@@ -242,6 +267,8 @@ local function TSMErrorHandler(msg)
 		end
 	end
 
+	-- need to clear the stack
+	tsmStack = {}
 	ignoreErrors = false
 end
 
@@ -286,4 +313,66 @@ function TSMAPI.Debug:DumpTable(tbl, maxDepth, maxItems, maxStr)
 	for i, v in pairs(dumpDefaults) do
 		_G[i] = v
 	end
+end
+
+
+-- stack tracing functions
+local function FormatTSMStack(obj, name, ...)
+	local args
+	for i=2, select('#', ...) do
+		local arg = select(i, ...)
+		local str
+		if stackNameLookup[arg] then
+			str = "<"..stackNameLookup[arg]..">"
+		elseif type(arg) == "table" then
+			if getmetatable(arg) and getmetatable(arg).__tostring then
+				str = "<"..tostring(arg)..">"
+			else
+				local _, addr = (":"):split(tostring(arg))
+				str = "table:"..tonumber(addr, 16)
+			end
+		elseif type(arg) == "string" then
+			str = '"'..tostring(arg)..'"'
+		elseif type(arg) == "function" then
+			local _, addr = (":"):split(tostring(arg))
+			str = "function:"..tonumber(addr, 16)
+		else
+			str = tostring(arg)
+		end
+		
+		if args then
+			args = args..", "..str
+		else
+			args = str
+		end
+	end
+	
+	local funcCall = "?"
+	if obj == select(1, ...) and args then
+		funcCall = (stackNameLookup[obj] or tostring(obj))..":"..name.."("..args..")"
+	end
+	return funcCall
+end
+
+-- this must be a separate function so we can return the ... after popping off the stack
+local function TrackPopStack(...)	
+	tremove(tsmStack, #tsmStack)
+	return ...
+end
+
+local function RegisterForTracing(obj, name)
+	stackNameLookup[obj] = name
+	for name, v in pairs(obj) do
+		if type(v) == "function" then
+			TSM:RawHook(obj, name, function(...)
+					tinsert(tsmStack, FormatTSMStack(obj, name, ...))
+					return TrackPopStack(v(...))
+				end)
+		end
+	end
+end
+
+function TSMAPI:RegisterForTracing(obj, name)
+	-- wait one frame to ensure all functions are declared
+	TSMAPI:CreateTimeDelay(0, function() RegisterForTracing(obj, name) end)
 end

@@ -1,7 +1,7 @@
 ## Interface: 50400
 ## Author: Blazeflack
 ## Credit: Hydra, whose code this plugin is largely based on
-## Version: 1.36
+## Version: 1.37
 ## Title: |cff1784d1ElvUI|r VisualAuraTimers
 ## Notes: Timers on the auras near the minimap will now use a visual statusbar instead of plain text.
 ## RequiredDeps: ElvUI
@@ -10,7 +10,5 @@ locales.lua
 config.lua
 core.lua
 
- 
- 
 ## X-Tukui-ProjectID: 91
 ## X-Tukui-ProjectFolders: ElvUI_VisualAuraTimers

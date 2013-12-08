@@ -9,6 +9,7 @@
 -- This file contains code for scanning the auction house
 local TSM = select(2, ...)
 local private = {}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.AuctionQueryUtil_private")
 
 
 function TSMAPI:GetAuctionQueryInfo(itemString)
@@ -76,6 +77,7 @@ local function NumPagesCallback(event, numPages)
 				tinsert(skippedItems, itemString)
 			end
 		else
+			-- use the common search term
 			tinsert(private.queries, private.combinedQueries[1])
 		end
 		tremove(private.combinedQueries, 1)
@@ -93,6 +95,15 @@ function private:CheckNextCombinedQuery()
 		TSM:StopGeneratingQueries()
 		TSMAPI:CreateTimeDelay("queryUtilCallbackDelay", 0.05, function() private.callback("QUERY_COMPLETE", private.queries) end)
 		return
+	end
+	
+	for _, itemString in ipairs(private.combinedQueries[1].items) do
+		if strlower(private.combinedQueries[1].name) == strlower(TSMAPI:GetSafeItemInfo(itemString)) then
+			-- One of the items in this combined query is the same as the common search term,
+			-- so it's always worth using this common search term.
+			NumPagesCallback("NUM_PAGES", 1)
+			return
+		end
 	end
 	
 	TSMAPI.AuctionScan:GetNumPages(private.combinedQueries[1], NumPagesCallback)

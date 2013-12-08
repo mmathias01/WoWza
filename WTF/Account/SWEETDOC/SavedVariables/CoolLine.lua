@@ -21,7 +21,7 @@ CoolLineDB = {
 		["g"] = 0.4,
 		["b"] = 0,
 	},
-	["activealpha"] = 0.9999999999999999,
+	["x"] = 1,
 	["nospellcolor"] = {
 		["a"] = 1,
 		["r"] = 0,
@@ -38,7 +38,7 @@ CoolLineDB = {
 	["w"] = 411,
 	["hidepet"] = true,
 	["y"] = -254,
-	["x"] = 1,
+	["activealpha"] = 0.9999999999999999,
 	["dbinit"] = 3,
 	["statusbar"] = "Aluminium",
 	["font"] = "Cecile",

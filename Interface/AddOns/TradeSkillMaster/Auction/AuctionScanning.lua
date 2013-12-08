@@ -15,6 +15,7 @@ local RETRY_DELAY = 2
 local MAX_RETRIES = 4
 local BASE_DELAY = 0.10 -- time to delay for before trying to scan a page again when it isn't fully loaded
 local private = {callbackHandler=nil, query={}, options={}, data={}, isScanning=nil}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.AuctionScanning_private")
 local scanCache = {}
 
 local CACHE_DECAY_PER_DAY = 5

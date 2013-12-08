@@ -40,8 +40,8 @@ if L then
 	L.adds_trigger3 = "Next squad, to the front!"
 	L.adds_trigger4 = "Warriors, on the double!"
 	L.adds_trigger5 = "Kor'kron, at my side!"
-	L.adds_trigger_extra_wave = "All Kor'kron... under my command... kill them... NOW"
-	L.extra_adds = "10% - Extra adds"
+	L.adds_trigger_extra_wave = "All Kor'kron... under my command... kill them... NOW!"
+	L.extra_adds = "Extra adds"
 	L.final_wave = "Final Wave"
 
 	L.chain_heal, L.chain_heal_desc = EJ_GetSectionInfo(7935)
@@ -51,12 +51,10 @@ if L then
 	L.arcane_shock, L.arcane_shock_desc = EJ_GetSectionInfo(7928)
 	L.arcane_shock_icon = 114003
 	L.arcane_shock_message = "Your focus is casting Arcane Shock!"
-
-	L.focus_only = "|cffff0000Focus target alerts only.|r "
 end
 L = mod:GetLocale()
-L.chain_heal_desc = L.focus_only..L.chain_heal_desc
-L.arcane_shock_desc = L.focus_only..L.arcane_shock_desc
+L.chain_heal_desc = CL.focus_only..L.chain_heal_desc
+L.arcane_shock_desc = CL.focus_only..L.arcane_shock_desc
 
 local stances = {
 	[143589] = L.battle,
@@ -206,7 +204,7 @@ function mod:UNIT_HEALTH_FREQUENT(unit)
 end
 
 function mod:ExtraAdds()
-	self:Message(-7920, "Neutral", "Long", L.extra_adds)
+	self:Message(-7920, "Neutral", "Long", "10% - ".. L.extra_adds)
 end
 
 function mod:Adds()
@@ -321,6 +319,6 @@ end
 
 function mod:SunderingBlow(args)
 	self:StackMessage(args.spellId, args.destName, args.amount, "Attention", "Info")
-	self:CDBar(args.spellId, 10)
+	self:CDBar(args.spellId, self:LFR() and 8 or 10)
 end
 

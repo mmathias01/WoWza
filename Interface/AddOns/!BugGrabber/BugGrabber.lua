@@ -1,5 +1,5 @@
 --
--- $Id: BugGrabber.lua 199 2013-11-18 22:46:09Z mikk $
+-- $Id: BugGrabber.lua 201 2013-11-28 03:43:26Z funkydude $
 --
 -- The BugSack and !BugGrabber team is:
 -- Current Developer: Funkydude, Rabbit
@@ -32,9 +32,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -- misnamed variable names. We're not hugely concerned with performance.
 
 local _G = _G
-local pairs,type,type,table,next,wipe = 
-      pairs,type,type,table,next,wipe
-local tostring, tonumber, GetTime = 
+local type, table, next, wipe =
+      type, table, next, wipe
+local tostring, tonumber, GetTime =
       tostring, tonumber, GetTime
 local debuglocals = debuglocals
 -- GLOBALS: LibStub, GetLocale,GetBuildInfo,DisableAddOn,Swatter,GetAddOnInfo
@@ -209,11 +209,11 @@ end
 -- Error catching
 --
 
-local sanitizeStack, findVersions = nil, nil
+local findVersions = nil
 do
 	local function scanObject(o)
 		local version, revision = nil, nil
-		for k, v in pairs(o) do
+		for k, v in next, o do
 			if type(k) == "string" and (type(v) == "string" or type(v) == "number") then
 				local low = k:lower()
 				if not version and low:find("version") then
@@ -294,17 +294,6 @@ do
 		wipe(tmp)
 		return line
 	end
-
-	function sanitizeStack(dump)
-		if not dump then return end
-		dump = dump:gsub("Interface\\", "")
-		dump = dump:gsub("AddOns\\", "")
-		dump = dump:gsub("%.%.%.[^\\]+\\", "")
-		dump = dump:gsub("%[C%]:.-\n", "<in C code>\n")
-		dump = dump:gsub("%<?%[string (\".-\")%](:%d+)%>?", "<string>:%1%2")
-		dump = dump:gsub("[`']", "\"")
-		return dump
-	end
 end
 
 -- Error handler
@@ -336,7 +325,7 @@ do
 			msgsAllowed = BUGGRABBER_ERRORS_PER_SEC_BEFORE_THROTTLE
 		end
 		msgsAllowed = msgsAllowed - 1
-		
+
 		-- Grab it --
 		errorMessage = tostring(errorMessage)
 
@@ -346,7 +335,7 @@ do
 			return
 		end
 
-		local sanitizedMessage = findVersions(sanitizeStack(errorMessage))
+		local sanitizedMessage = findVersions(errorMessage)
 
 		-- Insert the error into the correct database if it's not there
 		-- already. If it is, just increment the counter.
@@ -365,7 +354,7 @@ do
 		local errorObject = found
 
 		if not errorObject then
-			local stack = sanitizeStack(debugstack(3))
+			local stack = debugstack(3)
 
 			-- Scan for version numbers in the stack
 			for line in stack:gmatch("(.-)\n") do
@@ -561,7 +550,7 @@ do
 			DisableAddOn("!Swatter")
 			SlashCmdList.SWATTER = nil
 			SLASH_SWATTER1, SLASH_SWATTER2 = nil, nil
-			for k, v in pairs(Swatter) do
+			for k, v in next, Swatter do
 				if type(v) == "table" then
 					if v.UnregisterAllEvents then
 						v:UnregisterAllEvents()
@@ -585,8 +574,13 @@ function frame:PLAYER_LOGIN()
 	if not callbacks then setupCallbacks() end
 	real_seterrorhandler(grabError)
 end
+local badAddons = {}
 function frame:ADDON_ACTION_FORBIDDEN(event, addonName, addonFunc)
-	grabError(L.ADDON_CALL_PROTECTED:format(event, addonName or "<name>", addonFunc or "<func>"))
+	local name = addonName or "<name>"
+	if not badAddons[name] then
+		badAddons[name] = true
+		grabError(L.ADDON_CALL_PROTECTED:format(event, name or "<name>", addonFunc or "<func>"))
+	end
 end
 frame.ADDON_ACTION_BLOCKED = frame.ADDON_ACTION_FORBIDDEN -- XXX Unused?
 frame:SetScript("OnEvent", function(self, event, ...) self[event](self, event, ...) end)
@@ -596,9 +590,6 @@ registerAddonActionEvents()
 
 real_seterrorhandler(grabError)
 function seterrorhandler() --[[ noop ]] end
-
-frame:SetScript("OnUpdate", nil)  -- IF buggrabber in the future does version checks: disable old flood handlers that may be installed by old embedded buggrabbers
-
 
 -- Set up slash command
 _G.SlashCmdList.BugGrabber = slashHandler

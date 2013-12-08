@@ -86,7 +86,6 @@ I am aware that some of the features of this module don't really pertain to the 
 \
 \230\136\145\231\159\165\233\129\147\233\128\153\230\168\161\231\181\132\231\154\132\228\184\128\228\186\155\229\138\159\232\131\189\232\183\159\229\176\141\232\169\177\231\132\161\233\151\156, \228\189\134\230\152\175\230\136\145\231\156\159\231\154\132\231\132\161\230\179\149\232\173\137\230\152\142\228\187\150\230\152\175\228\184\128\229\128\139\230\150\176\231\154\132\230\143\146\228\187\182.  \230\137\128\228\187\165\230\136\145\229\129\183\229\129\183\231\154\132\230\138\138\229\174\131\230\148\190\229\156\168\233\128\153."
 L["Allows you to reroute auction house messages to a different chat frame."] = "\229\133\129\232\168\177\228\189\160\229\176\135\230\139\141\232\179\163\229\160\180\232\168\138\230\129\175\233\135\141\229\153\181\229\136\176\229\136\165\231\154\132\229\176\141\232\169\177\232\166\150\231\170\151."
-L["Allows you to spam a message to General or Trade chat every X seconds.  Useful for guild recruitment or profession links."] = "\229\133\129\232\168\177\228\189\160\229\156\168\228\186\164\230\152\147\233\160\187\233\129\147\230\175\143X\231\167\146\233\135\141\232\164\135\231\153\188\233\128\129\232\168\138\230\129\175. \229\143\175\228\187\165\228\189\191\231\148\168\229\156\168\229\133\172\230\156\131\230\139\155\229\139\159\230\136\150\229\135\186\229\148\174\232\178\168\231\137\169."
 L["Allows you to use some fun filters on various chat channels.\
 \
 |cffff0000This will break any links in the chat message.|r\
@@ -103,8 +102,6 @@ L["All spam logs were cleared."] = "All spam logs were cleared." -- Requires loc
 L["alt2"] = "\229\136\134\232\186\1712" -- Needs review
 L["alt3"] = "\229\136\134\232\186\1713" -- Needs review
 L["Alt-click name to invite"] = "ALT+\229\183\166\233\141\181\233\187\158\233\129\184\229\167\147\229\144\141\233\130\128\232\171\139"
-L["Alternate"] = "\228\186\164\230\155\191"
-L["ALTERNATE"] = "ALTERNATE" -- Requires localization
 L["Alternate command to kick someone from guild."] = "\228\184\128\229\128\139\230\155\191\228\187\163\231\154\132\230\140\135\228\187\164\228\190\134\229\176\135\230\159\144\228\186\186\232\184\162\229\135\186\229\133\172\230\156\131."
 L["AlTeRnAtInG CaPs"] = "AlTeRnAtInG CaPs" -- Requires localization
 L["Alt Names"] = "\229\136\134\232\186\171\229\167\147\229\144\141" -- Needs review
@@ -200,7 +197,6 @@ L["|cFFccff00Not Owned|r"] = "|cFFccff00\229\176\154\230\156\170\230\147\129\230
 L["|cffeda55fc|r"] = true
 L["|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r"] = "|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r" -- Requires localization
 L["|cffff0000Disabled|r"] = "|cffff0000\229\183\178\229\129\156\231\148\168|r"
-L["|cffff0000ERROR|r Both messages must be set in order to use the spam method |cffffff00%s|r"] = "|cffff0000ERROR|r \229\133\169\232\128\133\232\179\135\232\168\138\231\154\134\233\160\136\232\162\171\232\168\173\229\174\154\228\187\165\228\189\191\231\148\168 spam \230\150\185\230\179\149 |cffffff00%s|r"
 L["|cffff0000Item|r |cffffffff\"%s\"|r |cffff0000does not exist.|r"] = "|cffff0000\231\137\169\229\147\129|r |cffffffff\"%s\"|r |cffff0000\228\184\141\229\173\152\229\156\168.|r"
 L["|cffff0000No modules found.|r"] = "|cffff0000\230\137\190\228\184\141\229\136\176\230\168\161\231\181\132.|r"
 L["\
@@ -246,14 +242,10 @@ L["Channel Invite Spam"] = "Channel Invite Spam" -- Requires localization
 L["Channel Notice Filter"] = "\233\160\187\233\129\147\230\143\144\233\134\146\233\129\142\230\191\190"
 L["Channels"] = "\233\160\187\233\129\147"
 L["Channel Sounds"] = "\233\160\187\233\129\147\233\159\179\230\149\136" -- Needs review
-L["Channel Spam"] = "\233\160\187\233\129\147\231\129\140\230\176\180"
-L["Channel Spam has been |cff%s%s|r."] = "\233\160\187\233\129\147\231\129\140\230\176\180 |cff%s%s|r."
-L["Channel Spam is already running."] = "\233\160\187\233\129\147\231\129\140\230\176\180\229\183\178\229\156\168\233\129\139\232\161\140."
 L["Channels to Filter"] = "Channels to Filter" -- Requires localization
 L["Channels to look for questions."] = "Channels to look for questions." -- Requires localization
 L["Channels to Monitor"] = "\231\155\163\232\166\150\233\160\187\233\129\147"
 L["Channels to Watch"] = "Channels to Watch" -- Requires localization
-L["Channel to output the messages to."] = "\232\188\184\229\135\186\232\168\138\230\129\175\232\135\179\233\160\187\233\129\147."
 L["Channel to send the reminder to."] = "Channel to send the reminder to." -- Requires localization
 L["Character to use between the name and level"] = "\229\144\141\231\168\177\232\136\135\231\173\137\231\180\154\233\150\147\233\154\148\229\173\151\229\133\131"
 L["Character to use for the left bracket"] = "\229\183\166\230\139\172\229\188\167\229\173\151\229\133\131"
@@ -330,7 +322,6 @@ L["Color to use for your rolls."] = "\228\189\160\231\154\132\230\147\178\233\17
 L["Color Win"] = "\228\184\138\232\137\178\229\139\157\229\136\169"
 L["Color Your Rolls"] = "\228\184\138\232\137\178\228\189\160\231\154\132\230\147\178\233\170\176"
 L["Color your rolls to set them apart."] = "\229\176\135\228\189\160\231\154\132\230\147\178\233\170\176\228\184\138\232\137\178\228\187\165\229\146\140\229\133\182\228\187\150\228\186\186\229\141\128\229\136\165."
-L["Combined"] = "\231\181\144\229\144\136"
 L["Command Help"] = "Command Help" -- Requires localization
 L["Companions"] = "Companions" -- Requires localization
 L["Compress"] = "\229\163\147\231\184\174" -- Needs review
@@ -392,7 +383,7 @@ L["Don't Report"] = "\228\184\141\229\155\158\229\160\177"
 L["Do you want to automatically remove an item when you meet your quota?"] = "\231\149\182\228\189\160\233\129\148\229\136\176\232\166\129\230\177\130\230\149\184\233\135\143\230\153\130\228\189\160\230\131\179\232\166\129\232\135\170\229\139\149\231\167\187\233\153\164\232\169\178\231\137\169\229\147\129\229\151\142?"
 L["Druid"] = "\229\190\183\233\173\175\228\188\138" -- Needs review
 L["DRUID"] = "DRUID" -- Requires localization
-L["Editbox History"] = "\232\188\184\229\133\165\232\168\138\230\129\175\230\173\183\229\143\178" -- Needs review
+L["EditBox Alt Key Arrows"] = "EditBox Alt Key Arrows" -- Requires localization
 L["ElvUI ChatTweaks"] = "ElvUI \229\176\141\232\169\177\229\162\158\229\188\183"
 L["ElvUI_ChatTweaks"] = "ElvUI_ChatTweaks" -- Requires localization
 L["ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!"] = "ElvUI_\229\176\141\232\169\177\229\162\158\229\188\183: \228\189\160\229\191\133\233\160\136\232\166\129\233\129\148\229\136\176 %d \229\141\179\230\137\141\232\131\189\229\175\134\232\170\158\230\136\145.  \228\189\160\231\143\190\229\156\168\231\154\132\231\173\137\231\180\154\230\152\175 %d!"
@@ -403,6 +394,7 @@ L["Emphasize Self"] = "\229\188\183\232\170\191\232\135\170\229\183\177" -- Need
 L["Enable"] = true
 L["Enable "] = "\229\149\159\231\148\168" -- Needs review
 L["Enable All Modules"] = "Enable All Modules" -- Requires localization
+L["Enabled"] = "\229\183\178\229\149\159\231\148\168" -- Needs review
 L["Enable Debugging"] = "\229\149\159\231\148\168\229\129\181\233\140\175"
 L["Enabled Modules"] = "Enabled Modules" -- Requires localization
 L["Enabled %s%s|r module."] = "Enabled %s%s|r module." -- Requires localization
@@ -491,9 +483,6 @@ L["Filter the Bid Accepted message.\
 L["Filter the line containing the question."] = "Filter the line containing the question." -- Requires localization
 L["Filter Triggers"] = "Filter Triggers" -- Requires localization
 L["Filter whispers based on the sender's level."] = "\230\160\185\230\147\154\229\175\134\232\170\158\232\128\133\231\173\137\231\180\154\233\129\142\230\191\190\229\175\134\232\170\158."
-L["First message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r"] = true
 L["Font Color"] = "Font Color" -- Requires localization
 L["Font Face"] = "\229\173\151\229\158\139" -- Needs review
 L["Font Size"] = "\229\173\151\229\158\139\229\164\167\229\176\143" -- Needs review
@@ -502,7 +491,6 @@ L["Frame to output the messages to."] = "Frame to output the messages to." -- Re
 L["Frame to send the addon messages to."] = "Frame to send the addon messages to." -- Requires localization
 L["Friends"] = "\230\156\139\229\143\139" -- Needs review
 L["Fun Filters"] = "Fun Filters" -- Requires localization
-L["General"] = "\228\184\128\232\136\172\233\160\187\233\129\147"
 L["General Tab Channels"] = "General Tab Channels" -- Requires localization
 L["ginv"] = "ginv" -- Requires localization
 L["ginvite"] = "ginvite" -- Requires localization
@@ -691,11 +679,6 @@ L["Messages to use when someone says \"ding\".\
 |cff00ff00#name#|r - Who said ding.\
 |cff00ff00#guild#|r - Their current level."] = true
 L["Message Throttle"] = "Message Throttle" -- Requires localization
-L["Method by which to send the messages.\
-\
-|cffff00Alternate is alternating between the two messages.\
-Combined is both messages at once.\
-Random will randomly pick one of the messages to send.|r"] = true
 L["Minimap Button"] = "Minimap Button" -- Requires localization
 L["Minimum Delay"] = "\230\156\128\229\176\143\229\187\182\233\129\178"
 L["Minimum DK Level"] = "\230\173\187\233\168\142\230\156\128\228\189\142\231\173\137\231\180\154" -- Needs review
@@ -859,8 +842,6 @@ L["Raid Leader"] = "\229\156\152\233\154\138\233\154\138\233\149\183" -- Needs r
 L["Raid Members"] = "\229\156\152\233\154\138\233\154\138\229\147\161"
 L["Raid Warning"] = "\229\156\152\233\154\138\232\173\166\229\145\138" -- Needs review
 L["Raid Warning Channel"] = "\229\156\152\233\154\138\232\173\166\229\145\138\233\160\187\233\129\147" -- Needs review
-L["Random"] = true
-L["RANDOM"] = true
 L["Random Number"] = "Random Number" -- Requires localization
 L["Ready Check Command"] = "Ready Check Command" -- Requires localization
 L["RealID Brackets"] = "RealID \230\139\172\229\188\167"
@@ -868,7 +849,6 @@ L["RealID Conversation"] = "RealID \229\176\141\232\169\177" -- Needs review
 L["RealID Whisper"] = "RealID \229\175\134\232\170\158" -- Needs review
 L["Really remove this word from your trigger list?"] = true
 L["Release Command"] = "Release Command" -- Requires localization
-L["Remembers the history of the editbox across sessions."] = true
 L["Reminder"] = "Reminder" -- Requires localization
 L["Remove"] = true
 L["Remove a word from your group invite trigger list"] = true
@@ -884,8 +864,8 @@ L["Reply hazy, try again."] = "Reply hazy, try again." -- Requires localization
 L["Reported by %s"] = true
 L["Reputation"] = "\232\129\178\230\156\155"
 L["Reputation Color"] = "\232\129\178\230\156\155\233\161\143\232\137\178"
+L["Require the alt key to be pressed to use the arrow keys on editboxes."] = "Require the alt key to be pressed to use the arrow keys on editboxes." -- Requires localization
 L["Reroute Auction Messages"] = "\230\139\141\232\179\163\229\160\180\232\168\138\230\129\175\233\135\141\229\176\142"
-L["Reset"] = "\233\135\141\231\189\174" -- Needs review
 L["Reset ChatFrame text justifications to defaults (left)."] = "\233\135\141\231\189\174\232\129\138\229\164\169\232\166\150\231\170\151\229\176\141\233\189\138\232\135\179\233\160\144\232\168\173\229\128\188 (\229\183\166)."
 L["Reset Data"] = "\233\135\141\231\189\174\232\179\135\230\150\153" -- Needs review
 L["Reset Font Data"] = true
@@ -923,9 +903,6 @@ L["Search Results:"] = "Search Results:" -- Requires localization
 L["Search Results |cff9382c9(%d Found)|r:"] = "Search Results |cff9382c9(%d Found)|r:" -- Requires localization
 L["Search term is too short."] = "Search term is too short." -- Requires localization
 L["Second"] = "Second" -- Requires localization
-L["Second message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r"] = true
 L["Select a color for this channel."] = true
 L["Select a method for coloring player names"] = true
 L["Select an option if you want the zone list to only contain pets you own or do not own."] = "Select an option if you want the zone list to only contain pets you own or do not own." -- Requires localization
@@ -988,10 +965,7 @@ L["Sound to play when a message in %s is received.\
 |cff00ff00\232\166\129\229\129\156\231\148\168\232\171\139\232\168\173\230\136\144 \"\231\132\161\"|r." -- Needs review
 L["Spam Delay"] = true
 L["Spam Filter"] = "\230\180\151\233\160\187\233\129\142\230\191\190" -- Needs review
-L["Spam Interval"] = true
-L["Spam interval changed to |cffffff00%d|r"] = true
 L["Spam Log"] = "Spam Log" -- Requires localization
-L["Spam Mode"] = "\231\129\140\230\176\180\230\168\161\229\188\143"
 L["Spam Throttle"] = "\231\129\140\230\176\180\233\150\147\233\154\148"
 L[" %s Progress: Completed on %s%s|r/%s%s|r/%s%s|r"] = " %s Progress: Completed on %s%s|r/%s%s|r/%s%s|r" -- Requires localization
 L["%s reputation left until %s with %s."] = true
@@ -1004,10 +978,6 @@ L["%s, %s, %s  Player's Stats\
 L["Standard Emote: |cffffff00%s|r"] = true
 L["Standard Emotes"] = true
 L["Standing Color"] = "\233\154\142\230\174\181\233\161\143\232\137\178"
-L["Start"] = true
-L["STARTED"] = true
-L["Stop"] = true
-L["STOPPED"] = true
 L["Strip RealID brackets"] = true
 L["Substitutions"] = "Substitutions" -- Requires localization
 L["Suppress"] = true
@@ -1047,7 +1017,6 @@ L["The classic Magic 8-Ball brought to World of Warcraft!"] = "The classic Magic
 L["The color to highlight the search term."] = "The color to highlight the search term." -- Requires localization
 L["The color to use when highlighting a substitution."] = "The color to use when highlighting a substitution." -- Requires localization
 L["The default color to use to color names."] = true
-L["The interval must be a |cff00ff00%s|r between |cff00ff00%d|r and |cff00ff00%d|r."] = true
 L["The name or ID of the material you'd like to track.\
 \
 |cff00ff00If you wish to use the item's name then the item must exist in your bags.  This is a limitation to the API, item ID's will always work as intended.|r"] = "The name or ID of the material you'd like to track.\
@@ -1089,7 +1058,6 @@ L["Throttle to only answer a question every X seconds, to prevent spam.\
 \
 |cffff0000Not recommended to disable this.|r" -- Requires localization
 L["Time"] = "Time" -- Requires localization
-L["Time, in seconds, between messages being sent."] = true
 L["Time, in seconds, in between running the command."] = true
 L["Time, in seconds, the module will wait after the first line is found to assume it is complete.\
 \
@@ -1098,7 +1066,6 @@ L["Time, in seconds, to run the clean up to keep your ignore list clean."] = "Ti
 L["Time, in seconds, to throttle output messages to prevent spam."] = true
 L["Time, in seconds, to throttle the zone list to prevent any spam."] = "Time, in seconds, to throttle the zone list to prevent any spam." -- Requires localization
 L["Time, in seconds, you want the search to continue before it ends."] = "Time, in seconds, you want the search to continue before it ends." -- Requires localization
-L["Timer is currently running, you must stop it first before changing the interval."] = true
 L["Timestamp color"] = "\230\153\130\233\150\147\230\136\179\232\168\152\233\161\143\232\137\178"
 L["Timestamp format"] = "\230\153\130\233\150\147\230\136\179\232\168\152\230\160\188\229\188\143"
 L["Timestamps"] = "\230\153\130\233\150\147\230\136\179\232\168\152"
@@ -1110,11 +1077,11 @@ L["Toggle logging anything found to the Spam Log module."] = "Toggle logging any
 L["Toggle the monitoring of chat events."] = "Toggle the monitoring of chat events." -- Requires localization
 L["Toggle the pet list message when you enter a different zone."] = "Toggle the pet list message when you enter a different zone." -- Requires localization
 L["Toggle the pet quality notifications when you join a wild pet battle."] = "\231\149\182\228\189\160\233\128\178\232\161\140\233\135\142\229\164\150\229\175\181\231\137\169\229\176\141\230\136\176\230\153\130\230\143\144\231\164\186\229\176\141\233\157\162\229\175\181\231\137\169\229\147\129\232\179\170."
+L["Toggle the requirement of the Alt key to be pressed to use arrow keys to navigate an editbox."] = "Toggle the requirement of the Alt key to be pressed to use arrow keys to navigate an editbox." -- Requires localization
 L["Tooltip"] = "Tooltip" -- Requires localization
 L["Total Modules"] = "Total Modules" -- Requires localization
 L["Track Pets"] = "\232\191\189\232\185\164\229\175\181\231\137\169"
 L["Track Stable Masters"] = "\232\191\189\232\185\164\230\136\176\229\175\181\229\164\167\229\184\171"
-L["Trade"] = "\228\186\164\230\152\147\233\160\187\233\129\147"
 L["Trigger"] = "Trigger" -- Requires localization
 L["Triggers"] = "\232\167\184\231\153\188\229\153\168" -- Needs review
 L["/tt"] = true
@@ -1133,6 +1100,7 @@ L["Unrecognized Symbol: |cffffff00%s|r"] = "\231\132\161\230\179\149\232\190\168
 L["Unset variable |cffffff00%s|r."] = "\230\156\170\232\168\173\229\174\154\229\190\151\232\174\138\230\149\184 |cffffff00%s|r."
 L["Update the quest progress when you receive Valor Points.  This will automatically be disabled when you complete the achievement."] = "Update the quest progress when you receive Valor Points.  This will automatically be disabled when you complete the achievement." -- Requires localization
 L["Uppercase"] = "Uppercase" -- Requires localization
+L["Use Alt Key"] = "Use Alt Key" -- Requires localization
 L["Use channel color"] = "\228\189\191\231\148\168\233\160\187\233\129\147\233\161\143\232\137\178"
 L["Use Channel Color"] = "\228\189\191\231\148\168\233\160\187\233\129\147\233\161\143\232\137\178"
 L["Use Coins"] = "\228\189\191\231\148\168\231\161\172\229\185\163\229\156\150\231\164\186"

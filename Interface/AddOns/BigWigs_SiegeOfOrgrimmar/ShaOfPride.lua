@@ -14,6 +14,7 @@ mod:RegisterEnableMob(71734)
 local titans, titanCounter = {}, 1
 local auraOfPride, auraOfPrideGroup, auraOfPrideOnMe = mod:SpellName(146817), {}, nil
 local swellingPrideCounter = 1
+local wrChecker = nil
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -21,14 +22,17 @@ local swellingPrideCounter = 1
 
 local L = mod:NewLocale("enUS", true)
 if L then
-	L.projection_message = "Go to |cFF00FF00GREEN|r arrow!"
-	L.projection_explosion = "Projection explosion"
+	L.projection_green_arrow = "GREEN ARROW"
 
 	L.titan_pride = "Titan+Pride: %s"
 
 	L.custom_off_titan_mark = "Gift of the Titans marker"
 	L.custom_off_titan_mark_desc = "Mark people that have Gift of the Titans with {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.|r"
 	L.custom_off_titan_mark_icon = 1
+
+	L.custom_off_fragment_mark = "Corrupted Fragment marker"
+	L.custom_off_fragment_mark_desc = "Mark the Corrupted Fragments with {rt8}{rt7}{rt6}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.\nIn 25 player mode, this will conflict with the Gift of the Titans marker.|r"
+	L.custom_off_fragment_mark_icon = 8
 end
 L = mod:GetLocale()
 
@@ -38,7 +42,7 @@ L = mod:GetLocale()
 
 function mod:GetOptions()
 	return {
-		145215, 147207,
+		145215, 147207, "custom_off_fragment_mark",
 		"custom_off_titan_mark",
 		{146595, "PROXIMITY"}, 144400, -8257, {-8258, "FLASH"}, {146817, "FLASH", "PROXIMITY"}, -8270, {144351, "DISPEL"}, {144358, "TANK", "FLASH", "EMPHASIZE"}, -8262, 144800, 144563, -8349,
 		"altpower", "berserk", "bosskill",
@@ -57,6 +61,7 @@ function mod:OnBossEnable()
 
 	-- heroic
 	self:Log("SPELL_AURA_REMOVED", "WeakenedResolveOver", 147207)
+	self:Log("SPELL_AURA_APPLIED", "WeakenedResolveBegin", 147207)
 	self:Log("SPELL_AURA_APPLIED", "Banishment", 145215)
 	-- normal
 	self:Log("SPELL_CAST_START", "UnleashedStart", 144832)
@@ -90,7 +95,8 @@ function mod:OnEngage()
 	self:Bar(144563, 52.5) -- Imprison
 	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
 	if self:Heroic() then
-		self:Bar(145215, 37) -- Banishment
+		self:Bar(145215, 37.4) -- Banishment
+		wrChecker = nil
 	end
 	if not self:LFR() then
 		self:CDBar(144358, 11) -- Wounded Pride
@@ -106,11 +112,34 @@ end
 -- heroic
 function mod:WeakenedResolveOver(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "Positive", nil, CL.over:format(args.spellName))
+		self:Message(args.spellId, "Personal", nil, CL.over:format(args.spellName))
+		wrChecker = self:ScheduleRepeatingTimer("Message", 6, args.spellId, "Personal", nil, CL.no:format(args.spellName))
+	end
+end
+function mod:WeakenedResolveBegin(args)
+	if wrChecker and self:Me(args.destGUID) then
+		self:CancelTimer(wrChecker)
+		wrChecker = nil
 	end
 end
 
+
 do
+	local mobTbl, counter, UnitGUID = {}, 8, UnitGUID
+	local function CheckUnit(event, firedUnit)
+		local unit = firedUnit and firedUnit.."target" or "mouseover"
+		local guid = UnitGUID(unit)
+		if guid and not mobTbl[guid] and mod:MobId(guid) == 72569 then
+			mobTbl[guid] = true
+			SetRaidTarget(unit, counter)
+			counter = counter - 1
+			if counter == 5 or mod:Difficulty() == 5 then
+				mod:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+				mod:UnregisterEvent("UNIT_TARGET")
+			end
+		end
+	end
+
 	local banishmentList, scheduled = mod:NewTargetList(), nil
 	local function warnBanishment(spellId)
 		mod:TargetMessage(spellId, banishmentList, "Attention")
@@ -120,6 +149,13 @@ do
 		banishmentList[#banishmentList+1] = args.destName
 		if not scheduled then
 			scheduled = self:ScheduleTimer(warnBanishment, 0.2, args.spellId)
+
+			if self.db.profile.custom_off_fragment_mark then
+				wipe(mobTbl)
+				counter = 8
+				self:RegisterEvent("UPDATE_MOUSEOVER_UNIT", CheckUnit)
+				self:RegisterEvent("UNIT_TARGET", CheckUnit)
+			end
 		end
 	end
 end
@@ -218,40 +254,47 @@ function mod:AuraOfPrideApplied(args)
 end
 
 do
-	local prev = 0
-	local mindcontrolled = mod:NewTargetList()
+	local mindcontrolled, scheduled = mod:NewTargetList(), nil
+	local function warnOvercome()
+		mod:TargetMessage(-8270, mindcontrolled, "Attention")
+		scheduled = nil
+	end
 	function mod:SwellingPrideSuccess(args)
 		if not self:LFR() then
 			self:CDBar(144358, 10.5) -- Wounded Pride, 10-11.2
 		end
 		if self:Heroic() then
-			self:Bar(145215, 40) -- Banishment -- more frequently 40 than anything else
+			self:Bar(145215, 37.4) -- Banishment
 		end
 		self:Bar(144563, 53) -- Imprison
 		self:Bar(-8262, 60, CL.big_add, 144379) -- when the add is actually up
 		self:Bar(144800, 25.6, CL.small_adds)
-		self:DelayedMessage(-8262, 55, "Urgent", CL.spawning:format(CL.big_add), 144379, not self:Tank() and not self:Healer() and "Alert")
+		self:DelayedMessage(-8262, 55, "Urgent", CL.spawning:format(CL.big_add), 144379, self:Damager() and "Alert")
+
 		-- lets do some fancy stuff
 		local playerPower = UnitPower("player", 10)
-		if playerPower > 24 and playerPower < 50 then
+		local playerBursting = playerPower > 24 and playerPower < 50
+		if playerBursting then
 			self:Message(-8257, "Personal", "Alarm", CL.underyou:format(self:SpellName(144911))) -- bursting pride
 		elseif playerPower > 49 and playerPower < 75 then
-			self:Message(-8258, "Personal", "Warning", L.projection_message, "Achievement_pvp_g_01.png") -- better fitting icon imo
+			local you = CL.you:format(self:SpellName(-8258))
+			self:Message(-8258, "Personal", "Warning", ("%s (|cFF00FF00%s|r)"):format(you, L.projection_green_arrow), "Achievement_pvp_g_01.png") -- better fitting icon imo
 			self:Flash(-8258, "Achievement_pvp_g_01.png")
-			self:Bar(-8258, 6, L.projection_explosion)
+			self:Bar(-8258, 6, you, "Achievement_pvp_g_01.png")
 		end
+
+		local warned = nil
 		for i=1, GetNumGroupMembers() do
 			local unit = GetRaidRosterInfo(i)
 			local power = UnitPower(unit, 10)
-			if power > 24 and power < 50 and self:Range(unit) < 5 and (playerPower < 25 or playerPower > 49) then -- someone near have it, but not the "player"
-				local t = GetTime()
-				if t-prev > 2 then -- don't spam
-					prev = t
-					self:RangeMessage(-8257) -- bursting pride
-				end
-			elseif power == 100 then
+			if power == 100 then
 				mindcontrolled[#mindcontrolled+1] = unit
-				self:ScheduleTimer("TargetMessage", 0.1, -8270, mindcontrolled, "Attention")
+				if not scheduled then
+					scheduled = self:ScheduleTimer(warnOvercome, 0.1)
+				end
+			elseif not warned and not playerBursting and power > 24 and power < 50 and self:Range(unit) < 5 then -- someone near has bursting pride, but not you
+				warned = true
+				self:RangeMessage(-8257)
 			end
 		end
 	end

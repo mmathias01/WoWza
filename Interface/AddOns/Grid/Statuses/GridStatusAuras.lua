@@ -15,9 +15,11 @@
 local _, Grid = ...
 local L = Grid.L
 
-local gmatch, gsub, pairs, strfind, strlower, strsub, tostring, type = gmatch, gsub, pairs, strfind, strlower, strsub, tostring, type
 local strutf8sub = string.utf8sub
-local UnitAura, UnitClass, UnitGUID, UnitIsPlayer = UnitAura, UnitClass, UnitGUID, UnitIsPlayer
+local format, gmatch, gsub, pairs, strfind, strlen, strlower, strmatch, strsub, tostring, type
+    = format, gmatch, gsub, pairs, strfind, strlen, strlower, strmatch, strsub, tostring, type
+local IsPlayerSpell, UnitAura, UnitClass, UnitGUID, UnitIsPlayer, UnitIsVisible
+    = IsPlayerSpell, UnitAura, UnitClass, UnitGUID, UnitIsPlayer, UnitIsVisible
 
 local GridFrame = Grid:GetModule("GridFrame")
 local GridRoster = Grid:GetModule("GridRoster")
@@ -618,6 +620,7 @@ function GridStatusAuras:OptionsForStatus(status, isBuff)
 						["name"] = L["Buff name"],
 						["duration"] = L["Time left"],
 						["count"] = L["Stack count"],
+						["count_duration"] = L["Stack count"].." & "..L["Time left"]
 					},
 					get = function()
 						return self.db.profile[status].statusText
@@ -644,7 +647,8 @@ function GridStatusAuras:OptionsForStatus(status, isBuff)
 						self:UpdateAllUnitAuras()
 					end,
 					hidden = function()
-						return not self.db.profile.advancedOptions or self.db.profile[status].statusText ~= "duration"
+						return not self.db.profile.advancedOptions or
+							(self.db.profile[status].statusText ~= "duration" and self.db.profile[status].statusText ~= "count_duration")
 					end,
 				},
 				countSettings = {
@@ -798,7 +802,7 @@ function GridStatusAuras:OptionsForStatus(status, isBuff)
 						self:UpdateAllUnitAuras()
 					end,
 					hidden = function()
-						return not self.db.profile.advancedOptions or (self.db.profile[status].statusColor ~= "duration" and self.db.profile[status].statusText ~= "duration")
+						return not self.db.profile.advancedOptions or (self.db.profile[status].statusColor ~= "duration" and self.db.profile[status].statusText ~= "count_duration")
 					end,
 				},
 			},
@@ -986,7 +990,7 @@ function GridStatusAuras:UpdateDispellable()
 	elseif PLAYER_CLASS == "MONK" then
 		PlayerCanDispel.Disease = IsPlayerSpell(115450) -- Detox
 		PlayerCanDispel.Magic   = IsPlayerSpell(115451) -- Internal Medicine (Mistweaver spec passive)
-		PlayerCanDispel.Poison  = IsPlayerSpell(115450)
+		PlayerCanDispel.Poison  = IsPlayerSpell(115450) -- Detox
 
 	elseif PLAYER_CLASS == "PALADIN" then
 		PlayerCanDispel.Disease = IsPlayerSpell(4987)   -- Cleanse
@@ -994,14 +998,11 @@ function GridStatusAuras:UpdateDispellable()
 		PlayerCanDispel.Poison  = IsPlayerSpell(4987)
 
 	elseif PLAYER_CLASS == "PRIEST" then
-		local mass = IsPlayerSpell(32375) -- Mass Dispel
-		PlayerCanDispel.Curse   = mass
-		PlayerCanDispel.Disease = mass or IsPlayerSpell(527) -- Purify
-		PlayerCanDispel.Magic   = mass or IsPlayerSpell(527)
-		PlayerCanDispel.Poison  = mass
+		PlayerCanDispel.Disease = IsPlayerSpell(527) -- Purify
+		PlayerCanDispel.Magic   = IsPlayerSpell(527) or IsPlayerSpell(32375) -- Purify or Mass Dispel
 
 	elseif PLAYER_CLASS == "SHAMAN" then
-		PlayerCanDispel.Curse   = IsPlayerSpell(51886) -- Cleanse Spirit, also returns true for Purify Spirit
+		PlayerCanDispel.Curse   = IsPlayerSpell(51886) -- Cleanse Spirit (also returns true for Purify Spirit)
 		PlayerCanDispel.Magic   = IsPlayerSpell(77130) -- Purify Spirit
 
 	elseif PLAYER_CLASS == "WARLOCK" then
@@ -1009,7 +1010,7 @@ function GridStatusAuras:UpdateDispellable()
 
 	end
 
-	Grid_PlayerCanDispel = PlayerCanDispel -- debugging
+	-- Grid_PlayerCanDispel = PlayerCanDispel -- debugging
 end
 
 -- Unit Aura Driver
@@ -1101,7 +1102,7 @@ function GridStatusAuras:UnitGainedDurationStatus(status, guid, class, name, ran
 	local settings = self.db.profile[status]
 	if not settings then return end
 
-	if settings.enable and (settings.statusText == "duration" or settings.statusColor == "duration") then
+	if settings.enable and (settings.statusText == "duration" or settings.statusText == "count_duration" or settings.statusColor == "duration") then
 		if not self.durationAuras[status] then
 			self.durationAuras[status] = {}
 		end
@@ -1193,12 +1194,18 @@ function GridStatusAuras:StatusTextColor(settings, count, timeLeft)
 		text = settings.text
 	elseif settings.statusText == "duration" then
 		if settings.durationTenths then
-			text = format("%.1f", tostring(timeLeft))
+			text = format("%.1f", timeLeft)
 		else
-			text = format("%d", tostring(timeLeft))
+			text = format("%d", timeLeft)
 		end
 	elseif settings.statusText == "count" then
 		text = tostring(count)
+	elseif settings.statusText == "count_duration" then
+		if settings.durationTenths then
+			text = format("%d-%.1f", count, timeLeft)
+		else
+			text = format("%d-%d", count, timeLeft)
+		end
 	end
 
 	if settings.missing or settings.statusColor == "present" then
@@ -1251,8 +1258,8 @@ function GridStatusAuras:RefreshActiveDurations()
 					count,
 					texCoords)
 			end
-		else
-			self.core:SendStatusLost(guid, status)
+	--	else
+	--		self.core:SendStatusLost(guid, status)  -- XXX "guid" is undefined=nil here; what is the purpose?!
 		end
 	end
 end
@@ -1447,10 +1454,10 @@ function GridStatusAuras:UnitGainedDebuffType(guid, class, name, rank, icon, cou
 	end
 end
 
-function GridStatusAuras:UnitLostDebuffType(guid, class, debuffType)
+function GridStatusAuras:UnitLostDebuffType(guid, class, name)
 	--self:Debug("UnitLostDebuffType", guid, class, debuffType)
 
-	local status = debuffType and debuff_types[debuffType]
+	local status = name and debuff_types[name]
 	local settings = self.db.profile[status]
 	if not settings then return end
 

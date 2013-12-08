@@ -8,6 +8,7 @@
 
 local TSM = select(2, ...)
 local private = {}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.AuctionUtil_private")
 LibStub("AceEvent-3.0"):Embed(private)
 
 

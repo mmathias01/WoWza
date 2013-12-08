@@ -5,14 +5,14 @@ SkadaDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Shenlu - Dragonblight"] = "Default",
+		["Cellestia - Terenas"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
-		["Cellestia - Terenas"] = "Default",
-		["Jolokya - Dragonblight"] = "Default",
+		["Shenlu - Dragonblight"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
-		["Majandra - Darrowmere"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -29,7 +29,7 @@ SkadaDB = {
 						["height"] = 132.0000152587891,
 					},
 					["y"] = 187.1185455322266,
-					["x"] = 5.648526668548584,
+					["barfont"] = "ElvUI Font",
 					["title"] = {
 						["color"] = {
 							["a"] = 0.8599999994039536,
@@ -48,14 +48,14 @@ SkadaDB = {
 						["g"] = 0,
 						["r"] = 0,
 					},
-					["mode"] = "Healing",
-					["barfont"] = "ElvUI Font",
+					["x"] = 5.648526668548584,
 					["spark"] = false,
 					["bartexture"] = "Smooth",
 					["barwidth"] = 197.0000610351563,
 					["barspacing"] = 1,
 					["point"] = "BOTTOMLEFT",
 					["barfontsize"] = 10,
+					["mode"] = "Healing",
 					["modeincombat"] = "Healing",
 				}, -- [1]
 				{

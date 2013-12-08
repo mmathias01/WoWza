@@ -22,14 +22,14 @@ oRA3DB = {
 		},
 	},
 	["profileKeys"] = {
-		["Cellestia - Terenas"] = "Default",
+		["Shenlu - Dragonblight"] = "Default",
 		["Jolokia - Dragonblight"] = "Default",
 		["Ziagi - Terenas"] = "Default",
-		["Shenlu - Dragonblight"] = "Default",
-		["Jolokya - Dragonblight"] = "Default",
+		["Cellestia - Terenas"] = "Default",
+		["Majandra - Darrowmere"] = "Default",
 		["Jolobank - Dragonblight"] = "Default",
 		["Majandra - Dragonblight"] = "Default",
-		["Majandra - Darrowmere"] = "Default",
+		["Jolokya - Dragonblight"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

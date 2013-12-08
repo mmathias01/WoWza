@@ -22,6 +22,7 @@ local bFrame = nil
 local container = nil
 local registeredModules = {}
 local private = {}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.BankUI_private")
 private.bankUiButtons = {}
 
 function BankUI:OnEnable()

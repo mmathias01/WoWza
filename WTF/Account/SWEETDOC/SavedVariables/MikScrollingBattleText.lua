@@ -10,23 +10,23 @@ MSBTProfiles_SavedVars = {
 			["powerThrottleDuration"] = 4,
 			["hotThrottleDuration"] = 4,
 			["critOutlineIndex"] = 2,
-			["animationSpeed"] = 30,
+			["hideFullHoTOverheals"] = false,
 			["cooldownThreshold"] = 10,
 			["dotThrottleDuration"] = 4,
 			["creationVersion"] = "5.7.125",
 			["critFontSize"] = 22.29510879516602,
 			["scrollAreas"] = {
-				["Notification"] = {
-					["disabled"] = true,
+				["Incoming"] = {
+					["offsetX"] = -300,
 				},
-				["Static"] = {
+				["Notification"] = {
 					["disabled"] = true,
 				},
 				["Outgoing"] = {
 					["offsetX"] = 260,
 				},
-				["Incoming"] = {
-					["offsetX"] = -300,
+				["Static"] = {
+					["disabled"] = true,
 				},
 			},
 			["groupNumbers"] = true,
@@ -140,7 +140,7 @@ MSBTProfiles_SavedVars = {
 			},
 			["critFontName"] = "MSBT Cooline",
 			["normalFontName"] = "MSBT Cooline",
-			["hideFullHoTOverheals"] = false,
+			["animationSpeed"] = 30,
 			["normalFontSize"] = 15.17127799987793,
 		},
 	},

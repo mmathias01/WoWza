@@ -6,13 +6,13 @@ CliqueDB3 = {
 			["sec_profileKey"] = "Majandra - Dragonblight",
 			["fastooc"] = false,
 			["blacklist"] = {
-				["ElvUF_Target"] = true,
 				["ElvUF_Player"] = true,
+				["ElvUF_Target"] = true,
 			},
-			["specswap"] = false,
+			["alerthidden"] = true,
 			["downclick"] = false,
 			["pri_profileKey"] = "Majandra - Dragonblight",
-			["alerthidden"] = true,
+			["specswap"] = false,
 		},
 		["Cellestia - Terenas"] = {
 			["alerthidden"] = true,
@@ -24,23 +24,23 @@ CliqueDB3 = {
 		},
 	},
 	["profileKeys"] = {
-		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
+		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
 		["Jolokia - Dragonblight"] = "Jolokia - Dragonblight",
 		["Ziagi - Terenas"] = "Ziagi - Terenas",
 		["Cellestia - Terenas"] = "Cellestia - Terenas",
-		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
+		["Majandra - Darrowmere"] = "Majandra - Darrowmere",
 		["Jolobank - Dragonblight"] = "Jolobank - Dragonblight",
 		["Majandra - Dragonblight"] = "Majandra - Dragonblight",
-		["Jolokya - Dragonblight"] = "Jolokya - Dragonblight",
+		["Cellestia - Windrunner"] = "Cellestia - Windrunner",
 	},
 	["profiles"] = {
-		["Majandra - Darrowmere"] = {
+		["Jolokya - Dragonblight"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -138,13 +138,13 @@ CliqueDB3 = {
 				}, -- [5]
 			},
 		},
-		["Cellestia - Windrunner"] = {
+		["Majandra - Darrowmere"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -197,22 +197,31 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [2]
 				{
-					["spell"] = "Divine Star",
+					["spell"] = "Halo",
 					["key"] = "BUTTON2",
 					["sets"] = {
 						["default"] = true,
 					},
-					["icon"] = "Interface\\Icons\\spell_priest_divinestar",
+					["icon"] = "Interface\\Icons\\ability_priest_halo",
 					["type"] = "spell",
 				}, -- [3]
 				{
-					["spell"] = "Halo",
+					["spell"] = "Dispel Magic",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
+					["type"] = "spell",
+				}, -- [4]
+				{
+					["spell"] = "Divine Star",
 					["key"] = "BUTTON2",
 					["sets"] = {
 					},
-					["icon"] = "Interface\\Icons\\ability_priest_halo",
+					["icon"] = "Interface\\Icons\\spell_priest_divinestar",
 					["type"] = "spell",
-				}, -- [4]
+				}, -- [5]
 				{
 					["spell"] = "Purify",
 					["key"] = "BUTTON3",
@@ -221,22 +230,13 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
 					["type"] = "spell",
-				}, -- [5]
+				}, -- [6]
 				{
 					["spell"] = "Cascade",
 					["key"] = "BUTTON2",
 					["sets"] = {
 					},
 					["icon"] = "Interface\\Icons\\ability_priest_cascade",
-					["type"] = "spell",
-				}, -- [6]
-				{
-					["spell"] = "Dispel Magic",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["enemy"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Nature_NullifyDisease",
 					["type"] = "spell",
 				}, -- [7]
 				{
@@ -250,7 +250,7 @@ CliqueDB3 = {
 				}, -- [8]
 			},
 		},
-		["Jolokya - Dragonblight"] = {
+		["Cellestia - Windrunner"] = {
 			["bindings"] = {
 				{
 					["sets"] = {

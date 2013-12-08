@@ -26,6 +26,7 @@ L["mob_killed"] = "%s tué ! (%d/%d)"
 L["mob_remaining"] = "%s tué, il en reste %d"
 L["near"] = "%s près de VOUS !"
 L["next_add"] = "Prochain Add"
+L["no"] = "Sans %s !" -- Needs review
 L["normal"] = "Mode normal"
 L["on"] = "%s sur %s"
 L["onboss"] = "%s sur le BOSS !"

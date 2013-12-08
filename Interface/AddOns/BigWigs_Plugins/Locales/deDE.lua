@@ -46,6 +46,7 @@ L["defaultOnly"] = "Nur Standards"
 L["Destruction"] = "Zerstörung (Kil'jaeden)"
 L["disable"] = "Deaktivieren"
 L["disabled"] = "Deaktivieren"
+L["disabledDisplayDesc"] = "Deaktiviert die Anzeige für alle Module, die sie benutzen."
 L["disableDesc"] = "Deaktiviert die Option, die diese Leiste erzeugt hat, zukünftig permanent."
 L["displayTime"] = "Anzeigedauer"
 L["displayTimeDesc"] = "Bestimmt, wie lange (in Sekunden) Nachrichten angezeigt werden."
@@ -161,6 +162,7 @@ Hier kannst du genau bestimmen, was passieren soll, wenn du in den erweiterten O
 
 |cffff4411Beachte, dass 'Stark hervorheben' standardmäßig für alle Fähigkeiten deaktiviert ist.|r
 ]=]
+L["superEmphasizeDisableDesc"] = "Deaktiviert starkes Hervorheben für alle Module, die es benutzen."
 L["tempEmphasize"] = "Hebt zeitweilig Leisten und zugehörige Nachrichten stark hervor."
 L["text"] = "Text"
 L["textShadow"] = "Textschatten"
@@ -172,6 +174,7 @@ L["timeDesc"] = "Bestimmt, ob die verbleibende Zeit auf den Leisten angezeigt wi
 L["timerFinished"] = "%s: Timer [%s] beendet."
 L["title"] = "Titel"
 L["titleDesc"] = "Zeigt oder versteckt den Titel der Anzeige."
+L["toggleDisplayPrint"] = "Die Anzeige wird das nächste Mal wieder erscheinen. Um sie für diesen Bosskampf komplett zu deaktivieren, musst Du sie in den Bosskampf-Optionen ausschalten."
 L["toggleSound"] = "Sound an/aus"
 L["toggleSoundDesc"] = "Schaltet den Sound ein oder aus, der gespielt wird, wenn du zu nahe an einem anderen Spieler stehst."
 L["tooltip"] = "Tooltip"

@@ -29,8 +29,6 @@ Se quer personalizar mais coisas, você pode expandir o Big Wigs no menu à esqu
 L["contact"] = "Contato"
 L["coreAddonDisabled"] = "O Big Wigs não pôde funcionar devidamente já que o addon %s está desativado. Você pode ativá-lo no Painel de Controle de addons ou na tela de seleção de personagens."
 L["customizeBtn"] = "Personalizar..."
-L["dbmBar"] = "Mostar barras do DBM personalizadas"
-L["dbmBarDesc"] = "Se um usuário do DBM enviar um contador de puxe ou uma barra personalizada de 'pizza', será exibido no Big Wigs."
 L["dbmFaker"] = "Fingir que estou usando DBM"
 L["dbmFakerDesc"] = "Se um usuário do DBM fizer uma verificação de versão para ver quem está usando DBM, eles te verão na lista. Útil em guildas que obrigam o uso do DBM."
 L["dbmUsers"] = "DBM users:"

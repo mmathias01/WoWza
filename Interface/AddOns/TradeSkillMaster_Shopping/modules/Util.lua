@@ -159,7 +159,8 @@ function Util:StartFilterScan(filters, callback)
 	private.searchItem = nil
 	if #filters == 1 then
 		for _, _, itemString in TSMAPI:GetBagIterator() do
-			if strlower(TSMAPI:GetSafeItemInfo(itemString)) == strlower(filters[1].name) then
+			local name = TSMAPI:GetSafeItemInfo(itemString)
+			if name and filters[1].name and strlower(name) == strlower(filters[1].name) then
 				private.searchItem = itemString
 				break
 			end 

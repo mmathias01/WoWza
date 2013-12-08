@@ -161,6 +161,7 @@ Vous pouvez définir ici exactement ce qui doit arriver quand vous cochez une op
 
 |cffff4411Notez que la super mise en évidence est désactivée par défaut pour toutes les techniques.|r
 ]=]
+L["superEmphasizeDisableDesc"] = "Désactive la super mise en évidence pour tous les modules qui l'utilisent." -- Needs review
 L["tempEmphasize"] = "Met temporairement en super mise en évidence la barre et ses messages associés pendant sa durée."
 L["text"] = "Texte"
 L["textShadow"] = "Ombre du texte"

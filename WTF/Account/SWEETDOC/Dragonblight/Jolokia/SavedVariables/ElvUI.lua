@@ -8,6 +8,204 @@ ElvCharacterDB = {
 		"/g nice", -- [5]
 	},
 	["ChatLog"] = {
+		["1383799384.325"] = {
+			"OQ,0Z,AniRjN,2,disband,Gm4+HA,niSd6,#to:Jolokia,#rlm:234,#fr:Daves-164", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2203, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799371.962"] = {
+			"OQ,0Z,Aot36w,1,p8,GoFDHe,ZXB5a3MuLi4uc2diciArMDA1MQAA,ITAAAAAIFABSexpoAAZ,NjEzMSNheXJhbjs2ODtheWxlVgAA,c3BkIDEgZGVlTgAA,A,ADF,AACAAEAAGVAAA,#to:Clamss,#rlm:78,#fr:Applejackx-86", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2113, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799365.357"] = {
+			"OQ,0Z,AnhcFc,2,p8,GiiaFu,LnRuZXYgZGVlbi9zZ2JyIHJtbSB3b0wh,ITHzAAAKEBBSexKUAAZ,OTAxMSNzcmVuaW47MjM7enlS,LnNyZWdhciBvTiAuc3BkciBkZWVO,A,AFF,AABAABAACTAAA,A,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2064, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799483.507"] = {
+			"OQ,0Z,AowWng,1,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMNABSexqpAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dwohn,#rlm:107,#fr:Adoris-42", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			98, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799492.767"] = {
+			"OQ,0Z,Aowgdq,1,p8,GkZHMM,cmVsYWVoIEZMIHJvaXJyYXcgc21yQSAh,ITAAAAACBABSexqtAAZ,Njg3MSN0aWJpaG5pOzczMTtvaHNhbVMA,aHN1cCBnbml0YVIgcmMgMDA2MQAA,a,AAC,A,#to:Caedwyr,#rlm:214,#fr:Ndoki-137", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			160, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799382.74"] = {
+			"OQ,0Z,AouXv0,1,p8,GnHbuy,IWRuaXJnIHRudW9tIHJvZiBzJzMgT0xPWQAA,ITH5AAACDBBSexp1AAZ,MDk1MSNzZHKpw247NzExO3Kqw2xsYWN0b2hT,LgAA,a,AAC,A,#to:Aktapuzz,#rlm:128,#fr:Grêtel-117", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2193, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799493.034"] = {
+			"OQ,0Z,AoGIVT,2,disband,GnC1cH,oGIt2,#to:Jolokia,#rlm:234,#fr:Daves-164", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			161, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799479.004"] = {
+			"OQ,0Z,AoyTTC,1,p8,GoVjlP,bnVyIGF0ZW0gcmF1ZGxV,ITIDAAAFAABSexrcAAZ,NDM5MSNlbmlsYXZlOzM4O2VuaWxhdonD,IG11aWRlbSA7ZmF3ZCBub3JpIGduaW9kIHRvbiBlcmEgZXcA,R,AAF,AA/AAA/AAAAAAAACAAAAAA,#to:Amagad,#rlm:145,#fr:Healaria-83", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			84, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799494.752"] = {
+			"OQ,0Z,Aoy+i3,0,p8,GklzUF,IGVyb2MgLi5ybW0gazIgc0dCUiAwMDkx,ITAAAAAKHABSexrtcIZ,Mjk2MSN5YmxlaHM7NTQxO26kw2VsY3l4TwAA,IGN0IHB1a2NhYiBnMmcga2QA,A,ADH,ACNABVADiYAAA,#to:Berzerka,#rlm:218,#fr:Oxycleän-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			166, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799380.638"] = {
+			"OQ,0Z,Aot2Nd,2,p8,GkP25H,bWlyZ3phTiB0YSAyIHhlbEYA,ITIAAAAMbABSexpnAAZ,Njg1MSNlbWlycDs4ODE7c3VsYXZlbWlyUAAA,d29uIHJvZiBsbHVG,R,BGF,PA/AfHBAAAAAAAAPAAEAAE,A,#to:Braubeater,#rlm:48,#fr:Ganknatra-188", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2182, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799493.367"] = {
+			"OQ,0Z,AoxN1y,1,p8,GoXjNn,bnVyIGhzZXJmIDIgeGVsZgAA,ITIXAAANBABSexq/AAZ,ODc0MSNsZWt2dWxpOzI1O3RyYWVoZGVyc2xlSwAA,TFcgbmFDLi4ueXQgd29uIGxsdWYA,R,ACL,PADAfA/bAAAAAAAAAAAAAA,#to:Antwan,#rlm:128,#fr:Homeelfcare-52", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			164, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
 		["1383799488.829"] = {
 			"OQ,0Z,ANKdfP,1,contract,IDBBSexrpAqMAKAPBMSrMSr,BSexrp,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
 			"|Kf40|k0000|k", -- [2]
@@ -25,6 +223,42 @@ ElvCharacterDB = {
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799383.758"] = {
+			"OQ,0Z,Aot2c6,0,p8,GoQuXq,ZWVsZU0gZGVlTiBzMyBhbmVyQQAA,ITH0AAACAABSexpnAAZ,OTY1MSNrZWhjdGVyazsxNTE7eXRpbmlyYVoA,LgAA,a,ABB,A,#to:Chobralito,#rlm:189,#fr:Mandarb-151", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2199, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799390.765"] = {
+			"OQ,0Z,Aot6xv,0,p8,GoTdcs,ITIgeGVsRiBoc2VyRiEA,ITIXAAAFBABSexppAAZ,MDk3MSN5bWVsb3RwOzYxMjt5eW1lbG90UAAA,LgAA,R,CBC,PA/AfA//AAAAAAAAAAAAAA,#to:Divinewind,#rlm:152,#fr:Ptolemyy-216", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2261, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799477.534"] = {
 			"OQ,0Z,AoyIUK,1,p8,Gmedc9,IGRhYiBlYiB0bm9kIHNnYnIA,ITH0AAAEHABSexrXAAZ,NDA1MSNvZGloYzs0MjE7aWppamlL,LgAA,A,ABD,AAAAABAABUAAA,A,#to:Aivy,#rlm:33,#fr:Sharkhunter-124", -- [1]
@@ -80,6 +314,24 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
+		["1383799485.535"] = {
+			"OQ,0Z,A4HFb0,2,bb,0,0,BSev90,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			126, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
 		["1383799391.949"] = {
 			"OQ,0Z,AovftH,1,p8,Govehe,aHNlckYgNCB4ZWxG,ITAAAAAAAABSexqSAAZ,NDc5MSNyZXRoZ2lmZW5vbDsxMjE7c3Vzbm90eWFX,REVSSVVRRVIgM0tBRVBTTUFFVAAA,R,AAB,HAAAAA/DAAAAAAAIAAAAAA,#to:Arivae,#rlm:128,#fr:Ygrez-121", -- [1]
 			"|Kf40|k0000|k", -- [2]
@@ -98,8 +350,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799381.205"] = {
-			"OQ,0Z,AoueI5,0,p8,GlPweK,czMgYW5lckEA,ITH0AAADFBBSexp3AAZ,OTU4MSNhZ2V2cjs1NDE7c6jDc2x1UAAA,VU9ZL1lMTEFQSC9SQVcA,a,ABC,A,#to:Avaerice,#rlm:128,#fr:Ragefloon-145", -- [1]
+		["1383799364.739"] = {
+			"OQ,0Z,Aot3fZ,0,p8,GoJdgr,aHNlcmYgLSBESUFSIDIgWEVMRgAA,ITAAAAAJGABSexpnAAZ,OTA3MSMyMm11bHlzc2E7NzUxO211bHlzc0EA,RVNBRUxQIFNMQUVIIERFRU4A,R,BCG,BABAPAAAAAAAABAHABgADG,#to:Baltusrol,#rlm:218,#fr:Pzone-157", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -109,151 +361,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2186, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799483.691"] = {
-			"OQ,0Z,AowWng,0,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMNABSexqpAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dwohn,#rlm:107,#fr:Adoris-42", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			100, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799370.928"] = {
-			"OQ,0Z,AotsqL,1,p8,Gobb9H,bmVjcyBo,ITAAAAADEABSexpjAAZ,OTU4MSNjYWxrcmFkOzQxMjttbWlyZ2x1b0YA,LgAA,S,TDD,AAAAAAACAA0,#to:Bellemort,#rlm:48,#fr:Ryakm-128", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2108, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799483.507"] = {
-			"OQ,0Z,AowWng,1,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMNABSexqpAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dwohn,#rlm:107,#fr:Adoris-42", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			98, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799476.784"] = {
-			"OQ,0Z,Aox2zO,0,p8,Gl23XN,bnVSIGV2ZWloY0EgcmF1ZGxVIG01MgAA,ITAAAAAKKABSexrQAAZ,NzAyMSNzbmlrbmVqYW9mOzI0O3NuaWtuZWphb0YA,dG51b20gcnVveSB0ZWcgZW1vYwAA,R,ABJ,HAPAPA/fAAAAAAABADKAFV,#to:Prone,#rlm:146,#fr:Devgru-42", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			64, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799385.593"] = {
-			"OQ,0Z,Aotx9E,1,p8,GirS81,c2VsYWl0c2VsZUMgbGxB,ITAAAAAKpABSexplAAZ,NjU0MSNyZWtytsNtOzE2O3Jla3JvTQAA,LgAA,R,AAK,PAPAfA//AAAAAAABAAAAAA,A,#to:Highroll,#rlm:21,#fr:Dezmadre-61", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2229, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799457.682"] = {
-			"OQ,0Z,AouXv0,1,p8,GnHbuy,IWRuaXJnIHRudW9tIHJvZiBzJzMgT0xPWQAA,ITH5AAACDBBSexp1AAZ,MDk1MSNzZHKpw247NzExO3Kqw2xsYWN0b2hT,LgAA,a,AAC,A,#to:Aktapuzz,#rlm:128,#fr:Grêtel-117", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			12, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799364.721"] = {
-			"OQ,0Z,Aot3fZ,1,p8,GoJdgr,aHNlcmYgLSBESUFSIDIgWEVMRgAA,ITAAAAAJGABSexpnAAZ,OTA3MSMyMm11bHlzc2E7NzUxO211bHlzc0EA,RVNBRUxQIFNMQUVIIERFRU4A,R,BCG,BABAPAAAAAAAABAHABgADG,#to:Baltusrol,#rlm:218,#fr:Pzone-157", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2039, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799491.349"] = {
-			"OQ,0Z,At7pG8,2,scores,13.47.1A.10.64.03.11.39.19.21.2ED5.2E4A.D8B.6B735.5281D1F0.14.30.AoXAlK.BI1BEq,527B1ABB,160,AX6ATGKZ9AkwAXQMA6,AAACAEAkAAACADAUARiAgi,0,skaa004,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			156, -- [11]
+			2040, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -272,618 +380,6 @@ ElvCharacterDB = {
 			"", -- [9]
 			0, -- [10]
 			2115, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799495.586"] = {
-			"OQ,0Z,AnacWd,2,p8,GlctQ0,bGFlSCAxIGRlZU4gR0JSIG9sb1kA,ITHwAAAFBABSexHcAAZ,MTExMSNwZWthajs1NDE7a3Vya25ob0oA,UkVMQUVI,A,AAF,AAKAAJAATaAAA,#to:Darkchåøs,#rlm:224,#fr:Battlespark-145", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			186, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799480.875"] = {
-			"OQ,0Z,AoyTIS,2,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAFAABSexrcAAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c2xhZWgvc2tuYXQgY2Vwc2xhdWQgZGVlbgAA,R,ABE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Ghosst,#rlm:215,#fr:Elphiald-55", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			90, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799488.329"] = {
-			"OQ,0Z,AoxKnF,2,p8,GoqmI0,c2xhaXRzZWxlQyA0IGxsYQAA,ITAAAAABDABSexq+AAZ,MzA5MzEjbGVpbmFkOzgwMjtrY29sZGFN,LgAA,R,AAB,AAAAIACEAAAAAAAAAAAAAp,#to:Bowwork,#rlm:150,#fr:Highontrees-208", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			131, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799365.155"] = {
-			"OQ,0Z,AouLn7,5,p8,GosS57,U0gga2NpdXEA,ITIIAAACAABSexpwAAZ,MTU4MSNlZWxub3Nhajs0MzI7Z25vaXhuYWlK,LgAA,S,DD-,AAAAAAAEAA3,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2044, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799392.149"] = {
-			"OQ,0Z,Aou3Wl,2,p8,GlP9y5,cGFjIHMnMiBGTCByZXRudWggOTk0,ITAAAAADABBSexqBAAa,NTY1MTEjc3VlejsyMzI7bqHDaW5vY2FM,LmVweWtzIGV2YWggdHN1bQAA,a,ABC,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2268, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799367.624"] = {
-			"All characters of rank Raider or higher will be invited to raid in 10 seconds. Please leave your groups.", -- [1]
-			"Gunnslave", -- [2]
-			"Common", -- [3]
-			"", -- [4]
-			"Gunnslave", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2079, -- [11]
-			"0x0180000002E0E58C", -- [12]
-			0, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_GUILD",
-		},
-		["1383799380.437"] = {
-			"OQ,0Z,Aoupw2,2,p8,GouqyV,c29kck8A,ITIIAAAAAABSexp8AAZ,MjM2MSNkZXJhajsyMzI7Zmy8w3dvqsNC,LgAA,M,AAB,A,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2178, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799376.517"] = {
-			"OQ,0Z,Aotust,1,p8,GonAc9,cm9sYXYgcm9mIG1yYWYgbmVjc0gA,ITIDAAADAABSexpkAAZ,NDU4MSNlbm90eW5vdDszMzI7cmV0bnVoZmVE,LgAA,S,DDD,AAAAAAAEABh,#to:Imakitty,#rlm:157,#fr:Huel-233", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2155, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799389.08"] = {
-			"OQ,0Z,Aou8hn,1,p8,GirVww,T29TIG51UiBkbGl1RwAA,ITINAAAOCABSexqEAAZ,MzA5MSNnbmlkaWVsZGl2YWQ7NTQxO3Nlc3Ovw0sA,aHMgbm8gY2VwcyBmZm8ga25hVCBodGl3IGVlbGVtIDEgRkwA,R,BBM,AAAAeA/AAAAAAAAEAAAAAB,#to:Demonicforce,#rlm:131,#fr:Pøyzen-145", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2247, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799457.913"] = {
-			"OQ,0Z,AotPSl,1,p8,GoZN5g,ZW1vc2V3YSBlYiA7R0JSIG9sb3JQ,ITH5AAAHBABSexpXAAZ,NTY0MSNub2RlaHNzZWxkb2c7MjE7eWtzbbjDaEMA,eG92IG9uIDtTUEQvc2xhZUggZGVlTgAA,A,ABG,AANAAIAAVUAGA,#to:Bungler,#rlm:50,#fr:Stërnfan-48", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			13, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799366.189"] = {
-			"OQ,0Z,AouFc8,2,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMOABSexptAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dixiecupps,#rlm:215,#fr:Ellewynd-165", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2073, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799371.111"] = {
-			"OQ,0Z,AouFMp,2,p8,GnUGnK,cydnQiBtb2RuYVIA,ITHvAAADACBSexptAAZ,MTY5MiM3MHhyZWxsaWs7NjEyO3hvYmRpYXRzcmlG,KW5pbSA3KCAwIC0gMCA6R1NX,B,ABC,AABAAEAAFcBCM,#to:Dixiecupps,#rlm:215,#fr:Rechiru-216", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2109, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799476.717"] = {
-			"OQ,0Z,AowmnK,4,p8,GoRVKz,dHNhRiA0IHhlbEYgICAgICAgICAgICAh,ITIiAAAKJABSexqvAAZ,NDY1MSNodGVsZWxlczs2MztocHJvbVMA,KzA1NSBzaSBTUEQgbGxBIC5oc2VyRgAA,R,CCF,PAjAfAfABAAAAAAGAACAAO,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			63, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799365.773"] = {
-			"OQ,0Z,Anhgtn,4,p8,GgEF2W,YXRj,ITH+AAAEACBSexKWAAZ,NTIxMSNwbWF2dGF0c2VsOzg1MTt5c21hZUwA,LgAA,B,ADB,AAxAApABaTAAA,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2069, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799472.379"] = {
-			"OQ,0Z,WTiGIm,5,invite_accepted,GTOB76,1,4,PR,OTcyMSNvb2J5YWs7MjIyO2xsaXVxeU4A,QThlyK,#to:Ghaleon,#rlm:0,#fr:Clvd-218", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			32, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799372.146"] = {
-			"OQ,0Z,AouYmI,2,p8,GklzUF,IGVyb2MgLi5ybW0gazIgc0dCUiAwMDkx,ITAAAAAKGABSexp1cIZ,Mjk2MSN5YmxlaHM7NTQxO26kw2VsY3l4TwAA,IGN0IHB1a2NhYiBnMmcga2QA,A,ADH,ACNABVADiYAAA,#to:Beckinsaile,#rlm:117,#fr:Thoreo-145", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2114, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799371.945"] = {
-			"OQ,0Z,AotsqL,0,p8,Gobb9H,bmVjcyBo,ITAAAAADEABSexpjAAZ,OTU4MSNjYWxrcmFkOzQxMjttbWlyZ2x1b0YA,LgAA,S,TDD,AAAAAAACAA0,#to:Bellemort,#rlm:48,#fr:Ryakm-128", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2112, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799383.707"] = {
-			"OQ,0Z,Aot2c6,1,p8,GoQuXq,ZWVsZU0gZGVlTiBzMyBhbmVyQQAA,ITH0AAACAABSexpnAAZ,OTY1MSNrZWhjdGVyazsxNTE7eXRpbmlyYVoA,LgAA,a,ABB,A,#to:Chobralito,#rlm:189,#fr:Mandarb-151", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2197, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799462.807"] = {
-			"OQ,0Z,AowNcv,3,p8,GkYqPb,ISBHQlIgKzAwNjEgc2xhZUggRkwgIQAA,ITH6AooBKABSexqlZAZ,MjY0MSNuYWlpYXdhaG55bGY7MjMyO2yow2VqdXN0rcNO,TVRBIExMVUYA,A,AAB,AAPAAGAAVWAAA,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			19, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799383.974"] = {
-			"OQ,0Z,AKFdMT,1,scores,13.47.1A.10.64.03.11.39.19.21.2ED3.2E42.D89.6B771.5281D1F0.14.30.AoWAlK.BIzBEq,527B1A7F,160,AX5ATFKZ8AkvAXPMA3,AAACAEAkAAACADAUARiAgi,0,skaa004,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2201, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799458.591"] = {
-			"OQ,0Z,AouFc8,2,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMOABSexptAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dixiecupps,#rlm:215,#fr:Ellewynd-165", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			16, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799391.349"] = {
-			"OQ,0Z,AoufF4,1,p8,Gooly1,cydHQlIgUkMgKzAwODEgIQAA,ITAAAAABAABSexp4cIZ,MDkzMSNiem5hZDszODtyZXRzYW1lZHJvSAAA,ZXZlaWhjYSB0c2VoZ2loIGtuaWwA,A,ABA,AABAAFAAGXACA,#to:Amagad,#rlm:145,#fr:Healaria-83", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2264, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799482.072"] = {
-			"OQ,0Z,AowR4I,1,p8,GoDkak,UkVUTlVIIERFRU4gU0dCUiAh,ITAAAAAKHCBSexqnAAZ,Mzc5MSNhbml0c2lyaGM7NDUxO3lscmFuRwAA,MDM4IC0gMDM0IDpCQQAA,A,AAK,AAAAABAABXAAA,#to:Brittannia,#rlm:127,#fr:Gnarly-154", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			93, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799496.22"] = {
-			"OQ,0Z,AoxDdG,0,p8,GnjV8m,ZWNpb3Ygb24gc2diciBvbG95,ITAAAAAKGABSexq7AAZ,MDY2MSNhZWRhbWE7ODAyO2VsYmFyb2RhbUEA,c2xhZWggZGVlbiA7bnVmIHJvZiB0c3VqIGVjaW92IG9u,A,ACI,AAYAAnAA/UAAA,#to:Bowwork,#rlm:150,#fr:Highontrees-208", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			188, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799387.244"] = {
-			"OQ,0Z,Aout3h,0,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAGAABSexp+AAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c3BkL3NsYWVoL2tuYXQA,R,BBE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Zeroskillz,#rlm:5,#fr:Shockanawe-152", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2240, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799457.427"] = {
-			"OQ,0Z,Aosmf/,3,p8,GnmG/x,a25hdCBoc2VyZiAxIHhlbEYA,ITIDAAAMGABSexpGAAZ,MzgxMSN3ZXJkYWJidWI7MTUxO3R0bmVjaWZlbGFN,c2xhZWggcm8gc3BkIGx2bGkgaGdpaCAx,R,CDH,AAAAAA//AAAAAAAHAAIABp,#to:Brindle,#rlm:36,#fr:Kryolan-151", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			11, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799384.325"] = {
-			"OQ,0Z,AniRjN,2,disband,Gm4+HA,niSd6,#to:Jolokia,#rlm:234,#fr:Daves-164", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2203, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799365.357"] = {
-			"OQ,0Z,AnhcFc,2,p8,GiiaFu,LnRuZXYgZGVlbi9zZ2JyIHJtbSB3b0wh,ITHzAAAKEBBSexKUAAZ,OTAxMSNzcmVuaW47MjM7enlS,LnNyZWdhciBvTiAuc3BkciBkZWVO,A,AFF,AABAABAACTAAA,A,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2064, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799492.767"] = {
-			"OQ,0Z,Aowgdq,1,p8,GkZHMM,cmVsYWVoIEZMIHJvaXJyYXcgc21yQSAh,ITAAAAACBABSexqtAAZ,Njg3MSN0aWJpaG5pOzczMTtvaHNhbVMA,aHN1cCBnbml0YVIgcmMgMDA2MQAA,a,AAC,A,#to:Caedwyr,#rlm:214,#fr:Ndoki-137", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			160, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799382.74"] = {
-			"OQ,0Z,AouXv0,1,p8,GnHbuy,IWRuaXJnIHRudW9tIHJvZiBzJzMgT0xPWQAA,ITH5AAACDBBSexp1AAZ,MDk1MSNzZHKpw247NzExO3Kqw2xsYWN0b2hT,LgAA,a,AAC,A,#to:Aktapuzz,#rlm:128,#fr:Grêtel-117", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2193, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799479.004"] = {
-			"OQ,0Z,AoyTTC,1,p8,GoVjlP,bnVyIGF0ZW0gcmF1ZGxV,ITIDAAAFAABSexrcAAZ,NDM5MSNlbmlsYXZlOzM4O2VuaWxhdonD,IG11aWRlbSA7ZmF3ZCBub3JpIGduaW9kIHRvbiBlcmEgZXcA,R,AAF,AA/AAA/AAAAAAAACAAAAAA,#to:Amagad,#rlm:145,#fr:Healaria-83", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			84, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799380.638"] = {
-			"OQ,0Z,Aot2Nd,2,p8,GkP25H,bWlyZ3phTiB0YSAyIHhlbEYA,ITIAAAAMbABSexpnAAZ,Njg1MSNlbWlycDs4ODE7c3VsYXZlbWlyUAAA,d29uIHJvZiBsbHVG,R,BGF,PA/AfHBAAAAAAAAPAAEAAE,A,#to:Braubeater,#rlm:48,#fr:Ganknatra-188", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2182, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799371.962"] = {
-			"OQ,0Z,Aot36w,1,p8,GoFDHe,ZXB5a3MuLi4uc2diciArMDA1MQAA,ITAAAAAIFABSexpoAAZ,NjEzMSNheXJhbjs2ODtheWxlVgAA,c3BkIDEgZGVlTgAA,A,ADF,AACAAEAAGVAAA,#to:Clamss,#rlm:78,#fr:Applejackx-86", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2113, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799364.739"] = {
-			"OQ,0Z,Aot3fZ,0,p8,GoJdgr,aHNlcmYgLSBESUFSIDIgWEVMRgAA,ITAAAAAJGABSexpnAAZ,OTA3MSMyMm11bHlzc2E7NzUxO211bHlzc0EA,RVNBRUxQIFNMQUVIIERFRU4A,R,BCG,BABAPAAAAAAAABAHABgADG,#to:Baltusrol,#rlm:218,#fr:Pzone-157", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2040, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -962,8 +458,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799494.752"] = {
-			"OQ,0Z,Aoy+i3,0,p8,GklzUF,IGVyb2MgLi5ybW0gazIgc0dCUiAwMDkx,ITAAAAAKHABSexrtcIZ,Mjk2MSN5YmxlaHM7NTQxO26kw2VsY3l4TwAA,IGN0IHB1a2NhYiBnMmcga2QA,A,ADH,ACNABVADiYAAA,#to:Berzerka,#rlm:218,#fr:Oxycleän-145", -- [1]
+		["1383799369.059"] = {
+			"OQ,0Z,AouHkT,3,p8,Gngg8K,czIgRkwgcmFXIFNNUkEA,ITHvAAACABBSexpuAAZ,OTAxMSNodHNlbWFkOzU0MTtodHNlbWFE,ZWIgdHN1aiApUFZQKHJhdyBzbXJhIHZsaTEwNSBhIG1hIEkA,a,AAC,A,#to:Dallamar,#rlm:215,#fr:Amyiss-145", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -973,33 +469,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			166, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799493.367"] = {
-			"OQ,0Z,AoxN1y,1,p8,GoXjNn,bnVyIGhzZXJmIDIgeGVsZgAA,ITIXAAANBABSexq/AAZ,ODc0MSNsZWt2dWxpOzI1O3RyYWVoZGVyc2xlSwAA,TFcgbmFDLi4ueXQgd29uIGxsdWYA,R,ACL,PADAfA/bAAAAAAAAAAAAAA,#to:Antwan,#rlm:128,#fr:Homeelfcare-52", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			164, -- [11]
+			2086, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799493.167"] = {
-			"OQ,0Z,AoGIVT,1,disband,GnC1cH,oGIt2,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+		["1383799483.691"] = {
+			"OQ,0Z,AowWng,0,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMNABSexqpAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dwohn,#rlm:107,#fr:Adoris-42", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1009,7 +487,61 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			162, -- [11]
+			100, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799370.928"] = {
+			"OQ,0Z,AotsqL,1,p8,Gobb9H,bmVjcyBo,ITAAAAADEABSexpjAAZ,OTU4MSNjYWxrcmFkOzQxMjttbWlyZ2x1b0YA,LgAA,S,TDD,AAAAAAACAA0,#to:Bellemort,#rlm:48,#fr:Ryakm-128", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2108, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799465.539"] = {
+			"OQ,0Z,AoyAA2,3,p8,GmoNQl,ZGFlTCBrMy4yIHMnR0JSICswMDcx,ITH5AAAKMCBSexrUakZ,MDIyMSNsZWFkbmFtOzcxMTtsYWVkbmFN,KW5pbSA4KCAyIC0gMSA6R1NX,A,ADH,ABIAA0AB8WAAA,#to:Blodrogue,#rlm:25,#fr:Olivertwist-44", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			23, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799490.281"] = {
+			"OQ,0Z,Aoyy3o,1,p8,GoyzsB,S05BVCBEREVOIDEgeGVsRgAA,ITISAAAAAABSexrpAAZ,NDMyMSN4ZHltYWc7Mzc7YXRpZmZ1VAAA,S05BVCBZIFNQRAAA,R,AAB,AAAAAAAAAAAAAAAAAAAAAX,#to:Labruha,#rlm:191,#fr:Rencitos-73", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			152, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -1070,8 +602,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799493.034"] = {
-			"OQ,0Z,AoGIVT,2,disband,GnC1cH,oGIt2,#to:Jolokia,#rlm:234,#fr:Daves-164", -- [1]
+		["1383799482.072"] = {
+			"OQ,0Z,AowR4I,1,p8,GoDkak,UkVUTlVIIERFRU4gU0dCUiAh,ITAAAAAKHCBSexqnAAZ,Mzc5MSNhbml0c2lyaGM7NDUxO3lscmFuRwAA,MDM4IC0gMDM0IDpCQQAA,A,AAK,AAAAABAABXAAA,#to:Brittannia,#rlm:127,#fr:Gnarly-154", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1081,30 +613,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			161, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799490.281"] = {
-			"OQ,0Z,Aoyy3o,1,p8,GoyzsB,S05BVCBEREVOIDEgeGVsRgAA,ITISAAAAAABSexrpAAZ,NDMyMSN4ZHltYWc7Mzc7YXRpZmZ1VAAA,S05BVCBZIFNQRAAA,R,AAB,AAAAAAAAAAAAAAAAAAAAAX,#to:Labruha,#rlm:191,#fr:Rencitos-73", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			152, -- [11]
+			93, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799476.784"] = {
+			"OQ,0Z,Aox2zO,0,p8,Gl23XN,bnVSIGV2ZWloY0EgcmF1ZGxVIG01MgAA,ITAAAAAKKABSexrQAAZ,NzAyMSNzbmlrbmVqYW9mOzI0O3NuaWtuZWphb0YA,dG51b20gcnVveSB0ZWcgZW1vYwAA,R,ABJ,HAPAPA/fAAAAAAABADKAFV,#to:Prone,#rlm:146,#fr:Devgru-42", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			64, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799478.953"] = {
 			"OQ,0Z,AowY1Q,1,p8,Gm4Fu7,c3RoZ2lmIHdvbmsgZXNhZWxwLTQgeGVsRgAA,ITIcAAAMEABSexqpAAZ,MDk3MSNuaWhzb2M7ODIxO6nDZWx1ckIA,a25hdCAxIGRlZW4tZWxibXVt,R,ABL,PAPAfA//BAAAAAAGAAAABc,#to:Bigspeedy,#rlm:12,#fr:Sanoosuke-128", -- [1]
@@ -1142,8 +674,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799480.654"] = {
-			"OQ,0Z,Aoxx1u,1,p8,Gl1G5g,c2xhZWgvc2tuYXQgIDQgZ25pdyB4ZWxm,ITIcAAALJABSexrOAAZ,MDU1MSNub2l0c3VkOzQxMjtzYWh0YUQA,c2xhZWggZG5hIHNrbmF0IGRlZW4A,R,ADI,DAHAPAHDAAAAAAAvAAAAAi,#to:Skribblez,#rlm:223,#fr:Saucyjack-214", -- [1]
+		["1383799380.437"] = {
+			"OQ,0Z,Aoupw2,2,p8,GouqyV,c29kck8A,ITIIAAAAAABSexp8AAZ,MjM2MSNkZXJhajsyMzI7Zmy8w3dvqsNC,LgAA,M,AAB,A,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1153,12 +685,66 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			87, -- [11]
+			2178, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799458.591"] = {
+			"OQ,0Z,AouFc8,2,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMOABSexptAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dixiecupps,#rlm:215,#fr:Ellewynd-165", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			16, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799363.87"] = {
+			"OQ,0Z,AnYw3T,1,p8,GnUsTK,bGxhIGRlZW4tLWhzZXJGIDIgeGVsRgAA,ITAAAAADCABSexGwAAZ,Mjg1MSNtcm90c3RuZWxpczszNzE7ZWdhcnR1lMMA,KipTVEhHSUYgV09OSyBUU1VNKgAA,R,AAD,PABAfAHAAAAAAAAFAAkADa,#to:Caelle,#rlm:232,#fr:Cruel-135", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2038, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799457.682"] = {
+			"OQ,0Z,AouXv0,1,p8,GnHbuy,IWRuaXJnIHRudW9tIHJvZiBzJzMgT0xPWQAA,ITH5AAACDBBSexp1AAZ,MDk1MSNzZHKpw247NzExO3Kqw2xsYWN0b2hT,LgAA,a,AAC,A,#to:Aktapuzz,#rlm:128,#fr:Grêtel-117", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			12, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
 		["1383799485.743"] = {
 			"OQ,0Z,Anju8u,2,p8,GkII5m,c0dCUiArMDU2MQAA,ITH5AooJCABSexLQZyZ,NzQxMSNlY3Vhc253cDsyMTtsYWN5dGZpaUYA,c2xhZWggZGVlbgAA,A,ABI,AAiAAZAA7WAAA,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
@@ -1178,8 +764,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799485.535"] = {
-			"OQ,0Z,A4HFb0,2,bb,0,0,BSev90,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+		["1383799364.721"] = {
+			"OQ,0Z,Aot3fZ,1,p8,GoJdgr,aHNlcmYgLSBESUFSIDIgWEVMRgAA,ITAAAAAJGABSexpnAAZ,OTA3MSMyMm11bHlzc2E7NzUxO211bHlzc0EA,RVNBRUxQIFNMQUVIIERFRU4A,R,BCG,BABAPAAAAAAAABAHABgADG,#to:Baltusrol,#rlm:218,#fr:Pzone-157", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1189,15 +775,33 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			126, -- [11]
+			2039, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799378.769"] = {
+			"OQ,0Z,Aot3k7,2,p8,GnQBPF,cGFjIHMnMiBmbCBrbm9tIFdN,ITAAAAACAABSexpnAAZ,Njk0MSNsZXR0aWI7Njg7eHVsZmVS,LgAA,a,ABB,A,#to:Mariasabina,#rlm:11,#fr:Druanti-86", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2163, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799468.692"] = {
-			"OQ,0Z,Aox50Q,1,p8,Gn2GP9,bGFlaCBybyBrbmF0IDJ3IGhzZXJm,ITINAAAOCABSexrRAAZ,NjUyMSMzOXJvaW51ajs1NjE7dHNpZnNzZWxyYWVG,LgAA,R,CBL,PA/AfABAAAAAAAAAAAkABC,#to:Icéé,#rlm:84,#fr:Devent-165", -- [1]
+		["1383799491.349"] = {
+			"OQ,0Z,At7pG8,2,scores,13.47.1A.10.64.03.11.39.19.21.2ED5.2E4A.D8B.6B735.5281D1F0.14.30.AoXAlK.BI1BEq,527B1ABB,160,AX6ATGKZ9AkwAXQMA6,AAACAEAkAAACADAUARiAgi,0,skaa004,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1207,7 +811,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			28, -- [11]
+			156, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -1232,8 +836,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_GUILD",
 		},
-		["1383799481.939"] = {
-			"OQ,0Z,AowR4I,2,p8,GoDkak,UkVUTlVIIERFRU4gU0dCUiAh,ITAAAAAKHCBSexqnAAZ,Mzc5MSNhbml0c2lyaGM7NDUxO3lscmFuRwAA,MDM4IC0gMDM0IDpCQQAA,A,AAK,AAAAABAABXAAA,#to:Brittannia,#rlm:127,#fr:Gnarly-154", -- [1]
+		["1383799378.369"] = {
+			"OQ,0Z,Aot6BI,1,p8,GoFVZ/,IGhzZXJGIDQgeGVsRgAA,ITIhAAANBABSexpoAAZ,NjIzMSN4c2NpdGF0czszNztzY2l0YXRT,a25hdCBkZWVlbiB0bmV2IG9uIHNvclAA,R,BCL,NA/AefIw//AAAAAAAAAAAA,A,#to:Cocobeans,#rlm:236,#fr:Bellalulu-73", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1243,25 +847,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			92, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799480.855"] = {
-			"OQ,0Z,Aoxx1u,0,p8,Gl1G5g,c2xhZWgvc2tuYXQgIDQgZ25pdyB4ZWxm,ITIcAAALJABSexrOAAZ,MDU1MSNub2l0c3VkOzQxMjtzYWh0YUQA,c2xhZWggZG5hIHNrbmF0IGRlZW4A,R,ADI,DAHAPAHDAAAAAAAvAAAAAi,#to:Skribblez,#rlm:223,#fr:Saucyjack-214", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			89, -- [11]
+			2160, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -1286,6 +872,222 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
+		["1383799495.586"] = {
+			"OQ,0Z,AnacWd,2,p8,GlctQ0,bGFlSCAxIGRlZU4gR0JSIG9sb1kA,ITHwAAAFBABSexHcAAZ,MTExMSNwZWthajs1NDE7a3Vya25ob0oA,UkVMQUVI,A,AAF,AAKAAJAATaAAA,#to:Darkchåøs,#rlm:224,#fr:Battlespark-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			186, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799383.974"] = {
+			"OQ,0Z,AKFdMT,1,scores,13.47.1A.10.64.03.11.39.19.21.2ED3.2E42.D89.6B771.5281D1F0.14.30.AoWAlK.BIzBEq,527B1A7F,160,AX5ATFKZ8AkvAXPMA3,AAACAEAkAAACADAUARiAgi,0,skaa004,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2201, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799480.875"] = {
+			"OQ,0Z,AoyTIS,2,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAFAABSexrcAAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c2xhZWgvc2tuYXQgY2Vwc2xhdWQgZGVlbgAA,R,ABE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Ghosst,#rlm:215,#fr:Elphiald-55", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			90, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799366.39"] = {
+			"OQ,0Z,AotY/x,1,p8,Gn0r2y,bml3IHJlIGdnMDAy,ITAAAAACAABSexpbAAZ,NDg4MSN5enppZDs0OTt0aWxwc2RuaU0A,LgAA,a,AAC,A,#to:Aeodoritos,#rlm:12,#fr:Degraded-94", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2075, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799488.329"] = {
+			"OQ,0Z,AoxKnF,2,p8,GoqmI0,c2xhaXRzZWxlQyA0IGxsYQAA,ITAAAAABDABSexq+AAZ,MzA5MzEjbGVpbmFkOzgwMjtrY29sZGFN,LgAA,R,AAB,AAAAIACEAAAAAAAAAAAAAp,#to:Bowwork,#rlm:150,#fr:Highontrees-208", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			131, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799365.155"] = {
+			"OQ,0Z,AouLn7,5,p8,GosS57,U0gga2NpdXEA,ITIIAAACAABSexpwAAZ,MTU4MSNlZWxub3Nhajs0MzI7Z25vaXhuYWlK,LgAA,S,DD-,AAAAAAAEAA3,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2044, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799392.149"] = {
+			"OQ,0Z,Aou3Wl,2,p8,GlP9y5,cGFjIHMnMiBGTCByZXRudWggOTk0,ITAAAAADABBSexqBAAa,NTY1MTEjc3VlejsyMzI7bqHDaW5vY2FM,LmVweWtzIGV2YWggdHN1bQAA,a,ABC,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2268, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799392.35"] = {
+			"OQ,0Z,AouUtF,4,p8,GoRVKz,dHNhRiA0IHhlbEYgICAgICAgICAgICAh,ITIiAAAHKABSexpzAAZ,NDY1MSNodGVsZWxlczs2MztocHJvbVMA,KzA1NSBzaSBTUEQgbGxBIC5oc2VyRgAA,R,BCE,PAjAfAfABAAAAAAGAACAAO,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2271, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799368.647"] = {
+			"OQ,0Z,Aot+kv,1,p8,GnSmN0,c2diciBlY2lvdiBvbiBvbG9Z,ITH6AfQBDABSexpqAAZ,NDY1MSN0Zm9zZW5vdHM7NzMxO3VyYWdpaHNB,ZzJnIGRuYSBsYWVoIDEgZGVlbgAA,A,AAB,AABAAAAABVAAA,#to:Cocobeans,#rlm:236,#fr:Dkdub-137", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2083, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799376.1"] = {
+			"OQ,0Z,AosqQP,1,p8,Gl3Jm0,bGFqeWggdG51b20A,ITAAAAABAABSexpIAAZ,NDk1MSN0YWRwYXM7MDk7YWltcmVodG9yeVAA,LgAA,R,AAB,AAAAAA/AAAAAAAACAACACY,#to:Gozirra,#rlm:138,#fr:Stormcàller-90", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2153, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799367.624"] = {
+			"All characters of rank Raider or higher will be invited to raid in 10 seconds. Please leave your groups.", -- [1]
+			"Gunnslave", -- [2]
+			"Common", -- [3]
+			"", -- [4]
+			"Gunnslave", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2079, -- [11]
+			"0x0180000002E0E58C", -- [12]
+			0, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_GUILD",
+		},
+		["1383799368.442"] = {
+			"OQ,0Z,AotGUg,1,p8,Gnjz0x,eXJyYUMgcycyIEZM,ITAAAAABAABSexpTAAZ,MTkyMTEjbmV0dGlreWxkYWVkOzIzMjtyZWhwb3RzaXJoQwAA,LgAA,a,AAB,A,#to:Ayatolabry,#rlm:218,#fr:Firecrutch-232", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2081, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
 		["1383799480.504"] = {
 			"bah", -- [1]
 			"Mökumöku", -- [2]
@@ -1304,6 +1106,114 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_GUILD",
 		},
+		["1383799496.888"] = {
+			"OQ,0Z,Aox1RV,3,p8,Gl39WA,eWxubyBuZWxldiAtT29TIE1GTAAA,ITINAAACBABSexrPAAZ,Mjc1MSM4MDkxZ3ViOzIxMTtrZWVsYUsA,LgAA,R,AAC,OAAAPA/DAAAAAFAGAAsABk,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			193, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799458.379"] = {
+			"OQ,0Z,Aosw2U,1,p8,Glg5Mw,IEhTRVJGIDIgZG5hIDEgeGVsZiAA,ITISAAAMFABSexpKAAZ,NDc3MSNza2VlaGN0ZWV3czszMzI7c2tlZWhjdGWrw3dT,a25hdCAxIGRlZW4A,R,BCJ,PA/AfA//AAAAAAACAAAAAA,A,#to:Imakitty,#rlm:157,#fr:Huel-233", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			15, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799380.346"] = {
+			"OQ,0Z,Aoupw2,3,p8,GouqyV,c29kck8A,ITIIAAAAAABSexp8AAZ,MjM2MSNkZXJhajsyMzI7Zmy8w3dvqsNC,LgAA,M,AAB,A,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2177, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799376.517"] = {
+			"OQ,0Z,Aotust,1,p8,GonAc9,cm9sYXYgcm9mIG1yYWYgbmVjc0gA,ITIDAAADAABSexpkAAZ,NDU4MSNlbm90eW5vdDszMzI7cmV0bnVoZmVE,LgAA,S,DDD,AAAAAAAEABh,#to:Imakitty,#rlm:157,#fr:Huel-233", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2155, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799386.427"] = {
+			"OQ,0Z,AouFNp,1,p8,Gmctm7,TlVSIDIgWEVMRiBIU0VSRgAA,ITIIAAALEABSexptAAZ,OTY0MSN5YmJvYndmZDswOTusw3NlZWxhSwAA,RUxCTVVNIEVWQUggVFNVTSBMQUVIIDEA,R,ADI,AAAAAAHAAAAAAAAMAAAAAA,#to:Maldive,#rlm:154,#fr:Cyricmajere-90", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2237, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799389.08"] = {
+			"OQ,0Z,Aou8hn,1,p8,GirVww,T29TIG51UiBkbGl1RwAA,ITINAAAOCABSexqEAAZ,MzA5MSNnbmlkaWVsZGl2YWQ7NTQxO3Nlc3Ovw0sA,aHMgbm8gY2VwcyBmZm8ga25hVCBodGl3IGVlbGVtIDEgRkwA,R,BBM,AAAAeA/AAAAAAAAEAAAAAB,#to:Demonicforce,#rlm:131,#fr:Pøyzen-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2247, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
 		["1383799464.604"] = {
 			"OQ,0Z,AoxxuS,2,p8,Gn646q,Z29tc25hclQgTFdC,ITAAAAACBABSexrOAAZ,MDQyMSNlaXRvb2Jha25hZzs1NDE7ZGVrbml0c3hF,Lm5lcG8gc3RlcyByZWh0TyA7ZGVsIHJldG51SAAA,R,AAC,AAAAAAAAAAAAAAAHAAAAAa,#to:Brandoo,#rlm:86,#fr:Geño-145", -- [1]
 			"|Kf40|k0000|k", -- [2]
@@ -1316,6 +1226,96 @@ ElvCharacterDB = {
 			"", -- [9]
 			0, -- [10]
 			22, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799457.913"] = {
+			"OQ,0Z,AotPSl,1,p8,GoZN5g,ZW1vc2V3YSBlYiA7R0JSIG9sb3JQ,ITH5AAAHBABSexpXAAZ,NTY0MSNub2RlaHNzZWxkb2c7MjE7eWtzbbjDaEMA,eG92IG9uIDtTUEQvc2xhZUggZGVlTgAA,A,ABG,AANAAIAAVUAGA,#to:Bungler,#rlm:50,#fr:Stërnfan-48", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			13, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799384.375"] = {
+			"OQ,0Z,AniRjN,1,disband,Gm4+HA,niSd6,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2204, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799493.167"] = {
+			"OQ,0Z,AoGIVT,1,disband,GnC1cH,oGIt2,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			162, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799371.111"] = {
+			"OQ,0Z,AouFMp,2,p8,GnUGnK,cydnQiBtb2RuYVIA,ITHvAAADACBSexptAAZ,MTY5MiM3MHhyZWxsaWs7NjEyO3hvYmRpYXRzcmlG,KW5pbSA3KCAwIC0gMCA6R1NX,B,ABC,AABAAEAAFcBCM,#to:Dixiecupps,#rlm:215,#fr:Rechiru-216", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2109, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799480.855"] = {
+			"OQ,0Z,Aoxx1u,0,p8,Gl1G5g,c2xhZWgvc2tuYXQgIDQgZ25pdyB4ZWxm,ITIcAAALJABSexrOAAZ,MDU1MSNub2l0c3VkOzQxMjtzYWh0YUQA,c2xhZWggZG5hIHNrbmF0IGRlZW4A,R,ADI,DAHAPAHDAAAAAAAvAAAAAi,#to:Skribblez,#rlm:223,#fr:Saucyjack-214", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			89, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -1358,8 +1358,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799392.35"] = {
-			"OQ,0Z,AouUtF,4,p8,GoRVKz,dHNhRiA0IHhlbEYgICAgICAgICAgICAh,ITIiAAAHKABSexpzAAZ,NDY1MSNodGVsZWxlczs2MztocHJvbVMA,KzA1NSBzaSBTUEQgbGxBIC5oc2VyRgAA,R,BCE,PAjAfAfABAAAAAAGAACAAO,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+		["1383799458.139"] = {
+			"OQ,0Z,AosqQP,1,p8,Gl3Jm0,bGFqeWggdG51b20A,ITAAAAABAABSexpIAAZ,NDk1MSN0YWRwYXM7MDk7YWltcmVodG9yeVAA,LgAA,R,AAB,AAAAAA/AAAAAAAACAACACY,#to:Gozirra,#rlm:138,#fr:Stormcàller-90", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1369,15 +1369,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2271, -- [11]
+			14, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799368.647"] = {
-			"OQ,0Z,Aot+kv,1,p8,GnSmN0,c2diciBlY2lvdiBvbiBvbG9Z,ITH6AfQBDABSexpqAAZ,NDY1MSN0Zm9zZW5vdHM7NzMxO3VyYWdpaHNB,ZzJnIGRuYSBsYWVoIDEgZGVlbgAA,A,AAB,AABAAAAABVAAA,#to:Cocobeans,#rlm:236,#fr:Dkdub-137", -- [1]
+		["1383799476.717"] = {
+			"OQ,0Z,AowmnK,4,p8,GoRVKz,dHNhRiA0IHhlbEYgICAgICAgICAgICAh,ITIiAAAKJABSexqvAAZ,NDY1MSNodGVsZWxlczs2MztocHJvbVMA,KzA1NSBzaSBTUEQgbGxBIC5oc2VyRgAA,R,CCF,PAjAfAfABAAAAAAGAACAAO,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1387,25 +1387,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2083, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799369.059"] = {
-			"OQ,0Z,AouHkT,3,p8,Gngg8K,czIgRkwgcmFXIFNNUkEA,ITHvAAACABBSexpuAAZ,OTAxMSNodHNlbWFkOzU0MTtodHNlbWFE,ZWIgdHN1aiApUFZQKHJhdyBzbXJhIHZsaTEwNSBhIG1hIEkA,a,AAC,A,#to:Dallamar,#rlm:215,#fr:Amyiss-145", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2086, -- [11]
+			63, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -1430,8 +1412,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799368.442"] = {
-			"OQ,0Z,AotGUg,1,p8,Gnjz0x,eXJyYUMgcycyIEZM,ITAAAAABAABSexpTAAZ,MTkyMTEjbmV0dGlreWxkYWVkOzIzMjtyZWhwb3RzaXJoQwAA,LgAA,a,AAB,A,#to:Ayatolabry,#rlm:218,#fr:Firecrutch-232", -- [1]
+		["1383799383.14"] = {
+			"OQ,0Z,AouZhM,1,p8,Gm72Zu,SCBuYW01MiBMVU9TIE5PR0FSRAAA,ITAAAAAUAABSexp1AAZ,OTIyMSNjaXBlOzIzMjtjaW1hbnlkd29yckEA,LgAA,R,ABT,AAAAAAAAAAAAAAAJAAAAAA,A,#to:Aidith,#rlm:98,#fr:Daeneriz-232", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1441,15 +1423,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2081, -- [11]
+			2196, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799476.1"] = {
-			"OQ,0Z,AowaW/,1,p8,GmHG6d,dG5ldi93IHNHQlIgUk1NIGRpTSAhIQAA,ITH2AAAKCABSexqqSwZ,NDQ5MSNiZW5ueWxyZWJtYTs0MTE7v8NsUwAA,IWVnYU0gZGVlTgAA,A,ADH,AAXAAeAA1UAAA,#to:Savanah,#rlm:152,#fr:Slÿ-114", -- [1]
+		["1383799364.938"] = {
+			"OQ,0Z,Aosz0J,3,p8,GoUTZo,c29kck8A,ITAAAAAdEABSexpMAAZ,NTQ0MSNzdW9pY2FicmVoOzQ4MTt0dHJlYnJlSAAA,LgAA,R,CFW,AAAAAAAABAAAAAAFAAAAAI,#to:Makasoul,#rlm:4,#fr:Looppyo-184", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1459,48 +1441,12 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			59, -- [11]
+			2041, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799496.888"] = {
-			"OQ,0Z,Aox1RV,3,p8,Gl39WA,eWxubyBuZWxldiAtT29TIE1GTAAA,ITINAAACBABSexrPAAZ,Mjc1MSM4MDkxZ3ViOzIxMTtrZWVsYUsA,LgAA,R,AAC,OAAAPA/DAAAAAFAGAAsABk,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			193, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799378.769"] = {
-			"OQ,0Z,Aot3k7,2,p8,GnQBPF,cGFjIHMnMiBmbCBrbm9tIFdN,ITAAAAACAABSexpnAAZ,Njk0MSNsZXR0aWI7Njg7eHVsZmVS,LgAA,a,ABB,A,#to:Mariasabina,#rlm:11,#fr:Druanti-86", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2163, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799470.544"] = {
 			"OQ,0Z,AoyPYG,1,p8,GoyPTx,cGFjIHJvZiB5bG5vIHMyIQAA,ITH5AAAAAABSexraAAZ,NjQ4MSN0b29jczs1NDE7YW9uaUsA,cmVsYWVoIGZlcnAA,a,AAB,A,#to:Bloodwakes,#rlm:232,#fr:Drunkenmônky-145", -- [1]
@@ -1519,6 +1465,186 @@ ElvCharacterDB = {
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799462.939"] = {
+			"OQ,0Z,AowNcv,2,p8,GkYqPb,ISBHQlIgKzAwNjEgc2xhZUggRkwgIQAA,ITH6AooBKABSexqlZAZ,MjY0MSNuYWlpYXdhaG55bGY7MjMyO2yow2VqdXN0rcNO,TVRBIExMVUYA,A,AAB,AAPAAGAAVWAAA,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			20, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799383.707"] = {
+			"OQ,0Z,Aot2c6,1,p8,GoQuXq,ZWVsZU0gZGVlTiBzMyBhbmVyQQAA,ITH0AAACAABSexpnAAZ,OTY1MSNrZWhjdGVyazsxNTE7eXRpbmlyYVoA,LgAA,a,ABB,A,#to:Chobralito,#rlm:189,#fr:Mandarb-151", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2197, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799460.066"] = {
+			"OQ,0Z,AoxgwC,0,p8,GnrDSs,TVMgJiBLb1QA,ITHzAooBAABSexrHAAZ,NDU0MSN5ZWJ1eWs7NzU7ZW5lY3NvcmlL,cGxlaCA7dHNldXEgeXJhZG5lZ2VsIHJvZiBzbml3IGRlZU4A,B,AAB,AADAAIAALAAAA,#to:Holykiss,#rlm:162,#fr:Kiroscene-57", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			18, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799465.622"] = {
+			"OQ,0Z,AoyAA2,2,p8,GmoNQl,ZGFlTCBrMy4yIHMnR0JSICswMDcx,ITH5AAAKMCBSexrUakZ,MDIyMSNsZWFkbmFtOzcxMTtsYWVkbmFN,KW5pbSA4KCAyIC0gMSA6R1NX,A,ADH,ABIAA0AB8WAAA,#to:Blodrogue,#rlm:25,#fr:Olivertwist-44", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			24, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799472.379"] = {
+			"OQ,0Z,WTiGIm,5,invite_accepted,GTOB76,1,4,PR,OTcyMSNvb2J5YWs7MjIyO2xsaXVxeU4A,QThlyK,#to:Ghaleon,#rlm:0,#fr:Clvd-218", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			32, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799372.146"] = {
+			"OQ,0Z,AouYmI,2,p8,GklzUF,IGVyb2MgLi5ybW0gazIgc0dCUiAwMDkx,ITAAAAAKGABSexp1cIZ,Mjk2MSN5YmxlaHM7NTQxO26kw2VsY3l4TwAA,IGN0IHB1a2NhYiBnMmcga2QA,A,ADH,ACNABVADiYAAA,#to:Beckinsaile,#rlm:117,#fr:Thoreo-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2114, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799480.654"] = {
+			"OQ,0Z,Aoxx1u,1,p8,Gl1G5g,c2xhZWgvc2tuYXQgIDQgZ25pdyB4ZWxm,ITIcAAALJABSexrOAAZ,MDU1MSNub2l0c3VkOzQxMjtzYWh0YUQA,c2xhZWggZG5hIHNrbmF0IGRlZW4A,R,ADI,DAHAPAHDAAAAAAAvAAAAAi,#to:Skribblez,#rlm:223,#fr:Saucyjack-214", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			87, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799391.833"] = {
+			"OQ,0Z,AovftH,2,p8,Govehe,aHNlckYgNCB4ZWxG,ITAAAAAAAABSexqSAAZ,NDc5MSNyZXRoZ2lmZW5vbDsxMjE7c3Vzbm90eWFX,REVSSVVRRVIgM0tBRVBTTUFFVAAA,R,AAB,HAAAAA/DAAAAAAAIAAAAAA,#to:Arivae,#rlm:128,#fr:Ygrez-121", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2265, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799385.393"] = {
+			"OQ,0Z,Aounfj,1,p8,Gnutsf,bGx1RgAA,ITIcAAANAABSexp7AAZ,ODM0MSNyYXRhdmE7ODEyO29yrcNI,LgAA,R,FAI,PA/AfA/AAAAAAAAcAAAAAJ,#to:Kithia,#rlm:185,#fr:Hydes-218", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2227, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799387.211"] = {
+			"OQ,0Z,Aout3h,1,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAGAABSexp+AAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c3BkL3NsYWVoL2tuYXQA,R,BBE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Zeroskillz,#rlm:5,#fr:Shockanawe-152", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2239, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799470.36"] = {
 			"OQ,0Z,AoyPYG,2,p8,GoyPTx,cGFjIHJvZiB5bG5vIHMyIQAA,ITH5AAAAAABSexraAAZ,NjQ4MSN0b29jczs1NDE7YW9uaUsA,cmVsYWVoIGZlcnAA,a,AAB,A,#to:Bloodwakes,#rlm:232,#fr:Drunkenmônky-145", -- [1]
@@ -1556,8 +1682,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799384.375"] = {
-			"OQ,0Z,AniRjN,1,disband,Gm4+HA,niSd6,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+		["1383799371.945"] = {
+			"OQ,0Z,AotsqL,0,p8,Gobb9H,bmVjcyBo,ITAAAAADEABSexpjAAZ,OTU4MSNjYWxrcmFkOzQxMjttbWlyZ2x1b0YA,LgAA,S,TDD,AAAAAAACAA0,#to:Bellemort,#rlm:48,#fr:Ryakm-128", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1567,12 +1693,12 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2204, -- [11]
+			2112, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799374.031"] = {
 			"OQ,0Z,AmEd9K,1,p8,GjCMCe,aHNlckYgNCB4ZWxG,ITAAAAAZXABSewkPAAZ,NjY3MSNlZ2FtYWQ7MjQ7ZWdhbaPDRAAA,c2tuYXQgZGVlbgAA,R,BEU,AADAff//rKAAAAAJAAAAAJ,#to:Endenwaith,#rlm:47,#fr:Mctree-42", -- [1]
@@ -1664,258 +1790,6 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799467.658"] = {
-			"OQ,0Z,AoyAkW,2,p8,GmxIS3,cyczIHJvZiByZWxhZWggRkwA,ITAAAAADCBBSexrUAAZ,NzU3MSNham5pbmVsdHRpbDs3MzE7eXJ1ZnNvYWhD,ZGVwcGFjIGduaXR0ZWcgdHN1SgAA,a,AAD,A,#to:Chenkov,#rlm:201,#fr:Horehey-137", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			25, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799458.821"] = {
-			"OQ,0Z,AosqnN,2,p8,GnJ0cb,RzJHICFLTkFUMUZMIEhTRVJGIDEgWEVMRgAA,ITISAAANEABSexpIAAZ,MDI0MSNzYmlodGs7NTQxO3RmcmVyY3JlVwAA,LgAA,R,CBK,AAAAAAAAAAAAAAAHAA0ACG,#to:Brandoo,#rlm:86,#fr:Geño-145", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			17, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799465.539"] = {
-			"OQ,0Z,AoyAA2,3,p8,GmoNQl,ZGFlTCBrMy4yIHMnR0JSICswMDcx,ITH5AAAKMCBSexrUakZ,MDIyMSNsZWFkbmFtOzcxMTtsYWVkbmFN,KW5pbSA4KCAyIC0gMSA6R1NX,A,ADH,ABIAA0AB8WAAA,#to:Blodrogue,#rlm:25,#fr:Olivertwist-44", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			23, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799364.938"] = {
-			"OQ,0Z,Aosz0J,3,p8,GoUTZo,c29kck8A,ITAAAAAdEABSexpMAAZ,NTQ0MSNzdW9pY2FicmVoOzQ4MTt0dHJlYnJlSAAA,LgAA,R,CFW,AAAAAAAABAAAAAAFAAAAAI,#to:Makasoul,#rlm:4,#fr:Looppyo-184", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2041, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799458.139"] = {
-			"OQ,0Z,AosqQP,1,p8,Gl3Jm0,bGFqeWggdG51b20A,ITAAAAABAABSexpIAAZ,NDk1MSN0YWRwYXM7MDk7YWltcmVodG9yeVAA,LgAA,R,AAB,AAAAAA/AAAAAAAACAACACY,#to:Gozirra,#rlm:138,#fr:Stormcàller-90", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			14, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799462.939"] = {
-			"OQ,0Z,AowNcv,2,p8,GkYqPb,ISBHQlIgKzAwNjEgc2xhZUggRkwgIQAA,ITH6AooBKABSexqlZAZ,MjY0MSNuYWlpYXdhaG55bGY7MjMyO2yow2VqdXN0rcNO,TVRBIExMVUYA,A,AAB,AAPAAGAAVWAAA,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			20, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799460.066"] = {
-			"OQ,0Z,AoxgwC,0,p8,GnrDSs,TVMgJiBLb1QA,ITHzAooBAABSexrHAAZ,NDU0MSN5ZWJ1eWs7NzU7ZW5lY3NvcmlL,cGxlaCA7dHNldXEgeXJhZG5lZ2VsIHJvZiBzbml3IGRlZU4A,B,AAB,AADAAIAALAAAA,#to:Holykiss,#rlm:162,#fr:Kiroscene-57", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			18, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799465.622"] = {
-			"OQ,0Z,AoyAA2,2,p8,GmoNQl,ZGFlTCBrMy4yIHMnR0JSICswMDcx,ITH5AAAKMCBSexrUakZ,MDIyMSNsZWFkbmFtOzcxMTtsYWVkbmFN,KW5pbSA4KCAyIC0gMSA6R1NX,A,ADH,ABIAA0AB8WAAA,#to:Blodrogue,#rlm:25,#fr:Olivertwist-44", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			24, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799458.379"] = {
-			"OQ,0Z,Aosw2U,1,p8,Glg5Mw,IEhTRVJGIDIgZG5hIDEgeGVsZiAA,ITISAAAMFABSexpKAAZ,NDc3MSNza2VlaGN0ZWV3czszMzI7c2tlZWhjdGWrw3dT,a25hdCAxIGRlZW4A,R,BCJ,PA/AfA//AAAAAAACAAAAAA,A,#to:Imakitty,#rlm:157,#fr:Huel-233", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			15, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799391.833"] = {
-			"OQ,0Z,AovftH,2,p8,Govehe,aHNlckYgNCB4ZWxG,ITAAAAAAAABSexqSAAZ,NDc5MSNyZXRoZ2lmZW5vbDsxMjE7c3Vzbm90eWFX,REVSSVVRRVIgM0tBRVBTTUFFVAAA,R,AAB,HAAAAA/DAAAAAAAIAAAAAA,#to:Arivae,#rlm:128,#fr:Ygrez-121", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2265, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799457.502"] = {
-			"OQ,0Z,AoqDFY,1,p8,GlwuOv,Z25payBoY2lsIFZIQ0EgaCBjY2kgTTAx,ITAAAAABEABSexoDAAZ,NzQ5MSNpbmlsbGVwcGFoYzs2MjI7dGNpbGxJ,LgAA,R,AAB,AAAAAAAAAAAAAAABAAAAAJ,#to:Linkandzelda,#rlm:21,#fr:Ticksnfleas-226", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			9, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799370.894"] = {
-			"OQ,0Z,AouGvL,2,p8,GoOD04,U0QgSCBtMDEA,ITHqAAACBABSexpuAAZ,NjYxMSNkNGNpbXNvYzs1MTE7c2VzcGlsbEUA,bGxhIGRlZW4gbnVyIGtjaXVx,R,BAB,AAAAAAAEAAAAAAAGAAAAAH,#to:Dimsome,#rlm:238,#fr:Robble-115", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2107, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
-		},
-		["1383799385.393"] = {
-			"OQ,0Z,Aounfj,1,p8,Gnutsf,bGx1RgAA,ITIcAAANAABSexp7AAZ,ODM0MSNyYXRhdmE7ODEyO29yrcNI,LgAA,R,FAI,PA/AfA/AAAAAAAAcAAAAAJ,#to:Kithia,#rlm:185,#fr:Hydes-218", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2227, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
-		["1383799366.39"] = {
-			"OQ,0Z,AotY/x,1,p8,Gn0r2y,bml3IHJlIGdnMDAy,ITAAAAACAABSexpbAAZ,NDg4MSN5enppZDs0OTt0aWxwc2RuaU0A,LgAA,a,AAC,A,#to:Aeodoritos,#rlm:12,#fr:Degraded-94", -- [1]
-			"|Kf40|k0000|k", -- [2]
-			"", -- [3]
-			"", -- [4]
-			"", -- [5]
-			"", -- [6]
-			0, -- [7]
-			0, -- [8]
-			"", -- [9]
-			0, -- [10]
-			2075, -- [11]
-			false, -- [12]
-			40, -- [13]
-			false, -- [14]
-			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
-		},
 		["1383799475.082"] = {
 			"OQ,0Z,Aoyfa+,2,p8,GoZorE,IHNjcmEgaHNlcmYgSDUyIENDSSBNRkwA,ITAAAAAMAABSexrhAAZ,OTM1MSNwamM7MTQ7ZXRlcGpD,LgAA,R,BAL,AAAAfA3HAAAAALAIAAbABO,#to:Akìllezz,#rlm:128,#fr:Deathstick-41", -- [1]
 			"|Kf40|k0000|k", -- [2]
@@ -1934,8 +1808,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799370.715"] = {
-			"OQ,0Z,AouFMp,3,p8,GnUGnK,cydnQiBtb2RuYVIA,ITHvAAADACBSexptAAZ,MTY5MiM3MHhyZWxsaWs7NjEyO3hvYmRpYXRzcmlG,KW5pbSA3KCAwIC0gMCA6R1NX,B,ABC,AABAAEAAFcBCM,#to:Dixiecupps,#rlm:215,#fr:Rechiru-216", -- [1]
+		["1383799467.658"] = {
+			"OQ,0Z,AoyAkW,2,p8,GmxIS3,cyczIHJvZiByZWxhZWggRkwA,ITAAAAADCBBSexrUAAZ,NzU3MSNham5pbmVsdHRpbDs3MzE7eXJ1ZnNvYWhD,ZGVwcGFjIGduaXR0ZWcgdHN1SgAA,a,AAD,A,#to:Chenkov,#rlm:201,#fr:Horehey-137", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1945,12 +1819,12 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2104, -- [11]
+			25, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799479.798"] = {
 			"OQ,0Z,Al1PQ4,2,p8,Gjyqjz,cGFjIHJvZiBzJzIgICAgIQAA,ITAAAAACBBBSewd/AAZ,NzA4MSNub3BxOzgyMTtkZWhzdXJL,LgAA,a,AAC,A,#to:Nikkolas,#rlm:113,#fr:Hiddentotems-128", -- [1]
@@ -1988,8 +1862,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799390.765"] = {
-			"OQ,0Z,Aot6xv,0,p8,GoTdcs,ITIgeGVsRiBoc2VyRiEA,ITIXAAAFBABSexppAAZ,MDk3MSN5bWVsb3RwOzYxMjt5eW1lbG90UAAA,LgAA,R,CBC,PA/AfA//AAAAAAAAAAAAAA,#to:Divinewind,#rlm:152,#fr:Ptolemyy-216", -- [1]
+		["1383799462.807"] = {
+			"OQ,0Z,AowNcv,3,p8,GkYqPb,ISBHQlIgKzAwNjEgc2xhZUggRkwgIQAA,ITH6AooBKABSexqlZAZ,MjY0MSNuYWlpYXdhaG55bGY7MjMyO2yow2VqdXN0rcNO,TVRBIExMVUYA,A,AAB,AAPAAGAAVWAAA,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -1999,15 +1873,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2261, -- [11]
+			19, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799383.758"] = {
-			"OQ,0Z,Aot2c6,0,p8,GoQuXq,ZWVsZU0gZGVlTiBzMyBhbmVyQQAA,ITH0AAACAABSexpnAAZ,OTY1MSNrZWhjdGVyazsxNTE7eXRpbmlyYVoA,LgAA,a,ABB,A,#to:Chobralito,#rlm:189,#fr:Mandarb-151", -- [1]
+		["1383799365.773"] = {
+			"OQ,0Z,Anhgtn,4,p8,GgEF2W,YXRj,ITH+AAAEACBSexKWAAZ,NTIxMSNwbWF2dGF0c2VsOzg1MTt5c21hZUwA,LgAA,B,ADB,AAxAApABaTAAA,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2017,15 +1891,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2199, -- [11]
+			2069, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799387.211"] = {
-			"OQ,0Z,Aout3h,1,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAGAABSexp+AAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c3BkL3NsYWVoL2tuYXQA,R,BBE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Zeroskillz,#rlm:5,#fr:Shockanawe-152", -- [1]
+		["1383799457.502"] = {
+			"OQ,0Z,AoqDFY,1,p8,GlwuOv,Z25payBoY2lsIFZIQ0EgaCBjY2kgTTAx,ITAAAAABEABSexoDAAZ,NzQ5MSNpbmlsbGVwcGFoYzs2MjI7dGNpbGxJ,LgAA,R,AAB,AAAAAAAAAAAAAAABAAAAAJ,#to:Linkandzelda,#rlm:21,#fr:Ticksnfleas-226", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2035,12 +1909,48 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2239, -- [11]
+			9, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799370.894"] = {
+			"OQ,0Z,AouGvL,2,p8,GoOD04,U0QgSCBtMDEA,ITHqAAACBABSexpuAAZ,NjYxMSNkNGNpbXNvYzs1MTE7c2VzcGlsbEUA,bGxhIGRlZW4gbnVyIGtjaXVx,R,BAB,AAAAAAAEAAAAAAAGAAAAAH,#to:Dimsome,#rlm:238,#fr:Robble-115", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2107, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799458.821"] = {
+			"OQ,0Z,AosqnN,2,p8,GnJ0cb,RzJHICFLTkFUMUZMIEhTRVJGIDEgWEVMRgAA,ITISAAANEABSexpIAAZ,MDI0MSNzYmlodGs7NTQxO3RmcmVyY3JlVwAA,LgAA,R,CBK,AAAAAAAAAAAAAAAHAA0ACG,#to:Brandoo,#rlm:86,#fr:Geño-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			17, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
 		["1383799371.128"] = {
 			"OQ,0Z,AouGvL,1,p8,GoOD04,U0QgSCBtMDEA,ITHqAAACBABSexpuAAZ,NjYxMSNkNGNpbXNvYzs1MTE7c2VzcGlsbEUA,bGxhIGRlZW4gbnVyIGtjaXVx,R,BAB,AAAAAAAEAAAAAAAGAAAAAH,#to:Dimsome,#rlm:238,#fr:Robble-115", -- [1]
@@ -2078,6 +1988,24 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
+		["1383799366.189"] = {
+			"OQ,0Z,AouFc8,2,p8,GlhJUN,IGhzZXJmIDNnbml3IHhlbEYA,ITAAAAAMOABSexptAAZ,MDk4MSMzc3NvYmNtOzA0Mjtyb3RhbmltZUwA,bGx1ZgAA,R,BEH,LAHAfA/nAAAAAAAEAAAAAA,A,#to:Dixiecupps,#rlm:215,#fr:Ellewynd-165", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2073, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
 		["1383799373.414"] = {
 			"OQ,0Z,AouJ1M,0,p8,GliCiF,MSB4ZWxGICAgICAgICAgICAgICEA,ITAAAAADpABSexpvAAZ,NDk2MSMwMjRua2NhbTsyNTthYXRza2NhTQAA,UFhFIGV2YUggR1RHIGRuYSBTUEQgZGVlTgAA,R,BAC,AAAAAAAAAAAAAAACAAaAAa,#to:Antwan,#rlm:128,#fr:Homeelfcare-52", -- [1]
 			"|Kf40|k0000|k", -- [2]
@@ -2096,8 +2024,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799363.87"] = {
-			"OQ,0Z,AnYw3T,1,p8,GnUsTK,bGxhIGRlZW4tLWhzZXJGIDIgeGVsRgAA,ITAAAAADCABSexGwAAZ,Mjg1MSNtcm90c3RuZWxpczszNzE7ZWdhcnR1lMMA,KipTVEhHSUYgV09OSyBUU1VNKgAA,R,AAD,PABAfAHAAAAAAAAFAAkADa,#to:Caelle,#rlm:232,#fr:Cruel-135", -- [1]
+		["1383799468.692"] = {
+			"OQ,0Z,Aox50Q,1,p8,Gn2GP9,bGFlaCBybyBrbmF0IDJ3IGhzZXJm,ITINAAAOCABSexrRAAZ,NjUyMSMzOXJvaW51ajs1NjE7dHNpZnNzZWxyYWVG,LgAA,R,CBL,PA/AfABAAAAAAAAAAAkABC,#to:Icéé,#rlm:84,#fr:Devent-165", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2107,12 +2035,12 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2038, -- [11]
+			28, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
-			[20] = "CHAT_MSG_BN_WHISPER",
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
 		["1383799364.955"] = {
 			"OQ,0Z,Aosz0J,2,p8,GoUTZo,c29kck8A,ITAAAAAdEABSexpMAAZ,NTQ0MSNzdW9pY2FicmVoOzQ4MTt0dHJlYnJlSAAA,LgAA,R,CFW,AAAAAAAABAAAAAAFAAAAAI,#to:Makasoul,#rlm:4,#fr:Looppyo-184", -- [1]
@@ -2132,8 +2060,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799378.369"] = {
-			"OQ,0Z,Aot6BI,1,p8,GoFVZ/,IGhzZXJGIDQgeGVsRgAA,ITIhAAANBABSexpoAAZ,NjIzMSN4c2NpdGF0czszNztzY2l0YXRT,a25hdCBkZWVlbiB0bmV2IG9uIHNvclAA,R,BCL,NA/AefIw//AAAAAAAAAAAA,A,#to:Cocobeans,#rlm:236,#fr:Bellalulu-73", -- [1]
+		["1383799391.349"] = {
+			"OQ,0Z,AoufF4,1,p8,Gooly1,cydHQlIgUkMgKzAwODEgIQAA,ITAAAAABAABSexp4cIZ,MDkzMSNiem5hZDszODtyZXRzYW1lZHJvSAAA,ZXZlaWhjYSB0c2VoZ2loIGtuaWwA,A,ABA,AABAAFAAGXACA,#to:Amagad,#rlm:145,#fr:Healaria-83", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2143,7 +2071,25 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2160, -- [11]
+			2264, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799476.1"] = {
+			"OQ,0Z,AowaW/,1,p8,GmHG6d,dG5ldi93IHNHQlIgUk1NIGRpTSAhIQAA,ITH2AAAKCABSexqqSwZ,NDQ5MSNiZW5ueWxyZWJtYTs0MTE7v8NsUwAA,IWVnYU0gZGVlTgAA,A,ADH,AAXAAeAA1UAAA,#to:Savanah,#rlm:152,#fr:Slÿ-114", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			59, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -2168,8 +2114,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799376.1"] = {
-			"OQ,0Z,AosqQP,1,p8,Gl3Jm0,bGFqeWggdG51b20A,ITAAAAABAABSexpIAAZ,NDk1MSN0YWRwYXM7MDk7YWltcmVodG9yeVAA,LgAA,R,AAB,AAAAAA/AAAAAAAACAACACY,#to:Gozirra,#rlm:138,#fr:Stormcàller-90", -- [1]
+		["1383799370.715"] = {
+			"OQ,0Z,AouFMp,3,p8,GnUGnK,cydnQiBtb2RuYVIA,ITHvAAADACBSexptAAZ,MTY5MiM3MHhyZWxsaWs7NjEyO3hvYmRpYXRzcmlG,KW5pbSA3KCAwIC0gMCA6R1NX,B,ABC,AABAAEAAFcBCM,#to:Dixiecupps,#rlm:215,#fr:Rechiru-216", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2179,15 +2125,15 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2153, -- [11]
+			2104, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799380.346"] = {
-			"OQ,0Z,Aoupw2,3,p8,GouqyV,c29kck8A,ITIIAAAAAABSexp8AAZ,MjM2MSNkZXJhajsyMzI7Zmy8w3dvqsNC,LgAA,M,AAB,A,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
+		["1383799496.22"] = {
+			"OQ,0Z,AoxDdG,0,p8,GnjV8m,ZWNpb3Ygb24gc2diciBvbG95,ITAAAAAKGABSexq7AAZ,MDY2MSNhZWRhbWE7ODAyO2VsYmFyb2RhbUEA,c2xhZWggZGVlbiA7bnVmIHJvZiB0c3VqIGVjaW92IG9u,A,ACI,AAYAAnAA/UAAA,#to:Bowwork,#rlm:150,#fr:Highontrees-208", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2197,12 +2143,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2177, -- [11]
+			188, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
+		},
+		["1383799387.244"] = {
+			"OQ,0Z,Aout3h,0,p8,GodAuh,ZCdxZXIgdG5lViAtIGhzZXJGIDIgeGVsRgAA,ITIcAAAGAABSexp+AAZ,MTYzMSMzMTAyaW5pcmE7NTU7aWhzbWlL,c3BkL3NsYWVoL2tuYXQA,R,BBE,AAAAAAAAAAAAAAAEADpAIB,A,#to:Zeroskillz,#rlm:5,#fr:Shockanawe-152", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2240, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
 		["1383799381.059"] = {
 			"OQ,0Z,Aotq4B,1,p8,GnZd0S,aHNvcnJhRyAgICAgICAgICAgICAgICEA,ITIXAAAXPABSexpiAAZ,MDc3MSNlbHp6YWRuYXI7NDEyO3ljYWNpZmZF,LnRoZ2lmIHdvbksA,R,CCT,HAAAfA//HAAAAEA6AABABs,#to:Dirtyhooker,#rlm:189,#fr:Efficacy-214", -- [1]
@@ -2222,8 +2186,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799386.427"] = {
-			"OQ,0Z,AouFNp,1,p8,Gmctm7,TlVSIDIgWEVMRiBIU0VSRgAA,ITIIAAALEABSexptAAZ,OTY0MSN5YmJvYndmZDswOTusw3NlZWxhSwAA,RUxCTVVNIEVWQUggVFNVTSBMQUVIIDEA,R,ADI,AAAAAAHAAAAAAAAMAAAAAA,#to:Maldive,#rlm:154,#fr:Cyricmajere-90", -- [1]
+		["1383799365.572"] = {
+			"OQ,0Z,AnhduP,2,p8,Gl5Y60,KzAyNSBza25hdCBkZWVuIDF3IHhlbGYA,ITAAAAABAABSexKUAAZ,MjA5MSN4c2Ftb2h0Y3hoOzU0MTtlYmFiZGFlZHNkZVoA,a25hdCBlbm8gZGVlbgAA,R,AAB,AAAAHAAAAAAAAAAAAAAAAX,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2233,7 +2197,7 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2237, -- [11]
+			2066, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
@@ -2258,8 +2222,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
 		},
-		["1383799383.14"] = {
-			"OQ,0Z,AouZhM,1,p8,Gm72Zu,SCBuYW01MiBMVU9TIE5PR0FSRAAA,ITAAAAAUAABSexp1AAZ,OTIyMSNjaXBlOzIzMjtjaW1hbnlkd29yckEA,LgAA,R,ABT,AAAAAAAAAAAAAAAJAAAAAA,A,#to:Aidith,#rlm:98,#fr:Daeneriz-232", -- [1]
+		["1383799385.593"] = {
+			"OQ,0Z,Aotx9E,1,p8,GirS81,c2VsYWl0c2VsZUMgbGxB,ITAAAAAKpABSexplAAZ,NjU0MSNyZWtytsNtOzE2O3Jla3JvTQAA,LgAA,R,AAK,PAPAfA//AAAAAAABAAAAAA,A,#to:Highroll,#rlm:21,#fr:Dezmadre-61", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2269,12 +2233,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2196, -- [11]
+			2229, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799481.939"] = {
+			"OQ,0Z,AowR4I,2,p8,GoDkak,UkVUTlVIIERFRU4gU0dCUiAh,ITAAAAAKHCBSexqnAAZ,Mzc5MSNhbml0c2lyaGM7NDUxO3lscmFuRwAA,MDM4IC0gMDM0IDpCQQAA,A,AAK,AAAAABAABXAAA,#to:Brittannia,#rlm:127,#fr:Gnarly-154", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			92, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 		["1383799392.049"] = {
 			"OQ,0Z,Aou3Wl,3,p8,GlP9y5,cGFjIHMnMiBGTCByZXRudWggOTk0,ITAAAAADABBSexqBAAa,NTY1MTEjc3VlejsyMzI7bqHDaW5vY2FM,LmVweWtzIGV2YWggdHN1bQAA,a,ABC,A,#to:Almondstab,#rlm:94,#fr:Gromgutz-232", -- [1]
@@ -2294,8 +2276,8 @@ ElvCharacterDB = {
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER",
 		},
-		["1383799365.572"] = {
-			"OQ,0Z,AnhduP,2,p8,Gl5Y60,KzAyNSBza25hdCBkZWVuIDF3IHhlbGYA,ITAAAAABAABSexKUAAZ,MjA5MSN4c2Ftb2h0Y3hoOzU0MTtlYmFiZGFlZHNkZVoA,a25hdCBlbm8gZGVlbgAA,R,AAB,AAAAHAAAAAAAAAAAAAAAAX,#to:Daves,#rlm:164,#fr:Jolokia-234", -- [1]
+		["1383799457.427"] = {
+			"OQ,0Z,Aosmf/,3,p8,GnmG/x,a25hdCBoc2VyZiAxIHhlbEYA,ITIDAAAMGABSexpGAAZ,MzgxMSN3ZXJkYWJidWI7MTUxO3R0bmVjaWZlbGFN,c2xhZWggcm8gc3BkIGx2bGkgaGdpaCAx,R,CDH,AAAAAA//AAAAAAAHAAIABp,#to:Brindle,#rlm:36,#fr:Kryolan-151", -- [1]
 			"|Kf40|k0000|k", -- [2]
 			"", -- [3]
 			"", -- [4]
@@ -2305,12 +2287,30 @@ ElvCharacterDB = {
 			0, -- [8]
 			"", -- [9]
 			0, -- [10]
-			2066, -- [11]
+			11, -- [11]
 			false, -- [12]
 			40, -- [13]
 			false, -- [14]
 			false, -- [15]
 			[20] = "CHAT_MSG_BN_WHISPER_INFORM",
+		},
+		["1383799381.205"] = {
+			"OQ,0Z,AoueI5,0,p8,GlPweK,czMgYW5lckEA,ITH0AAADFBBSexp3AAZ,OTU4MSNhZ2V2cjs1NDE7c6jDc2x1UAAA,VU9ZL1lMTEFQSC9SQVcA,a,ABC,A,#to:Avaerice,#rlm:128,#fr:Ragefloon-145", -- [1]
+			"|Kf40|k0000|k", -- [2]
+			"", -- [3]
+			"", -- [4]
+			"", -- [5]
+			"", -- [6]
+			0, -- [7]
+			0, -- [8]
+			"", -- [9]
+			0, -- [10]
+			2186, -- [11]
+			false, -- [12]
+			40, -- [13]
+			false, -- [14]
+			false, -- [15]
+			[20] = "CHAT_MSG_BN_WHISPER",
 		},
 	},
 }

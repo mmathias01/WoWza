@@ -7,10 +7,13 @@ end
 
 L = BigWigs:NewBossLocale("The Fallen Protectors", "deDE")
 if L then
-L["inferno_self"] = "Infernostoß auf Dir" -- Needs review
-L["inferno_self_bar"] = "Du explodierst!" -- Needs review
-L["inferno_self_desc"] = "Spezieller Timer wenn Du von Infernostoß betroffen bist." -- Needs review
-L["intermission_desc"] = "Warnt wenn die Bosse Verzweifelte Maßnahmen verwenden." -- Needs review
+L["defile_you"] = "Geschändeter Boden unter Dir!"
+L["defile_you_desc"] = "Warnung wenn Geschändeter Boden unter Dir ist."
+L["inferno_self"] = "Infernostoß auf Dir"
+L["inferno_self_bar"] = "Du explodierst!"
+L["inferno_self_desc"] = "Spezieller Timer wenn Du von Infernostoß betroffen bist."
+L["intermission_desc"] = "Warnt wenn die Bosse Verzweifelte Maßnahmen verwenden."
+L["no_meditative_field"] = "Du bist nicht in der Blase!"
 
 
 	L.custom_off_bane_marks = "Schattenwort: Unheil markieren"
@@ -29,19 +32,22 @@ end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "deDE")
 if L then
-L["projection_explosion"] = "Projektion Explosion"
-L["projection_message"] = "Gehe zum |cFF00FF00GRÜNEN|r Pfeil!"
+L["projection_green_arrow"] = "GRÜNER PFEIL"
 L["titan_pride"] = "Titanen+Stolz: %s"
 
 
 	L.custom_off_titan_mark = "Gabe der Titanen markieren"
 	L.custom_off_titan_mark_desc = "Markiert Spieler, die von Gabe der Titanen betroffen sind, mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
+
+	L.custom_off_fragment_mark = "Verderbtes Fragment markieren"
+	L.custom_off_fragment_mark_desc = "Markiert die Verderbten Fragmente mit {rt8}{rt7}{rt6}, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.\nIm 25-Spieler-Modus wird es Konflikte mit den Gabe der Titanen Markierungen geben.|r"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "deDE")
 if L then
 L["adds_desc"] = "Zeigt an, wann neue Adds in den Kampf eintreten."
 L["demolisher_message"] = "Verwüster"
+L["drakes"] = "Protodrachen"
 L["north_tower"] = "Nördlicher Turm"
 L["north_tower_trigger"] = "Das Tor zum Nordturm ist durchbrochen!"
 L["south_tower"] = "Südlicher Turm"
@@ -64,7 +70,8 @@ end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "deDE")
 if L then
-	L.blobs = "Schleim"
+L["blobs"] = "Schleim"
+
 
 	L.custom_off_mist_marks = "Toxischer Nebel markieren"
 	L.custom_off_mist_marks_desc = "Um bei der Einteilung zum Heilen zu helfen, werden Spieler mit Toxischem Nebel mit {rt1}{rt2}{rt3}{rt4}{rt5} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r"
@@ -86,14 +93,12 @@ if L then
 	L.adds_trigger4 = "Krieger, im Laufschritt!"
 	L.adds_trigger5 = "Kor'kron, zu mir!"
 	L.adds_trigger_extra_wave = "Alle Kor'kron unter meinem Befehl, tötet sie! Jetzt!"
-	L.extra_adds = "10% - Zusätzliche Adds"
-	--L.final_wave = "Final Wave"
+	L.extra_adds = "Zusätzliche Adds"
+	L.final_wave = "Letzte Welle"
 
 	L.chain_heal_message = "Dein Fokusziel wirkt Kettenheilung!"
 
 	L.arcane_shock_message = "Dein Fokusziel wirkt Arkaner Schock!"
-
-	L.focus_only = "|cffff0000Nur Meldungen für Fokusziele.|r "
 end
 
 L = BigWigs:NewBossLocale("Malkorok", "deDE")
@@ -104,11 +109,10 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "deDE")
 if L then
-	--L.start_trigger = "Hey, we recording?"
-	L.win_trigger = "System wird neu gestartet. Die Energieversorgung muss stabil bleiben, sonst fliegt die ganze Chose in die Luft."
+L["enable_zone"] = "Artefaktlagerraum"
+L["start_trigger"] = "Hallo? Mikrofontest"
+L["win_trigger"] = "System wird neu gestartet. Die Energieversorgung muss stabil bleiben, sonst fliegt die ganze Chose in die Luft."
 
-	L.enable_zone = "Artefaktlagerraum"
-	L.matter_scramble_explosion = "Materiewirbel Explosion"
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "deDE")
@@ -176,35 +180,27 @@ end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "deDE")
 if L then
-	L.manifest_rage = "Wut manifestieren"
-	L.manifest_rage_desc = "Wenn Garrosh 100 Energie erreicht, wirkt er zwei Sekunden lang Wut manifestieren und kanalisiert diesen Zauber dann. Während des Kanalisierens entstehen große Adds. Zieht den Eisernen Stern in Garrosh, um ihn zu betäuben und den Zauber zu unterbrechen."
+L["bombardment"] = "Bombardement"
+L["bombardment_desc"] = "Bombardiert Sturmwind und hinterlässt Feuer auf dem Boden. Eiserne Sterne der Kor'kron können nur während des Bombardements entstehen."
+L["chain_heal_bar"] = "Fokusziel: Kettenheilung"
+L["chain_heal_desc"] = "Heilt ein verbündetes Ziel um 40% ihrer maximalen Gesundheit. Springt auf nahe verbündete Ziele über."
+L["chain_heal_message"] = "Dein Fokusziel wirkt Kettenheilung!"
+L["clump_check_desc"] = "Prüft alle 3 Sekunden während des Bombardements, ob Spieler eng zusammenstehen, da hierdurch Eiserne Sterne der Kor'kron entstehen."
+L["clump_check_warning"] = "Gruppierung gefunden, Stern kommt"
+L["empowered_message"] = "%s ist jetzt mächtig!"
+L["farseer_trigger"] = "Scharfseher, heilt unsere Wunden!"
+L["intermission"] = "Unterbrechung"
+L["ironstar_impact_desc"] = "Zeigt einen Timer für die Explosion der Eisernen Sterne an der jeweils gegenüberliegenden Wand."
+L["ironstar_rolling"] = "Eiserner Stern rollt!"
+L["manifest_rage"] = "Wut manifestieren"
+L["manifest_rage_desc"] = "Wenn Garrosh 100 Energie erreicht, wirkt er zwei Sekunden lang Wut manifestieren und kanalisiert diesen Zauber dann. Während des Kanalisierens entstehen große Adds. Zieht den Eisernen Stern in Garrosh, um ihn zu betäuben und den Zauber zu unterbrechen."
+L["phase_3_end_trigger"] = "Ihr glaubt GEWONNEN zu haben? BLIND seid ihr. ICH WERDE EUCH DIE AUGEN ÖFFNEN."
 
-	L.phase_3_end_trigger = "Ihr glaubt GEWONNEN zu haben? BLIND seid ihr. ICH WERDE EUCH DIE AUGEN ÖFFNEN."
 
-	L.clump_check_desc = "Prüft alle 3 Sekunden während des Bombardements, ob Spieler eng zusammenstehen, da hierdurch Eiserne Sterne der Kor'kron entstehen."
-	L.clump_check_warning = "Gruppierung gefunden, Stern kommt"
-
-	L.bombardment = "Bombardement"
-	L.bombardment_desc = "Bombardiert Sturmwind und hinterlässt Feuer auf dem Boden. Eiserne Sterne der Kor'kron können nur während des Bombardements entstehen."
-
-	L.intermission = "Unterbrechung"
-	L.mind_control = "Gedankenkontrolle"
-	L.empowered_message = "%s ist jetzt mächtig!"
-
-	L.ironstar_impact_desc = "Zeigt einen Timer für die Explosion der Eisernen Sterne an der jeweils gegenüberliegenden Wand."
-	L.ironstar_rolling = "Eiserner Stern rollt!"
-
-	L.chain_heal_desc = "Heilt ein verbündetes Ziel um 40% ihrer maximalen Gesundheit. Springt auf nahe verbündete Ziele über."
-	L.chain_heal_message = "Dein Fokusziel wirkt Kettenheilung!"
-	L.chain_heal_bar = "Fokusziel: Kettenheilung"
-
-	L.farseer_trigger = "Scharfseher, heilt unsere Wunden!"
 	L.custom_off_shaman_marker = "Scharfseher markieren"
 	L.custom_off_shaman_marker_desc = "Um bei der Einteilung zum Unterbrechen zu helfen, werden die Scharfseherwolfsreiter mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} markiert, benötigt Leiter oder Assistent.\n|cFFFF0000Um Konflikte beim Markieren zu vermeiden, sollte lediglich 1 Person im Raid diese Option aktivieren.|r\n|cFFADFF2FTIPP: Wenn Du diese Option aktivierst, ist die schnellste Methode zum Markieren das zügige Bewegen des Mauszeigers über die Scharfseher.|r"
 
 	L.custom_off_minion_marker = "Diener markerieren"
 	L.custom_off_minion_marker_desc = "Um bei der Unterscheidung der Diener zu helfen, werden diese mit {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} markiert, benötigt Leiter oder Assistent."
-
-	L.focus_only = "|cffff0000Nur Meldungen für Fokusziele.|r "
 end
 

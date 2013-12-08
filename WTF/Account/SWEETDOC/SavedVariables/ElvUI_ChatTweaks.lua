@@ -540,9 +540,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7843137979507446,
 							["r"] = 0.4627451300621033,
 						},
-						["AFK"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
 							["r"] = 1,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -555,9 +555,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["r"] = 1,
 						},
-						["RAID_LEADER"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
 							["r"] = 1,
 						},
 						["BN_WHISPER"] = {
@@ -1029,9 +1029,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.7843137979507446,
 							["r"] = 0.4627451300621033,
 						},
-						["AFK"] = {
-							["b"] = 1,
-							["g"] = 0.501960813999176,
+						["RAID_LEADER"] = {
+							["b"] = 0.03529411926865578,
+							["g"] = 0.2823529541492462,
 							["r"] = 1,
 						},
 						["CHANNEL_NOTICE"] = {
@@ -1044,9 +1044,9 @@ ElvUI_ChatTweaksDB = {
 							["g"] = 0.8666667342185974,
 							["r"] = 1,
 						},
-						["RAID_LEADER"] = {
-							["b"] = 0.03529411926865578,
-							["g"] = 0.2823529541492462,
+						["AFK"] = {
+							["b"] = 1,
+							["g"] = 0.501960813999176,
 							["r"] = 1,
 						},
 						["BN_WHISPER"] = {
@@ -1236,9 +1236,11 @@ ElvUI_ChatTweaksDB = {
 		},
 		["ChannelSounds"] = {
 		},
+		["WhisperFilter"] = {
+		},
 		["AutoFarewell"] = {
 		},
-		["WhisperFilter"] = {
+		["AFK/DNDFilter"] = {
 		},
 		["Reputation"] = {
 			["profiles"] = {
@@ -1249,9 +1251,9 @@ ElvUI_ChatTweaksDB = {
 						["natpagle"] = false,
 						["orderofthecloudserpent"] = false,
 						["shadopanassault"] = false,
-						["theaugustcelestials"] = false,
-						["shadopan"] = false,
 						["pearlfinjinyu"] = false,
+						["shadopan"] = false,
+						["theaugustcelestials"] = false,
 						["mayorcarlosdanger"] = false,
 						["kirintoroffensive"] = false,
 						["goldenlotus"] = false,
@@ -1261,12 +1263,12 @@ ElvUI_ChatTweaksDB = {
 				["Jolokia - Dragonblight"] = {
 					["factions"] = {
 						["bootybay"] = false,
-						["gilneas"] = false,
+						["thescaleofthesands"] = false,
 						["theconsortium"] = false,
-						["theleagueofarathor"] = false,
+						["timbermawhold"] = false,
 						["darkmoonfaire"] = false,
 						["gelkisclancentaur"] = false,
-						["orderofthecloudserpent"] = false,
+						["cenarionexpedition"] = false,
 						["everlook"] = false,
 						["shatariskyguard"] = false,
 						["shadopanassault"] = false,
@@ -1276,46 +1278,46 @@ ElvUI_ChatTweaksDB = {
 						["darnassus"] = false,
 						["theshatar"] = false,
 						["bloodsailbuccaneers"] = false,
-						["theblackprince"] = false,
-						["thesilvercovenant"] = false,
-						["stormwind"] = false,
-						["exodar"] = false,
-						["kirintoroffensive"] = false,
-						["silverwingsentinels"] = false,
-						["ginamudclaw"] = false,
-						["pearlfinjinyu"] = false,
-						["sho"] = false,
 						["thoriumbrotherhood"] = false,
+						["thesilvercovenant"] = false,
+						["honorhold"] = false,
+						["ironforge"] = false,
+						["ginamudclaw"] = false,
+						["exodar"] = false,
+						["silverwingsentinels"] = false,
+						["stormwind"] = false,
+						["sho"] = false,
+						["tinamudclaw"] = false,
 						["thealdor"] = false,
 						["zandalartribe"] = false,
 						["operation:shieldwall"] = false,
+						["theklaxxi"] = false,
 						["shatteredsunoffensive"] = false,
-						["valianceexpedition"] = false,
 						["ratchet"] = false,
 						["thevioleteye"] = false,
 						["lowercity"] = false,
-						["thelorewalkers"] = false,
+						["valianceexpedition"] = false,
 						["magramclancentaur"] = false,
-						["argentdawn"] = false,
-						["thescaleofthesands"] = false,
+						["thelorewalkers"] = false,
+						["gilneas"] = false,
 						["tushuipandaren"] = false,
 						["sporeggar"] = false,
-						["timbermawhold"] = false,
-						["tinamudclaw"] = false,
+						["orderofthecloudserpent"] = false,
+						["holycrit"] = false,
 						["keepersoftime"] = false,
 						["gadgetzan"] = false,
-						["holycrit"] = false,
-						["cenarionexpedition"] = false,
+						["stormpikeguard"] = false,
+						["theleagueofarathor"] = false,
 						["thescryers"] = false,
-						["ironforge"] = false,
+						["argentdawn"] = false,
 						["kurenai"] = false,
 						["gnomeregan"] = false,
 						["cenarioncircle"] = false,
-						["honorhold"] = false,
+						["pearlfinjinyu"] = false,
 						["ashtonguedeathsworn"] = false,
-						["stormpikeguard"] = false,
+						["kirintoroffensive"] = false,
 						["goldenlotus"] = false,
-						["theklaxxi"] = false,
+						["theblackprince"] = false,
 						["joguthedrunk"] = false,
 					},
 				},
@@ -1325,32 +1327,27 @@ ElvUI_ChatTweaksDB = {
 		},
 		["MaterialsFarming"] = {
 		},
-		["AFK/DNDFilter"] = {
+		["Search"] = {
 		},
 		["ChannelInviteSpam"] = {
 		},
 		["ChatTabs"] = {
 		},
-		["Search"] = {
+		["EditBoxAltKeyArrows"] = {
 		},
 		["Substitutions"] = {
 		},
 		["ColorRolls"] = {
 		},
-		["AddonMessages"] = {
+		["AchievementFilter"] = {
 		},
 		["CrapCleaner"] = {
 		},
-		["AchievementFilter"] = {
+		["PopupMessages"] = {
 		},
 		["CustomChatFilters"] = {
 		},
-		["Timestamps"] = {
-			["profiles"] = {
-				["Majandra - Dragonblight"] = {
-					["format"] = "%I:%M:S",
-				},
-			},
+		["SpamFilter"] = {
 		},
 		["PlayerNames"] = {
 		},
@@ -1358,31 +1355,9 @@ ElvUI_ChatTweaksDB = {
 		},
 		["TextJustification"] = {
 		},
-		["SpamFilter"] = {
-		},
-		["Datatext"] = {
-		},
 		["ImprovedAuctionMessages"] = {
 		},
-		["SpamLog"] = {
-		},
-		["ATestofValor"] = {
-			["profiles"] = {
-				["Majandra - Dragonblight"] = {
-					["completed"] = true,
-					["gains"] = false,
-				},
-				["Jolokia - Dragonblight"] = {
-					["completed"] = true,
-					["gains"] = false,
-				},
-			},
-		},
-		["AutoSetRole"] = {
-		},
-		["CustomEmotes"] = {
-		},
-		["Calculator"] = {
+		["Datatext"] = {
 		},
 		["AutoProfessionLink"] = {
 			["profiles"] = {
@@ -1440,11 +1415,33 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
+		["ATestofValor"] = {
+			["profiles"] = {
+				["Majandra - Dragonblight"] = {
+					["completed"] = true,
+					["gains"] = false,
+				},
+				["Jolokia - Dragonblight"] = {
+					["completed"] = true,
+					["gains"] = false,
+				},
+			},
+		},
+		["CustomEmotes"] = {
+		},
+		["AutoSetRole"] = {
+		},
+		["SpamLog"] = {
+		},
+		["Calculator"] = {
+		},
 		["AuctionMessageFiltering"] = {
 		},
-		["MultipleInviteCommand"] = {
+		["Magic8-Ball"] = {
 		},
 		["LootIcons"] = {
+		},
+		["MultipleInviteCommand"] = {
 		},
 		["InviteLinks"] = {
 			["profiles"] = {
@@ -1512,23 +1509,28 @@ ElvUI_ChatTweaksDB = {
 				},
 			},
 		},
-		["Magic8-Ball"] = {
+		["RerouteAuctionMessages"] = {
 		},
 		["AutoDing"] = {
 		},
-		["RerouteAuctionMessages"] = {
+		["KeywordSounds"] = {
 		},
 		["ChannelSpam"] = {
 		},
-		["KeywordSounds"] = {
-		},
 		["AltNames"] = {
+		},
+		["Timestamps"] = {
+			["profiles"] = {
+				["Majandra - Dragonblight"] = {
+					["format"] = "%I:%M:S",
+				},
+			},
 		},
 		["XPLeftToLevel"] = {
 		},
 		["ChannelNoticeFilter"] = {
 		},
-		["PopupMessages"] = {
+		["AddonMessages"] = {
 		},
 		["EditboxHistory"] = {
 			["char"] = {
@@ -1578,38 +1580,38 @@ ElvUI_ChatTweaksDB = {
 				},
 				["Majandra - Dragonblight"] = {
 					["history"] = {
-						"/raid getting that setup stand by", -- [1]
-						"/raid shit right", -- [2]
-						" this is a biatch on heroic ;)", -- [3]
-						" got em!", -- [4]
-						" although it feels good", -- [5]
-						" to know I have that much impact lol", -- [6]
-						" I do about 80k", -- [7]
-						" its not trivial", -- [8]
-						" its not fucking arcane damage but it gave you back arcane + 80k", -- [9]
-						" not bad", -- [10]
-						" 2 healing is a lot harder without disc", -- [11]
-						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [12]
-						" its not trivial", -- [13]
-						" its not fucking arcane damage but it gave you back arcane + 80k", -- [14]
-						" not bad", -- [15]
-						" 2 healing is a lot harder without disc", -- [16]
-						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [17]
-						" its not trivial", -- [18]
-						" its not fucking arcane damage but it gave you back arcane + 80k", -- [19]
-						" not bad", -- [20]
-						" 2 healing is a lot harder without disc", -- [21]
-						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [22]
-						"/random", -- [23]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [1]
+						" its not trivial", -- [2]
+						" its not fucking arcane damage but it gave you back arcane + 80k", -- [3]
+						" not bad", -- [4]
+						" 2 healing is a lot harder without disc", -- [5]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [6]
+						" its not trivial", -- [7]
+						" its not fucking arcane damage but it gave you back arcane + 80k", -- [8]
+						" not bad", -- [9]
+						" 2 healing is a lot harder without disc", -- [10]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [11]
+						"/random", -- [12]
+						"/random", -- [13]
+						"/random", -- [14]
+						" its not fucking arcane damage but it gave you back arcane + 80k", -- [15]
+						" not bad", -- [16]
+						" 2 healing is a lot harder without disc", -- [17]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [18]
+						"/random", -- [19]
+						"/cw Padred yah not been in game been super busy at work and fighting through the end of my marriage so yah", -- [20]
+						"/cw Padred been busy", -- [21]
+						" 2 healing is a lot harder without disc", -- [22]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [23]
 						"/random", -- [24]
-						"/random", -- [25]
-						" its not fucking arcane damage but it gave you back arcane + 80k", -- [26]
-						" not bad", -- [27]
-						" 2 healing is a lot harder without disc", -- [28]
-						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [29]
-						"/random", -- [30]
-						"/cw Padred yah not been in game been super busy at work and fighting through the end of my marriage so yah", -- [31]
-						"/cw Padred been busy", -- [32]
+						"/cw Padred yah not been in game been super busy at work and fighting through the end of my marriage so yah", -- [25]
+						"/cw Padred been busy", -- [26]
+						" 2 healing is a lot harder without disc", -- [27]
+						" disc is just too OP for 2 healing because I dont have to think about WHO to heal lol", -- [28]
+						"/random", -- [29]
+						"/cw Padred yah not been in game been super busy at work and fighting through the end of my marriage so yah", -- [30]
+						"/cw Padred been busy", -- [31]
+						" if u need healz tonight let me know", -- [32]
 					},
 				},
 				["Jolobank - Dragonblight"] = {

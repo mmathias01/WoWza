@@ -27,6 +27,7 @@ plugin.defaultDB = {
 	outline = "THICKOUTLINE",
 	fontSize = 32,
 	fontColor = { r = 1, g = 0, b = 0 },
+	disabled = false,
 }
 
 do
@@ -42,13 +43,23 @@ do
 						plugin.anchorEmphasizedCountdownText:SetFont(media:Fetch("font", plugin.db.profile.font), plugin.db.profile.fontSize, plugin.db.profile.outline ~= "NONE" and plugin.db.profile.outline)
 					end
 				end,
+				disabled = function() return plugin.db.profile.disabled end,
 				args = {
+
 					heading = {
 						type = "description",
 						name = L.superEmphasizeDesc,
 						order = 0.1,
 						width = "full",
 						--fontSize = "medium",
+					},
+					disabled = {
+						type = "toggle",
+						name = L.disabled,
+						desc = L.superEmphasizeDisableDesc,
+						order = 0.5,
+						width = "full",
+						disabled = false,
 					},
 					font = {
 						type = "select",
@@ -159,18 +170,20 @@ do
 		if text and timers[text] then wipe(timers[text]) end
 	end
 	function plugin:BigWigs_StartEmphasize(_, module, text, time)
-		self:BigWigs_StopEmphasize(nil, module, text)
-		if time > 1.3 then
-			if not timers[text] then timers[text] = {} end
-			timers[text][1] = module:ScheduleTimer(printEmph, time-1.3, 1, text)
-			if time > 2.3 then
-				timers[text][2] = module:ScheduleTimer(printEmph, time-2.3, 2)
-				if time > 3.3 then
-					timers[text][3] = module:ScheduleTimer(printEmph, time-3.3, 3)
-					if time > 4.3 then
-						timers[text][4] = module:ScheduleTimer(printEmph, time-4.3, 4)
-						if time > 5.3 then
-							timers[text][5] = module:ScheduleTimer(printEmph, time-5.3, 5)
+		if not self.db.profile.disabled and self.db.profile.countdown then
+			self:BigWigs_StopEmphasize(nil, module, text)
+			if time > 1.3 then
+				if not timers[text] then timers[text] = {} end
+				timers[text][1] = module:ScheduleTimer(printEmph, time-1.3, 1, text)
+				if time > 2.3 then
+					timers[text][2] = module:ScheduleTimer(printEmph, time-2.3, 2)
+					if time > 3.3 then
+						timers[text][3] = module:ScheduleTimer(printEmph, time-3.3, 3)
+						if time > 4.3 then
+							timers[text][4] = module:ScheduleTimer(printEmph, time-4.3, 4)
+							if time > 5.3 then
+								timers[text][5] = module:ScheduleTimer(printEmph, time-5.3, 5)
+							end
 						end
 					end
 				end
@@ -188,7 +201,7 @@ do
 end
 
 function plugin:IsSuperEmphasized(module, key)
-	if not module or not key then return end
+	if not module or not key or self.db.profile.disabled then return end
 	if temporaryEmphasizes[key] and temporaryEmphasizes[key] > GetTime() then return true else temporaryEmphasizes[key] = nil end
 	if type(key) == "number" and key > 0 then key = GetSpellInfo(key) end
 	return module.db.profile[key] and bit.band(module.db.profile[key], emphasizeFlag) == emphasizeFlag or nil

@@ -18,7 +18,7 @@ local GetTime, floor, next, wipe = GetTime, floor, next, wipe
 local CreateFrame, error, setmetatable, UIParent = CreateFrame, error, setmetatable, UIParent
 
 local major = "LibCandyBar-3.0"
-local minor = tonumber(("$Rev: 68 $"):match("(%d+)")) or 1
+local minor = tonumber(("$Rev: 75 $"):match("(%d+)")) or 1
 if not LibStub then error("LibCandyBar-3.0 requires LibStub.") end
 local cbh = LibStub:GetLibrary("CallbackHandler-1.0")
 if not cbh then error("LibCandyBar-3.0 requires CallbackHandler-1.0") end
@@ -144,7 +144,6 @@ local function restyleBar(self)
 	else
 		self.candyBarBar:SetPoint("TOPLEFT", self)
 		self.candyBarBar:SetPoint("BOTTOMLEFT", self)
-		self.candyBarIconFrame:Hide()
 	end
 	if self.candyBarLabel:GetText() then self.candyBarLabel:Show()
 	else self.candyBarLabel:Hide() end
@@ -255,6 +254,7 @@ function lib:New(texture, width, height)
 		icon:SetPoint("TOPLEFT")
 		icon:SetPoint("BOTTOMLEFT")
 		icon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+		icon:Show()
 		bar.candyBarIconFrame = icon
 
 		local statusbar = CreateFrame("StatusBar", nil, bar)
@@ -285,10 +285,16 @@ function lib:New(texture, width, height)
 		barCache[bar] = nil
 	end
 
+	-- Merge this into the above if statement at some point, stays here for upgrade reasons right now
 	if not bar.candyBarBackdrop then
-		-- Merge this into the above if statement at some point, stays here for upgrade reasons right now
 		bar.candyBarBackdrop = CreateFrame("Frame", nil, bar) -- Used by bar stylers for backdrops
 	end
+	bar.candyBarBackdrop:SetFrameLevel(0)
+	if not bar.candyBarIconFrameBackdrop then
+		bar.candyBarIconFrameBackdrop = CreateFrame("Frame", nil, bar) -- Used by bar stylers for backdrops
+		bar.candyBarIconFrameBackdrop:SetFrameLevel(0)
+	end
+	-- End merge
 
 	bar.candyBarBar:SetStatusBarTexture(texture)
 	bar.candyBarBackground:SetTexture(texture)
@@ -303,7 +309,6 @@ function lib:New(texture, width, height)
 	end
 
 	bar.candyBarBackground:SetVertexColor(0.5, 0.5, 0.5, 0.3)
-	bar.candyBarBackdrop:Hide()
 	bar:ClearAllPoints()
 	bar:SetWidth(width)
 	bar:SetHeight(height)

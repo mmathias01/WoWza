@@ -32,13 +32,15 @@ end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "zhCN")
 if L then
-L["projection_explosion"] = "投影爆炸"
-L["projection_message"] = "快到|cFF00FF00绿|r箭头！"
+L["projection_green_arrow"] = "绿箭头"
 L["titan_pride"] = "泰坦+傲：%s"
 
 
 	L.custom_off_titan_mark = "泰坦之赐标记"
 	L.custom_off_titan_mark_desc = "给受到泰坦之赐的玩家使用 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 进行标记，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。|r"
+
+	L.custom_off_fragment_mark = "被腐蚀的碎片标记"
+	L.custom_off_fragment_mark_desc = "使用 {rt8}{rt7}{rt6} 标记被腐蚀的碎片，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。\n在25人模式中，这将与泰坦之赐标记冲突。|r"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "zhCN")
@@ -68,7 +70,8 @@ end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "zhCN")
 if L then
-	L.blobs = "污秽软泥怪"
+L["blobs"] = "污秽软泥怪"
+
 
 	L.custom_off_mist_marks = "剧毒之雾标记"
 	L.custom_off_mist_marks_desc = "帮助治疗分配，给受到剧毒之雾的玩家使用 {rt1}{rt2}{rt3}{rt4}{rt5} 进行标记，需要权限。\n|cFFFF0000团队中只有1名应该启用此选项以防止标记冲突。|r"
@@ -90,14 +93,12 @@ if L then
 	L.adds_trigger4 = "战士们，快过来！"
 	L.adds_trigger5 = "库卡隆，支援我！"
 	L.adds_trigger_extra_wave = "库卡隆，听我的命令，杀了他们！"
-	L.extra_adds = "10% - 额外增援部队"
+	L.extra_adds = "额外增援部队"
 	L.final_wave = "最后一波"
 
 	L.chain_heal_message = "你的焦点正在施放强效治疗链！"
 
 	L.arcane_shock_message = "你的焦点正在施放奥术震击！"
-
-	L.focus_only = "|cffff0000只警报焦点目标。|r "
 end
 
 L = BigWigs:NewBossLocale("Malkorok", "zhCN")
@@ -108,11 +109,10 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "zhCN")
 if L then
-	L.start_trigger = "录像开了吗？开了？很好。地精泰坦控制模块启动，请退后。"
-	L.win_trigger = "系统重置中。请勿关闭电源，否则将发生爆炸。"
+L["enable_zone"] = "遗物仓库"
+L["start_trigger"] = "录像开了吗？开了？很好。地精泰坦控制模块启动，请退后。"
+L["win_trigger"] = "系统重置中。请勿关闭电源，否则将发生爆炸。"
 
-	L.enable_zone = "遗物仓库"
-	L.matter_scramble_explosion = "斗转乾坤爆炸" -- shorten maybe?
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "zhCN")
@@ -180,35 +180,27 @@ end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "zhCN")
 if L then
-	L.manifest_rage = "暴怒具象"
-	L.manifest_rage_desc = "当加尔鲁什获得100能量时将释放2秒引导的暴怒具象技能，当引导结束后会召唤大型增援。风筝钢铁之星到加尔鲁什将昏迷并打断他的施法。"
+L["bombardment"] = "呼叫轰炸"
+L["bombardment_desc"] = "轰击暴风城，并在地面上留下火焰。 库卡隆钢铁之星只会在呼叫轰炸阶段出现。"
+L["chain_heal_bar"] = "焦点：先祖治疗链"
+L["chain_heal_desc"] = "治疗一个友方目标40%最大生命，会跳到附近友方目标身上。"
+L["chain_heal_message"] = "你的焦点目标正在施放先祖治疗链！"
+L["clump_check_desc"] = "在呼叫轰炸阶段时每3秒检查扎堆的玩家，如果检查到群体存在库卡隆钢铁之星将会出现。"
+L["clump_check_warning"] = "发现呼叫轰炸，即将 >钢铁之星<！"
+L["empowered_message"] = ">%s< 强化腐蚀！"
+L["farseer_trigger"] = "先知们，为我们治疗！"
+L["intermission"] = "中场休息"
+L["ironstar_impact_desc"] = "当钢铁之星将撞击墙壁另一边时显示计时条。"
+L["ironstar_rolling"] = "钢铁之星翻滚！"
+L["manifest_rage"] = "暴怒具象"
+L["manifest_rage_desc"] = "当加尔鲁什获得100能量时将释放2秒引导的暴怒具象技能，当引导结束后会召唤大型增援。风筝钢铁之星到加尔鲁什将昏迷并打断他的施法。"
+L["phase_3_end_trigger"] = "别以为你们已经赢了，你们这些瞎子，睁大眼睛好好看看！"
 
-	L.phase_3_end_trigger = "别以为你们已经赢了，你们这些瞎子，睁大眼睛好好看看！"
 
-	L.clump_check_desc = "在呼叫轰炸阶段时每3秒检查扎堆的玩家，如果检查到群体存在库卡隆钢铁之星将会出现。"
-	L.clump_check_warning = "发现呼叫轰炸，即将 >钢铁之星<！"
-
-	L.bombardment = "呼叫轰炸"
-	L.bombardment_desc = "轰击暴风城，并在地面上留下火焰。 库卡隆钢铁之星只会在呼叫轰炸阶段出现。"
-
-	L.intermission = "中场休息"
-	L.mind_control = "亚煞极之触"
-	L.empowered_message = ">%s< 强化腐蚀！"
-
-	L.ironstar_impact_desc = "当钢铁之星将撞击墙壁另一边时显示计时条。"
-	L.ironstar_rolling = "钢铁之星翻滚！"
-
-	L.chain_heal_desc = "治疗一个友方目标40%最大生命，会跳到附近友方目标身上。"
-	L.chain_heal_message = "你的焦点目标正在施放先祖治疗链！"
-	L.chain_heal_bar = "焦点：先祖治疗链"
-
-	L.farseer_trigger = "先知们，为我们治疗！"
 	L.custom_off_shaman_marker = "先知标记"
 	L.custom_off_shaman_marker_desc = "帮助打断分配，使用 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} 标记先知狼骑（按照这个顺序，不是所有标记会被用到），需要权限。"
 
 	L.custom_off_minion_marker = "亚煞极的爪牙标记"
 	L.custom_off_minion_marker_desc = "帮助分离亚煞极的爪牙，使用 {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8} 标记，需要权限。"
-
-	L.focus_only = "|cffff0000只警报焦点目标。|r "
 end
 

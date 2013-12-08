@@ -788,6 +788,14 @@ end
 local function updateProfile()
 	db = plugin.db.profile
 
+	if not db.font then
+		db.font = media:GetDefault("font")
+	end
+	if not db.fontSize then
+		local _, size = GameFontNormalHuge:GetFont()
+		db.fontSize = size
+	end
+
 	if anchor then
 		anchor:SetWidth(db.width)
 		anchor:SetHeight(db.height)
@@ -804,14 +812,6 @@ local function updateProfile()
 		end
 
 		plugin:RestyleWindow()
-	end
-
-	if not db.font then
-		db.font = media:GetDefault("font")
-	end
-	if not db.fontSize then
-		local _, size = GameFontNormalHuge:GetFont()
-		db.fontSize = size
 	end
 end
 
@@ -951,6 +951,8 @@ do
 				updateBlipIcons()
 			end
 		end)
+
+		plugin:SendMessage("BigWigs_FrameCreated", anchor, "Proximity")
 	end
 
 	function plugin:OnPluginEnable()
@@ -1029,12 +1031,14 @@ do
 					end
 					plugin:RestyleWindow()
 				end,
+				disabled = function() return plugin.db.profile.disabled end,
 				args = {
 					disabled = {
 						type = "toggle",
 						name = L.disabled,
 						desc = L.disabledDisplayDesc,
 						order = 1,
+						disabled = false,
 					},
 					lock = {
 						type = "toggle",

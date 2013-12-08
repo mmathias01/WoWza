@@ -134,7 +134,7 @@ a.Rotations.Shadow = {
 			a.Insanity = (a.Insanity % a.FlayTick) + c.GetHastedTime(3)
 		end
 		
-		a.InExecute = s.HealthPercent() < 20
+		a.InExecute = s.HealthPercent() <= 20
 		
 		c.FlashAll(
 			"Power Infusion",

@@ -10,6 +10,7 @@ local TSM = select(2, ...)
 local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster") -- loads the localization table
 
 local private = {auctionTabs={}, queuedTabs={}}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.AuctionFrame_private")
 LibStub("AceEvent-3.0"):Embed(private)
 LibStub("AceHook-3.0"):Embed(private)
 

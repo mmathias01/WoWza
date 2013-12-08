@@ -1,7 +1,7 @@
 local g = BittensGlobalTables
 local c = g.GetOrMakeTable("BittensSpellFlashLibrary", 2)
 local u = g.GetTable("BittensUtilities")
-if u.SkipOrUpgrade(c, "MainFile", 40) then
+if u.SkipOrUpgrade(c, "MainFile", 41) then
 	return
 end
 

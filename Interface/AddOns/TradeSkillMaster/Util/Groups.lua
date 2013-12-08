@@ -28,6 +28,7 @@ end
 
 
 local private = {}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.Groups_private")
 private.operationInfo = {}
 
 function TSM:RegisterOperationInfo(module, info)
@@ -113,14 +114,12 @@ end
 local function MoveGroup(groupPath, newPath)
 	if not TSM.db.profile.groups[groupPath] then return end
 	if TSM.db.profile.groups[newPath] then return end
-	local _, oldName = SplitGroupPath(groupPath)
-	local _, newName = SplitGroupPath(newPath)
 	
 	-- change the path of all subgroups
 	local changes = {}
 	for path, groupData in pairs(TSM.db.profile.groups) do
 		if path == groupPath or strfind(path, "^"..TSMAPI:StrEscape(groupPath)..TSM.GROUP_SEP) then
-			changes[path] = gsub(path, "^"..TSMAPI:StrEscape(groupPath), newPath)
+			changes[path] = gsub(path, "^"..TSMAPI:StrEscape(groupPath), TSMAPI:StrEscape(newPath))
 		end
 	end
 	for oldPath, newPath in pairs(changes) do

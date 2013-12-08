@@ -32,11 +32,10 @@ L["configure"] = "Configuration"
 L["configureBtnDesc"] = [=[Ferme la fenêtre des options de l'interface et vous permet de configurer l'affichage des barres et des messages.
 
 Si vous voulez personnaliser plus en profondeur le reste de Big Wigs, étendez l'arbre de configuration sur la gauche et cliquez sur "Personnaliser...".]=]
+L["configureBtnName"] = "Déplacer & Configurer >>> Barres/Messages/..." -- Needs review
 L["contact"] = "Contact"
 L["coreAddonDisabled"] = "Big Wigs ne fonctionnera pas correctement car l'addon %s est désactivé. Vous pouvez l'activer via le panneau de contrôle des addons à l'écran de sélection du personnage."
 L["customizeBtn"] = "Personnaliser..."
-L["dbmBar"] = "Créer les barres DBM"
-L["dbmBarDesc"] = "Si un utilisateur envoie un délai de pull ou une barre personnalisée 'pizza', elle sera affichée dans Big Wigs."
 L["dbmFaker"] = "Prétendre d'utiliser DBM"
 L["dbmFakerDesc"] = "Si un utilisateur de DBM effectue une vérification des versions pour voir qui utilise DBM, il vous verra sur la liste. Utile pour les guildes qui forcent l'utilisation de DBM."
 L["dbmUsers"] = "Utilisateurs de DBM :"

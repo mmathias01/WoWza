@@ -1,0 +1,12 @@
+tag 5.4.1386460800
+a766e8745ccb6cdbd2c88a530b045e9016e97fd0
+Nick Tolomiczenko <nick@debian.(none)>
+2013-12-08 01:52:14 -0800
+
+Tagging version 5.4.1386460800
+
+
+--------------------
+
+Nick Tolomiczenko:
+	- Updated to version 5.4.1386460800

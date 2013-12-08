@@ -14,6 +14,7 @@ local AceGUI = LibStub("AceGUI-3.0") -- load the AceGUI libraries
 
 local lib = TSMAPI
 local private = {}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.Options_private")
 
 local presetThemes = {
 	light = { L["Light (by Ravanys - The Consortium)"], "inlineColors{link{49,56,133,1}link2{153,255,255,1}category{36,106,36,1}category2{85,180,8,1}}textColors{iconRegion{enabled{105,105,105,1}}title{enabled{49,56,85,1}}label{enabled{45,44,40,1}disabled{150,148,140,1}}text{enabled{245,244,240,1}disabled{95,98,90,1}}link{enabled{49,56,133,1}}}fontSizes{normal{15}medium{13}small{12}}edgeSize{1.5}frameColors{frameBG{backdrop{219,219,219,1}border{30,30,30,1}}content{backdrop{60,60,60,1}border{40,40,40,1}}frame{backdrop{228,228,228,1}border{199,199,199,1}}}" },

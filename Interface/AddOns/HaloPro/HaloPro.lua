@@ -10,7 +10,7 @@ HP_UpdateInterval = .1 -- update frequency == 1/HP_UpdateDelay
 
 local AppName, HaloPro= ...
 --local OptionsAppName = AppName .. "_Options"
-local VERSION = AppName .. "-v2.5.0"
+local VERSION = AppName .. "-v2.6.0"
 
 
 local rc = LibStub("LibRangeCheck-2.0")
@@ -2448,6 +2448,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	WidthSlider:SetMinMaxValues(1,1000)
 	WidthSlider:SetValue(HP_width)
 	WidthSlider:SetValueStep(1)
+	WidthSlider:SetStepsPerPage(1)
 
 	WidthSlider.tooltipText = 'Adjust the width of HaloPro (While HaloPro is unlocked, you can place your cursor over the HaloPro bar, and mouse wheel scroll, to adjust width)'   -- Creates a tooltip on mouseover.
 	_G[WidthSlider:GetName() .. 'Low']:SetText('shorter')    -- Sets the left-side slider text (default is "Low").
@@ -2465,6 +2466,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	HeightSlider:SetMinMaxValues(1,1000)
 	HeightSlider:SetValue(HP_height)
 	HeightSlider:SetValueStep(1)
+	HeightSlider:SetStepsPerPage(1)
 
 	HeightSlider.tooltipText = 'Adjust the height of HaloPro (While HaloPro is unlocked, you can place your cursor over the HaloPro bar, and SHIFT + mouse wheel scroll, to adjust height)'   -- Creates a tooltip on mouseover.
 	_G[HeightSlider:GetName() .. 'Low']:SetText('thinner')     -- Sets the left-side slider text (default is "Low").
@@ -2482,6 +2484,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	XposSlider:SetMinMaxValues(-2000,2000)
 	XposSlider:SetValue(xOfs)
 	XposSlider:SetValueStep(1)
+	XposSlider:SetStepsPerPage(1)
 
 	XposSlider.tooltipText = 'Adjust the X position of HaloPro (While HaloPro is unlocked, you can left click on the HaloPro bar and drag to reposition)'   -- Creates a tooltip on mouseover.
 	_G[XposSlider:GetName() .. 'Low']:SetText('left')        	-- Sets the left-side slider text (default is "Low").
@@ -2499,6 +2502,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	YposSlider:SetMinMaxValues(-2000,2000)
 	YposSlider:SetValue(yOfs)
 	YposSlider:SetValueStep(1)
+	YposSlider:SetStepsPerPage(1)
 
 	YposSlider.tooltipText = 'Adjust the Y position of HaloPro (While HaloPro is unlocked, you can left click on the HaloPro bar and drag to reposition)'   -- Creates a tooltip on mouseover.
 	_G[YposSlider:GetName() .. 'Low']:SetText('lower')        	-- Sets the left-side slider text (default is "Low").
@@ -2516,6 +2520,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	MaxASlider:SetMinMaxValues(0.1,1.0)
 	MaxASlider:SetValue(HP_max_alpha_adjust)
 	MaxASlider:SetValueStep(0.025)
+	MaxASlider:SetStepsPerPage(0.025)
 
 	MaxASlider.tooltipText = 'Adjust the Max alpha of HaloPro (lower# means more transparent)'   -- Creates a tooltip on mouseover.
 	_G[MaxASlider:GetName() .. 'Low']:SetText('0.1')        	-- Sets the left-side slider text (default is "Low").
@@ -2533,6 +2538,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	FadeINSlider:SetMinMaxValues(0,40)
 	FadeINSlider:SetValue(HP_fadeintimer)
 	FadeINSlider:SetValueStep(1)
+	FadeINSlider:SetStepsPerPage(1)
 
 	FadeINSlider.tooltipText = 'Set how many seconds left on the spell cooldown, should HaloPro begin to fade back in'   -- Creates a tooltip on mouseover.
 	_G[FadeINSlider:GetName() .. 'Low']:SetText('0')        	-- Sets the left-side slider text (default is "Low").
@@ -2550,6 +2556,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	FlashNumSlider:SetMinMaxValues(1,5)
 	FlashNumSlider:SetValue(HP_flash_num)
 	FlashNumSlider:SetValueStep(1)
+	FlashNumSlider:SetStepsPerPage(1)
 
 	FlashNumSlider.tooltipText = 'Set how many seconds left on the spell cooldown, should HaloPro begin to fade back in'   -- Creates a tooltip on mouseover.
 	_G[FlashNumSlider:GetName() .. 'Low']:SetText('1')        	-- Sets the left-side slider text (default is "Low").
@@ -2567,6 +2574,7 @@ function HaloPro_CreateOptionsPanel(panel)
 	FlashSpeedSlider:SetMinMaxValues(1,5)
 	FlashSpeedSlider:SetValue(HP_tcount_time1)
 	FlashSpeedSlider:SetValueStep(1)
+	FlashSpeedSlider:SetStepsPerPage(1)
 
 	FlashSpeedSlider.tooltipText = 'Set how fast HaloPro should flash when spell is off cooldown'   -- Creates a tooltip on mouseover.
 	_G[FlashSpeedSlider:GetName() .. 'Low']:SetText('Fast')       	-- Sets the left-side slider text (default is "Low").
@@ -2775,18 +2783,21 @@ function HaloPro_CreateOptionsPanel(panel)
 
 	-- OnValueChanged Handler Fade In HP
 	FadeINSlider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor( (event * 10^3) + 0.5) / (10^3)
 		HP_fadeintimer = event
 		_G[FadeINSlider:GetName() .. 'Text']:SetText('Begin fade in at: ' .. HP_fadeintimer .. " secs")       -- Sets the "title" text (top-centre of slider).
 	end)
 
 	-- OnValueChanged Handler Numer of Flashes
 	FlashNumSlider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		HP_flash_num = event
 		_G[FlashNumSlider:GetName() .. 'Text']:SetText('# flashes when off cooldown: ' .. HP_flash_num .. " flashes")       -- Sets the "title" text (top-centre of slider).
 	end)
 
 	-- OnValueChanged Handler Speed of Flashes
 	FlashSpeedSlider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		HP_tcount_time1 = event
 	end)
 
@@ -2925,6 +2936,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 	Spec1_T_Slider:SetMinMaxValues(1,6)
 	Spec1_T_Slider:SetValue(Theme_Index_Spec1)
 	Spec1_T_Slider:SetValueStep(1)
+	Spec1_T_Slider:SetStepsPerPage(1)
 
 	Spec1_T_Slider.tooltipText = 'Change the theme of HaloPro for your Primary Spec'   -- Creates a tooltip on mouseover.
 	_G[Spec1_T_Slider:GetName() .. 'Low']:SetText('1')        	-- Sets the left-side slider text (default is "Low").
@@ -2957,6 +2969,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 	Spec2_T_Slider:SetMinMaxValues(1,6)
 	Spec2_T_Slider:SetValue(Theme_Index_Spec2)
 	Spec2_T_Slider:SetValueStep(1)
+	Spec2_T_Slider:SetStepsPerPage(1)
 
 	Spec2_T_Slider.tooltipText = 'Change the theme of HaloPro for your Secondary Spec'   -- Creates a tooltip on mouseover.
 	_G[Spec2_T_Slider:GetName() .. 'Low']:SetText('1')        	-- Sets the left-side slider text (default is "Low").
@@ -3046,6 +3059,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 		DarkLight_Slider:SetValue(2)
 	end
 	DarkLight_Slider:SetValueStep(1)
+	DarkLight_Slider:SetStepsPerPage(1)
 
 	DarkLight_Slider.tooltipText = 'Change the theme of the HaloPro border'   -- Creates a tooltip on mouseover.
 	_G[DarkLight_Slider:GetName() .. 'Low']:SetText('Dark')        	-- Sets the left-side slider text (default is "Low").
@@ -3069,6 +3083,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 		HP_Border_Slider:SetValue(3)
 	end
 	HP_Border_Slider:SetValueStep(1)
+	HP_Border_Slider:SetStepsPerPage(1)
 
 	HP_Border_Slider.tooltipText = 'Change the style of the HaloPro border'   -- Creates a tooltip on mouseover.
 	_G[HP_Border_Slider:GetName() .. 'Low']:SetText('Subtle')        	-- Sets the left-side slider text (default is "Low").
@@ -3086,6 +3101,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 	HP_Thickness_Slider:SetMinMaxValues(-20,20)
 	HP_Thickness_Slider:SetValue(HP_Border_Thickness)
 	HP_Thickness_Slider:SetValueStep(0.25)
+	HP_Thickness_Slider:SetStepsPerPage(0.25)
 
 	HP_Thickness_Slider.tooltipText = 'Change the thickness of the HaloPro border'   -- Creates a tooltip on mouseover.
 	_G[HP_Thickness_Slider:GetName() .. 'Low']:SetText('Narrow')        	-- Sets the left-side slider text (default is "Low").
@@ -3172,7 +3188,8 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 
 	-- Handler for slider to choose Dark and Light theme's
 	DarkLight_Slider:SetScript("OnValueChanged", function(self, event)
-		DarkLight_Index = event
+		event = math.floor(event)
+		DarkLight_Index = event		
 		if DarkLight_Index == 1 then
 			HP_DarkLight = "Dark"
 		elseif DarkLight_Index == 2 then
@@ -3184,6 +3201,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 
 	-- Handler for slider to choose border theme style
 	HP_Border_Slider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		HP_Border_Index = event
 		if HP_Border_Index == 1 then
 			HP_Border_Theme = "glowTex.tga"
@@ -3198,6 +3216,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 
 	-- Handler for slider to choose the thickness of the border
 	HP_Thickness_Slider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		HP_Border_Thickness = event
 		HP_Border_Control_Apply()
 		_G[HP_Thickness_Slider:GetName() .. 'Text']:SetText('Border Thickness: ' .. HP_Border_Thickness)
@@ -3205,7 +3224,9 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 
 	-- Handlers for all the other options on the Theme panel
 	Spec1_T_Slider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		Theme_Index_Spec1 = event
+		--print(Theme_Index_Spec1)
 		Theme_select_Spec_store()
 		if Theme_Icon_Spec1_Flag == 0 then
 			Spec_1_Preview:SetWidth(500)
@@ -3257,6 +3278,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 	end)
 
 	Spec2_T_Slider:SetScript("OnValueChanged", function(self, event)
+		event = math.floor(event)
 		Theme_Index_Spec2 = event
 		Theme_select_Spec_store()
 		if Theme_Icon_Spec2_Flag == 0 then
@@ -3314,7 +3336,7 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 		DarkLight_Slider:SetValue(2)
 		_G[DarkLight_Slider:GetName() .. 'Text']:SetText('Border Theme: ' .. HP_DarkLight)
 		HP_Border_Control_Apply()
-		ShowColorPicker()
+		ShowColorPickerHP(r, g, b, HPmyColorCallback);
 	end)
 
 	-- Handler for Main Menu shortcut
@@ -3322,73 +3344,19 @@ function HaloPro_CreateOptionsPanelTheme(HP_Options_Theme)
 		InterfaceOptionsFrame_OpenToCategory(HP_Panel_Name_Store)
 	end)
 end
-function ShowColorPicker(r, g, b, myColorCallback)
 
-	local r,g,b = HP_Colour_R, HP_Colour_G, HP_Colour_B;
-
-	local function myColorCallback(restore)
-	local newR, newG, newB;
-	if restore then
-		-- The user bailed, we extract the old color from the table created by ShowColorPicker.
-		newR, newG, newB = unpack(restore);
-	else
-		-- Something changed
-		newR, newG, newB = ColorPickerFrame:GetColorRGB();
-	end
-
-	-- Update our internal storage.
-	r, g, b = newR, newG, newB;
-	-- And update any UI elements that use this color...
-	HP_Colour_R = r
-	HP_Colour_G = g
-	HP_Colour_B = b
-
-	if HP_Colour_R == 1 and HP_Colour_G == 1 and HP_Colour_B == 1 then
-		if HP_DarkLight == "Dark" then
-			DarkLight_Slider:SetValue(1)
-		elseif HP_DarkLight == "Light" then
-			DarkLight_Slider:SetValue(2)
-		end
-		_G[DarkLight_Slider:GetName() .. 'Text']:SetText('Border Theme: ' .. HP_DarkLight)
-		if Theme_Icon_Spec1_Flag == 1 then
-			HP_t.Background_preview1:Show()
-			if HP_CurrentSpec == 1 then
-				HP_t.Background:Show()
-			end
-		elseif Theme_Icon_Spec2_Flag == 1 then
-			HP_t.Background_preview2:Show()
-			if HP_CurrentSpec == 2 then
-				HP_t.Background:Show()
-			end
-		end
-		if Theme_Icon_Spec1_Flag ~= 1 and HP_CurrentSpec == 1 then
-			HP_t.Background:Hide()
-		elseif Theme_Icon_Spec2_Flag ~= 2 and HP_CurrentSpec == 2 then
-			HP_t.Background:Hide()
-		end
-	else
-		HP_t.Background:Hide()
-		HP_t.Background_preview1:Hide()
-		HP_t.Background_preview2:Hide()
-	end
-
-	HP_f.Border:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
-	HP_f.Border_preview1:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
-	HP_f.Border_preview2:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
-
-
-	--print (r, g, b)]]
-	--HP_Border_Control_Apply()
-	end
-
+function ShowColorPickerHP(r, g, b, changedCallback)
+	--print("TESTING")
+	local r,g,b = HP_Colour_R, HP_Colour_G, HP_Colour_B
+	--print(r,g,b)
 	--ColorPickerFrame.hasOpacity, ColorPickerFrame.opacity = (a ~= nil), a;
 	ColorPickerFrame.previousValues = {r,g,b};
-	ColorPickerFrame.func, ColorPickerFrame.cancelFunc =
-	myColorCallback, myColorCallback;
+	ColorPickerFrame.func, ColorPickerFrame.cancelFunc = changedCallback, changedCallback;
 	ColorPickerFrame:SetColorRGB(r,g,b);
 	ColorPickerFrame:Hide(); -- Need to run the OnShow handler.
 	ColorPickerFrame:Show();
-
+	--print("TESTING 2")
+	
 	HP_ColourReset_Button = "Colour Reset"
 	template = "UIPanelButtonTemplate"
 	HP_ColourReset = CreateFrame("Button",HP_ColourReset_Button,ColorPickerFrame,template)
@@ -3396,7 +3364,7 @@ function ShowColorPicker(r, g, b, myColorCallback)
 	HP_ColourReset:SetWidth(70)
 	HP_ColourReset:SetText("Reset")
 	HP_ColourReset:Show()
-
+	
 	-- Handler for colour reset
 	HP_ColourReset:SetScript("OnClick", function(self)
 		HP_Colour_R = 1
@@ -3405,11 +3373,66 @@ function ShowColorPicker(r, g, b, myColorCallback)
 		HP_Border_Thickness = 0
 		HP_Thickness_Slider:SetValue(HP_Border_Thickness)
 		HP_Border_Control_Apply()
-		ShowColorPicker()
+		ShowColorPickerHP(r, g, b, HPmyColorCallback);
 	end)
+end	
+function HPmyColorCallback(restore)
+		--print("HI")
+		local newR, newG, newB;
+		if restore then
+			-- The user bailed, we extract the old color from the table created by ShowColorPicker.
+			newR, newG, newB = unpack(restore);
+		else
+			-- Something changed
+			newR, newG, newB  = ColorPickerFrame:GetColorRGB();
+		end
 
+		-- Update our internal storage.
+		r, g, b  = newR, newG, newB; 
+
+		-- And update any UI elements that use this color...
+		HP_Colour_R = r
+		HP_Colour_G = g
+		HP_Colour_B = b
+
+		if HP_Colour_R == 1 and HP_Colour_G == 1 and HP_Colour_B == 1 then
+			if HP_DarkLight == "Dark" then
+				DarkLight_Slider:SetValue(1)
+			elseif HP_DarkLight == "Light" then
+				DarkLight_Slider:SetValue(2)
+			end
+			_G[DarkLight_Slider:GetName() .. 'Text']:SetText('Border Theme: ' .. HP_DarkLight)
+			if Theme_Icon_Spec1_Flag == 1 then
+				HP_t.Background_preview1:Show()
+				if HP_CurrentSpec == 1 then
+					HP_t.Background:Show()
+				end
+			elseif Theme_Icon_Spec2_Flag == 1 then
+				HP_t.Background_preview2:Show()
+				if HP_CurrentSpec == 2 then
+					HP_t.Background:Show()
+				end
+			end
+			if Theme_Icon_Spec1_Flag ~= 1 and HP_CurrentSpec == 1 then
+				HP_t.Background:Hide()
+			elseif Theme_Icon_Spec2_Flag ~= 2 and HP_CurrentSpec == 2 then
+				HP_t.Background:Hide()
+			end
+		else
+			HP_t.Background:Hide()
+			HP_t.Background_preview1:Hide()
+			HP_t.Background_preview2:Hide()
+		end
+
+		HP_f.Border:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
+		HP_f.Border_preview1:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
+		HP_f.Border_preview2:SetBackdropBorderColor(HP_Colour_R,HP_Colour_G,HP_Colour_B,1)
+
+
+		--print (r, g, b)
+		--HP_Border_Control_Apply()
 end
-
+	
 function UnLocked_HP_Panel(panel)
 
 	if OffCD_Flag == nil then

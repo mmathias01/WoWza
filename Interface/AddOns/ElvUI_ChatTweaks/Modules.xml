@@ -18,7 +18,7 @@
 	<Script file="Modules\CustomFilters.lua" />
 	<Script file="Modules\CustomFiltersNamed.lua" />
 	<Script file="Modules\Datatext.lua" />
-	<Script file="Modules\EditBoxHistory.lua" />
+	<Script file="Modules\EditBoxAltKeyArrows.lua" />
 	<Script file="Modules\EmoteFilter.lua" />
 	<Script file="Modules\GKickCommand.lua" />
 	<Script file="Modules\GInvCommand.lua" />

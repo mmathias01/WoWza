@@ -1,8 +1,9 @@
 local mod	= DBM:NewMod(851, "DBM-SiegeOfOrgrimmar", nil, 369)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 10666 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10726 $"):sub(12, -3))
 mod:SetCreatureID(71529)
+mod:SetEncounterID(1599)
 mod:SetZone()
 mod:SetUsedIcons(8)
 
@@ -19,21 +20,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
---People who aren't affected by the bosses screech (so they don't need to track devotion aura up time.
---Ret Paladins excluded because they do need to track devotion aura to use theirs properly
-local function immuneCaster(includeMeleePal)
-	local _, class = UnitClass("player")
-	return class == "ROGUE"
-	or class == "WARRIOR"
-	or class == "DEATHKNIGHT"
-	or class == "HUNTER"
-	or (class == "MONK" and (GetSpecialization() == 1 or GetSpecialization() == 3))
-    or (class == "SHAMAN" and (GetSpecialization() == 2))
-	or (class == "DRUID" and (GetSpecialization() == 2 or GetSpecialization() == 3))
-	or (class == "PALADIN" and includeMeleePal and (GetSpecialization() ~= 1))
-end
-
-local warnDevotionAura				= mod:NewTargetAnnounce(31821, 1, nil, not immuneCaster(), nil, nil, nil, nil, 2)
+local warnDevotionAura				= mod:NewTargetAnnounce("OptionVersion2", 31821, 1, nil, mod:IsSpellCaster(true))
 --Stage 1: A Cry in the Darkness
 local warnFearsomeRoar				= mod:NewStackAnnounce(143766, 2, nil, mod:IsTank())--143426
 local warnAcceleration				= mod:NewStackAnnounce(143411, 3)--Staghelm 2.0
@@ -44,28 +31,29 @@ local warnFixate					= mod:NewTargetAnnounce(143445, 4)
 local warnEnrage					= mod:NewTargetAnnounce(145974, 3, nil, mod:IsTank() or mod:CanRemoveEnrage())
 local warnKey						= mod:NewTargetAnnounce(146589, 2)
 --Infusion of Acid
-local warnAcidPustules				= mod:NewSpellAnnounce(143971, 2)
+local warnAcidPustules				= mod:NewSpellAnnounce(143971, 2, 143791)
 local warnAcidBreath				= mod:NewStackAnnounce(143780, 2, nil, mod:IsTank())
 local warnCorrosiveBlood			= mod:NewTargetAnnounce(143791, 2, nil, false)--Spammy, CD was reduced to 2 seconds
 --Infusion of Frost
-local warnFrostPustules				= mod:NewSpellAnnounce(143968, 3)
+local warnFrostPustules				= mod:NewSpellAnnounce(143968, 3, 143777)
 local warnFrostBreath				= mod:NewStackAnnounce(143773, 2, nil, mod:IsTank())
 local warnFrozenSolid				= mod:NewTargetAnnounce(143777, 4)--This only thing worth announcing. the stacks of Icy Blood cast SUPER often and not useful
 --Infusion of Fire
-local warnFirePustules				= mod:NewSpellAnnounce(143970, 2)
+local warnFirePustules				= mod:NewSpellAnnounce(143970, 2, 143783)
 local warnScorchingBreath			= mod:NewStackAnnounce(143767, 2, nil, mod:IsTank())
-local warnBurningBlood				= mod:NewTargetAnnounce(143783, 3, nil, false, nil, nil, nil, nil, 2)
+local warnBurningBlood				= mod:NewTargetAnnounce("OptionVersion2", 143783, 3, nil, false)
 
-local specWarnDevotionAura			= mod:NewSpecialWarningFades(31821, not immuneCaster(), nil, nil, nil, 2)
+local specWarnDevotionAura			= mod:NewSpecialWarningFades("OptionVersion3", 31821, mod:IsSpellCaster(true))
 --Stage 1: A Cry in the Darkness
 local specWarnFearsomeRoar			= mod:NewSpecialWarningStack(143766, mod:IsTank(), 2)
 local specWarnFearsomeRoarOther		= mod:NewSpecialWarningTarget(143766, mod:IsTank())
-local specWarnDeafeningScreech		= mod:NewSpecialWarningCast(143343, not immuneCaster(true), nil, nil, 2, 2)
+local specWarnDeafeningScreech		= mod:NewSpecialWarningCast("OptionVersion3", 143343, mod:IsSpellCaster(), nil, nil, 2)
 --Stage 2: Frenzy for Blood!
 local specWarnBloodFrenzy			= mod:NewSpecialWarningSpell(143440, nil, nil, nil, 2)
 local specWarnFixate				= mod:NewSpecialWarningRun(143445, nil, nil, nil, 3)
 local yellFixate					= mod:NewYell(143445)
 local specWarnEnrage				= mod:NewSpecialWarningTarget(145974, mod:IsTank() or mod:CanRemoveEnrage())
+local specWarnBloodFrenzyOver		= mod:NewSpecialWarningEnd(143440)
 --Infusion of Acid
 local specWarnAcidBreath			= mod:NewSpecialWarningStack(143780, mod:IsTank(), 2)
 local specWarnAcidBreathOther		= mod:NewSpecialWarningTarget(143780, mod:IsTank())
@@ -81,8 +69,7 @@ local specWarnBurningBlood			= mod:NewSpecialWarningYou(143783)
 local specWarnBurningBloodMove		= mod:NewSpecialWarningMove(143784)
 local yellBurningBlood				= mod:NewYell(143783, nil, false)
 
-
-local timerDevotionAura				= mod:NewBuffActiveTimer(6, 31821, nil, not immuneCaster(), nil, nil, nil, nil, nil, nil, 2)
+local timerDevotionAura				= mod:NewBuffActiveTimer("OptionVersion2", 6, 31821, nil, mod:IsSpellCaster(true))
 --Stage 1: A Cry in the Darkness
 local timerFearsomeRoar				= mod:NewTargetTimer(30, 143766, nil, mod:IsTank() or mod:IsHealer())
 local timerFearsomeRoarCD			= mod:NewCDTimer(11, 143766, nil, mod:IsTank())
@@ -369,15 +356,18 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
 		warnAcidPustules:Show()
 		timerCorrosiveBloodCD:Start(6)
 		timerAcidBreathCD:Start()
+		specWarnBloodFrenzyOver:Show()
 	elseif spellId == 143968 then
 		timerBurningBloodCD:Cancel()
 		timerCorrosiveBloodCD:Cancel()
 		warnFrostPustules:Show()
 		timerFrostBreathCD:Start(6)
+		specWarnBloodFrenzyOver:Show()
 	elseif spellId == 143970 then
 		timerCorrosiveBloodCD:Cancel()
 		warnFirePustules:Show()
 		timerBurningBloodCD:Start(8)
 		timerScorchingBreathCD:Start()
+		specWarnBloodFrenzyOver:Show()
 	end
 end

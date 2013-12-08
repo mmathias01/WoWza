@@ -1,3 +1,31 @@
+v2.2.7
+*Fixed bug that caused a stack overflow.
+
+v2.2.6
+*Fixed bug with some records missing keys.
+
+v2.2.5
+*Fixed bug with removing old data.
+*Fixed bug with retrieving gold from a COD payment.
+
+v2.2.4
+*Fixed display bug with top sellers / buyers on item detail pages.
+
+v2.2.3
+*Fixed display issue with quantities on item detail pages.
+
+v2.2.2
+*Fixed bug with summary tab.
+
+v2.2.1
+*Bug fix involving old / corrupted data.
+
+v2.2
+*Fixed a bug with returning item names from cache.
+*Rewrote most of the core Accounting code to make it simpler and easier to maintain.
+*Expanded and unified the filters shown in various Accounting tabs.
+*Many other minor tweaks, bug fixes, and improvements as part of the rewrite.
+
 v2.1.2
 *Fixed bug with corrupted postage expense data.
 *Gold log data will now be stored as CSV to be consistent with other data.

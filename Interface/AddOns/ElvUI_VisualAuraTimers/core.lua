@@ -4,12 +4,28 @@ local A = E:GetModule('Auras');
 local EP = LibStub("LibElvUIPlugin-1.0")
 local addon, ns = ...
 
+local inversePoints = {
+	TOP = 'BOTTOM',
+	BOTTOM = 'TOP',
+	LEFT = 'RIGHT',
+	RIGHT = 'LEFT',
+}
+
 function VAT:CreateBar(button)
 	if not button.Holder then
+		local width = button:GetWidth();
+		local height = button:GetHeight();
+		local pos = E.db.VAT.position;
+		local isOnTop = pos == 'TOP' and true or false;
+		local isOnBottom = pos == 'BOTTOM' and true or false;
+		local isOnLeft = pos == 'LEFT' and true or false;
+		local isOnRight = pos == 'RIGHT' and true or false;
+		
 		-- Border
 		local BarHolder = CreateFrame('Frame', nil, button)
-		BarHolder:Size(button:GetWidth(), ((E.PixelMode and 0 or 2) + E.db.VAT.barHeight))
-		BarHolder:Point('TOP', button, 'BOTTOM', 0, -(E.PixelMode and 1 or 3))
+		BarHolder:Width((isOnTop or isOnBottom) and width or (E.db.VAT.barWidth + (E.PixelMode and 0 or 2)))
+		BarHolder:Height((isOnLeft or isOnRight) and height or (E.db.VAT.barHeight + (E.PixelMode and 0 or 2)))
+		BarHolder:Point(inversePoints[pos], button, pos, (isOnTop or isOnBottom) and 0 or ((isOnLeft and -(E.PixelMode and 1 or 3)) or (E.PixelMode and 1 or 3)), (isOnLeft or isOnRight) and 0 or ((isOnTop and (E.PixelMode and 1 or 3) or -(E.PixelMode and 1 or 3))))
 		BarHolder:SetTemplate('Default')
 		button.Holder = BarHolder
 
@@ -22,6 +38,9 @@ function VAT:CreateBar(button)
 			Bar:SetStatusBarColor(r, g, b)
 		else
 			Bar:SetStatusBarColor(0, 0.8, 0)
+		end
+		if isOnLeft or isOnRight then
+			Bar:SetOrientation('VERTICAL')
 		end
 		button.Bar = Bar
 	end

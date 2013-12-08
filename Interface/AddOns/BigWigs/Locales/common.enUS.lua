@@ -27,6 +27,7 @@ L.removed = "%s Removed"
 L.incoming = "%s Incoming!"
 L.interrupted = "%s Interrupted"
 L.spawning = "%s Spawning!"
+L.no = "No %s!"
 
 -- Add related
 L.add_spawned = "Add Spawned!"
@@ -49,4 +50,6 @@ L.custom_start_s = "%s engaged - %s in %d sec"
 L.custom_end = "%s goes %s!"
 L.custom_min = "%s in %d min"
 L.custom_sec = "%s in %d sec!"
+
+L.focus_only = "|cffff0000Focus target alerts only.|r "
 

@@ -13,6 +13,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster") -- loads the lo
 local AceGUI = LibStub("AceGUI-3.0") -- load the AceGUI libraries
 
 local private = {icons={}, currentIcon=0}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.MainFrame_private")
 local lib = TSMAPI
 
 

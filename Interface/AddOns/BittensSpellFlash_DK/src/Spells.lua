@@ -872,14 +872,10 @@ addSpell("Frost Strike", "for Resources", {
 	CheckFirst = shouldStrikeForResources
 })
 
-addSpell("Frost Strike", "for Resources except Blood Charge", {
+addSpell("Frost Strike", "for Runic Empowerment", {
 	Melee = true,
 	CheckFirst = function()
-		if c.HasTalent("Runic Empowerment") then
-			return hasFullyDepleted(1, 2, 3, 4, 5, 6)
-		elseif c.HasTalent("Runic Corruption") then
-			return c.GetBuffDuration("Runic Corruption") == 0
-		end
+		return c.HasTalent("Runic Empowerment") and not hasFullyDepleted(5, 6)
 	end
 })
 
@@ -980,11 +976,12 @@ addSpell("Obliterate", "UU", {
 	end
 })
 
-addSpell("Obliterate", "U", {
+addSpell("Obliterate", "U w/out KM", {
 	CheckFirst = function()
 		return hasBothDiseases(0)
 			and ((runeAvailable(3) and not a.IsDeathRune(3))
-				or (runeAvailable(4) and not a.IsDeathRune(4))) 
+				or (runeAvailable(4) and not a.IsDeathRune(4)))
+			and not a.KillingMachine
 	end
 })
 

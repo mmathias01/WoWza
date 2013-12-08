@@ -10,6 +10,7 @@
 
 local TSM = select(2, ...)
 local private = {frames={}, threads={}}
+TSMAPI:RegisterForTracing(private, "TradeSkillMaster.Threading_private")
 TSMAPI.Threading = {}
 local STATUS_YIELD = {}
 local MAX_QUANTUM = 50

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("BrawlRare2", "DBM-Brawlers")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 9771 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 10736 $"):sub(12, -3))
 --mod:SetCreatureID(60491)
 mod:SetModelID(48465)
 mod:SetZone()
@@ -30,7 +30,7 @@ local timerEightChompsCD			= mod:NewCDTimer(9.5, 142788)--9-14
 local timerBetterStrongerFasterCD	= mod:NewCDTimer(20, 142795)--20-24
 local timerStasisBeamCD				= mod:NewCDTimer(20, 142769)--20-24
 local timerRockpaperScissorsCD		= mod:NewCDTimer(42, 141206)--Not a large enough sample size, maybe shorter
-local timerBlindStrikeCD			= mod:NewNextTimer(5, 141189)
+local timerBlindStrikeCD			= mod:NewNextTimer(2.5, 141189)
 local timerSwiftStrikeCD			= mod:NewNextTimer(2.4, 141190, nil, false)--May help some but off by default so it doesn't detour focus from the most important one, blind cleave
 local timerBlindCleaveD				= mod:NewNextTimer(13, 141192)
 

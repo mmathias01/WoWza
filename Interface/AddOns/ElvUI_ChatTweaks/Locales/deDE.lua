@@ -84,7 +84,6 @@ I am aware that some of the features of this module don't really pertain to the 
 \
 I am aware that some of the features of this module don't really pertain to the chat, but I couldn't really justify an entirely new addon.  So I just snuck them into here." -- Requires localization
 L["Allows you to reroute auction house messages to a different chat frame."] = "Erlaubt es dir, Auktionshaus-Nachrichten in ein anderes Chatfenster umzuleiten." -- Needs review
-L["Allows you to spam a message to General or Trade chat every X seconds.  Useful for guild recruitment or profession links."] = "Erlaubt es dir, alle X Sekunden eine Nachricht in den Allgemeinchat oder den Handelschat zu schreiben. N\195\188tzlich f\195\188r Gildenrekrutierungen oder Werbung mit verlinkten Berufen." -- Needs review
 L["Allows you to use some fun filters on various chat channels.\
 \
 |cffff0000This will break any links in the chat message.|r\
@@ -101,8 +100,6 @@ L["All spam logs were cleared."] = "Alle Spam Protokolle wurden geleert." -- Nee
 L["alt2"] = true
 L["alt3"] = true
 L["Alt-click name to invite"] = "Alt-Klick auf den Namen zum Einladen"
-L["Alternate"] = "Alternate" -- Requires localization
-L["ALTERNATE"] = "ALTERNATE" -- Requires localization
 L["Alternate command to kick someone from guild."] = "Alternatives Kommando um jemanden aus der Gilde zu entfernen."
 L["AlTeRnAtInG CaPs"] = "AlTeRnAtInG CaPs" -- Requires localization
 L["Alt Names"] = "Twink Namen" -- Needs review
@@ -198,7 +195,6 @@ L["|cFFccff00Not Owned|r"] = "|cFFccff00Not Owned|r" -- Requires localization
 L["|cffeda55fc|r"] = "|cffeda55fc|r" -- Requires localization
 L["|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r"] = "|cfffe2ec8|Hectfilter:%s:%d:%d:%s|h[Report Spam Message!]|h|r" -- Requires localization
 L["|cffff0000Disabled|r"] = "|cffff0000Deaktiviert|r"
-L["|cffff0000ERROR|r Both messages must be set in order to use the spam method |cffffff00%s|r"] = "|cffff0000ERROR|r Both messages must be set in order to use the spam method |cffffff00%s|r" -- Requires localization
 L["|cffff0000Item|r |cffffffff\"%s\"|r |cffff0000does not exist.|r"] = "|cffff0000Item|r |cffffffff\"%s\"|r |cffff0000existiert nicht.|r" -- Needs review
 L["|cffff0000No modules found.|r"] = "|cffff0000Es wurden keine Module gefunden.|r"
 L["\
@@ -242,14 +238,10 @@ L["Channel Invite Spam"] = "Channel Invite Spam" -- Requires localization
 L["Channel Notice Filter"] = "Channel Notice Filter" -- Requires localization
 L["Channels"] = true -- Needs review
 L["Channel Sounds"] = "Kanal-Sounds"
-L["Channel Spam"] = true -- Needs review
-L["Channel Spam has been |cff%s%s|r."] = "Channel Spam wurde |cff%s%s|r." -- Needs review
-L["Channel Spam is already running."] = "Channel Spam l\195\164uft bereits." -- Needs review
 L["Channels to Filter"] = "Channels to Filter" -- Requires localization
 L["Channels to look for questions."] = "Kan\195\164le in welchen nach Anfragen geschaut werden soll." -- Needs review
 L["Channels to Monitor"] = "Zu beobachtende Kan\195\164le" -- Needs review
 L["Channels to Watch"] = "Channels to Watch" -- Requires localization
-L["Channel to output the messages to."] = "Kanal in welchem Nachrichten ausgegeben werden sollen." -- Needs review
 L["Channel to send the reminder to."] = "Channel in welchem Erinnerung geschickt werden soll." -- Needs review
 L["Character to use between the name and level"] = "Zeichen, welches zwischen Name und Stufe genutzt werden soll"
 L["Character to use for the left bracket"] = "Zeichen, welches als linke Klammer genutzt werden soll"
@@ -326,7 +318,6 @@ L["Color to use for your rolls."] = "Farbe zur Verwendung f\195\188r deine W\195
 L["Color Win"] = "Farbe Gewonnen" -- Needs review
 L["Color Your Rolls"] = "F\195\164rbe deine W\195\188rfe" -- Needs review
 L["Color your rolls to set them apart."] = "Color your rolls to set them apart." -- Requires localization
-L["Combined"] = "Kombiniert" -- Needs review
 L["Command Help"] = "Command Help" -- Requires localization
 L["Companions"] = "Companions" -- Requires localization
 L["Compress"] = "Komprimieren"
@@ -388,7 +379,7 @@ L["Don't Report"] = "Nicht melden" -- Needs review
 L["Do you want to automatically remove an item when you meet your quota?"] = "Do you want to automatically remove an item when you meet your quota?" -- Requires localization
 L["Druid"] = "Druide"
 L["DRUID"] = "DRUIDE" -- Needs review
-L["Editbox History"] = "Eingabefeld Verlauf"
+L["EditBox Alt Key Arrows"] = "EditBox Alt Key Arrows" -- Requires localization
 L["ElvUI ChatTweaks"] = true
 L["ElvUI_ChatTweaks"] = "ElvUI_ChatTweaks" -- Requires localization
 L["ElvUI_ChatTweaks: You need to be level %d to whisper me.  Currently you are level %d!"] = "ElvUI_ChatTweaks: Du musst Level %d sein, um mich anzufl\195\188stern. Zur Zeit bist Du %d!"
@@ -399,6 +390,7 @@ L["Emphasize Self"] = "Eigenes hervorheben"
 L["Enable"] = "Aktivieren" -- Needs review
 L["Enable "] = "Aktivieren"
 L["Enable All Modules"] = "Aktiviere Alle Module" -- Needs review
+L["Enabled"] = "Aktiviert"
 L["Enable Debugging"] = "Debugging aktivieren" -- Needs review
 L["Enabled Modules"] = "Aktivierte Module" -- Needs review
 L["Enabled %s%s|r module."] = "Enabled %s%s|r module." -- Requires localization
@@ -487,11 +479,6 @@ L["Filter the Bid Accepted message.\
 L["Filter the line containing the question."] = "Filtere die Zeile welche die Anfragen beinhaltet." -- Needs review
 L["Filter Triggers"] = "Filtere Ausl\195\182ser" -- Needs review
 L["Filter whispers based on the sender's level."] = "Fl\195\188sternachrichten basierend auf dem Level des Gespr\195\164chspartners herausfiltern." -- Needs review
-L["First message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r"] = "First message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r" -- Requires localization
 L["Font Color"] = "Schriftfarbe" -- Needs review
 L["Font Face"] = "Schriftschnitt"
 L["Font Size"] = "Schriftgr\195\182\195\159e"
@@ -500,7 +487,6 @@ L["Frame to output the messages to."] = "Frame to output the messages to." -- Re
 L["Frame to send the addon messages to."] = "Frame to send the addon messages to." -- Requires localization
 L["Friends"] = "Freunde"
 L["Fun Filters"] = "Fun Filters" -- Requires localization
-L["General"] = "Allgemein" -- Needs review
 L["General Tab Channels"] = "General Tab Channels" -- Requires localization
 L["ginv"] = true
 L["ginvite"] = true
@@ -711,15 +697,6 @@ L["Messages to use when someone says \"ding\".\
 |cff00ff00#name#|r - Name des jenigen, der \"ding\" geschrieben hat.\
 |cff00ff00#guild#|r - Sein aktueller Level."
 L["Message Throttle"] = "Message Throttle" -- Requires localization
-L["Method by which to send the messages.\
-\
-|cffff00Alternate is alternating between the two messages.\
-Combined is both messages at once.\
-Random will randomly pick one of the messages to send.|r"] = "Method by which to send the messages.\
-\
-|cffff00Alternate is alternating between the two messages.\
-Combined is both messages at once.\
-Random will randomly pick one of the messages to send.|r" -- Requires localization
 L["Minimap Button"] = "Minimap-Button" -- Needs review
 L["Minimum Delay"] = "Minimale Verz\195\182gerung"
 L["Minimum DK Level"] = "minimales DK Level"
@@ -883,8 +860,6 @@ L["Raid Leader"] = "Schlachtzugsleiter"
 L["Raid Members"] = "Schlachtzugsmitglieder"
 L["Raid Warning"] = "Schlachtzugwarnung"
 L["Raid Warning Channel"] = "Schlachtzugwarnung-Kanal"
-L["Random"] = "Zufall" -- Needs review
-L["RANDOM"] = "ZUFALL" -- Needs review
 L["Random Number"] = "Zufallszahl" -- Needs review
 L["Ready Check Command"] = "Ready Check Command" -- Requires localization
 L["RealID Brackets"] = "RealID Klammern"
@@ -892,7 +867,6 @@ L["RealID Conversation"] = "RealID Unterhaltung"
 L["RealID Whisper"] = "RealID Fl\195\188stern"
 L["Really remove this word from your trigger list?"] = "Dieses Wort wirklich von der Trigger Liste nehmen?"
 L["Release Command"] = "Release Command" -- Requires localization
-L["Remembers the history of the editbox across sessions."] = "Beh\195\164lt die History des Eingabefeldes session\195\188bergreifend" -- Needs review
 L["Reminder"] = "Erinnerung" -- Needs review
 L["Remove"] = "Entfernen"
 L["Remove a word from your group invite trigger list"] = "Entfernt ein Wort aus deiner Gruppeneinladung Ausl\195\182ser-Liste" -- Needs review
@@ -908,8 +882,8 @@ L["Reply hazy, try again."] = "Antwort schwammig, versuchs nochmal." -- Needs re
 L["Reported by %s"] = "Gemeldet durch %s"
 L["Reputation"] = "Ruf" -- Needs review
 L["Reputation Color"] = "Reputation Color" -- Requires localization
+L["Require the alt key to be pressed to use the arrow keys on editboxes."] = "Require the alt key to be pressed to use the arrow keys on editboxes." -- Requires localization
 L["Reroute Auction Messages"] = "Leite Auktionsnachichten um" -- Needs review
-L["Reset"] = "Zur\195\188cksetzen"
 L["Reset ChatFrame text justifications to defaults (left)."] = "Die Textausrichtung des Chatframe auf Standart zur\195\188ckstellen (linksb\195\188ndig)."
 L["Reset Data"] = "Daten zur\195\188cksetzen"
 L["Reset Font Data"] = "Schriftartdaten zur\195\188cksetzen"
@@ -948,11 +922,6 @@ L["Search Results:"] = "Search Results:" -- Requires localization
 L["Search Results |cff9382c9(%d Found)|r:"] = "Search Results |cff9382c9(%d Found)|r:" -- Requires localization
 L["Search term is too short."] = "Search term is too short." -- Requires localization
 L["Second"] = "Zweite" -- Needs review
-L["Second message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r"] = "Second message to send.  You can include links.\
-\
-|cffffffMake sure you hit [ENTER] after you finish typing your message.|r" -- Requires localization
 L["Select a color for this channel."] = "Eine Farbe f\195\188r diesen Kanal ausw\195\164hlen."
 L["Select a method for coloring player names"] = "W\195\164hle ein Methode zum Einf\195\164rben der Spielernamen."
 L["Select an option if you want the zone list to only contain pets you own or do not own."] = "Select an option if you want the zone list to only contain pets you own or do not own." -- Requires localization
@@ -1016,10 +985,7 @@ L["Sound to play when a message in %s is received.\
 |cff00ff00Zum Deaktivieren w\195\164hle \"None\"|r."
 L["Spam Delay"] = "Spamverz\195\182gerung"
 L["Spam Filter"] = "Spam-Filter"
-L["Spam Interval"] = "Spam Intervall" -- Needs review
-L["Spam interval changed to |cffffff00%d|r"] = "Spam Interval ge\195\164ndert auf |cffffff00%d|r" -- Needs review
 L["Spam Log"] = "Spam Protokoll" -- Needs review
-L["Spam Mode"] = "Spam Modus" -- Needs review
 L["Spam Throttle"] = "Spam Verz\195\182gerung"
 L[" %s Progress: Completed on %s%s|r/%s%s|r/%s%s|r"] = " %s Progress: Completed on %s%s|r/%s%s|r/%s%s|r" -- Requires localization
 L["%s reputation left until %s with %s."] = "%s reputation left until %s with %s." -- Requires localization
@@ -1034,10 +1000,6 @@ L["%s, %s, %s  Player's Stats\
 L["Standard Emote: |cffffff00%s|r"] = "Standard Emote: |cffffff00%s|r" -- Requires localization
 L["Standard Emotes"] = "Standard Emotes" -- Requires localization
 L["Standing Color"] = "Standing Color" -- Requires localization
-L["Start"] = true -- Needs review
-L["STARTED"] = "STARTED" -- Requires localization
-L["Stop"] = "Stop" -- Requires localization
-L["STOPPED"] = "Angehalten" -- Needs review
 L["Strip RealID brackets"] = "RealID Klammern ausschneiden."
 L["Substitutions"] = "Ersetzungen" -- Needs review
 L["Suppress"] = "Unterdr\195\188cken"
@@ -1078,7 +1040,6 @@ L["The classic Magic 8-Ball brought to World of Warcraft!"] = "The classic Magic
 L["The color to highlight the search term."] = "Farbe zur Hervorhebung von Suchbegriffen" -- Needs review
 L["The color to use when highlighting a substitution."] = "Farbe zur Hervorhebung von Ersetzungen." -- Needs review
 L["The default color to use to color names."] = "Standardfarbe, welche zum Einf\195\164rben von Namen verwendet werden soll."
-L["The interval must be a |cff00ff00%s|r between |cff00ff00%d|r and |cff00ff00%d|r."] = "Das Intervall |cff00ff00%s|r muss zwischen |cff00ff00%d|r und |cff00ff00%d|r liegen."
 L["The name or ID of the material you'd like to track.\
 \
 |cff00ff00If you wish to use the item's name then the item must exist in your bags.  This is a limitation to the API, item ID's will always work as intended.|r"] = "The name or ID of the material you'd like to track.\
@@ -1119,7 +1080,6 @@ L["Throttle to only answer a question every X seconds, to prevent spam.\
 \
 |cffff0000Not recommended to disable this.|r"] = "Drosselung auf nur eine Nachricht alle X Sekunden m Spam zu vermeiden." -- Needs review
 L["Time"] = "Zeit" -- Needs review
-L["Time, in seconds, between messages being sent."] = "Zeit (in Sekunden), zwischen denen Nachrichten versendet werden." -- Needs review
 L["Time, in seconds, in between running the command."] = "Time, in seconds, in between running the command." -- Requires localization
 L["Time, in seconds, the module will wait after the first line is found to assume it is complete.\
 \
@@ -1130,7 +1090,6 @@ L["Time, in seconds, to run the clean up to keep your ignore list clean."] = "Ti
 L["Time, in seconds, to throttle output messages to prevent spam."] = "Zeit in Sekunden zur Verz\195\182gerung der ausgehenden Nachrichten um Spam zu vermeiden." -- Needs review
 L["Time, in seconds, to throttle the zone list to prevent any spam."] = "Zeit in Sekunden zum Verz\195\182gern der Zonenliste um Spam zu vermeiden." -- Needs review
 L["Time, in seconds, you want the search to continue before it ends."] = "Zeit in Sekunden" -- Needs review
-L["Timer is currently running, you must stop it first before changing the interval."] = "Timer l\195\164uft zur Zeit. Timer muss erst angehalten werden vor der \195\132nderung des Intervalls." -- Needs review
 L["Timestamp color"] = "Zeitstempelfarbe"
 L["Timestamp format"] = "Zeitstempelformat"
 L["Timestamps"] = "Zeitstempel"
@@ -1142,11 +1101,11 @@ L["Toggle logging anything found to the Spam Log module."] = "Toggle logging any
 L["Toggle the monitoring of chat events."] = "Schaltet die \195\156berwachung von Chat-Ereignissen um." -- Needs review
 L["Toggle the pet list message when you enter a different zone."] = "Haustierliste umschalten, wenn eine andere Zone betreten wird." -- Needs review
 L["Toggle the pet quality notifications when you join a wild pet battle."] = "Toggle the pet quality notifications when you join a wild pet battle." -- Requires localization
+L["Toggle the requirement of the Alt key to be pressed to use arrow keys to navigate an editbox."] = "Toggle the requirement of the Alt key to be pressed to use arrow keys to navigate an editbox." -- Requires localization
 L["Tooltip"] = "Tooltip" -- Requires localization
 L["Total Modules"] = "Anzahl aller Module" -- Needs review
 L["Track Pets"] = "Verfolge Haustiere" -- Needs review
 L["Track Stable Masters"] = "Track Stable Masters" -- Requires localization
-L["Trade"] = "Handel"
 L["Trigger"] = "Ausl\195\182ser" -- Needs review
 L["Triggers"] = "Ausl\195\182ser"
 L["/tt"] = true -- Needs review
@@ -1165,6 +1124,7 @@ L["Unrecognized Symbol: |cffffff00%s|r"] = "Unerkannte Symbole: |cffffff00%s|r" 
 L["Unset variable |cffffff00%s|r."] = "Unset variable |cffffff00%s|r." -- Requires localization
 L["Update the quest progress when you receive Valor Points.  This will automatically be disabled when you complete the achievement."] = "Update the quest progress when you receive Valor Points.  This will automatically be disabled when you complete the achievement." -- Requires localization
 L["Uppercase"] = "Uppercase" -- Requires localization
+L["Use Alt Key"] = "Use Alt Key" -- Requires localization
 L["Use channel color"] = "Benutze Kanalfarbe"
 L["Use Channel Color"] = "Benutze Channel-Farben" -- Needs review
 L["Use Coins"] = "Use Coins" -- Requires localization

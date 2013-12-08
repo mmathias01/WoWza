@@ -40,7 +40,7 @@ L["countdown"] = "카운트다운"
 L["countdownDesc"] = "관련 타이머가 5초보다 길다면 마지막 5초 동안 카운트다운을 추가합니다. \"5... 4... 3... 2... 1... 카운트다운!\" 화면의 중앙에 큰 숫자를 표시합니다."
 L["countWipes"] = "전멸 횟수"
 L["createTimeBar"] = "'최고 기록' 바 보이기"
-L["customBarStarted"] = "커스텀 바 %s가 %s에 의해 %s동안 표시됩니다."
+L["customBarStarted"] = "사용자 지정 바 '%s'가 사용자 %s에 의해 %s동안 표시됩니다."
 L["customRange"] = "사용자 거리 지시기"
 L["customSoundDesc"] = "모듈에서 제공하는 효과음 대신 선택된 사용자 정의 소리를 사용합니다."
 L["defaultOnly"] = "기본음"
@@ -146,7 +146,7 @@ L["secondaryDesc"] = "두번째 공격대 대상에게 사용할 아이콘을 �
 L["sendCustomBar"] = "Big Wigs과 DBM 사용자에게 '%s' 사용자 바를 보냅니다."
 L["sendPull"] = "Big Wigs과 DBM 사용자에게 풀링 타이머를 보냅니다."
 L["showHide"] = "표시/숨김"
-L["sinkDescription"] = "Big Wigs 메시지 표시를 통해 이 애드온의 메시지를 출력합니다. 이 디스플레이는 아이콘과 색상을 지원하며, 한번에 4개 까지의 메시지를 표시할 수 있습니다. 새로 삽입된 메시지들은 유저에게 알리기 위해서 점점 커지다가 순식간에 사라집니다."
+L["sinkDescription"] = "Big Wigs 메세지 표시를 통해 이 애드온의 메세지를 출력합니다. 이것은 디스플레이와 색상, 아이콘을 지원하는 메시지가 화면에 한 번에 최대 4개까지 표시됩니다. 새로운 메시지는 사용자에게 알리기 위해 점점 커지다가 순식간에 사라집니다"
 L["sound"] = "효과음"
 L["soundButton"] = "소리 버튼"
 L["soundButtonDesc"] = "소리 버튼을 표시하거나 숨깁니다."
@@ -160,8 +160,8 @@ L["superEmphasizeDesc"] = [=[특정 보스가 사용하는 스킬과 관련한 �
 
 여기에서 보스가 사용하는 기술에 대하여 특수 강조 옵션을 구성합니다.
 
-|cffff4411특수 강조는 모든 스킬에 대해서 기본적으로 꺼져있습니다.|r
-]=]
+|cffff4411특수 강조는 모든 스킬에 대해서 기본적으로 꺼져있습니다.|r]=]
+L["superEmphasizeDisableDesc"] = "모든 모듈에서 특수 강조바를 비활성화합니다."
 L["tempEmphasize"] = "선택한 바에 대하여 지속시간 동안 바와 메세지에 특수 강조 기능을 적용합니다."
 L["text"] = "글자"
 L["textShadow"] = "글자 그림자"
@@ -173,7 +173,7 @@ L["timeDesc"] = "바의 우측에 시간을 숨기거나 표시합니다."
 L["timerFinished"] = "%s: [%s] 타이머가 종료되었습니다."
 L["title"] = "제목"
 L["titleDesc"] = "제목을 표시하거나 숨깁니다."
-L["toggleDisplayPrint"] = "창이 다음에 나타납니다. 이 보스에서 완전히 비활성화 시키라면, 보스 옵션에서 끄실 필요가 있습니다."
+L["toggleDisplayPrint"] = "이 화면은 다음에 나타납니다. 이 보스에서 완전히 비활성화 시키려면, 보스 옵션에서 꺼주시기 바랍니다."
 L["toggleSound"] = "소리 전환"
 L["toggleSoundDesc"] = "근접 창에서 다른 플레이어와 가까이 있을 경우에 알리는 경고음을 켜거나 끌 수 있게 합니다."
 L["tooltip"] = "툴팁"

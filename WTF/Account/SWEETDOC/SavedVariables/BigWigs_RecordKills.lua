@@ -21,15 +21,15 @@ RKDatabase = {
 						[7] = 176,
 						[5] = 216,
 					},
-					["Feng the Accursed"] = {
-						[7] = 291,
-						[5] = 320,
+					["Will of the Emperor"] = {
+						[5] = 422,
 					},
 					["Elegon"] = {
 						[5] = 293,
 					},
-					["Will of the Emperor"] = {
-						[5] = 422,
+					["Feng the Accursed"] = {
+						[7] = 291,
+						[5] = 320,
 					},
 				},
 				["Heart of Fear"] = {
@@ -57,46 +57,46 @@ RKDatabase = {
 				["Siege of Orgrimmar"] = {
 					["Galakras"] = {
 						[14] = 511,
-						[7] = 639,
 						[3] = 517,
-					},
-					["Iron Juggernaut"] = {
-						[14] = 287,
-						[7] = 474,
-						[3] = 286,
+						[7] = 639,
+						[5] = 607,
 					},
 					["Garrosh Hellscream"] = {
 						[3] = 626,
 						[14] = 514,
 					},
+					["Siegecrafter Blackfuse"] = {
+						[3] = 234,
+						[14] = 254,
+					},
 					["Sha of Pride"] = {
 						[14] = 229,
+						[5] = 371,
 						[7] = 355,
-						[3] = 251,
+						[3] = 216,
 					},
 					["Norushen"] = {
 						[14] = 265,
 						[3] = 273,
 						[7] = 355,
-						[5] = 414,
+						[5] = 353,
+					},
+					["Paragons of the Klaxxi"] = {
+						[3] = 410,
+						[14] = 419,
 					},
 					["Kor'kron Dark Shaman"] = {
-						[3] = 303,
+						[3] = 238,
 						[7] = 471,
 						[14] = 204,
 					},
-					["Thok the Bloodthirsty"] = {
-						[3] = 328,
-						[7] = 590,
-						[14] = 299,
-					},
 					["Malkorok"] = {
-						[3] = 236,
+						[3] = 166,
 						[7] = 346,
 						[14] = 190,
 					},
 					["Spoils of Pandaria"] = {
-						[3] = 426,
+						[3] = 363,
 						[7] = 463,
 						[14] = 456,
 					},
@@ -104,26 +104,29 @@ RKDatabase = {
 						[14] = 297,
 						[3] = 353,
 						[7] = 529,
-						[5] = 569,
+						[5] = 509,
 					},
 					["General Nazgrim"] = {
 						[14] = 278,
 						[7] = 486,
-						[3] = 287,
+						[3] = 246,
 					},
-					["Paragons of the Klaxxi"] = {
-						[3] = 513,
-						[14] = 419,
+					["Thok the Bloodthirsty"] = {
+						[3] = 263,
+						[7] = 590,
+						[14] = 299,
 					},
-					["Siegecrafter Blackfuse"] = {
-						[3] = 282,
-						[14] = 254,
+					["Iron Juggernaut"] = {
+						[14] = 287,
+						[5] = 431,
+						[7] = 474,
+						[3] = 233,
 					},
 					["The Fallen Protectors"] = {
 						[14] = 337,
 						[3] = 300,
 						[7] = 430,
-						[5] = 586,
+						[5] = 505,
 					},
 				},
 				["Throne of Thunder"] = {
@@ -149,9 +152,9 @@ RKDatabase = {
 						[3] = 290,
 						[7] = 214,
 					},
-					["Horridon"] = {
-						[3] = 482,
-						[7] = 500,
+					["Primordius"] = {
+						[3] = 305,
+						[7] = 160,
 					},
 					["Megaera"] = {
 						[7] = 438,
@@ -165,9 +168,9 @@ RKDatabase = {
 						[7] = 496,
 						[3] = 542,
 					},
-					["Primordius"] = {
-						[3] = 305,
-						[7] = 160,
+					["Horridon"] = {
+						[3] = 482,
+						[7] = 500,
 					},
 					["Council of Elders"] = {
 						[3] = 324,

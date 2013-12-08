@@ -1,0 +1,2 @@
+SLOKnightfall:
+	- -Fix for the target icon selection

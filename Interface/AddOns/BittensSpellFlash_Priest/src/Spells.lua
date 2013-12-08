@@ -326,8 +326,8 @@ c.AddSpell("Mind Flay", "(Insanity) Delay", {
 
 c.AddSpell("Shadow Word: Pain", nil, {
 	MyDebuff = "Shadow Word: Pain",
+	Tick = 3,
 })
-c.ManageDotRefresh("Shadow Word: Pain", 3)
 
 c.AddSpell("Shadow Word: Pain", "Application", {
 	MyDebuff = "Shadow Word: Pain",
@@ -335,11 +335,11 @@ c.AddSpell("Shadow Word: Pain", "Application", {
 
 c.AddSpell("Shadow Word: Pain", "Early", {
 	MyDebuff = "Shadow Word: Pain",
+	Tick = 6,
 	CheckFirst = function()
 		return a.InExecute and c.HasTalent("Solace and Insanity")
 	end
 })
-c.ManageDotRefresh("Shadow Word: Pain Early", 6, "Shadow Word: Pain")
 
 c.AddSpell("Shadow Word: Pain", "Moving", {
 	MyDebuff = "Shadow Word: Pain",
@@ -348,8 +348,8 @@ c.AddSpell("Shadow Word: Pain", "Moving", {
 
 c.AddSpell("Vampiric Touch", nil, {
 	MyDebuff = "Vampiric Touch",
+	Tick = 3,
 })
-c.ManageDotRefresh("Vampiric Touch", 3)
 
 c.AddSpell("Vampiric Touch", "Application", {
 	MyDebuff = "Vampiric Touch",
@@ -357,11 +357,11 @@ c.AddSpell("Vampiric Touch", "Application", {
 
 c.AddSpell("Vampiric Touch", "Early", {
 	MyDebuff = "Vampiric Touch",
+	Tick = 6,
 	CheckFirst = function()
 		return a.InExecute and c.HasTalent("Solace and Insanity")
 	end
 })
-c.ManageDotRefresh("Vampiric Touch Early", 6, "Vampiric Touch")
 
 c.AddSpell("Mind Spike", "under Surge of Darkness", {
 	CheckFirst = function()
@@ -377,11 +377,11 @@ c.AddSpell("Mind Spike", "under Surge of Darkness Cap", {
 
 c.AddSpell("Devouring Plague", nil, {
 	MyDebuff = "Devouring Plague",
+	Tick = 1,
 	CheckFirst = function()
 		return a.Orbs == 3
 	end,
 })
-c.ManageDotRefresh("Devouring Plague", 1)
 
 c.AddSpell("Cascade", nil, {
 	NoRangeCheck = true,

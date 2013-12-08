@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(318, "DBM-DragonSoul", nil, 187)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 92 $"):sub(12, -3))
 mod:SetCreatureID(53879)
 mod:SetModelSound("sound\\CREATURE\\Deathwing\\VO_DS_DEATHWING_BACKEVENT_01.OGG", "sound\\CREATURE\\Deathwing\\VO_DS_DEATHWING_BACKSLAY_01.OGG")
 mod:SetZone()
@@ -47,7 +47,7 @@ local timerDeathCD			= mod:NewCDTimer(8.5, 106199)--8.5-10sec variation.
 local countdownRoll			= mod:NewCountdown(5, "ej4050")
 local countdownGrip			= mod:NewCountdown(32, 105490, false)--Can get confusing if used with roll countdown. This is off by default but can be turned on by someone willing to sort out the confusion on their own.
 
-local soundNuclearBlast		= mod:NewSound(105845, nil, mod:IsMelee())
+local soundNuclearBlast		= mod:NewSound(105845, mod:IsMelee())
 
 mod:AddBoolOption("InfoFrame", true)
 mod:AddBoolOption("SetIconOnGrip", true)

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(158, "DBM-BastionTwilight", nil, 72)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 79 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 92 $"):sub(12, -3))
 mod:SetCreatureID(43686, 43687, 43688, 43689, 43735)
 mod:SetZone()
 mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
@@ -114,7 +114,7 @@ local timerStaticOverloadCD	= mod:NewNextTimer(20, 92067)--Heroic Phase 1 ablity
 local timerFlameStrikeCD	= mod:NewNextTimer(20, 92212)--Heroic Phase 2 ablity
 local timerFrostBeaconCD	= mod:NewNextTimer(20, 92307)--Heroic Phase 2 ablity
 
-local soundGlaciate			= mod:NewSound(82746, nil, mod:IsTank())
+local soundGlaciate			= mod:NewSound(82746, mod:IsTank())
 local soundLightingRod		= mod:NewSound(83099)
 local soundBeacon			= mod:NewSound(92307)
 

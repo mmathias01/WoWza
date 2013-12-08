@@ -1,0 +1,72 @@
+tag 5.4.5
+dfe800b15b5c4d14f3d4b2e1a05acea4629ad420
+subversion <svn@deadlybossmods.com>
+2013-11-22 19:34:15 +0100
+
+Tagging as 5.4.5
+
+
+--------------------
+
+subversion:
+	- increment version number to 5.4.5
+	- Omega via svn r10737: Fix leaked globals
+	- nbluewiz via svn r10736: # some fix
+	- Omega via svn r10735: Completed tested and working ENCOUNTER_START/END support.
+	- Omega via svn r10734: Add a short term solution to Norushen to allow dbm users to send correct power values to BigWigs sync based unit power frame. Actually implementing it properly within our own infoframe will take more work at a later time. Add some well needed parasite tracking stuff to heroic paragons Set OptionalDependencies in core to hopefully address issues with people not seeing shared media
+	- nbluewiz via svn r10733: # Remove debug message from Megaera.
+	- nbluewiz via svn r10732: # Fix several ToT mods.
+	- ebmor via svn r10731: deDE update
+	- Omega via svn r10730: Change shield bash behavior slightly so it warns during cast, not apply. then warns again on apply if you still haven't taunted yet. Fix start combat timers. Math is hard. Count shredders
+	- nbluewiz via svn r10729: # Core : Fix bad wipe on 5 man instances. (On Corborus) # Nazgrim : Add hunters mark warn. # Blackfuse : Add magnetic crush timer.
+	- Omega via svn r10728: EncounterIDs and things Core changes untested and may be broken, tandanu double check it?
+	- ultrashining via svn r10727: zhTW update
+	- Omega via svn r10726: Push paragons bugfix
+	- tandanu via svn r10725: hmm, another one of these. it does absolutely nothing
+	- tandanu via svn r10724: what? that line made no sense.
+	- Omega via svn r10723: Remove whirling yell, it's not useful to anyone Revert change done to fix timers since it appears sometimes, the inactive boss can be boss3, not obss4. Have to find another way to work around crap activation detection. Fix mutate CD
+	- nbluewiz via svn r10722: # Fix combined show bug. (very ugly code...)
+	- Omega via svn r10721: mod-->self
+	- Omega via svn r10720: Count assembly line. RU update
+	- Omega via svn r10719: Change some things to target count Kill bad default on a mostly useless warning (will leave it in there though in case SOMEONE liked it for personal cds) Prevent LFR spam (for most part it's pretty good since those options were never on by default, but just in case someone turns it on, they are still useless in LFR.
+	- Omega via svn r10718: Add aim arrow, change aim icon
+	- Omega via svn r10717: fix the fix fix
+	- Omega via svn r10716: fix the fix
+	- Omega via svn r10715: don't know when these got deleted but they are kind of mandatory, i know they USED to be there. Probalby were deleted when all tables were removed and never replaced.
+	- Omega via svn r10714: change calculated special warnings to fiery edge messages. remove linked message as that distinction isn't very useful.
+	- Omega via svn r10713: Holy crap, most obvious frigging bug in world. no wonder that doesn't work. I didn't even register the events.
+	- Omega via svn r10712: fix a bug
+	- Omega via svn r10711: Add optional MC interrupt warning.
+	- Omega via svn r10710: Fix a bug causing overcharge warning/timer/countdown to flip out when dancing rune weapons, or blood worms take charges
+	- nbluewiz via svn r10709: # Fix some ToT warning bug.
+	- Omega via svn r10708: Add in some debug on something so simple, I'm dumb for not thinking about it sooner.
+	- Omega via svn r10707: Remove useless warning
+	- Omega via svn r10706: Fix one bug i could see in paragons calculated check. Although I know there has to be another problem since NONE of it works right now from what I can see. the code is utter shit since blizz is 0 compromise on this and hides stuff from CLEU...This is very hard to test though so I may just remove all of it
+	- Omega via svn r10705: Fix protectors berserk timer for normal/flex. Added some future debug.
+	- Omega via svn r10704: Paragons Fixes: Added reave warnings/timers Fixed rapidfire cooldown Fixed timer for first catalyst CD
+	- alcortes via svn r10703: Spanish update
+	- alcortes via svn r10702: Spanish update
+	- Omega via svn r10701: Fix some belt weapon bugs Also, change sorting to show kill priority instead of spawn order, especially since I don't particularly know the correct spawn orders but I do know kill priority.
+	- nbluewiz via svn r10700: # Fix some garrosh stuff by video.
+	- Omega via svn r10699: fix logic fail
+	- nbluewiz via svn r10698: # Change NewSound prototype order. This prototype have wired optionDefault, optionName order.
+	- Omega via svn r10697: Add missing alt voice check
+	- Omega via svn r10696: raise stack amount though since it stacks very fast and 3 way too low.
+	- nbluewiz via svn r10695: # Finish OptionVersion. # Galakras : Flame of Galakrond stack warning to everyone.
+	- nbluewiz via svn r10694: # Fix bug in OptionVersion stuff.
+	- nbluewiz via svn r10693: # Kill fucking nil
+	- Omega via svn r10692: While at it, give pustules warnings more meaningful icons
+	- Omega via svn r10691: add blood frenzy over warning since people don't understand that's what the pustule warnings are.
+	- ebmor via svn r10690: deDE update
+James D. Callahan III:
+	- Attempt at fixing .pkgmeta issue.
+subversion:
+	- nbluewiz via svn r10689: # Brawlers : Fix match ends when mage's mirror image died. # Add rank 9 warning and fix bug.
+	- nbluewiz via svn r10688: # Core : Add IsSpellCaster().
+	- Omega via svn r10687: Too many users simply don't realize how to customize sound options to get most out of mod, so doing following: 1. Make advanced special warning sound options on by default 2. Embed LSM
+	- Omega via svn r10686: Try to fix a bug in paragon start timers not working
+	- Omega via svn r10685: Tone down active/fades timers that aren't important. Many bosses have too much timer spam. people lose focus on ability cds when there are like 6 timers on screen. ESPECIALLY if there is a cast bar such as whirling corruption on garrosh, definitely don't need an extra bar that's on by default. if they want it, they can turn it on. Only want it on by default if 1. it's not something that's very obvious (no cast bar) 2. There is almost nothing else going (only couple timers up maybe, not like 5 or 6) 3. It's actually dangerous or important.
+	- Omega via svn r10684: Better option defaults.
+	- Omega via svn r10683: Prevent scenario wipe when IsInScenarioGroup() returns false while in a scenario (warlock solo scenario) Remove unused flex stuff
+	- pkgmeta test
+	- tandanu via svn r10682: increment alpha version number

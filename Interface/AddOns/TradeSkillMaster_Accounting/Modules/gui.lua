@@ -11,10 +11,155 @@ local TSM = select(2, ...)
 local GUI = TSM:NewModule("GUI", "AceEvent-3.0", "AceHook-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("TradeSkillMaster_Accounting") -- loads the localization table
+local private = {}
+TSMAPI:RegisterForTracing(private, "TSM_Accounting.GUI_private")
 
-local ROW_HEIGHT = 16
 local scrollingTables = {}
-local defaultFilterFunc = function() return true end
+
+local ITEM_SELL_BUY_ST_COLS = {
+	{name=L["Item Name"], width=0.34, headAlign="LEFT"},
+	{name=L["Player"], width=0.1, headAlign="LEFT"},
+	{name=L["Type"], width=0.06, headAlign="LEFT"},
+	{name=L["Stack"], width=0.05, headAlign="LEFT"},
+	{name=L["Aucs"], width=0.05, headAlign="LEFT"},
+	{name=L["Per Item"], width=0.12, headAlign="LEFT"},
+	{name=L["Total Price"], width=0.13, headAlign="LEFT"},
+	{name=L["Time"], width=0.14, headAlign="LEFT"},
+	defaultSort = -8,
+}
+local ITEM_AUCTION_ST_COLS = {
+	{name=L["Item Name"], width=0.5, headAlign="LEFT"},
+	{name=L["Player"], width=0.15, headAlign="LEFT"},
+	{name=L["Stack"], width=0.1, headAlign="LEFT"},
+	{name=L["Aucs"], width=0.1, headAlign="LEFT"},
+	{name=L["Time"], width=0.15, headAlign="LEFT"},
+	defaultSort = -5,
+}
+local ITEM_MONEY_ST_COLS = {
+	{name=L["Type"], width=0.2, headAlign="LEFT"},
+	{name=L["Player"], width=0.2, headAlign="LEFT"},
+	{name=L["Other Player"], width=0.2, headAlign="LEFT"},
+	{name=L["Amount"], width=0.15, headAlign="LEFT"},
+	{name=L["Time"], width=0.15, headAlign="LEFT"},
+	defaultSort = -5,
+}
+local ITEM_SUMMARY_ST_COLS_AVG = {
+	{name=L["Item Name"], width=0.38, headAlign="LEFT"},
+	{name=L["Market Value"], width=0.15, headAlign="LEFT"},
+	{name=L["Sold"], width=0.06, headAlign="LEFT"},
+	{name=L["Avg Sell Price"], width=0.15, headAlign="LEFT"},
+	{name=L["Bought"], width=0.07, headAlign="LEFT"},
+	{name=L["Avg Buy Price"], width=0.15, headAlign="LEFT"},
+	defaultSort = 1,
+}
+local ITEM_SUMMARY_ST_COLS_TOTAL = {
+	{name=L["Item Name"], width=0.38, headAlign="LEFT"},
+	{name=L["Market Value"], width=0.15, headAlign="LEFT"},
+	{name=L["Sold"], width=0.06, headAlign="LEFT"},
+	{name=L["Total Sale Price"], width=0.15, headAlign="LEFT"},
+	{name=L["Bought"], width=0.07, headAlign="LEFT"},
+	{name=L["Total Buy Price"], width=0.15, headAlign="LEFT"},
+	defaultSort = 1,
+}
+local ITEM_RESALE_ST_COLS_AVG = {
+	{name=L["Item Name"], width=0.37, headAlign="LEFT"},
+	{name=L["Sold"], width=0.06, headAlign="LEFT"},
+	{name=L["Avg Sell Price"], width=0.14, headAlign="LEFT"},
+	{name=L["Bought"], width=0.07, headAlign="LEFT"},
+	{name=L["Avg Buy Price"], width=0.14, headAlign="LEFT"},
+	{name=L["Avg Resale Profit"], width=0.21, headAlign="LEFT"},
+	defaultSort = -6,
+}
+local ITEM_RESALE_ST_COLS_TOTAL = {
+	{name=L["Item Name"], width=0.37, headAlign="LEFT"},
+	{name=L["Sold"], width=0.06, headAlign="LEFT"},
+	{name=L["Total Sale Price"], width=0.14, headAlign="LEFT"},
+	{name=L["Bought"], width=0.07, headAlign="LEFT"},
+	{name=L["Total Buy Price"], width=0.14, headAlign="LEFT"},
+	{name=L["Avg Resale Profit"], width=0.21, headAlign="LEFT"},
+	defaultSort = -6,
+}
+
+
+function private:UpdateSTData(st, filters)
+	st:SetData(st.accountingDataFunc(filters or {}))
+end
+
+function private:CreateScrollingTable(container, dataType, dataFunc, stCols, tab, subTab)
+	local stParent = container.children[1].children[#container.children[1].children].frame
+	if not scrollingTables[dataType] then
+		local handlers = {
+			OnClick = function(_, data, self)
+				if not data then return end
+				private:HideScrollingTables()
+				GUI:DrawItemLookup(container, data.itemString, tab, subTab)
+				container.children[1]:DoLayout()
+			end,
+			OnEnter = function(_, data, self)
+				if not data then return end
+
+				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
+				GameTooltip:SetText(L["Click for a detailed report on this item."], 1, .82, 0, 1)
+				GameTooltip:Show()
+			end,
+			OnLeave = function()
+				GameTooltip:ClearLines()
+				GameTooltip:Hide()
+			end
+		}
+		TSMAPI:CreateTimeDelay(0, function()
+				scrollingTables[dataType] = TSMAPI:CreateScrollingTable(stParent, stCols, tab and handlers or nil)
+				scrollingTables[dataType]:EnableSorting(true, stCols.defaultSort)
+				scrollingTables[dataType]:DisableSelection(true)
+				scrollingTables[dataType]:Show()
+				scrollingTables[dataType]:SetParent(stParent)
+				scrollingTables[dataType]:SetAllPoints()
+				scrollingTables[dataType].accountingDataFunc = dataFunc
+				private:UpdateSTData(scrollingTables[dataType])
+			end)
+	else
+		scrollingTables[dataType]:Show()
+		scrollingTables[dataType]:SetParent(stParent)
+		scrollingTables[dataType]:SetAllPoints()
+		private:UpdateSTData(scrollingTables[dataType])
+	end
+end
+
+function private:GetMultiLabelLine(description, data, key, isPerDay, isNumber)
+	local color, color2 = TSMAPI.Design:GetInlineColor("link2"), TSMAPI.Design:GetInlineColor("category2")
+	local total = data[key].total
+	local month = data[key].month
+	local week = data[key].week
+	if isPerDay then
+		total = TSM:Round(total/data.totalTime)
+		month = TSM:Round(month/data.monthTime)
+		week = TSM:Round(week/data.weekTime)
+	end
+	local lines
+	if isNumber then
+		lines = {
+			{ text = color2 .. description, relativeWidth = 0.19 },
+			{ text = color .. L["Total:"] .. " |r" .. (total or 0), relativeWidth = 0.22 },
+			{ text = color .. L["Last 30 Days:"] .. " |r" .. (month or 0), relativeWidth = 0.29 },
+			{ text = color .. L["Last 7 Days:"] .. " |r" .. (week or 0), relativeWidth = 0.29 }
+		}
+	else
+		lines = {
+			{ text = color2 .. description, relativeWidth = 0.19 },
+			{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(total) or "---"), relativeWidth = 0.22 },
+			{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(month) or "---"), relativeWidth = 0.29 },
+			{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(week) or "---"), relativeWidth = 0.29 }
+		}
+	end
+	return lines
+end
+
+function private:HideScrollingTables()
+	for _, st in pairs(scrollingTables) do
+		st:Hide()
+		st:SetData({})
+	end
+end
 
 function GUI:Load(parent)
 	local simpleGroup = AceGUI:Create("SimpleGroup")
@@ -26,7 +171,7 @@ function GUI:Load(parent)
 	tabGroup:SetTabs({ { text = L["Revenue"], value = 1 }, { text = L["Expenses"], value = 2 }, { text = L["Failed Auctions"], value = 3 }, { text = L["Items"], value = 4 }, { text = L["Summary"], value = 5 }, { text = L["Player Gold"], value = 6 }, { text = L["Options"], value = 7 } })
 	tabGroup:SetCallback("OnGroupSelected", function(self, _, value)
 		tabGroup:ReleaseChildren()
-		GUI:HideScrollingTables()
+		private:HideScrollingTables()
 		if GUI.lineGraph then
 			GUI.lineGraph:Hide()
 		end
@@ -53,7 +198,7 @@ function GUI:Load(parent)
 
 	GUI:HookScript(simpleGroup.frame, "OnHide", function()
 		GUI:UnhookAll()
-		GUI:HideScrollingTables()
+		private:HideScrollingTables()
 		if GUI.lineGraph then
 			GUI.lineGraph:Hide()
 		end
@@ -65,18 +210,23 @@ function GUI:DrawRevenueTab(container)
 	simpleGroup:SetLayout("Fill")
 	container:AddChild(simpleGroup)
 
+	local tabNum = 1
 	local tabGroup = AceGUI:Create("TSMTabGroup")
 	tabGroup:SetLayout("Fill")
 	tabGroup:SetTabs({ { text = L["Sales"], value = 1 }, { text = L["Other Income"], value = 2 }, { text = L["Resale"], value = 3 } })
 	tabGroup:SetCallback("OnGroupSelected", function(self, _, value)
 		tabGroup:ReleaseChildren()
-		GUI:HideScrollingTables()
+		private:HideScrollingTables()
 		if value == 1 then
-			GUI:DrawSales(self)
+			GUI:CreateFiltersWidgetsItem(self, "sales", {"Auction", "COD", "Trade", "Vendor"})
+			private:CreateScrollingTable(self, "sales", TSM.Data.GetSaleSTData, ITEM_SELL_BUY_ST_COLS, tabNum, value)
 		elseif value == 2 then
-			GUI:DrawIncome(self)
+			GUI:CreateFiltersWidgetsMoney(self, "income", {"Transfer"})
+			private:CreateScrollingTable(self, "income", TSM.Data.GetIncomeSTData, ITEM_MONEY_ST_COLS)
 		elseif value == 3 then
-			GUI:DrawResaleSummary(self)
+			GUI:CreateFiltersWidgetsItem(self, "resale", {"Auction", "COD", "Trade", "Vendor"})
+			local stCols = TSM.db.factionrealm.priceFormat == "avg" and ITEM_RESALE_ST_COLS_AVG or ITEM_RESALE_ST_COLS_TOTAL
+			private:CreateScrollingTable(self, "resale", TSM.Data.GetResaleSTData, stCols, tabNum, value)
 		end
 		tabGroup.children[1]:DoLayout()
 	end)
@@ -90,16 +240,19 @@ function GUI:DrawExpenseTab(container)
 	simpleGroup:SetLayout("Fill")
 	container:AddChild(simpleGroup)
 
+	local tabNum = 2
 	local tabGroup = AceGUI:Create("TSMTabGroup")
 	tabGroup:SetLayout("Fill")
 	tabGroup:SetTabs({ { text = L["Purchases"], value = 1 }, { text = L["Other"], value = 2 } })
 	tabGroup:SetCallback("OnGroupSelected", function(self, _, value)
 		tabGroup:ReleaseChildren()
-		GUI:HideScrollingTables()
+		private:HideScrollingTables()
 		if value == 1 then
-			GUI:DrawPurchases(self)
+			GUI:CreateFiltersWidgetsItem(self, "buy", {"Auction", "COD", "Trade", "Vendor"})
+			private:CreateScrollingTable(self, "buy", TSM.Data.GetBuySTData, ITEM_SELL_BUY_ST_COLS, tabNum, value)
 		elseif value == 2 then
-			GUI:DrawExpenses(self)
+			GUI:CreateFiltersWidgetsMoney(self, "expense", {"Postage", "Repair", "Transfer"})
+			private:CreateScrollingTable(self, "expense", TSM.Data.GetExpenseSTData, ITEM_MONEY_ST_COLS)
 		end
 		tabGroup.children[1]:DoLayout()
 	end)
@@ -113,16 +266,19 @@ function GUI:DrawFailedAucsTab(container)
 	simpleGroup:SetLayout("Fill")
 	container:AddChild(simpleGroup)
 
+	local tabNum = 3
 	local tabGroup = AceGUI:Create("TSMTabGroup")
 	tabGroup:SetLayout("Fill")
 	tabGroup:SetTabs({ { text = L["Expired"], value = 1 }, { text = L["Cancelled"], value = 2 } })
 	tabGroup:SetCallback("OnGroupSelected", function(self, _, value)
 		tabGroup:ReleaseChildren()
-		GUI:HideScrollingTables()
+		private:HideScrollingTables()
 		if value == 1 then
-			GUI:DrawExpired(self)
+			GUI:CreateFiltersWidgetsItem(self, "expired", {})
+			private:CreateScrollingTable(self, "expired", TSM.Data.GetExpireSTData, ITEM_AUCTION_ST_COLS, tabNum, value)
 		elseif value == 2 then
-			GUI:DrawCancelled(self)
+			GUI:CreateFiltersWidgetsItem(self, "cancelled", {})
+			private:CreateScrollingTable(self, "cancelled", TSM.Data.GetCancelSTData, ITEM_AUCTION_ST_COLS, tabNum, value)
 		end
 		tabGroup.children[1]:DoLayout()
 	end)
@@ -131,358 +287,24 @@ function GUI:DrawFailedAucsTab(container)
 	tabGroup:SelectTab(1)
 end
 
-function GUI:DrawSales(container)
-	GUI:CreateTopWidgetsPlayer(container, "sale", function(...) return TSM.Data:GetSTData("sales", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.sale then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.34,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Source"],
-				width = 0.06,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Stack"],
-				width = 0.05,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Aucs"],
-				width = 0.05,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Price Per Item"],
-				width = 0.12,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Total Sale Price"],
-				width = 0.13,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Last Sold"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-				GUI:HideScrollingTables()
-				GUI:DrawItemLookup(container, data.itemString, 1, 1)
-				container.children[1]:DoLayout()
-			end,
-			OnEnter = function(_, data, self)
-				if not data then return end
-
-				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
-				GameTooltip:SetText(L["Click for a detailed report on this item."], 1, .82, 0, 1)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.sale = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.sale:EnableSorting(true, -8)
-				scrollingTables.sale:DisableSelection(true)
-				scrollingTables.sale:Show()
-				scrollingTables.sale:SetParent(stParent)
-				scrollingTables.sale:SetAllPoints()
-				scrollingTables.sale:SetData(TSM.Data:GetSTData("sales"))
-			end)
-	else
-		scrollingTables.sale:Show()
-		scrollingTables.sale:SetParent(stParent)
-		scrollingTables.sale:SetAllPoints()
-		scrollingTables.sale:SetData(TSM.Data:GetSTData("sales"))
-	end
-end
-
-function GUI:DrawPurchases(container)
-	GUI:CreateTopWidgetsPlayer(container, "buy", function(...) return TSM.Data:GetSTData("buys", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.buy then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.34,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Source"],
-				width = 0.06,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Stack"],
-				width = 0.05,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Aucs"],
-				width = 0.05,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Price Per Item"],
-				width = 0.12,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Total Buy Price"],
-				width = 0.13,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Last Purchase"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-				GUI:HideScrollingTables()
-				GUI:DrawItemLookup(container, data.itemString, 2, 1)
-				container.children[1]:DoLayout()
-			end,
-			OnEnter = function(_, data, self)
-				if not data then return end
-
-				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
-				GameTooltip:SetText(L["Click for a detailed report on this item."], 1, .82, 0, 1)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.buy = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.buy:EnableSorting(true, -8)
-				scrollingTables.buy:DisableSelection(true)
-				scrollingTables.buy:Show()
-				scrollingTables.buy:SetParent(stParent)
-				scrollingTables.buy:SetAllPoints()
-				scrollingTables.buy:SetData(TSM.Data:GetSTData("buys"))
-			end)
-	else
-		scrollingTables.buy:Show()
-		scrollingTables.buy:SetParent(stParent)
-		scrollingTables.buy:SetAllPoints()
-		scrollingTables.buy:SetData(TSM.Data:GetSTData("buys"))
-	end
-end
-
 function GUI:DrawItemSummary(container)
-	GUI:CreateTopWidgetsItem(container, "itemSummary", function(...) return TSM.Data:GetItemSummaryData(...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.itemSummary then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.38,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Market Value"],
-				width = 0.15,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Sold"],
-				width = 0.06,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = TSM.db.factionrealm.priceFormat == "avg" and L["Avg Sell Price"] or L["Total Sale Price"],
-				width = 0.15,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Bought"],
-				width = 0.07,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = TSM.db.factionrealm.priceFormat == "avg" and L["Avg Buy Price"] or L["Total Buy Price"],
-				width = 0.15,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-				GUI:HideScrollingTables()
-				GUI:DrawItemLookup(container, data.itemString, 4)
-				container.children[1]:DoLayout()
-			end,
-			OnEnter = function(_, data, self)
-				if not data then return end
-
-				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
-				GameTooltip:SetText(L["Click for a detailed report on this item."], 1, .82, 0, 1)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.itemSummary = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.itemSummary:EnableSorting(true, 1)
-				scrollingTables.itemSummary:DisableSelection(true)
-				scrollingTables.itemSummary:Show()
-				scrollingTables.itemSummary:SetParent(stParent)
-				scrollingTables.itemSummary:SetAllPoints()
-				scrollingTables.itemSummary:SetData(TSM.Data:GetItemSummaryData())
-			end)
-	else
-		scrollingTables.itemSummary:Show()
-		scrollingTables.itemSummary:SetParent(stParent)
-		scrollingTables.itemSummary:SetAllPoints()
-		scrollingTables.itemSummary:SetData(TSM.Data:GetItemSummaryData())
-	end
-end
-
-function GUI:DrawResaleSummary(container)
-	GUI:CreateTopWidgets(container, "resale", function(...) return TSM.Data:GetResaleSummaryData(...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.resale then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.37,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Sold"],
-				width = 0.06,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = TSM.db.factionrealm.priceFormat == "avg" and L["Avg Sell Price"] or L["Total Sale Price"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Bought"],
-				width = 0.07,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = TSM.db.factionrealm.priceFormat == "avg" and L["Avg Buy Price"] or L["Total Buy Price"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Avg Resale Profit"],
-				width = 0.21,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-				GUI:HideScrollingTables()
-				GUI:DrawItemLookup(container, data.itemString, 1, 3)
-				container.children[1]:DoLayout()
-			end,
-			OnEnter = function(_, data, self)
-				if not data then return end
-
-				GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")
-				GameTooltip:SetText(L["Click for a detailed report on this item."], 1, .82, 0, 1)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.resale = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.resale:EnableSorting(true, -6)
-				scrollingTables.resale:DisableSelection(true)
-				scrollingTables.resale:Show()
-				scrollingTables.resale:SetParent(stParent)
-				scrollingTables.resale:SetAllPoints()
-				scrollingTables.resale:SetData(TSM.Data:GetResaleSummaryData())
-			end)
-	else
-		scrollingTables.resale:Show()
-		scrollingTables.resale:SetParent(stParent)
-		scrollingTables.resale:SetAllPoints()
-		scrollingTables.resale:SetData(TSM.Data:GetResaleSummaryData())
-	end
+	GUI:CreateFiltersWidgetsItem(container, "itemSummary", {"Auction", "COD", "Trade", "Vendor"})
+	local stCols = TSM.db.factionrealm.priceFormat == "avg" and ITEM_SUMMARY_ST_COLS_AVG or ITEM_SUMMARY_ST_COLS_TOTAL
+	private:CreateScrollingTable(container, "itemSummary", TSM.Data.GetItemSummarySTData, stCols, 4)
 end
 
 function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 	container:ReleaseChildren()
 	local itemID = TSMAPI:GetItemID(itemString)
-	local itemData = TSM.Data:GetItemData(itemString)
+	local itemData = TSM.Data.GetItemDetailData(itemString)
 
 	local color, color2 = TSMAPI.Design:GetInlineColor("link2"), TSMAPI.Design:GetInlineColor("category2")
 
 	local buyers, sellers = {}, {}
-	for name, quantity in pairs(itemData.buyers) do
+	for name, quantity in pairs(itemData.sales.players) do
 		tinsert(buyers, { name = name, quantity = quantity })
 	end
-	for name, quantity in pairs(itemData.sellers) do
+	for name, quantity in pairs(itemData.buys.players) do
 		tinsert(sellers, { name = name, quantity = quantity })
 	end
 	sort(buyers, function(a, b) return a.quantity > b.quantity end)
@@ -511,7 +333,7 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 						},
 						{
 							type = "InteractiveLabel",
-							text = select(2, TSMAPI:GetSafeItemInfo(itemString)) or TSM.Data.items[itemString].name,
+							text = select(2, TSMAPI:GetSafeItemInfo(itemString)) or TSM.items[itemString].name,
 							fontObject = GameFontNormalLarge,
 							relativeWidth = 0.4,
 							callback = function() SetItemRef("item:" .. itemID, itemID) end,
@@ -574,36 +396,21 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 	}
 
 	local sellWidgets, buyWidgets
-	if itemData.avgTotalSell then
+	if itemData.sales.hasData then
 		sellWidgets = {
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Average Prices:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgTotalSell) or "---"), relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgMonthSell) or "---"), relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgWeekSell) or "---"), relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Average Prices:"], itemData.sales, "avg"),
 				relativeWidth = 1,
 			},
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Quantity Sold:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r|cffffffff" .. itemData.totalSellNum, relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r|cffffffff" .. itemData.monthSellNum, relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r|cffffffff" .. itemData.weekSellNum, relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Quantity Sold:"], itemData.sales, "num", nil, true),
 				relativeWidth = 1,
 			},
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Gold Earned:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgTotalSell * itemData.totalSellNum) or "---"), relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgMonthSell * itemData.monthSellNum) or "---"), relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgWeekSell * itemData.weekSellNum) or "---"), relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Gold Earned:"], itemData.sales, "price"),
 				relativeWidth = 1,
 			},
 			{
@@ -622,36 +429,21 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 		}
 	end
 
-	if itemData.avgTotalBuy then
+	if itemData.buys.hasData then
 		buyWidgets = {
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Average Prices:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgTotalBuy) or "---"), relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgMonthBuy) or "---"), relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgWeekBuy) or "---"), relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Average Prices:"], itemData.buys, "avg"),
 				relativeWidth = 1,
 			},
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Quantity Bought:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r|cffffffff" .. itemData.totalBuyNum, relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r|cffffffff" .. itemData.monthBuyNum, relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r|cffffffff" .. itemData.weekBuyNum, relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Quantity Bought:"], itemData.buys, "num", nil, true),
 				relativeWidth = 1,
 			},
 			{
 				type = "MultiLabel",
-				labelInfo = {
-					{ text = color2 .. L["Total Spent:"], relativeWidth = 0.19 },
-					{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgTotalBuy * itemData.totalBuyNum) or "---"), relativeWidth = 0.22 },
-					{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgMonthBuy * itemData.monthBuyNum) or "---"), relativeWidth = 0.29 },
-					{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(itemData.avgWeekBuy * itemData.weekBuyNum) or "---"), relativeWidth = 0.29 }
-				},
+				labelInfo = private:GetMultiLabelLine(L["Total Spent:"], itemData.buys, "price"),
 				relativeWidth = 1,
 			},
 			{
@@ -715,7 +507,7 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 				headAlign = "LEFT",
 			},
 			{
-				name = L["Price Per Item"],
+				name = L["Per Item"],
 				width = 0.15,
 				align = "LEFT",
 				headAlign = "LEFT",
@@ -737,17 +529,17 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 			OnClick = function(_, data, self, button)
 				if not data then return end
 				if button == "RightButton" and IsShiftKeyDown() then
-					if data.type == "Sale" then
-						for i, v in ipairs(TSM.Data.items[itemString].sales) do
+					if data.recordType == "Sale" then
+						for i, v in ipairs(TSM.items[itemString].sales) do
 							if v == data.record then
-								tremove(TSM.Data.items[itemString].sales, i)
+								tremove(TSM.items[itemString].sales, i)
 								break
 							end
 						end
-					elseif data.type == "Purchase" then
-						for i, v in ipairs(TSM.Data.items[itemString].buys) do
+					elseif data.recordType == "Purchase" then
+						for i, v in ipairs(TSM.items[itemString].buys) do
 							if v == data.record then
-								tremove(TSM.Data.items[itemString].buys, i)
+								tremove(TSM.items[itemString].buys, i)
 								break
 							end
 						end
@@ -791,276 +583,20 @@ function GUI:DrawItemLookup(container, itemString, returnTab, returnSubTab)
 	end
 end
 
-function GUI:DrawIncome(container)
-	GUI:CreateTopWidgetsMoney(container, "income", function(...) return TSM.Data:GetMoneyData("income", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
 
-	if not scrollingTables.income then
-		local stCols = {
-			{
-				name = L["Type"],
-				width = 0.3,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Source"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Income"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Time"],
-				width = 0.15,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-			end,
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.income = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.income:EnableSorting(true, -5)
-				scrollingTables.income:DisableSelection(true)
-				scrollingTables.income:Show()
-				scrollingTables.income:SetParent(stParent)
-				scrollingTables.income:SetAllPoints()
-				scrollingTables.income:SetData(TSM.Data:GetMoneyData("income"))
-			end)
-	else
-		scrollingTables.income:Show()
-		scrollingTables.income:SetParent(stParent)
-		scrollingTables.income:SetAllPoints()
-		scrollingTables.income:SetData(TSM.Data:GetMoneyData("income"))
-	end
-end
-
-function GUI:DrawExpenses(container)
-	GUI:CreateTopWidgetsMoney(container, "expense", function(...) return TSM.Data:GetMoneyData("expense", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.expense then
-		local stCols = {
-			{
-				name = L["Type"],
-				width = 0.3,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Target"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Cost"],
-				width = 0.14,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Time"],
-				width = 0.15,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnClick = function(_, data, self)
-				if not data then return end
-			end,
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.expense = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.expense:EnableSorting(true, -5)
-				scrollingTables.expense:DisableSelection(true)
-				scrollingTables.expense:Show()
-				scrollingTables.expense:SetParent(stParent)
-				scrollingTables.expense:SetAllPoints()
-				scrollingTables.expense:SetData(TSM.Data:GetMoneyData("expense"))
-			end)
-	else
-		scrollingTables.expense:Show()
-		scrollingTables.expense:SetParent(stParent)
-		scrollingTables.expense:SetAllPoints()
-		scrollingTables.expense:SetData(TSM.Data:GetMoneyData("expense"))
-	end
-end
-
-function GUI:DrawExpired(container)
-	GUI:CreateTopWidgetsAuctions(container, "expired", function(...) return TSM.Data:GetAucData("expired", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.expired then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.4,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Stack"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Aucs"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Time"],
-				width = 0.19,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnEnter = function(_, data, self)
-				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				TSMAPI:SafeTooltipLink(data.itemString)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.expired = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.expired:EnableSorting(true, -5)
-				scrollingTables.expired:DisableSelection(true)
-				scrollingTables.expired:Show()
-				scrollingTables.expired:SetParent(stParent)
-				scrollingTables.expired:SetAllPoints()
-				scrollingTables.expired:SetData(TSM.Data:GetAucData("expired"))
-			end)
-	else
-		scrollingTables.expired:Show()
-		scrollingTables.expired:SetParent(stParent)
-		scrollingTables.expired:SetAllPoints()
-		scrollingTables.expired:SetData(TSM.Data:GetAucData("expired"))
-	end
-end
-
-function GUI:DrawCancelled(container)
-	GUI:CreateTopWidgetsAuctions(container, "cancelled", function(...) return TSM.Data:GetAucData("cancelled", ...) end)
-	local stParent = container.children[1].children[#container.children[1].children].frame
-
-	if not scrollingTables.cancelled then
-		local stCols = {
-			{
-				name = L["Item Name"],
-				width = 0.4,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Player"],
-				width = 0.2,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Stack"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Aucs"],
-				width = 0.1,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-			{
-				name = L["Time"],
-				width = 0.19,
-				align = "LEFT",
-				headAlign = "LEFT",
-			},
-		}
-		local handlers = {
-			OnEnter = function(_, data, self)
-				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				TSMAPI:SafeTooltipLink(data.itemString)
-				GameTooltip:Show()
-			end,
-			OnLeave = function()
-				GameTooltip:ClearLines()
-				GameTooltip:Hide()
-			end
-		}
-		TSMAPI:CreateTimeDelay(0, function()
-				scrollingTables.cancelled = TSMAPI:CreateScrollingTable(stParent, stCols, handlers)
-				scrollingTables.cancelled:EnableSorting(true, -5)
-				scrollingTables.cancelled:DisableSelection(true)
-				scrollingTables.cancelled:Show()
-				scrollingTables.cancelled:SetParent(stParent)
-				scrollingTables.cancelled:SetAllPoints()
-				scrollingTables.cancelled:SetData(TSM.Data:GetAucData("cancelled"))
-			end)
-	else
-		scrollingTables.cancelled:Show()
-		scrollingTables.cancelled:SetParent(stParent)
-		scrollingTables.cancelled:SetAllPoints()
-		scrollingTables.cancelled:SetData(TSM.Data:GetAucData("cancelled"))
-	end
-end
-
-local goldSummaryFilters = {group=nil, player=nil}
+local goldSummaryFilters = {}
 function GUI:DrawGoldSummary(container)
 	if goldSummaryFilters.isReloading then
 		goldSummaryFilters.isReloading = nil
 	else
-		goldSummaryFilters = {group=nil, player="all"}
+		goldSummaryFilters = {} -- reset options on fresh update
 	end
 	
-	local data = TSM.Data:GetGoldData(goldSummaryFilters)
+	local data = TSM.Data.GetSummaryData(goldSummaryFilters)
 	local color, color2 = TSMAPI.Design:GetInlineColor("link2"), TSMAPI.Design:GetInlineColor("category2")
-
-	local topSellGoldLink = data.topSellGold.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topSellGold.itemString)) or TSM.Data.items[data.topSellGold.itemString].name) or L["none"]
-	local topSellQuantityLink = data.topSellQuantity.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topSellQuantity.itemString)) or TSM.Data.items[data.topSellQuantity.itemString].name) or L["none"]
-	local topBuyGoldLink = data.topBuyGold.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topBuyGold.itemString)) or TSM.Data.items[data.topBuyGold.itemString].name) or L["none"]
-	local topBuyQuantityLink = data.topBuyQuantity.itemString and (select(2, TSMAPI:GetSafeItemInfo(data.topBuyQuantity.itemString)) or TSM.Data.items[data.topBuyQuantity.itemString].name) or L["none"]
-
-	local ddpList = {["all"]=L["All"]}
-	if TSM.Data.playerDataCache then
-		for _, player in pairs(TSM.Data.playerDataCache) do
-			ddpList[player] = player
-		end
-	end
+	
+	local playerList = CopyTable(TSM.Data.playerListCache)
+	playerList["all"] = L["All"]
 	
 	local page = {
 		{
@@ -1084,12 +620,16 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Dropdown",
-							label = L["Player(s)"],
+							label = L["Player"],
 							relativeWidth = 0.49,
-							list = ddpList,
+							list = playerList,
 							value = goldSummaryFilters.player,
 							callback = function(_, _, value)
-								goldSummaryFilters.player = value
+								if value == "all" then
+									goldSummaryFilters.player = nil
+								else
+									goldSummaryFilters.player = value
+								end
 								goldSummaryFilters.isReloading = true
 								container:ReloadTab()
 							end,
@@ -1107,22 +647,12 @@ function GUI:DrawGoldSummary(container)
 					children = {
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Gold Earned:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.totalSale) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.monthSale) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.weekSale) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Gold Earned:"], data, "sales"),
 							relativeWidth = 1,
 						},
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Earned Per Day:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.totalSale / data.totalTime + 0.5)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.monthSale / data.monthTime + 0.5)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.weekSale / data.weekTime + 0.5)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Earned Per Day:"], data, "sales", true),
 							relativeWidth = 1,
 						},
 						{
@@ -1132,17 +662,17 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "InteractiveLabel",
-							text = topSellGoldLink .. " (" .. (TSMAPI:FormatTextMoney(data.topSellGold.price) or "---") .. ")",
+							text = data.sales.topGold.link .. " (" .. (TSMAPI:FormatTextMoney(data.sales.topGold.copper) or "---") .. ")",
 							relativeWidth = 0.36,
-							callback = function() SetItemRef("item:" .. data.topSellGold.itemID, data.topSellGold.itemID) end,
-							tooltip = data.topSellGold.itemID,
+							callback = function() SetItemRef("item:" .. data.sales.topGold.itemID, data.sales.topGold.itemID) end,
+							tooltip = data.sales.topGold.itemID,
 						},
 						{
 							type = "InteractiveLabel",
-							text = topSellQuantityLink .. " (" .. (data.topSellQuantity.num or "---") .. ")",
+							text = data.sales.topQuantity.link .. " (" .. (data.sales.topQuantity.num or "---") .. ")",
 							relativeWidth = 0.36,
-							callback = function() SetItemRef("item:" .. data.topSellQuantity.itemID, data.topSellQuantity.itemID) end,
-							tooltip = data.topSellQuantity.itemID,
+							callback = function() SetItemRef("item:" .. data.sales.topQuantity.itemID, data.sales.topQuantity.itemID) end,
+							tooltip = data.sales.topQuantity.itemID,
 						},
 					},
 				},
@@ -1154,22 +684,12 @@ function GUI:DrawGoldSummary(container)
 					children = {
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Gold Earned:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.totalIncome) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.monthIncome) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.weekIncome) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Gold Earned:"], data, "income"),
 							relativeWidth = 1,
 						},
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Earned Per Day:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.totalIncome / data.totalTime + 0.5)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.monthIncome / data.monthTime + 0.5)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.weekIncome / data.weekTime + 0.5)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Earned Per Day:"], data, "income", true),
 							relativeWidth = 1,
 						},
 						{
@@ -1179,12 +699,12 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							text = (data.topIncomeGold.type or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.topIncomeGold.amount) or "---") .. ")",
+							text = (data.income.topGold.key or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.income.topGold.copper) or "---") .. ")",
 							relativeWidth = 0.36,
 						},
 						{
 							type = "Label",
-							text = (data.topIncomeQuantity.type or L["none"]) .. " (" .. (data.topIncomeQuantity.num or "---") .. ")",
+							text = (data.income.topQuantity.key or L["none"]) .. " (" .. (data.income.topQuantity.num or "---") .. ")",
 							relativeWidth = 0.36,
 						},
 					},
@@ -1197,22 +717,12 @@ function GUI:DrawGoldSummary(container)
 					children = {
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Gold Spent:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.totalBuy) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.monthBuy) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.weekBuy) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Gold Spent:"], data, "buys"),
 							relativeWidth = 1,
 						},
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Spent Per Day:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.totalBuy / data.totalTime + 0.5)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.monthBuy / data.monthTime + 0.5)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.weekBuy / data.weekTime + 0.5)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Spent Per Day:"], data, "buys", true),
 							relativeWidth = 1,
 						},
 						{
@@ -1222,17 +732,17 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "InteractiveLabel",
-							text = topBuyGoldLink .. " (" .. (TSMAPI:FormatTextMoney(data.topBuyGold.price) or "---") .. ")",
+							text = data.buys.topGold.link .. " (" .. (TSMAPI:FormatTextMoney(data.buys.topGold.copper) or "---") .. ")",
 							relativeWidth = 0.36,
-							callback = function() SetItemRef("item:" .. data.topBuyGold.itemID, data.topBuyGold.itemID) end,
-							tooltip = data.topBuyGold.itemID,
+							callback = function() SetItemRef("item:" .. data.buys.topGold.itemID, data.buys.topGold.itemID) end,
+							tooltip = data.buys.topGold.itemID,
 						},
 						{
 							type = "InteractiveLabel",
-							text = topBuyQuantityLink .. " (" .. (data.topBuyQuantity.num or "---") .. ")",
+							text = data.buys.topQuantity.link .. " (" .. (data.buys.topQuantity.num or "---") .. ")",
 							relativeWidth = 0.36,
-							callback = function() SetItemRef("item:" .. data.topBuyQuantity.itemID, data.topBuyQuantity.itemID) end,
-							tooltip = data.topBuyQuantity.itemID,
+							callback = function() SetItemRef("item:" .. data.buys.topQuantity.itemID, data.buys.topQuantity.itemID) end,
+							tooltip = data.buys.topQuantity.itemID,
 						},
 					},
 				},
@@ -1244,22 +754,12 @@ function GUI:DrawGoldSummary(container)
 					children = {
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Gold Spent:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.totalExpense) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.monthExpense) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(data.weekExpense) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Gold Spent:"], data, "expense"),
 							relativeWidth = 1,
 						},
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Spent Per Day:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.totalExpense / data.totalTime + 0.5)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.monthExpense / data.monthTime + 0.5)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(data.weekExpense / data.weekTime + 0.5)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Spent Per Day:"], data, "expense", true),
 							relativeWidth = 1,
 						},
 						{
@@ -1269,12 +769,12 @@ function GUI:DrawGoldSummary(container)
 						},
 						{
 							type = "Label",
-							text = (data.topExpenseGold.type or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.topExpenseGold.amount) or "---") .. ")",
+							text = (data.expense.topGold.key or L["none"]) .. " (" .. (TSMAPI:FormatTextMoney(data.expense.topGold.copper) or "---") .. ")",
 							relativeWidth = 0.36,
 						},
 						{
 							type = "Label",
-							text = (data.topExpenseQuantity.type or L["none"]) .. " (" .. (data.topExpenseQuantity.num or "---") .. ")",
+							text = (data.expense.topQuantity.key or L["none"]) .. " (" .. (data.expense.topQuantity.num or "---") .. ")",
 							relativeWidth = 0.36,
 						},
 					},
@@ -1287,22 +787,12 @@ function GUI:DrawGoldSummary(container)
 					children = {
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Profit:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney((data.totalSale + data.totalIncome) - (data.totalBuy + data.totalExpense)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney((data.monthSale + data.monthIncome) - (data.monthBuy + data.monthExpense)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney((data.weekSale + data.weekIncome) - (data.weekBuy + data.weekExpense)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Profit:"], data, "profit"),
 							relativeWidth = 1,
 						},
 						{
 							type = "MultiLabel",
-							labelInfo = {
-								{ text = color2 .. L["Profit Per Day:"], relativeWidth = 0.19 },
-								{ text = color .. L["Total:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(((data.totalSale + data.totalIncome) - (data.totalBuy + data.totalExpense)) / data.totalTime + 0.5)) or "---"), relativeWidth = 0.22 },
-								{ text = color .. L["Last 30 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(((data.monthSale + data.monthIncome) - (data.monthBuy + data.monthExpense)) / data.monthTime + 0.5)) or "---"), relativeWidth = 0.29 },
-								{ text = color .. L["Last 7 Days:"] .. " |r" .. (TSMAPI:FormatTextMoney(floor(((data.weekSale + data.weekIncome) - (data.weekBuy + data.weekExpense)) / data.weekTime + 0.5)) or "---"), relativeWidth = 0.29 }
-							},
+							labelInfo = private:GetMultiLabelLine(L["Profit Per Day:"], data, "profit", true),
 							relativeWidth = 1,
 						},
 					},
@@ -1314,7 +804,7 @@ function GUI:DrawGoldSummary(container)
 	TSMAPI:BuildPage(container, page)
 end
 
-local function GetGoldGraphPoints(goldLog)
+function private:GetGoldGraphPoints(goldLog)
 	if not goldLog or #goldLog < 3 then return end
 	local minY, maxY = math.huge, 0
 	local minX, maxX = math.huge, 0
@@ -1331,7 +821,7 @@ local function GetGoldGraphPoints(goldLog)
 	end
 	return data, minX, maxX, minY, maxY
 end
-local function GetGoldGraphSumData()
+function private:GetGoldGraphSumData()
 	local currentMinute = floor(time() / 60)
 	local players = {}
 	local starts = {}
@@ -1392,16 +882,16 @@ local function GetGoldGraphSumData()
 		end
 	end
 	if #temp == 0 then return end
-	return GetGoldGraphPoints(temp)
+	return private:GetGoldGraphPoints(temp)
 end
 function GUI:DrawGoldGraph(container)
 	TSM.db.factionrealm.goldGraphCharacter = TSM.db.factionrealm.goldGraphCharacter or UnitName("player")
 	local player = TSM.db.factionrealm.goldGraphCharacter
 	local data, minX, maxX, minY, maxY
 	if player == "<ALL>" then
-		data, minX, maxX, minY, maxY = GetGoldGraphSumData()
+		data, minX, maxX, minY, maxY = private:GetGoldGraphSumData()
 	else
-		data, minX, maxX, minY, maxY = GetGoldGraphPoints(TSM.db.factionrealm.goldLog[player])
+		data, minX, maxX, minY, maxY = private:GetGoldGraphPoints(TSM.db.factionrealm.goldLog[player])
 	end
 	
 	local dropdownList = {["<ALL>"]="Sum of All Characters"}
@@ -1545,7 +1035,7 @@ function GUI:DrawOptions(container)
 							label = "Items/Resale Price Format",
 							settingInfo = {TSM.db.factionrealm, "priceFormat"},
 							relativeWidth = 0.49,
-							list = { ["avg"] = L["Price Per Item"], ["total"] = L["Total Value"] },
+							list = { ["avg"] = L["Per Item"], ["total"] = L["Total Value"] },
 							tooltip = L["Select how you would like prices to be shown in the \"Items\" and \"Resale\" tabs; either average price per item or total value."],
 						},
 						{
@@ -1671,335 +1161,23 @@ function GUI:LoadTooltipOptions(container)
 	TSMAPI:BuildPage(container, page)
 end
 
-function GUI:HideScrollingTables()
-	for _, st in pairs(scrollingTables) do
-		st:Hide()
-		st:SetData({})
-	end
-end
-
-function GUI:CreateTopWidgetsPlayer(container, stName, dataFunc)
-	local rarityList = {}
+function GUI:CreateFiltersWidgetsItem(container, dataType, types)
+	local rarityList = {[0]=L["None"]}
 	for i = 1, 4 do
-		rarityList[tostring(i)] = _G[format("ITEM_QUALITY%d_DESC", i)]
+		rarityList[i] = _G[format("ITEM_QUALITY%d_DESC", i)]
 	end
-	rarityList["none"] = L["None"]
-	local ddpList = { ["all"] = L["All"] }
-	local filter, rarity, ddpSelection, group
-
-	if TSM.Data.playerDataCache then
-		for _, player in pairs(TSM.Data.playerDataCache) do
-			ddpList[player] = player
-		end
-	end
-
-	local function UpdateFilter()
-		local rarityFilterFunction = function(link) return (not rarity or rarity == "none") or (link and (select(3, GetItemInfo(link)) or 0) == tonumber(rarity)) end
-
-		local searchFilterFunction = defaultFilterFunc
-		if filter and filter ~= "" then
-			searchFilterFunction = function(name) return strfind(strlower(name or ""), filter) end
-		end
-
-		local updatePlayerFilter = function(player)
-			return not player or not ddpSelection or ddpSelection == "all" or ddpSelection == player
-		end
-		
-		local groupFilterFunction = defaultFilterFunc
-		if group then
-			groupFilterFunction = function(link)
-				local itemString = TSMAPI:GetItemString(link) or link
-				if not itemString then return end
-				local groupPath = TSMAPI:GetGroupPath(itemString)
-				return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(group))
-			end
-		end
-
-		local st
-		if type(stName) == "string" then
-			st = scrollingTables[stName]
-		else
-			st = stName
-		end
-		st:SetData(dataFunc(function(name, link, player) return groupFilterFunction(link) and searchFilterFunction(name) and rarityFilterFunction(link) and updatePlayerFilter(player) end))
-	end
-
-	local page = {
-		{
-			type = "SimpleGroup",
-			layout = "Flow",
-			children = {
-				{
-					type = "EditBox",
-					label = L["Search"],
-					relativeWidth = 0.24,
-					onTextChanged = true,
-					callback = function(_, _, value)
-						filter = strlower(value:trim())
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "GroupBox",
-					label = L["Group"],
-					relativeWidth = 0.25,
-					callback = function(_, _, value)
-						group = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "Dropdown",
-					label = L["Rarity"],
-					relativeWidth = 0.25,
-					list = rarityList,
-					value = "none",
-					callback = function(_, _, key)
-						rarity = key
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "Dropdown",
-					label = L["Player(s)"],
-					relativeWidth = 0.25,
-					list = ddpList,
-					value = "all",
-					callback = function(_, _, value)
-						ddpSelection = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "ScrollFrame",
-					fullHeight = true,
-					layout = "flow"
-				},
-			},
-		},
-	}
-
-	TSMAPI:BuildPage(container, page)
-end
-
-function GUI:CreateTopWidgetsAuctions(container, stName, dataFunc)
-	local ddpList = { ["all"] = L["All"] }
-	local filter, ddpSelection, group
-
-	if TSM.Data.playerDataCache then
-		for _, player in pairs(TSM.Data.playerDataCache) do
-			ddpList[player] = player
-		end
-	end
-
-	local function UpdateFilter()
-		local searchFilterFunction = defaultFilterFunc
-		if filter and filter ~= "" then
-			searchFilterFunction = function(name) return strfind(strlower(name or ""), filter) end
-		end
-
-		local updatePlayerFilter = function(player)
-			return not player or not ddpSelection or ddpSelection == "all" or ddpSelection == player
-		end
-		
-		local groupFilterFunction = defaultFilterFunc
-		if group then
-			groupFilterFunction = function(itemString)
-				if not itemString then return end
-				local groupPath = TSMAPI:GetGroupPath(itemString)
-				return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(group))
-			end
-		end
-
-		local st
-		if type(stName) == "string" then
-			st = scrollingTables[stName]
-		else
-			st = stName
-		end
-		st:SetData(dataFunc(function(name, itemString, player) return groupFilterFunction(itemString) and searchFilterFunction(name) and updatePlayerFilter(player) end))
-	end
-
-	local page = {
-		{
-			type = "SimpleGroup",
-			layout = "Flow",
-			children = {
-				{
-					type = "EditBox",
-					label = L["Search"],
-					relativeWidth = 0.34,
-					onTextChanged = true,
-					callback = function(_, _, value)
-						filter = strlower(value:trim())
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "GroupBox",
-					label = L["Group"],
-					relativeWidth = 0.35,
-					callback = function(_, _, value)
-						group = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "Dropdown",
-					label = L["Player(s)"],
-					relativeWidth = 0.30,
-					list = ddpList,
-					value = "all",
-					callback = function(_, _, value)
-						ddpSelection = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "ScrollFrame",
-					fullHeight = true,
-					layout = "flow"
-				},
-			},
-		},
-	}
-
-	TSMAPI:BuildPage(container, page)
-end
-
-function GUI:CreateTopWidgets(container, stName, dataFunc)
-	local rarityList = {}
-	for i = 1, 4 do
-		rarityList[tostring(i)] = _G[format("ITEM_QUALITY%d_DESC", i)]
-	end
-	rarityList["none"] = L["None"]
-	local filter, rarity, group
-
-	local function UpdateFilter()
-		local rarityFilterFunction = function(link) return (not rarity or rarity == "none") or (link and (select(3, GetItemInfo(link)) or 0) == tonumber(rarity)) end
-
-		local searchFilterFunction = defaultFilterFunc
-		if filter and filter ~= "" then
-			searchFilterFunction = function(name) return strfind(strlower(name or ""), filter) end
-		end
-		
-		local groupFilterFunction = defaultFilterFunc
-		if group then
-			groupFilterFunction = function(link)
-				local itemString = TSMAPI:GetItemString(link) or link
-				if not itemString then return end
-				local groupPath = TSMAPI:GetGroupPath(itemString)
-				return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(group))
-			end
-		end
-
-		local st
-		if type(stName) == "string" then
-			st = scrollingTables[stName]
-		else
-			st = stName
-		end
-
-		st:SetData(dataFunc(function(name, link) return groupFilterFunction(link) and searchFilterFunction(name) and rarityFilterFunction(link) end))
-	end
-
-	local page = {
-		{
-			type = "SimpleGroup",
-			layout = "Flow",
-			children = {
-				{
-					type = "EditBox",
-					label = L["Search"],
-					relativeWidth = 0.34,
-					onTextChanged = true,
-					callback = function(_, _, value)
-						filter = strlower(value:trim())
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "GroupBox",
-					label = L["Group"],
-					relativeWidth = 0.35,
-					callback = function(_, _, value)
-						group = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "Dropdown",
-					label = L["Rarity"],
-					relativeWidth = 0.30,
-					list = rarityList,
-					value = "none",
-					callback = function(_, _, key)
-						rarity = key
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "SimpleGroup",
-					fullHeight = true,
-					layout = "flow"
-				},
-			},
-		},
-	}
-
-	TSMAPI:BuildPage(container, page)
-end
-
-function GUI:CreateTopWidgetsItem(container, stName, dataFunc)
-	local rarityList = {}
-	for i = 1, 4 do
-		rarityList[tostring(i)] = _G[format("ITEM_QUALITY%d_DESC", i)]
-	end
-	rarityList["none"] = L["None"]
+	
 	local timeList = { [99] = L["All"], [0] = L["Today"], [1] = L["Yesterday"], [7] = L["Last 7 Days"], [14] = L["Last 14 Days"], [30] = L["Last 30 Days"], [60] = L["Last 60 Days"] }
-	local filter, group, timeSelection
 
-	local function UpdateFilter()
-		local rarityFilterFunction = function(link) return (not rarity or rarity == "none") or (link and (select(3, GetItemInfo(link)) or 0) == tonumber(rarity)) end
-
-		local searchFilterFunction = defaultFilterFunc
-		if filter and filter ~= "" then
-			searchFilterFunction = function(name) return strfind(strlower(name or ""), filter) end
-		end
-
-		local timeFilterFunction = defaultFilterFunc
-		local SECONDS_PER_DAY = 24 * 60 * 60
-		if timeSelection and timeSelection ~= 99 then
-			if timeSelection == 0 then -- today
-				timeFilterFunction = function(rTime) return date("%x", rTime) == date("%x") end
-			elseif timeSelection == 1 then -- yesterday
-				local yesterday = time() - 86400
-				timeFilterFunction = function(rTime) return date("%x", rTime) == date("%x", yesterday) end
-			else
-				timeFilterFunction = function(rTime) return (time() - rTime) < (SECONDS_PER_DAY * tonumber(timeSelection)) end
-			end
-		end
-		
-		local groupFilterFunction = defaultFilterFunc
-		if group then
-			groupFilterFunction = function(link)
-				local itemString = TSMAPI:GetItemString(link) or link
-				if not itemString then return end
-				local groupPath = TSMAPI:GetGroupPath(itemString)
-				return groupPath and strfind(groupPath, "^"..TSMAPI:StrEscape(group))
-			end
-		end
-
-		local st
-		if type(stName) == "string" then
-			st = scrollingTables[stName]
-		else
-			st = stName
-		end
-
-		st:SetData(dataFunc(function(name, link, rTime) return groupFilterFunction(link) and searchFilterFunction(name) and rarityFilterFunction(link) and timeFilterFunction(rTime) end))
+	local playerList = CopyTable(TSM.Data.playerListCache)
+	playerList["all"] = L["All"]
+	
+	local typeList = {["all"] = L["All"]}
+	for _, dataType in ipairs(types) do
+		typeList[dataType] = dataType
 	end
-
+	
+	local filters = {}
 	local page = {
 		{
 			type = "SimpleGroup",
@@ -2008,46 +1186,89 @@ function GUI:CreateTopWidgetsItem(container, stName, dataFunc)
 				{
 					type = "EditBox",
 					label = L["Search"],
-					relativeWidth = 0.24,
+					relativeWidth = 0.18,
 					onTextChanged = true,
 					callback = function(_, _, value)
-						filter = strlower(value:trim())
-						UpdateFilter()
+						value = value:trim()
+						if value == "" then
+							filters.name = nil
+						else
+							filters.name = TSMAPI:StrEscape(value)
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{
 					type = "GroupBox",
 					label = L["Group"],
-					relativeWidth = 0.25,
+					relativeWidth = 0.19,
 					callback = function(_, _, value)
-						group = value
-						UpdateFilter()
+						filters.group = value
+						private:UpdateSTData(scrollingTables[dataType], filters)
+					end,
+				},
+				{
+					type = "Dropdown",
+					label = L["Type"],
+					relativeWidth = 0.13,
+					list = typeList,
+					value = "all",
+					callback = function(_, _, key)
+						if key == "all" then
+							filters.key = nil
+						else
+							filters.key = key
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{
 					type = "Dropdown",
 					label = L["Rarity"],
-					relativeWidth = 0.25,
+					relativeWidth = 0.16,
 					list = rarityList,
-					value = "none",
+					value = 0,
 					callback = function(_, _, key)
-						rarity = key
-						UpdateFilter()
+						if key > 0 then
+							filters.rarity = key
+						else
+							filters.rarity = nil
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
+					end,
+				},
+				{
+					type = "Dropdown",
+					label = L["Player"],
+					relativeWidth = 0.15,
+					list = playerList,
+					value = "all",
+					callback = function(_, _, value)
+						if value == "all" then
+							filters.player = nil
+						else
+							filters.player = value
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{
 					type = "Dropdown",
 					label = L["Timeframe Filter"],
-					relativeWidth = 0.25,
+					relativeWidth = 0.18,
 					list = timeList,
 					value = 99,
 					callback = function(_, _, value)
-						timeSelection = value
-						UpdateFilter()
+						if value == 99 then
+							filters.time = nil
+						else
+							filters.time = value
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{
-					type = "SimpleGroup",
+					type = "ScrollFrame",
 					fullHeight = true,
 					layout = "flow"
 				},
@@ -2058,39 +1279,18 @@ function GUI:CreateTopWidgetsItem(container, stName, dataFunc)
 	TSMAPI:BuildPage(container, page)
 end
 
-function GUI:CreateTopWidgetsMoney(container, stName, dataFunc)
-	local ddtList = { ["all"] = L["All"] }
-	local ddpList = { ["all"] = L["All"] }
-	local filter, ddtSelection, ddpSelection
+function GUI:CreateFiltersWidgetsMoney(container, dataType, types)
+	local timeList = {[99]=L["All"], [0]=L["Today"], [1]=L["Yesterday"], [7]=L["Last 7 Days"], [14]=L["Last 14 Days"], [30]=L["Last 30 Days"], [60]=L["Last 60 Days"]}
 
-	if TSM.Data.playerDataCache then
-		for _, player in pairs(TSM.Data.playerDataCache) do
-			ddpList[player] = player
-		end
+	local playerList = CopyTable(TSM.Data.playerListCache)
+	playerList["all"] = L["All"]
+	
+	local typeList = {["all"] = L["All"]}
+	for _, dataType in ipairs(types) do
+		typeList[dataType] = dataType
 	end
-
-	for type, _ in pairs(TSM.Data.money) do
-		ddtList[type] = type
-	end
-
-	local function UpdateFilter()
-		local updateTypeFilter = function(type)
-			return not type or not ddtSelection or ddtSelection == "all" or ddtSelection == type
-		end
-
-		local updatePlayerFilter = function(player)
-			return not player or not ddpSelection or ddpSelection == "all" or ddpSelection == player
-		end
-
-		local st
-		if type(stName) == "string" then
-			st = scrollingTables[stName]
-		else
-			st = stName
-		end
-		st:SetData(dataFunc(function(type, player) return updateTypeFilter(type) and updatePlayerFilter(player) end))
-	end
-
+	
+	local filters = {}
 	local page = {
 		{
 			type = "SimpleGroup",
@@ -2099,32 +1299,46 @@ function GUI:CreateTopWidgetsMoney(container, stName, dataFunc)
 				{
 					type = "Dropdown",
 					label = L["Type"],
-					relativeWidth = 0.29,
-					list = ddtList,
-					value = "none",
-					callback = function(_, _, value)
-						ddtSelection = value
-						UpdateFilter()
-					end,
-				},
-				{
-					type = "GroupBox",
-					label = L["Group"],
-					relativeWidth = 0.35,
-					callback = function(_, _, value)
-						group = value
-						UpdateFilter()
+					relativeWidth = 0.13,
+					list = typeList,
+					value = "all",
+					callback = function(_, _, key)
+						if key == "all" then
+							filters.key = nil
+						else
+							filters.key = key
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{
 					type = "Dropdown",
-					label = L["Player(s)"],
-					relativeWidth = 0.30,
-					list = ddpList,
+					label = L["Player"],
+					relativeWidth = 0.15,
+					list = playerList,
 					value = "all",
 					callback = function(_, _, value)
-						ddpSelection = value
-						UpdateFilter()
+						if value == "all" then
+							filters.player = nil
+						else
+							filters.player = value
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
+					end,
+				},
+				{
+					type = "Dropdown",
+					label = L["Timeframe Filter"],
+					relativeWidth = 0.18,
+					list = timeList,
+					value = 99,
+					callback = function(_, _, value)
+						if value == 99 then
+							filters.time = nil
+						else
+							filters.time = value
+						end
+						private:UpdateSTData(scrollingTables[dataType], filters)
 					end,
 				},
 				{

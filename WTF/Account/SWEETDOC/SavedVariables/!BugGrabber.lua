@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
 	["lastSanitation"] = 3,
-	["session"] = 819,
+	["session"] = 821,
 	["errors"] = {
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn \"Volumizer\" tried to call the protected function \"CompactRaidFrame1:Show()\".",

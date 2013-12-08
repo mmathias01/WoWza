@@ -1,3 +1,6 @@
+== Version 50400.4.1
+* Added flashing for WoW's 9th Anniversary Celebration Package.
+
 == Version 50400.4.0
 This version is required for the latest Death Kight release.
 * Added c.Flashable().
@@ -91,7 +94,3 @@ This version supports the latest Paladin release.
 * Added c.AddDispel().
 * Removed the unused c.CloneSpell().
 * Bugfix: c.AddInterrupt() and c.AddTaunt() were not respecting the attributes parameter.
-
-== Version 4.10.1
-* Flash food buffs on enemy "detection" instead of targeting.
-* Do not flash food buttons when you don't have any in your bags.

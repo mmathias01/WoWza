@@ -32,13 +32,15 @@ end
 
 L = BigWigs:NewBossLocale("Sha of Pride", "itIT")
 if L then
-L["projection_explosion"] = "Proiezione esplosione"
-L["projection_message"] = "Vai verso la freccia |cFF00FF00VERDE|r!"
+L["projection_green_arrow"] = "FRECCIA VERDE"
 L["titan_pride"] = "Titano+Orgoglio: %s"
 
 
 	L.custom_off_titan_mark = "Marcatore Potenza dei Titani"
 	L.custom_off_titan_mark_desc = "Evidenzia i giocatori con Dono dei Titani con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, richiede capoincursione o assistente.\n|cFFFF0000Soltanto 1 dei giocatori nell'incursione dovrebbe tenere abilitata questa opzione per evitare conflitti di marcamento.|r"
+
+	L.custom_off_fragment_mark = "Corrupted Fragment marker"
+	L.custom_off_fragment_mark_desc = "Mark the Corrupted Fragments with {rt8}{rt7}{rt6}, requires promoted or leader.\n|cFFFF0000Only 1 person in the raid should have this enabled to prevent marking conflicts.\nIn 25 player mode, this will conflict with the Gift of the Titans marker.|r"
 end
 
 L = BigWigs:NewBossLocale("Galakras", "itIT")
@@ -68,7 +70,8 @@ end
 
 L = BigWigs:NewBossLocale("Kor'kron Dark Shaman", "itIT")
 if L then
-	L.blobs = "Melme"
+L["blobs"] = "Melme"
+
 
 	L.custom_off_mist_marks = "Marcatore Nebbia Tossica"
 	L.custom_off_mist_marks_desc = "Per aiutare l'assegnazione delle cure, evidenzia i giocatori che hanno Nebbia Tossica con {rt1}{rt2}{rt3}{rt4}{rt5}, richiede capo incursione o assistente.\n|cFFFF0000Solo 1 persona nell'incursione dovrebbe attivare questa opzione per evitare conflitti con le assegnazioni.|r"
@@ -90,14 +93,12 @@ if L then
 	L.adds_trigger4 = "Guerrieri, in marcia!"
 	L.adds_trigger5 = "Kor'kron, con me!"
 	L.adds_trigger_extra_wave = "Tutti i Kor'kron... al mio comando... uccideteli... ORA"
-	L.extra_adds = "10% - Armate Aggiuntive"
+	L.extra_adds = "Armate Aggiuntive"
 	L.final_wave = "Ultima Ondata"
 
 	L.chain_heal_message = "Il tuo focus sta lanciando Catena di Guarigione Potenziata!"
 
 	L.arcane_shock_message = "Il tuo focus sta lanciando Folgore Arcana!"
-
-	L.focus_only = "|cffff0000Avvisi solo dei bersagli focus.|r "
 end
 
 L = BigWigs:NewBossLocale("Malkorok", "itIT")
@@ -108,11 +109,10 @@ end
 
 L = BigWigs:NewBossLocale("Spoils of Pandaria", "itIT")
 if L then
-	L.start_trigger = "Stiamo registrando?"
-	L.win_trigger = "Riavvio del sistema. Non staccare la corrente o potrebbe saltare tutto in aria."
+L["enable_zone"] = "Immagazzinamento Artefatti"
+L["start_trigger"] = "Stiamo registrando?"
+L["win_trigger"] = "Riavvio del sistema. Non staccare la corrente o potrebbe saltare tutto in aria."
 
-	L.enable_zone = "Immagazzinamento Artefatti"
-	L.matter_scramble_explosion = "Esplosione Scambio di Materia" -- shorten maybe?
 end
 
 L = BigWigs:NewBossLocale("Thok the Bloodthirsty", "itIT")
@@ -176,35 +176,27 @@ end
 
 L = BigWigs:NewBossLocale("Garrosh Hellscream", "itIT")
 if L then
-	L.manifest_rage = "Manifestazione della Rabbia"
-	L.manifest_rage_desc = "Quando Garrosh raggiungwe 100 inizierà a prelanciare Manifestazione della Rabbia per 2 secondi, e poi la canalizzerà. Mentre canalizza, evoca degli add grandi. Porta la Pirostella su Garrosh per incapacitarlo ed interrompere il suo lancio."
+L["bombardment"] = "Bombardmento"
+L["bombardment_desc"] = "Bombardamendo di Roccavento che lascia dei fuochi sul terreno. Le Pirostelle Kor'kron possono apparire soltanto durante il bombardmento."
+L["chain_heal_bar"] = "Focus: Catena di Guarigione"
+L["chain_heal_desc"] = "Cura un bersaglio amico per il 40% della sua vita massima, e a catena anche i bersagli amici vicini."
+L["chain_heal_message"] = "Il tuo focus sta lanciando Catena di Guarigione!"
+L["clump_check_desc"] = "Controlla ogni 3 secondi durante il Bombardamento i giocatori ammucchiati, se viene rilevato un gruppo, verrà creata una Pirostella Kor'kron."
+L["clump_check_warning"] = "Rilevato ammucchiamento, Pirostella in arrivo"
+L["empowered_message"] = "%s adesso è potenziato!"
+L["farseer_trigger"] = "Chiaroveggenti, guarite le nostre ferite!"
+L["intermission"] = "Intermezzo"
+L["ironstar_impact_desc"] = "Una barra a tempo per quando la Pirostella si schianterà contro l'altra parte della stanza."
+L["ironstar_rolling"] = "Pirostella in movimento!"
+L["manifest_rage"] = "Manifestazione della Rabbia"
+L["manifest_rage_desc"] = "Quando Garrosh raggiungwe 100 inizierà a prelanciare Manifestazione della Rabbia per 2 secondi, e poi la canalizzerà. Mentre canalizza, evoca degli add grandi. Porta la Pirostella su Garrosh per incapacitarlo ed interrompere il suo lancio."
+L["phase_3_end_trigger"] = "Pensate di aver VINTO? Siete CIECHI. VI COSTRINGERÒ AD APRIRE GLI OCCHI."
 
-	L.phase_3_end_trigger = "Pensate di aver VINTO? Siete CIECHI. VI COSTRINGERÒ AD APRIRE GLI OCCHI."
 
-	L.clump_check_desc = "Controlla ogni 3 secondi durante il Bombardamento i giocatori ammucchiati, se viene rilevato un gruppo, verrà creata una Pirostella Kor'kron."
-	L.clump_check_warning = "Rilevato ammucchiamento, Pirostella in arrivo"
-
-	L.bombardment = "Bombardmento"
-	L.bombardment_desc = "Bombardamendo di Roccavento che lascia dei fuochi sul terreno. Le Pirostelle Kor'kron possono apparire soltanto durante il bombardmento."
-
-	L.intermission = "Intermezzo"
-	L.mind_control = "Controllo della Mente"
-	L.empowered_message = "%s adesso è potenziato!"
-
-	L.ironstar_impact_desc = "Una barra a tempo per quando la Pirostella si schianterà contro l'altra parte della stanza."
-	L.ironstar_rolling = "Pirostella in movimento!"
-
-	L.chain_heal_desc = "Cura un bersaglio amico per il 40% della sua vita massima, e a catena anche i bersagli amici vicini."
-	L.chain_heal_message = "Il tuo focus sta lanciando Catena di Guarigione!"
-	L.chain_heal_bar = "Focus: Catena di Guarigione"
-
-	L.farseer_trigger = "Chiaroveggenti, guarite le nostre ferite!"
 	L.custom_off_shaman_marker = "Marcatore Chiaroveggenti"
 	L.custom_off_shaman_marker_desc = "Per aiutare l'assegnazione delle interruzioni, evidenzia i Cavalcalupi Chiaroveggenti con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7} (in questo ordine, non tutti i simboli possono essere usati), richiede capo incursione o assistente."
 
 	L.custom_off_minion_marker = "Marcatore servitori"
 	L.custom_off_minion_marker_desc = "Per aiutare a separare i servitori, evidenziali con {rt1}{rt2}{rt3}{rt4}{rt5}{rt6}{rt7}{rt8}, richiede capoincursione o assistente."
-
-	L.focus_only = "|cffff0000Avvisi solo dei bersagli focus.|r "
 end
 

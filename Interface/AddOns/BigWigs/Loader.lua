@@ -1,7 +1,7 @@
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Big Wigs")
-local mod = CreateFrame("Frame")
-local public = {}
+local mod, public = {}, {}
+local bwFrame = CreateFrame("Frame")
 
 -----------------------------------------------------------------------
 -- Generate our version variables
@@ -23,7 +23,7 @@ do
 	--@end-alpha@
 
 	-- This will (in ZIPs), be replaced by the highest revision number in the source tree.
-	myRevision = tonumber("11635")
+	myRevision = tonumber("11691")
 
 	-- If myRevision ends up NOT being a number, it means we're running a SVN copy.
 	if type(myRevision) ~= "number" then
@@ -53,7 +53,8 @@ end
 local ldb = nil
 local tooltipFunctions = {}
 local pName = UnitName("player")
-local next = next
+local next, tonumber = next, tonumber
+local SendAddonMessage = SendAddonMessage
 
 -- Try to grab unhooked copies of critical loading funcs (hooked by some crappy addons)
 local GetCurrentMapAreaID = GetCurrentMapAreaID
@@ -341,16 +342,15 @@ do
 		end
 		loadOnWorldBoss, iterateWorldBosses = nil, nil
 
-		self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-		self:RegisterEvent("GROUP_ROSTER_UPDATE")
-		self:RegisterEvent("LFG_PROPOSAL_SHOW")
+		bwFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+		bwFrame:RegisterEvent("GROUP_ROSTER_UPDATE")
+		bwFrame:RegisterEvent("LFG_PROPOSAL_SHOW")
 
 		-- Role Updating
-		self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
+		bwFrame:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
 		RolePollPopup:UnregisterEvent("ROLE_POLL_BEGIN")
 
-		self:RegisterEvent("CHAT_MSG_ADDON")
-		public.RegisterMessage(self, "DBM_AddonMessage") -- DBM
+		bwFrame:RegisterEvent("CHAT_MSG_ADDON")
 		RegisterAddonMessagePrefix("BigWigs")
 		RegisterAddonMessagePrefix("D4") -- DBM
 
@@ -390,7 +390,7 @@ do
 
 		self:GROUP_ROSTER_UPDATE()
 		self:ZONE_CHANGED_NEW_AREA()
-		self:UnregisterEvent("PLAYER_LOGIN")
+		bwFrame:UnregisterEvent("PLAYER_LOGIN")
 		self.PLAYER_LOGIN = nil
 	end
 end
@@ -441,7 +441,7 @@ do
 				local meta = select(j, GetAddOnOptionalDependencies(i))
 				if meta and (meta == "BigWigs_Core" or meta == "BigWigs_Plugins") then
 					AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-						print("|cFF33FF99Big Wigs|r: The addon '|cffffff00"..name.."|r' is forcing Big Wigs to load prematurely, notify the Big Wigs authors!")
+						sysprint("The addon '|cffffff00"..name.."|r' is forcing Big Wigs to load prematurely, notify the Big Wigs authors!")
 					end)
 				end
 			end
@@ -449,7 +449,7 @@ do
 				local meta = select(j, GetAddOnDependencies(i))
 				if meta and (meta == "BigWigs_Core" or meta == "BigWigs_Plugins") then
 					AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-						print("|cFF33FF99Big Wigs|r: The addon '|cffffff00"..name.."|r' is forcing Big Wigs to load prematurely, notify the Big Wigs authors!")
+						sysprint("The addon '|cffffff00"..name.."|r' is forcing Big Wigs to load prematurely, notify the Big Wigs authors!")
 					end)
 				end
 			end
@@ -457,7 +457,7 @@ do
 
 		if old[name] then
 			AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-				print(L.removeAddon:format(name, old[name]))
+				sysprint(L.removeAddon:format(name, old[name]))
 			end)
 		end
 	end
@@ -465,15 +465,15 @@ do
 	local L = GetLocale()
 	if L == "ptBR" then
 		AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-			print("Think you can translate Big Wigs into Brazilian Portuguese (ptBR)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			sysprint("Think you can translate Big Wigs into Brazilian Portuguese (ptBR)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
 		end)
 	elseif L == "esMX" then
 		AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-			print("Think you can translate Big Wigs into Latin American Spanish (esMX)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			sysprint("Think you can translate Big Wigs into Latin American Spanish (esMX)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
 		end)
 	elseif L == "esES" then
 		AutoCompleteInfoDelayer:HookScript("OnFinished", function()
-			print("Think you can translate Big Wigs into Spanish (esES)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
+			sysprint("Think you can translate Big Wigs into Spanish (esES)? Check out our easy translator tool: www.wowace.com/addons/big-wigs/localization/")
 		end)
 	end
 end
@@ -484,10 +484,10 @@ end
 
 do
 	-- This is a crapfest mainly because DBM's actual handling of versions is a crapfest, I'll try explain how this works...
-	local DBMdotRevision = "10680" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
-	local DBMdotReleaseRevision = "10680" -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
-	local DBMdotDisplayVersion = "5.4.4" -- Same as above but is changed between alpha and release cycles e.g. "N.N.N" for a release and "N.N.N alpha" for the alpha duration
-	function mod:DBM_AddonMessage(channel, sender, prefix, revision, releaseRevision, displayVersion)
+	local DBMdotRevision = "10737" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
+	local DBMdotReleaseRevision = "10737" -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
+	local DBMdotDisplayVersion = "5.4.5" -- Same as above but is changed between alpha and release cycles e.g. "N.N.N" for a release and "N.N.N alpha" for the alpha duration
+	function mod:DBM_VersionCheck(prefix, sender, revision, releaseRevision, displayVersion)
 		if prefix == "H" and (BigWigs and BigWigs.db.profile.fakeDBMVersion or self.isFakingDBM) then
 			SendAddonMessage("D4", "V\t"..DBMdotRevision.."\t"..DBMdotReleaseRevision.."\t"..DBMdotDisplayVersion.."\t"..GetLocale(), IsInGroup(2) and "INSTANCE_CHAT" or "RAID")
 		elseif prefix == "V" then
@@ -498,13 +498,13 @@ do
 				DBMdotRevision = revision -- Update our local rev with the highest possible rev found including alphas.
 				DBMdotReleaseRevision = releaseRevision -- Update our release rev with the highest found, this should be the same for alpha users and latest release users.
 				DBMdotDisplayVersion = displayVersion -- Update to the latest display version, including alphas.
-				self:DBM_AddonMessage(nil, nil, "H") -- Re-send addon message.
+				self:DBM_VersionCheck("H") -- Re-send addon message.
 			end
 		end
 	end
 	function mod:UpdateDBMFaking(_, key, value)
 		if key == "fakeDBMVersion" and value and IsInGroup() then
-			self:DBM_AddonMessage(nil, nil, "H") -- Send addon message if feature is being turned on inside a raid/group.
+			self:DBM_VersionCheck("H") -- Send addon message if feature is being turned on inside a raid/group.
 		end
 	end
 end
@@ -560,10 +560,10 @@ end
 -- Events
 --
 
-mod:SetScript("OnEvent", function(frame, event, ...)
-	frame[event](frame, ...)
+bwFrame:SetScript("OnEvent", function(frame, event, ...)
+	mod[event](mod, ...)
 end)
-mod:RegisterEvent("PLAYER_LOGIN")
+bwFrame:RegisterEvent("PLAYER_LOGIN")
 
 -- Role Updating
 function mod:ACTIVE_TALENT_GROUP_CHANGED()
@@ -577,7 +577,7 @@ function mod:ACTIVE_TALENT_GROUP_CHANGED()
 		local role = GetSpecializationRole(tree)
 		if UnitGroupRolesAssigned("player") ~= role then
 			if InCombatLockdown() or UnitAffectingCombat("player") then
-				self:RegisterEvent("PLAYER_REGEN_ENABLED")
+				bwFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 				return
 			end
 			UnitSetRole("player", role)
@@ -644,12 +644,17 @@ function mod:CHAT_MSG_ADDON(prefix, msg, _, sender)
 			public:SendMessage("BigWigs_AddonMessage", bwPrefix, bwMsg, sender)
 		end
 	elseif prefix == "D4" then
-		public:SendMessage("DBM_AddonMessage", sender, strsplit("\t", msg))
+		local dbmPrefix, arg1, arg2, arg3 = strsplit("\t", msg)
+		if dbmPrefix == "V" or dbmPrefix == "H" then
+			self:DBM_VersionCheck(dbmPrefix, sender, arg1, arg2, arg3)
+		elseif dbmPrefix == "U" or dbmPrefix == "PT" or dbmPrefix == "M" then
+			public:SendMessage("DBM_AddonMessage", sender, dbmPrefix, arg1, arg2, arg3)
+		end
 	end
 end
 
 do
-	local timer = mod:CreateAnimationGroup()
+	local timer = bwFrame:CreateAnimationGroup()
 	timer:SetScript("OnFinished", function()
 		if IsInGroup() then
 			SendAddonMessage("BigWigs", (BIGWIGS_RELEASE_TYPE == RELEASE and "VR:%d" or "VRA:%d"):format(MY_BIGWIGS_REVISION), IsInGroup(2) and "INSTANCE_CHAT" or "RAID") -- LE_PARTY_CATEGORY_INSTANCE = 2
@@ -720,7 +725,7 @@ do
 	local warnedThisZone = {[465]=true,[473]=true,[807]=true,[809]=true,[928]=true,[929]=true,[951]=true} -- World Bosses
 	function mod:PLAYER_REGEN_ENABLED()
 		self:ACTIVE_TALENT_GROUP_CHANGED() -- Force role check
-		self:UnregisterEvent("PLAYER_REGEN_ENABLED")
+		bwFrame:UnregisterEvent("PLAYER_REGEN_ENABLED")
 
 		local shouldPrint = false
 		for k,v in next, queueLoad do
@@ -739,8 +744,9 @@ do
 		end
 	end
 
-	function mod:PLAYER_TARGET_CHANGED()
-		local guid = UnitGUID("target")
+	local UnitGUID = UnitGUID
+	function mod:UNIT_TARGET(unit)
+		local guid = UnitGUID(unit.."target")
 		if guid then
 			local mobId = tonumber(guid:sub(6, 10), 16)
 			if worldBosses[mobId] then
@@ -748,7 +754,7 @@ do
 				if InCombatLockdown() or UnitAffectingCombat("player") then
 					if not queueLoad[id] then
 						queueLoad[id] = "unloaded"
-						self:RegisterEvent("PLAYER_REGEN_ENABLED")
+						bwFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 						sysprint(L.blizzRestrictionsZone)
 					end
 				else
@@ -782,17 +788,17 @@ do
 		-- Module loading
 		if enableZones[id] then
 			if enableZones[id] == "world" then
-				if BigWigs and not UnitIsDeadOrGhost("player") then
+				if BigWigs and not UnitIsDeadOrGhost("player") and (not BigWigsOptions or not BigWigsOptions:InConfigureMode()) then
 					BigWigs:Disable() -- Might be leaving an LFR and entering a world enable zone, disable first
 				end
-				self:RegisterEvent("PLAYER_TARGET_CHANGED")
-				self:PLAYER_TARGET_CHANGED()
+				bwFrame:RegisterEvent("UNIT_TARGET")
+				self:UNIT_TARGET("player")
 			else
-				self:UnregisterEvent("PLAYER_TARGET_CHANGED")
+				bwFrame:UnregisterEvent("UNIT_TARGET")
 				if not IsEncounterInProgress() and (InCombatLockdown() or UnitAffectingCombat("player")) then
 					if not queueLoad[id] then
 						queueLoad[id] = "unloaded"
-						self:RegisterEvent("PLAYER_REGEN_ENABLED")
+						bwFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 						sysprint(L.blizzRestrictionsZone)
 					end
 				else
@@ -807,8 +813,8 @@ do
 				end
 			end
 		else
-			self:UnregisterEvent("PLAYER_TARGET_CHANGED")
-			if BigWigs and not UnitIsDeadOrGhost("player") then
+			bwFrame:UnregisterEvent("UNIT_TARGET")
+			if BigWigs and not UnitIsDeadOrGhost("player") and (not BigWigsOptions or not BigWigsOptions:InConfigureMode()) then
 				BigWigs:Disable() -- Alive in a non-enable zone, disable
 			end
 		end
